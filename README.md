@@ -12,8 +12,6 @@
 ...
 > ???
 
-----------
-
 
 ----------
 
@@ -27,6 +25,10 @@
 Début d'architecture, début d'IHM
 >On a une première fenêtre où 2 figures (carré+croix) tournent et tombent.
 >L'architecture globale du projet a été implémentée et est sujette à modification
+
+
+----------
+
 
 
 ## Nos idées !!!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!
