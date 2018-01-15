@@ -26,7 +26,9 @@ import javafx.animation.RotateTransition;
 
 import javafx.animation.TranslateTransition;
 
-import game.path.Cross;
+import javafx.animation.Interpolator;
+
+import game.path.*;
 
 
 
@@ -44,9 +46,9 @@ public class MainTest extends Application{
 
 	}
 	
-	public void shapeBuilder(Shape hello) {
+	/*public void shapeBuilder(Shape hello) {
 		//hello instanceof cross...
-	}
+	}*/
 
 	public Group buildCross(int x, int y, int radial, int length) {
 		
@@ -69,58 +71,20 @@ public class MainTest extends Application{
 		
 
 		//Pour un rectangle
-
-		Group rec = new Group();
-
-
-
-		Rectangle r = new Rectangle(50,50,200,20);
-
-		r.setFill(Color.RED);
-
 		
-
-		Rectangle r1 = new Rectangle(50,70,20,180);
-
-		r1.setFill(Color.GREEN);
-
+		Square carre = new Square(150,300,200,20);
+		Group rec = carre.getShape();
 		
-
-		Rectangle r2 = new Rectangle(70,230,190,20);
-
-		r2.setFill(Color.BLUE);
-
-
-
-		Rectangle r3 = new Rectangle(240,50,20,180);
-
-		r3.setFill(Color.FUCHSIA);
-
-
-
-		rec.getChildren().add(r);
-
-		rec.getChildren().add(r1);
-
-		rec.getChildren().add(r2);
-
-		rec.getChildren().add(r3);
+		
 
 		//------------------------------------------------------------------
 
 		
 
 		//Pour la rotation du rectangle
+		
 
-		RotateTransition rt = new RotateTransition(Duration.seconds(30),rec);
-
-		rt.setByAngle(1800);
-
-		//rt.setCycleCount(4);
-
-		//rt.setAutoReverse(true);
-
-		rt.play();
+		//dans le ficher directement
 
 		
 
@@ -144,15 +108,30 @@ public class MainTest extends Application{
 
 		//Pour une croix
 		
-		Group croix = buildCross(200,300,100,20);
+		Group croix = buildCross(350,400,100,20);
 
 		
 
-		RotateTransition rt1 = new RotateTransition(Duration.seconds(30),croix);
+		RotateTransition rt1 = new RotateTransition(Duration.seconds(4.5),croix);
 
-		rt1.setByAngle(-1800);
+		rt1.setByAngle(-360);
+		
+		rt1.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+		
+		rt1.setCycleCount((int)Double.POSITIVE_INFINITY);
+
 
 		rt1.play();	
+		
+		
+		//-------------------------------------------------------------------
+
+		//Pour une ligne (pour le moment un seul rectangle)
+		
+		Linee l = new Linee(0,50,100,20, Color.AQUA);
+		Group ligne = l.getShape();
+		
+
 
 		
 
@@ -162,13 +141,18 @@ public class MainTest extends Application{
 
 
 
-		//Creation du groupe avec un rectangle et une croix
+		//Creation du groupe des formes
 
 		Group gr = new Group();
 
 		gr.getChildren().add(rec);
 		
 		gr.getChildren().add(croix);
+		
+		gr.getChildren().add(ligne);
+		
+		
+		
 
 		
 
@@ -187,12 +171,13 @@ public class MainTest extends Application{
 		player.setCenterY(490);
 
 		gr.getChildren().add(player);
+				
 
-		
+		TranslateTransition tt = new TranslateTransition(Duration.seconds(10),gr);
 
-		TranslateTransition tt = new TranslateTransition(Duration.seconds(5),gr);
+		tt.setByY(1200f);//distance parcourue
+		//tt.setCycleCount(4);
 
-		tt.setByY(200f);//distance parcourue
 
 		//tt.play();
 
