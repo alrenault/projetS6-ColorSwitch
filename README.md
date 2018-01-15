@@ -31,7 +31,7 @@ Début d'architecture, début d'IHM
 
 
 
-## Nos idées !!!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!
+## Nos idées 
 ### Mécanique de base : 1.0
 - Déplacement sur Y 
 	- en montant 
