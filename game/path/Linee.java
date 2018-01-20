@@ -16,10 +16,10 @@ public class Linee extends Shape {
 	private int y;
 	private int width;
 	private int length;
-	private Paint color;
+	private Color color;
 	private Group shape;
 	
-	public Linee(int x, int y, int length, int width, Paint color){
+	public Linee(int x, int y, int length, int width, Color color){
 		this.x = x;
 		this.y = y;
 		this.width = width;

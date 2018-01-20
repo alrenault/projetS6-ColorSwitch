@@ -2,8 +2,6 @@ package main;
 
 import javafx.scene.paint.Color;
 
-
-
 import javafx.application.Application;
 
 import javafx.scene.Scene;
@@ -27,17 +25,21 @@ import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 
 import javafx.animation.Interpolator;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
+import javafx.event.EventHandler;
+
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 
 import game.path.*;
+import game.ball.*;
 
 
 
 public class MainTest extends Application{
 
 	
-
-	Button button;
-
 	
 
 	public static void main(String[] args){
@@ -46,18 +48,8 @@ public class MainTest extends Application{
 
 	}
 	
-	/*public void shapeBuilder(Shape hello) {
-		//hello instanceof cross...
-	}*/
 
-	public Group buildCross(int x, int y, int radial, int length) {
-		
-		Cross cross = new Cross(x,y,radial,length);
-		return cross.getShape();
-	}
-
-	//@Override
-
+	@Override
 	public void start(Stage primaryStage) throws Exception{
 
 		primaryStage.setTitle("ColorSuitch");
@@ -108,7 +100,8 @@ public class MainTest extends Application{
 
 		//Pour une croix
 		
-		Group croix = buildCross(350,400,100,20);
+		Cross cr = new Cross(350,400,100,20);
+		Group croix = cr.getShape();
 
 		
 
@@ -151,6 +144,10 @@ public class MainTest extends Application{
 		
 		gr.getChildren().add(ligne);
 		
+		Scene scene1 = new Scene(gr,500,500);
+
+		scene1.setFill(Color.WHITE);
+		
 		
 		
 
@@ -164,13 +161,13 @@ public class MainTest extends Application{
 
 		
 
-		Circle player = new Circle(10.0f,Color.RED);
+		Ball player = new Ball(10.0f,Color.RED,scene1);
 
-		player.setCenterX(250);
+		/*player.setCenterX(250);
 
-		player.setCenterY(490);
+		player.setCenterY(490);*/
 
-		gr.getChildren().add(player);
+		gr.getChildren().add(player.getShape());
 				
 
 		TranslateTransition tt = new TranslateTransition(Duration.seconds(10),gr);
@@ -187,9 +184,7 @@ public class MainTest extends Application{
 
 			
 
-		Scene scene1 = new Scene(gr,500,500);
-
-		scene1.setFill(Color.WHITE);
+		
 
 
 
@@ -197,10 +192,8 @@ public class MainTest extends Application{
 
 		//primaryStage.setScene(scene);
 
+
 		primaryStage.setScene(scene1);
-
-
-
 		primaryStage.show();
 
 	}
