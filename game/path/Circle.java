@@ -37,10 +37,10 @@ public class Circle extends Shape{
 		this.radial = radial;
 		this.width = width;
 		this.arcs_nbr = arcs_nbr;
-		this.shape = buildCircle();
 		this.rotationDirection = true;
 		this.acceleration = false;
 		this.rotationSpeed = 4.5;
+		this.shape = buildCircle();
 	}
 		
 		public Circle(int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,
@@ -51,7 +51,6 @@ public class Circle extends Shape{
 			this.radial = radial;
 			this.width = width;
 			this.arcs_nbr = arcs_nbr;
-			this.shape = buildCircle();
 			this.rotationDirection = rotationDirection;
 			this.acceleration = acceleration;
 			switch (vitesseRotation) {
@@ -59,15 +58,16 @@ public class Circle extends Shape{
 					rotationSpeed= 4.5 ;
 					break;
 				case 2 :
-					rotationSpeed= 3 ;
+					rotationSpeed= 3.0 ;
 					break;
 				case 3 :
-					rotationSpeed= 1;
+					rotationSpeed= 1.0;
 					break;
 				default :
-					rotationSpeed= 7 ;
+					rotationSpeed= 7.0 ;
 					break;
 			}
+			this.shape = buildCircle();
 			
 		
 		}
@@ -111,15 +111,14 @@ public class Circle extends Shape{
 			
 
 			/* Rotation circle */
-			RotateTransition rotation = new RotateTransition(Duration.seconds(3),cercle);
+			RotateTransition rotation = new RotateTransition(Duration.seconds(rotationSpeed),cercle);
 			
 		
-			//rotation.setByAngle(360* ((rotationDirection)? 1 :-1 ));//sens -1
-			rotation.setByAngle(360);//sens -1
-			
+			rotation.setByAngle(360* ((rotationDirection)? 1 :-1 ));//sens -1
+	
 			rotation.setCycleCount((int)Double.POSITIVE_INFINITY);
 			if (!acceleration) {
-				rotation.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+				rotation.setInterpolator(Interpolator.LINEAR);
 			}
 		
 
