@@ -33,6 +33,7 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
 import game.path.*;
+import game.path.Circle;
 import game.ball.*;
 
 
@@ -53,7 +54,6 @@ public class MainTest extends Application{
 		
 
 		//-------------------------------------------------------------------
-
 		
 
 		//Pour un rectangle
@@ -125,9 +125,12 @@ public class MainTest extends Application{
 		//-------------------------------------------------------------------
 
 
+	Circle cer =new Circle(280, 150, 50, 5, ligne);
+	Group cercle=cer.getShape();
 
 
-
+	
+	
 		//Creation du groupe des formes
 
 		Group gr = new Group();
@@ -138,9 +141,12 @@ public class MainTest extends Application{
 		
 		gr.getChildren().add(ligne);
 		
+		gr.getChildren().add(cercle);
+		
+	
 		Scene scene1 = new Scene(gr,500,500);
 
-		scene1.setFill(Color.WHITE);
+		scene1.setFill(Color.GREY);
 		
 		
 		
