@@ -39,8 +39,6 @@ import game.ball.*;
 
 public class MainTest extends Application{
 
-	
-	
 
 	public static void main(String[] args){
 
@@ -51,11 +49,7 @@ public class MainTest extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-
 		primaryStage.setTitle("ColorSuitch");
-		
-		
-
 		
 
 		//-------------------------------------------------------------------
