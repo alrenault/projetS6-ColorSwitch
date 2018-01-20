@@ -2,6 +2,7 @@ package game.path;
 
 import java.util.Random;
 
+import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
@@ -85,6 +86,8 @@ public class Circle extends Shape{
 			RotateTransition rotation = new RotateTransition(Duration.seconds(2),cercle);
 			rotation.setByAngle(360);
 			rotation.setCycleCount((int)Double.POSITIVE_INFINITY);
+			rotation.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+
 			rotation.play();
 			
 			return cercle;

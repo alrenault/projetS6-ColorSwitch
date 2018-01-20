@@ -99,16 +99,7 @@ public class MainTest extends Application{
 
 		
 
-		RotateTransition rt1 = new RotateTransition(Duration.seconds(4.5),croix);
-
-		rt1.setByAngle(-360);
 		
-		rt1.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
-		
-		rt1.setCycleCount((int)Double.POSITIVE_INFINITY);
-
-
-		rt1.play();	
 		
 		
 		//-------------------------------------------------------------------
@@ -124,9 +115,9 @@ public class MainTest extends Application{
 
 		//-------------------------------------------------------------------
 
-//	Circle cer =new Circle(280, 150, 50, 5);
-	Circle cer =new Circle(280, 150, 50, 8,5);
-	Group cercle=cer.getShape();
+		//Circle cer =new Circle(280, 150, 50, 5);
+		Circle cer =new Circle(280, 150, 150, 20,5);
+		Group cercle=cer.getShape();
 
 
 	

@@ -1,7 +1,10 @@
 package game.path;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 public class Cross extends Shape {
 	
@@ -51,6 +54,17 @@ public class Cross extends Shape {
 
 		croix.getChildren().add(part_1);
 		croix.getChildren().add(part_2);
+		
+		RotateTransition rt1 = new RotateTransition(Duration.seconds(4.5),croix);
+
+		rt1.setByAngle(-360);
+		
+		rt1.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+		
+		rt1.setCycleCount((int)Double.POSITIVE_INFINITY);
+
+
+		rt1.play();	
 		
 		return croix;
 	}
