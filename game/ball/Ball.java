@@ -51,5 +51,13 @@ public class Ball{
 	public Group getShape() {
 		return shape;
 	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
 	
 }
