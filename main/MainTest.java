@@ -1,40 +1,17 @@
 package main;
 
-import javafx.scene.paint.Color;
-
-import javafx.application.Application;
-
-import javafx.scene.Scene;
-
-import javafx.scene.control.Button;
-
-import javafx.scene.Group;
-
-import javafx.stage.Stage;
-
-import javafx.scene.shape.*;
-
-
-
-import javafx.util.Duration;
-
-
-
-import javafx.animation.RotateTransition;
-
-import javafx.animation.TranslateTransition;
-
-import javafx.animation.Interpolator;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.KeyCode;
-import javafx.event.EventHandler;
-
-import javafx.scene.control.Label;
-import javafx.scene.text.Font;
-
-import game.path.*;
+import game.ball.Ball;
 import game.path.Circle;
-import game.ball.*;
+import game.path.Cross;
+import game.path.Linee;
+import game.path.Square;
+import javafx.animation.TranslateTransition;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 
@@ -116,7 +93,7 @@ public class MainTest extends Application{
 		//-------------------------------------------------------------------
 
 		//Circle cer =new Circle(280, 150, 50, 5);
-		Circle cer =new Circle(280, 150, 150, 20,5);
+		Circle cer =new Circle(280, 150, 50, 5 ,6,true,false,1);
 		Group cercle=cer.getShape();
 
 

@@ -20,19 +20,15 @@ public class Circle extends Shape{
 	private int yCenter;
 	private int radial;
 	private int width;
-	private Group shape;
 	private int arcs_nbr;
+	private Group shape;
+	private boolean rotationDirection;
+	private boolean acceleration;
+	private double rotationSpeed;
 	
 	
-	public Circle(int xCenter, int yCenter, int radial, int width) {
-
-		this.xCenter = xCenter;
-		this.yCenter = yCenter;
-		this.radial = radial;
-		this.width = width;
-		this.arcs_nbr = 2;
-		this.shape = buildCircle();
-	}
+	
+	
 	
 
 		public Circle(int xCenter, int yCenter, int radial, int width,int arcs_nbr) {
@@ -42,8 +38,41 @@ public class Circle extends Shape{
 		this.width = width;
 		this.arcs_nbr = arcs_nbr;
 		this.shape = buildCircle();
+		this.rotationDirection = true;
+		this.acceleration = false;
+		this.rotationSpeed = 4.5;
 	}
 		
+		public Circle(int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,
+				boolean acceleration, int vitesseRotation) {
+
+			this.xCenter = xCenter;
+			this.yCenter = yCenter;
+			this.radial = radial;
+			this.width = width;
+			this.arcs_nbr = arcs_nbr;
+			this.shape = buildCircle();
+			this.rotationDirection = rotationDirection;
+			this.acceleration = acceleration;
+			switch (vitesseRotation) {
+				case 1 :
+					rotationSpeed= 4.5 ;
+					break;
+				case 2 :
+					rotationSpeed= 3 ;
+					break;
+				case 3 :
+					rotationSpeed= 1;
+					break;
+				default :
+					rotationSpeed= 7 ;
+					break;
+			}
+			
+		
+		}
+
+
 		public Group buildCircle() {
 			
 			
@@ -82,10 +111,17 @@ public class Circle extends Shape{
 			
 
 			/* Rotation circle */
-			RotateTransition rotation = new RotateTransition(Duration.seconds(2),cercle);
-			rotation.setByAngle(360);
+			RotateTransition rotation = new RotateTransition(Duration.seconds(3),cercle);
+			
+		
+			//rotation.setByAngle(360* ((rotationDirection)? 1 :-1 ));//sens -1
+			rotation.setByAngle(360);//sens -1
+			
 			rotation.setCycleCount((int)Double.POSITIVE_INFINITY);
-			rotation.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+			if (!acceleration) {
+				rotation.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+			}
+		
 
 			rotation.play();
 			
