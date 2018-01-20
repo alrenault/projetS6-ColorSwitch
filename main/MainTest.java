@@ -124,8 +124,8 @@ public class MainTest extends Application{
 
 		//-------------------------------------------------------------------
 
-
-	Circle cer =new Circle(280, 150, 50, 5, ligne);
+//	Circle cer =new Circle(280, 150, 50, 5);
+	Circle cer =new Circle(280, 150, 50, 8,5);
 	Group cercle=cer.getShape();
 
 
