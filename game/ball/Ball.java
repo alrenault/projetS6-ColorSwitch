@@ -1,15 +1,12 @@
 package game.ball;
 
+import controller.Listeners;
+import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.Scene;
-
-import javafx.animation.Interpolator;
-import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
-
-import controller.Listeners;
 
 
 public class Ball{

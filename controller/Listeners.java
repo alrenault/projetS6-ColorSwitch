@@ -1,11 +1,9 @@
 package controller;
 
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Font;
 import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 
 
 

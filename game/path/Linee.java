@@ -1,14 +1,11 @@
 package game.path;
 
+import javafx.animation.Interpolator;
+import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import javafx.scene.paint.Paint;
-
-import javafx.animation.TranslateTransition;
-
-import javafx.animation.Interpolator;
 
 public class Linee extends Shape {
 
