@@ -1,6 +1,6 @@
 package main;
 
-import game.ball.Ball;
+import game.ball.BallPlayer;
 import game.path.Circle;
 import game.path.Cross;
 import game.path.Linee;
@@ -71,7 +71,7 @@ public class MainTest extends Application{
 
 		//Pour une croix
 		
-		Cross cr = new Cross(350,400,100,20);
+		Cross cr = new Cross(350,400,100,20,false,false,1);
 		Group croix = cr.getShape();
 
 		
@@ -83,7 +83,7 @@ public class MainTest extends Application{
 
 		//Pour une ligne (pour le moment un seul rectangle)
 		
-		Linee l = new Linee(0,50,100,20, Color.AQUA);
+		Linee l = new Linee(0,50,100,20,1,3);
 		Group ligne = l.getShape();
 		
 
@@ -129,7 +129,7 @@ public class MainTest extends Application{
 
 		
 
-		Ball player = new Ball(10.0f,Color.RED,scene1);
+		BallPlayer player = new BallPlayer(10.0f,Color.RED,scene1);
 
 		/*player.setCenterX(250);
 

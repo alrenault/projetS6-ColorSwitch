@@ -12,6 +12,9 @@ public class Cross extends Shape {
 	private int y;
 	private int radial;
 	private int length;
+	private boolean rotationDirection;
+	private boolean acceleration;
+	private double rotationSpeed;
 	private Group shape;
 	
 	public Cross(int x, int y, int radial, int length) {
@@ -19,7 +22,38 @@ public class Cross extends Shape {
 		this.y = y;
 		this.radial = radial;
 		this.length = length;
+		rotationDirection = true;
+		acceleration = false;
+		rotationSpeed = 4.5;
 		this.shape = buildCross();
+	}
+	
+	public Cross(int x, int y, int radial, int length, boolean rotationDirection,
+			boolean acceleration, int vitesseRotation) {
+
+		this.x = x;
+		this.y = y;
+		this.radial = radial;
+		this.length = length;
+		this.rotationDirection = rotationDirection;
+		this.acceleration = acceleration;
+		switch (vitesseRotation) {
+			case 1 :
+				rotationSpeed= 4.5 ;
+				break;
+			case 2 :
+				rotationSpeed= 3.0 ;
+				break;
+			case 3 :
+				rotationSpeed= 1.0;
+				break;
+			default :
+				rotationSpeed= 7.0 ;
+				break;
+		}
+		this.shape = buildCross();
+		
+	
 	}
 	
 	
@@ -55,11 +89,13 @@ public class Cross extends Shape {
 		croix.getChildren().add(part_1);
 		croix.getChildren().add(part_2);
 		
-		RotateTransition rt1 = new RotateTransition(Duration.seconds(4.5),croix);
+		RotateTransition rt1 = new RotateTransition(Duration.seconds(rotationSpeed),croix);
 
-		rt1.setByAngle(-360);
+		rt1.setByAngle(360* ((rotationDirection)? 1 :-1 ));
 		
-		rt1.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+		if(!acceleration){
+			rt1.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+		}
 		
 		rt1.setCycleCount((int)Double.POSITIVE_INFINITY);
 
