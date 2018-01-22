@@ -1,6 +1,5 @@
 package game.path;
 
-import java.util.Random;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -16,12 +15,11 @@ import javafx.util.Duration;
  */
 public class Circle extends Shape{
 	
-	private int xCenter;
-	private int yCenter;
+
 	private int radial;
-	private int width;
+	
 	private int arcs_nbr;
-	private Group shape;
+	
 	private boolean rotationDirection;
 	private boolean acceleration;
 	private double rotationSpeed;
@@ -32,10 +30,9 @@ public class Circle extends Shape{
 	
 
 		public Circle(int xCenter, int yCenter, int radial, int width,int arcs_nbr) {
-		this.xCenter = xCenter;
-		this.yCenter = yCenter;
+			super(xCenter,yCenter , width);
 		this.radial = radial;
-		this.width = width;
+
 		this.arcs_nbr = arcs_nbr;
 		this.rotationDirection = true;
 		this.acceleration = false;
@@ -46,10 +43,9 @@ public class Circle extends Shape{
 		public Circle(int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,
 				boolean acceleration, int vitesseRotation) {
 
-			this.xCenter = xCenter;
-			this.yCenter = yCenter;
+			super(xCenter, yCenter, width);
 			this.radial = radial;
-			this.width = width;
+	
 			this.arcs_nbr = arcs_nbr;
 			this.rotationDirection = rotationDirection;
 			this.acceleration = acceleration;
@@ -84,7 +80,7 @@ public class Circle extends Shape{
 			
 
 			for (int i = 0; i <= arcs_nbr; i++) {
-				Arc arc_1 = new Arc(xCenter, yCenter, radial, radial, i*angle, angle);
+				Arc arc_1 = new Arc(x, y, radial, radial, i*angle, angle);
 				arc_1.setType(type);
 				arc_1.setFill(coloRand());
 				cercle.getChildren().add(arc_1);
@@ -103,7 +99,7 @@ public class Circle extends Shape{
 			
 			
 			/*Grosse triche */
-			Arc arc_fill = new Arc(xCenter, yCenter, radial-width, radial-width, 0, 360);
+			Arc arc_fill = new Arc(x, y, radial-width, radial-width, 0, 360);
 			arc_fill.setType(type);
 			arc_fill.setFill(Color.GREY);
 			cercle.getChildren().add(arc_fill);
@@ -126,9 +122,7 @@ public class Circle extends Shape{
 			
 			return cercle;
 		}		
-		public Group getShape() {
-			return shape;
-		}
+
 
 	@Override
 	public boolean isOver(int x, int y) {
@@ -138,8 +132,5 @@ public class Circle extends Shape{
 		
 		return false;
 	}
-	public Color coloRand() {
-		Random r =new Random();
-		return new Color(r.nextDouble(),r.nextDouble(),r.nextDouble(),1);
-	}
+
 }

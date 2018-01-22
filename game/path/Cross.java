@@ -8,19 +8,13 @@ import javafx.util.Duration;
 
 public class Cross extends Shape {
 	
-	private int x;
-	private int y;
-	private int radial;
 	private int length;
 	private boolean rotationDirection;
 	private boolean acceleration;
 	private double rotationSpeed;
-	private Group shape;
 	
-	public Cross(int x, int y, int radial, int length) {
-		this.x = x;
-		this.y = y;
-		this.radial = radial;
+	public Cross(int x, int y, int width, int length) {
+		super(x, y, width);
 		this.length = length;
 		rotationDirection = true;
 		acceleration = false;
@@ -28,12 +22,10 @@ public class Cross extends Shape {
 		this.shape = buildCross();
 	}
 	
-	public Cross(int x, int y, int radial, int length, boolean rotationDirection,
+	public Cross(int x, int y, int width, int length, boolean rotationDirection,
 			boolean acceleration, int vitesseRotation) {
 
-		this.x = x;
-		this.y = y;
-		this.radial = radial;
+		super(x, y, width);
 		this.length = length;
 		this.rotationDirection = rotationDirection;
 		this.acceleration = acceleration;
@@ -65,7 +57,7 @@ public class Cross extends Shape {
 		
 		//Initialisation
 		Group croix = new Group();
-		int rad = radial*2;
+		int rad = width*2;
 		int len = length;
 
 		
@@ -108,13 +100,11 @@ public class Cross extends Shape {
 	
 	
 	
-	public Group getShape() {
-		return shape;
-	}
+
 	
 	
 	public int high_left_corner_part1_x(int x) {
-		int pos = x-radial;
+		int pos = x-width;
 		return (pos>0 || pos<maxwidth) ?	pos : 0 ;
 	}
 	
@@ -129,7 +119,7 @@ public class Cross extends Shape {
 	}
 	
 	public int high_left_corner_part2_y(int x) {
-		int pos = y-radial;
+		int pos = y-width;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}
 

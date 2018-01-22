@@ -8,20 +8,17 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class Square extends Shape {
-	private int x;
-	private int y;
+
 	private int length;
-	private int width;
+
 	private boolean rotationDirection;
 	private boolean acceleration;
 	private double rotationSpeed;
-	private Group shape;
 	
 	public Square(int x, int y, int length, int width){
-		this.x = x;
-		this.y = y;
+	super(x, y, width);
 		this.length = length;
-		this.width = width;
+
 		rotationDirection = true;
 		acceleration = false;
 		rotationSpeed = 4.5;
@@ -30,11 +27,9 @@ public class Square extends Shape {
 	
 	public Square(int x, int y, int length, int width, boolean rotationDirection,
 			boolean acceleration, int vitesseRotation) {
-
-		this.x = x;
-		this.y = y;
+		super(x, y, width);
 		this.length = length;
-		this.width = width;
+	
 		this.rotationDirection = rotationDirection;
 		this.acceleration = acceleration;
 		switch (vitesseRotation) {
@@ -109,9 +104,7 @@ public class Square extends Shape {
 
 	}
 	
-	public Group getShape() {
-		return shape;
-	}
+
 	
 	public int high_left_corner_part1_x() {
 		int pos = x-(length+width)/2;
