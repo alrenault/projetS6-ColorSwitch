@@ -45,13 +45,13 @@ super(x, y, width);
 		}	
 		this.shape = buildLine();
 	}
-	
-	
-	public Group buildLine(){
+
+
+	private Group buildLine() {
 		Group line = new Group();
 		
 		for(int i=0; i<nbr_seg; i++){
-			Rectangle rec = new Rectangle(x+length*i,y,length,width);
+			Rectangle rec = new Rectangle(x + length * i, y, length, width);
 			rec.setFill(coloRand());
 			line.getChildren().add(rec);
 		}

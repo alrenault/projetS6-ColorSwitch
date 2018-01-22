@@ -69,7 +69,7 @@ public class Circle extends Shape{
 		}
 
 
-		public Group buildCircle() {
+	private Group buildCircle() {
 			
 			
 			Group cercle = new Group();

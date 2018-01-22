@@ -23,7 +23,7 @@ public class Listeners {
 			@Override
 			public void handle(KeyEvent ke){
 				//if(ke.getCode() == KeyCode.ENTER){
-				if(ke.getCode().getName() == "Space"){
+				if (ke.getCode().getName().equals("Space")) {
 					System.out.println("bonjour");
 					//l1.setText(ke.getCode().getName());
 				}

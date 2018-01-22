@@ -52,8 +52,8 @@ public class Cross extends Shape {
 	int speed = 100;
 	int maxwidth = 1000;
 	int maxheight = 1000;
-	
-	public Group buildCross() {
+
+	private Group buildCross() {
 		
 		//Initialisation
 		Group croix = new Group();
@@ -62,12 +62,12 @@ public class Cross extends Shape {
 
 		
 		//Computing hight-left corner of the first rectangle
-		int x_pos_1 = high_left_corner_part1_x(x);
-		int y_pos_1 = high_left_corner_part1_y(y);
+		int x_pos_1 = high_left_corner_part1_x();
+		int y_pos_1 = high_left_corner_part1_y();
 	
 		//Computing hight-left corner of the first rectangle
-		int x_pos_2 = high_left_corner_part2_x(x);
-		int y_pos_2 = high_left_corner_part2_y(y);
+		int x_pos_2 = high_left_corner_part2_x();
+		int y_pos_2 = high_left_corner_part2_y();
 		
 		
 		//Building Cross
@@ -96,29 +96,24 @@ public class Cross extends Shape {
 		
 		return croix;
 	}
-	
-	
-	
-	
 
-	
-	
-	public int high_left_corner_part1_x(int x) {
+
+	private int high_left_corner_part1_x() {
 		int pos = x-width;
 		return (pos>0 || pos<maxwidth) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part1_y(int x) {
+
+	private int high_left_corner_part1_y() {
 		int pos = y-length/2;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part2_x(int x) {
+
+	private int high_left_corner_part2_x() {
 		int pos = x-length/2;
 		return (pos>0 || pos<maxwidth) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part2_y(int x) {
+
+	private int high_left_corner_part2_y() {
 		int pos = y-width;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}

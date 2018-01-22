@@ -6,15 +6,16 @@ import javafx.scene.paint.Color;
 import java.util.Random;
 
 public abstract class Shape implements Touchable {
-	protected int x;
-	protected int y;
-	protected int width;
-	protected Group shape;
-	public Shape(int x, int y, int width) {
-		
-		this.x = x;
-		this.y = y;
-		this.width = width;
+	int x;
+	int y;
+	int width;
+	Group shape;
+
+	Shape(int _x, int _y, int _width) {
+
+		this.x = _x;
+		this.y = _y;
+		this.width = _width;
 	}
 	
 	public abstract boolean isOver(int x, int y);
@@ -26,7 +27,8 @@ public abstract class Shape implements Touchable {
 	public int getY() {
 		return y;
 	}
-	public Color coloRand() {
+
+	Color coloRand() {
 		Random r =new Random();
 		return new Color(r.nextDouble(),r.nextDouble(),r.nextDouble(),1);
 	}
