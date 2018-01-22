@@ -15,20 +15,18 @@ import javafx.scene.shape.ArcType;
 public class BallColorSwitch extends Ball {
 
 	private double size;
-	//private Color color;
 	private Group shape;
 	private Scene scene;
 	
-	public BallColorSwitch(double size/*, Color color*/, Scene scene){
+	public BallColorSwitch(double size, Scene scene){
 		this.size = size;
-		//this.color = color;		
+		
 		this.scene = scene;
 		this.shape = buildBall();
 	}
 	
 	public Group buildBall(){
 		Group ball = new Group();
-		
 		double x = scene.getWidth()/2;
 		double y = scene.getHeight()/2;
 		
@@ -45,17 +43,6 @@ public class BallColorSwitch extends Ball {
 			ball.getChildren().add(arc_1);
 		}
 		
-		
-		//animation
-		/*TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4),ball);
-		tt1.setByY(scene.getHeight()+size);*/
-		//tt.setCycleCount(4);
-		//tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-		//tt1.setAutoReverse(true);
-		//tt1.setInterpolator(Interpolator.LINEAR);
-		
-		
-		//tt1.play();
 		
 		return ball;
 		
