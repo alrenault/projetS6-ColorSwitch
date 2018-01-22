@@ -2,13 +2,9 @@ package game.ball;
 
 import java.util.Random;
 
-import controller.Listeners;
-import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.util.Duration;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 
