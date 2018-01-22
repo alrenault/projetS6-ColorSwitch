@@ -145,10 +145,10 @@ public class Square extends Shape {
 		int pos = y-(length+width)/2;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}
-	
+
+
 	@Override
 	public boolean isOver(int x, int y) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

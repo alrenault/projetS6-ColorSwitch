@@ -124,11 +124,9 @@ public class Cross extends Shape {
 	}
 
 
-
-
 	@Override
 	public boolean isOver(int x, int y) {
-		// TODO Auto-generated method stub
+		//TODO
 		return false;
 	}
 }

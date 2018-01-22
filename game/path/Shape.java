@@ -1,11 +1,11 @@
 package game.path;
 
-import java.util.Random;
-
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
-public abstract class Shape {
+import java.util.Random;
+
+public abstract class Shape implements Touchable {
 	protected int x;
 	protected int y;
 	protected int width;

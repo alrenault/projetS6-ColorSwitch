@@ -67,13 +67,11 @@ super(x, y, width);
 		return line;
 		
 	}
-	
+
 
 	@Override
 	public boolean isOver(int x, int y) {
-		// TODO Auto-generated method stub
+		//TODO
 		return false;
 	}
-	
-	
 }

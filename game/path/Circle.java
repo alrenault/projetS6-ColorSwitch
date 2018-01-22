@@ -121,16 +121,12 @@ public class Circle extends Shape{
 			rotation.play();
 			
 			return cercle;
-		}		
+        }
 
 
 	@Override
 	public boolean isOver(int x, int y) {
-		// TODO Auto-generated method stub
-		
-		
-		
+        //TODO
 		return false;
 	}
-
 }
