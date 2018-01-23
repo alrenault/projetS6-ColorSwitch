@@ -18,7 +18,6 @@ public abstract class Shape implements Touchable {
 		this.width = _width;
 	}
 	
-	public abstract boolean isOver(int x, int y);
 
 	public int getX() {
 		return x;

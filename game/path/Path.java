@@ -37,8 +37,9 @@ public class Path {
 		ennemies.remove(e);
 	}
 
-	public isCorrect(){
-		
+	public boolean isCorrect() {
+		//TODO
+		return false;
 	}
 	
 	
