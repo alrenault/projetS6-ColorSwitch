@@ -13,56 +13,20 @@ import javafx.util.Duration;
  * @author Vincent
  *
  */
-public class Circle extends Shape{
-	
+public class Circle extends Shape {
 
 	private int radial;
-	
 	private int arcs_nbr;
-	
-	private boolean rotationDirection;
-	private boolean acceleration;
-	private double rotationSpeed;
-	
-	
-	
-	
-	
 
-		public Circle(int xCenter, int yCenter, int radial, int width,int arcs_nbr) {
-			super(xCenter,yCenter , width);
-		this.radial = radial;
 
-		this.arcs_nbr = arcs_nbr;
-		this.rotationDirection = true;
-		this.acceleration = false;
-		this.rotationSpeed = 4.5;
-		this.shape = buildCircle();
-	}
-		
 		public Circle(int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,
 				boolean acceleration, int vitesseRotation) {
 
-			super(xCenter, yCenter, width);
+			super(xCenter, yCenter, width,rotationDirection,acceleration,vitesseRotation);
 			this.radial = radial;
 	
 			this.arcs_nbr = arcs_nbr;
-			this.rotationDirection = rotationDirection;
-			this.acceleration = acceleration;
-			switch (vitesseRotation) {
-				case 1 :
-					rotationSpeed= 4.5 ;
-					break;
-				case 2 :
-					rotationSpeed= 3.0 ;
-					break;
-				case 3 :
-					rotationSpeed= 1.0;
-					break;
-				default :
-					rotationSpeed= 7.0 ;
-					break;
-			}
+
 			this.shape = buildCircle();
 
 			//set stroke
@@ -85,7 +49,7 @@ public class Circle extends Shape{
 
 				arc_1.setFill(null);
 				arc_1.setStroke(coloRand());
-				arc_1.setStrokeWidth(10);
+				arc_1.setStrokeWidth(width);
 				cercle.getChildren().add(arc_1);
 			}
 
@@ -93,10 +57,10 @@ public class Circle extends Shape{
 
 
 		/* Rotation circle */
-			RotateTransition rotation = new RotateTransition(Duration.seconds(rotationSpeed),cercle);
+			RotateTransition rotation = new RotateTransition(Duration.seconds(mouvementSpeed),cercle);
 
 
-		rotation.setByAngle(360* ((rotationDirection)? 1 :-1 ));//sens -1
+		rotation.setByAngle(360* ((mouvementDirection)? 1 :-1 ));
 
 		rotation.setCycleCount((int)Double.POSITIVE_INFINITY);
 			if (!acceleration) {

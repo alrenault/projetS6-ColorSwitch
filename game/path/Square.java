@@ -11,50 +11,17 @@ public class Square extends Shape {
 
 	private int length;
 
-	private boolean rotationDirection;
-	private boolean acceleration;
-	private double rotationSpeed;
-	
 	public Square(int x, int y, int length, int width){
-	super(x, y, width);
+		super(x, y,width,false,false,1);
 		this.length = length;
+		this.shape = buildSquare();
+	}
 
-		rotationDirection = true;
-		acceleration = false;
-		rotationSpeed = 4.5;
-		this.shape = buildSquare();
-	}
-	
-	public Square(int x, int y, int length, int width, boolean rotationDirection,
-			boolean acceleration, int vitesseRotation) {
-		super(x, y, width);
-		this.length = length;
-	
-		this.rotationDirection = rotationDirection;
-		this.acceleration = acceleration;
-		switch (vitesseRotation) {
-			case 1 :
-				rotationSpeed= 4.5 ;
-				break;
-			case 2 :
-				rotationSpeed= 3.0 ;
-				break;
-			case 3 :
-				rotationSpeed= 1.0;
-				break;
-			default :
-				rotationSpeed= 7.0 ;
-				break;
-		}
-		this.shape = buildSquare();
-		
-	
-	}
 	
 	int maxwidth = 1000;
 	int maxheight = 1000;
-	
-	
+
+
 	public Group buildSquare(){
 		Group squaire = new Group();
 		
@@ -86,9 +53,9 @@ public class Square extends Shape {
 		squaire.getChildren().add(rec4);
 		
 		
-		RotateTransition rt = new RotateTransition(Duration.seconds(rotationSpeed),squaire);
+		RotateTransition rt = new RotateTransition(Duration.seconds(mouvementSpeed),squaire);
 
-		rt.setByAngle(360* ((rotationDirection)? 1 :-1 ));
+		rt.setByAngle(360* ((mouvementDirection)? 1 :-1 ));
 		
 		if(!acceleration){
 			rt.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca

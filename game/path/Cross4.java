@@ -13,17 +13,13 @@ public class Cross4 extends Cross{
 		super(x, y, width,length);
 		this.shape = buildCross();
 	}
-	
-	public Cross4(int x, int y, int width, int length, boolean rotationDirection,
-			boolean acceleration, int vitesseRotation) {
 
-		super(x, y,width,length,rotationDirection,acceleration,vitesseRotation);
+	public Cross4(int x, int y, int width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, int length) {
+		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, _mouvementSpeed);
+
 		this.shape = buildCross();
-		
-	
 	}
-	
-	
+
 	int speed = 100;
 	int maxwidth = 1000;
 	int maxheight = 1000;
@@ -71,9 +67,9 @@ public class Cross4 extends Cross{
 		croix.getChildren().add(part_4);
 
 		
-		RotateTransition rt1 = new RotateTransition(Duration.seconds(rotationSpeed),croix);
+		RotateTransition rt1 = new RotateTransition(Duration.seconds(mouvementSpeed),croix);
 
-		rt1.setByAngle(360* ((rotationDirection)? 1 :-1 ));
+		rt1.setByAngle(360* ((mouvementDirection)? 1 :-1 ));
 		
 		if(!acceleration){
 			rt1.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca

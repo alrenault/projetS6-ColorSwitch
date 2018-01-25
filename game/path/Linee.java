@@ -15,35 +15,26 @@ public class Linee extends Shape {
 	
 	
 	public Linee(int x, int y, int length, int width/*, Color color*/){
-super(x, y, width);
+	super(x, y, width,true,false,1);
 		this.length = length;
-
-		speed = 4.5;
 		nbr_seg = 1;
 		this.shape = buildLine();
-	}
-	
-	public Linee(int x, int y, int length, int width,int speed, int nbr_seg){
-		super(x, y, width);
-		this.length = length;
 
-		this.nbr_seg = nbr_seg;
-		
-		switch (speed) {
-		case 1 :
-			this.speed = 4.5 ;
-			break;
-		case 2 :
-			this.speed = 3.0 ;
-			break;
-		case 3 :
-			this.speed = 1.0;
-			break;
-		default :
-			this.speed = 7.0 ;
-			break;
-		}	
+	}
+
+	public Linee(int x, int y, int length, int width,int _nbr_seg){
+		super(x, y, width,true,false,1);
+		this.length = length;
+		nbr_seg = _nbr_seg;
 		this.shape = buildLine();
+	}
+
+
+	public Linee(int x, int y, int width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, int length, double speed, int nbr_seg) {
+		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed);
+		this.length = length;
+		this.speed = speed;
+		this.nbr_seg = nbr_seg;
 	}
 
 
@@ -55,13 +46,17 @@ super(x, y, width);
 			rec.setFill(coloRand());
 			line.getChildren().add(rec);
 		}
-		
+
 		
 		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(speed),line);
-		tt1.setByX(400f);		
+		tt1.setByX(400f);
+
 		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);
+
 		tt1.setAutoReverse(true);
-		tt1.setInterpolator(Interpolator.LINEAR);
+
+		if (!acceleration) tt1.setInterpolator(Interpolator.LINEAR);
+
 		tt1.play();
 		
 		return line;

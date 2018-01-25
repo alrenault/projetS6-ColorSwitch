@@ -20,11 +20,8 @@ public class MainTest extends Application{
 
 
 	public static void main(String[] args){
-
 		launch(args);
-
 	}
-	
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -72,7 +69,8 @@ public class MainTest extends Application{
 
 		//Pour une croix
 		
-		Cross4 cr = new Cross4(350,400,100,20,false,false,1);
+		//Cross4 cr = new Cross4(350,400,100,20,false,false,1);
+		Cross4 cr = new Cross4(350,400,100,20);
 		Group croix = cr.getShape();
 
 		
@@ -84,7 +82,7 @@ public class MainTest extends Application{
 
 		//Pour une ligne (pour le moment un seul rectangle)
 		
-		Linee l = new Linee(0,50,100,20,1,3);
+		Linee l = new Linee(0,50,100,20,3);
 		Group ligne = l.getShape();
 		
 
@@ -94,7 +92,7 @@ public class MainTest extends Application{
 		//-------------------------------------------------------------------
 
 		//Circle cer =new Circle(280, 150, 50, 5);
-		Circle cer =new Circle(280, 150, 50, 5 ,6,true,false,1);
+		Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
 		Group cercle=cer.getShape();
 
 

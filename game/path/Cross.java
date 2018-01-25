@@ -9,42 +9,19 @@ import javafx.util.Duration;
 public abstract class Cross extends Shape {
 	
 	protected int length;
-	protected boolean rotationDirection;
-	protected boolean acceleration;
-	protected double rotationSpeed;
+
 	
 	public Cross(int x, int y, int width, int length) {
-		super(x, y, width);
+		super(x, y, width,true,false,1);
 		this.length = length;
-		rotationDirection = true;
-		acceleration = false;
-		rotationSpeed = 4.5;
-	}
-	
-	public Cross(int x, int y, int width, int length, boolean rotationDirection,
-			boolean acceleration, int vitesseRotation) {
 
-		super(x, y, width);
-		this.length = length;
-		this.rotationDirection = rotationDirection;
-		this.acceleration = acceleration;
-		switch (vitesseRotation) {
-			case 1 :
-				rotationSpeed= 4.5 ;
-				break;
-			case 2 :
-				rotationSpeed= 3.0 ;
-				break;
-			case 3 :
-				rotationSpeed= 1.0;
-				break;
-			default :
-				rotationSpeed= 7.0 ;
-				break;
-		}		
-	
 	}
-	
+
+	public Cross(int x, int y, int width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, int length) {
+		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed);
+		this.length = length;
+	}
+
 	@Override
 	public boolean isOver(int x, int y) {
 		//TODO
