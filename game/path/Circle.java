@@ -64,8 +64,8 @@ public class Circle extends Shape{
 					break;
 			}
 			this.shape = buildCircle();
-			
-		
+
+			//set stroke
 		}
 
 
@@ -74,45 +74,31 @@ public class Circle extends Shape{
 			
 			Group cercle = new Group();
 			int angle =360/arcs_nbr;
-			
-			ArcType type =ArcType.ROUND;
+
+		ArcType type = ArcType.OPEN;
 			
 			
 
 			for (int i = 0; i <= arcs_nbr; i++) {
 				Arc arc_1 = new Arc(x, y, radial, radial, i*angle, angle);
 				arc_1.setType(type);
-				arc_1.setFill(coloRand());
+
+				arc_1.setFill(null);
+				arc_1.setStroke(coloRand());
+				arc_1.setStrokeWidth(10);
 				cercle.getChildren().add(arc_1);
 			}
-			
-			
-			
-			/*
-				//arc 2
-			Arc arc_2 = new Arc(xCenter, yCenter, radial, radial, 360-angle, angle);
-			arc_2.setType(type);
-			arc_2.setFill(coloRand());
-			cercle.getChildren().add(arc_2);
-			
-			*/
-			
-			
-			/*Grosse triche */
-			Arc arc_fill = new Arc(x, y, radial-width, radial-width, 0, 360);
-			arc_fill.setType(type);
-			arc_fill.setFill(Color.GREY);
-			cercle.getChildren().add(arc_fill);
-			
-			
 
-			/* Rotation circle */
+
+
+
+		/* Rotation circle */
 			RotateTransition rotation = new RotateTransition(Duration.seconds(rotationSpeed),cercle);
-			
-		
-			rotation.setByAngle(360* ((rotationDirection)? 1 :-1 ));//sens -1
-	
-			rotation.setCycleCount((int)Double.POSITIVE_INFINITY);
+
+
+		rotation.setByAngle(360* ((rotationDirection)? 1 :-1 ));//sens -1
+
+		rotation.setCycleCount((int)Double.POSITIVE_INFINITY);
 			if (!acceleration) {
 				rotation.setInterpolator(Interpolator.LINEAR);
 			}
