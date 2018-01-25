@@ -2,7 +2,6 @@ package main;
 
 import game.ball.BallPlayer;
 import game.path.Circle;
-import game.path.Cross2;
 import game.path.Cross4;
 import game.path.Linee;
 import game.path.Square;

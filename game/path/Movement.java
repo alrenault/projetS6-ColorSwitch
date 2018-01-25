@@ -1,13 +1,13 @@
 package game.path;
 
-public abstract class Movement {
+abstract class Movement {
 
 
-    protected boolean mouvementDirection;
-    protected boolean acceleration;
-    protected double mouvementSpeed;
+    boolean mouvementDirection;
+    boolean acceleration;
+    double mouvementSpeed;
 
-    public Movement(boolean mouvementDirection, boolean acceleration, int _mouvementSpeed) {
+    Movement(boolean mouvementDirection, boolean acceleration, int _mouvementSpeed) {
         this.mouvementDirection = mouvementDirection;
         this.acceleration = acceleration;
         switch (_mouvementSpeed) {

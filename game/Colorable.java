@@ -1,10 +1,9 @@
 package game;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import javafx.scene.paint.Color;
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
+
+import java.util.Random;
 
 
 public interface Colorable {

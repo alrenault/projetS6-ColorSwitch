@@ -1,9 +1,9 @@
 package game.law;
 
+import game.Game;
+
 import java.util.HashSet;
 import java.util.Set;
-
-import game.Game;
 
 public class Universe {
 	Set<Law> laws;

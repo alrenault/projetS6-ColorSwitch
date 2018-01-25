@@ -11,7 +11,7 @@ public abstract class Shape extends Movement implements Touchable {
 	int width;
 	Group shape;
 
-	public Shape(int x, int y, int width,boolean mouvementDirection, boolean acceleration, int _mouvementSpeed) {
+	Shape(int x, int y, int width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed) {
 		super(mouvementDirection, acceleration, _mouvementSpeed);
 		this.x = x;
 		this.y = y;

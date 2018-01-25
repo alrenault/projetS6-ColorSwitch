@@ -20,7 +20,6 @@ public class Cross2 extends Cross{
 		this.shape = buildCross();
 	}
 
-	int speed = 100;
 	int maxwidth = 1000;
 	int maxheight = 1000;
 

@@ -22,7 +22,7 @@ public class Square extends Shape {
 	int maxheight = 1000;
 
 
-	public Group buildSquare(){
+	private Group buildSquare(){
 		Group squaire = new Group();
 		
 		int pos1_x = high_left_corner_part1_x();

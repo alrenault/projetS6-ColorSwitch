@@ -1,12 +1,12 @@
 package game.ball;
 
-import java.util.Random;
-
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
+
+import java.util.Random;
 
 public class BallColorSwitch extends Ball {
 

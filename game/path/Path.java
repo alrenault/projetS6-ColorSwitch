@@ -1,9 +1,9 @@
 package game.path;
 
+import game.ennemy.Ennemy;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import game.ennemy.Ennemy;
 
 
 

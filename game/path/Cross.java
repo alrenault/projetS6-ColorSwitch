@@ -1,10 +1,4 @@
 package game.path;
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
-import javafx.scene.Group;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 
 public abstract class Cross extends Shape {
 	
