@@ -36,9 +36,10 @@ public class Path {
 	public void remove(Ennemy e){
 		ennemies.remove(e);
 	}
-
-	public void isCorrect(){
-		
+  
+	public boolean isCorrect() {
+		//TODO
+		return false;
 	}
 	
 	

@@ -103,45 +103,44 @@ public class Square extends Shape {
 
 
 	}
-	
 
-	
-	public int high_left_corner_part1_x() {
+
+	private int high_left_corner_part1_x() {
 		int pos = x-(length+width)/2;
 		return (pos>0 || pos<maxwidth) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part1_y() {
+
+	private int high_left_corner_part1_y() {
 		int pos = y-(length+width)/2;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part2_x() {
+
+	private int high_left_corner_part2_x() {
 		int pos = x-(length-width)/2-width;
 		return (pos>0 || pos<maxwidth) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part2_y() {
+
+	private int high_left_corner_part2_y() {
 		int pos = y-(length+width)/2+width;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part3_x() {
+
+	private int high_left_corner_part3_x() {
 		int pos = x-(length+width)/2+width;
 		return (pos>0 || pos<maxwidth) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part3_y() {
+
+	private int high_left_corner_part3_y() {
 		int pos = y+(length+width)/2-2*width;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part4_x() {
+
+	private int high_left_corner_part4_x() {
 		int pos = x+(length+width)/2-2*width;
 		return (pos>0 || pos<maxwidth) ?	pos : 0 ;
 	}
-	
-	public int high_left_corner_part4_y() {
+
+	private int high_left_corner_part4_y() {
 		int pos = y-(length+width)/2;
 		return (pos>0 || pos<maxheight) ?	pos : 0 ;
 	}
