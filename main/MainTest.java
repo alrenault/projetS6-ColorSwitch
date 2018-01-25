@@ -2,7 +2,8 @@ package main;
 
 import game.ball.BallPlayer;
 import game.path.Circle;
-import game.path.Cross;
+import game.path.Cross2;
+import game.path.Cross4;
 import game.path.Linee;
 import game.path.Square;
 import javafx.animation.TranslateTransition;
@@ -71,7 +72,7 @@ public class MainTest extends Application{
 
 		//Pour une croix
 		
-		Cross cr = new Cross(350,400,100,20,false,false,1);
+		Cross4 cr = new Cross4(350,400,100,20,false,false,1);
 		Group croix = cr.getShape();
 
 		
