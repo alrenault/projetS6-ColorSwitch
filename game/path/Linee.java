@@ -10,7 +10,6 @@ public class Linee extends Shape {
 
 
 	private int length;
-	private double speed;
 	private int nbr_seg;
 	
 	
@@ -33,7 +32,6 @@ public class Linee extends Shape {
 	public Linee(int x, int y, int width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, int length, double speed, int nbr_seg) {
 		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed);
 		this.length = length;
-		this.speed = speed;
 		this.nbr_seg = nbr_seg;
 	}
 
@@ -48,7 +46,7 @@ public class Linee extends Shape {
 		}
 
 		
-		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(speed),line);
+		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(mouvementSpeed),line);
 		tt1.setByX(400f);
 
 		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);
