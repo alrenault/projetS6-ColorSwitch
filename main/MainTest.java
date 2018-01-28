@@ -7,6 +7,7 @@ import game.path.CircleInCircle;
 import game.path.Cross;
 import game.path.Linee;
 import game.path.Square;
+import game.path.MultiLinee;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -27,6 +28,8 @@ public class MainTest extends Application{
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("ColorSuitch");
+		Group gr = new Group();
+		Scene scene1 = new Scene(gr,500,500);
 		
 
 		//-------------------------------------------------------------------
@@ -34,7 +37,7 @@ public class MainTest extends Application{
 
 		//Pour un rectangle
 		
-		Square carre = new Square(150,300,200,20,Colorable.normal,0);
+		Square carre = new Square(150,300,200,20,Colorable.normal,1);
 		Group rec = carre.getShape();
 		
 		
@@ -83,8 +86,11 @@ public class MainTest extends Application{
 
 		//Pour une ligne (pour le moment un seul rectangle)
 		
-		Linee l = new Linee(0,50,100,20,3,Colorable.normal);
-		Group ligne = l.getShape();
+		//Linee l = new Linee(0,50,100,20,3,Colorable.normal);
+		//Group ligne = l.getShape();
+
+		MultiLinee l = new MultiLinee(0,100,Colorable.normal,5,scene1);
+		Group ligne = l.getObstacle();
 		
 
 
@@ -103,7 +109,8 @@ public class MainTest extends Application{
 	
 		//Creation du groupe des formes
 
-		Group gr = new Group();
+		
+
 
 		gr.getChildren().add(rec);
 		
@@ -114,7 +121,6 @@ public class MainTest extends Application{
 		gr.getChildren().add(cercle);
 		
 	
-		Scene scene1 = new Scene(gr,500,500);
 
 		scene1.setFill(Color.GREY);
 		

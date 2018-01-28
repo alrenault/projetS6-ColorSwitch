@@ -12,29 +12,38 @@ public class Linee extends Shapes {
 
 	private int length;
 	private int nbr_seg;
+	private int goal;
+	private boolean reverse;
 	
 	
-	public Linee(int x, int y, int length, int width, Color[] colors){
+	public Linee(int x, int y, int length, int width, Color[] colors,int goal){
 	super(x, y, width,true,false,1,colors,0);
 		this.length = length;
 		nbr_seg = 1;
+		this.goal = goal;
+		reverse = true;
 		this.shape = buildLine();
 
 	}
 
-	public Linee(int x, int y, int length, int width,int _nbr_seg,Color[] colors){
+	public Linee(int x, int y, int length, int width,int _nbr_seg,Color[] colors, int goal){
 		super(x, y, width,true,false,1,colors,0);
 		this.length = length;
 		nbr_seg = _nbr_seg;
+		this.goal = goal;
+		reverse = true;
 		this.shape = buildLine();
 	}
 
 
-	public Linee(int x, int y, int width, boolean mouvementDirection, boolean acceleration, 
-			int _mouvementSpeed, int length, double speed, int nbr_seg, Color[] colors, int pos_colors) {
-		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed,colors,pos_colors);
+	public Linee(int x, int y,int length, int width/*, boolean mouvementDirection*/, boolean acceleration 
+			,boolean reverse,int _mouvementSpeed/*, double speed*/, int nbr_seg, Color[] colors, int pos_colors, int goal) {
+		super(x, y, width, true, acceleration, _mouvementSpeed,colors,pos_colors);
 		this.length = length;
 		this.nbr_seg = nbr_seg;
+		this.goal = goal;
+		this.reverse = reverse;
+		this.shape = buildLine();
 	}
 
 
@@ -50,11 +59,12 @@ public class Linee extends Shapes {
 
 		
 		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(mouvementSpeed),line);
-		tt1.setByX(400f);
+		tt1.setByX(goal);
 
 		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);
 
-		tt1.setAutoReverse(true);
+		if(reverse)
+			tt1.setAutoReverse(true);
 
 		if (!acceleration) tt1.setInterpolator(Interpolator.LINEAR);
 

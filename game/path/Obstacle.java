@@ -9,28 +9,28 @@ import javafx.scene.paint.Color;
 
 public class Obstacle implements Colorable {
 	protected Group obstacle;
-	protected int centre_x;
-	protected int centre_y;
+	protected int x;
+	protected int y;
 	protected Color colors[];
 	protected int version;
 	
 	
 	public Obstacle(int x, int y,Color[] colors, int version){
-		centre_x = x;
-		centre_y = y;
+		this.x = x;
+		this.y = y;
 		this.colors = colors;
 		this.version = version;
 	}
 	
 	public int getX() {
-		return centre_x;
+		return x;
 	}
 
 	public int getY() {
-		return centre_y;
+		return y;
 	}
 
-	public Group getShape() {
+	public Group getObstacle(){
 		return obstacle;
 	}
 }
