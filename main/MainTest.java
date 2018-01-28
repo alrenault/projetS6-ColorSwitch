@@ -2,6 +2,7 @@ package main;
 
 import game.ball.BallPlayer;
 import game.path.Circle;
+import game.path.CircleInCircle;
 import game.path.Cross;
 import game.path.Linee;
 import game.path.Square;
@@ -91,8 +92,10 @@ public class MainTest extends Application{
 		//-------------------------------------------------------------------
 
 		//Circle cer =new Circle(280, 150, 50, 5);
-		Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
-		Group cercle=cer.getShape();
+		//Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
+		//Group cercle=cer.getShape();
+		CircleInCircle cer = new CircleInCircle(280,150);
+		Group cercle=cer.getObstacle();
 
 
 	

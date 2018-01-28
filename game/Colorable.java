@@ -15,7 +15,7 @@ public interface Colorable {
 			new Color((new Random()).nextDouble(),(new Random()).nextDouble(),(new Random()).nextDouble(),1),
 			new Color((new Random()).nextDouble(),(new Random()).nextDouble(),(new Random()).nextDouble(),1)};
 	
-	public void color(Node n);
+	//public void color(Node n);
 	
 	
 

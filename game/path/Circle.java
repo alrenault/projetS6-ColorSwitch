@@ -4,6 +4,7 @@ package game.path;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.util.Duration;
@@ -40,14 +41,15 @@ public class Circle extends Shape {
 
 		ArcType type = ArcType.OPEN;
 			
-			
+		Color[] normal = {Color.RED,Color.BLUE,Color.GREEN,Color.YELLOW};
 
-			for (int i = 0; i <= arcs_nbr; i++) {
+			for (int i = 0; i < arcs_nbr; i++) {
 				Arc arc_1 = new Arc(x, y, radial, radial, i*angle, angle);
 				arc_1.setType(type);
 
 				arc_1.setFill(null);
-				arc_1.setStroke(coloRand());
+				//arc_1.setStroke(coloRand());
+				arc_1.setStroke(normal[i]);
 				arc_1.setStrokeWidth(width);
 				cercle.getChildren().add(arc_1);
 			}
