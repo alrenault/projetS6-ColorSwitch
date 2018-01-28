@@ -17,6 +17,7 @@ public interface Colorable {
 	
 	public void color(Node n);
 	
+	
 
 
 }
