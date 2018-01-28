@@ -12,12 +12,14 @@ public class Obstacle implements Colorable {
 	protected int centre_x;
 	protected int centre_y;
 	protected Color colors[];
+	protected int version;
 	
 	
-	public Obstacle(int x, int y,Color[] colors){
+	public Obstacle(int x, int y,Color[] colors, int version){
 		centre_x = x;
 		centre_y = y;
 		this.colors = colors;
+		this.version = version;
 	}
 	
 	public int getX() {

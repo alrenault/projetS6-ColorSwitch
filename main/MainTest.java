@@ -95,7 +95,7 @@ public class MainTest extends Application{
 		//Circle cer =new Circle(280, 150, 50, 5);
 		//Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
 		//Group cercle=cer.getShape();
-		CircleInCircle cer = new CircleInCircle(280,150,Colorable.normal);
+		CircleInCircle cer = new CircleInCircle(280,150,Colorable.normal,8);
 		Group cercle=cer.getObstacle();
 
 
