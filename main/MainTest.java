@@ -34,7 +34,7 @@ public class MainTest extends Application{
 
 		//Pour un rectangle
 		
-		Square carre = new Square(150,300,200,20);
+		Square carre = new Square(150,300,200,20,Colorable.normal,0);
 		Group rec = carre.getShape();
 		
 		
@@ -70,7 +70,7 @@ public class MainTest extends Application{
 
 		//Pour une croix
 		
-		Cross cr = new Cross(350,400,100,20,false,false,1,4);
+		Cross cr = new Cross(350,400,100,20,false,false,1,4,Colorable.normal,1);
 		//Cross4 cr = new Cross4(350,400,100,20);
 		Group croix = cr.getShape();
 
@@ -83,7 +83,7 @@ public class MainTest extends Application{
 
 		//Pour une ligne (pour le moment un seul rectangle)
 		
-		Linee l = new Linee(0,50,100,20,3);
+		Linee l = new Linee(0,50,100,20,3,Colorable.normal);
 		Group ligne = l.getShape();
 		
 

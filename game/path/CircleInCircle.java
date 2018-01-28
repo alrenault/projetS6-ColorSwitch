@@ -14,8 +14,8 @@ public class CircleInCircle extends Obstacle {
 	private Group buildObstacle(){
 		Group circleInCircle = new Group();
 
-		Circle cer1 =new Circle(280, 150, 100, 15 ,4,true,false,1,colors);
-		Circle cer2 =new Circle(280, 150, 85, 15 ,4,false,false,2,colors);
+		Circle cer1 =new Circle(280, 150, 100, 15 ,4,true,false,1,colors,1);
+		Circle cer2 =new Circle(280, 150, 85, 15 ,4,false,false,2,colors,3);
 
 		circleInCircle.getChildren().add(cer1.getShape());
 		circleInCircle.getChildren().add(cer2.getShape());

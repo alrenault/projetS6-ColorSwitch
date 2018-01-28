@@ -11,25 +11,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-public class Cross extends Shape{
+public class Cross extends Shapes{
 	private int nbr_rect = 2;
 	private int length;
-	private List<Color> colors;
 	
-	public Cross(int x, int y, int width, int length) {
-		super(x, y, width,true,false,1);
+	public Cross(int x, int y, int width, int length,Color[] colors) {
+		super(x, y, width,true,false,1,colors,1);
 		this.length = length;
-		this.colors = new ArrayList<Color>();
 		this.shape = buildCross();
 	}
 
-	public Cross(int x, int y, int width, int length, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, int nbr_rect) {
-		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed);
+	public Cross(int x, int y, int width, int length, boolean mouvementDirection, boolean acceleration, 
+			int _mouvementSpeed, int nbr_rect,Color[] colors,int pos_color) {
+		
+		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed,colors,pos_color);
 		if(nbr_rect != 2)
 			this.nbr_rect = 4;
 
 		this.length = length;
-		this.colors = new ArrayList<Color>();
 		this.shape = buildCross();
 	}
 
@@ -67,23 +66,27 @@ public class Cross extends Shape{
 		Rectangle part_4 = new Rectangle(x_pos_4,y_pos_4,len,rad);
 
 		if(nbr_rect == 4){
-			part_1.setFill(Color.RED);
-			part_2.setFill(Color.BLUE);
-			part_3.setFill(Color.GREEN);
-			part_4.setFill(Color.YELLOW);
-			colors.add(Color.RED);
-			colors.add(Color.BLUE);
-			colors.add(Color.GREEN);
-			colors.add(Color.YELLOW);
+			color(part_1);
+			verifPosColor();
+
+			color(part_2);
+			verifPosColor();
+
+			color(part_3);
+			verifPosColor();
+
+			color(part_4);
+			verifPosColor();
 
 		}
 		else{
-			part_1.setFill(Color.RED);
-			part_2.setFill(Color.BLUE);
-			part_3.setFill(Color.RED);
-			part_4.setFill(Color.BLUE);
-			colors.add(Color.RED);
-			colors.add(Color.BLUE);
+			color(part_1);
+			color(part_3);
+			verifPosColor();
+			
+			color(part_2);
+			color(part_4);
+			verifPosColor();
 		}
 		
 		croix.getChildren().add(part_1);

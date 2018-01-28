@@ -13,22 +13,20 @@ import javafx.util.Duration;
  * @author Vincent
  *
  */
-public class Circle extends Shape {
+public class Circle extends Shapes {
 
 	private int radial;
 	private int arcs_nbr;
-	private Color colors[];
 
 
 		public Circle(int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,
-				boolean acceleration, int vitesseRotation,Color[] colors) {
+				boolean acceleration, int vitesseRotation,Color[] colors,int pos_color) {
 
-			super(xCenter, yCenter, width,rotationDirection,acceleration,vitesseRotation);
+			super(xCenter, yCenter, width,rotationDirection,acceleration,vitesseRotation,colors,pos_color);
+			System.out.println(this.pos_color);
 			this.radial = radial;
 
 			this.arcs_nbr = arcs_nbr;
-
-			this.colors = colors;
 			this.shape = buildCircle();
 
 			//set stroke
@@ -43,16 +41,15 @@ public class Circle extends Shape {
 
 		ArcType type = ArcType.OPEN;
 
-		int nbr_color = 0;
-		for (int i = 0; i < arcs_nbr; i++,nbr_color++) {
-			if(nbr_color == colors.length)
-				nbr_color = 0;
+		for (int i = 0; i < arcs_nbr; i++) {
 			Arc arc_1 = new Arc(x, y, radial, radial, i*angle, angle);
 			
 			arc_1.setType(type);
 			arc_1.setFill(null);
 			//arc_1.setStroke(coloRand());
-			arc_1.setStroke(colors[nbr_color]);
+			verifPosColor();
+			arc_1.setStroke(colors[pos_color]);
+			
 			arc_1.setStrokeWidth(width);
 			cercle.getChildren().add(arc_1);
 		}
