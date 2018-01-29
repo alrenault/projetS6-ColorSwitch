@@ -1,6 +1,4 @@
 package game.path;
-import java.util.List;
-import java.util.Random;
 
 import game.Colorable;
 import javafx.scene.Group;
@@ -32,5 +30,8 @@ public class Obstacle implements Colorable {
 
 	public Group getObstacle(){
 		return obstacle;
+	}
+	public boolean isOver(int x, int y) {
+		return this.obstacle.contains(x,y);
 	}
 }

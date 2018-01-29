@@ -1,8 +1,8 @@
 package game.path;
 
 import javafx.scene.Group;
-import javafx.scene.shape.Shape;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +78,9 @@ public abstract class Shapes implements Touchable {
 	Color coloRand() {
 		Random r =new Random();
 		return new Color(r.nextDouble(),r.nextDouble(),r.nextDouble(),1);
+	}
+	public boolean isOver(int _x, int _y) {
+		return this.shape.contains(_x,_y);
 	}
 
 	public Group getShape() {

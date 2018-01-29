@@ -29,7 +29,6 @@ public class Circle extends Shapes {
 			this.arcs_nbr = arcs_nbr;
 			this.shape = buildCircle();
 
-			//set stroke
 		}
 
 
@@ -75,9 +74,5 @@ public class Circle extends Shapes {
         }
 
 
-	@Override
-	public boolean isOver(int x, int y) {
-        //TODO
-		return false;
-	}
+
 }

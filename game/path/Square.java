@@ -78,8 +78,6 @@ public class Square extends Shapes {
 	}
 
 
-	@Override
-	public boolean isOver(int x, int y) {
-		return false;
-	}
+
+
 }

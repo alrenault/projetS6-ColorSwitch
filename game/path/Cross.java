@@ -1,9 +1,5 @@
 package game.path;
 
-import java.util.ArrayList;
-import java.util.List;
-import game.Colorable;
-
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -111,10 +107,6 @@ public class Cross extends Shapes{
 		return croix;
 	}
 	
-	@Override
-	public boolean isOver(int x, int y) {
-		//TODO
-		return false;
-	}
+
 
 }
