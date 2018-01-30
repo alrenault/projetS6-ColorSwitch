@@ -2,19 +2,12 @@ package main;
 
 import game.Colorable;
 import game.ball.BallPlayer;
-import game.path.Circle;
-import game.path.CircleInCircle;
-import game.path.Cross;
-import game.path.Linee;
-import game.path.Square;
-import game.path.MultiLinee;
-import javafx.animation.TranslateTransition;
+import game.path.*;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 
 
@@ -109,16 +102,19 @@ public class MainTest extends Application{
 	
 		//Creation du groupe des formes
 
-		
+
+		Triangle Daeneris = new Triangle(150,150,200,20,false,false,1,Colorable.normal,1);
+		Group tringle=Daeneris.getShape();
+		gr.getChildren().add(tringle);
 
 
-		gr.getChildren().add(rec);
+		//gr.getChildren().add(rec);
 		
-		gr.getChildren().add(croix);
+		//gr.getChildren().add(croix);
 		
-		gr.getChildren().add(ligne);
+		//gr.getChildren().add(ligne);
 		
-		gr.getChildren().add(cercle);
+		//gr.getChildren().add(cercle);
 		
 	
 
