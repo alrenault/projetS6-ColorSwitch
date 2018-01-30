@@ -59,4 +59,10 @@ public class BallColorSwitch extends Ball {
 		System.out.println("Hello");
 		
 	}
+
+	@Override
+	public void jump() {
+		// TODO Auto-generated method stub
+		
+	}
 }

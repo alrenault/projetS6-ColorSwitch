@@ -39,7 +39,7 @@ public class BallPlayer extends Ball {
 		//tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
 		//tt1.setAutoReverse(true);
 		//tt1.setInterpolator(Interpolator.LINEAR);
-		Listeners l = new Listeners(scene);
+		Listeners l = new Listeners(scene, this);
 		l.jump(ball);
 		
 		
@@ -63,9 +63,23 @@ public class BallPlayer extends Ball {
 
 	@Override
 	public void applyGravity() {
-		System.out.println("Hello");
+		System.out.println("Gravity Ball");
 		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4),shape);
 		tt1.setByY(scene.getHeight()+size);
+		tt1.setCycleCount(4);
+		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+		tt1.setAutoReverse(true);
+		tt1.setInterpolator(Interpolator.LINEAR);
+		tt1.play();
+		
+	}
+
+	@Override
+	public void jump() {
+		// TODO Auto-generated method stub
+		System.out.println("Jump Ball");
+		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4),shape);
+		tt1.setByY(-(scene.getHeight()+size));
 		tt1.setCycleCount(4);
 		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
 		tt1.setAutoReverse(true);
