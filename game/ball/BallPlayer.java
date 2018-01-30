@@ -15,6 +15,7 @@ public class BallPlayer extends Ball {
 	private Color color;
 	private Group shape;
 	private Scene scene;
+	private TranslateTransition gravity;
 	
 	public BallPlayer(float size, Color color, Scene scene){
 		this.size = size;
@@ -29,7 +30,7 @@ public class BallPlayer extends Ball {
 		Circle player = new Circle(size,color);
 		System.out.println(scene.getWidth()+" "+scene.getHeight());
 		player.setCenterX(scene.getWidth()/2);
-		player.setCenterY(scene.getHeight() - 5*size);
+		player.setCenterY(scene.getHeight() - 150);
 		ball.getChildren().add(player);
 		
 		//animation
@@ -64,13 +65,13 @@ public class BallPlayer extends Ball {
 	@Override
 	public void applyGravity() {
 		System.out.println("Gravity Ball");
-		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4),shape);
-		tt1.setByY(scene.getHeight()+size);
-		tt1.setCycleCount(4);
-		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-		tt1.setAutoReverse(true);
-		tt1.setInterpolator(Interpolator.LINEAR);
-		tt1.play();
+		gravity = new TranslateTransition(Duration.seconds(4),shape);
+		gravity.setByY(scene.getHeight()+size);
+		//tt1.setCycleCount(4);
+		gravity.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+		//tt1.setAutoReverse(true);
+		gravity.setInterpolator(Interpolator.LINEAR);
+		gravity.play();
 		
 	}
 
@@ -78,13 +79,15 @@ public class BallPlayer extends Ball {
 	public void jump() {
 		// TODO Auto-generated method stub
 		System.out.println("Jump Ball");
-		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4),shape);
-		tt1.setByY(-(scene.getHeight()+size));
-		tt1.setCycleCount(4);
-		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+		gravity.pause();
+		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(1),shape);
+		tt1.setByY(-50);
+		tt1.setCycleCount(1);
+		//tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
 		tt1.setAutoReverse(true);
 		tt1.setInterpolator(Interpolator.LINEAR);
 		tt1.play();
+		gravity.play();
 		
 	}
 

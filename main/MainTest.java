@@ -101,7 +101,7 @@ public class MainTest extends Application{
 		//Circle cer =new Circle(280, 150, 50, 5);
 		//Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
 		//Group cercle=cer.getShape();
-		CircleInCircle cer = new CircleInCircle(280,150,Colorable.normal,8);
+		CircleInCircle cer = new CircleInCircle((int)scene1.getWidth()/2,(int)scene1.getHeight()/2,Colorable.normal,10);
 		Group cercle=cer.getObstacle();
 
 
@@ -122,7 +122,7 @@ public class MainTest extends Application{
 		
 	
 
-		scene1.setFill(Color.GREY);
+		scene1.setFill(Color.BLACK);
 		
 		
 		

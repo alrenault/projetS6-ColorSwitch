@@ -45,7 +45,7 @@ public class Cross extends Shapes{
 
 		//Computing hight-left corner of the second rectangle
 		int x_pos_2 = x-length/2;
-		int y_pos_2 = y-width;
+		int y_pos_2 = y-width-length/2;
 	
 		//Computing hight-left corner of the second rectangle
 		int x_pos_3 = x+length/2;
@@ -53,13 +53,18 @@ public class Cross extends Shapes{
 			
 		//Computing hight-left corner of the second rectangle
 		int x_pos_4 = x-length/2;
-		int y_pos_4 = y;
+		int y_pos_4 = y+length/2;
+		
+		int x_middle = x-length/2;
+		int y_middle = y-length/2;
 		
 		//Building Cross
 		Rectangle part_1 = new Rectangle(x_pos_1,y_pos_1,rad,len);
 		Rectangle part_2 = new Rectangle(x_pos_2,y_pos_2,len,rad);
 		Rectangle part_3 = new Rectangle(x_pos_3,y_pos_3,rad,len);
 		Rectangle part_4 = new Rectangle(x_pos_4,y_pos_4,len,rad);
+		Rectangle middle = new Rectangle(x_middle,y_middle,len,len);
+		middle.setFill(Color.WHITE);
 
 		if(nbr_rect == 4){
 			color(part_1);
@@ -89,6 +94,7 @@ public class Cross extends Shapes{
 		croix.getChildren().add(part_2);
 		croix.getChildren().add(part_3);
 		croix.getChildren().add(part_4);
+		croix.getChildren().add(middle);
 
 		
 		RotateTransition rt1 = new RotateTransition(Duration.seconds(mouvementSpeed),croix);

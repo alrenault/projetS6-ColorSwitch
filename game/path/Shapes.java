@@ -30,13 +30,13 @@ public abstract class Shapes implements Touchable {
         this.acceleration = acceleration;
         switch (_mouvementSpeed) {
             case 1 :
-                mouvementSpeed= 4.5 ;
+                mouvementSpeed= 6.0 ;
                 break;
             case 2 :
-                mouvementSpeed= 3.0 ;
+                mouvementSpeed= 4.5 ;
                 break;
             case 3 :
-                mouvementSpeed= 1.0;
+                mouvementSpeed= 3;
                 break;
             default :
                 mouvementSpeed= 7.0 ;

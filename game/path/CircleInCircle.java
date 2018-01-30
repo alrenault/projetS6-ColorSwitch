@@ -15,6 +15,8 @@ public class CircleInCircle extends Obstacle {
 	//version 7 : 2 cercles imbriqués dans autre sens 
 	//version 8 : 3 cercles imbriqués
 	//version 9 : 3 cercles imbriqués dans l'autre sens
+	//version 10 : 2 cercle croisés tournant vers le haut
+	//version 11 : 2 cercle croisés tournant vers le bas
 	//default : version 4
 
 	public CircleInCircle(int x, int y,Color[] colors,int version){
@@ -80,7 +82,7 @@ public class CircleInCircle extends Obstacle {
 			break;
 		case 8 :
 			cer1 =new Circle(x, y, bigRadial, width ,nb_arc,false,false,1,colors,1);
-			cer2 =new Circle(x, y, internRadial, width ,nb_arc,true,false,2,colors,3);
+			cer2 =new Circle(x, y, internRadial, width ,nb_arc,true,false,2,colors,1);
 			cer3 =new Circle(x, y, mediumRadial, width ,nb_arc,false,false,1,colors,1);
 
 			circleInCircle.getChildren().add(cer1.getShape());
@@ -95,6 +97,18 @@ public class CircleInCircle extends Obstacle {
 			circleInCircle.getChildren().add(cer1.getShape());
 			circleInCircle.getChildren().add(cer2.getShape());
 			circleInCircle.getChildren().add(cer3.getShape());
+			break;
+		case 10 :
+			cer1 =new Circle(x-bigRadial/2, y, bigRadial, width ,nb_arc,false,false,1,colors,0);
+			cer2 =new Circle(x+bigRadial/2, y, bigRadial, width ,nb_arc,true,false,2,colors,2);
+			circleInCircle.getChildren().add(cer1.getShape());
+			circleInCircle.getChildren().add(cer2.getShape());
+			break;
+		case 11 :
+			cer1 =new Circle(x-bigRadial/2, y, bigRadial, width ,nb_arc,true,false,1,colors,0);
+			cer2 =new Circle(x+bigRadial/2, y, bigRadial, width ,nb_arc,false,false,2,colors,2);
+			circleInCircle.getChildren().add(cer1.getShape());
+			circleInCircle.getChildren().add(cer2.getShape());
 			break;
 			
 		default:
