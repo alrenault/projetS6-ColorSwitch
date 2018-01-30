@@ -1,6 +1,7 @@
 package game.law;
 
 import game.Game;
+import game.ball.Ball;
 
 public class Gravity extends Law {
 	int vectorX;
@@ -36,7 +37,8 @@ public class Gravity extends Law {
 
 	@Override
 	public void apply(Game game) {
-		//game.getBalle() //Do Something
+		System.out.println("Gravity");
+		game.applyGravity(); //Do Something
 		
 	}
 	

@@ -144,11 +144,12 @@ public class MainTest extends Application{
 		player.setCenterY(490);*/
 
 		gr.getChildren().add(player.getShape());
+		player.applyGravity();
 				
 
-		TranslateTransition tt = new TranslateTransition(Duration.seconds(10),gr);
+		//TranslateTransition tt = new TranslateTransition(Duration.seconds(10),gr);
 
-		tt.setByY(1200f);//distance parcourue
+		//tt.setByY(1200f);//distance parcourue
 		//tt.setCycleCount(4);
 
 

@@ -1,6 +1,7 @@
 package game.ball;
 
 import controller.Listeners;
+import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -42,7 +43,7 @@ public class BallPlayer extends Ball {
 		l.jump(ball);
 		
 		
-		tt1.play();
+		//tt1.play();
 		
 		return ball;
 		
@@ -58,6 +59,19 @@ public class BallPlayer extends Ball {
 
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	@Override
+	public void applyGravity() {
+		System.out.println("Hello");
+		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4),shape);
+		tt1.setByY(scene.getHeight()+size);
+		tt1.setCycleCount(4);
+		tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+		tt1.setAutoReverse(true);
+		tt1.setInterpolator(Interpolator.LINEAR);
+		tt1.play();
+		
 	}
 
 }

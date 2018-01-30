@@ -52,4 +52,11 @@ public class BallColorSwitch extends Ball {
 		Random r =new Random();
 		return new Color(r.nextDouble(),r.nextDouble(),r.nextDouble(),1);
 	}
+
+	@Override
+	public void applyGravity() {
+		// TODO Auto-generated method stub
+		System.out.println("Hello");
+		
+	}
 }

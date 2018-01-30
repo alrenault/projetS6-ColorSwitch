@@ -10,7 +10,6 @@ public class Game {
 	Path path;
 	Universe universe;
 
-
 	public Game(Ball _balle, Path _path, Universe _universe){
 		this.balle = _balle;
 		this.path = _path;
@@ -18,6 +17,10 @@ public class Game {
 	}
 	
 	public Game(){
-		
+		System.out.println("Game()");
+	}
+	
+	public void applyGravity() {
+		balle.applyGravity();
 	}
 }
