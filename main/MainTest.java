@@ -22,7 +22,7 @@ public class MainTest extends Application{
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("ColorSuitch");
 		Group gr = new Group();
-		Scene scene1 = new Scene(gr,500,500);
+		Scene scene1 = new Scene(gr,1000,1000);
 		
 
 		//-------------------------------------------------------------------
@@ -66,9 +66,11 @@ public class MainTest extends Application{
 
 		//Pour une croix
 		
-		Cross cr = new Cross(350,400,100,20,false,false,1,4,Colorable.normal,1);
+		//Cross cr = new Cross(350,400,100,20,false,false,1,4,Colorable.normal,1);
+		//Group croix = cr.getShape();
+		MultiCross cr = new MultiCross((int)scene1.getWidth()/2,300,Colorable.normal,4);
+		Group croix = cr.getObstacle();
 		//Cross4 cr = new Cross4(350,400,100,20);
-		Group croix = cr.getShape();
 
 		
 
@@ -82,7 +84,7 @@ public class MainTest extends Application{
 		//Linee l = new Linee(0,50,100,20,3,Colorable.normal);
 		//Group ligne = l.getShape();
 
-		MultiLinee l = new MultiLinee(0,100,Colorable.normal,5,scene1);
+		MultiLinee l = new MultiLinee(0,100,Colorable.normal,3,scene1);
 		Group ligne = l.getObstacle();
 		
 
@@ -94,7 +96,9 @@ public class MainTest extends Application{
 		//Circle cer =new Circle(280, 150, 50, 5);
 		//Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
 		//Group cercle=cer.getShape();
-		CircleInCircle cer = new CircleInCircle((int)scene1.getWidth()/2,(int)scene1.getHeight()/2,Colorable.normal,10);
+		//CircleInCircle cer = new CircleInCircle((int)scene1.getWidth()/2,(int)scene1.getHeight()/2,Colorable.normal,6);
+		MultiCircle cer = new MultiCircle((int)scene1.getWidth()/2,300,Colorable.normal,2);
+
 		Group cercle=cer.getObstacle();
 
 
@@ -110,7 +114,7 @@ public class MainTest extends Application{
 
 		//gr.getChildren().add(rec);
 		
-		//gr.getChildren().add(croix);
+		gr.getChildren().add(croix);
 		
 		//gr.getChildren().add(ligne);
 		
