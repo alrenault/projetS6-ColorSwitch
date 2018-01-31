@@ -1,5 +1,0 @@
-/**
- * @author leveque
- *
- */
-package game;
