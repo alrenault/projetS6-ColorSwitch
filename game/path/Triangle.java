@@ -1,5 +1,6 @@
 package game.path;
 
+import game.Colorable;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -10,45 +11,68 @@ import javafx.util.Duration;
 public class Triangle extends Shapes {
 
     private int height;
-
+    private  double k;
     public Triangle(int x, int y, int height, int width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, Color[] colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         this.height = height;
+        k = ((double)height- (3.0 *(double) width))/(double)height;
         this.shape = buildTriangle();
     }
 
     private Group buildTriangle() {
         Group t = new Group();
-        double xa, ya, xb,yb,xc,yc,xd,yd,xe,ye,xf,yf,valCote;
+        Circle milieu = new Circle(x,y,5,5,1,false,false,1, Colorable.WHITE,0);
+        double xa, ya, xb,yb,xc,yc,xd,yd,xe,ye,xf,yf,j;
         Polygon Drogon,Viserion,Rhaegal;
         Drogon=new Polygon();
         Viserion=new Polygon();
         Rhaegal=new Polygon();
-        valCote = (height * Math.sin(Math.toRadians(90))) / Math.sin(Math.toRadians(120));//=h/sin(120)
+        j = (Math.sqrt((4.0*(double)height*(double)height)/5.0));
+
         xa= x;
-        ya= y + 0.5*height;
-        xb = x + (valCote / 2);
-        yb= y + 0.5*height;
-        xc=x+ 0.5*height - (width*(Math.sin(Math.toRadians(60))))/0.5;//(0.5 = Sin (30°)
-        yc=y + 0.5*height - width;
-        xd= x;
-        yd = y - (0.5 * height) + ((width * (Math.sin(Math.toRadians(60)))) / 0.5);
-        xe = x - (valCote / 2);
+        ya= y - ((double)height/2.0);//+
+        xb = x + (j / 2.0);
+        yb= y + ((double)height/2.0);
+        xc= x + ((j / 2.0)* k);
+        yc=yb -(double) width;
+        xd = x;
+        yd = ya +2.0*width;
+
+
+        xe = x - (j / 2.0);
         ye=yb;
-        xf=x+ 0.5*height + (width*(Math.sin(Math.toRadians(60))))/0.5;
+
+
+        xf=x - ((j / 2.0)* k);
         yf=yc;
+
+
+
 
         Drogon.getPoints().addAll(xa,ya, xb,yb, xc,yc, xd,yd);
         Viserion.getPoints().addAll(xb,yb, xe,ye, xf,yf, xc,yc);
-        Rhaegal.getPoints().addAll(xe,ye, xf,yf, xa,ya, xd,yd);
-        verifPosColor();
-        Drogon.setFill(colors[pos_color]);
-        verifPosColor();
-        Viserion.setFill(colors[pos_color]);
-        verifPosColor();
-        Rhaegal.setFill(colors[pos_color]);
+        Rhaegal.getPoints().addAll(xe,ye, xf,yf, xd,yd, xa,ya);
 
 
+
+
+        color(Drogon);
+        verifPosColor();
+        color(Viserion);
+        verifPosColor();
+        color(Rhaegal);
+        verifPosColor();
+/*
+        Dragon.getPoints().addAll(xa,ya, xb,yb, xe,ye );
+
+        color(Dragon);
+        verifPosColor();
+
+        Dragon2.getPoints().addAll(xd,yd, xc,yc, xf,yf );
+
+        color(Dragon2);
+        verifPosColor();
+*/
         /*
 3 genre de rectangles biseautés
 
@@ -101,13 +125,37 @@ public class Triangle extends Shapes {
 
 
          */
-
+       // t.getChildren().add(milieu.getShape());
 
         t.getChildren().add(Drogon);
-       t.getChildren().add(Viserion);
+        t.getChildren().add(Viserion);
         t.getChildren().add(Rhaegal);
 
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println();
+        System.out.println(height);
+        System.out.println(width);
+        System.out.println();
+        System.out.println(j);
+        System.out.println(k);
+        System.out.println();
+        System.out.println(xa);
+        System.out.println(ya);
 
+        System.out.println(xb);
+        System.out.println(yb);
+        System.out.println(xc);
+        System.out.println(yc);
+        System.out.println(xd);
+        System.out.println(yd);
+        System.out.println(xe);
+        System.out.println(ye);
+        System.out.println(xf);
+        System.out.println(yf);
+      //  t.getChildren().add(Dragon);
+       // t.getChildren().add(Dragon2);
+        //t.getChildren().add(milieu.getShape());
         RotateTransition rotation = new RotateTransition(Duration.seconds(mouvementSpeed),t);
 
 
