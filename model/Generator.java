@@ -7,13 +7,12 @@ import game.path.Path;
 
 
 public class Generator {
-	
-	private Game game;
-	
-	public Generator(Ball _balle, Path _path, Universe _universe){
-		game = new Game(_balle, _path, _universe);
-	}
-	
-	
+
+    private Game game;
+
+    public Generator(Ball _balle, Path _path, Universe _universe) {
+        game = new Game(_balle, _path, _universe);
+    }
+
 
 }

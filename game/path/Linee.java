@@ -10,14 +10,14 @@ import javafx.util.Duration;
 public class Linee extends Shapes {
 
 
-	private int length;
+	private double length;
 	private int nbr_seg;
-	private int goal;
+	private double goal;
 	private boolean reverse;
-	
-	
-	public Linee(int x, int y, int length, int width, Color[] colors,int goal){
-	super(x, y, width,true,false,1,colors,0);
+
+
+	public Linee(double x, double y, double length, double width, Color[] colors, double goal) {
+		super(x, y, width, true, false, 1, colors, 0);
 		this.length = length;
 		nbr_seg = 1;
 		this.goal = goal;
@@ -26,8 +26,8 @@ public class Linee extends Shapes {
 
 	}
 
-	public Linee(int x, int y, int length, int width,int _nbr_seg,Color[] colors, int goal){
-		super(x, y, width,true,false,1,colors,0);
+	public Linee(double x, double y, double length, double width, int _nbr_seg, Color[] colors, double goal) {
+		super(x, y, width, true, false, 1, colors, 0);
 		this.length = length;
 		nbr_seg = _nbr_seg;
 		this.goal = goal;
@@ -36,9 +36,9 @@ public class Linee extends Shapes {
 	}
 
 
-	public Linee(int x, int y,int length, int width/*, boolean mouvementDirection*/, boolean acceleration 
-			,boolean reverse,int _mouvementSpeed/*, double speed*/, int nbr_seg, Color[] colors, int pos_colors, int goal) {
-		super(x, y, width, true, acceleration, _mouvementSpeed,colors,pos_colors);
+	public Linee(double x, double y, double length, double width/*, boolean mouvementDirection*/, boolean acceleration
+			, boolean reverse, int _mouvementSpeed/*, double speed*/, int nbr_seg, Color[] colors, int pos_colors, double goal) {
+		super(x, y, width, true, acceleration, _mouvementSpeed, colors, pos_colors);
 		this.length = length;
 		this.nbr_seg = nbr_seg;
 		this.goal = goal;

@@ -10,85 +10,85 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 public class BallPlayer extends Ball {
-	
-	private float size;
-	private Color color;
-	private Group shape;
-	private Scene scene;
-	private TranslateTransition gravity;
-	
-	public BallPlayer(float size, Color color, Scene scene){
-		this.size = size;
-		this.color = color;		
-		this.scene = scene;
-		this.shape = buildBall();
-	}
-	
-	public Group buildBall(){
-		Group ball = new Group();
-		
-		Circle player = new Circle(size,color);
-		System.out.println(scene.getWidth()+" "+scene.getHeight());
-		player.setCenterX(scene.getWidth()/2);
-		player.setCenterY(scene.getHeight() - 150);
-		ball.getChildren().add(player);
-		
-		//animation
-		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4),ball);
-		tt1.setByY(scene.getHeight()+size);
-		//tt.setCycleCount(4);
-		//tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-		//tt1.setAutoReverse(true);
-		//tt1.setInterpolator(Interpolator.LINEAR);
-		Listeners l = new Listeners(scene, this);
-		l.jump(ball);
-		
-		
-		//tt1.play();
-		
-		return ball;
-		
-	}
-	
-	public Group getShape() {
-		return shape;
-	}
 
-	public Color getColor() {
-		return color;
-	}
+    private float size;
+    private Color color;
+    private Group shape;
+    private Scene scene;
+    private TranslateTransition gravity;
 
-	public void setColor(Color color) {
-		this.color = color;
-	}
+    public BallPlayer(float size, Color color, Scene scene) {
+        this.size = size;
+        this.color = color;
+        this.scene = scene;
+        this.shape = buildBall();
+    }
 
-	@Override
-	public void applyGravity() {
-		System.out.println("Gravity Ball");
-		gravity = new TranslateTransition(Duration.seconds(4),shape);
-		gravity.setByY(scene.getHeight()+size);
-		//tt1.setCycleCount(4);
-		gravity.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-		//tt1.setAutoReverse(true);
-		gravity.setInterpolator(Interpolator.LINEAR);
-		gravity.play();
-		
-	}
+    public Group buildBall() {
+        Group ball = new Group();
 
-	@Override
-	public void jump() {
-		// TODO Auto-generated method stub
-		System.out.println("Jump Ball");
-		gravity.pause();
-		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(1),shape);
-		tt1.setByY(-50);
-		tt1.setCycleCount(1);
-		//tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-		tt1.setAutoReverse(true);
-		tt1.setInterpolator(Interpolator.LINEAR);
-		tt1.play();
-		gravity.play();
-		
-	}
+        Circle player = new Circle(size, color);
+        System.out.println(scene.getWidth() + " " + scene.getHeight());
+        player.setCenterX(scene.getWidth() / 2);
+        player.setCenterY(scene.getHeight() - 150);
+        ball.getChildren().add(player);
+
+        //animation
+        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4), ball);
+        tt1.setByY(scene.getHeight() + size);
+        //tt.setCycleCount(4);
+        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+        //tt1.setAutoReverse(true);
+        //tt1.setInterpolator(Interpolator.LINEAR);
+        Listeners l = new Listeners(scene, this);
+        l.jump(ball);
+
+
+        //tt1.play();
+
+        return ball;
+
+    }
+
+    public Group getShape() {
+        return shape;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    @Override
+    public void applyGravity() {
+        System.out.println("Gravity Ball");
+        gravity = new TranslateTransition(Duration.seconds(4), shape);
+        gravity.setByY(scene.getHeight() + size);
+        //tt1.setCycleCount(4);
+        gravity.setCycleCount((int) Double.POSITIVE_INFINITY);//mouvement a l'infini
+        //tt1.setAutoReverse(true);
+        gravity.setInterpolator(Interpolator.LINEAR);
+        gravity.play();
+
+    }
+
+    @Override
+    public void jump() {
+        // TODO Auto-generated method stub
+        System.out.println("Jump Ball");
+        gravity.pause();
+        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(1), shape);
+        tt1.setByY(-50);
+        tt1.setCycleCount(1);
+        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+        tt1.setAutoReverse(true);
+        tt1.setInterpolator(Interpolator.LINEAR);
+        tt1.play();
+        gravity.play();
+
+    }
 
 }

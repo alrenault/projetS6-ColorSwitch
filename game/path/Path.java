@@ -6,44 +6,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class Path {
 	private List<Obstacle> obstacles;
 	private List<Ennemy> ennemies;
-	
-	public Path(){
+
+	public Path() {
 		obstacles = new ArrayList<Obstacle>();
 		ennemies = new ArrayList<Ennemy>();
 	}
-	
-	public Path(List<Obstacle> _obstacles, List<Ennemy> _ennemies){
+
+	public Path(List<Obstacle> _obstacles, List<Ennemy> _ennemies) {
 		obstacles = _obstacles;
 		ennemies = _ennemies;
 	}
-	
-	public void add(Obstacle o){
+
+	public void add(Obstacle o) {
 		obstacles.add(o);
 	}
-	
-	public void add(Ennemy e){
+
+	public void add(Ennemy e) {
 		ennemies.add(e);
 	}
-	
-	public void remove(Obstacle o){
+
+	public void remove(Obstacle o) {
 		obstacles.remove(o);
 	}
-	
-	public void remove(Ennemy e){
+
+	public void remove(Ennemy e) {
 		ennemies.remove(e);
 	}
-  
+
 	public boolean isCorrect() {
 		//TODO
 		return false;
 	}
-	
-	
-	
+
+
 	/*c'est pas cool !!!*/
 	//TODO
 	public List<Obstacle> getObstacles() {
@@ -54,6 +52,6 @@ public class Path {
 	public List<Ennemy> getEnnemies() {
 		return ennemies;
 	}
-	
-	
+
+
 }

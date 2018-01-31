@@ -1,46 +1,46 @@
 package game.law;
 
 import game.Game;
-import game.ball.Ball;
 
 public class Gravity extends Law {
-	int vectorX;
-	int vectorY;
-	
-	public Gravity(int x, int y){
-		vectorX = x;
-		vectorY = y;
-	}
+    double vectorX;
+    double vectorY;
 
-	
-	public void multiplyX(int x){
-		vectorX*=x;
-	}
-	public void multiplyY(int y){
-		vectorY*=y;
-	}
-	
-	
-	public void changeDirection(int degre){
-		//TODO Changer la direction
-	}
-	
-	
-	public int getVectorX() {
-		return vectorX;
-	}
-
-	public int getVectorY() {
-		return vectorY;
-	}
+    public Gravity(double x, double y) {
+        vectorX = x;
+        vectorY = y;
+    }
 
 
-	@Override
-	public void apply(Game game) {
-		System.out.println("Gravity");
-		game.applyGravity(); //Do Something
-		
-	}
-	
-	
+    public void multiplyX(double x) {
+        vectorX *= x;
+    }
+
+    public void multiplyY(double y) {
+        vectorY *= y;
+    }
+
+
+    public void changeDirection(double degre) {
+        //TODO Changer la direction
+    }
+
+
+    public double getVectorX() {
+        return vectorX;
+    }
+
+    public double getVectorY() {
+        return vectorY;
+    }
+
+
+    @Override
+    public void apply(Game game) {
+        System.out.println("Gravity");
+        game.applyGravity(); //Do Something
+
+    }
+
+
 }
