@@ -21,7 +21,7 @@ public class MainTest extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("ColorSuitch");
         Group gr = new Group();
-        Scene scene1 = new Scene(gr, 1000, 1000);
+        Scene scene1 = new Scene(gr, 1000, 700);
 
 
         //-------------------------------------------------------------------
@@ -86,14 +86,14 @@ public class MainTest extends Application {
         gr.getChildren().add(tringle);
 
 
-        gr.getChildren().add(rec);
+       /* gr.getChildren().add(rec);
 
         gr.getChildren().add(croix);
 
         gr.getChildren().add(ligne);
 
         gr.getChildren().add(cercle);
-
+*/
 
         scene1.setFill(Color.BLACK);
 
