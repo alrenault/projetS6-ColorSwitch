@@ -57,6 +57,9 @@ public class Triangle extends Shapes {
         color(Rhaegal);
         verifPosColor();
 
+        t.getChildren().add(Drogon);
+        t.getChildren().add(Viserion);
+        t.getChildren().add(Rhaegal);
         RotateTransition rotation = new RotateTransition(Duration.seconds(mouvementSpeed), t);
 
         rotation.setByAngle(360 * ((mouvementDirection) ? 1 : -1));
