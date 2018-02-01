@@ -80,8 +80,9 @@ public class MainTest extends Application {
         //Creation du groupe des formes
 
 
-        Triangle Daeneris = new Triangle(250, 250, 200, 20, false, false, 1, Colorable.normal, 0);
+        Triangle Daeneris = new Triangle(500.0, 500.0, 200, 20, false, false, 1, Colorable.normal, 0);
         Group tringle = Daeneris.getShape();
+
         gr.getChildren().add(tringle);
 
 
