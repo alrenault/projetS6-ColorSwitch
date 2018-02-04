@@ -19,7 +19,7 @@ public class MultiLinee extends Obstacle {
     Scene scene;
 
     public MultiLinee(double x, double y, Color[] colors, int version, Scene scene) {
-        super(x, y, colors, version);
+        super(x, y, colors, version,4);
         this.scene = scene;
         obstacle = buildObstacle();
     }
@@ -37,7 +37,7 @@ public class MultiLinee extends Obstacle {
 		/*public Linee(int x, int y,int length, int width, boolean acceleration, 
 				boolean reverse,int _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors,int goal) {*/
         if (version >= nbr_versions)
-            version = 4;
+            version = versionDefault;
 
         switch (version) {
             case 0:

@@ -12,7 +12,7 @@ public class MultiCross extends Obstacle {
 	*/
 
     public MultiCross(double x, double y, Color[] colors, int version) {
-        super(x, y, colors, version);
+        super(x, y, colors, version,0);
         obstacle = buildObstacle();
     }
 
@@ -30,7 +30,7 @@ public class MultiCross extends Obstacle {
         Cross cr2;
 
         if (version >= nbr_versions)
-            version = 0;
+            version = versionDefault;
 
         switch (version) {
             case 0:

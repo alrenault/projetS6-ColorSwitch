@@ -22,7 +22,7 @@ public class CircleInCircle extends Obstacle {
 	*/
 
 	public CircleInCircle(double x, double y, Color[] colors, int version) {
-		super(x, y, colors, version);
+		super(x, y, colors, version,4);
 		obstacle = buildObstacle();
 	}
 
@@ -40,7 +40,7 @@ public class CircleInCircle extends Obstacle {
 		Circle cer3;
 
 		if (version >= nbr_versions)
-			version = 4;
+            version = versionDefault;
 
 		//int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,boolean acceleration, int vitesseRotation,Color[] colors,int pos_color
 

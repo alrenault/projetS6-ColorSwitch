@@ -21,7 +21,7 @@ public class MainTest extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("ColorSuitch");
         Group gr = new Group();
-        Scene scene1 = new Scene(gr, 1000, 700);
+        Scene scene1 = new Scene(gr, 600, 1000);
 
 
         //-------------------------------------------------------------------
@@ -29,7 +29,7 @@ public class MainTest extends Application {
 
         //Pour un rectangle
 
-        Square carre = new Square(150, 300, 200, 20, Colorable.normal, 1);
+        Square carre = new Square(150, 300, 200, 20, false,false,1,Colorable.normal, 1);
         Group rec = carre.getShape();
 
 
@@ -62,7 +62,7 @@ public class MainTest extends Application {
         //Linee l = new Linee(0,50,100,20,3,Colorable.normal);
         //Group ligne = l.getShape();
 
-        MultiLinee l = new MultiLinee(0, 100, Colorable.normal, 3, scene1);
+        MultiLinee l = new MultiLinee(0, 100, Colorable.normal, 6, scene1);
         Group ligne = l.getObstacle();
 
 
@@ -80,20 +80,31 @@ public class MainTest extends Application {
         //Creation du groupe des formes
 
 
-        Triangle Daeneris = new Triangle(500.0, 500.0, 200, 20, false, false, 1, Colorable.normal, 0);
+        Triangle Daeneris = new Triangle(scene1.getWidth()/2,scene1.getHeight()/2, 200, 20, false, false, 1, Colorable.normal, 0);
         Group tringle = Daeneris.getShape();
+        
+        MultiSquare squaires = new MultiSquare(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.normal,0);
+        Group multiSquaire = squaires.getObstacle();
+        
+        MultiShapes shapes = new MultiShapes(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.normal,scene1,3);
+        Group multiShapes = shapes.getObstacle();
 
-        gr.getChildren().add(tringle);
+        //gr.getChildren().add(multiSquaire);
+        
+        gr.getChildren().add(multiShapes);
+
+        
+        //gr.getChildren().add(tringle);
 
 
-       /* gr.getChildren().add(rec);
+       // gr.getChildren().add(rec);
 
-        gr.getChildren().add(croix);
+        //gr.getChildren().add(croix);
 
-        gr.getChildren().add(ligne);
+        //gr.getChildren().add(ligne);
 
-        gr.getChildren().add(cercle);
-*/
+        //gr.getChildren().add(cercle);
+
 
         scene1.setFill(Color.BLACK);
 

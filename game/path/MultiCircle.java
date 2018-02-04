@@ -14,7 +14,7 @@ public class MultiCircle extends Obstacle {
 	*/
 
     public MultiCircle(double x, double y, Color[] colors, int version) {
-        super(x, y, colors, version);
+        super(x, y, colors, version,0);
         obstacle = buildObstacle();
     }
 
@@ -31,7 +31,7 @@ public class MultiCircle extends Obstacle {
         Circle cer3;
 
         if (version >= nbr_versions)
-            version = 0;
+            version = versionDefault;
 
         switch (version) {
             case 0:
