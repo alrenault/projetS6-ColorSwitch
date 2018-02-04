@@ -11,8 +11,9 @@ public class Square extends Shapes {
 
     private double length;
 
-    public Square(double x, double y, double length, double width, Color[] colors, int pos_color) {
-        super(x, y, width, false, false, 1, colors, pos_color);
+    public Square(double x, double y, double length, double width,
+    		boolean mouvementDirection, boolean acceleration,int mouvementSpeed,Color[] colors, int pos_color) {
+        super(x, y, width,mouvementDirection, acceleration,mouvementSpeed, colors, pos_color);
         this.length = length;
 
         this.shape = buildSquare();
