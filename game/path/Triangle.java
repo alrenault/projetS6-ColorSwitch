@@ -1,6 +1,5 @@
 package game.path;
 
-import game.Colorable;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -11,31 +10,30 @@ import javafx.util.Duration;
 public class Triangle extends Shapes {
 
     private double height;
-    private double k;
 
     public Triangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, Color[] colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         this.height = height;
-        k = (height - (3.0 * width)) / height;
+
         this.shape = buildTriangle();
     }
 
     private Group buildTriangle() {
         Group t = new Group();
-        Circle milieu = new Circle(x, y, 5, 5, 1, false, false, 1, Colorable.WHITE, 0);
-        double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef;
+
+        double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef, coefReduction;
         Polygon arc_1, arc_2, arc_3;
         arc_1 = new Polygon();
         arc_2 = new Polygon();
         arc_3 = new Polygon();
-
+        coefReduction = (height - (3.0 * width)) / height;
         coef = (Math.sqrt((4.0 * height * height) / 5.0));
 
         xa = x;
         ya = y - (height / 2.0);//+
         xb = x + (coef / 2.0);
         yb = y + (height / 2.0);
-        xc = x + ((coef / 2.0) * k);
+        xc = x + ((coef / 2.0) * coefReduction);
         yc = yb - width;
         xd = x;
         yd = ya + 2.0 * width;
@@ -45,7 +43,7 @@ public class Triangle extends Shapes {
         ye = yb;
 
 
-        xf = x - ((coef / 2.0) * k);
+        xf = x - ((coef / 2.0) * coefReduction);
         yf = yc;
 
         arc_1.getPoints().addAll(xa, ya, xb, yb, xc, yc, xd, yd);
@@ -62,9 +60,7 @@ public class Triangle extends Shapes {
         t.getChildren().add(arc_2);
         t.getChildren().add(arc_3);
 
-        t.getChildren().add(arc_1);
-        t.getChildren().add(arc_2);
-        t.getChildren().add(arc_3);
+
         RotateTransition rotation = new RotateTransition(Duration.seconds(mouvementSpeed), t);
 
         rotation.setByAngle(360 * ((mouvementDirection) ? 1 : -1));

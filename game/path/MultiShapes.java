@@ -1,12 +1,11 @@
 package game.path;
 
-import java.util.Random;
-
 import game.Colorable;
-import game.path.Obstacle.ensDifficulty;
 import javafx.scene.Group;
-import javafx.scene.paint.Color;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+
+import java.util.Random;
 
 
 

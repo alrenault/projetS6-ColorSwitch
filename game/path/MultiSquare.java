@@ -1,7 +1,6 @@
 package game.path;
 
 import game.Colorable;
-import game.path.Obstacle.ensDifficulty;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
