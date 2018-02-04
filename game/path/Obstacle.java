@@ -11,13 +11,20 @@ public class Obstacle implements Colorable {
     protected double y;
     protected Color colors[];
     protected int version;
+    protected int versionDefault;
     protected ensDifficulty difficulty;
 
-    public Obstacle(double x, double y, Color[] colors, int version) {
+    public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {
         this.x = x;
         this.y = y;
         this.colors = colors;
-        this.version = version;
+        this.versionDefault = versionDefault;
+        if(0 > version){
+        	this.version = versionDefault;
+        }
+        else{
+            this.version = version;
+        }
     }
 
     public double getX() {
