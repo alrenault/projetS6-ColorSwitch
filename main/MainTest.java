@@ -38,9 +38,9 @@ public class MainTest extends Application {
 
         //Creation de la scene pour le rectangle
 
-        Scene scene = new Scene(rec, 500, 500);
+       // Scene scene = new Scene(rec, 500, 500);
 
-        scene.setFill(Color.BLUE);
+        //scene.setFill(Color.BLUE);
 
 
         //-------------------------------------------------------------------
@@ -86,7 +86,7 @@ public class MainTest extends Application {
         MultiSquare squaires = new MultiSquare(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.normal,0);
         Group multiSquaire = squaires.getObstacle();
         
-        MultiShapes shapes = new MultiShapes(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.normal,scene1,3);
+        MultiShapes shapes = new MultiShapes(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.CUSTOM,scene1,3);
         Group multiShapes = shapes.getObstacle();
 
         //gr.getChildren().add(multiSquaire);
@@ -106,7 +106,7 @@ public class MainTest extends Application {
         //gr.getChildren().add(cercle);
 
 
-        scene1.setFill(Color.BLACK);
+        scene1.setFill(Colorable.BLACK);
 
 
         //-------------------------------------------------------------------

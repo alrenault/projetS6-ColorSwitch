@@ -54,7 +54,7 @@ public class MultiShapes extends Obstacle {
         switch (version) {
             case 0:
             	squa1 =  new Square(x, y, length, width,false,false,2 ,Colorable.normal, 0);
-                cer1 = new Circle(x-width/2, y-width/2, bigRadial-(3*width)/2, width, nb_arc, true, false, 1, colors, 1);
+                cer1 = new Circle(x, y, bigRadial-(3*width)/2, width, nb_arc, true, false, 1, colors, 1);
                 
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(cer1.getShape());

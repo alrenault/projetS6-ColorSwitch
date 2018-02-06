@@ -1,5 +1,6 @@
 package game.path;
 
+import game.Colorable;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -17,23 +18,24 @@ public class Square extends Shapes {
         this.length = length;
 
         this.shape = buildSquare();
+
     }
 
 
     private Group buildSquare() {
         Group squaire = new Group();
 
-        double pos1_x = x - (length + width) / 2;
-        double pos1_y = y - (length + width) / 2;
+        double pos1_x = x - length / 2;
+        double pos1_y = y - length / 2;
 
-        double pos2_x = x - (length - width) / 2 - width;
-        double pos2_y = y - (length + width) / 2 + width;
+        double pos2_x = x - length / 2;
+        double pos2_y = y - length / 2 + width;
 
-        double pos3_x = x - (length + width) / 2 + width;
-        double pos3_y = y + (length + width) / 2 - 2 * width;
+        double pos3_x = x - length / 2 + width;
+        double pos3_y = y + length / 2 - width;
 
-        double pos4_x = x + (length + width) / 2 - 2 * width;
-        double pos4_y = y - (length + width) / 2;
+        double pos4_x = x + length / 2 - width;
+        double pos4_y = y - length / 2;
 
         Rectangle rec1 = new Rectangle(pos1_x, pos1_y, length - width, width);
         Rectangle rec2 = new Rectangle(pos2_x, pos2_y, width, length - width);
