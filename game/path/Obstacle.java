@@ -6,6 +6,9 @@ import javafx.scene.paint.Color;
 
 
 public class Obstacle implements Colorable {
+
+    protected enum ensDifficulty {EASY, NORMAL, HARD}
+
     protected Group obstacle;
     protected double x;
     protected double y;
@@ -13,6 +16,7 @@ public class Obstacle implements Colorable {
     protected int version;
     protected int versionDefault;
     protected ensDifficulty difficulty;
+
 
     public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {
         this.x = x;
@@ -47,5 +51,5 @@ public class Obstacle implements Colorable {
         return this.obstacle.contains(x, y);
     }
 
-    protected enum ensDifficulty {EASY, NORMAL, HARD}
+
 }

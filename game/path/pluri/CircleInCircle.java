@@ -2,6 +2,7 @@ package game.path.pluri;
 
 import game.path.Circle;
 import game.path.Obstacle;
+import game.path.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
@@ -48,58 +49,58 @@ public class CircleInCircle extends Obstacle {
 
         switch (version) {
             case 0:
-                cer1 = new Circle(x, y, tinyRadial, width, nb_arc, true, false, 1, colors, 1);
+                cer1 = new Circle(x, y, tinyRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 1:
-                cer1 = new Circle(x, y, tinyRadial, width, nb_arc, false, false, 1, colors, 1);
+                cer1 = new Circle(x, y, tinyRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
 
             case 2:
-                cer1 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, 1, colors, 1);
+                cer1 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
 
             case 3:
-                cer1 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, 1, colors, 1);
+                cer1 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
 
             case 4:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, 1, colors, 1);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 5:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, 1, colors, 1);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 6:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, 1, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, 2, colors, 3);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
 
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 7:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, 1, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, 2, colors, 3);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+                cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 3);
 
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 8:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, 1, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, 2, colors, 1);
-                cer3 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, 1, colors, 1);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+                cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
+                cer3 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
 
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
@@ -107,9 +108,9 @@ public class CircleInCircle extends Obstacle {
                 difficulty = ensDifficulty.HARD;
                 break;
             case 9:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, 1, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, 2, colors, 3);
-                cer3 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, 1, colors, 1);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
+                cer3 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
 
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
@@ -117,22 +118,22 @@ public class CircleInCircle extends Obstacle {
                 difficulty = ensDifficulty.HARD;
                 break;
             case 10:
-                cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, 1, colors, 0);
-                cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, 2, colors, 2);
+                cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0);
+                cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 2);
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 11:
-                cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, 1, colors, 0);
-                cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, 2, colors, 2);
+                cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0);
+                cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 2);
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
 
             default:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, 1, colors, 1);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = ensDifficulty.EASY;
 

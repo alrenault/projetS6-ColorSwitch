@@ -2,6 +2,7 @@ package game.path.pluri;
 
 import game.path.Cross;
 import game.path.Obstacle;
+import game.path.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
@@ -36,34 +37,34 @@ public class MultiCross extends Obstacle {
 
         switch (version) {
             case 0:
-                cr1 = new Cross(x + length / 2, y, length, width, true, false, 1, 4, colors, 0);
+                cr1 = new Cross(x + length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
                 multiCross.getChildren().add(cr1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 1:
-                cr1 = new Cross(x - length / 2, y, length, width, true, false, 1, 4, colors, 0);
+                cr1 = new Cross(x - length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
                 multiCross.getChildren().add(cr1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 2:
-                cr1 = new Cross(x + length + width / 2, y, length, width, true, false, 2, 4, colors, 0);
-                cr2 = new Cross(x - length - width / 2, y, length, width, true, false, 2, 4, colors, 2);
+                cr1 = new Cross(x + length + width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 0);
+                cr2 = new Cross(x - length - width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 2);
 
                 multiCross.getChildren().add(cr1.getShape());
                 multiCross.getChildren().add(cr2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 3:
-                cr1 = new Cross(x + length + width / 2, y, length, width, false, false, 2, 4, colors, 0);
-                cr2 = new Cross(x - length - width / 2, y, length, width, false, false, 2, 4, colors, 2);
+                cr1 = new Cross(x + length + width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 0);
+                cr2 = new Cross(x - length - width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 2);
 
                 multiCross.getChildren().add(cr1.getShape());
                 multiCross.getChildren().add(cr2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 4:
-                cr1 = new Cross(x + length / 2 + 3 * width, y, length, width, true, false, 1, 4, colors, 0);
-                cr2 = new Cross(x - length / 2, y, length, width, true, false, 1, 4, colors, 2);
+                cr1 = new Cross(x + length / 2 + 3 * width, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
+                cr2 = new Cross(x - length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 2);
                 multiCross.getChildren().add(cr1.getShape());
                 multiCross.getChildren().add(cr2.getShape());
                 difficulty = ensDifficulty.HARD;

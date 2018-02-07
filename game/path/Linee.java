@@ -16,28 +16,8 @@ public class Linee extends Shapes {
 	private boolean reverse;
 
 
-	public Linee(double x, double y, double length, double width, Color[] colors, double goal) {
-		super(x, y, width, true, false, 1, colors, 0);
-		this.length = length;
-		nbr_seg = 1;
-		this.goal = goal;
-		reverse = true;
-		this.shape = buildLine();
-
-	}
-
-	public Linee(double x, double y, double length, double width, int _nbr_seg, Color[] colors, double goal) {
-		super(x, y, width, true, false, 1, colors, 0);
-		this.length = length;
-		nbr_seg = _nbr_seg;
-		this.goal = goal;
-		reverse = true;
-		this.shape = buildLine();
-	}
-
-
-	public Linee(double x, double y, double length, double width/*, boolean mouvementDirection*/, boolean acceleration
-			, boolean reverse, int _mouvementSpeed/*, double speed*/, int nbr_seg, Color[] colors, int pos_colors, double goal) {
+	public Linee(double x, double y, double length, double width, boolean acceleration
+			, boolean reverse, Speed _mouvementSpeed/*, double speed*/, int nbr_seg, Color[] colors, int pos_colors, double goal) {
 		super(x, y, width, true, acceleration, _mouvementSpeed, colors, pos_colors);
 		this.length = length;
 		this.nbr_seg = nbr_seg;

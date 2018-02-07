@@ -19,7 +19,7 @@ public class Circle extends Shapes {
 
 
     public Circle(double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
-                  boolean acceleration, int vitesseRotation, Color[] colors, int pos_color) {
+                  boolean acceleration, Speed vitesseRotation, Color[] colors, int pos_color) {
 
         super(xCenter, yCenter, width, rotationDirection, acceleration, vitesseRotation, colors, pos_color);
         System.out.println(this.pos_color);

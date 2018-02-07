@@ -6,36 +6,31 @@ import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 public abstract class Shapes {
     double x, y, width, mouvementSpeed;
     boolean mouvementDirection;
     boolean acceleration;
-    int pos_color;
-    Group shape;
-    Color colors[];
-    List<Color> colors_use;
 
-
-    Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, int _mouvementSpeed, Color[] colors, int pos_color) {
+    Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
         this.x = x;
         this.y = y;
         this.width = width;
 
         this.mouvementDirection = mouvementDirection;
         this.acceleration = acceleration;
-        switch (_mouvementSpeed) {
-            case 1:
+        switch (s) {
+            case MOYEN:
                 mouvementSpeed = 6.0;
                 break;
-            case 2:
+            case HARD:
                 mouvementSpeed = 4.5;
                 break;
-            case 3:
-                mouvementSpeed = 3;
+            case BATARD:
+                mouvementSpeed = 3.0;
                 break;
-            default:
+            case SYMPA:
                 mouvementSpeed = 7.0;
                 break;
         }
@@ -47,6 +42,19 @@ public abstract class Shapes {
             this.pos_color = pos_color % colors.length;
         this.colors_use = new ArrayList<Color>();
 
+    }
+
+    int pos_color;
+    Group shape;
+    Color colors[];
+    List<Color> colors_use;
+
+
+    public enum Speed {
+        SYMPA,
+        MOYEN,
+        HARD,
+        BATARD
     }
 
     public void verifPosColor() {
@@ -72,10 +80,6 @@ public abstract class Shapes {
         return colors_use;
     }
 
-    Color coloRand() {
-        Random r = new Random();
-        return new Color(r.nextDouble(), r.nextDouble(), r.nextDouble(), 1);
-    }
 
     public boolean isOver(double _x, double _y) {
         return this.shape.contains(_x, _y);

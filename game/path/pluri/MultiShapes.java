@@ -2,6 +2,7 @@ package game.path.pluri;
 
 import game.Colorable;
 import game.path.*;
+import game.path.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -53,8 +54,8 @@ public class MultiShapes extends Obstacle {
 
         switch (version) {
             case 0:
-                squa1 = new Square(x, y, length, width, false, false, 2, Colorable.normal, 0);
-                cer1 = new Circle(x, y, bigRadial - (3 * width) / 2, width, nb_arc, true, false, 1, colors, 1);
+                squa1 = new Square(x, y, length, width, false, false, Shapes.Speed.MOYEN, Colorable.normal, 0);
+                cer1 = new Circle(x, y, bigRadial - (3 * width) / 2, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
 
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(cer1.getShape());
@@ -62,9 +63,9 @@ public class MultiShapes extends Obstacle {
                 break;
 
             case 1:
-                squa1 = new Square(x, y, length, width, false, false, 2, Colorable.normal, 0);
-                l1 = new Linee(-length, y - length - width * 2, length, width, false, true, 2, 1, colors, colorR1, (int) scene.getWidth() + length);
-                l2 = new Linee((int) scene.getWidth(), y + length + width * 2, length, width, false, true, 2, 1, colors, colorR2, -((int) scene.getWidth() + length));
+                squa1 = new Square(x, y, length, width, false, false, Speed.MOYEN, Colorable.normal, 0);
+                l1 = new Linee(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scene.getWidth() + length);
+                l2 = new Linee((int) scene.getWidth(), y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scene.getWidth() + length));
 
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(l1.getShape());
@@ -73,9 +74,9 @@ public class MultiShapes extends Obstacle {
                 break;
 
             case 2:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, 1, colors, 1);
-                l1 = new Linee(-length, y - length - width * 2, length, width, false, true, 2, 1, colors, colorR1, (int) scene.getWidth() + length);
-                l2 = new Linee((int) scene.getWidth(), y + length + width * 2, length, width, false, true, 2, 1, colors, colorR2, -((int) scene.getWidth() + length));
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                l1 = new Linee(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scene.getWidth() + length);
+                l2 = new Linee((int) scene.getWidth(), y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scene.getWidth() + length));
 
                 multiShapes.getChildren().add(cer1.getShape());
                 multiShapes.getChildren().add(l1.getShape());
@@ -84,10 +85,10 @@ public class MultiShapes extends Obstacle {
                 break;
 
             case 3:
-                cr1 = new Cross(x + tinyLength + width / 2, y, tinyLength, width, false, false, 2, 4, colors, 0);
-                cr2 = new Cross(x - tinyLength - width / 2, y, tinyLength, width, false, false, 2, 4, colors, 2);
-                l1 = new Linee(-length * 4, y - length - width * 2, length, width, false, false, 1, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                l2 = new Linee(0, y + length + width * 2, length, width, false, false, 2, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
+                cr1 = new Cross(x + tinyLength + width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, 0);
+                cr2 = new Cross(x - tinyLength - width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, 2);
+                l1 = new Linee(-length * 4, y - length - width * 2, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+                l2 = new Linee(0, y + length + width * 2, length, width, false, false, Speed.MOYEN, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
 
                 multiShapes.getChildren().add(cr1.getShape());
                 multiShapes.getChildren().add(cr2.getShape());
