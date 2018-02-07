@@ -68,7 +68,8 @@ public class MainTest extends Application {
         MultiLinee l = new MultiLinee(0, 100, Colorable.normal, 6, scene1);
         Group ligne = l.getObstacle();
 
-
+        MultiLinee ml = new MultiLinee(50, 150, Colorable.hard, 8, scene1);
+        Group mult = ml.getObstacle();
         //-------------------------------------------------------------------
 
         //Circle cer =new Circle(280, 150, 50, 5);
@@ -108,7 +109,7 @@ public class MainTest extends Application {
 
         //gr.getChildren().add(cercle);
 
-
+        gr.getChildren().add(mult);
         scene1.setFill(Colorable.BLACK);
 
 
