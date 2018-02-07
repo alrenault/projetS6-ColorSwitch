@@ -8,50 +8,50 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class VerticalLine extends Shapes {
-	
-	private double length;
-	private int nbr_seg;
-	private double goal;
-	private double distanceSeparation;
-	private boolean reverse;
+
+    private double length;
+    private int nbr_seg;
+    private double goal;
+    private double distanceSeparation;
+    private boolean reverse;
 
 
-	public VerticalLine(double x, double y, double height, double width,double distanceSeparation, boolean acceleration
-			, boolean reverse, int _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors, double goal) {
-		super(x, y, width, true, acceleration, _mouvementSpeed, colors, pos_colors);
-		this.length = height;
-		this.distanceSeparation = distanceSeparation;
-		this.nbr_seg = nbr_seg;
-		this.goal = goal;
-		this.reverse = reverse;
-		this.shape = buildLine();
-	}
+    public VerticalLine(double x, double y, double height, double width, double distanceSeparation, boolean acceleration
+            , boolean reverse, Speed _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors, double goal) {
+        super(x, y, width, true, acceleration, _mouvementSpeed, colors, pos_colors);
+        this.length = height;
+        this.distanceSeparation = distanceSeparation;
+        this.nbr_seg = nbr_seg;
+        this.goal = goal;
+        this.reverse = reverse;
+        this.shape = buildLine();
+    }
 
 
-	private Group buildLine() {
-		Group hline = new Group();
+    private Group buildLine() {
+        Group hline = new Group();
 
-		for (int i = 0; i < nbr_seg; i++) {
-			verifPosColor();
-			Rectangle rec = new Rectangle(x + distanceSeparation * i, y, width, length);
-			color(rec);
-			hline.getChildren().add(rec);
-		}
+        for (int i = 0; i < nbr_seg; i++) {
+            verifPosColor();
+            Rectangle rec = new Rectangle(x + distanceSeparation * i, y, width, length);
+            color(rec);
+            hline.getChildren().add(rec);
+        }
 
-		
-		TranslateTransition tt1 = new TranslateTransition(Duration.seconds(mouvementSpeed+Math.abs(goal/1000)), hline);
-		tt1.setByX(goal);
 
-		tt1.setCycleCount((int) Double.POSITIVE_INFINITY);
+        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(mouvementSpeed + Math.abs(goal / 1000)), hline);
+        tt1.setByX(goal);
 
-		if (reverse)
-			tt1.setAutoReverse(true);
+        tt1.setCycleCount((int) Double.POSITIVE_INFINITY);
 
-		if (!acceleration) tt1.setInterpolator(Interpolator.LINEAR);
+        if (reverse)
+            tt1.setAutoReverse(true);
 
-		tt1.play();
+        if (!acceleration) tt1.setInterpolator(Interpolator.LINEAR);
 
-		return hline;
-	}
+        tt1.play();
+
+        return hline;
+    }
 
 }
