@@ -64,7 +64,7 @@ public class MultiShapes extends Obstacle {
             case 1:
             	squa1 =  new Square(x, y, length, width,false,false,2 ,Colorable.normal, 0);
                 l1 = new Linee(-length, y-length-width*2, length, width, false, true, 2, 1, colors, colorR1, (int) scene.getWidth() + length);
-                l2 = new Linee((int) scene.getWidth(), y+length+width*2, length, width, false, true, 2, 1, colors, colorR2, -((int) scene.getWidth() + length));
+                l2 = new Linee(scene.getWidth(), y+length+width*2, length, width, false, true, 2, 1, colors, colorR2, -(scene.getWidth() + length));
 
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(l1.getShape());
@@ -75,7 +75,7 @@ public class MultiShapes extends Obstacle {
             case 2:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, 1, colors, 1);
             	l1 = new Linee(-length, y-length-width*2, length, width, false, true, 2, 1, colors, colorR1, (int) scene.getWidth() + length);
-                l2 = new Linee((int) scene.getWidth(), y+length+width*2, length, width, false, true, 2, 1, colors, colorR2, -((int) scene.getWidth() + length));
+                l2 = new Linee(scene.getWidth(), y+length+width*2, length, width, false, true, 2, 1, colors, colorR2, -( scene.getWidth() + length));
 
                 multiShapes.getChildren().add(cer1.getShape());
                 multiShapes.getChildren().add(l1.getShape());
