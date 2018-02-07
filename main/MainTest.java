@@ -62,7 +62,7 @@ public class MainTest extends Application {
         //Linee l = new Linee(0,50,100,20,3,Colorable.normal);
         //Group ligne = l.getShape();
 
-        MultiLinee l = new MultiLinee(0, 100, Colorable.normal, 6, scene1);
+        MultiLinee l = new MultiLinee(0, 100, Colorable.normal, 9, scene1);
         Group ligne = l.getObstacle();
 
 
@@ -88,10 +88,16 @@ public class MainTest extends Application {
         
         MultiShapes shapes = new MultiShapes(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.CUSTOM,scene1,3);
         Group multiShapes = shapes.getObstacle();
+        
+        VerticalLine vl = new VerticalLine(scene1.getWidth()+15,scene1.getHeight()/2,100,15,300,false,true, 1, 3, 
+        		Colorable.CUSTOM, 0, -(scene1.getWidth()+60+600));
+        Group vline = vl.getShape();
+        
+        //gr.getChildren().add(vline);
 
         //gr.getChildren().add(multiSquaire);
         
-        gr.getChildren().add(multiShapes);
+        //gr.getChildren().add(multiShapes);
 
         
         //gr.getChildren().add(tringle);
@@ -101,7 +107,7 @@ public class MainTest extends Application {
 
         //gr.getChildren().add(croix);
 
-        //gr.getChildren().add(ligne);
+        gr.getChildren().add(ligne);
 
         //gr.getChildren().add(cercle);
 
