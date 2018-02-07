@@ -1,5 +1,7 @@
-package game.path;
+package game.path.pluri;
 
+import game.path.Linee;
+import game.path.Obstacle;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -19,7 +21,7 @@ public class MultiLinee extends Obstacle {
     Scene scene;
 
     public MultiLinee(double x, double y, Color[] colors, int version, Scene scene) {
-        super(x, y, colors, version,4);
+        super(x, y, colors, version, 4);
         this.scene = scene;
         obstacle = buildObstacle();
     }

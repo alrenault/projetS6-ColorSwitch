@@ -2,7 +2,9 @@ package main;
 
 import game.Colorable;
 import game.ball.BallPlayer;
-import game.path.*;
+import game.path.Square;
+import game.path.Triangle;
+import game.path.pluri.*;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

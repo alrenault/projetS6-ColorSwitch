@@ -1,5 +1,7 @@
-package game.path;
+package game.path.pluri;
 
+import game.path.Cross;
+import game.path.Obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
@@ -12,7 +14,7 @@ public class MultiCross extends Obstacle {
 	*/
 
     public MultiCross(double x, double y, Color[] colors, int version) {
-        super(x, y, colors, version,0);
+        super(x, y, colors, version, 0);
         obstacle = buildObstacle();
     }
 

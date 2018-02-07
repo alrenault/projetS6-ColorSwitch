@@ -1,5 +1,7 @@
-package game.path;
+package game.path.pluri;
 
+import game.path.Circle;
+import game.path.Obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
@@ -14,7 +16,7 @@ public class MultiCircle extends Obstacle {
 	*/
 
     public MultiCircle(double x, double y, Color[] colors, int version) {
-        super(x, y, colors, version,0);
+        super(x, y, colors, version, 0);
         obstacle = buildObstacle();
     }
 

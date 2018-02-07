@@ -10,6 +10,7 @@ public class Path {
 	private List<Obstacle> obstacles;
 	private List<Ennemy> ennemies;
 
+
 	public Path() {
 		obstacles = new ArrayList<Obstacle>();
 		ennemies = new ArrayList<Ennemy>();

@@ -1,6 +1,5 @@
 package game.path;
 
-import game.Colorable;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
