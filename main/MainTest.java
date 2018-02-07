@@ -2,6 +2,7 @@ package main;
 
 import game.Colorable;
 import game.ball.BallPlayer;
+import game.path.Shapes.Speed;
 import game.path.Square;
 import game.path.Triangle;
 import game.path.pluri.*;
@@ -31,7 +32,7 @@ public class MainTest extends Application {
 
         //Pour un rectangle
 
-        Square carre = new Square(150, 300, 200, 20, false,false,1,Colorable.normal, 1);
+        Square carre = new Square(150, 300, 200, 20, false, false, Speed.SYMPA, Colorable.normal, 1);
         Group rec = carre.getShape();
 
 
@@ -82,7 +83,7 @@ public class MainTest extends Application {
         //Creation du groupe des formes
 
 
-        Triangle Daeneris = new Triangle(scene1.getWidth()/2,scene1.getHeight()/2, 200, 20, false, false, 1, Colorable.normal, 0);
+        Triangle Daeneris = new Triangle(scene1.getWidth() / 2, scene1.getHeight() / 2, 200, 20, false, false, Speed.SYMPA, Colorable.normal, 0);
         Group tringle = Daeneris.getShape();
         
         MultiSquare squaires = new MultiSquare(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.normal,0);

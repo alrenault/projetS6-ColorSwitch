@@ -12,13 +12,13 @@ public class Cross extends Shapes {
 	private double length;
 
 	public Cross(double x, double y, double width, double length, Color[] colors) {
-		super(x, y, width, true, false, 1, colors, 1);
+		super(x, y, width, true, false, Speed.SYMPA, colors, 1);
 		this.length = length;
 		this.shape = buildCross();
 	}
 
 	public Cross(double x, double y, double width, double length, boolean mouvementDirection, boolean acceleration,
-				 int _mouvementSpeed, int nbr_rect, Color[] colors, int pos_color) {
+				 Speed _mouvementSpeed, int nbr_rect, Color[] colors, int pos_color) {
 
 		super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
 		if (nbr_rect != 2)

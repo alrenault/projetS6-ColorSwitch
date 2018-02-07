@@ -2,6 +2,7 @@ package game.path.pluri;
 
 import game.path.Linee;
 import game.path.Obstacle;
+import game.path.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -43,52 +44,52 @@ public class MultiLinee extends Obstacle {
 
         switch (version) {
             case 0:
-                l1 = new Linee(-length, y, length, width, false, true, 3, 1, colors, 0, (int) scene.getWidth() + length);
+                l1 = new Linee(-length, y, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scene.getWidth() + length);
                 multiLinee.getChildren().add(l1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 1:
-                l1 = new Linee((int) scene.getWidth(), y, length, width, false, true, 2, 1, colors, 1, -((int) scene.getWidth() + length));
+                l1 = new Linee((int) scene.getWidth(), y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scene.getWidth() + length));
                 multiLinee.getChildren().add(l1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 2:
-                l1 = new Linee((int) scene.getWidth(), y, length, width, false, true, 2, 1, colors, 1, -((int) scene.getWidth() + length));
-                l2 = new Linee(-length, y + width, length, width, false, true, 3, 1, colors, 0, (int) scene.getWidth() + length);
+                l1 = new Linee((int) scene.getWidth(), y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scene.getWidth() + length));
+                l2 = new Linee(-length, y + width, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scene.getWidth() + length);
 
                 multiLinee.getChildren().add(l1.getShape());
                 multiLinee.getChildren().add(l2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 3:
-                l1 = new Linee(-length * 4, y, length, width, false, true, 1, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+                l1 = new Linee(-length * 4, y, length, width, false, true, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
                 multiLinee.getChildren().add(l1.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 4:
-                l1 = new Linee(-length * 4, y, length, width, false, false, 1, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
                 multiLinee.getChildren().add(l1.getShape());
                 difficulty = ensDifficulty.EASY;
 
                 break;
             case 5:
-                l1 = new Linee(-length * 4, y, length, width, false, false, 1, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                l2 = new Linee(0, y + width, length, width, false, false, 2, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
+                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+                l2 = new Linee(0, y + width, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
 
                 multiLinee.getChildren().add(l1.getShape());
                 multiLinee.getChildren().add(l2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 6:
-                l1 = new Linee(-length * 4, y, length, width, false, false, 1, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                l2 = new Linee(0, y + width + 80, length, width, false, false, 2, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
+                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+                l2 = new Linee(0, y + width + 80, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
 
                 multiLinee.getChildren().add(l1.getShape());
                 multiLinee.getChildren().add(l2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             default:
-                l1 = new Linee(-length * 4, y, length, width, false, false, 1, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
                 multiLinee.getChildren().add(l1.getShape());
                 difficulty = ensDifficulty.EASY;
         }
