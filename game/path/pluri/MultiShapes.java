@@ -16,6 +16,8 @@ public class MultiShapes extends Obstacle {
 	 version 1 : Carré avec 1 segment au dessus et en dessous faisant des allez-retour
 	 version 2 : Cercle avec 1 segment au dessus et en dessous faisant des allez-retour
 	 version 3 : Deux croix avec une ligne au dessus et en dessous faisant des allez-retour
+	 version 4 : Cercle tournant dans le sens horraire avec une barre verticale faisant des allez retour
+	 version 5 : Carré tournant dans le sens horraire avec une barre verticale faisant des allez retour
 	 */
 
     Scene scene;
@@ -37,7 +39,7 @@ public class MultiShapes extends Obstacle {
         double bigRadial = 100.0;
         double width = 15.0;
         int nb_arc = 4;
-        int nbr_versions = 4;
+        int nbr_versions = 6;
 
         Random r = new Random();
         int colorR1 = r.nextInt(colors.length);
@@ -46,6 +48,8 @@ public class MultiShapes extends Obstacle {
         Circle cer1;
         Linee l1;
         Linee l2;
+        VerticalLine vl1;
+        VerticalLine vl2;
         Cross cr1;
         Cross cr2;
 
@@ -54,7 +58,7 @@ public class MultiShapes extends Obstacle {
 
         switch (version) {
             case 0:
-                squa1 = new Square(x, y, length, width, false, false, Shapes.Speed.MOYEN, Colorable.normal, 0);
+                squa1 = new Square(x, y, length, width, false, false, Shapes.Speed.MOYEN, colors, 0);
                 cer1 = new Circle(x, y, bigRadial - (3 * width) / 2, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
 
                 multiShapes.getChildren().add(squa1.getShape());
@@ -63,7 +67,7 @@ public class MultiShapes extends Obstacle {
                 break;
 
             case 1:
-                squa1 = new Square(x, y, length, width, false, false, Speed.MOYEN, Colorable.normal, 0);
+                squa1 = new Square(x, y, length, width, false, false, Speed.MOYEN, colors, 0);
                 l1 = new Linee(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scene.getWidth() + length);
                 l2 = new Linee((int) scene.getWidth(), y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scene.getWidth() + length));
 
@@ -96,6 +100,27 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(l2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
+                
+            case 4:
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
+                vl1 = new VerticalLine(-width,y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 0,(scene.getWidth()+width));
+            	vl2 = new VerticalLine(scene.getWidth(),y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 2,-(scene.getWidth()+width));
+                
+            	multiShapes.getChildren().add(cer1.getShape());
+                multiShapes.getChildren().add(vl1.getShape());
+                multiShapes.getChildren().add(vl2.getShape());
+                difficulty = ensDifficulty.EASY;
+            	break;
+            	
+            case 5:
+                squa1 = new Square(x, y, length, width, false, false, Speed.MOYEN, colors, 0);
+                vl1 = new VerticalLine(-width,y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 0,(scene.getWidth()+width));
+            	vl2 = new VerticalLine(scene.getWidth(),y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 2,-(scene.getWidth()+width));
+                
+            	multiShapes.getChildren().add(squa1.getShape());
+                multiShapes.getChildren().add(vl1.getShape());
+                multiShapes.getChildren().add(vl2.getShape());
+            	break;
         }
 
         return multiShapes;

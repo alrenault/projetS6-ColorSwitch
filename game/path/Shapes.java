@@ -26,16 +26,16 @@ public abstract class Shapes {
         this.mouvementDirection = mouvementDirection;
         this.acceleration = acceleration;
         switch (s) {
-            case MOYEN:
+            case SYMPA:
                 mouvementSpeed = 6.0;
                 break;
-            case HARD:
+            case MOYEN:
                 mouvementSpeed = 4.5;
                 break;
-            case BATARD:
+            case HARD:
                 mouvementSpeed = 3.0;
                 break;
-            case SYMPA:
+            case TRESSYMPA:
                 mouvementSpeed = 7.0;
                 break;
         }
@@ -54,7 +54,7 @@ public abstract class Shapes {
         SYMPA,
         MOYEN,
         HARD,
-        BATARD
+        TRESSYMPA
     }
 
     public void verifPosColor() {
