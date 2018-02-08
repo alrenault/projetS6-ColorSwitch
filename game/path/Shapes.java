@@ -42,6 +42,9 @@ public abstract class Shapes {
             case TRESSYMPA:
                 mouvementSpeed = 7.0;
                 break;
+            case NONE:
+                mouvementSpeed = 0.0;
+                break;
         }
 
         this.colors = colors;
@@ -58,7 +61,8 @@ public abstract class Shapes {
         SYMPA,
         MOYEN,
         HARD,
-        TRESSYMPA
+        TRESSYMPA,
+        NONE
     }
 
     public void verifPosColor() {
