@@ -43,17 +43,21 @@ Début d'architecture, début d'IHM
 - Formes Supplémentaires
 	- Barres Verticales
 	- Portes (Barre avec un Trou)
+	- Triangle
 	- ...
 - Niveau Fini/Infini
 - Score
 	- Sauvegardé
 	- Nombre de portes traversées
+	- Progression
 	- Items ramassés (étoiles,...)
 
 ### Mécanique avancées : extensions
 
 - Déplacements sur xy
 - "Niveau rotation à 90° "
+- Obstacles bougeants
+- Possibilité d'échaper aux obstacles
 - Powers-up (Items)
 	- Changeur de gravité +/-
 	- Changeur de sens de gravité
