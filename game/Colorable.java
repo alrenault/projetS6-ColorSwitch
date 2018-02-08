@@ -4,7 +4,9 @@ import javafx.scene.paint.Color;
 
 import java.util.Random;
 
-
+/**
+ * This interface propose to use already defined colors when building shapes
+ */
 public interface Colorable {
 	Color[] normal = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW};
 	Color[] hard = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.ORANGE};

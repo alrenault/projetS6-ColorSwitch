@@ -4,6 +4,12 @@ import game.ball.Ball;
 import game.law.Universe;
 import game.path.Path;
 
+/**
+ * This class is used to create a game
+ * You have to use it in the model 
+ * Only contains data
+ */
+
 public class Game {
 
     Ball balle;

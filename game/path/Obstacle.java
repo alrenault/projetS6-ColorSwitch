@@ -4,8 +4,11 @@ import game.Colorable;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
-
-public class Obstacle implements Colorable {
+/**
+ * An Obstacle is a Group of Shapes which contains at least one of it
+ * This class is the pattern of all obstacles in the game
+ */
+public abstract class Obstacle implements Colorable {
 
     protected enum ensDifficulty {EASY, NORMAL, HARD}
 

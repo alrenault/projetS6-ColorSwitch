@@ -5,6 +5,11 @@ import game.Game;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * Universe is a Set of Law
+ * It represents all the rules in a game
+ */
 public class Universe {
     Set<Law> laws;
 
