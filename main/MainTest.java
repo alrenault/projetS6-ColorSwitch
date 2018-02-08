@@ -4,8 +4,12 @@ import game.Colorable;
 import game.ball.BallPlayer;
 import game.path.Shapes.Speed;
 import game.path.Square;
+import game.path.Star;
 import game.path.Triangle;
-import game.path.pluri.*;
+import game.path.pluri.MultiCircle;
+import game.path.pluri.MultiLinee;
+import game.path.pluri.MultiShapes;
+import game.path.pluri.MultiSquare;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -53,8 +57,6 @@ public class MainTest extends Application {
 
         //Cross cr = new Cross(350,400,100,20,false,false,1,4,Colorable.normal,1);
         //Group croix = cr.getShape();
-        MultiCross cr = new MultiCross((int) scene1.getWidth() / 2, 300, Colorable.normal, 4);
-        Group croix = cr.getObstacle();
         //Cross4 cr = new Cross4(350,400,100,20);
 
 
@@ -94,7 +96,12 @@ public class MainTest extends Application {
         Group multiShapes = shapes.getObstacle();
 
         //gr.getChildren().add(multiSquaire);
-        
+
+        Star s = new Star(300, 250);
+        Group str = s.getShape();
+
+        gr.getChildren().add(str);
+
         gr.getChildren().add(multiShapes);
 
         
@@ -103,13 +110,12 @@ public class MainTest extends Application {
 
        // gr.getChildren().add(rec);
 
-        //gr.getChildren().add(croix);
 
         //gr.getChildren().add(ligne);
 
         //gr.getChildren().add(cercle);
 
-        gr.getChildren().add(mult);
+        //gr.getChildren().add(mult);
         scene1.setFill(Colorable.BLACK);
 
 
