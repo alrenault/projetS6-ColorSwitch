@@ -5,7 +5,6 @@ import game.ball.BallPlayer;
 import game.path.Shapes.Speed;
 import game.path.Square;
 import game.path.Triangle;
-import game.path.items.GravitySwitch;
 import game.path.items.Star;
 import game.path.pluri.MultiCircle;
 import game.path.pluri.MultiLinee;
@@ -101,10 +100,11 @@ public class MainTest extends Application {
         Group str = s.getShape();
 
         gr.getChildren().add(str);
-
+/*
         GravitySwitch grvt = new GravitySwitch(250, 300, 10);
         Group ge = grvt.getShape();
         gr.getChildren().add(ge);
+        */
 
         // gr.getChildren().add(multiShapes);
 
