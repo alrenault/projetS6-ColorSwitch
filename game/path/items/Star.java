@@ -18,6 +18,9 @@ public class Star extends Shapes {
         super(x, y, 0.0, false, false, Speed.NONE, Colorable.WHITE, 0);
         radius = _radius;
         shape = build();
+        
+      //recuperation de la position
+        coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
     public Star(double x, double y) {
@@ -26,7 +29,7 @@ public class Star extends Shapes {
         shape = build();
     }
 
-    private Group build() {
+    protected Group build() {
         Group g = new Group();
         Polygon p = new Polygon();
         double[] ax = new double[5];

@@ -24,11 +24,14 @@ public class VerticalLine extends Shapes {
         this.nbr_seg = nbr_seg;
         this.goal = goal;
         this.reverse = reverse;
-        this.shape = buildLine();
+        this.shape = build();
+        
+      //recuperation de la position
+        coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
 
-    private Group buildLine() {
+    protected Group build() {
         Group hline = new Group();
 
         for (int i = 0; i < nbr_seg; i++) {

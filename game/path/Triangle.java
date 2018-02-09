@@ -15,10 +15,13 @@ public class Triangle extends Shapes {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         this.height = height;
 
-        this.shape = buildTriangle();
+        this.shape = build();
+        
+      //recuperation de la position
+        coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
-    private Group buildTriangle() {
+    protected Group build() {
         Group t = new Group();
 
         double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef, coefReduction;

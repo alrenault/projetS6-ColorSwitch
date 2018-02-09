@@ -2,7 +2,6 @@ package game.path.pluri;
 
 import game.path.Linee;
 import game.path.VerticalLine;
-import game.path.Obstacle;
 import game.path.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.Scene;

@@ -1,7 +1,6 @@
 package game.path.pluri;
 
 import game.path.Cross;
-import game.path.Obstacle;
 import game.path.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;

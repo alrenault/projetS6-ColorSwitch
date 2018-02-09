@@ -16,12 +16,15 @@ public class Square extends Shapes {
         super(x, y, width,mouvementDirection, acceleration,mouvementSpeed, colors, pos_color);
         this.length = length;
 
-        this.shape = buildSquare();
+        this.shape = build();
+        
+      //recuperation de la position
+        coord = shape.localToScene(shape.getBoundsInLocal());
 
     }
 
 
-    private Group buildSquare() {
+    protected Group build() {
         Group squaire = new Group();
 
         double pos1_x = x - length / 2;

@@ -1,6 +1,8 @@
-package game.path;
+package game.path.pluri;
 
 import game.Colorable;
+import javafx.geometry.Bounds;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
@@ -19,6 +21,8 @@ public abstract class Obstacle implements Colorable {
     protected int version;
     protected int versionDefault;
     protected ensDifficulty difficulty;
+    protected Bounds coord;
+
 
 
     public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {
@@ -35,15 +39,32 @@ public abstract class Obstacle implements Colorable {
     }
 
     public double getX() {
-        return x;
-    }
+		coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+    	return coord.getMinX()+coord.getWidth()/2;
+	}
 
-    public double getY() {
-        return y;
+
+	public double getY() {
+		coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+    	return coord.getMinY()+coord.getHeight()/2;
+	}
+    
+    public Point2D getCoord(){
+    	return new Point2D(getX(),getY());
     }
 
     public Group getObstacle() {
         return obstacle;
+    }
+    
+    public double getObstacleWidth(){
+    	coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+    	return coord.getWidth();
+    }
+    
+    public double getObstacleHeight(){
+    	coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+    	return coord.getHeight();
     }
 
     public ensDifficulty getDifficulty() {
