@@ -1,5 +1,6 @@
 package game.ball;
 
+import javafx.geometry.Bounds;
 import controller.Listeners;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -13,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import javafx.geometry.Point2D;
 
 public class BallPlayer extends Ball {
 
@@ -21,6 +23,9 @@ public class BallPlayer extends Ball {
     private Group shape;
     private Scene scene;
     private TranslateTransition gravity;
+    private TranslateTransition tt2;
+    private Bounds boundsInScene;
+    private Point2D coord;
 
     public BallPlayer(float size, Color color, Scene scene) {
         this.size = size;
@@ -31,21 +36,29 @@ public class BallPlayer extends Ball {
 
     public Group buildBall() {
         Group ball = new Group();
-
         Circle player = new Circle(size, color);
-        System.out.println(scene.getWidth() + " " + scene.getHeight());
         player.setCenterX(scene.getWidth() / 2);
         player.setCenterY(scene.getHeight() - 150);
         ball.getChildren().add(player);
+        
+        //recuperation de la position
+        boundsInScene = ball.localToScene(ball.getBoundsInLocal());
 
-        //animation
-        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(4), ball);
-        tt1.setByY(scene.getHeight() + size);
-        //tt.setCycleCount(4);
-        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-        //tt1.setAutoReverse(true);
-        //tt1.setInterpolator(Interpolator.LINEAR);
+ 
         Listeners l = new Listeners(scene, this);
+        
+        tt2 = new TranslateTransition(Duration.millis(150), ball);
+        tt2.setByY(-x);
+        tt2.setCycleCount(1);
+        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+        tt2.setAutoReverse(false);
+        tt2.setInterpolator(Interpolator.EASE_OUT);
+        tt2.setOnFinished(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				gravity.play();	
+			}	
+        });
+        
         l.jump(ball);
 
 
@@ -67,16 +80,32 @@ public class BallPlayer extends Ball {
         this.color = color;
     }
     
+    public double getX(){
+    	boundsInScene = shape.localToScene(shape.getBoundsInLocal());
+    	return boundsInScene.getMinX()+boundsInScene.getWidth()/2;
+    }
+    
+    public double getY(){
+    	boundsInScene = shape.localToScene(shape.getBoundsInLocal());
+    	return boundsInScene.getMinY()+boundsInScene.getHeight()/2;
+
+    }
+    
+    public Point2D getCoord(){
+    	return new Point2D(getX(),getY());
+    }
+    
     int x = 70;
 
     @Override
     public void applyGravity() {
-        System.out.println("Gravity Ball");
-        gravity = new TranslateTransition(Duration.seconds(2), shape);
+        //System.out.println("Gravity Ball");
+        gravity = new TranslateTransition(Duration.seconds(4), shape);
         gravity.setByY(scene.getHeight() + size);
         //tt1.setCycleCount(4);
         //gravity.setCycleCount((int) Double.POSITIVE_INFINITY);//mouvement a l'infini
         gravity.setAutoReverse(false);
+        //gravity.setInterpolator(Interpolator.EASE_IN);
         gravity.setInterpolator(Interpolator.LINEAR);
         //gravity.play();
 
@@ -87,22 +116,11 @@ public class BallPlayer extends Ball {
     @Override
     public void jump() {
         // TODO Auto-generated method stub
-        System.out.println("Jump Ball");
+       // System.out.println("Jump Ball");
         gravity.pause();
         gravity.stop();
-        TranslateTransition tt1 = new TranslateTransition(Duration.millis(150), shape);
-        tt1.setByY(-x);
-        tt1.setCycleCount(1);
-        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-        tt1.setAutoReverse(false);
-        tt1.setInterpolator(Interpolator.EASE_OUT);
-        tt1.setOnFinished(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event) {
-				gravity.play();	
-			}	
-        });
-        tt1.stop();
-        tt1.play();
+        tt2.stop();
+        tt2.play();
         
         
         

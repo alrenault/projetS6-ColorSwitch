@@ -125,7 +125,7 @@ public class MainTest extends Application {
         //Pour le joueur
 
 
-        BallPlayer player = new BallPlayer(10.0f, Color.RED, scene1);
+        BallPlayer player = new BallPlayer(10.0f, Colorable.CUSTOM[0], scene1);
 
 		/*player.setCenterX(250);
 
