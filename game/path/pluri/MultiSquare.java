@@ -41,28 +41,28 @@ public class MultiSquare extends Obstacle {
 
         switch (version) {
             case 0:
-                squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, Colorable.normal, 0);
+                squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 1:
-                squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, Colorable.normal, 0);
+                squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 2:
-                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.normal, 0);
+                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 3:
-                squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, Colorable.normal, 0);
+                squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = ensDifficulty.EASY;
                 break;
             case 4:
-                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.normal, 0);
-                squa2 = new Square(x, y, bigLength, width, true, false, Speed.MOYEN, Colorable.normal, 2);
+                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
+                squa2 = new Square(x, y, bigLength, width, true, false, Speed.MOYEN, Colorable.CUSTOM, 2);
 
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(squa2.getShape());
