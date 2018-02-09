@@ -4,8 +4,9 @@ import game.Colorable;
 import game.ball.BallPlayer;
 import game.path.Shapes.Speed;
 import game.path.Square;
-import game.path.Star;
 import game.path.Triangle;
+import game.path.items.GravitySwitch;
+import game.path.items.Star;
 import game.path.pluri.MultiCircle;
 import game.path.pluri.MultiLinee;
 import game.path.pluri.MultiShapes;
@@ -13,7 +14,6 @@ import game.path.pluri.MultiSquare;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -102,7 +102,11 @@ public class MainTest extends Application {
 
         gr.getChildren().add(str);
 
-        gr.getChildren().add(multiShapes);
+        GravitySwitch grvt = new GravitySwitch(250, 300, 10);
+        Group ge = grvt.getShape();
+        gr.getChildren().add(ge);
+
+        // gr.getChildren().add(multiShapes);
 
         
         //gr.getChildren().add(tringle);

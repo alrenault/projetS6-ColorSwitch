@@ -1,6 +1,5 @@
 package game.path;
 
-import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
@@ -14,17 +13,20 @@ import java.util.List;
  * This class is the pattern of all the shapes
  */
 public abstract class Shapes {
-    double x, y, width, mouvementSpeed;
+    protected double x;
+    protected double y;
+    protected Group shape;
+    double width;
     boolean mouvementDirection;
     boolean acceleration;
 
 
     int pos_color;
-    Group shape;
+    double mouvementSpeed;
     Color colors[];
     List<Color> colors_use;
 
-    Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
+    protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
         this.x = x;
         this.y = y;
         this.width = width;
