@@ -27,6 +27,7 @@ public class Star extends Shapes {
         super(x, y, 0.0, false, false, Speed.NONE, Colorable.WHITE, 0);
         radius = 10.0;
         shape = build();
+        coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
     protected Group build() {
