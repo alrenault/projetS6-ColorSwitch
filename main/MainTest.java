@@ -103,7 +103,7 @@ public class MainTest extends Application {
         gr.getChildren().add(str);
 
         gr.getChildren().add(multiShapes);
-
+        
         
         //gr.getChildren().add(tringle);
 

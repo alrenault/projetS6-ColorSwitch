@@ -1,6 +1,7 @@
 package game.path;
 
 import javafx.geometry.Bounds;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
@@ -23,6 +24,8 @@ public abstract class Shapes {
     Group shape;
     Color colors[];
     List<Color> colors_use;
+    protected Bounds coord;
+
 
     Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
         this.x = x;
@@ -57,6 +60,8 @@ public abstract class Shapes {
         this.colors_use = new ArrayList<Color>();
 
     }
+    
+    protected abstract Group build();
 
 
     public enum Speed {
@@ -78,12 +83,19 @@ public abstract class Shapes {
         colors_use.add(colors[pos_color]);
     }
 
-    public double getX() {
-        return x;
-    }
+	public double getX() {
+		coord = shape.localToScene(shape.getBoundsInLocal());
+    	return coord.getMinX()+coord.getWidth()/2;
+	}
 
-    public double getY() {
-        return y;
+
+	public double getY() {
+		coord = shape.localToScene(shape.getBoundsInLocal());
+    	return coord.getMinY()+coord.getHeight()/2;
+	}
+    
+    public Point2D getCoord(){
+    	return new Point2D(getX(),getY());
     }
 
     public List<Color> getColors_use() {

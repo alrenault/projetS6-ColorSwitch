@@ -14,7 +14,7 @@ public class Cross extends Shapes {
 	public Cross(double x, double y, double width, double length, Color[] colors) {
 		super(x, y, width, true, false, Speed.SYMPA, colors, 1);
 		this.length = length;
-		this.shape = buildCross();
+		this.shape = build();
 	}
 
 	public Cross(double x, double y, double width, double length, boolean mouvementDirection, boolean acceleration,
@@ -25,11 +25,14 @@ public class Cross extends Shapes {
 			this.nbr_rect = 4;
 
 		this.length = length;
-		this.shape = buildCross();
+		this.shape = build();
+		
+		//recuperation de la position
+        coord = shape.localToScene(shape.getBoundsInLocal());
 	}
 
 
-	private Group buildCross() {
+	protected Group build() {
 
 		//Initialisation
 		Group croix = new Group();
@@ -108,6 +111,4 @@ public class Cross extends Shapes {
 
 		return croix;
 	}
-
-
 }

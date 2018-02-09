@@ -1,7 +1,6 @@
 package game.path.pluri;
 
 import game.Colorable;
-import game.path.Obstacle;
 import game.path.Shapes.Speed;
 import game.path.Square;
 import javafx.scene.Group;

@@ -1,6 +1,7 @@
 package game.path;
 
 import game.ennemy.Ennemy;
+import game.path.pluri.Obstacle;
 
 import java.util.ArrayList;
 import java.util.List;
