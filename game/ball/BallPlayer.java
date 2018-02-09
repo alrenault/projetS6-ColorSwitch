@@ -24,6 +24,7 @@ public class BallPlayer extends Ball {
     private Scene scene;
     private TranslateTransition gravity;
     private TranslateTransition tt2;
+    private TranslateTransition tt3;
     private Bounds boundsInScene;
     private Point2D coord;
 
@@ -48,12 +49,23 @@ public class BallPlayer extends Ball {
         Listeners l = new Listeners(scene, this);
         
         tt2 = new TranslateTransition(Duration.millis(150), ball);
-        tt2.setByY(-x);
+        tt2.setByY(-80);
         tt2.setCycleCount(1);
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt2.setAutoReverse(false);
         tt2.setInterpolator(Interpolator.EASE_OUT);
         tt2.setOnFinished(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				gravity.play();	
+			}	
+        });
+        tt3 = new TranslateTransition(Duration.millis((150*((boundsInScene.getMinY()+boundsInScene.getHeight()/2)-scene.getHeight()/2))/80), ball);
+    	tt3.setByY(-((boundsInScene.getMinY()+boundsInScene.getHeight()/2)-scene.getHeight()/2));
+        tt3.setCycleCount(1);
+        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
+        tt3.setAutoReverse(false);
+        tt3.setInterpolator(Interpolator.EASE_OUT);
+        tt3.setOnFinished(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
 				gravity.play();	
 			}	
@@ -116,11 +128,19 @@ public class BallPlayer extends Ball {
     @Override
     public void jump() {
         // TODO Auto-generated method stub
-       // System.out.println("Jump Ball");
         gravity.pause();
         gravity.stop();
         tt2.stop();
-        tt2.play();
+        tt3.stop();
+        if(scene.getHeight()/2 -80 >= getY()){
+        	tt3.setByY(-((boundsInScene.getMinY()+boundsInScene.getHeight()/2)-scene.getHeight()/2));
+        	tt3.play();     
+        	System.out.println("Jump Ball 1");
+        }
+        else{
+            System.out.println("Jump Ball");
+        	tt2.play();
+        }
         
         
         
