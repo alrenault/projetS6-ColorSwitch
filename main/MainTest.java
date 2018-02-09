@@ -3,8 +3,8 @@ package main;
 import game.Colorable;
 import game.ball.BallPlayer;
 import game.path.Shapes.Speed;
-import game.path.Square;
 import game.path.Triangle;
+import game.path.items.GravitySwitch;
 import game.path.items.Star;
 import game.path.pluri.MultiCircle;
 import game.path.pluri.MultiLinee;
@@ -35,16 +35,13 @@ public class MainTest extends Application {
 
         //Pour un rectangle
 
-        Square carre = new Square(150, 300, 200, 20, false, false, Speed.SYMPA, Colorable.normal, 1);
-        Group rec = carre.getShape();
-
 
         //-------------------------------------------------------------------
 
 
         //Creation de la scene pour le rectangle
 
-       // Scene scene = new Scene(rec, 500, 500);
+        // Scene scene = new Scene(rec, 500, 500);
 
         //scene.setFill(Color.BLUE);
 
@@ -66,10 +63,10 @@ public class MainTest extends Application {
         //Linee l = new Linee(0,50,100,20,3,Colorable.normal);
         //Group ligne = l.getShape();
 
-        MultiLinee l = new MultiLinee(0, 100, Colorable.normal, 6, scene1);
+        MultiLinee l = new MultiLinee(0, 100, Colorable.CUSTOM, 6, scene1);
         Group ligne = l.getObstacle();
 
-        MultiLinee ml = new MultiLinee(50, 150, Colorable.hard, 8, scene1);
+        MultiLinee ml = new MultiLinee(50, 150, Colorable.CUSTOM, 8, scene1);
         Group mult = ml.getObstacle();
         //-------------------------------------------------------------------
 
@@ -77,7 +74,7 @@ public class MainTest extends Application {
         //Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
         //Group cercle=cer.getShape();
         //CircleInCircle cer = new CircleInCircle((int)scene1.getWidth()/2,(int)scene1.getHeight()/2,Colorable.normal,6);
-        MultiCircle cer = new MultiCircle((int) scene1.getWidth() / 2, 300, Colorable.normal, 2);
+        MultiCircle cer = new MultiCircle((int) scene1.getWidth() / 2, 300, Colorable.CUSTOM, 2);
 
         Group cercle = cer.getObstacle();
 
@@ -85,36 +82,33 @@ public class MainTest extends Application {
         //Creation du groupe des formes
 
 
-        Triangle Daeneris = new Triangle(scene1.getWidth() / 2, scene1.getHeight() / 2, 200, 20, false, false, Speed.SYMPA, Colorable.normal, 0);
+        Triangle Daeneris = new Triangle(scene1.getWidth() / 2, scene1.getHeight() / 2, 200, 20, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
         Group tringle = Daeneris.getShape();
-        
-        MultiSquare squaires = new MultiSquare(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.normal,0);
+
+        MultiSquare squaires = new MultiSquare(scene1.getWidth() / 2, scene1.getHeight() / 2, Colorable.CUSTOM, 0);
         Group multiSquaire = squaires.getObstacle();
-        
-        MultiShapes shapes = new MultiShapes(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.CUSTOM,scene1,3);
+
+        MultiShapes shapes = new MultiShapes(scene1.getWidth() / 2, scene1.getHeight() / 2, Colorable.CUSTOM, scene1, 3);
         Group multiShapes = shapes.getObstacle();
 
-        //gr.getChildren().add(multiSquaire);
 
         Star s = new Star(300, 250);
         Group str = s.getShape();
 
-        gr.getChildren().add(str);
-/*
-        GravitySwitch grvt = new GravitySwitch(250, 300, 10);
+
+        GravitySwitch grvt = new GravitySwitch(250, 300);
+
         Group ge = grvt.getShape();
+
+
+        gr.getChildren().add(multiSquaire);
+        gr.getChildren().add(str);
         gr.getChildren().add(ge);
-        */
-
-        // gr.getChildren().add(multiShapes);
-
         gr.getChildren().add(multiShapes);
+        gr.getChildren().add(tringle);
 
 
-        //gr.getChildren().add(tringle);
-
-
-       // gr.getChildren().add(rec);
+        // gr.getChildren().add(rec);
 
 
         //gr.getChildren().add(ligne);
