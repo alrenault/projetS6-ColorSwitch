@@ -1,5 +1,6 @@
 package game.path;
 
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
@@ -16,6 +17,7 @@ public abstract class Shapes {
     double x, y, width, mouvementSpeed;
     boolean mouvementDirection;
     boolean acceleration;
+
 
     int pos_color;
     Group shape;

@@ -25,8 +25,8 @@ public class BallPlayer extends Ball {
     private TranslateTransition gravity;
     private TranslateTransition tt2;
     private TranslateTransition tt3;
-    private Bounds boundsInScene;
-    private Point2D coord;
+    private Bounds coord;
+    private double jumpHeight = 80;
 
     public BallPlayer(float size, Color color, Scene scene) {
         this.size = size;
@@ -43,13 +43,14 @@ public class BallPlayer extends Ball {
         ball.getChildren().add(player);
         
         //recuperation de la position
-        boundsInScene = ball.localToScene(ball.getBoundsInLocal());
+        coord = ball.localToScene(ball.getBoundsInLocal());
 
  
         Listeners l = new Listeners(scene, this);
         
+        //animation si en dessous si assez bas
         tt2 = new TranslateTransition(Duration.millis(150), ball);
-        tt2.setByY(-80);
+        tt2.setByY(-jumpHeight);
         tt2.setCycleCount(1);
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt2.setAutoReverse(false);
@@ -59,8 +60,10 @@ public class BallPlayer extends Ball {
 				gravity.play();	
 			}	
         });
-        tt3 = new TranslateTransition(Duration.millis((150*((boundsInScene.getMinY()+boundsInScene.getHeight()/2)-scene.getHeight()/2))/80), ball);
-    	tt3.setByY(-((boundsInScene.getMinY()+boundsInScene.getHeight()/2)-scene.getHeight()/2));
+        
+        //animation si se rapproche des 50% de la hauteur de la fenetre
+        tt3 = new TranslateTransition(Duration.millis((150*((coord.getMinY()+coord.getHeight()/2)-scene.getHeight()/2))/jumpHeight), ball);
+    	tt3.setByY(-((coord.getMinY()+coord.getHeight()/2)-scene.getHeight()/2));
         tt3.setCycleCount(1);
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt3.setAutoReverse(false);
@@ -93,13 +96,13 @@ public class BallPlayer extends Ball {
     }
     
     public double getX(){
-    	boundsInScene = shape.localToScene(shape.getBoundsInLocal());
-    	return boundsInScene.getMinX()+boundsInScene.getWidth()/2;
+    	coord = shape.localToScene(shape.getBoundsInLocal());
+    	return coord.getMinX()+coord.getWidth()/2;
     }
     
     public double getY(){
-    	boundsInScene = shape.localToScene(shape.getBoundsInLocal());
-    	return boundsInScene.getMinY()+boundsInScene.getHeight()/2;
+    	coord = shape.localToScene(shape.getBoundsInLocal());
+    	return coord.getMinY()+coord.getHeight()/2;
 
     }
     
@@ -132,8 +135,8 @@ public class BallPlayer extends Ball {
         gravity.stop();
         tt2.stop();
         tt3.stop();
-        if(scene.getHeight()/2 -80 >= getY()){
-        	tt3.setByY(-((boundsInScene.getMinY()+boundsInScene.getHeight()/2)-scene.getHeight()/2));
+        if(scene.getHeight()/2 - jumpHeight >= getY()){
+        	tt3.setByY(-((coord.getMinY()+coord.getHeight()/2)-scene.getHeight()/2));
         	tt3.play();     
         	System.out.println("Jump Ball 1");
         }
