@@ -18,21 +18,15 @@ public abstract class Shapes {
     protected double x;
     protected double y;
     protected Group shape;
+    protected Bounds coord;
     double width;
     boolean mouvementDirection;
     boolean acceleration;
-
-
     int pos_color;
     double mouvementSpeed;
     Color colors[];
     List<Color> colors_use;
-    protected Bounds coord;
 
-
-    public double getWidth() {
-        return width;
-    }
 
     protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
         this.x = x;
@@ -68,16 +62,11 @@ public abstract class Shapes {
 
     }
 
-    protected abstract Group build();
-
-
-    public enum Speed {
-        SYMPA,
-        MOYEN,
-        HARD,
-        TRESSYMPA,
-        NONE
+    public double getWidth() {
+        return width;
     }
+
+    protected abstract Group build();
 
     public void verifPosColor() {
         pos_color++;
@@ -90,25 +79,23 @@ public abstract class Shapes {
         colors_use.add(colors[pos_color]);
     }
 
-	public double getX() {
-		coord = shape.localToScene(shape.getBoundsInLocal());
-    	return coord.getMinX()+coord.getWidth()/2;
-	}
+    public double getX() {
+        coord = shape.localToScene(shape.getBoundsInLocal());
+        return coord.getMinX() + coord.getWidth() / 2;
+    }
 
+    public double getY() {
+        coord = shape.localToScene(shape.getBoundsInLocal());
+        return coord.getMinY() + coord.getHeight() / 2;
+    }
 
-	public double getY() {
-		coord = shape.localToScene(shape.getBoundsInLocal());
-    	return coord.getMinY()+coord.getHeight()/2;
-	}
-
-    public Point2D getCoord(){
-    	return new Point2D(getX(),getY());
+    public Point2D getCoord() {
+        return new Point2D(getX(), getY());
     }
 
     public List<Color> getColors_use() {
         return colors_use;
     }
-
 
     public boolean isOver(double _x, double _y) {
         return this.shape.contains(_x, _y);
@@ -116,5 +103,13 @@ public abstract class Shapes {
 
     public Group getShape() {
         return shape;
+    }
+
+    public enum Speed {
+        SYMPA,
+        MOYEN,
+        HARD,
+        TRESSYMPA,
+        NONE
     }
 }

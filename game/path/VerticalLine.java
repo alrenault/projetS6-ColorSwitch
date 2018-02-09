@@ -25,8 +25,8 @@ public class VerticalLine extends Shapes {
         this.goal = goal;
         this.reverse = reverse;
         this.shape = build();
-        
-      //recuperation de la position
+
+        //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
     }
 

@@ -6,7 +6,7 @@ import game.path.Path;
 
 /**
  * This class is used to create a game
- * You have to use it in the model 
+ * You have to use it in the model
  * Only contains data
  */
 

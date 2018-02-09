@@ -1,6 +1,5 @@
 package game.path.pluri;
 
-import game.Colorable;
 import game.path.*;
 import game.path.Shapes.Speed;
 import javafx.scene.Group;
@@ -100,27 +99,27 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(l2.getShape());
                 difficulty = ensDifficulty.NORMAL;
                 break;
-                
+
             case 4:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
-                vl1 = new VerticalLine(-width,y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 0,(scene.getWidth()+width));
-            	vl2 = new VerticalLine(scene.getWidth(),y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 2,-(scene.getWidth()+width));
-                
-            	multiShapes.getChildren().add(cer1.getShape());
+                vl1 = new VerticalLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scene.getWidth() + width));
+                vl2 = new VerticalLine(scene.getWidth(), y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scene.getWidth() + width));
+
+                multiShapes.getChildren().add(cer1.getShape());
                 multiShapes.getChildren().add(vl1.getShape());
                 multiShapes.getChildren().add(vl2.getShape());
                 difficulty = ensDifficulty.EASY;
-            	break;
-            	
+                break;
+
             case 5:
                 squa1 = new Square(x, y, length, width, false, false, Speed.MOYEN, colors, 0);
-                vl1 = new VerticalLine(-width,y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 0,(scene.getWidth()+width));
-            	vl2 = new VerticalLine(scene.getWidth(),y-length/2,length,width,300,false,true, Speed.TRESSYMPA, 1,colors, 2,-(scene.getWidth()+width));
-                
-            	multiShapes.getChildren().add(squa1.getShape());
+                vl1 = new VerticalLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scene.getWidth() + width));
+                vl2 = new VerticalLine(scene.getWidth(), y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scene.getWidth() + width));
+
+                multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(vl1.getShape());
                 multiShapes.getChildren().add(vl2.getShape());
-            	break;
+                break;
         }
 
         return multiShapes;

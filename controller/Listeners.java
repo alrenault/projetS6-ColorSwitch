@@ -4,11 +4,11 @@ import game.ball.BallPlayer;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
-import javafx.geometry.Point2D;
 
 
 public class Listeners {
@@ -32,12 +32,12 @@ public class Listeners {
                 if (ke.getCode().getName().equals("Space")) {
                     System.out.println("Jump");
                     ball.jump();
-                    
+
                     Point2D coordPlayer = ball.getCoord();
-                    if(coordPlayer.getY() <= sc.getHeight()/2){
-                    	//appel d'une methode pour faire descendre tout le monde
-                    	System.out.println(coordPlayer.getX()+","+coordPlayer.getY());
-                    	TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), sc.getRoot());
+                    if (coordPlayer.getY() <= sc.getHeight() / 2) {
+                        //appel d'une methode pour faire descendre tout le monde
+                        System.out.println(coordPlayer.getX() + "," + coordPlayer.getY());
+                        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), sc.getRoot());
                         tt1.setByY(100);
 
                         tt1.setInterpolator(Interpolator.LINEAR);

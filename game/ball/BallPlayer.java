@@ -1,23 +1,21 @@
 package game.ball;
 
-import javafx.geometry.Bounds;
 import controller.Listeners;
 import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
-import javafx.geometry.Point2D;
 
 public class BallPlayer extends Ball {
 
+    int x = 70;
     private float size;
     private Color color;
     private Group shape;
@@ -41,13 +39,13 @@ public class BallPlayer extends Ball {
         player.setCenterX(scene.getWidth() / 2);
         player.setCenterY(scene.getHeight() - 150);
         ball.getChildren().add(player);
-        
+
         //recuperation de la position
         coord = ball.localToScene(ball.getBoundsInLocal());
 
- 
+
         Listeners l = new Listeners(scene, this);
-        
+
         //animation si en dessous si assez bas
         tt2 = new TranslateTransition(Duration.millis(150), ball);
         tt2.setByY(-jumpHeight);
@@ -56,24 +54,24 @@ public class BallPlayer extends Ball {
         tt2.setAutoReverse(false);
         tt2.setInterpolator(Interpolator.EASE_OUT);
         tt2.setOnFinished(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event) {
-				gravity.play();	
-			}	
+            public void handle(ActionEvent event) {
+                gravity.play();
+            }
         });
-        
+
         //animation si se rapproche des 50% de la hauteur de la fenetre
-        tt3 = new TranslateTransition(Duration.millis((150*((coord.getMinY()+coord.getHeight()/2)-scene.getHeight()/2))/jumpHeight), ball);
-    	tt3.setByY(-((coord.getMinY()+coord.getHeight()/2)-scene.getHeight()/2));
+        tt3 = new TranslateTransition(Duration.millis((150 * ((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2)) / jumpHeight), ball);
+        tt3.setByY(-((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2));
         tt3.setCycleCount(1);
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt3.setAutoReverse(false);
         tt3.setInterpolator(Interpolator.EASE_OUT);
         tt3.setOnFinished(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event) {
-				gravity.play();	
-			}	
+            public void handle(ActionEvent event) {
+                gravity.play();
+            }
         });
-        
+
         l.jump(ball);
 
 
@@ -94,23 +92,21 @@ public class BallPlayer extends Ball {
     public void setColor(Color color) {
         this.color = color;
     }
-    
-    public double getX(){
-    	coord = shape.localToScene(shape.getBoundsInLocal());
-    	return coord.getMinX()+coord.getWidth()/2;
+
+    public double getX() {
+        coord = shape.localToScene(shape.getBoundsInLocal());
+        return coord.getMinX() + coord.getWidth() / 2;
     }
-    
-    public double getY(){
-    	coord = shape.localToScene(shape.getBoundsInLocal());
-    	return coord.getMinY()+coord.getHeight()/2;
+
+    public double getY() {
+        coord = shape.localToScene(shape.getBoundsInLocal());
+        return coord.getMinY() + coord.getHeight() / 2;
 
     }
-    
-    public Point2D getCoord(){
-    	return new Point2D(getX(),getY());
+
+    public Point2D getCoord() {
+        return new Point2D(getX(), getY());
     }
-    
-    int x = 70;
 
     @Override
     public void applyGravity() {
@@ -127,7 +123,7 @@ public class BallPlayer extends Ball {
     }
 
     //static int xj = 100;
-    
+
     @Override
     public void jump() {
         // TODO Auto-generated method stub
@@ -135,14 +131,13 @@ public class BallPlayer extends Ball {
         gravity.stop();
         tt2.stop();
         tt3.stop();
-        if(scene.getHeight()/2 - jumpHeight >= getY()){
-        	tt3.setByY(-((coord.getMinY()+coord.getHeight()/2)-scene.getHeight()/2));
-        	tt3.play();     
-        	System.out.println("Jump Ball 1");
-        }
-        else{
+        if (scene.getHeight() / 2 - jumpHeight >= getY()) {
+            tt3.setByY(-((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2));
+            tt3.play();
+            System.out.println("Jump Ball 1");
+        } else {
             System.out.println("Jump Ball");
-        	tt2.play();
+            tt2.play();
         }
         
         

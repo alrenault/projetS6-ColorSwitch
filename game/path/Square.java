@@ -13,12 +13,12 @@ public class Square extends Shapes {
 
     public Square(double x, double y, double length, double width,
                   boolean mouvementDirection, boolean acceleration, Speed mouvementSpeed, Color[] colors, int pos_color) {
-        super(x, y, width,mouvementDirection, acceleration,mouvementSpeed, colors, pos_color);
+        super(x, y, width, mouvementDirection, acceleration, mouvementSpeed, colors, pos_color);
         this.length = length;
 
         this.shape = build();
-        
-      //recuperation de la position
+
+        //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
 
     }

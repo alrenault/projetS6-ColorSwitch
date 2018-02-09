@@ -6,9 +6,7 @@ import game.law.Universe;
 import game.path.Path;
 
 /**
- * 
  * This class is an automatic generator of games for Color Switch
- *
  */
 public class Generator {
 

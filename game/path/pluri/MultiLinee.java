@@ -1,8 +1,8 @@
 package game.path.pluri;
 
 import game.path.Linee;
-import game.path.VerticalLine;
 import game.path.Shapes.Speed;
+import game.path.VerticalLine;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -94,29 +94,29 @@ public class MultiLinee extends Obstacle {
                 difficulty = ensDifficulty.NORMAL;
                 break;
             case 7:
-            	vl1 = new VerticalLine(-width*2-separation,y,length,width,separation,false,true, Speed.SYMPA, 2,colors, 0,(scene.getWidth()+2*width+separation));
+                vl1 = new VerticalLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scene.getWidth() + 2 * width + separation));
                 multiLinee.getChildren().add(vl1.getShape());
                 difficulty = ensDifficulty.EASY;
-            	break;
-            	
+                break;
+
             case 8:
-            	vl1 = new VerticalLine(-width*2-separation,y,length,width,separation,false,true, Speed.SYMPA, 2,colors, 0,(scene.getWidth()+2*width+separation));
-            	vl2 = new VerticalLine(scene.getWidth(),y,length,width,separation,false,true, Speed.SYMPA, 2,colors, 2,-(scene.getWidth()+width*2+separation));
+                vl1 = new VerticalLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scene.getWidth() + 2 * width + separation));
+                vl2 = new VerticalLine(scene.getWidth(), y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 2, -(scene.getWidth() + width * 2 + separation));
                 multiLinee.getChildren().add(vl1.getShape());
                 multiLinee.getChildren().add(vl2.getShape());
-                difficulty = ensDifficulty.NORMAL;            	
-            	break;
-            	
+                difficulty = ensDifficulty.NORMAL;
+                break;
+
             case 9:
                 l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                vl1 = new VerticalLine(-width,y-length,length,width,separation,false,true, Speed.SYMPA, 1,colors, 0,(scene.getWidth()+width));
-            	vl2 = new VerticalLine(scene.getWidth(),y+width,length,width,separation,false,true, Speed.SYMPA, 1,colors, 2,-(scene.getWidth()+width));
-            	multiLinee.getChildren().add(l1.getShape());
+                vl1 = new VerticalLine(-width, y - length, length, width, separation, false, true, Speed.SYMPA, 1, colors, 0, (scene.getWidth() + width));
+                vl2 = new VerticalLine(scene.getWidth(), y + width, length, width, separation, false, true, Speed.SYMPA, 1, colors, 2, -(scene.getWidth() + width));
+                multiLinee.getChildren().add(l1.getShape());
                 multiLinee.getChildren().add(vl1.getShape());
                 multiLinee.getChildren().add(vl2.getShape());
-                difficulty = ensDifficulty.NORMAL;            	
-                
-            	break;
+                difficulty = ensDifficulty.NORMAL;
+
+                break;
             default:
                 l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
                 multiLinee.getChildren().add(l1.getShape());

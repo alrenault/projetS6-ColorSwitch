@@ -16,8 +16,8 @@ public class Triangle extends Shapes {
         this.height = height;
 
         this.shape = build();
-        
-      //recuperation de la position
+
+        //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
     }
 

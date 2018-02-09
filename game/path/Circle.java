@@ -3,7 +3,6 @@ package game.path;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -27,8 +26,8 @@ public class Circle extends Shapes {
 
         this.arcs_nbr = arcs_nbr;
         this.shape = build();
-        
-      //recuperation de la position
+
+        //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
 
     }

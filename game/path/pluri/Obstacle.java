@@ -12,8 +12,6 @@ import javafx.scene.paint.Color;
  */
 public abstract class Obstacle implements Colorable {
 
-    protected enum ensDifficulty {EASY, NORMAL, HARD}
-
     protected Group obstacle;
     protected double x;
     protected double y;
@@ -22,49 +20,44 @@ public abstract class Obstacle implements Colorable {
     protected int versionDefault;
     protected ensDifficulty difficulty;
     protected Bounds coord;
-
-
-
     public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {
         this.x = x;
         this.y = y;
         this.colors = colors;
         this.versionDefault = versionDefault;
-        if(0 > version){
-        	this.version = versionDefault;
-        }
-        else{
+        if (0 > version) {
+            this.version = versionDefault;
+        } else {
             this.version = version;
         }
     }
 
     public double getX() {
-		coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-    	return coord.getMinX()+coord.getWidth()/2;
-	}
+        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+        return coord.getMinX() + coord.getWidth() / 2;
+    }
 
+    public double getY() {
+        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+        return coord.getMinY() + coord.getHeight() / 2;
+    }
 
-	public double getY() {
-		coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-    	return coord.getMinY()+coord.getHeight()/2;
-	}
-    
-    public Point2D getCoord(){
-    	return new Point2D(getX(),getY());
+    public Point2D getCoord() {
+        return new Point2D(getX(), getY());
     }
 
     public Group getObstacle() {
         return obstacle;
     }
-    
-    public double getObstacleWidth(){
-    	coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-    	return coord.getWidth();
+
+    public double getObstacleWidth() {
+        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+        return coord.getWidth();
     }
-    
-    public double getObstacleHeight(){
-    	coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-    	return coord.getHeight();
+
+    public double getObstacleHeight() {
+        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
+        return coord.getHeight();
     }
 
     public ensDifficulty getDifficulty() {
@@ -74,6 +67,8 @@ public abstract class Obstacle implements Colorable {
     public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
+
+    protected enum ensDifficulty {EASY, NORMAL, HARD}
 
 
 }

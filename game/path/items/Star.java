@@ -18,8 +18,8 @@ public class Star extends Shapes {
         super(x, y, 0.0, false, false, Speed.NONE, Colorable.WHITE, 0);
         radius = _radius;
         shape = build();
-        
-      //recuperation de la position
+
+        //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
