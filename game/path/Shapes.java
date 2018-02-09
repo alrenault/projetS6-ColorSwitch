@@ -30,6 +30,10 @@ public abstract class Shapes {
     protected Bounds coord;
 
 
+    public double getWidth() {
+        return width;
+    }
+
     protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
         this.x = x;
         this.y = y;
