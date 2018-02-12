@@ -1,4 +1,4 @@
-package game.ball;
+package game.path.items;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -8,7 +8,7 @@ import javafx.scene.shape.ArcType;
 
 import java.util.Random;
 
-public class BallColorSwitch extends Ball {
+public class BallColorSwitch{
 
     private double size;
     private Group shape;
@@ -50,18 +50,5 @@ public class BallColorSwitch extends Ball {
     public Color coloRand() {
         Random r = new Random();
         return new Color(r.nextDouble(), r.nextDouble(), r.nextDouble(), 1);
-    }
-
-    @Override
-    public void applyGravity() {
-        // TODO Auto-generated method stub
-        System.out.println("Hello");
-
-    }
-
-    @Override
-    public void jump() {
-        // TODO Auto-generated method stub
-
     }
 }
