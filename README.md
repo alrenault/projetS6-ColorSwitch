@@ -55,9 +55,9 @@ Début d'architecture, début d'IHM
 ### Mécanique avancées : extensions
 
 - Déplacements sur xy
+    - Possibilité d'échaper aux obstacles
 - "Niveau rotation à 90° "
 - Obstacles bougeants
-- Possibilité d'échaper aux obstacles
 - Powers-up (Items)
 	- Changeur de gravité +/-
 	- Changeur de sens de gravité
