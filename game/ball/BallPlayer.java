@@ -24,7 +24,7 @@ public class BallPlayer extends Ball {
     private TranslateTransition tt2;
     private TranslateTransition tt3;
     private Bounds coord;
-    private double jumpHeight = 80;
+    private double jumpHeight = 50;
 
     public BallPlayer(float size, Color color, Scene scene) {
         this.size = size;
