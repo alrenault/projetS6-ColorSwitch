@@ -36,13 +36,8 @@ public class Listeners {
                     Point2D coordPlayer = ball.getCoord();
                     if (coordPlayer.getY() <= sc.getHeight() / 2) {
                         //appel d'une methode pour faire descendre tout le monde
-                        System.out.println(coordPlayer.getX() + "," + coordPlayer.getY());
-                        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), sc.getRoot());
-                        tt1.setByY(100);
-
-                        tt1.setInterpolator(Interpolator.LINEAR);
-
-                        tt1.play();
+                        //System.out.println(coordPlayer.getX() + "," + coordPlayer.getY());
+                        ball.jumpLimit();
                     }
                     //l1.setText(ke.getCode().getName());
                 }

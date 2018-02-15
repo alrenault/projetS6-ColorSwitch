@@ -7,6 +7,7 @@ import game.path.Triangle;
 import game.path.items.GravitySwitch;
 import game.path.items.Star;
 import game.path.pluri.MultiCircle;
+import game.path.pluri.CircleInCircle;
 import game.path.pluri.MultiLinee;
 import game.path.pluri.MultiShapes;
 import game.path.pluri.MultiSquare;
@@ -73,8 +74,8 @@ public class MainTest extends Application {
         //Circle cer =new Circle(280, 150, 50, 5);
         //Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
         //Group cercle=cer.getShape();
-        //CircleInCircle cer = new CircleInCircle((int)scene1.getWidth()/2,(int)scene1.getHeight()/2,Colorable.normal,6);
-        MultiCircle cer = new MultiCircle((int) scene1.getWidth() / 2, 300, Colorable.CUSTOM, 2);
+        CircleInCircle cer = new CircleInCircle(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.CUSTOM,12);
+        //MultiCircle cer = new MultiCircle((int) scene1.getWidth() / 2, 300, Colorable.CUSTOM, 2);
 
         Group cercle = cer.getObstacle();
 
@@ -96,16 +97,16 @@ public class MainTest extends Application {
         Group str = s.getShape();
 
 
-        GravitySwitch grvt = new GravitySwitch(250, 300);
+        GravitySwitch grvt = new GravitySwitch(scene1.getWidth()/2, 300);
 
         Group ge = grvt.getShape();
 
 
-        gr.getChildren().add(multiSquaire);
-        gr.getChildren().add(str);
+       // gr.getChildren().add(multiSquaire);
+        //gr.getChildren().add(str);
         gr.getChildren().add(ge);
-        gr.getChildren().add(multiShapes);
-        gr.getChildren().add(tringle);
+       // gr.getChildren().add(multiShapes);
+        //gr.getChildren().add(tringle);
 
 
         // gr.getChildren().add(rec);
@@ -113,7 +114,7 @@ public class MainTest extends Application {
 
         //gr.getChildren().add(ligne);
 
-        //gr.getChildren().add(cercle);
+        gr.getChildren().add(cercle);
 
         //gr.getChildren().add(mult);
         scene1.setFill(Colorable.BLACK);
