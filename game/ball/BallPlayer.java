@@ -142,6 +142,8 @@ public class BallPlayer extends Ball {
         
         
         
+        
+        
         /*
         Timeline time = new Timeline();
         KeyValue kv = new KeyValue(shape.translateXProperty(), 2);
@@ -161,6 +163,15 @@ public class BallPlayer extends Ball {
         time.play();
         */
 
+    }
+    
+    public void jumpLimit(){
+    	TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
+        tt1.setByY(100);
+
+        tt1.setInterpolator(Interpolator.LINEAR);
+
+        tt1.play();
     }
 
 }
