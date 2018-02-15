@@ -99,7 +99,9 @@ public abstract class Shapes {
 
     public boolean isOver(double _x, double _y) {
         return this.shape.contains(_x, _y);
+        //return this.shape.intersects(getX(),getY(),coord.getWidth(),coord.getHeight());
     }
+
 
     public Group getShape() {
         return shape;

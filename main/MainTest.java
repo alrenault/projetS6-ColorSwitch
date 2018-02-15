@@ -6,7 +6,6 @@ import game.path.Shapes.Speed;
 import game.path.Triangle;
 import game.path.items.GravitySwitch;
 import game.path.items.Star;
-import game.path.pluri.MultiCircle;
 import game.path.pluri.CircleInCircle;
 import game.path.pluri.MultiLinee;
 import game.path.pluri.MultiShapes;
@@ -108,7 +107,7 @@ public class MainTest extends Application {
        // gr.getChildren().add(multiShapes);
         //gr.getChildren().add(tringle);
 
-
+        //gr.getChildren().add(cer);
         // gr.getChildren().add(rec);
 
 
