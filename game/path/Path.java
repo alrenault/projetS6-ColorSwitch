@@ -1,6 +1,7 @@
 package game.path;
 
 import game.ennemy.Ennemy;
+import game.path.items.Item;
 import game.path.pluri.Obstacle;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 
 public class Path {
+    private List<Item> items;
     private List<Obstacle> obstacles;
     private List<Ennemy> ennemies;
 
@@ -15,6 +17,7 @@ public class Path {
     public Path() {
         obstacles = new ArrayList<Obstacle>();
         ennemies = new ArrayList<Ennemy>();
+        items = new ArrayList<Item>();
     }
 
     public Path(List<Obstacle> _obstacles, List<Ennemy> _ennemies) {
@@ -29,6 +32,15 @@ public class Path {
     public void add(Ennemy e) {
         ennemies.add(e);
     }
+    public boolean add(Item item) {
+        return items.add(item);
+    }
+
+
+
+    public boolean remove(Object o) {
+        return items.remove(o);
+    }
 
     public void remove(Obstacle o) {
         obstacles.remove(o);
@@ -42,7 +54,9 @@ public class Path {
         //TODO
         return false;
     }
-
+    public int getItemNbr() {
+        return items.size();
+    }
     public int getObstacleNbr() {
         return obstacles.size();
     }
