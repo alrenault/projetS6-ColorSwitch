@@ -43,6 +43,9 @@ public class Path {
         return false;
     }
 
+    public int getObstacleNbr() {
+        return obstacles.size();
+    }
 
     /*c'est pas cool !!!*/
     //TODO
