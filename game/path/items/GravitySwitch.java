@@ -9,15 +9,16 @@ import javafx.scene.shape.Polygon;
  * @autor Vincent
  * @date 09/02/2018
  */
-public class GravitySwitch extends Shapes {
-
+public class GravitySwitch extends Item {
+    private double width;
     public GravitySwitch(double x, double y) {
-        super(x, y, 3, false, false, Speed.NONE, Colorable.WHITE, 0);
-        shape = build();
+        super(x, y, 5.0, Colorable.WHITE);
+        this.width=3.0;
+        shape = buildItem();
     }
 
-    protected Group build() {
-        double w = getWidth();
+    protected Group buildItem() {
+        double w = width;
         Polygon p = new Polygon();
         //1
         p.getPoints().add(x - w);
@@ -50,8 +51,9 @@ public class GravitySwitch extends Shapes {
         p.getPoints().add(x - 2 * w);
         p.getPoints().add(y - 2 * w);
 
-        color(p);
+
         Group g = new Group();
+        p.setFill(colors[0]);
         g.getChildren().add(p);
         return g;
 
