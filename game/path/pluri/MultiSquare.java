@@ -19,6 +19,7 @@ public class MultiSquare extends Obstacle {
 
     public MultiSquare(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 2);
+        this.nbr_Versions = 5;
         obstacle = buildObstacle();
     }
 
@@ -29,14 +30,13 @@ public class MultiSquare extends Obstacle {
         double mediumLength = 200.0;
         double bigLength = 300.0;
         double width = 15.0;
-        int nbr_versions = 5;
 
         //public Square(double x, double y, double length, double width,
         //boolean mouvementDirection, boolean acceleration,int mouvementSpeed,Color[] colors, int pos_color)
         Square squa1;
         Square squa2;
 
-        if (version >= nbr_versions)
+        if (version >= nbr_Versions)
             version = versionDefault;
 
         switch (version) {

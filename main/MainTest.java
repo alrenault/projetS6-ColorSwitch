@@ -6,6 +6,7 @@ import game.path.Shapes.Speed;
 import game.path.Triangle;
 import game.path.items.GravitySwitch;
 import game.path.items.Star;
+import game.path.items.BallColorSwitch;
 import game.path.pluri.CircleInCircle;
 import game.path.pluri.MultiLinee;
 import game.path.pluri.MultiShapes;
@@ -97,8 +98,10 @@ public class MainTest extends Application {
 
 
         GravitySwitch grvt = new GravitySwitch(scene1.getWidth()/2, 300);
-
         Group ge = grvt.getShape();
+        
+        BallColorSwitch bcs = new BallColorSwitch(scene1.getWidth()/2,-100,Colorable.CUSTOM);
+        Group colorSwitch = bcs.getShape();
 
 
        // gr.getChildren().add(multiSquaire);
@@ -114,6 +117,7 @@ public class MainTest extends Application {
         //gr.getChildren().add(ligne);
 
         gr.getChildren().add(cercle);
+        gr.getChildren().add(colorSwitch);
 
         //gr.getChildren().add(mult);
         scene1.setFill(Colorable.BLACK);
@@ -125,7 +129,7 @@ public class MainTest extends Application {
         //Pour le joueur
 
 
-        BallPlayer player = new BallPlayer(10.0f, Colorable.CUSTOM[0], scene1);
+        BallPlayer player = new BallPlayer(10, Colorable.CUSTOM[0], scene1);
 
 		/*player.setCenterX(250);
 

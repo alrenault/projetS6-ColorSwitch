@@ -26,6 +26,7 @@ public class CircleInCircle extends Obstacle {
 
     public CircleInCircle(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 4);
+        this.nbr_Versions = 13;
         obstacle = buildObstacle();
     }
 
@@ -36,13 +37,12 @@ public class CircleInCircle extends Obstacle {
         double bigRadial = 100.0;
         double width = 15.0;
         int nb_arc = 4;
-        int nbr_versions = 13;
         Group circleInCircle = new Group();
         Circle cer1;
         Circle cer2;
         Circle cer3;
 
-        if (version >= nbr_versions)
+        if (version >= nbr_Versions)
             version = versionDefault;
 
         //int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,boolean acceleration, int vitesseRotation,Color[] colors,int pos_color

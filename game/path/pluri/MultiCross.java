@@ -15,6 +15,7 @@ public class MultiCross extends Obstacle {
 
     public MultiCross(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 0);
+        this.nbr_Versions = 5;
         obstacle = buildObstacle();
     }
 
@@ -22,7 +23,6 @@ public class MultiCross extends Obstacle {
         Group multiCross = new Group();
         double length = 100.0;
         double width = 15.0;
-        int nbr_versions = 5;
 
 		
 		/*public Cross(int x, int y, int width, int length, boolean mouvementDirection, boolean acceleration, 
@@ -31,7 +31,7 @@ public class MultiCross extends Obstacle {
         Cross cr1;
         Cross cr2;
 
-        if (version >= nbr_versions)
+        if (version >= nbr_Versions)
             version = versionDefault;
 
         switch (version) {

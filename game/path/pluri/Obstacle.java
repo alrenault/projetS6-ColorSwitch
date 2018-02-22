@@ -1,6 +1,5 @@
 package game.path.pluri;
 
-import game.Colorable;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
@@ -10,7 +9,7 @@ import javafx.scene.paint.Color;
  * An Obstacle is a Group of Shapes which contains at least one of it
  * This class is the pattern of all obstacles in the game
  */
-public abstract class Obstacle implements Colorable {
+public abstract class Obstacle {
 
     protected Group obstacle;
     protected double x;
@@ -18,6 +17,7 @@ public abstract class Obstacle implements Colorable {
     protected Color colors[];
     protected int version;
     protected int versionDefault;
+    protected int nbr_Versions;
     protected ensDifficulty difficulty;
     protected Bounds coord;
     public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {

@@ -1,6 +1,8 @@
 package game;
 
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
+
 import java.util.Random; 
 
 /**
@@ -22,4 +24,9 @@ public interface Colorable {
 			new Color((new Random()).nextDouble(), (new Random()).nextDouble(), (new Random()).nextDouble(), 1),
 			new Color((new Random()).nextDouble(), (new Random()).nextDouble(), (new Random()).nextDouble(), 1),
 			new Color((new Random()).nextDouble(), (new Random()).nextDouble(), (new Random()).nextDouble(), 1)};
+	
+	
+	public abstract void verifPosColor();
+
+    public void color(Shape s);
 }

@@ -9,12 +9,14 @@ import javafx.scene.shape.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
+import game.Colorable;
+
 /**
  * A Shape is a group of javafx shapes
  * The goal is to represent a concrete shape that can be used for obstacles
  * This class is the pattern of all the shapes
  */
-public abstract class Shapes {
+public abstract class Shapes implements Colorable{
     protected double x;
     protected double y;
     protected Group shape;
