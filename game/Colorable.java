@@ -26,7 +26,7 @@ public interface Colorable {
             new Color((new Random()).nextDouble(), (new Random()).nextDouble(), (new Random()).nextDouble(), 1)};
 
 
-    public abstract void verifPosColor();
+    void verifPosColor();
 
-    public void color(Shape s);
+    void color(Shape s);
 }
