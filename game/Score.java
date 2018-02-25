@@ -7,10 +7,13 @@ package game;
 public class Score {
 
     private int nbrObstaclesCrossed, nbEtoilesRamassees;
+    private double scoreStared;
 
     public Score() {
         nbrObstaclesCrossed=0;
         nbEtoilesRamassees=0;
+        scoreStared=0.0;
+
 
     }
 
@@ -18,9 +21,11 @@ public class Score {
     public void increaseNOC() {
         nbrObstaclesCrossed++;
     }
-    public void ramasseEtoile() {
+    public void ramasseEtoile(double gain) {
+
         nbEtoilesRamassees++;
     }
+
 
     public int getNbEtoilesRamassees() {
         return nbEtoilesRamassees;
@@ -32,6 +37,6 @@ public class Score {
     }
     //TODO
     public double getScore() {
-        return nbrObstaclesCrossed*nbEtoilesRamassees;
+        return scoreStared;
     }
 }
