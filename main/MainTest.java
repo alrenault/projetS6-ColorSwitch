@@ -2,6 +2,7 @@ package main;
 
 
 import game.Colorable;
+import game.Difficulty;
 import game.ball.BallPlayer;
 import game.path.Path;
 import game.path.Shapes.Speed;
@@ -122,7 +123,7 @@ public class MainTest extends Application {
 
         //gr.getChildren().add(mult);
         
-        Path p = new Path(scene1,Colorable.CUSTOM,100);
+        Path p = new Path(scene1,Colorable.CUSTOM,100,Difficulty.EASY);
         gr.getChildren().add(p.getPath());
         scene1.setFill(Colorable.BLACK);
 

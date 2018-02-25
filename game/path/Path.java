@@ -1,9 +1,9 @@
 package game.path;
 
 import game.path.pluri.*;
+import game.Difficulty;
 import game.ennemy.Ennemy;
 import game.path.items.Item;
-import game.path.pluri.Obstacle;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -20,17 +20,17 @@ public class Path {
     private List<Obstacle> obstacles;
     private List<Ennemy> ennemies;
     private Group path;
-    private int difficulty;
+    private Difficulty gameDifficulty;
     private Scene scene;
     private Color[] colors;
     private int nbr_Obs;
 
 
-    public Path(Scene scene, Color[] colors,int nbr_Obs) {
+    public Path(Scene scene, Color[] colors,int nbr_Obs,Difficulty gameDifficulty) {
         obstacles = new ArrayList<Obstacle>();
         ennemies = new ArrayList<Ennemy>();
         items = new ArrayList<Item>();
-        difficulty = 1;
+        this.gameDifficulty = gameDifficulty;
         this.colors = colors;
         this.scene = scene;
         this.nbr_Obs = nbr_Obs;
@@ -51,53 +51,57 @@ public class Path {
     	int variante;
     	double posY = scene.getHeight()/3;
     	double posX = scene.getWidth()/2;
+    	Difficulty obstacleDifficulty;
     	
-    	if(difficulty == 1){
-    		for(int i = 0;i<nbr_Obs;i++){
-    			type = r.nextInt(6);
-    			Obstacle o = null;
-    			//Idée pour remplacer ça : une factory ou au moins une classe qui construit un obstacle en fonction du type choisi,...
-    			switch(type){
-    			case 0:
-    				System.out.println("CircleInCircle");
-    				variante = r.nextInt(CircleInCircle.NBR_VERSIONS);
-    				o = new CircleInCircle(posX,posY,colors,variante);
-    				break;
-    				
-    			case 1:
-    				System.out.println("MultiCircle");
-    				variante = r.nextInt(MultiCircle.NBR_VERSIONS);
-    				o = new MultiCircle(posX,posY,colors,variante);
-    				break;
-    				
-    			case 2:
-    				System.out.println("MultiCross");
-    				variante = r.nextInt(MultiCross.NBR_VERSIONS);
-    				o = new MultiCross(posX,posY,colors,variante);
-    				break;
-    				
-    			case 3:
-    				System.out.println("MultiLinee");
-    				variante = r.nextInt(MultiLinee.NBR_VERSIONS);
-    				o = new MultiLinee(posX,posY,colors,variante,scene);
-    				break;
-    				
-    			case 4:
-    				System.out.println("MultiShapes");
-    				variante = r.nextInt(MultiShapes.NBR_VERSIONS);
-    				o = new MultiShapes(posX,posY,colors,scene,variante);	
-    				break;
-    				
-    			case 5:
-    				System.out.println("MultiSquaire");
-    				variante = r.nextInt(MultiSquare.NBR_VERSIONS);
-    				o = new MultiSquare(posX,posY,colors,variante);
-    				break;
-    			}
-    			newPath.getChildren().add(o.getObstacle());
-				obstacles.add(o);
-				posY = posY - o.getObstacleHeight()/2 - 500;
+    	BuildObstacle bo = new BuildObstacle();
+    	
+    	for(int i = 0;i<nbr_Obs;i++){
+    		type = r.nextInt(6);
+    		variante = r.nextInt(10);
+    		
+    		switch(gameDifficulty){
+    		case EASY:
+    			if(variante <= 5)//60%
+    				obstacleDifficulty = Difficulty.EASY;
+    			else if(variante > 5 && variante < 9)//30%
+    				obstacleDifficulty = Difficulty.NORMAL;
+    			else //10%
+    				obstacleDifficulty = Difficulty.HARD;
+    			break;
+    			
+    		case NORMAL:
+    			if(variante <= 1)//20%
+    				obstacleDifficulty = Difficulty.EASY;
+    			else if(variante > 1 && variante < 8)//60%
+    				obstacleDifficulty = Difficulty.NORMAL;
+    			else//20%
+    				obstacleDifficulty = Difficulty.HARD;
+    			break;
+    			
+    		case HARD:
+    			if(variante <= 0)//10%
+    				obstacleDifficulty = Difficulty.EASY;
+    			else if(variante > 0 && variante < 4)//30%
+    				obstacleDifficulty = Difficulty.NORMAL;
+    			else//60%
+    				obstacleDifficulty = Difficulty.HARD;
+    			break;
+    			
+    		default:
+    			if(variante <= 5)//60%
+    				obstacleDifficulty = Difficulty.EASY; //à remplacer par des difficulter !!
+    			else if(variante > 5 && variante < 9)//30%
+    				obstacleDifficulty = Difficulty.NORMAL;
+    			else //10%
+    				obstacleDifficulty = Difficulty.HARD;
     		}
+    		
+    		//System.out.println(obstacleDifficulty);
+    		Obstacle o = bo.BuildObstacleVersionAlea(type, obstacleDifficulty, posX, posY, colors, scene);
+    		
+    		newPath.getChildren().add(o.getObstacle());
+			obstacles.add(o);
+			posY = posY - o.getObstacleHeight()/2 - 500;
     	}
     	
     	
