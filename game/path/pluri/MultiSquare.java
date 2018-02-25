@@ -16,10 +16,11 @@ public class MultiSquare extends Obstacle {
 	 version 4 : un rectangle moyen dans un grand rectangle tournant dans des sens contraire
 	 version 5 :
 	 */
+	
+    public static final int NBR_VERSIONS = 5;
 
     public MultiSquare(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 2);
-        this.nbr_Versions = 5;
         obstacle = buildObstacle();
     }
 
@@ -36,7 +37,7 @@ public class MultiSquare extends Obstacle {
         Square squa1;
         Square squa2;
 
-        if (version >= nbr_Versions)
+        if (version >= NBR_VERSIONS)
             version = versionDefault;
 
         switch (version) {

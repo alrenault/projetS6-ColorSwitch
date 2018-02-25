@@ -15,6 +15,9 @@ public class MultiCircle extends Obstacle {
 	version 3 : 3 cercles les uns au dessus des autres
 	version 4 : 2 cercle imbriqué vers le haut
 	*/
+	
+	public static final int NBR_VERSIONS = 5;
+
 
     public MultiCircle(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 0);
@@ -27,13 +30,12 @@ public class MultiCircle extends Obstacle {
         double bigRadial = 100.0;
         double width = 15.0;
         int nb_arc = 4;
-        int nbr_versions = 5;
 
         Circle cer1;
         Circle cer2;
         Circle cer3;
 
-        if (version >= nbr_versions)
+        if (version >= NBR_VERSIONS)
             version = versionDefault;
 
         switch (version) {

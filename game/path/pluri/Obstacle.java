@@ -67,6 +67,8 @@ public abstract class Obstacle {
     public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
+    
+    
 
     protected enum ensDifficulty {EASY, NORMAL, HARD}
 

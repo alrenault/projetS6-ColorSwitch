@@ -13,9 +13,10 @@ public class MultiCross extends Obstacle {
 	version 3 : Deux croix tournant vers le haut
 	*/
 
+	public static final int NBR_VERSIONS = 4;
+	
     public MultiCross(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 0);
-        this.nbr_Versions = 5;
         obstacle = buildObstacle();
     }
 
@@ -31,7 +32,7 @@ public class MultiCross extends Obstacle {
         Cross cr1;
         Cross cr2;
 
-        if (version >= nbr_Versions)
+        if (version >= NBR_VERSIONS)
             version = versionDefault;
 
         switch (version) {

@@ -1,7 +1,9 @@
 package main;
 
+
 import game.Colorable;
 import game.ball.BallPlayer;
+import game.path.Path;
 import game.path.Shapes.Speed;
 import game.path.Triangle;
 import game.path.items.GravitySwitch;
@@ -106,7 +108,7 @@ public class MainTest extends Application {
 
        // gr.getChildren().add(multiSquaire);
         //gr.getChildren().add(str);
-        gr.getChildren().add(ge);
+       // gr.getChildren().add(ge);
        // gr.getChildren().add(multiShapes);
         //gr.getChildren().add(tringle);
 
@@ -115,11 +117,13 @@ public class MainTest extends Application {
 
 
         //gr.getChildren().add(ligne);
-
-        gr.getChildren().add(cercle);
-        gr.getChildren().add(colorSwitch);
+       // gr.getChildren().add(cercle);
+       // gr.getChildren().add(colorSwitch);
 
         //gr.getChildren().add(mult);
+        
+        Path p = new Path(scene1,Colorable.CUSTOM,100);
+        gr.getChildren().add(p.getPath());
         scene1.setFill(Colorable.BLACK);
 
 

@@ -20,11 +20,12 @@ public class MultiShapes extends Obstacle {
 	 */
 
     Scene scene;
+    public static final int NBR_VERSIONS = 6;
+
 
     public MultiShapes(double x, double y, Color[] colors, Scene scene, int version) {
         super(x, y, colors, version, 1);
         this.scene = scene;
-        this.nbr_Versions = 6;
         obstacle = buildObstacle();
     }
 
@@ -52,7 +53,7 @@ public class MultiShapes extends Obstacle {
         Cross cr1;
         Cross cr2;
 
-        if (version >= nbr_Versions)
+        if (version >= NBR_VERSIONS)
             version = versionDefault;
 
         switch (version) {
