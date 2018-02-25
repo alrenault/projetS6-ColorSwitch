@@ -1,7 +1,13 @@
-package game.path.pluri;
+package game.path.obstacle;
 
 import game.path.*;
-import game.path.Shapes.Speed;
+import game.path.shapes.Circle;
+import game.path.shapes.Cross;
+import game.path.shapes.Linee;
+import game.path.shapes.Shapes;
+import game.path.shapes.Square;
+import game.path.shapes.VerticalLine;
+import game.path.shapes.Shapes.Speed;
 import game.Difficulty;
 import javafx.scene.Group;
 import javafx.scene.Scene;

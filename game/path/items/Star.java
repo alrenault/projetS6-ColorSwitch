@@ -1,7 +1,7 @@
 package game.path.items;
 
 import game.Colorable;
-import game.path.Shapes;
+import game.path.shapes.Shapes;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 

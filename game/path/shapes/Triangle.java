@@ -1,4 +1,4 @@
-package game.path;
+package game.path.shapes;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;

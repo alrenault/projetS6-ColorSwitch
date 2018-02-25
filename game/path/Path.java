@@ -1,9 +1,9 @@
 package game.path;
 
-import game.path.pluri.*;
 import game.Difficulty;
 import game.ennemy.Ennemy;
 import game.path.items.Item;
+import game.path.obstacle.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;

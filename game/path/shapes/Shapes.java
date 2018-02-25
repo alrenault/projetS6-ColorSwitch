@@ -1,4 +1,4 @@
-package game.path;
+package game.path.shapes;
 
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;

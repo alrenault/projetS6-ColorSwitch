@@ -1,11 +1,11 @@
-package game.path.pluri;
+package game.path.obstacle;
 
 import java.util.Random;
 
-import game.path.Linee;
-import game.path.Shapes.Speed;
+import game.path.shapes.Linee;
+import game.path.shapes.VerticalLine;
+import game.path.shapes.Shapes.Speed;
 import game.Difficulty;
-import game.path.VerticalLine;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;

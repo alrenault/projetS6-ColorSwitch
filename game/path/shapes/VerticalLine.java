@@ -1,4 +1,4 @@
-package game.path;
+package game.path.shapes;
 
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -7,19 +7,20 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-public class Linee extends Shapes {
-
+public class VerticalLine extends Shapes {
 
     private double length;
     private int nbr_seg;
     private double goal;
+    private double distanceSeparation;
     private boolean reverse;
 
 
-    public Linee(double x, double y, double length, double width, boolean acceleration
-            , boolean reverse, Speed _mouvementSpeed/*, double speed*/, int nbr_seg, Color[] colors, int pos_colors, double goal) {
+    public VerticalLine(double x, double y, double height, double width, double distanceSeparation, boolean acceleration
+            , boolean reverse, Speed _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors, double goal) {
         super(x, y, width, true, acceleration, _mouvementSpeed, colors, pos_colors);
-        this.length = length;
+        this.length = height;
+        this.distanceSeparation = distanceSeparation;
         this.nbr_seg = nbr_seg;
         this.goal = goal;
         this.reverse = reverse;
@@ -31,17 +32,17 @@ public class Linee extends Shapes {
 
 
     protected Group build() {
-        Group line = new Group();
+        Group hline = new Group();
 
         for (int i = 0; i < nbr_seg; i++) {
             verifPosColor();
-            Rectangle rec = new Rectangle(x + length * i, y, length, width);
+            Rectangle rec = new Rectangle(x + distanceSeparation * i, y, width, length);
             color(rec);
-            line.getChildren().add(rec);
+            hline.getChildren().add(rec);
         }
 
 
-        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(mouvementSpeed), line);
+        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(mouvementSpeed + Math.abs(goal / 1000)), hline);
         tt1.setByX(goal);
 
         tt1.setCycleCount((int) Double.POSITIVE_INFINITY);
@@ -53,6 +54,7 @@ public class Linee extends Shapes {
 
         tt1.play();
 
-        return line;
+        return hline;
     }
+
 }
