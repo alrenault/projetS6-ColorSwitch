@@ -1,6 +1,7 @@
-package game.path;
+package game.path.shapes;
 
 
+import game.path.shapes.Shapes.Speed;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;

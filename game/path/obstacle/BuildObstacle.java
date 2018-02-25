@@ -1,4 +1,4 @@
-package game.path.pluri;
+package game.path.obstacle;
 
 import game.Difficulty;
 import javafx.scene.Scene;

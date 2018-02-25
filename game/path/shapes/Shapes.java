@@ -1,4 +1,4 @@
-package game.path;
+package game.path.shapes;
 
 import game.Colorable;
 import javafx.geometry.Bounds;
