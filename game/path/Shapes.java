@@ -58,8 +58,9 @@ public abstract class Shapes implements Colorable{
         this.colors = colors;
         if (pos_color <= 0)
             this.pos_color = 0;
-        else
+        else{
             this.pos_color = pos_color % colors.length;
+        }
         this.colors_use = new ArrayList<Color>();
 
     }

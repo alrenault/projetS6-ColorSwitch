@@ -1,5 +1,8 @@
 package game.path.pluri;
 
+import game.Difficulty;
+import java.util.Random;
+
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
@@ -18,8 +21,10 @@ public abstract class Obstacle {
     protected int version;
     protected int versionDefault;
     protected int nbr_Versions;
-    protected ensDifficulty difficulty;
+    protected Difficulty difficulty;
     protected Bounds coord;
+
+    
     public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {
         this.x = x;
         this.y = y;
@@ -31,6 +36,7 @@ public abstract class Obstacle {
             this.version = version;
         }
     }
+    
 
     public double getX() {
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
@@ -60,15 +66,17 @@ public abstract class Obstacle {
         return coord.getHeight();
     }
 
-    public ensDifficulty getDifficulty() {
+    public Difficulty getDifficulty() {
         return difficulty;
     }
 
     public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
+    
+    
 
-    protected enum ensDifficulty {EASY, NORMAL, HARD}
+   // public enum Difficulty {EASY, NORMAL, HARD}
 
 
 }

@@ -1,7 +1,10 @@
 package game.path.pluri;
 
+import java.util.Random;
+
 import game.Colorable;
 import game.path.Shapes.Speed;
+import game.Difficulty;
 import game.path.Square;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
@@ -14,12 +17,26 @@ public class MultiSquare extends Obstacle {
 	 version 2 : rectangle de taille normal tournant dans le sens contre horraire
 	 version 3 : rectangle de taille normal tournant dans le sens horraire
 	 version 4 : un rectangle moyen dans un grand rectangle tournant dans des sens contraire
-	 version 5 :
 	 */
+	
+    public static final int NBR_VERSIONS = 5;
+    protected static int[] versionEasy = {2,3};
+    protected static int[] versionMedium = {0,1};
+    protected static int[] versionHard = {4};
 
     public MultiSquare(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 2);
-        this.nbr_Versions = 5;
+        obstacle = buildObstacle();
+    }
+    
+    public MultiSquare(double x, double y, Color[] colors, Difficulty difficulty) {
+        super(x, y, colors, 0, 4);
+        if(difficulty == Difficulty.EASY)
+			version = CircleInCircle.getRandomEasyVersion();
+		else if(difficulty == Difficulty.NORMAL)
+			version = CircleInCircle.getRandomMediumVersion();
+		else
+			version = CircleInCircle.getRandomHardVersion();
         obstacle = buildObstacle();
     }
 
@@ -36,29 +53,29 @@ public class MultiSquare extends Obstacle {
         Square squa1;
         Square squa2;
 
-        if (version >= nbr_Versions)
+        if (version >= NBR_VERSIONS)
             version = versionDefault;
 
         switch (version) {
             case 0:
                 squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
-                difficulty = ensDifficulty.NORMAL;
+                difficulty = Difficulty.NORMAL;
                 break;
             case 1:
                 squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
-                difficulty = ensDifficulty.NORMAL;
+                difficulty = Difficulty.NORMAL;
                 break;
             case 2:
                 squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
-                difficulty = ensDifficulty.EASY;
+                difficulty = Difficulty.EASY;
                 break;
             case 3:
                 squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
-                difficulty = ensDifficulty.EASY;
+                difficulty = Difficulty.EASY;
                 break;
             case 4:
                 squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
@@ -66,10 +83,25 @@ public class MultiSquare extends Obstacle {
 
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(squa2.getShape());
-                difficulty = ensDifficulty.HARD;
+                difficulty = Difficulty.HARD;
                 break;
         }
 
         return multiShapes;
+    }
+    
+    public static int getRandomEasyVersion(){
+    	Random r = new Random();
+    	return versionEasy[r.nextInt(versionEasy.length)];
+    }
+    
+    public static int getRandomMediumVersion(){
+    	Random r = new Random();
+    	return versionMedium[r.nextInt(versionMedium.length)];
+    }
+
+    public static int getRandomHardVersion(){
+    	Random r = new Random();
+    	return versionHard[r.nextInt(versionHard.length)];
     }
 }
