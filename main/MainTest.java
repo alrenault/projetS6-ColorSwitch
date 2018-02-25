@@ -7,9 +7,9 @@ import game.ball.BallPlayer;
 import game.path.Path;
 import game.path.Shapes.Speed;
 import game.path.Triangle;
+import game.path.items.BallColorSwitch;
 import game.path.items.GravitySwitch;
 import game.path.items.Star;
-import game.path.items.BallColorSwitch;
 import game.path.pluri.CircleInCircle;
 import game.path.pluri.MultiLinee;
 import game.path.pluri.MultiShapes;
@@ -77,7 +77,7 @@ public class MainTest extends Application {
         //Circle cer =new Circle(280, 150, 50, 5);
         //Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
         //Group cercle=cer.getShape();
-        CircleInCircle cer = new CircleInCircle(scene1.getWidth()/2,scene1.getHeight()/2,Colorable.CUSTOM,12);
+        CircleInCircle cer = new CircleInCircle(scene1.getWidth() / 2, scene1.getHeight() / 2, Colorable.CUSTOM, 12);
         //MultiCircle cer = new MultiCircle((int) scene1.getWidth() / 2, 300, Colorable.CUSTOM, 2);
 
         Group cercle = cer.getObstacle();
@@ -100,17 +100,17 @@ public class MainTest extends Application {
         Group str = s.getShape();
 
 
-        GravitySwitch grvt = new GravitySwitch(scene1.getWidth()/2, 300);
+        GravitySwitch grvt = new GravitySwitch(scene1.getWidth() / 2, 300);
         Group ge = grvt.getShape();
-        
-        BallColorSwitch bcs = new BallColorSwitch(scene1.getWidth()/2,-100,Colorable.CUSTOM);
+
+        BallColorSwitch bcs = new BallColorSwitch(scene1.getWidth() / 2, -100, Colorable.CUSTOM);
         Group colorSwitch = bcs.getShape();
 
 
-       // gr.getChildren().add(multiSquaire);
+        // gr.getChildren().add(multiSquaire);
         //gr.getChildren().add(str);
-       // gr.getChildren().add(ge);
-       // gr.getChildren().add(multiShapes);
+        // gr.getChildren().add(ge);
+        // gr.getChildren().add(multiShapes);
         //gr.getChildren().add(tringle);
 
         //gr.getChildren().add(cer);
@@ -118,12 +118,12 @@ public class MainTest extends Application {
 
 
         //gr.getChildren().add(ligne);
-       // gr.getChildren().add(cercle);
-       // gr.getChildren().add(colorSwitch);
+        // gr.getChildren().add(cercle);
+        // gr.getChildren().add(colorSwitch);
 
         //gr.getChildren().add(mult);
-        
-        Path p = new Path(scene1,Colorable.CUSTOM,100,Difficulty.EASY);
+
+        Path p = new Path(scene1, Colorable.CUSTOM, 100, Difficulty.EASY);
         gr.getChildren().add(p.getPath());
         scene1.setFill(Colorable.BLACK);
 

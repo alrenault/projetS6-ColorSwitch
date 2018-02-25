@@ -1,12 +1,12 @@
 package game.path.pluri;
 
-import java.util.Random;
-
+import game.Difficulty;
 import game.path.Cross;
 import game.path.Shapes.Speed;
-import game.Difficulty;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+
+import java.util.Random;
 
 public class MultiCross extends Obstacle {
 	/*
@@ -17,25 +17,40 @@ public class MultiCross extends Obstacle {
 	version 4 : 
 	*/
 
-	public static final int NBR_VERSIONS = 4;
-	protected static int[] versionEasy = {0,1};
-    protected static int[] versionMedium = {2,3};
+    public static final int NBR_VERSIONS = 4;
+    protected static int[] versionEasy = {0, 1};
+    protected static int[] versionMedium = {2, 3};
     protected static int[] versionHard = {4};
-	
+
     public MultiCross(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 0);
         obstacle = buildObstacle();
     }
-    
+
     public MultiCross(double x, double y, Color[] colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
-        if(difficulty == Difficulty.EASY)
-			version = CircleInCircle.getRandomEasyVersion();
-		else if(difficulty == Difficulty.NORMAL)
-			version = CircleInCircle.getRandomMediumVersion();
-		else
-			version = CircleInCircle.getRandomHardVersion();
+        if (difficulty == Difficulty.EASY)
+            version = CircleInCircle.getRandomEasyVersion();
+        else if (difficulty == Difficulty.NORMAL)
+            version = CircleInCircle.getRandomMediumVersion();
+        else
+            version = CircleInCircle.getRandomHardVersion();
         obstacle = buildObstacle();
+    }
+
+    public static int getRandomEasyVersion() {
+        Random r = new Random();
+        return versionEasy[r.nextInt(versionEasy.length)];
+    }
+
+    public static int getRandomMediumVersion() {
+        Random r = new Random();
+        return versionMedium[r.nextInt(versionMedium.length)];
+    }
+
+    public static int getRandomHardVersion() {
+        Random r = new Random();
+        return versionHard[r.nextInt(versionHard.length)];
     }
 
     private Group buildObstacle() {
@@ -43,8 +58,8 @@ public class MultiCross extends Obstacle {
         double length = 100.0;
         double width = 15.0;
 
-		
-		/*public Cross(int x, int y, int width, int length, boolean mouvementDirection, boolean acceleration, 
+
+		/*public Cross(int x, int y, int width, int length, boolean mouvementDirection, boolean acceleration,
 			int _mouvementSpeed, int nbr_rect,Color[] colors,int pos_color)*/
 
         Cross cr1;
@@ -90,21 +105,6 @@ public class MultiCross extends Obstacle {
                 break;
         }
         return multiCross;
-    }
-    
-    public static int getRandomEasyVersion(){
-    	Random r = new Random();
-    	return versionEasy[r.nextInt(versionEasy.length)];
-    }
-    
-    public static int getRandomMediumVersion(){
-    	Random r = new Random();
-    	return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion(){
-    	Random r = new Random();
-    	return versionHard[r.nextInt(versionHard.length)];
     }
 
 }

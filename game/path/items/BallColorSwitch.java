@@ -1,5 +1,6 @@
 package game.path.items;
 
+import game.Colorable;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -8,18 +9,17 @@ import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
-import game.Colorable;
 
-public class BallColorSwitch implements Colorable{
+public class BallColorSwitch implements Colorable {
 
-	private double x;
-	private double y;
+    private double x;
+    private double y;
     private double size;
     private Group shape;
     private Color[] colors;
     private int pos_color = 0;
     private List<Color> colors_use;
- 
+
 
     public BallColorSwitch(double x, double y, Color[] colors) {
         this.size = 10;
@@ -50,10 +50,10 @@ public class BallColorSwitch implements Colorable{
         return ball;
 
     }
-    
+
     public void verifPosColor() {
         pos_color++;
-        System.out.println("position "+pos_color);
+        System.out.println("position " + pos_color);
         if (pos_color == colors.length)
             pos_color = 0;
     }

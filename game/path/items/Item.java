@@ -12,10 +12,10 @@ import javafx.scene.paint.Color;
 public abstract class Item {
     protected double x;
     protected double y;
-    private double points;
     protected Group shape;
-    protected  Color[] colors ;
+    protected Color[] colors;
     protected Bounds coord;
+    private double points;
 
     public Item(double x, double y, double points, Color[] colors) {
         this.x = x;

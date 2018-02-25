@@ -1,14 +1,14 @@
 package game.path.pluri;
 
-import java.util.Random;
-
+import game.Difficulty;
 import game.path.Linee;
 import game.path.Shapes.Speed;
-import game.Difficulty;
 import game.path.VerticalLine;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+
+import java.util.Random;
 
 
 public class MultiLinee extends Obstacle {
@@ -24,29 +24,44 @@ public class MultiLinee extends Obstacle {
 	version 9 : ligne + une barre verticale au dessus et en dessous faisant des allez-retour
 	*/
 
-    Scene scene;
     public static final int NBR_VERSIONS = 10;
-    protected static int[] versionEasy = {0,1,4,7};
-    protected static int[] versionMedium = {2,3,5,6,8};
+    protected static int[] versionEasy = {0, 1, 4, 7};
+    protected static int[] versionMedium = {2, 3, 5, 6, 8};
     protected static int[] versionHard = {9};
+    Scene scene;
 
     public MultiLinee(double x, double y, Color[] colors, int version, Scene scene) {
         super(x, y, colors, version, 4);
         this.scene = scene;
         obstacle = buildObstacle();
     }
-    
-    public MultiLinee(double x, double y, Color[] colors, Difficulty difficulty,Scene scene) {
+
+    public MultiLinee(double x, double y, Color[] colors, Difficulty difficulty, Scene scene) {
         super(x, y, colors, 0, 4);
-        if(difficulty == Difficulty.EASY)
-			version = CircleInCircle.getRandomEasyVersion();
-		else if(difficulty == Difficulty.NORMAL)
-			version = CircleInCircle.getRandomMediumVersion();
-		else
-			version = CircleInCircle.getRandomHardVersion();
-        
+        if (difficulty == Difficulty.EASY)
+            version = CircleInCircle.getRandomEasyVersion();
+        else if (difficulty == Difficulty.NORMAL)
+            version = CircleInCircle.getRandomMediumVersion();
+        else
+            version = CircleInCircle.getRandomHardVersion();
+
         this.scene = scene;
         obstacle = buildObstacle();
+    }
+
+    public static int getRandomEasyVersion() {
+        Random r = new Random();
+        return versionEasy[r.nextInt(versionEasy.length)];
+    }
+
+    public static int getRandomMediumVersion() {
+        Random r = new Random();
+        return versionMedium[r.nextInt(versionMedium.length)];
+    }
+
+    public static int getRandomHardVersion() {
+        Random r = new Random();
+        return versionHard[r.nextInt(versionHard.length)];
     }
 
     private Group buildObstacle() {
@@ -60,8 +75,8 @@ public class MultiLinee extends Obstacle {
         Linee l2;
         VerticalLine vl1;
         VerticalLine vl2;
-		
-		/*public Linee(int x, int y,int length, int width, boolean acceleration, 
+
+		/*public Linee(int x, int y,int length, int width, boolean acceleration,
 				boolean reverse,int _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors,int goal) {*/
         if (version >= NBR_VERSIONS)
             version = versionDefault;
@@ -144,21 +159,5 @@ public class MultiLinee extends Obstacle {
 
         return multiLinee;
 
-    }
-
-
-    public static int getRandomEasyVersion(){
-    	Random r = new Random();
-    	return versionEasy[r.nextInt(versionEasy.length)];
-    }
-    
-    public static int getRandomMediumVersion(){
-    	Random r = new Random();
-    	return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion(){
-    	Random r = new Random();
-    	return versionHard[r.nextInt(versionHard.length)];
     }
 }

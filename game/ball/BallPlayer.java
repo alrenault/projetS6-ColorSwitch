@@ -164,9 +164,9 @@ public class BallPlayer extends Ball {
         */
 
     }
-    
-    public void jumpLimit(){
-    	TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
+
+    public void jumpLimit() {
+        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
         tt1.setByY(100);
 
         tt1.setInterpolator(Interpolator.LINEAR);

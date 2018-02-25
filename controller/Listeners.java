@@ -1,14 +1,11 @@
 package controller;
 
 import game.ball.BallPlayer;
-import javafx.animation.Interpolator;
-import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import javafx.util.Duration;
 
 
 public class Listeners {

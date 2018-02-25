@@ -10,9 +10,9 @@ public class Score {
     private double scoreStared;
 
     public Score() {
-        nbrObstaclesCrossed=0;
-        nbEtoilesRamassees=0;
-        scoreStared=0.0;
+        nbrObstaclesCrossed = 0;
+        nbEtoilesRamassees = 0;
+        scoreStared = 0.0;
 
 
     }
@@ -21,6 +21,7 @@ public class Score {
     public void increaseNOC() {
         nbrObstaclesCrossed++;
     }
+
     public void ramasseEtoile(double gain) {
 
         nbEtoilesRamassees++;
@@ -35,6 +36,7 @@ public class Score {
     public int getNbrObstaclesCrossed() {
         return nbrObstaclesCrossed;
     }
+
     //TODO
     public double getScore() {
         return scoreStared;

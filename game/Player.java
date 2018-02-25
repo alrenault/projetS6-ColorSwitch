@@ -10,11 +10,12 @@ public class Player {
 
     public Player(String namePlayer) {
         this.namePlayer = namePlayer;
-        this.scorePlayer=new Score();
+        this.scorePlayer = new Score();
     }
+
     public Player() {
-        this.namePlayer ="";
-        this.scorePlayer=new Score();
+        this.namePlayer = "";
+        this.scorePlayer = new Score();
     }
 
     public String getNamePlayer() {

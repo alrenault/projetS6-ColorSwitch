@@ -11,9 +11,8 @@ public class Etoile {
     private double nbPoints;
 
 
-
-    public Etoile(double nbPoints,double x,double y,double size) {
-        this.s=new Star(x,y,size);
+    public Etoile(double nbPoints, double x, double y, double size) {
+        this.s = new Star(x, y, size);
         this.nbPoints = nbPoints;
     }
 

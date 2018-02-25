@@ -1,7 +1,6 @@
 package game.path.items;
 
 import game.Colorable;
-import game.path.Shapes;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 
@@ -18,13 +17,13 @@ public class Star extends Item {
         super(x, y, 0.0, Colorable.WHITE);
         this.radius = _radius;
         //recuperation de la position
-      //  this.coord = shape.localToScene(shape.getBoundsInLocal());
+        //  this.coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
     public Star(double x, double y) {
-        super(x, y, 0.0,Colorable.WHITE);
+        super(x, y, 0.0, Colorable.WHITE);
         this.radius = 10.0;
-       // this.coord = shape.localToScene(shape.getBoundsInLocal());
+        // this.coord = shape.localToScene(shape.getBoundsInLocal());
         this.shape = buildItem();
     }
 

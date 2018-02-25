@@ -1,7 +1,6 @@
 package game.path.items;
 
 import game.Colorable;
-import game.path.Shapes;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 
@@ -11,9 +10,10 @@ import javafx.scene.shape.Polygon;
  */
 public class GravitySwitch extends Item {
     private double width;
+
     public GravitySwitch(double x, double y) {
         super(x, y, 5.0, Colorable.WHITE);
-        this.width=3.0;
+        this.width = 3.0;
         shape = buildItem();
     }
 

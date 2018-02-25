@@ -1,5 +1,6 @@
 package game.path;
 
+import game.Colorable;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
@@ -9,14 +10,12 @@ import javafx.scene.shape.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
-import game.Colorable;
-
 /**
  * A Shape is a group of javafx shapes
  * The goal is to represent a concrete shape that can be used for obstacles
  * This class is the pattern of all the shapes
  */
-public abstract class Shapes implements Colorable{
+public abstract class Shapes implements Colorable {
     protected double x;
     protected double y;
     protected Group shape;
@@ -58,7 +57,7 @@ public abstract class Shapes implements Colorable{
         this.colors = colors;
         if (pos_color <= 0)
             this.pos_color = 0;
-        else{
+        else {
             this.pos_color = pos_color % colors.length;
         }
         this.colors_use = new ArrayList<Color>();

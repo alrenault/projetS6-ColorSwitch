@@ -1,5 +1,5 @@
 package game;
 
 public enum Difficulty {
-	EASY, NORMAL, HARD
+    EASY, NORMAL, HARD
 }

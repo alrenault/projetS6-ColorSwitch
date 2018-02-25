@@ -13,5 +13,4 @@ public class Partie {
     private Color backGroundColor;
 
 
-
 }

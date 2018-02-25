@@ -1,13 +1,13 @@
 package game.path.pluri;
 
-import java.util.Random;
-
+import game.Difficulty;
 import game.path.Circle;
 import game.path.Shapes;
 import game.path.Shapes.Speed;
-import game.Difficulty;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+
+import java.util.Random;
 
 
 public class MultiCircle extends Obstacle {
@@ -18,27 +18,42 @@ public class MultiCircle extends Obstacle {
 	version 3 : 3 cercles les uns au dessus des autres
 	version 4 : 2 cercle imbriqué vers le haut
 	*/
-	
-	public static final int NBR_VERSIONS = 5;
-	protected static int[] versionEasy = {0,1};
+
+    public static final int NBR_VERSIONS = 5;
+    protected static int[] versionEasy = {0, 1};
     protected static int[] versionMedium = {2};
-    protected static int[] versionHard = {3,4};
+    protected static int[] versionHard = {3, 4};
 
 
     public MultiCircle(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 0);
         obstacle = buildObstacle();
     }
-    
+
     public MultiCircle(double x, double y, Color[] colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
-        if(difficulty == Difficulty.EASY)
-			version = CircleInCircle.getRandomEasyVersion();
-		else if(difficulty == Difficulty.NORMAL)
-			version = CircleInCircle.getRandomMediumVersion();
-		else
-			version = CircleInCircle.getRandomHardVersion();
+        if (difficulty == Difficulty.EASY)
+            version = CircleInCircle.getRandomEasyVersion();
+        else if (difficulty == Difficulty.NORMAL)
+            version = CircleInCircle.getRandomMediumVersion();
+        else
+            version = CircleInCircle.getRandomHardVersion();
         obstacle = buildObstacle();
+    }
+
+    public static int getRandomEasyVersion() {
+        Random r = new Random();
+        return versionEasy[r.nextInt(versionEasy.length)];
+    }
+
+    public static int getRandomMediumVersion() {
+        Random r = new Random();
+        return versionMedium[r.nextInt(versionMedium.length)];
+    }
+
+    public static int getRandomHardVersion() {
+        Random r = new Random();
+        return versionHard[r.nextInt(versionHard.length)];
     }
 
     private Group buildObstacle() {
@@ -102,21 +117,6 @@ public class MultiCircle extends Obstacle {
         }
 
         return multiCircle;
-    }
-    
-    public static int getRandomEasyVersion(){
-    	Random r = new Random();
-    	return versionEasy[r.nextInt(versionEasy.length)];
-    }
-    
-    public static int getRandomMediumVersion(){
-    	Random r = new Random();
-    	return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion(){
-    	Random r = new Random();
-    	return versionHard[r.nextInt(versionHard.length)];
     }
 
 }

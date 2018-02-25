@@ -5,8 +5,8 @@ package model;
  * It contains ALL the data needed for the view
  */
 public class Model {
-    public double screen_sizeX, screen_sizeY;
     public final double points_star;//points gagnés par ramassage d'etoiles
+    public double screen_sizeX, screen_sizeY;
 
 
     public Model(double screen_sizeX, double screen_sizeY, double points_star) {

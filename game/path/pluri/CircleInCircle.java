@@ -1,12 +1,12 @@
 package game.path.pluri;
 
-import java.util.Random;
-
 import game.Difficulty;
 import game.path.Circle;
 import game.path.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+
+import java.util.Random;
 
 
 public class CircleInCircle extends Obstacle {
@@ -26,29 +26,42 @@ public class CircleInCircle extends Obstacle {
 	version 12 : petit cercle dans un grand cercle
 	default : version 4
 	*/
-	
-	public static final int NBR_VERSIONS = 13;
-	protected static int[] versionEasy = {2,3,4,5,10};
-    protected static int[] versionMedium = {0,1,6,7,11,12};
-    protected static int[] versionHard = {8,9};
+
+    public static final int NBR_VERSIONS = 13;
+    protected static int[] versionEasy = {2, 3, 4, 5, 10};
+    protected static int[] versionMedium = {0, 1, 6, 7, 11, 12};
+    protected static int[] versionHard = {8, 9};
 
     public CircleInCircle(double x, double y, Color[] colors, int version) {
         super(x, y, colors, version, 4);
         obstacle = buildObstacle();
     }
-    
+
     public CircleInCircle(double x, double y, Color[] colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
-        if(difficulty == Difficulty.EASY)
-			version = CircleInCircle.getRandomEasyVersion();
-		else if(difficulty == Difficulty.NORMAL)
-			version = CircleInCircle.getRandomMediumVersion();
-		else
-			version = CircleInCircle.getRandomHardVersion();
+        if (difficulty == Difficulty.EASY)
+            version = CircleInCircle.getRandomEasyVersion();
+        else if (difficulty == Difficulty.NORMAL)
+            version = CircleInCircle.getRandomMediumVersion();
+        else
+            version = CircleInCircle.getRandomHardVersion();
         obstacle = buildObstacle();
     }
-    
-    
+
+    public static int getRandomEasyVersion() {
+        Random r = new Random();
+        return versionEasy[r.nextInt(versionEasy.length)];
+    }
+
+    public static int getRandomMediumVersion() {
+        Random r = new Random();
+        return versionMedium[r.nextInt(versionMedium.length)];
+    }
+
+    public static int getRandomHardVersion() {
+        Random r = new Random();
+        return versionHard[r.nextInt(versionHard.length)];
+    }
 
     private Group buildObstacle() {
         double tinyRadial = 40.0;
@@ -73,7 +86,7 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.NORMAL;
                 break;
-                
+
             case 1:
                 cer1 = new Circle(x, y, tinyRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
@@ -97,13 +110,13 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.EASY;
                 break;
-                
+
             case 5:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.EASY;
                 break;
-                
+
             case 6:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
@@ -112,7 +125,7 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
                 break;
-                
+
             case 7:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 3);
@@ -121,7 +134,7 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
                 break;
-                
+
             case 8:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
@@ -132,7 +145,7 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer3.getShape());
                 difficulty = Difficulty.HARD;
                 break;
-                
+
             case 9:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
@@ -143,7 +156,7 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer3.getShape());
                 difficulty = Difficulty.HARD;
                 break;
-                
+
             case 10:
                 cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0);
                 cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 2);
@@ -151,7 +164,7 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.EASY;
                 break;
-                
+
             case 11:
                 cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0);
                 cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 2);
@@ -159,14 +172,14 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
                 break;
-                
+
             case 12:
-            	cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
-                difficulty = Difficulty.NORMAL;                
-            	break;
+                difficulty = Difficulty.NORMAL;
+                break;
 
             default:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
@@ -176,21 +189,6 @@ public class CircleInCircle extends Obstacle {
         }
         return circleInCircle;
 
-    }
-    
-    public static int getRandomEasyVersion(){
-    	Random r = new Random();
-    	return versionEasy[r.nextInt(versionEasy.length)];
-    }
-    
-    public static int getRandomMediumVersion(){
-    	Random r = new Random();
-    	return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion(){
-    	Random r = new Random();
-    	return versionHard[r.nextInt(versionHard.length)];
     }
 
 }
