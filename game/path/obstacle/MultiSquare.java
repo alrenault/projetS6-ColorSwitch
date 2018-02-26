@@ -2,8 +2,8 @@ package game.path.obstacle;
 
 import game.Colorable;
 import game.Difficulty;
-import game.path.Shapes.Speed;
-import game.path.Square;
+import game.path.shapes.Shapes.Speed;
+import game.path.shapes.Square;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 

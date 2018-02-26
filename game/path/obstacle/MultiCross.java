@@ -1,8 +1,8 @@
 package game.path.obstacle;
 
 import game.Difficulty;
-import game.path.Cross;
-import game.path.Shapes.Speed;
+import game.path.shapes.Cross;
+import game.path.shapes.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
