@@ -76,21 +76,25 @@ public class MultiSquare extends Obstacle {
                 squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(squa1.getColors_use());
                 break;
             case 1:
                 squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(squa1.getColors_use());
                 break;
             case 2:
                 squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(squa1.getColors_use());
                 break;
             case 3:
                 squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(squa1.getColors_use());
                 break;
             case 4:
                 squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
@@ -99,6 +103,8 @@ public class MultiSquare extends Obstacle {
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(squa2.getShape());
                 difficulty = Difficulty.HARD;
+                color_use.addAll(squa1.getColors_use());
+                color_use.addAll(squa2.getColors_use());
                 break;
         }
 

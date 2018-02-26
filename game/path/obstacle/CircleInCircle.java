@@ -85,36 +85,42 @@ public class CircleInCircle extends Obstacle {
                 cer1 = new Circle(x, y, tinyRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
                 break;
 
             case 1:
                 cer1 = new Circle(x, y, tinyRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
                 break;
 
             case 2:
                 cer1 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
                 break;
 
             case 3:
                 cer1 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
                 break;
 
             case 4:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
                 break;
 
             case 5:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
                 break;
 
             case 6:
@@ -124,6 +130,8 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 7:
@@ -133,6 +141,8 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 8:
@@ -144,6 +154,9 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer2.getShape());
                 circleInCircle.getChildren().add(cer3.getShape());
                 difficulty = Difficulty.HARD;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
+                color_use.addAll(cer3.getColors_use());
                 break;
 
             case 9:
@@ -155,6 +168,10 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer2.getShape());
                 circleInCircle.getChildren().add(cer3.getShape());
                 difficulty = Difficulty.HARD;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
+                color_use.addAll(cer3.getColors_use());
+
                 break;
 
             case 10:
@@ -163,6 +180,8 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 11:
@@ -171,6 +190,8 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 12:
@@ -179,12 +200,15 @@ public class CircleInCircle extends Obstacle {
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
                 break;
 
             default:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 circleInCircle.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
 
         }
         return circleInCircle;

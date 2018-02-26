@@ -78,6 +78,8 @@ public class MultiCircle extends Obstacle {
                 multiCircle.getChildren().add(cer1.getShape());
                 multiCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 1:
@@ -87,6 +89,8 @@ public class MultiCircle extends Obstacle {
                 multiCircle.getChildren().add(cer1.getShape());
                 multiCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
                 break;
             case 2:
                 cer1 = new Circle(x - bigRadial - width / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
@@ -95,6 +99,8 @@ public class MultiCircle extends Obstacle {
                 multiCircle.getChildren().add(cer1.getShape());
                 multiCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
 
                 break;
             case 3:
@@ -106,6 +112,9 @@ public class MultiCircle extends Obstacle {
                 multiCircle.getChildren().add(cer2.getShape());
                 multiCircle.getChildren().add(cer3.getShape());
                 difficulty = Difficulty.HARD;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
+                color_use.addAll(cer3.getColors_use());
                 break;
             case 4:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 2);
@@ -114,6 +123,8 @@ public class MultiCircle extends Obstacle {
                 multiCircle.getChildren().add(cer1.getShape());
                 multiCircle.getChildren().add(cer2.getShape());
                 difficulty = Difficulty.HARD;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(cer2.getColors_use());
         }
 
         return multiCircle;

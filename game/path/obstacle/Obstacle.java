@@ -1,5 +1,8 @@
 package game.path.obstacle;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import game.Difficulty;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
@@ -21,6 +24,7 @@ public abstract class Obstacle {
     protected int nbr_Versions;
     protected Difficulty difficulty;
     protected Bounds coord;
+    protected Set<Color> color_use;
 
 
     public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {
@@ -33,6 +37,7 @@ public abstract class Obstacle {
         } else {
             this.version = version;
         }
+        color_use = new HashSet<Color>();
     }
 
 
@@ -68,7 +73,14 @@ public abstract class Obstacle {
         return difficulty;
     }
 
-    public boolean isOver(int x, int y) {
+    
+    
+    public Set<Color> getColor_use() {
+		return color_use;
+	}
+
+
+	public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
 

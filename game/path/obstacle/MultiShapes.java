@@ -22,7 +22,7 @@ public class MultiShapes extends Obstacle {
 
     public static final int NBR_VERSIONS = 6;
     protected static int[] versionEasy = {4};
-    protected static int[] versionMedium = {1, 2, 3};
+    protected static int[] versionMedium = {1, 2, 3, 5};
     protected static int[] versionHard = {0};
     Scene scene;
 
@@ -96,6 +96,8 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(cer1.getShape());
                 difficulty = Difficulty.HARD;
+                color_use.addAll(squa1.getColors_use());
+                color_use.addAll(cer1.getColors_use());
                 break;
 
             case 1:
@@ -107,6 +109,9 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(l1.getShape());
                 multiShapes.getChildren().add(l2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(squa1.getColors_use());
+                color_use.addAll(l1.getColors_use());
+                color_use.addAll(l2.getColors_use());
                 break;
 
             case 2:
@@ -118,6 +123,9 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(l1.getShape());
                 multiShapes.getChildren().add(l2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(l1.getColors_use());
+                color_use.addAll(l2.getColors_use());
                 break;
 
             case 3:
@@ -131,6 +139,10 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(l1.getShape());
                 multiShapes.getChildren().add(l2.getShape());
                 difficulty = Difficulty.NORMAL;
+                color_use.addAll(cr1.getColors_use());
+                color_use.addAll(cr2.getColors_use());
+                color_use.addAll(l1.getColors_use());
+                color_use.addAll(l2.getColors_use());
                 break;
 
             case 4:
@@ -142,6 +154,9 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(vl1.getShape());
                 multiShapes.getChildren().add(vl2.getShape());
                 difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                color_use.addAll(vl1.getColors_use());
+                color_use.addAll(vl2.getColors_use());
                 break;
 
             case 5:
@@ -152,6 +167,10 @@ public class MultiShapes extends Obstacle {
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(vl1.getShape());
                 multiShapes.getChildren().add(vl2.getShape());
+                difficulty = Difficulty.NORMAL;
+                color_use.addAll(squa1.getColors_use());
+                color_use.addAll(vl1.getColors_use());
+                color_use.addAll(vl2.getColors_use());
                 break;
         }
 

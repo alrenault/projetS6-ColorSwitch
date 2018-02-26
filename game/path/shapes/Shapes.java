@@ -8,7 +8,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * A Shape is a group of javafx shapes
@@ -26,7 +28,7 @@ public abstract class Shapes implements Colorable {
     int pos_color;
     double mouvementSpeed;
     Color colors[];
-    List<Color> colors_use;
+    Set<Color> colors_use;
 
 
     protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
@@ -60,7 +62,7 @@ public abstract class Shapes implements Colorable {
         else {
             this.pos_color = pos_color % colors.length;
         }
-        this.colors_use = new ArrayList<Color>();
+        this.colors_use = new HashSet<Color>();
 
     }
 
@@ -95,7 +97,7 @@ public abstract class Shapes implements Colorable {
         return new Point2D(getX(), getY());
     }
 
-    public List<Color> getColors_use() {
+    public Set<Color> getColors_use() {
         return colors_use;
     }
 

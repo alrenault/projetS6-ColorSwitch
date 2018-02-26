@@ -98,6 +98,7 @@ public class Path {
 
             //System.out.println(obstacleDifficulty);
             Obstacle o = bo.BuildObstacleVersionAlea(type, obstacleDifficulty, posX, posY, colors, scene);
+            //BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight() + 100,o.getColor_use());
 
             newPath.getChildren().add(o.getObstacle());
             obstacles.add(o);
