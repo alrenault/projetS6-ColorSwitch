@@ -47,7 +47,7 @@ Début d'architecture, début d'IHM
 	- ...
 - Niveau Fini/Infini
 - Score
-	- Sauvegardé
+	- Sauvegardé (Avec base de données)
 	- Nombre de portes traversées
 	- Progression
 	- Items ramassés (étoiles,...)
