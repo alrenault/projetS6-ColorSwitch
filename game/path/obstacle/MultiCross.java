@@ -6,6 +6,7 @@ import game.path.shapes.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 public class MultiCross extends Obstacle {
@@ -22,12 +23,12 @@ public class MultiCross extends Obstacle {
     protected static int[] versionMedium = {2, 3};
     protected static int[] versionHard = {4};
 
-    public MultiCross(double x, double y, Color[] colors, int version) {
+    public MultiCross(double x, double y, List<Color> colors, int version) {
         super(x, y, colors, version, 0);
         obstacle = buildObstacle();
     }
 
-    public MultiCross(double x, double y, Color[] colors, Difficulty difficulty) {
+    public MultiCross(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
             version = CircleInCircle.getRandomEasyVersion();

@@ -1,5 +1,7 @@
 package game.path.shapes;
 
+import java.util.List;
+
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -11,7 +13,7 @@ public class Triangle extends Shapes {
 
     private double height;
 
-    public Triangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, Speed _mouvementSpeed, Color[] colors, int pos_color) {
+    public Triangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, Speed _mouvementSpeed, List<Color> colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         this.height = height;
 

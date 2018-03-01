@@ -8,30 +8,32 @@ import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class BallColorSwitch implements Colorable {
+public class BallColorSwitch extends Item implements Colorable {
 
     private double x;
     private double y;
     private double size;
-    private Group shape;
-    private Color[] colors;
+    private Group item;
+    private List<Color> colors;
     private int pos_color = 0;
     private List<Color> colors_use;
 
 
-    public BallColorSwitch(double x, double y, Color[] colors) {
+    public BallColorSwitch(double x, double y, List<Color> colors) {
+    	super(x,y,0,colors);
         this.size = 10;
         this.x = x;
         this.y = y;
 
         this.colors = colors;
         this.colors_use = new ArrayList<Color>();
-        this.shape = buildBall();
+        item = buildItem();
     }
 
-    public Group buildBall() {
+    public Group buildItem() {
         Group ball = new Group();
 
         double angle = 90;
@@ -54,17 +56,21 @@ public class BallColorSwitch implements Colorable {
     public void verifPosColor() {
         pos_color++;
         System.out.println("position " + pos_color);
-        if (pos_color == colors.length)
+        if (pos_color == colors.size())
             pos_color = 0;
     }
 
     public void color(Shape s) {
-        s.setFill(colors[pos_color]);
-        colors_use.add(colors[pos_color]);
-    }
-
-    public Group getShape() {
-        return shape;
+    	Iterator<Color> it = colors.iterator();
+    	Color c = null;
+    	for(int i = 0;it.hasNext() && i <= pos_color;i++){
+    		c = it.next();
+    	}
+    	
+    	if(c == null)
+    		c = Color.WHITE;
+        s.setFill(c);
+        colors_use.add(c);
     }
 
 }

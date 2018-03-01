@@ -1,8 +1,12 @@
 package game.path.items;
 
+import java.util.List;
+
 import game.Colorable;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
+import javafx.scene.paint.Color;
+
 
 /**
  * @autor Vincent
@@ -11,10 +15,10 @@ import javafx.scene.shape.Polygon;
 public class GravitySwitch extends Item {
     private double width;
 
-    public GravitySwitch(double x, double y) {
-        super(x, y, 5.0, Colorable.WHITE);
+    public GravitySwitch(double x, double y,List<Color> colors) {
+        super(x, y, 5,colors);
         this.width = 3.0;
-        shape = buildItem();
+        item = buildItem();
     }
 
     protected Group buildItem() {
@@ -53,7 +57,7 @@ public class GravitySwitch extends Item {
 
 
         Group g = new Group();
-        p.setFill(colors[0]);
+        p.setFill(colors.get(0));
         g.getChildren().add(p);
         return g;
 

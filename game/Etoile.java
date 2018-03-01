@@ -1,5 +1,6 @@
 package game;
-
+import java.util.List;
+import javafx.scene.paint.Color;
 import game.path.items.Star;
 
 /**
@@ -11,8 +12,8 @@ public class Etoile {
     private double nbPoints;
 
 
-    public Etoile(double nbPoints, double x, double y, double size) {
-        this.s = new Star(x, y, size);
+    public Etoile(double nbPoints, double x, double y, double size, List<Color> colors) {
+        this.s = new Star(x, y, size,colors);
         this.nbPoints = nbPoints;
     }
 

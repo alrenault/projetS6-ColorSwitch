@@ -1,5 +1,7 @@
 package game.path.shapes;
 
+import java.util.List;
+
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
@@ -17,7 +19,7 @@ public class VerticalLine extends Shapes {
 
 
     public VerticalLine(double x, double y, double height, double width, double distanceSeparation, boolean acceleration
-            , boolean reverse, Speed _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors, double goal) {
+            , boolean reverse, Speed _mouvementSpeed, int nbr_seg, List<Color> colors, int pos_colors, double goal) {
         super(x, y, width, true, acceleration, _mouvementSpeed, colors, pos_colors);
         this.length = height;
         this.distanceSeparation = distanceSeparation;

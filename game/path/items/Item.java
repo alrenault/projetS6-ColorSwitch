@@ -1,5 +1,7 @@
 package game.path.items;
 
+import java.util.List;
+
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
@@ -12,16 +14,17 @@ import javafx.scene.paint.Color;
 public abstract class Item {
     protected double x;
     protected double y;
-    protected Group shape;
-    protected Color[] colors;
+    protected Group item;
+    protected List<Color> colors;
     protected Bounds coord;
     private double points;
 
-    public Item(double x, double y, double points, Color[] colors) {
+    public Item(double x, double y, double points, List<Color> colors) {
         this.x = x;
         this.y = y;
         this.points = points;
         this.colors = colors;
+        item = new Group();
 
     }
 
@@ -34,12 +37,12 @@ public abstract class Item {
     }
 
     public double getX() {
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = item.localToScene(item.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
 
     public double getY() {
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = item.localToScene(item.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
     }
 
@@ -47,7 +50,7 @@ public abstract class Item {
         return new Point2D(getX(), getY());
     }
 
-    public Group getShape() {
-        return shape;
+    public Group getItem() {
+        return item;
     }
 }

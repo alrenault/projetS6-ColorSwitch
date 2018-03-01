@@ -1,5 +1,7 @@
 package game.path.shapes;
 
+import java.util.List;
+
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -12,7 +14,7 @@ public class Square extends Shapes {
     private double length;
 
     public Square(double x, double y, double length, double width,
-                  boolean mouvementDirection, boolean acceleration, Speed mouvementSpeed, Color[] colors, int pos_color) {
+                  boolean mouvementDirection, boolean acceleration, Speed mouvementSpeed, List<Color> colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, mouvementSpeed, colors, pos_color);
         this.length = length;
 

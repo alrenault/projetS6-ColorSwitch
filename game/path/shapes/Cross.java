@@ -1,5 +1,7 @@
 package game.path.shapes;
 
+import java.util.List;
+
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -11,14 +13,14 @@ public class Cross extends Shapes {
     private int nbr_rect = 2;
     private double length;
 
-    public Cross(double x, double y, double width, double length, Color[] colors) {
+    public Cross(double x, double y, double width, double length, List<Color> colors) {
         super(x, y, width, true, false, Speed.SYMPA, colors, 1);
         this.length = length;
         this.shape = build();
     }
 
     public Cross(double x, double y, double width, double length, boolean mouvementDirection, boolean acceleration,
-                 Speed _mouvementSpeed, int nbr_rect, Color[] colors, int pos_color) {
+                 Speed _mouvementSpeed, int nbr_rect, List<Color> colors, int pos_color) {
 
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         if (nbr_rect != 2)

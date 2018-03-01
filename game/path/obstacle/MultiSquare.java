@@ -7,6 +7,7 @@ import game.path.shapes.Square;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 
@@ -24,12 +25,12 @@ public class MultiSquare extends Obstacle {
     protected static int[] versionMedium = {0, 1};
     protected static int[] versionHard = {4};
 
-    public MultiSquare(double x, double y, Color[] colors, int version) {
+    public MultiSquare(double x, double y, List<Color> colors, int version) {
         super(x, y, colors, version, 2);
         obstacle = buildObstacle();
     }
 
-    public MultiSquare(double x, double y, Color[] colors, Difficulty difficulty) {
+    public MultiSquare(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
             version = CircleInCircle.getRandomEasyVersion();
@@ -73,32 +74,32 @@ public class MultiSquare extends Obstacle {
 
         switch (version) {
             case 0:
-                squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
+                squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(squa1.getColors_use());
                 break;
             case 1:
-                squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
+                squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(squa1.getColors_use());
                 break;
             case 2:
-                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
+                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.EASY;
                 color_use.addAll(squa1.getColors_use());
                 break;
             case 3:
-                squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, Colorable.CUSTOM, 0);
+                squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, 0);
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.EASY;
                 color_use.addAll(squa1.getColors_use());
                 break;
             case 4:
-                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
-                squa2 = new Square(x, y, bigLength, width, true, false, Speed.MOYEN, Colorable.CUSTOM, 2);
+                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0);
+                squa2 = new Square(x, y, bigLength, width, true, false, Speed.MOYEN, colors, 2);
 
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(squa2.getShape());

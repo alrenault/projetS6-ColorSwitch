@@ -7,6 +7,7 @@ import game.path.shapes.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 
@@ -25,12 +26,12 @@ public class MultiCircle extends Obstacle {
     protected static int[] versionHard = {3, 4};
 
 
-    public MultiCircle(double x, double y, Color[] colors, int version) {
+    public MultiCircle(double x, double y, List<Color> colors, int version) {
         super(x, y, colors, version, 0);
         obstacle = buildObstacle();
     }
 
-    public MultiCircle(double x, double y, Color[] colors, Difficulty difficulty) {
+    public MultiCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
             version = CircleInCircle.getRandomEasyVersion();

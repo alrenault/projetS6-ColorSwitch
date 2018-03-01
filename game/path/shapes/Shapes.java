@@ -9,6 +9,7 @@ import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -27,11 +28,11 @@ public abstract class Shapes implements Colorable {
     boolean acceleration;
     int pos_color;
     double mouvementSpeed;
-    Color colors[];
-    Set<Color> colors_use;
+    List<Color> colors;
+    List<Color> colors_use;
 
 
-    protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, Color[] colors, int pos_color) {
+    protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -60,9 +61,9 @@ public abstract class Shapes implements Colorable {
         if (pos_color <= 0)
             this.pos_color = 0;
         else {
-            this.pos_color = pos_color % colors.length;
+            this.pos_color = pos_color % colors.size();
         }
-        this.colors_use = new HashSet<Color>();
+        this.colors_use = new ArrayList<Color>();
 
     }
 
@@ -74,13 +75,21 @@ public abstract class Shapes implements Colorable {
 
     public void verifPosColor() {
         pos_color++;
-        if (pos_color == colors.length)
+        if (pos_color == colors.size())
             pos_color = 0;
     }
 
     public void color(Shape s) {
-        s.setFill(colors[pos_color]);
-        colors_use.add(colors[pos_color]);
+    	Iterator<Color> it = colors.iterator();
+    	Color c = null;
+    	for(int i = 0;it.hasNext() && i <= pos_color;i++){
+    		c = it.next();
+    	}
+    	
+    	if(c == null)
+    		c = Color.WHITE;
+        s.setFill(c);
+        colors_use.add(c);
     }
 
     public double getX() {
@@ -97,7 +106,7 @@ public abstract class Shapes implements Colorable {
         return new Point2D(getX(), getY());
     }
 
-    public Set<Color> getColors_use() {
+    public List<Color> getColors_use() {
         return colors_use;
     }
 

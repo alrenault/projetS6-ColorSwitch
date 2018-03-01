@@ -5,6 +5,7 @@ import game.ennemy.Ennemy;
 import game.path.items.Item;
 import game.path.obstacle.BuildObstacle;
 import game.path.obstacle.Obstacle;
+import game.path.items.BallColorSwitch;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -19,14 +20,15 @@ public class Path {
     private List<Item> items;
     private List<Obstacle> obstacles;
     private List<Ennemy> ennemies;
+    private List<Item> item;
     private Group path;
     private Difficulty gameDifficulty;
     private Scene scene;
-    private Color[] colors;
+    private List<Color> colors;
     private int nbr_Obs;
 
 
-    public Path(Scene scene, Color[] colors, int nbr_Obs, Difficulty gameDifficulty) {
+    public Path(Scene scene, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
         obstacles = new ArrayList<Obstacle>();
         ennemies = new ArrayList<Ennemy>();
         items = new ArrayList<Item>();
@@ -98,10 +100,13 @@ public class Path {
 
             //System.out.println(obstacleDifficulty);
             Obstacle o = bo.BuildObstacleVersionAlea(type, obstacleDifficulty, posX, posY, colors, scene);
-            //BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight() + 100,o.getColor_use());
+            System.out.println("taille : "+o.getColor_use().size());
+            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight() + 100,o.getColor_use());
 
             newPath.getChildren().add(o.getObstacle());
+            newPath.getChildren().add(bcs.getItem());
             obstacles.add(o);
+            items.add(bcs);
             posY = posY - o.getObstacleHeight() / 2 - 500;
         }
 
