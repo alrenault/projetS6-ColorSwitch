@@ -13,22 +13,15 @@ import java.util.List;
 
 public class BallColorSwitch extends Item implements Colorable {
 
-    private double x;
-    private double y;
     private double size;
-    private Group item;
-    private List<Color> colors;
     private int pos_color = 0;
     private List<Color> colors_use;
 
 
     public BallColorSwitch(double x, double y, List<Color> colors) {
     	super(x,y,0,colors);
-        this.size = 10;
-        this.x = x;
-        this.y = y;
+        this.size = 12;
 
-        this.colors = colors;
         this.colors_use = new ArrayList<Color>();
         item = buildItem();
     }
@@ -55,7 +48,7 @@ public class BallColorSwitch extends Item implements Colorable {
 
     public void verifPosColor() {
         pos_color++;
-        System.out.println("position " + pos_color);
+        //System.out.println("position " + pos_color);
         if (pos_color == colors.size())
             pos_color = 0;
     }
@@ -72,5 +65,11 @@ public class BallColorSwitch extends Item implements Colorable {
         s.setFill(c);
         colors_use.add(c);
     }
+
+	public List<Color> getColors_use() {
+		return colors_use;
+	}
+    
+    
 
 }

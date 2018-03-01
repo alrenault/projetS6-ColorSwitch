@@ -58,6 +58,7 @@ public class Circle extends Shapes {
         		c = it.next();
         	}
             arc_1.setStroke(c);
+            colors_use.add(c);
 
             arc_1.setStrokeWidth(width);
             cercle.getChildren().add(arc_1);

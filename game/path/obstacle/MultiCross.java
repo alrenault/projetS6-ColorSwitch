@@ -75,6 +75,7 @@ public class MultiCross extends Obstacle {
                 multiCross.getChildren().add(cr1.getShape());
                 difficulty = Difficulty.EASY;
                 color_use.addAll(cr1.getColors_use());
+                
                 break;
                 
             case 1:

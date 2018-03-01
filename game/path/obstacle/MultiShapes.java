@@ -158,6 +158,7 @@ public class MultiShapes extends Obstacle {
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
                 color_use.addAll(vl2.getColors_use());
+                System.out.println("taille1 : "+color_use);
                 break;
 
             case 5:
@@ -172,6 +173,7 @@ public class MultiShapes extends Obstacle {
                 color_use.addAll(squa1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
                 color_use.addAll(vl2.getColors_use());
+                System.out.println("taille2 : "+color_use);
                 break;
         }
 

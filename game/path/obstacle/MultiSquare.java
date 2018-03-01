@@ -96,6 +96,7 @@ public class MultiSquare extends Obstacle {
                 multiShapes.getChildren().add(squa1.getShape());
                 difficulty = Difficulty.EASY;
                 color_use.addAll(squa1.getColors_use());
+                
                 break;
             case 4:
                 squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0);
@@ -107,6 +108,8 @@ public class MultiSquare extends Obstacle {
                 color_use.addAll(squa1.getColors_use());
                 color_use.addAll(squa2.getColors_use());
                 break;
+                
+                	
         }
 
         return multiShapes;

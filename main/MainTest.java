@@ -117,10 +117,10 @@ public class MainTest extends Application{
         //Group ge = grvt.getShape();
 
         //BallColorSwitch bcs = new BallColorSwitch(scene1.getWidth() / 2, -100, CUSTOM);
-        //Group colorSwitch = bcs.getShape();
+        //Group colorSwitch = bcs.getItem();
 
 
-        // gr.getChildren().add(multiSquaire);
+       // gr.getChildren().add(multiSquaire);
         //gr.getChildren().add(str);
         // gr.getChildren().add(ge);
         // gr.getChildren().add(multiShapes);
@@ -137,7 +137,8 @@ public class MainTest extends Application{
         //gr.getChildren().add(mult);
 
         Path p = new Path(scene1, CUSTOM, 100, Difficulty.EASY);
-        gr.getChildren().add(p.getPath());
+       gr.getChildren().add(p.getPath());
+        
         scene1.setFill(Colorable.BLACK);
 
 

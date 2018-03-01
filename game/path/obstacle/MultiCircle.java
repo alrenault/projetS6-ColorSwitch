@@ -126,6 +126,7 @@ public class MultiCircle extends Obstacle {
                 difficulty = Difficulty.HARD;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
+                
         }
 
         return multiCircle;
