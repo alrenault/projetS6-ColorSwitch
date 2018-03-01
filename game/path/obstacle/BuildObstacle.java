@@ -1,12 +1,14 @@
 package game.path.obstacle;
 
+import java.util.List;
+
 import game.Difficulty;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 public class BuildObstacle {
 
-    public Obstacle BuildObstacleVersionAlea(int obs, Difficulty difficulty, double posX, double posY, Color[] colors, Scene scene) {
+    public Obstacle BuildObstacleVersionAlea(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors, Scene scene) {
         Obstacle o;
 
         switch (obs) {
@@ -37,6 +39,7 @@ public class BuildObstacle {
             default:
                 o = new MultiCircle(posX, posY, colors, difficulty);
         }
+        
         return o;
     }
 }

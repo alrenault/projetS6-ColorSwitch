@@ -1,6 +1,8 @@
 package game.path.obstacle;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import game.Difficulty;
@@ -18,16 +20,16 @@ public abstract class Obstacle {
     protected Group obstacle;
     protected double x;
     protected double y;
-    protected Color colors[];
+    protected List<Color> colors;
     protected int version;
     protected int versionDefault;
     protected int nbr_Versions;
     protected Difficulty difficulty;
     protected Bounds coord;
-    protected Set<Color> color_use;
+    protected List<Color> color_use;
 
 
-    public Obstacle(double x, double y, Color[] colors, int version, int versionDefault) {
+    public Obstacle(double x, double y, List<Color> colors, int version, int versionDefault) {
         this.x = x;
         this.y = y;
         this.colors = colors;
@@ -37,7 +39,7 @@ public abstract class Obstacle {
         } else {
             this.version = version;
         }
-        color_use = new HashSet<Color>();
+        color_use = new ArrayList<Color>();
     }
 
 
@@ -75,7 +77,7 @@ public abstract class Obstacle {
 
     
     
-    public Set<Color> getColor_use() {
+    public List<Color> getColor_use() {
 		return color_use;
 	}
 

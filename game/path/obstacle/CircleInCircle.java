@@ -6,6 +6,7 @@ import game.path.shapes.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 
@@ -32,12 +33,12 @@ public class CircleInCircle extends Obstacle {
     protected static int[] versionMedium = {0, 1, 6, 7, 11, 12};
     protected static int[] versionHard = {8, 9};
 
-    public CircleInCircle(double x, double y, Color[] colors, int version) {
+    public CircleInCircle(double x, double y, List<Color> colors, int version) {
         super(x, y, colors, version, 4);
         obstacle = buildObstacle();
     }
 
-    public CircleInCircle(double x, double y, Color[] colors, Difficulty difficulty) {
+    public CircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
             version = CircleInCircle.getRandomEasyVersion();

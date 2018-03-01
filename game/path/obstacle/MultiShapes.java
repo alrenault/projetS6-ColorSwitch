@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 
@@ -27,13 +28,13 @@ public class MultiShapes extends Obstacle {
     Scene scene;
 
 
-    public MultiShapes(double x, double y, Color[] colors, Scene scene, int version) {
+    public MultiShapes(double x, double y, List<Color> colors, Scene scene, int version) {
         super(x, y, colors, version, 1);
         this.scene = scene;
         obstacle = buildObstacle();
     }
 
-    public MultiShapes(double x, double y, Color[] colors, Difficulty difficulty, Scene scene) {
+    public MultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, Scene scene) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
             version = CircleInCircle.getRandomEasyVersion();
@@ -74,8 +75,8 @@ public class MultiShapes extends Obstacle {
         int nb_arc = 4;
 
         Random r = new Random();
-        int colorR1 = r.nextInt(colors.length);
-        int colorR2 = r.nextInt(colors.length);
+        int colorR1 = r.nextInt(colors.size());
+        int colorR2 = r.nextInt(colors.size());
         Square squa1;
         Circle cer1;
         Linee l1;
@@ -157,6 +158,7 @@ public class MultiShapes extends Obstacle {
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
                 color_use.addAll(vl2.getColors_use());
+                System.out.println("taille1 : "+color_use);
                 break;
 
             case 5:
@@ -171,6 +173,7 @@ public class MultiShapes extends Obstacle {
                 color_use.addAll(squa1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
                 color_use.addAll(vl2.getColors_use());
+                System.out.println("taille2 : "+color_use);
                 break;
         }
 

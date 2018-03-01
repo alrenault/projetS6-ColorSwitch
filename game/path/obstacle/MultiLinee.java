@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 
@@ -30,13 +31,13 @@ public class MultiLinee extends Obstacle {
     protected static int[] versionHard = {9};
     Scene scene;
 
-    public MultiLinee(double x, double y, Color[] colors, int version, Scene scene) {
+    public MultiLinee(double x, double y, List<Color> colors, int version, Scene scene) {
         super(x, y, colors, version, 4);
         this.scene = scene;
         obstacle = buildObstacle();
     }
 
-    public MultiLinee(double x, double y, Color[] colors, Difficulty difficulty, Scene scene) {
+    public MultiLinee(double x, double y, List<Color> colors, Difficulty difficulty, Scene scene) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
             version = CircleInCircle.getRandomEasyVersion();

@@ -1,6 +1,9 @@
 package main;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import game.Colorable;
 import game.Difficulty;
 import game.ball.BallPlayer;
@@ -18,9 +21,12 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import game.path.shapes.Circle;
 
 
-public class MainTest extends Application {
+
+public class MainTest extends Application{
 
 
     public static void main(String[] args) {
@@ -29,6 +35,12 @@ public class MainTest extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+    	List<Color> CUSTOM = new ArrayList<Color>();
+    	CUSTOM.add(Colorable.YELLOW);
+    	CUSTOM.add(Colorable.PURPLE);
+    	CUSTOM.add(Colorable.ROSE);
+    	CUSTOM.add(Colorable.BLUE);
+    	
         primaryStage.setTitle("ColorSuitch");
         Group gr = new Group();
         Scene scene1 = new Scene(gr, 600, 1000);
@@ -67,53 +79,54 @@ public class MainTest extends Application {
         //Linee l = new Linee(0,50,100,20,3,Colorable.normal);
         //Group ligne = l.getShape();
 
-        MultiLinee l = new MultiLinee(0, 100, Colorable.CUSTOM, 6, scene1);
-        Group ligne = l.getObstacle();
+        //MultiLinee l = new MultiLinee(0, 100, CUSTOM, 6, scene1);
+        //Group ligne = l.getObstacle();
 
-        MultiLinee ml = new MultiLinee(50, 150, Colorable.CUSTOM, 8, scene1);
-        Group mult = ml.getObstacle();
+        //MultiLinee ml = new MultiLinee(50, 150, CUSTOM, 8, scene1);
+        //Group mult = ml.getObstacle();
         //-------------------------------------------------------------------
 
         //Circle cer =new Circle(280, 150, 50, 5);
-        //Circle cer =new Circle(280, 150, 50, 10 ,8,true,false,2);
+        //Circle cer =new Circle(280., 150., 50., 10. ,4,true,false,Speed.SYMPA,CUSTOM,0);
+
         //Group cercle=cer.getShape();
-        CircleInCircle cer = new CircleInCircle(scene1.getWidth() / 2, scene1.getHeight() / 2, Colorable.CUSTOM, 12);
+       // CircleInCircle cer = new CircleInCircle(scene1.getWidth() / 2, scene1.getHeight() / 2, CUSTOM, 12);
         //MultiCircle cer = new MultiCircle((int) scene1.getWidth() / 2, 300, Colorable.CUSTOM, 2);
 
-        Group cercle = cer.getObstacle();
+        //Group cercle = cer.getObstacle();
 
 
         //Creation du groupe des formes
 
 
-        Triangle Daeneris = new Triangle(scene1.getWidth() / 2, scene1.getHeight() / 2, 200, 20, false, false, Speed.SYMPA, Colorable.CUSTOM, 0);
-        Group tringle = Daeneris.getShape();
+        //Triangle Daeneris = new Triangle(scene1.getWidth() / 2, scene1.getHeight() / 2, 200, 20, false, false, Speed.SYMPA, CUSTOM, 0);
+        //Group tringle = Daeneris.getShape();
 
-        MultiSquare squaires = new MultiSquare(scene1.getWidth() / 2, scene1.getHeight() / 2, Colorable.CUSTOM, 0);
-        Group multiSquaire = squaires.getObstacle();
+        //MultiSquare squaires = new MultiSquare(scene1.getWidth() / 2, scene1.getHeight() / 2, CUSTOM, 0);
+        //Group multiSquaire = squaires.getObstacle();
 
-        MultiShapes shapes = new MultiShapes(scene1.getWidth() / 2, scene1.getHeight() / 2, Colorable.CUSTOM, scene1, 3);
-        Group multiShapes = shapes.getObstacle();
-
-
-        Star s = new Star(300, 250);
-        Group str = s.getShape();
+        //MultiShapes shapes = new MultiShapes(scene1.getWidth() / 2, scene1.getHeight() / 2, CUSTOM, scene1, 3);
+       // Group multiShapes = shapes.getObstacle();
 
 
-        GravitySwitch grvt = new GravitySwitch(scene1.getWidth() / 2, 300);
-        Group ge = grvt.getShape();
-
-        BallColorSwitch bcs = new BallColorSwitch(scene1.getWidth() / 2, -100, Colorable.CUSTOM);
-        Group colorSwitch = bcs.getShape();
+        //Star s = new Star(300, 250);
+        //Group str = s.getShape();
 
 
-        // gr.getChildren().add(multiSquaire);
+       // GravitySwitch grvt = new GravitySwitch(scene1.getWidth() / 2, 300);
+        //Group ge = grvt.getShape();
+
+        //BallColorSwitch bcs = new BallColorSwitch(scene1.getWidth() / 2, -100, CUSTOM);
+        //Group colorSwitch = bcs.getItem();
+
+
+       // gr.getChildren().add(multiSquaire);
         //gr.getChildren().add(str);
         // gr.getChildren().add(ge);
         // gr.getChildren().add(multiShapes);
         //gr.getChildren().add(tringle);
 
-        //gr.getChildren().add(cer);
+       // gr.getChildren().add(cercle);
         // gr.getChildren().add(rec);
 
 
@@ -123,8 +136,9 @@ public class MainTest extends Application {
 
         //gr.getChildren().add(mult);
 
-        Path p = new Path(scene1, Colorable.CUSTOM, 100, Difficulty.EASY);
-        gr.getChildren().add(p.getPath());
+        Path p = new Path(scene1, CUSTOM, 100, Difficulty.EASY);
+       gr.getChildren().add(p.getPath());
+        
         scene1.setFill(Colorable.BLACK);
 
 
@@ -134,7 +148,7 @@ public class MainTest extends Application {
         //Pour le joueur
 
 
-        BallPlayer player = new BallPlayer(10, Colorable.CUSTOM[0], scene1);
+        BallPlayer player = new BallPlayer(10, CUSTOM.get(0), scene1);
 
 		/*player.setCenterX(250);
 

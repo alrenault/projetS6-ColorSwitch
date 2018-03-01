@@ -1,6 +1,10 @@
 package game.path.shapes;
 
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -18,7 +22,7 @@ public class Circle extends Shapes {
     private int arcs_nbr;
 
     public Circle(double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
-                  boolean acceleration, Speed vitesseRotation, Color[] colors, int pos_color) {
+                  boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color) {
 
         super(xCenter, yCenter, width, rotationDirection, acceleration, vitesseRotation, colors, pos_color);
         System.out.println(this.pos_color);
@@ -47,7 +51,14 @@ public class Circle extends Shapes {
             arc_1.setType(type);
             arc_1.setFill(null);
             verifPosColor();
-            arc_1.setStroke(colors[pos_color]);
+            
+            Iterator<Color> it = colors.iterator();
+        	Color c = null;
+        	for(int j = 0;it.hasNext() && j <= pos_color;j++){
+        		c = it.next();
+        	}
+            arc_1.setStroke(c);
+            colors_use.add(c);
 
             arc_1.setStrokeWidth(width);
             cercle.getChildren().add(arc_1);
