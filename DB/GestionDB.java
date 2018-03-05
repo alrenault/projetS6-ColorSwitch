@@ -1,6 +1,11 @@
 package DB;
 
+import game.Score;
+
 import java.sql.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 
 /**
  * @autor Vincent
@@ -18,22 +23,21 @@ public class GestionDB {
 
 
     public GestionDB() {
-       this.connexion= connexion();
+        this.connexion();
     }
 
-    private static Connection connexion(){
-        Connection c =null;
+    private void connexion(){
+
         try {
             Class.forName(JDBC_DRIVER);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         try {
-             c = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+             this.connexion= DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-            return c;
 
     }
     private boolean pseudoInDB(String pseudo){// si le pseudo est dans la db
@@ -42,9 +46,10 @@ public class GestionDB {
             PreparedStatement stmt = connexion.prepareStatement("SELECT ID_user from user WHERE pseudo_user = ?");
             stmt.setString(1,pseudo);
            ResultSet reponse = stmt.executeQuery();
+                boolean r =reponse.next();//on stocke le booleen avac de retouner la valeur pour fermer la connnection,et requete
+                connexion.close();
+            return r;
 
-            connexion.close();
-            return reponse.next();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -52,7 +57,8 @@ public class GestionDB {
 
 
     }
-    public void insert(String pseudo,double score){
+    public void insert(String pseudo, Score scoreToInsrt){
+
         /*
         * Si le pseudo est dans la db.user :
         *           facile on met une ligne dans partie
@@ -60,6 +66,42 @@ public class GestionDB {
         *           onrajoute une ligne dans user puis on ajoute une ligne dans partie
         *
         * */
+        /*
+        java.util.Date dateTime = new java.util.Date();
+        SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = patern.format(dateTime);
+        */
+        Date dateTime = new Date();
+        String currentDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dateTime);
+
+        if (!(pseudoInDB(pseudo))){
+          //  INSERT INTO `user` (`ID_user`, `pseudo_user`) VALUES (NULL, 'peusdo')
+            try {
+                PreparedStatement preparedStatement =connexion.prepareStatement("INSERT INTO user (pseudo_user) VALUES (?)");
+                preparedStatement.setString(1,pseudo);
+                connexion.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }else {
+            try {
+                PreparedStatement preparedStatement =connexion.prepareStatement("INSERT INTO partie (ID_user, " +
+                        "date_heur_partie,nb_portes_traversees_partie," +
+                        "nb_etoiles_ramassee_partie,score_partie ) " +
+                        "VALUES ((SELECT ID_user from user WHERE pseudo_user = ?),NOW(),?,?,?)");
+                preparedStatement.setString(1,pseudo);
+                preparedStatement.setInt(2,scoreToInsrt.getNbrObstaclesCrossed());
+                preparedStatement.setInt(3,scoreToInsrt.getNbEtoilesRamassees());
+                preparedStatement.setInt(4, (int) scoreToInsrt.getScore());
+                connexion.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
 
     }
 

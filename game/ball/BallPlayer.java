@@ -13,7 +13,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-public class BallPlayer extends Ball {
+public class
+BallPlayer extends Ball {
 
     int x = 70;
     private float size;

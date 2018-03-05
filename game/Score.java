@@ -37,6 +37,7 @@ public class Score {
         return nbrObstaclesCrossed;
     }
 
+
     //TODO
     public double getScore() {
         return scoreStared;
