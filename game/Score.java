@@ -17,6 +17,17 @@ public class Score {
 
     }
 
+    /**
+     * ONLY FOR TESTING !
+     * @param nbrObstaclesCrossed
+     * @param nbEtoilesRamassees
+     * @param scoreStared
+     */
+    public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, double scoreStared) {
+        this.nbrObstaclesCrossed = nbrObstaclesCrossed;
+        this.nbEtoilesRamassees = nbEtoilesRamassees;
+        this.scoreStared = scoreStared;
+    }
 
     public void increaseNOC() {
         nbrObstaclesCrossed++;

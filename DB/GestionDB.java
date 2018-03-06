@@ -3,9 +3,6 @@ package DB;
 import game.Score;
 
 import java.sql.*;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 
 /**
  * @autor Vincent
@@ -18,7 +15,6 @@ public class GestionDB {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
 
-
     private Connection connexion;
 
 
@@ -26,23 +22,31 @@ public class GestionDB {
         this.connexion();
     }
 
+
     private void connexion(){
-
         try {
-            Class.forName(JDBC_DRIVER);
-        } catch (ClassNotFoundException e) {
+            if (this.connexion==null||this.connexion.isClosed()) {
+                    Class.forName(JDBC_DRIVER);
+                    this.connexion = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            }
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
-        try {
-             this.connexion= DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-        } catch (SQLException e) {
+        catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
+
+    /**
+     *
+     * @param pseudo
+     * @return
+     */
     private boolean pseudoInDB(String pseudo){// si le pseudo est dans la db
-        System.err.println("pseudo in db :"+pseudo);
+        System.err.println("pseudo in db : "+pseudo);
         try {
+            connexion();
             PreparedStatement stmt = connexion.prepareStatement("SELECT ID_user from user WHERE pseudo_user = ?");
             stmt.setString(1,pseudo);
            ResultSet reponse = stmt.executeQuery();
@@ -57,35 +61,29 @@ public class GestionDB {
 
 
     }
+
+    /**
+     *
+     * @param pseudo
+     * @param scoreToInsrt
+     */
     public void insert(String pseudo, Score scoreToInsrt){
 
-        /*
-        * Si le pseudo est dans la db.user :
-        *           facile on met une ligne dans partie
-        *   Sinon
-        *           onrajoute une ligne dans user puis on ajoute une ligne dans partie
-        *
-        * */
-        /*
-        java.util.Date dateTime = new java.util.Date();
-        SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String currentDateTime = patern.format(dateTime);
-        */
-        Date dateTime = new Date();
-        String currentDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(dateTime);
 
-        if (!(pseudoInDB(pseudo))){
-          //  INSERT INTO `user` (`ID_user`, `pseudo_user`) VALUES (NULL, 'peusdo')
+
+        if (!(pseudoInDB(pseudo))) {
             try {
-                PreparedStatement preparedStatement =connexion.prepareStatement("INSERT INTO user (pseudo_user) VALUES (?)");
-                preparedStatement.setString(1,pseudo);
+                connexion();
+                PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO user (pseudo_user) VALUES (?)");
+                preparedStatement.setString(1, pseudo);
+                preparedStatement.executeUpdate();
                 connexion.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
-        }else {
+        }
             try {
+                connexion();
                 PreparedStatement preparedStatement =connexion.prepareStatement("INSERT INTO partie (ID_user, " +
                         "date_heur_partie,nb_portes_traversees_partie," +
                         "nb_etoiles_ramassee_partie,score_partie ) " +
@@ -94,18 +92,11 @@ public class GestionDB {
                 preparedStatement.setInt(2,scoreToInsrt.getNbrObstaclesCrossed());
                 preparedStatement.setInt(3,scoreToInsrt.getNbEtoilesRamassees());
                 preparedStatement.setInt(4, (int) scoreToInsrt.getScore());
+                preparedStatement.executeUpdate();
                 connexion.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
-
-
-
     }
 
-
-
-
-}
