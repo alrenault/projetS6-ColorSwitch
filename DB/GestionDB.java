@@ -101,6 +101,11 @@ public class GestionDB {
         }
     }
 
+    /**
+     * Sort tout les scores de joueur de la base
+     * @param pseudoJoueur le pseudo du joueur à rechercher
+     * @return une liste (chainee) conenant tout les scores de joueur
+     */
     public List<Record> getScoresOfPlayer(String pseudoJoueur){
 
         if (!(pseudoInDB(pseudoJoueur)))return null;
@@ -109,11 +114,40 @@ public class GestionDB {
         connexion();
         PreparedStatement stmt = null;
         try {
-            stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
+            stmt = connexion.prepareStatement("SELECT date_heur_partie,nb_portes_traversees_partie," +
                     " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user WHERE pseudo_user = ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
             stmt.setString(1,pseudoJoueur);
 
+            ResultSet reponse = stmt.executeQuery();
+            while (reponse.next()) {
+
+                SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String date = patern.format(reponse.getTimestamp("date_heur_partie"));
+
+                ret.add(new Record(pseudoJoueur,
+                        new Score(reponse.getInt("nb_portes_traversees_partie"),
+                                reponse.getInt("nb_etoiles_ramassee_partie"),
+                                reponse.getInt("score_partie")),
+                        date));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+    public List<Record> getNBestRecords(int limit){
+    assert(limit>0);
+
+        List<Record> ret=new LinkedList<>();
+        connexion();
+        PreparedStatement stmt = null;
+        try {
+            stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
+                    " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user ORDER BY score_partie LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+
+            stmt.setInt(1,limit);
             ResultSet reponse = stmt.executeQuery();
             while (reponse.next()) {
 
@@ -132,7 +166,6 @@ public class GestionDB {
         }
         return ret;
     }
-
 
     /**
      * Insert des Scores dans la base
