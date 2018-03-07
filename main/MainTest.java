@@ -44,7 +44,7 @@ public class MainTest extends Application{
         primaryStage.setTitle("ColorSuitch");
         Group gr = new Group();
         Scene scene1 = new Scene(gr, 600, 1000);
-//        GestionDB g=new GestionDB();
+      GestionDB g=new GestionDB();
 
         //-------------------------------------------------------------------
 

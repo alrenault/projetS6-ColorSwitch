@@ -3,11 +3,10 @@ package DB;
 import game.Score;
 
 import java.sql.*;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @autor Vincent
@@ -54,7 +53,6 @@ public class GestionDB {
     private boolean pseudoInDB(String pseudo){// si le pseudo est dans la db
         assert(pseudo.length()>2);
         assert(pseudo.length()<25);
-
         try {
             connexion();
             PreparedStatement stmt = connexion.prepareStatement("SELECT ID_user from user WHERE pseudo_user = ?");
@@ -63,13 +61,10 @@ public class GestionDB {
                 boolean r =reponse.next();//on stocke le booleen avac de retouner la valeur pour fermer la connnection,et requete
                 connexion.close();
             return r;
-
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
-
-
     }
 
     /**
@@ -78,9 +73,6 @@ public class GestionDB {
      * @param scoreToInsrt
      */
     public void record(String pseudo, Score scoreToInsrt){
-
-
-
         if (!(pseudoInDB(pseudo))) {
             try {
                 connexion();
@@ -126,21 +118,42 @@ public class GestionDB {
                 while (reponse.next()) {
 
                     SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    String datett = patern.format(reponse.getTimestamp("date_heur_partie"));
-                   /*
-                    System.err.println(reponse.getString("pseudo_user")+" "+
-                            new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(reponse.getTimestamp("date_heur_partie"))
-                            +" "+reponse.getInt("nb_portes_traversees_partie")
-                    +" "+reponse.getInt("nb_etoiles_ramassee_partie")+" "+reponse.getInt("score_partie"));*/
+                    String date = patern.format(reponse.getTimestamp("date_heur_partie"));
 
-
-                    ret.add(new Record(reponse.getString("pseudo_user"),new Score(reponse.getInt("nb_portes_traversees_partie"),reponse.getInt("nb_etoiles_ramassee_partie"),reponse.getInt("score_partie")),datett));
+                    ret.add(new Record(reponse.getString("pseudo_user"),
+                                new Score(reponse.getInt("nb_portes_traversees_partie"),
+                                            reponse.getInt("nb_etoiles_ramassee_partie"),
+                                            reponse.getInt("score_partie")),
+                            date));
 
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             return ret;
+        }
+        public void populateDB(){
+
+            for (int i = 0;i<15;i++){
+                record("Vincent", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Quentin", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Alexis", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Yohan", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Anthony", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Pierrick", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Romain", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Jules", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Thomas", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Thomas2", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Jack", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Pierre", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Firmin", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Louis", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Richard", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Henry", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Edward", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+            }
+
         }
 
 
