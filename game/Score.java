@@ -53,4 +53,13 @@ public class Score {
     public double getScore() {
         return scoreStared;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "" + nbrObstaclesCrossed +
+                ", " + nbEtoilesRamassees +
+                ", " + scoreStared +
+                "}";
+    }
 }

@@ -30,4 +30,13 @@ public class Record {
     public String getDateRecordJoueur() {
         return dateRecordJoueur;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                " " + pseudoJoueur  +
+                ", " + scoreJoueur.toString() +
+                "," + dateRecordJoueur  +
+                ']';
+    }
 }
