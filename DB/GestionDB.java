@@ -33,8 +33,8 @@ public class GestionDB {
     private void connexion(){
         try {
             if (connexion==null||connexion.isClosed()) {
-                    Class.forName(JDBC_DRIVER);
-                    connexion = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+                Class.forName(JDBC_DRIVER);
+                connexion = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             }
         }
         catch (SQLException e) {
@@ -57,9 +57,9 @@ public class GestionDB {
             connexion();
             PreparedStatement stmt = connexion.prepareStatement("SELECT ID_user from user WHERE pseudo_user = ?");
             stmt.setString(1,pseudo);
-           ResultSet reponse = stmt.executeQuery();
-                boolean r =reponse.next();//on stocke le booleen avac de retouner la valeur pour fermer la connnection,et requete
-                connexion.close();
+            ResultSet reponse = stmt.executeQuery();
+            boolean r =reponse.next();//on stocke le booleen avac de retouner la valeur pour fermer la connnection,et requete
+            connexion.close();
             return r;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -84,57 +84,64 @@ public class GestionDB {
                 e.printStackTrace();
             }
         }
-            try {
-                connexion();
-                PreparedStatement preparedStatement =connexion.prepareStatement("INSERT INTO partie (ID_user, " +
-                        "date_heur_partie,nb_portes_traversees_partie," +
-                        "nb_etoiles_ramassee_partie,score_partie ) " +
-                        "VALUES ((SELECT ID_user from user WHERE pseudo_user = ?),NOW(),?,?,?)");
-                preparedStatement.setString(1,pseudo);
-                preparedStatement.setInt(2,scoreToInsrt.getNbrObstaclesCrossed());
-                preparedStatement.setInt(3,scoreToInsrt.getNbEtoilesRamassees());
-                preparedStatement.setInt(4, (int) scoreToInsrt.getScore());
-                preparedStatement.executeUpdate();
-                connexion.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        public List<Record> getScoresOfPlayer(String pseudoJoueur){
-
-           if (!(pseudoInDB(pseudoJoueur)))return null;
-
-            List<Record> ret=new LinkedList<>();
+        try {
             connexion();
-            PreparedStatement stmt = null;
-            try {
-                stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
-                        " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user WHERE pseudo_user = ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-
-                stmt.setString(1,pseudoJoueur);
-
-                ResultSet reponse = stmt.executeQuery();
-                while (reponse.next()) {
-
-                    SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    String date = patern.format(reponse.getTimestamp("date_heur_partie"));
-
-                    ret.add(new Record(reponse.getString("pseudo_user"),
-                                new Score(reponse.getInt("nb_portes_traversees_partie"),
-                                            reponse.getInt("nb_etoiles_ramassee_partie"),
-                                            reponse.getInt("score_partie")),
-                            date));
-
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            return ret;
+            PreparedStatement preparedStatement =connexion.prepareStatement("INSERT INTO partie (ID_user, " +
+                    "date_heur_partie,nb_portes_traversees_partie," +
+                    "nb_etoiles_ramassee_partie,score_partie ) " +
+                    "VALUES ((SELECT ID_user from user WHERE pseudo_user = ?),NOW(),?,?,?)");
+            preparedStatement.setString(1,pseudo);
+            preparedStatement.setInt(2,scoreToInsrt.getNbrObstaclesCrossed());
+            preparedStatement.setInt(3,scoreToInsrt.getNbEtoilesRamassees());
+            preparedStatement.setInt(4, (int) scoreToInsrt.getScore());
+            preparedStatement.executeUpdate();
+            connexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        public void populateDB(){
+    }
 
-            for (int i = 0;i<15;i++){
+    public List<Record> getScoresOfPlayer(String pseudoJoueur){
+
+        if (!(pseudoInDB(pseudoJoueur)))return null;
+
+        List<Record> ret=new LinkedList<>();
+        connexion();
+        PreparedStatement stmt = null;
+        try {
+            stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
+                    " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user WHERE pseudo_user = ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+
+            stmt.setString(1,pseudoJoueur);
+
+            ResultSet reponse = stmt.executeQuery();
+            while (reponse.next()) {
+
+                SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String date = patern.format(reponse.getTimestamp("date_heur_partie"));
+
+                ret.add(new Record(reponse.getString("pseudo_user"),
+                        new Score(reponse.getInt("nb_portes_traversees_partie"),
+                                reponse.getInt("nb_etoiles_ramassee_partie"),
+                                reponse.getInt("score_partie")),
+                        date));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+
+    /**
+     * Insert des Scores dans la base
+     * ne peut inserer 2 fois
+     */
+    public void populateDB(){
+        if (getScoresOfPlayer("Vincent")==null) {
+
+            for (int i = 0; i < 15; i++) {
                 record("Vincent", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
                 record("Quentin", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
                 record("Alexis", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
@@ -153,14 +160,14 @@ public class GestionDB {
                 record("Henry", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
                 record("Edward", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
             }
-
         }
-
-
-
-
-
-
-
     }
+
+
+
+
+
+
+
+}
 
