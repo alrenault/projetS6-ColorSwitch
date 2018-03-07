@@ -1,9 +1,7 @@
 package main;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
+import DB.GestionDB;
 import game.Colorable;
 import game.Difficulty;
 import game.ball.BallPlayer;
@@ -24,6 +22,8 @@ import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import game.path.shapes.Circle;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainTest extends Application{
@@ -40,11 +40,11 @@ public class MainTest extends Application{
     	CUSTOM.add(Colorable.PURPLE);
     	CUSTOM.add(Colorable.ROSE);
     	CUSTOM.add(Colorable.BLUE);
-    	
+
         primaryStage.setTitle("ColorSuitch");
         Group gr = new Group();
         Scene scene1 = new Scene(gr, 600, 1000);
-
+//        GestionDB g=new GestionDB();
 
         //-------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ public class MainTest extends Application{
 
         Path p = new Path(scene1, CUSTOM, 100, Difficulty.EASY);
        gr.getChildren().add(p.getPath());
-        
+
         scene1.setFill(Colorable.BLACK);
 
 
@@ -172,7 +172,7 @@ public class MainTest extends Application{
 
         //primaryStage.setScene(scene);
 
-
+        //g.record("toto",0.0);
         primaryStage.setScene(scene1);
         primaryStage.show();
 
