@@ -7,12 +7,13 @@ package game;
 public class Score {
 
     private int nbrObstaclesCrossed, nbEtoilesRamassees;
-    private double scoreStared;
+    private int scoreStared;/**
+                                Les points / etoiles*/
 
     public Score() {
         nbrObstaclesCrossed = 0;
         nbEtoilesRamassees = 0;
-        scoreStared = 0.0;
+        scoreStared = 0;
 
 
     }
@@ -23,7 +24,7 @@ public class Score {
      * @param nbEtoilesRamassees
      * @param scoreStared
      */
-    public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, double scoreStared) {
+    public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, int scoreStared) {
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
         this.scoreStared = scoreStared;
@@ -50,8 +51,8 @@ public class Score {
 
 
     //TODO
-    public double getScore() {
-        return scoreStared;
+    public int getScore() {
+        return scoreStared*nbEtoilesRamassees +nbrObstaclesCrossed;
     }
 
     @Override
