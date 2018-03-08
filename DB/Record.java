@@ -2,8 +2,6 @@ package DB;
 
 import game.Score;
 
-import java.util.Date;
-
 /**
  * @autor Vincent
  * @date 07/03/2018

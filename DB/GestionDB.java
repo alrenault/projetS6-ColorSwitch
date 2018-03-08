@@ -68,9 +68,9 @@ public class GestionDB {
     }
 
     /**
-     *
-     * @param pseudo
-     * @param scoreToInsrt
+     *Insertion dans la base du Score du joueur
+     * @param pseudo le nom du joueur
+     * @param scoreToInsrt le score du joueur à entrer
      */
     public void record(String pseudo, Score scoreToInsrt){
         if (!(pseudoInDB(pseudo))) {
@@ -93,7 +93,7 @@ public class GestionDB {
             preparedStatement.setString(1,pseudo);
             preparedStatement.setInt(2,scoreToInsrt.getNbrObstaclesCrossed());
             preparedStatement.setInt(3,scoreToInsrt.getNbEtoilesRamassees());
-            preparedStatement.setInt(4, (int) scoreToInsrt.getScore());
+            preparedStatement.setInt(4,scoreToInsrt.getScore());
             preparedStatement.executeUpdate();
             connexion.close();
         } catch (SQLException e) {
@@ -112,7 +112,7 @@ public class GestionDB {
 
         List<Record> ret=new LinkedList<>();
         connexion();
-        PreparedStatement stmt = null;
+        PreparedStatement stmt;
         try {
             stmt = connexion.prepareStatement("SELECT date_heur_partie,nb_portes_traversees_partie," +
                     " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user WHERE pseudo_user = ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
@@ -142,7 +142,7 @@ public class GestionDB {
 
         List<Record> ret=new LinkedList<>();
         connexion();
-        PreparedStatement stmt = null;
+        PreparedStatement stmt;
         try {
             stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
                     " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user ORDER BY score_partie LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
