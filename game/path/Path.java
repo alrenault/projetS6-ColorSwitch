@@ -43,7 +43,14 @@ public class Path {
     public Path(List<Obstacle> _obstacles, List<Ennemy> _ennemies) {
         obstacles = _obstacles;
         ennemies = _ennemies;
+        item = new ArrayList<Item>();
         path = buildPath();
+    }
+    
+    public Path(List<Obstacle> _obstacles){
+    	obstacles = _obstacles;
+    	ennemies = new ArrayList<Ennemy>();
+    	item = new ArrayList<Item>();
     }
 
     private Group buildPathRandom() {
@@ -105,8 +112,8 @@ public class Path {
             System.out.println("colors : "+bcs.getColors_use());
             newPath.getChildren().add(o.getObstacle());
             newPath.getChildren().add(bcs.getItem());
-            obstacles.add(o);
-            items.add(bcs);
+            add(o);
+            add(bcs);
             posY = posY - o.getObstacleHeight() / 2 - 500;
         }
 
@@ -146,8 +153,8 @@ public class Path {
     }
 
 
-    public boolean remove(Object o) {
-        return items.remove(o);
+    public boolean remove(Item item) {
+        return items.remove(item);
     }
 
     public void remove(Obstacle o) {
@@ -180,6 +187,10 @@ public class Path {
     //TODO
     public List<Ennemy> getEnnemies() {
         return ennemies;
+    }
+    
+    public List<Item> getItem(){
+    	return item;
     }
 
     public Group getPath() {

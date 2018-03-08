@@ -23,12 +23,13 @@ public class MultiLinee extends Obstacle {
 	version 7 : 2 barres verticales faisant des aller-retour
 	version 8 : 2 barres partant des 2 côtés faisant des aller-retour
 	version 9 : ligne + une barre verticale au dessus et en dessous faisant des allez-retour
+	version 10 : 4 barres verticales des 2 côtés faisant les allez-retour
 	*/
 
-    public static final int NBR_VERSIONS = 10;
+    public static final int NBR_VERSIONS = 11;
     protected static int[] versionEasy = {0, 1, 4, 7};
     protected static int[] versionMedium = {2, 3, 5, 6, 8};
-    protected static int[] versionHard = {9};
+    protected static int[] versionHard = {9, 11};
     Scene scene;
 
     public MultiLinee(double x, double y, List<Color> colors, int version, Scene scene) {
@@ -135,7 +136,7 @@ public class MultiLinee extends Obstacle {
                 
             case 6:
                 l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                l2 = new Linee(0, y + width + 80, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
+                l2 = new Linee(0, y + width + 100, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
 
                 multiLinee.getChildren().add(l1.getShape());
                 multiLinee.getChildren().add(l2.getShape());
@@ -172,8 +173,19 @@ public class MultiLinee extends Obstacle {
                 color_use.addAll(l1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
                 color_use.addAll(vl2.getColors_use());
-
                 break;
+                
+            case 10:
+            	Random r = new Random();
+                vl1 = new VerticalLine(-width * 4 - separation * 3, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), (scene.getWidth() + 4 * width + separation*3));
+                vl2 = new VerticalLine(scene.getWidth(), y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), -(scene.getWidth() + width * 4 + separation*3));
+                multiLinee.getChildren().add(vl1.getShape());
+                multiLinee.getChildren().add(vl2.getShape());
+                difficulty = Difficulty.HARD;
+                color_use.addAll(vl1.getColors_use());
+                color_use.addAll(vl2.getColors_use());
+            	break;
+            	
             default:
                 l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
                 multiLinee.getChildren().add(l1.getShape());

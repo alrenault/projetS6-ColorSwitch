@@ -18,11 +18,17 @@ public class MultiCircle extends Obstacle {
 	version 2 : 2 cercles l'un à côté de l'autre tournant vers le haut
 	version 3 : 3 cercles les uns au dessus des autres
 	version 4 : 2 cercle imbriqué vers le haut
+	version 5 : petit cercle tournant dans le sens horraire
+	version 6 : petit cercle tournant dans le sens contre horraire
+	version 7 : cercle moyen tournant dans le sens horraire
+	version 8 : cercle moyen tournant dans le sens contre horraire
+	version 9 : grand cercle tournant dans le sens horraire
+	version 10 : grand cercle tournant dans le sens contre horraire
 	*/
 
-    public static final int NBR_VERSIONS = 5;
-    protected static int[] versionEasy = {0, 1};
-    protected static int[] versionMedium = {2};
+    public static final int NBR_VERSIONS = 11;
+    protected static int[] versionEasy = {0, 1, 7, 8, 9, 10};
+    protected static int[] versionMedium = {2, 5, 6};
     protected static int[] versionHard = {3, 4};
 
 
@@ -60,6 +66,8 @@ public class MultiCircle extends Obstacle {
     private Group buildObstacle() {
         Group multiCircle = new Group();
 
+        double tinyRadial = 60.0;
+        double mediumRadial = 70.0;
         double bigRadial = 100.0;
         double width = 15.0;
         int nb_arc = 4;
@@ -126,7 +134,48 @@ public class MultiCircle extends Obstacle {
                 difficulty = Difficulty.HARD;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
-                
+                break;
+            case 5:
+                cer1 = new Circle(x, y, tinyRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                multiCircle.getChildren().add(cer1.getShape());
+                difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                break;
+
+            case 6:
+                cer1 = new Circle(x, y, tinyRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+                multiCircle.getChildren().add(cer1.getShape());
+                difficulty = Difficulty.NORMAL;
+                color_use.addAll(cer1.getColors_use());
+                break;
+
+            case 7:
+                cer1 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                multiCircle.getChildren().add(cer1.getShape());
+                difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                break;
+
+            case 8:
+                cer1 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+                multiCircle.getChildren().add(cer1.getShape());
+                difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                break;
+
+            case 9:
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                multiCircle.getChildren().add(cer1.getShape());
+                difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                break;
+
+            case 10:
+                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+                multiCircle.getChildren().add(cer1.getShape());
+                difficulty = Difficulty.EASY;
+                color_use.addAll(cer1.getColors_use());
+                break;
         }
 
         return multiCircle;

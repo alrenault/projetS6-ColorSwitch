@@ -10,6 +10,7 @@ import game.path.items.BallColorSwitch;
 import game.path.items.GravitySwitch;
 import game.path.items.Star;
 import game.path.obstacle.CircleInCircle;
+import game.path.obstacle.MultiCross;
 import game.path.obstacle.MultiLinee;
 import game.path.obstacle.MultiShapes;
 import game.path.obstacle.MultiSquare;
@@ -18,6 +19,7 @@ import game.path.shapes.Triangle;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import game.path.shapes.Circle;
@@ -44,7 +46,8 @@ public class MainTest extends Application{
         primaryStage.setTitle("ColorSuitch");
         Group gr = new Group();
         Scene scene1 = new Scene(gr, 600, 1000);
-      GestionDB g=new GestionDB();
+        GestionDB g=new GestionDB();
+        primaryStage.getIcons().add(new Image("file:../view/color_icon.png"));
 
         //-------------------------------------------------------------------
 
@@ -79,7 +82,7 @@ public class MainTest extends Application{
         //Linee l = new Linee(0,50,100,20,3,Colorable.normal);
         //Group ligne = l.getShape();
 
-        //MultiLinee l = new MultiLinee(0, 100, CUSTOM, 6, scene1);
+        //MultiLinee l = new MultiLinee(0, 100, CUSTOM, 10, scene1);
         //Group ligne = l.getObstacle();
 
         //MultiLinee ml = new MultiLinee(50, 150, CUSTOM, 8, scene1);
@@ -118,8 +121,11 @@ public class MainTest extends Application{
 
         //BallColorSwitch bcs = new BallColorSwitch(scene1.getWidth() / 2, -100, CUSTOM);
         //Group colorSwitch = bcs.getItem();
+      
+     // MultiCross mc = new MultiCross(scene1.getWidth()/2,scene1.getHeight()/2,CUSTOM,5);
+      //Group multiCross = mc.getObstacle();
 
-
+      //gr.getChildren().add(multiCross);
        // gr.getChildren().add(multiSquaire);
         //gr.getChildren().add(str);
         // gr.getChildren().add(ge);
@@ -136,8 +142,8 @@ public class MainTest extends Application{
 
         //gr.getChildren().add(mult);
 
-        Path p = new Path(scene1, CUSTOM, 100, Difficulty.EASY);
-       gr.getChildren().add(p.getPath());
+        Path p = new Path(scene1, CUSTOM, 100, Difficulty.HARD);
+        gr.getChildren().add(p.getPath());
 
         scene1.setFill(Colorable.BLACK);
 

@@ -59,7 +59,7 @@ public class MultiSquare extends Obstacle {
     public Group buildObstacle() {
         Group multiShapes = new Group();
 
-        double tinyLength = 100.0;
+        double tinyLength = 150.0;
         double mediumLength = 200.0;
         double bigLength = 300.0;
         double width = 15.0;
