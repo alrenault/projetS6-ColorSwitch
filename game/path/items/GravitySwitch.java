@@ -8,7 +8,7 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.paint.Color;
 
 
-/**
+/**Objet graphique Changeur de gravité
  * @autor Vincent
  * @date 09/02/2018
  */
@@ -19,12 +19,22 @@ public class GravitySwitch extends Item {
      */
     private double width;
 
+    /**
+     * Constructeur
+     * @param x coordonnée x de l'objet
+     * @param y coordonnée y de l'objet
+     * @param colors liste de couleur de l'objet
+     */
     public GravitySwitch(double x, double y,List<Color> colors) {
         super(x, y,colors);
         this.width = 3.0;
         item = buildItem();
     }
 
+    /**
+     * Genere la forme
+     * @return un ensemble de forme
+     */
     protected Group buildItem() {
         double w = width;
         Polygon p = new Polygon();

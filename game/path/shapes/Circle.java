@@ -13,7 +13,7 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.util.Duration;
 
-/**
+/**Objet graphique Cercle
  * @author Vincent
  */
 public class Circle extends Shapes {
@@ -28,15 +28,15 @@ public class Circle extends Shapes {
 
     /**
      * Constructeur de Cercle
-     * @param xCenter
-     * @param yCenter
-     * @param radial
-     * @param width
-     * @param arcs_nbr
-     * @param rotationDirection
-     * @param acceleration
-     * @param vitesseRotation
-     * @param colors
+     * @param xCenter coordonnée x du centre du cercle construit
+     * @param yCenter coordonnée y du centre du cercle construit
+     * @param radial rayon du cercle construit
+     * @param width epaisseur des arcs
+     * @param arcs_nbr nombre d'arcs du cercle
+     * @param rotationDirection Indique si le cercle est autorisé a tourner (voir)
+     * @param acceleration Indique si la rotation du  cercle est linéaire ou est soumise à une accéleration
+     * @param vitesseRotation vitesse de rotation du cercle
+     * @param colors la liste de couleurs à applique aux arcs de cercle
      * @param pos_color
      */
     public Circle(double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,

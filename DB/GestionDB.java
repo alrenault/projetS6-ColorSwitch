@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-/**
+/**Gestion des entrées - sorties de la base de données
  * @autor Vincent
  * @date 26/02/2018
  */
