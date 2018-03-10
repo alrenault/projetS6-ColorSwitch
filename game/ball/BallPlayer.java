@@ -1,5 +1,7 @@
 package game.ball;
 
+import java.util.List;
+
 import controller.Listeners;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -11,10 +13,10 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
-public class
-BallPlayer extends Ball {
+public class BallPlayer extends Ball {
 
     int x = 70;
     private float size;
@@ -39,6 +41,8 @@ BallPlayer extends Ball {
         Circle player = new Circle(size, color);
         player.setCenterX(scene.getWidth() / 2);
         player.setCenterY(scene.getHeight() - 150);
+        
+        addSL(player);
         ball.getChildren().add(player);
 
         //recuperation de la position
@@ -174,5 +178,7 @@ BallPlayer extends Ball {
 
         tt1.play();
     }
+
+	
 
 }

@@ -29,16 +29,20 @@ public class Linee extends Shapes {
 
         //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
+        
+        check();
     }
 
 
-    protected Group build() {
+    protected Group buildShape() {
         Group line = new Group();
 
         for (int i = 0; i < nbr_seg; i++) {
             verifPosColor();
             Rectangle rec = new Rectangle(x + length * i, y, length, width);
             color(rec);
+            
+            addSL(rec);
             line.getChildren().add(rec);
         }
 

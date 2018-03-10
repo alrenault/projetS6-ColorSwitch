@@ -11,6 +11,7 @@ public class BuildObstacle {
     public Obstacle BuildObstacleVersionAlea(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors, Scene scene) {
         Obstacle o;
 
+        System.out.println("Builder");
         switch (obs) {
             case 0:
                 o = new CircleInCircle(posX, posY, colors, difficulty);

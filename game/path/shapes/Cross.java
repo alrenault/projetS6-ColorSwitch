@@ -31,10 +31,12 @@ public class Cross extends Shapes {
 
         //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
+        
+        check();
     }
 
 
-    protected Group build() {
+    protected Group buildShape() {
 
         //Initialisation
         Group croix = new Group();
@@ -90,6 +92,8 @@ public class Cross extends Shapes {
             color(part_4);
             verifPosColor();
         }
+        
+        addSL(part_1,part_2,part_3,part_4,middle);
 
         croix.getChildren().add(part_1);
         croix.getChildren().add(part_2);

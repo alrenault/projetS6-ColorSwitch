@@ -21,9 +21,11 @@ public class Triangle extends Shapes {
 
         //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
+        
+        check();
     }
 
-    protected Group build() {
+    protected Group buildShape() {
         Group t = new Group();
 
         double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef, coefReduction;
@@ -61,6 +63,7 @@ public class Triangle extends Shapes {
         color(arc_3);
         verifPosColor();
 
+        addSL(arc_1,arc_2,arc_3);
         t.getChildren().add(arc_1);
         t.getChildren().add(arc_2);
         t.getChildren().add(arc_3);

@@ -1,6 +1,7 @@
 package game.path.shapes;
 
 import game.Colorable;
+import game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
@@ -18,7 +19,7 @@ import java.util.Set;
  * The goal is to represent a concrete shape that can be used for obstacles
  * This class is the pattern of all the shapes
  */
-public abstract class Shapes implements Colorable {
+public abstract class Shapes extends Element implements Colorable{
     protected double x;
     protected double y;
     protected Group shape;
@@ -30,10 +31,12 @@ public abstract class Shapes implements Colorable {
     double mouvementSpeed;
     List<Color> colors;
     List<Color> colors_use;
+    List<Shape> shape_list;
 
 
     protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
-        this.x = x;
+        super();
+    	this.x = x;
         this.y = y;
         this.width = width;
 
@@ -64,6 +67,8 @@ public abstract class Shapes implements Colorable {
             this.pos_color = pos_color % colors.size();
         }
         this.colors_use = new ArrayList<Color>();
+        //this.shape = build();
+        //check();
 
     }
 
@@ -71,9 +76,13 @@ public abstract class Shapes implements Colorable {
         return width;
     }
 
-    protected abstract Group build();
+    protected Group build() {
+    	return buildShape();
+    }
 
-    public void verifPosColor() {
+    protected abstract Group buildShape();
+
+	public void verifPosColor() {
         pos_color++;
         if (pos_color == colors.size())
             pos_color = 0;
@@ -114,11 +123,12 @@ public abstract class Shapes implements Colorable {
         return this.shape.contains(_x, _y);
         //return this.shape.intersects(getX(),getY(),coord.getWidth(),coord.getHeight());
     }
-
-
+    
     public Group getShape() {
-        return shape;
+    	return shape;
     }
+
+
 
     public enum Speed {
         SYMPA,
