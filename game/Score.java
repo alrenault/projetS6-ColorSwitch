@@ -6,9 +6,20 @@ package game;
  */
 public class Score {
 
-    private int nbrObstaclesCrossed, nbEtoilesRamassees;
-    private int scoreStared;/**
-                                Les points / etoiles*/
+    /**
+     *Le nombre d'Obstacles franchis
+     * */
+    private int nbrObstaclesCrossed;
+
+    /**
+     * Le nombre d'étoiles rammassées
+     * */
+    private int nbEtoilesRamassees;
+
+    /**
+     * Les points gagnés par étoiles
+     * */
+    private int scoreStared;
 
     public Score() {
         nbrObstaclesCrossed = 0;
@@ -30,27 +41,46 @@ public class Score {
         this.scoreStared = scoreStared;
     }
 
+    /**
+     *
+     */
     public void increaseNOC() {
         nbrObstaclesCrossed++;
     }
 
-    public void ramasseEtoile(double gain) {
+    /**
+     *
+     * @param gain
+     */
+    public void ramasseEtoile(int gain) {
+        assert (gain>0);
 
+        scoreStared+=gain;
         nbEtoilesRamassees++;
     }
 
+/**
+ * Retourne le nombre d'étoiles
+ */
 
     public int getNbEtoilesRamassees() {
         return nbEtoilesRamassees;
     }
 
-
+    /**
+     *
+     * @return le nombre d'obstacles franchis
+     */
     public int getNbrObstaclesCrossed() {
         return nbrObstaclesCrossed;
     }
 
 
     //TODO
+    /**
+     * Generateur du score calculé selon les données de (this)
+     */
+
     public int getScore() {
         return scoreStared*nbEtoilesRamassees +nbrObstaclesCrossed;
     }
