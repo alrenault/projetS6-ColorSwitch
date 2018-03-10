@@ -22,7 +22,7 @@ public abstract class Modifiers {
         this.nbPoints = nbPoints;
     }
     /**
-     *
+     *Assesseur du nombre de points de l'item
      * @return Le nombre de points obtenus en attrapant cet item
      */
     public int getnbPoints() {

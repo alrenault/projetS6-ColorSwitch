@@ -9,7 +9,7 @@ import javafx.scene.shape.Polygon;
 import model.Model;
 
 
-/**
+/**Objet graphique Etoile
  * @author Vincent
  * @date 8/02/18
  */
@@ -41,6 +41,10 @@ public class Star extends Item {
         this.item = buildItem();
     }
 
+    /**
+     * Genere la forme
+     * @return un ensemble de Forme
+     */
     protected Group buildItem() {
         Group g = new Group();
         Polygon p = new Polygon();
