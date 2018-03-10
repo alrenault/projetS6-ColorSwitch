@@ -13,10 +13,14 @@ import javafx.scene.paint.Color;
  * @date 09/02/2018
  */
 public class GravitySwitch extends Item {
+
+    /**
+     * La taille
+     */
     private double width;
 
     public GravitySwitch(double x, double y,List<Color> colors) {
-        super(x, y, 5,colors);
+        super(x, y,colors);
         this.width = 3.0;
         item = buildItem();
     }

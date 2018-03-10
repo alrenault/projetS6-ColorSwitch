@@ -85,6 +85,10 @@ public class Score {
         return scoreStared*nbEtoilesRamassees +nbrObstaclesCrossed;
     }
 
+    /**
+     * Only for tests
+     * @return le contenu de this
+     */
     @Override
     public String toString() {
         return "{" +

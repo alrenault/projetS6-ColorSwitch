@@ -19,6 +19,7 @@ import java.util.Set;
  * This class is the pattern of all the shapes
  */
 public abstract class Shapes implements Colorable {
+
     protected double x;
     protected double y;
     protected Group shape;

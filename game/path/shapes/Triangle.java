@@ -10,9 +10,23 @@ import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
 public class Triangle extends Shapes {
-
+    /**
+     * Hauteur du triangle
+     */
     private double height;
 
+    /**
+     * Constructeur de Triangle
+     * @param x
+     * @param y
+     * @param height
+     * @param width
+     * @param mouvementDirection
+     * @param acceleration
+     * @param _mouvementSpeed
+     * @param colors
+     * @param pos_color
+     */
     public Triangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, Speed _mouvementSpeed, List<Color> colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         this.height = height;
@@ -23,6 +37,10 @@ public class Triangle extends Shapes {
         coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
+    /**
+     *
+     * @return
+     */
     protected Group build() {
         Group t = new Group();
 

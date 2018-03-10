@@ -1,5 +1,6 @@
 package game.path.items;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.geometry.Bounds;
@@ -17,13 +18,17 @@ public abstract class Item {
     protected Group item;
     protected List<Color> colors;
     protected Bounds coord;
-    private double points;
 
-    public Item(double x, double y, double points, List<Color> colors) {
+    public Item(double x, double y, List<Color> colors) {
         this.x = x;
         this.y = y;
-        this.points = points;
-        this.colors = colors;
+        if (colors==null) {
+            List<Color> c = new ArrayList<>();
+            c.add(Color.WHITE);
+            this.colors = c;
+        }else {
+            this.colors = colors;
+        }
         item = new Group();
 
     }
@@ -32,9 +37,6 @@ public abstract class Item {
     protected abstract Group buildItem();
 
 
-    public double getPoints() {
-        return points;
-    }
 
     public double getX() {
         coord = item.localToScene(item.getBoundsInLocal());

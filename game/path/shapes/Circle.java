@@ -17,10 +17,28 @@ import javafx.util.Duration;
  * @author Vincent
  */
 public class Circle extends Shapes {
-
+    /**
+     * Rayon du cercle
+     */
     private double radial;
+    /**
+     * Nombre d'arcs du cercle
+     */
     private int arcs_nbr;
 
+    /**
+     * Constructeur de Cercle
+     * @param xCenter
+     * @param yCenter
+     * @param radial
+     * @param width
+     * @param arcs_nbr
+     * @param rotationDirection
+     * @param acceleration
+     * @param vitesseRotation
+     * @param colors
+     * @param pos_color
+     */
     public Circle(double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
                   boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color) {
 
@@ -36,7 +54,10 @@ public class Circle extends Shapes {
 
     }
 
-
+    /**
+     * Generateur de la forme du cercle
+     * @return un ensemble d'arcs
+     */
     protected Group build() {
 
 
