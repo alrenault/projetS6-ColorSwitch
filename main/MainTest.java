@@ -275,7 +275,6 @@ public class MainTest extends Application{
 								Shape intersection = Shape.intersect(ball,shape);
 								
 								if (!intersection.getBoundsInParent().isEmpty()) {
-									 System.out.println("truc"); 
 									System.out.println(shape.getFill());
 									System.out.println(ball.getFill());
 									
@@ -297,21 +296,13 @@ public class MainTest extends Application{
 								break;
 							}
 						}
-					}
+					}	 
 				}
 				
-				
-				
-				/*for(Node ball : jBall.getChildren()) {
-					for(Node obstacle : jObstacles.getChildren()) {
-						Shape intersection = Shape.intersect((Shape) ball, (Shape) obstacle);
-						
-						if (!intersection.getBoundsInParent().isEmpty()) {
-							primaryStage.close();
-						}
-					}
-					
-				}*/
+				if(player.getY() >= scene1.getHeight()){
+					 System.out.println("\n___________\nDEFEAT\n");
+					primaryStage.close();
+				 }
 				
 			}
         	
