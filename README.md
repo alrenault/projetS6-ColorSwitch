@@ -55,7 +55,7 @@ Début d'architecture, début d'IHM
 - Affichage 
 	- Menu de démarrage
 	- Jeu
-	(- Game Over)
+	- Game Over (facultatif)
 	- Score
 
 ### Mécanique avancées : extensions
