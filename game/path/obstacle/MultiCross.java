@@ -55,7 +55,7 @@ public class MultiCross extends Obstacle {
         return versionHard[r.nextInt(versionHard.length)];
     }
 
-    private Group buildObstacle() {
+    protected Group buildObstacle() {
         Group multiCross = new Group();
         double length = 100.0;
         double width = 15.0;
@@ -73,7 +73,10 @@ public class MultiCross extends Obstacle {
         switch (version) {
             case 0:
                 cr1 = new Cross(x + length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
+                
+                addSL(cr1.getShapeList());            
                 multiCross.getChildren().add(cr1.getShape());
+                
                 difficulty = Difficulty.EASY;
                 color_use.addAll(cr1.getColors_use());
                 
@@ -81,7 +84,11 @@ public class MultiCross extends Obstacle {
                 
             case 1:
                 cr1 = new Cross(x - length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
+                
+                
+                addSL(cr1.getShapeList());            
                 multiCross.getChildren().add(cr1.getShape());
+                
                 difficulty = Difficulty.EASY;
                 color_use.addAll(cr1.getColors_use());
                 break;
@@ -90,8 +97,10 @@ public class MultiCross extends Obstacle {
                 cr1 = new Cross(x + length + width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 0);
                 cr2 = new Cross(x - length - width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 2);
 
+                addSL(cr1.getShapeList(),cr2.getShapeList());            
                 multiCross.getChildren().add(cr1.getShape());
                 multiCross.getChildren().add(cr2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cr1.getColors_use());
                 color_use.addAll(cr2.getColors_use());
@@ -101,8 +110,10 @@ public class MultiCross extends Obstacle {
                 cr1 = new Cross(x + length + width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 0);
                 cr2 = new Cross(x - length - width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 2);
 
+                addSL(cr1.getShapeList(),cr2.getShapeList());            
                 multiCross.getChildren().add(cr1.getShape());
                 multiCross.getChildren().add(cr2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cr1.getColors_use());
                 color_use.addAll(cr2.getColors_use());
@@ -114,10 +125,13 @@ public class MultiCross extends Obstacle {
                 
                 Cross cr3 = new Cross(x + length + width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 0);
                 Cross cr4 = new Cross(x - length - width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 2);
+                
+                addSL(cr1.getShapeList(),cr2.getShapeList(),cr3.getShapeList(),cr4.getShapeList());            
                 multiCross.getChildren().add(cr1.getShape());
                 multiCross.getChildren().add(cr2.getShape());
                 multiCross.getChildren().add(cr3.getShape());
                 multiCross.getChildren().add(cr4.getShape());
+                
                 difficulty = Difficulty.HARD;
                 color_use.addAll(cr1.getColors_use());
                 color_use.addAll(cr2.getColors_use());
@@ -126,12 +140,20 @@ public class MultiCross extends Obstacle {
             case 5:
             	cr1 = new Cross(x + length*3 + width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 0);
                 cr2 = new Cross(x - length*3 - width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 2);
+                
+                System.out.println("cr1"+cr1);
+                System.out.println("cr1 sl"+cr1.getShapeList());
+                addSL(cr1.getShapeList(),cr2.getShapeList());            
                 multiCross.getChildren().add(cr1.getShape());
                 multiCross.getChildren().add(cr2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cr1.getColors_use());
                 color_use.addAll(cr2.getColors_use());
             	break;
+            	
+            default:
+            	System.out.println("Hello");
         }
         return multiCross;
     }

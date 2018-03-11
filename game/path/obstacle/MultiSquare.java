@@ -75,25 +75,37 @@ public class MultiSquare extends Obstacle {
         switch (version) {
             case 0:
                 squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, 0);
+                
+                addSL(squa1.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(squa1.getColors_use());
                 break;
             case 1:
                 squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, 0);
+                
+                addSL(squa1.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(squa1.getColors_use());
                 break;
             case 2:
                 squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0);
+                
+                addSL(squa1.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
+                
                 difficulty = Difficulty.EASY;
                 color_use.addAll(squa1.getColors_use());
                 break;
             case 3:
                 squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, 0);
+                
+                addSL(squa1.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
+                
                 difficulty = Difficulty.EASY;
                 color_use.addAll(squa1.getColors_use());
                 
@@ -101,9 +113,11 @@ public class MultiSquare extends Obstacle {
             case 4:
                 squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0);
                 squa2 = new Square(x, y, bigLength, width, true, false, Speed.MOYEN, colors, 2);
-
+                
+                addSL(squa1.getShapeList(),squa2.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(squa2.getShape());
+                
                 difficulty = Difficulty.HARD;
                 color_use.addAll(squa1.getColors_use());
                 color_use.addAll(squa2.getColors_use());

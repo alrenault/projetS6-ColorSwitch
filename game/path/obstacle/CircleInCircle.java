@@ -5,6 +5,7 @@ import game.path.shapes.Circle;
 import game.path.shapes.Shapes.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 import java.util.List;
 import java.util.Random;
@@ -58,7 +59,7 @@ public class CircleInCircle extends Obstacle {
         return versionHard[r.nextInt(versionHard.length)];
     }
 
-    private Group buildObstacle() {
+    protected Group buildObstacle() {
         double tinyRadial = 60.0;
         double mediumRadial = 70.0;
         double internRadial = 85.0;
@@ -81,8 +82,10 @@ public class CircleInCircle extends Obstacle {
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
 
+                addSL(cer1.getShapeList(),cer2.getShapeList());            
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
@@ -92,8 +95,10 @@ public class CircleInCircle extends Obstacle {
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 3);
 
+                addSL(cer1.getShapeList(),cer2.getShapeList());            
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
@@ -104,9 +109,11 @@ public class CircleInCircle extends Obstacle {
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
                 cer3 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
 
+                addSL(cer1.getShapeList(),cer2.getShapeList(),cer3.getShapeList());            
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 circleInCircle.getChildren().add(cer3.getShape());
+                
                 difficulty = Difficulty.HARD;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
@@ -118,9 +125,11 @@ public class CircleInCircle extends Obstacle {
                 cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
                 cer3 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
 
+                addSL(cer1.getShapeList(),cer2.getShapeList(),cer3.getShapeList());            
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
                 circleInCircle.getChildren().add(cer3.getShape());
+                
                 difficulty = Difficulty.HARD;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
@@ -131,8 +140,11 @@ public class CircleInCircle extends Obstacle {
             case 4:
                 cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0);
                 cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 2);
+                
+                addSL(cer1.getShapeList(),cer2.getShapeList());
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
+                
                 difficulty = Difficulty.EASY;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
@@ -141,8 +153,11 @@ public class CircleInCircle extends Obstacle {
             case 5:
                 cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0);
                 cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 2);
+                
+                addSL(cer1.getShapeList(),cer2.getShapeList());            
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
@@ -151,8 +166,11 @@ public class CircleInCircle extends Obstacle {
             case 6:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 cer2 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
+                
+                addSL(cer1.getShapeList(),cer2.getShapeList());            
                 circleInCircle.getChildren().add(cer1.getShape());
                 circleInCircle.getChildren().add(cer2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(cer2.getColors_use());
@@ -160,7 +178,10 @@ public class CircleInCircle extends Obstacle {
 
             default:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+                
+                addSL(cer1.getShapeList());            
                 circleInCircle.getChildren().add(cer1.getShape());
+                
                 difficulty = Difficulty.EASY;
                 color_use.addAll(cer1.getColors_use());
 
@@ -168,5 +189,11 @@ public class CircleInCircle extends Obstacle {
         return circleInCircle;
 
     }
+
+
+
+
+
+
 
 }

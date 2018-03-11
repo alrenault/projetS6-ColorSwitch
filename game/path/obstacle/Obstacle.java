@@ -6,16 +6,18 @@ import java.util.List;
 import java.util.Set;
 
 import game.Difficulty;
+import game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 /**
  * An Obstacle is a Group of Shapes which contains at least one of it
  * This class is the pattern of all obstacles in the game
  */
-public abstract class Obstacle {
+public abstract class Obstacle extends Element {
 
     protected Group obstacle;
     protected double x;
@@ -27,10 +29,12 @@ public abstract class Obstacle {
     protected Difficulty difficulty;
     protected Bounds coord;
     protected List<Color> color_use;
+    protected List<Shape> shape_list;
 
 
     public Obstacle(double x, double y, List<Color> colors, int version, int versionDefault) {
-        this.x = x;
+        super();
+    	this.x = x;
         this.y = y;
         this.colors = colors;
         this.versionDefault = versionDefault;
@@ -40,7 +44,16 @@ public abstract class Obstacle {
             this.version = version;
         }
         color_use = new ArrayList<Color>();
+        
+        //this.obstacle = build();
+        //check();
     }
+    
+    protected Group build() {
+    	return buildObstacle();
+    }
+    
+    protected abstract Group buildObstacle();
 
 
     public double getX() {
@@ -85,6 +98,16 @@ public abstract class Obstacle {
 	public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
+	
+	
+	
+	
+	
+	@Override
+	public Group getShape() {
+		// TODO Auto-generated method stub
+		return obstacle;
+	}
 
 
     // public enum Difficulty {EASY, NORMAL, HARD}

@@ -22,11 +22,13 @@ public class Square extends Shapes {
 
         //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
+        
+        check();
 
     }
 
 
-    protected Group build() {
+    protected Group buildShape() {
         Group squaire = new Group();
 
         double pos1_x = x - length / 2;
@@ -56,6 +58,7 @@ public class Square extends Shapes {
         color(rec4);
         verifPosColor();
 
+        addSL(rec1,rec2,rec3,rec4);
         squaire.getChildren().add(rec1);
         squaire.getChildren().add(rec2);
         squaire.getChildren().add(rec3);

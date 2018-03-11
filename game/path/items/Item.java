@@ -3,17 +3,19 @@ package game.path.items;
 import java.util.ArrayList;
 import java.util.List;
 
+import game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 /**
  * @autor Vincent
  * @date 17/02/2018
  */
-public abstract class Item {
-    /**
+public abstract class Item extends Element {
+	/**
      * coordonnée x de l'objet
      */
     protected double x;
@@ -56,6 +58,11 @@ public abstract class Item {
      * @return un ensemble de Forme
      */
     protected abstract Group buildItem();
+    
+	@Override
+	protected Group build() {
+		return buildItem();
+	}
 
 
     /**
@@ -87,4 +94,11 @@ public abstract class Item {
     public Group getItem() {
         return item;
     }
+
+
+	@Override
+	public Group getShape() {
+		// TODO Auto-generated method stub
+		return item;
+	}
 }

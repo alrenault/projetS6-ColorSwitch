@@ -40,6 +40,7 @@ public class BallColorSwitch extends Item implements Colorable {
             color(arc_1);
             verifPosColor();
             ball.getChildren().add(arc_1);
+            addSL(arc_1);
         }
 
         return ball;
@@ -69,6 +70,8 @@ public class BallColorSwitch extends Item implements Colorable {
 	public List<Color> getColors_use() {
 		return colors_use;
 	}
+
+
     
     
 

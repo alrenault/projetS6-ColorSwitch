@@ -9,6 +9,7 @@ import game.path.items.BallColorSwitch;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,11 +17,11 @@ import java.util.List;
 import java.util.Random;
 
 
-public class Path {
+public class Path extends Element {
     private List<Item> items;
     private List<Obstacle> obstacles;
     private List<Ennemy> ennemies;
-    private List<Item> item;
+    //private List<Item> item;
     private Group path;
     private Difficulty gameDifficulty;
     private Scene scene;
@@ -29,6 +30,7 @@ public class Path {
 
 
     public Path(Scene scene, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
+    	super();
         obstacles = new ArrayList<Obstacle>();
         ennemies = new ArrayList<Ennemy>();
         items = new ArrayList<Item>();
@@ -41,16 +43,18 @@ public class Path {
     }
 
     public Path(List<Obstacle> _obstacles, List<Ennemy> _ennemies) {
+    	super();
         obstacles = _obstacles;
         ennemies = _ennemies;
-        item = new ArrayList<Item>();
+        items = new ArrayList<Item>();
         path = buildPath();
     }
     
     public Path(List<Obstacle> _obstacles){
+    	super();
     	obstacles = _obstacles;
     	ennemies = new ArrayList<Ennemy>();
-    	item = new ArrayList<Item>();
+    	items = new ArrayList<Item>();
     }
 
     private Group buildPathRandom() {
@@ -110,8 +114,14 @@ public class Path {
             BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight()/2 + 100,o.getColor_use());
 
             System.out.println("colors : "+bcs.getColors_use());
+            
+            System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
+            addSL(o.getShapeList());
+            addSL(bcs.getShapeList());
+            
             newPath.getChildren().add(o.getObstacle());
             newPath.getChildren().add(bcs.getItem());
+            
             add(o);
             add(bcs);
             posY = posY - o.getObstacleHeight() / 2 - 500;
@@ -142,6 +152,8 @@ public class Path {
 
     public void add(Obstacle o) {
         obstacles.add(o);
+        //addSL(o.getShapeList());
+        //path.getChildren().add(o.getShape());
     }
 
     public void add(Ennemy e) {
@@ -154,6 +166,7 @@ public class Path {
 
 
     public boolean remove(Item item) {
+    	path.getChildren().remove(item);
         return items.remove(item);
     }
 
@@ -190,12 +203,25 @@ public class Path {
     }
     
     public List<Item> getItem(){
-    	return item;
+    	return items;
     }
 
     public Group getPath() {
         return path;
     }
+
+	@Override
+	protected Group build() {
+		return buildPathRandom();
+	}
+
+	@Override
+	public Group getShape() {
+		// TODO Auto-generated method stub
+		return path;
+	}
+	
+
 
 
 }

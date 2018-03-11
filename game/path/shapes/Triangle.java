@@ -36,7 +36,13 @@ public class Triangle extends Shapes {
 
         //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
+        
+        check();
     }
+
+    protected Group buildShape() {
+		return build();
+	}
 
     /**
      *
@@ -80,6 +86,7 @@ public class Triangle extends Shapes {
         color(arc_3);
         verifPosColor();
 
+        addSL(arc_1,arc_2,arc_3);
         t.getChildren().add(arc_1);
         t.getChildren().add(arc_2);
         t.getChildren().add(arc_3);

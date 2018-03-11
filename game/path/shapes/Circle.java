@@ -51,14 +51,20 @@ public class Circle extends Shapes {
 
         //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
+        
+        check();
 
     }
 
+    protected Group buildShape() {
+		return build();
+    }
     /**
      * Generateur de la forme du cercle
      * @return un ensemble d'arcs
      */
     protected Group build() {
+
 
 
         Group cercle = new Group();
@@ -82,7 +88,9 @@ public class Circle extends Shapes {
             colors_use.add(c);
 
             arc_1.setStrokeWidth(width);
+            
             cercle.getChildren().add(arc_1);
+            addSL(arc_1);
         }
 
         RotateTransition rotation = new RotateTransition(Duration.seconds(mouvementSpeed), cercle);

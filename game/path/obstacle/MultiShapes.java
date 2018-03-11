@@ -94,8 +94,10 @@ public class MultiShapes extends Obstacle {
                 squa1 = new Square(x, y, length, width, false, false, Shapes.Speed.MOYEN, colors, 0);
                 cer1 = new Circle(x, y, bigRadial - (3 * width) / 2, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
 
+                addSL(squa1.getShapeList(),cer1.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(cer1.getShape());
+                
                 difficulty = Difficulty.HARD;
                 color_use.addAll(squa1.getColors_use());
                 color_use.addAll(cer1.getColors_use());
@@ -106,9 +108,11 @@ public class MultiShapes extends Obstacle {
                 l1 = new Linee(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scene.getWidth() + length);
                 l2 = new Linee((int) scene.getWidth(), y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scene.getWidth() + length));
 
+                addSL(squa1.getShapeList(),l1.getShapeList(),l2.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(l1.getShape());
                 multiShapes.getChildren().add(l2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(squa1.getColors_use());
                 color_use.addAll(l1.getColors_use());
@@ -120,9 +124,11 @@ public class MultiShapes extends Obstacle {
                 l1 = new Linee(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scene.getWidth() + length);
                 l2 = new Linee((int) scene.getWidth(), y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scene.getWidth() + length));
 
+                addSL(cer1.getShapeList(),l1.getShapeList(),l2.getShapeList());
                 multiShapes.getChildren().add(cer1.getShape());
                 multiShapes.getChildren().add(l1.getShape());
                 multiShapes.getChildren().add(l2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(l1.getColors_use());
@@ -135,10 +141,12 @@ public class MultiShapes extends Obstacle {
                 l1 = new Linee(-length * 4, y - length - width * 2, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
                 l2 = new Linee(0, y + length + width * 2, length, width, false, false, Speed.MOYEN, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
 
+                addSL(cr1.getShapeList(),cr2.getShapeList(),l1.getShapeList(),l2.getShapeList());
                 multiShapes.getChildren().add(cr1.getShape());
                 multiShapes.getChildren().add(cr2.getShape());
                 multiShapes.getChildren().add(l1.getShape());
                 multiShapes.getChildren().add(l2.getShape());
+                
                 difficulty = Difficulty.NORMAL;
                 color_use.addAll(cr1.getColors_use());
                 color_use.addAll(cr2.getColors_use());
@@ -151,9 +159,11 @@ public class MultiShapes extends Obstacle {
                 vl1 = new VerticalLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scene.getWidth() + width));
                 vl2 = new VerticalLine(scene.getWidth(), y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scene.getWidth() + width));
 
+                addSL(cer1.getShapeList(),vl1.getShapeList(),vl2.getShapeList());
                 multiShapes.getChildren().add(cer1.getShape());
                 multiShapes.getChildren().add(vl1.getShape());
                 multiShapes.getChildren().add(vl2.getShape());
+                
                 difficulty = Difficulty.EASY;
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
@@ -166,6 +176,7 @@ public class MultiShapes extends Obstacle {
                 vl1 = new VerticalLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scene.getWidth() + width));
                 vl2 = new VerticalLine(scene.getWidth(), y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scene.getWidth() + width));
 
+                addSL(squa1.getShapeList(),vl1.getShapeList(),vl2.getShapeList());
                 multiShapes.getChildren().add(squa1.getShape());
                 multiShapes.getChildren().add(vl1.getShape());
                 multiShapes.getChildren().add(vl2.getShape());

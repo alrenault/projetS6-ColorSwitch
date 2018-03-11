@@ -30,16 +30,20 @@ public class VerticalLine extends Shapes {
 
         //recuperation de la position
         coord = shape.localToScene(shape.getBoundsInLocal());
+        
+        check();
     }
 
 
-    protected Group build() {
+    protected Group buildShape() {
         Group hline = new Group();
 
         for (int i = 0; i < nbr_seg; i++) {
             verifPosColor();
             Rectangle rec = new Rectangle(x + distanceSeparation * i, y, width, length);
             color(rec);
+            
+            addSL(rec);
             hline.getChildren().add(rec);
         }
 
