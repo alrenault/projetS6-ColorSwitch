@@ -1,5 +1,6 @@
 package game.path;
 
+import game.Colorable;
 import game.Difficulty;
 import game.ennemy.Ennemy;
 import game.path.items.Item;
@@ -166,15 +167,20 @@ public class Path extends Element {
 
 
     public boolean remove(Item item) {
+    for(Shape s : item.getShapeList()){
+    	s.setFill(Color.TRANSPARENT);
+    }
     	path.getChildren().remove(item);
         return items.remove(item);
     }
 
     public void remove(Obstacle o) {
+    	path.getChildren().remove(o);
         obstacles.remove(o);
     }
 
-    public void remove(Ennemy e) {
+    public void remove(Ennemy e){
+    	path.getChildren().remove(e);
         ennemies.remove(e);
     }
 
