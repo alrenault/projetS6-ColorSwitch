@@ -1,6 +1,5 @@
 package game.path;
 
-import game.Colorable;
 import game.Difficulty;
 import game.ennemy.Ennemy;
 import game.path.items.Item;
@@ -22,7 +21,6 @@ public class Path extends Element {
     private List<Item> items;
     private List<Obstacle> obstacles;
     private List<Ennemy> ennemies;
-    //private List<Item> item;
     private Group path;
     private Difficulty gameDifficulty;
     private Scene scene;
@@ -59,6 +57,7 @@ public class Path extends Element {
     }
 
     private Group buildPathRandom() {
+    	
         Group newPath = new Group();
         Random r = new Random();
         int type;
@@ -67,64 +66,32 @@ public class Path extends Element {
         double posX = scene.getWidth() / 2;
         Difficulty obstacleDifficulty;
 
+        //factory
         BuildObstacle bo = new BuildObstacle();
 
+        //Constrution
         for (int i = 0; i < nbr_Obs; i++) {
             type = r.nextInt(6);
             variante = r.nextInt(10);
-
-            switch (gameDifficulty) {
-                case EASY:
-                    if (variante <= 5)//60%
-                        obstacleDifficulty = Difficulty.EASY;
-                    else if (variante > 5 && variante < 9)//30%
-                        obstacleDifficulty = Difficulty.NORMAL;
-                    else //10%
-                        obstacleDifficulty = Difficulty.HARD;
-                    break;
-
-                case NORMAL:
-                    if (variante <= 1)//20%
-                        obstacleDifficulty = Difficulty.EASY;
-                    else if (variante > 1 && variante < 8)//60%
-                        obstacleDifficulty = Difficulty.NORMAL;
-                    else//20%
-                        obstacleDifficulty = Difficulty.HARD;
-                    break;
-
-                case HARD:
-                    if (variante <= 0)//10%
-                        obstacleDifficulty = Difficulty.EASY;
-                    else if (variante > 0 && variante < 4)//30%
-                        obstacleDifficulty = Difficulty.NORMAL;
-                    else//60%
-                        obstacleDifficulty = Difficulty.HARD;
-                    break;
-
-                default:
-                    if (variante <= 5)//60%
-                        obstacleDifficulty = Difficulty.EASY; //à remplacer par des difficulter !!
-                    else if (variante > 5 && variante < 9)//30%
-                        obstacleDifficulty = Difficulty.NORMAL;
-                    else //10%
-                        obstacleDifficulty = Difficulty.HARD;
-            }
-
-            //System.out.println(obstacleDifficulty);
+            obstacleDifficulty = obstacleDifficulty(variante);
+            
+            //Generation de l'obstacle avec son colorSwitch
             Obstacle o = bo.BuildObstacleVersionAlea(type, obstacleDifficulty, posX, posY, colors, scene);
             BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight()/2 + 100,o.getColor_use());
 
-            System.out.println("colors : "+bcs.getColors_use());
+            //System.out.println("colors : "+bcs.getColors_use());
             
-            System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
-            addSL(o.getShapeList());
-            addSL(bcs.getShapeList());
+            //System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
             
             newPath.getChildren().add(o.getObstacle());
             newPath.getChildren().add(bcs.getItem());
             
             add(o);
             add(bcs);
+            
+            addSL(o.getShapeList());
+            addSL(bcs.getShapeList());
+            
             posY = posY - o.getObstacleHeight() / 2 - 500;
         }
 
@@ -139,6 +106,10 @@ public class Path extends Element {
         while (itObs.hasNext()) {
             o = itObs.next();
             newPath.getChildren().add(o.getObstacle());
+            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,o.getY() + o.getObstacleHeight()/2 + 100 + o.getObstacleHeight()/2 + 100,o.getColor_use());
+            
+            addSL(o.getShapeList());
+            addSL(bcs.getShapeList());
         }
 
         Iterator<Ennemy> itEnn = ennemies.iterator();
@@ -150,6 +121,54 @@ public class Path extends Element {
 
         return newPath;
     }
+    
+    
+    
+    private Difficulty obstacleDifficulty(int variante){
+    	Difficulty obstacleDifficulty;
+    	switch (gameDifficulty) {
+        case EASY:
+            if (variante <= 5)//60%
+                obstacleDifficulty = Difficulty.EASY;
+            else if (variante > 5 && variante < 9)//30%
+                obstacleDifficulty = Difficulty.NORMAL;
+            else //10%
+                obstacleDifficulty = Difficulty.HARD;
+            break;
+
+        case NORMAL:
+            if (variante <= 1)//20%
+                obstacleDifficulty = Difficulty.EASY;
+            else if (variante > 1 && variante < 8)//60%
+                obstacleDifficulty = Difficulty.NORMAL;
+            else//20%
+                obstacleDifficulty = Difficulty.HARD;
+            break;
+
+        case HARD:
+            if (variante <= 0)//10%
+                obstacleDifficulty = Difficulty.EASY;
+            else if (variante > 0 && variante < 4)//30%
+                obstacleDifficulty = Difficulty.NORMAL;
+            else//60%
+                obstacleDifficulty = Difficulty.HARD;
+            break;
+
+        default:
+            if (variante <= 5)//60%
+                obstacleDifficulty = Difficulty.EASY;
+            else if (variante > 5 && variante < 9)//30%
+                obstacleDifficulty = Difficulty.NORMAL;
+            else //10%
+                obstacleDifficulty = Difficulty.HARD;
+    	}
+    	
+    	return obstacleDifficulty;
+    	
+    }
+    
+    
+    
 
     public void add(Obstacle o) {
         obstacles.add(o);

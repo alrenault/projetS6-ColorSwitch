@@ -9,6 +9,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
+/**
+ * Objet graphique d'un triangle
+ */
 public class Triangle extends Shapes {
     /**
      * Hauteur du triangle
@@ -40,15 +43,11 @@ public class Triangle extends Shapes {
         check();
     }
 
-    protected Group buildShape() {
-		return build();
-	}
-
     /**
-     *
-     * @return
+     * Génère le triangle
+     * @return le Group correspondant au triangle
      */
-    protected Group build() {
+    protected Group buildShape() {
         Group t = new Group();
 
         double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef, coefReduction;

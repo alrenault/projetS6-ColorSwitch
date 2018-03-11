@@ -9,16 +9,46 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+/**Objet graphique d'une croix
+ */
 public class Cross extends Shapes {
+	/**
+	 * Nombre de rectangle (par defaut 2. Pourra aussi valoir 4
+	 */
     private int nbr_rect = 2;
+    
+    /**
+     * Longueur d'un rectangle de la croix
+     */
     private double length;
-
+    
+    /**
+     * Constructeur basique de la croix (direction à true, acceleration à false, la vitesse la plus faible, et la position de la couleur à 1
+     * @param x Coordonnée en x de la croix
+     * @param y Coordonnée en y de la croix
+     * @param width Largeur d'un rectangle
+     * @param length Longueur d'un rectangle
+     * @param colors L'ensemble de couleurs utilisées par la croix
+     */
     public Cross(double x, double y, double width, double length, List<Color> colors) {
         super(x, y, width, true, false, Speed.SYMPA, colors, 1);
         this.length = length;
         this.shape = build();
     }
 
+    /**
+     * Constructeur plus précis de la croix
+     * @param x Coordonnée en x de la croix
+     * @param y Coordonnée en y de la croix
+     * @param width Largeur d'un rectangle
+     * @param length Longueur d'un rectangle
+     * @param mouvementDirection Direction du mouvement (true sens horraire, false contre-horraire)
+     * @param acceleration Permet d'activer ou de désactiver l'accélération de la croix
+     * @param _mouvementSpeed La vitesse de la croix
+     * @param nbr_rect Le nombre de rectangle (2 ou 4)
+     * @param colors L'ensemble de couleurs que l'on peut utiliser
+     * @param pos_color La position initiale pour le parcours de la liste
+     */
     public Cross(double x, double y, double width, double length, boolean mouvementDirection, boolean acceleration,
                  Speed _mouvementSpeed, int nbr_rect, List<Color> colors, int pos_color) {
 
@@ -35,7 +65,10 @@ public class Cross extends Shapes {
         check();
     }
 
-
+    /**
+     * Génère la croix
+     * @return le Group correspondant à la croix
+     */
     protected Group buildShape() {
 
         //Initialisation
