@@ -96,6 +96,9 @@ public class BallPlayer extends Ball {
 
     public void setColor(Color color) {
         this.color = color;
+        for(Shape s : getShapeList()){
+        	s.setFill(color);
+        }
     }
 
     public double getX() {

@@ -8,12 +8,14 @@ import game.ball.BallPlayer;
 import game.path.Path;
 import game.path.items.BallColorSwitch;
 import game.path.items.GravitySwitch;
+import game.path.items.Item;
 import game.path.items.Star;
 import game.path.obstacle.CircleInCircle;
 import game.path.obstacle.MultiCross;
 import game.path.obstacle.MultiLinee;
 import game.path.obstacle.MultiShapes;
 import game.path.obstacle.MultiSquare;
+import game.path.obstacle.Obstacle;
 import game.path.shapes.Shapes.Speed;
 import game.path.shapes.Triangle;
 import javafx.animation.AnimationTimer;
@@ -28,9 +30,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import game.path.shapes.Circle;
 import game.path.shapes.Cross;
+import javafx.scene.shape.Arc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class MainTest extends Application{
@@ -163,7 +167,7 @@ public class MainTest extends Application{
 
         //gr.getChildren().add(mult);
 
-        Path p = new Path(scene1, CUSTOM, 10   , Difficulty.HARD);
+        Path p = new Path(scene1, CUSTOM, 10   , Difficulty.EASY);
         //MultiCross mc = new MultiCross(scene1.getWidth()/2,scene1.getHeight()/2,CUSTOM,5);
         //Group multiCross = mc.getObstacle();
         
@@ -217,8 +221,7 @@ public class MainTest extends Application{
 		//List<Shape> lesShapes = p.getShapeList();
 	
         	
-        
-        
+       
         
         
         
@@ -241,20 +244,58 @@ public class MainTest extends Application{
 				
 				for(Shape ball : player.getShapeList()) {
 					
-					for(Shape shape : p.getShapeList()) {
+					for(Obstacle o : p.getObstacles()) {
+						
+						for(Shape shape : o.getShapeList()){
 						
 						Shape intersection = Shape.intersect(ball, shape);
 						
-						if (!intersection.getBoundsInParent().isEmpty()) {
-							System.out.println(shape.getFill());
-							System.out.println(ball.getFill());
+							if (!intersection.getBoundsInParent().isEmpty()) {
+								System.out.println(shape.getFill());
+								System.out.println(ball.getFill());
 							
+								if(shape instanceof Arc && shape.getStroke() != ball.getFill()){
+									System.out.println("\n___________\nDEFEAT\n");
+									primaryStage.close();
+								}
+								
+								if(!(shape instanceof Arc) &&shape.getFill() != ball.getFill()) {
+									System.out.println("\n___________\nDEFEAT\n");
+									primaryStage.close();
+								}
 							
-							if(shape.getFill() != ball.getFill()) {
-								System.out.println("\n___________\nDEFEAT\n");
-								primaryStage.close();
 							}
-							
+						}
+					}
+					
+					Boolean touch = false;
+					 for(Item i : p.getItem()){
+						if(i instanceof BallColorSwitch){
+							for(Shape shape : i.getShapeList()){
+								Shape intersection = Shape.intersect(ball,shape);
+								
+								if (!intersection.getBoundsInParent().isEmpty()) {
+									 System.out.println("truc"); 
+									System.out.println(shape.getFill());
+									System.out.println(ball.getFill());
+									
+									
+									if(shape.getFill() != ball.getFill()) {
+										Random r = new Random();
+										int size = ((BallColorSwitch) i).getColors_use().size();
+										Color c = ((BallColorSwitch) i).getColors_use().get(r.nextInt(size));
+										p.remove(i);
+										player.setColor(c);
+										touch = true;
+										break;
+									}
+									
+								}
+							}
+							if(touch){
+								touch = false;
+								break;
+							}
 						}
 					}
 				}

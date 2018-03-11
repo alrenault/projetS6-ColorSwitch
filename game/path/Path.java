@@ -21,7 +21,7 @@ public class Path extends Element {
     private List<Item> items;
     private List<Obstacle> obstacles;
     private List<Ennemy> ennemies;
-    private List<Item> item;
+    //private List<Item> item;
     private Group path;
     private Difficulty gameDifficulty;
     private Scene scene;
@@ -46,7 +46,7 @@ public class Path extends Element {
     	super();
         obstacles = _obstacles;
         ennemies = _ennemies;
-        item = new ArrayList<Item>();
+        items = new ArrayList<Item>();
         path = buildPath();
     }
     
@@ -54,7 +54,7 @@ public class Path extends Element {
     	super();
     	obstacles = _obstacles;
     	ennemies = new ArrayList<Ennemy>();
-    	item = new ArrayList<Item>();
+    	items = new ArrayList<Item>();
     }
 
     private Group buildPathRandom() {
@@ -116,10 +116,12 @@ public class Path extends Element {
             System.out.println("colors : "+bcs.getColors_use());
             
             System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
-              addSL(o.getShapeList());
-            //addSL(bcs.getShapeList());
+            addSL(o.getShapeList());
+            addSL(bcs.getShapeList());
+            
             newPath.getChildren().add(o.getObstacle());
             newPath.getChildren().add(bcs.getItem());
+            
             add(o);
             add(bcs);
             posY = posY - o.getObstacleHeight() / 2 - 500;
@@ -164,6 +166,7 @@ public class Path extends Element {
 
 
     public boolean remove(Item item) {
+    	path.getChildren().remove(item);
         return items.remove(item);
     }
 
@@ -200,7 +203,7 @@ public class Path extends Element {
     }
     
     public List<Item> getItem(){
-    	return item;
+    	return items;
     }
 
     public Group getPath() {
