@@ -51,6 +51,12 @@ Début d'architecture, début d'IHM
 	- Nombre de portes traversées
 	- Progression
 	- Items ramassés (étoiles,...)
+	
+- Affichage 
+	- Menu de démarrage
+	- Jeu
+	- Game Over (facultatif)
+	- Score
 
 ### Mécanique avancées : extensions
 

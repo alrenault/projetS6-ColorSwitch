@@ -9,15 +9,52 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+/**
+ * Objet graphique d'une ligne verticale
+ */
 public class VerticalLine extends Shapes {
 
+	/**
+	 * Longueur d'un rectangle
+	 */
     private double length;
+    
+    /**
+     * Le nombre de segment formant la ligne
+     */
     private int nbr_seg;
+    
+    /**
+     * Point d'arrivée pour l'animation
+     */
     private double goal;
-    private double distanceSeparation;
+    
+    /**
+     * Active les allez-retours
+     */
     private boolean reverse;
+    
+    /**
+     * La distance separant 2 segments
+     */
+    private double distanceSeparation;
+    
 
-
+    /**
+     * Constructeur d'une ligne verticale
+     * @param x Coordonnée en x de la ligne
+     * @param y Coordonnée en y de la ligne
+     * @param height La hauteur d'un rectangle
+     * @param width La largeur d'un rectangle
+     * @param distanceSeparation La distance separant 2 segments
+     * @param acceleration Active l'accélération de l'animation
+     * @param reverse Active les allez-retour
+     * @param _mouvementSpeed La vitesse du mouvement
+     * @param nbr_seg Le nombre de rectangle pour la ligne
+     * @param colors L'ensemble de couleurs que l'on peut utiliser
+     * @param pos_colors La position de départ dans la liste
+     * @param goal Le point d'arrivée pour l'animation 
+     */
     public VerticalLine(double x, double y, double height, double width, double distanceSeparation, boolean acceleration
             , boolean reverse, Speed _mouvementSpeed, int nbr_seg, List<Color> colors, int pos_colors, double goal) {
         super(x, y, width, true, acceleration, _mouvementSpeed, colors, pos_colors);
@@ -35,6 +72,10 @@ public class VerticalLine extends Shapes {
     }
 
 
+    /**
+     * Génère la ligne verticale
+     * @return le Group correspondant a la ligne verticale
+     */
     protected Group buildShape() {
         Group hline = new Group();
 

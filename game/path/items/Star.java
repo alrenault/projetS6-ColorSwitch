@@ -10,8 +10,6 @@ import model.Model;
 
 
 /**Objet graphique Etoile
- * @author Vincent
- * @date 8/02/18
  */
 
 public class Star extends Item {
