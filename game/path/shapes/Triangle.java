@@ -10,9 +10,24 @@ import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
 public class Triangle extends Shapes {
-
+    /**
+     * Hauteur du triangle
+     */
     private double height;
 
+
+    /**
+     * Constructeur de Triangle
+     * @param x coordonnée x du centre de gravité du triangle construit
+     * @param y coordonnée y du centre de gravité du triangle construit
+     * @param height hauteur du triangle construit
+     * @param width epaisseur du trait du triangle
+     * @param mouvementDirection indique la direction de la rotation
+     * @param acceleration Indique si la rotation du  triangle est linéaire ou est soumise à une accéleration
+     * @param _mouvementSpeed   vitesse de rotation du triangle
+     * @param colors la liste de couleurs à applique aux traits du triangle
+     * @param pos_color
+     */
     public Triangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, Speed _mouvementSpeed, List<Color> colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         this.height = height;
@@ -26,6 +41,14 @@ public class Triangle extends Shapes {
     }
 
     protected Group buildShape() {
+		return build();
+	}
+
+    /**
+     *
+     * @return
+     */
+    protected Group build() {
         Group t = new Group();
 
         double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef, coefReduction;

@@ -19,7 +19,7 @@ public class BallColorSwitch extends Item implements Colorable {
 
 
     public BallColorSwitch(double x, double y, List<Color> colors) {
-    	super(x,y,0,colors);
+    	super(x,y,colors);
         this.size = 12;
 
         this.colors_use = new ArrayList<Color>();
@@ -69,6 +69,8 @@ public class BallColorSwitch extends Item implements Colorable {
 	public List<Color> getColors_use() {
 		return colors_use;
 	}
+
+
     
     
 

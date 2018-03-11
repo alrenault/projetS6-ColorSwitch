@@ -6,30 +6,45 @@ import game.Colorable;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
+import model.Model;
 
 
-/**
+/**Objet graphique Etoile
  * @author Vincent
  * @date 8/02/18
  */
 
 public class Star extends Item {
+    /**
+     * Rayon de l'etoile
+     */
     private double radius;
 
+    /**
+     *
+     * @param x Coordonnée x de l'Etoile
+     * @param y Coordonnée y de l'Etoile
+     * @param _radius Rayon de l'Etoile
+     * @param colors couleur de l'Etoile
+     */
     public Star(double x, double y, double _radius,List<Color> colors) {
-        super(x, y, 0.0, colors);
+        super(x, y, colors);
         this.radius = _radius;
         //recuperation de la position
         //  this.coord = shape.localToScene(shape.getBoundsInLocal());
     }
 
     public Star(double x, double y,List<Color> colors) {
-        super(x, y, 0.0, colors);
+        super(x, y, colors);
         this.radius = 10.0;
         // this.coord = shape.localToScene(shape.getBoundsInLocal());
         this.item = buildItem();
     }
 
+    /**
+     * Genere la forme
+     * @return un ensemble de Forme
+     */
     protected Group buildItem() {
         Group g = new Group();
         Polygon p = new Polygon();

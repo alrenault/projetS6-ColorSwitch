@@ -174,6 +174,7 @@ public class MainTest extends Application{
         
         
         scene1.setFill(Colorable.BLACK);
+        //scene1.setFill(Color.valueOf("0xffff00ff"));
         
         
         Label frame = new Label("Frame : " + nFrame);
@@ -248,9 +249,9 @@ public class MainTest extends Application{
 							System.out.println(intersection.getFill());
 							System.out.println(ball.getFill());
 							
-							//if(shape.getFill() != ball.getFill()) {
+							if(Shape.intersect(ball, ball).getFill() != intersection.getFill()){
 								primaryStage.close();
-							//}
+							}
 						}
 					}
 				}

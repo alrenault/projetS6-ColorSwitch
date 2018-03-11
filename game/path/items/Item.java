@@ -1,5 +1,6 @@
 package game.path.items;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import game.path.Element;
@@ -14,40 +15,69 @@ import javafx.scene.shape.Shape;
  * @date 17/02/2018
  */
 public abstract class Item extends Element {
+	/**
+     * coordonnée x de l'objet
+     */
     protected double x;
+    /**
+     * coordonnée Y de l'objet
+     */
     protected double y;
+    /**
+     * Forme de l'objet
+     */
     protected Group item;
+    /**
+     * Liste de couleurs à appliquer à la forme
+     */
     protected List<Color> colors;
     protected Bounds coord;
-    private double points;
 
-    public Item(double x, double y, double points, List<Color> colors) {
-    	super();
+    /**
+     * Constructeur de la forme
+     * @param x coordonnée x de l'objet
+     * @param y coordonnée y de l'objet
+     * @param colors Liste de couleur à appliquer
+     */
+    public Item(double x, double y, List<Color> colors) {
         this.x = x;
         this.y = y;
-        this.points = points;
-        this.colors = colors;
-        //this.item = build();
-        //check();
+        if (colors==null) {
+            List<Color> c = new ArrayList<>();
+            c.add(Color.WHITE);
+            this.colors = c;
+        }else {
+            this.colors = colors;
+        }
+        item = new Group();
 
     }
-    
-    protected Group build() {
-    	return buildItem();
-    }
 
-
+    /**
+     * Genere la forme
+     * @return un ensemble de Forme
+     */
     protected abstract Group buildItem();
+    
+	@Override
+	protected Group build() {
+		return buildItem();
+	}
 
 
-    public double getPoints() {
-        return points;
-    }
-
+    /**
+     * Assesseur de coordonnée x
+     * @return La coordonnée x
+     */
     public double getX() {
         coord = item.localToScene(item.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
+
+    /**
+     * Assesseur de coordonnée y
+     * @return La coordonnée y
+     */
 
     public double getY() {
         coord = item.localToScene(item.getBoundsInLocal());
@@ -57,7 +87,10 @@ public abstract class Item extends Element {
     public Point2D getCoord() {
         return new Point2D(getX(), getY());
     }
-
+    /**
+     * Assesseur de Forme de l'objet
+     * @return La Forme de l'objet
+     */
     public Group getItem() {
         return item;
     }
@@ -67,12 +100,5 @@ public abstract class Item extends Element {
 	public Group getShape() {
 		// TODO Auto-generated method stub
 		return item;
-	}
-
-
-	@Override
-	public List<Shape> getShapeList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

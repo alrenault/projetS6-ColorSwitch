@@ -19,21 +19,81 @@ import java.util.Set;
  * The goal is to represent a concrete shape that can be used for obstacles
  * This class is the pattern of all the shapes
  */
+
 public abstract class Shapes extends Element implements Colorable{
+
+
+    /**
+     * Constructeur de Cercle
+     * @param xCenter coordonnée x du centre du cercle construit
+     * @param yCenter coordonnée y du centre du cercle construit
+     * @param radial rayon du cercle construit
+     * @param width epaisseur des arcs
+     * @param arcs_nbr nombre d'arcs du cercle
+     * @param rotationDirection Indique si le cercle est autorisé a tourner (voir)
+     * @param acceleration Indique si la rotation du  cercle est linéaire ou est soumise à une accéleration
+     * @param vitesseRotation vitesse de rotation du cercle
+     * @param colors la liste de couleurs à applique aux arcs de cercle
+     * @param pos_color
+     */
+
+    /**
+     *coordonnée x du centre de la forme
+     */
     protected double x;
+    /**
+     *coordonnée y du centre de la forme
+     */
     protected double y;
+    /**
+     *Forme
+     */
     protected Group shape;
+    /**
+     *
+     */
     protected Bounds coord;
+    /**
+     * L'épaisseur du trait de la forme
+     */
     double width;
+    /**
+     *Indique la direction du mouvement de la forme
+     */
     boolean mouvementDirection;
+    /**
+     *Indique si la rotation de la forme est linéaire ou est soumise à une accéleration
+     */
     boolean acceleration;
+    /**
+     *
+     */
     int pos_color;
+    /**
+     * vitesse de rotation de la forme
+     */
     double mouvementSpeed;
+    /**
+     *La liste des couleurs de la forme
+     */
     List<Color> colors;
+    /**
+     *
+     */
     List<Color> colors_use;
     List<Shape> shape_list;
 
-
+    /**
+     *
+     * @param x coordonnée x du centre de la forme
+     * @param y coordonnée y du centre de la forme
+     * @param width épaisseur à transmetre
+     * @param mouvementDirection direction de mouvement
+     * @param acceleration acceleration du mouvement (ou non)
+     * @param s Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
+     * @param colors Liste des couleurs de la forme à transmettre
+     * @param pos_color
+     */
     protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
         super();
     	this.x = x;
@@ -72,6 +132,10 @@ public abstract class Shapes extends Element implements Colorable{
 
     }
 
+    /**
+     * Assesseur de l'épaisseur de Forme
+     * @return l'épaisseur de la forme
+     */
     public double getWidth() {
         return width;
     }
@@ -82,12 +146,16 @@ public abstract class Shapes extends Element implements Colorable{
 
     protected abstract Group buildShape();
 
-	public void verifPosColor() {
+    public void verifPosColor() {
         pos_color++;
         if (pos_color == colors.size())
             pos_color = 0;
     }
 
+    /**
+     *
+     * @param s
+     */
     public void color(Shape s) {
     	Iterator<Color> it = colors.iterator();
     	Color c = null;
@@ -101,11 +169,20 @@ public abstract class Shapes extends Element implements Colorable{
         colors_use.add(c);
     }
 
+    /**
+     * Assesseur de la coordonée x de Forme
+     * @return La coordonnée x
+     */
     public double getX() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
 
+
+    /**
+     * Assesseur de la coordonée y de Forme
+     * @return La coordonnée y
+     */
     public double getY() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
@@ -127,9 +204,9 @@ public abstract class Shapes extends Element implements Colorable{
     public Group getShape() {
     	return shape;
     }
-
-
-
+    /**
+     * Determine la vitesse de mouvement de la Forme
+     */
     public enum Speed {
         SYMPA,
         MOYEN,
