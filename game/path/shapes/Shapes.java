@@ -124,7 +124,7 @@ public abstract class Shapes extends Element implements Colorable{
         else {
             this.pos_color = pos_color % colors.size();
         }
-        this.colors_use = new ArrayList<Color>();
+        this.colors_use = new ArrayList<>();
         //this.shape = build();
         //check();
 

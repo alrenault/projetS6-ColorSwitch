@@ -43,7 +43,7 @@ public abstract class Obstacle extends Element {
         } else {
             this.version = version;
         }
-        color_use = new ArrayList<Color>();
+        color_use = new ArrayList<>();
         
         //this.obstacle = build();
         //check();

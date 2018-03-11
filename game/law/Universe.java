@@ -14,7 +14,7 @@ public class Universe {
     Set<Law> laws;
 
     public Universe() {
-        laws = new HashSet<Law>();
+        laws = new HashSet<>();
     }
 
     public void apply(Game game) {

@@ -30,9 +30,9 @@ public class Path extends Element {
 
     public Path(Scene scene, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
     	super();
-        obstacles = new ArrayList<Obstacle>();
-        ennemies = new ArrayList<Ennemy>();
-        items = new ArrayList<Item>();
+        obstacles = new ArrayList<>();
+        ennemies = new ArrayList<>();
+        items = new ArrayList<>();
         this.gameDifficulty = gameDifficulty;
         this.colors = colors;
         this.scene = scene;
@@ -45,15 +45,15 @@ public class Path extends Element {
     	super();
         obstacles = _obstacles;
         ennemies = _ennemies;
-        items = new ArrayList<Item>();
+        items = new ArrayList<>();
         path = buildPath();
     }
     
     public Path(List<Obstacle> _obstacles){
     	super();
     	obstacles = _obstacles;
-    	ennemies = new ArrayList<Ennemy>();
-    	items = new ArrayList<Item>();
+    	ennemies = new ArrayList<>();
+    	items = new ArrayList<>();
     }
 
     private Group buildPathRandom() {
