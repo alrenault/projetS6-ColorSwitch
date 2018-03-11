@@ -246,12 +246,15 @@ public class MainTest extends Application{
 						Shape intersection = Shape.intersect(ball, shape);
 						
 						if (!intersection.getBoundsInParent().isEmpty()) {
-							System.out.println(intersection.getFill());
+							System.out.println(shape.getFill());
 							System.out.println(ball.getFill());
 							
-							if(Shape.intersect(ball, ball).getFill() != intersection.getFill()){
+							
+							if(shape.getFill() != ball.getFill()) {
+								System.out.println("\n___________\nDEFEAT\n");
 								primaryStage.close();
 							}
+							
 						}
 					}
 				}
