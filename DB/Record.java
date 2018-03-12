@@ -35,6 +35,6 @@ public class Record {
                 " " + pseudoJoueur  +
                 ", " + scoreJoueur.toString() +
                 "," + dateRecordJoueur  +
-                ']';
+                " ]";
     }
 }
