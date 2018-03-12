@@ -22,7 +22,7 @@ public class Listeners {
         //Label l1 = new Label("je test");
         //group.getChildren().add(l1);
         //l1.setFont(new Font(50));
-        sc.setOnKeyPressed(new EventHandler<>() {
+        sc.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent ke) {
                 //if(ke.getCode() == KeyCode.ENTER){
