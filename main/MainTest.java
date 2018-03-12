@@ -52,7 +52,7 @@ public class MainTest extends Application{
     	System.out.println("_________________________________________"
     			+ "\n\nStart\n");
     	
-    	List<Color> CUSTOM = new ArrayList<Color>();
+    	List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
     	CUSTOM.add(Colorable.PURPLE);
     	CUSTOM.add(Colorable.ROSE);
@@ -315,7 +315,7 @@ public class MainTest extends Application{
     }
     
     public List<Shape> buildLesShapes(List<Node> liste){
-    	List<Shape> shapy = new ArrayList<Shape>();
+    	List<Shape> shapy = new ArrayList<>();
     	
     	for(Node node : liste) {
     		if(node instanceof Shape) {

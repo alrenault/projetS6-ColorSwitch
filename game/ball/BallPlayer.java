@@ -58,7 +58,7 @@ public class BallPlayer extends Ball {
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt2.setAutoReverse(false);
         tt2.setInterpolator(Interpolator.EASE_OUT);
-        tt2.setOnFinished(new EventHandler<ActionEvent>() {
+        tt2.setOnFinished(new EventHandler<>() {
             public void handle(ActionEvent event) {
                 gravity.play();
             }
@@ -71,7 +71,7 @@ public class BallPlayer extends Ball {
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt3.setAutoReverse(false);
         tt3.setInterpolator(Interpolator.EASE_OUT);
-        tt3.setOnFinished(new EventHandler<ActionEvent>() {
+        tt3.setOnFinished(new EventHandler<>() {
             public void handle(ActionEvent event) {
                 gravity.play();
             }

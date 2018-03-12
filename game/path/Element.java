@@ -16,7 +16,7 @@ public abstract class Element {
 	
 	public Element() {
 		//shape = new Group();
-		shape_list = new ArrayList<Shape>();
+		shape_list = new ArrayList<>();
 	}
 	
 	
@@ -41,7 +41,7 @@ public abstract class Element {
 		
 		
 		if (shapes != null) {
-			if(shape_list == null) shape_list = new ArrayList<Shape>();
+			if(shape_list == null) shape_list = new ArrayList<>();
 			for (Shape j : shapes) {
 				shape_list.add(j);
 			}
@@ -58,7 +58,7 @@ public abstract class Element {
 
 		
 		if (shapes_list != null) {
-			if(shape_list == null) shape_list = new ArrayList<Shape>();
+			if(shape_list == null) shape_list = new ArrayList<>();
 			for (List<Shape> j : shapes_list) {
 				System.out.println("j null : " + j);
 				shape_list.addAll(j);
