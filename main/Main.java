@@ -2,6 +2,15 @@ package main;
 
 import DB.GestionDB;
 import DB.Record;
+import controller.Controller;
+import game.Game;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import model.Model;
+import view.View;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,16 +23,44 @@ import java.util.List;
  * @author renard
  * @version 1.0
  */
-public class Main {
+public class Main extends Application {
+	
+	Model model;
+	View view;
+	Controller controller;
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-    /*
-        GestionDB t =new GestionDB();
-        List<Record> l = t.getNBestRecords(5);
-        for (Record element:l) {
-            System.err.println(element.toString());
-        }
-        */
+    	launch(args);
     }
+    
+    
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		
+		initStage(primaryStage);
+		
+		model = new Model();
+		view = new View();
+		controller = new Controller();
+		
+		
+        
+        //Set Scene
+        Group root = new Group();
+        Scene scene = new Scene(root, 600, 1000);
+    	
+    	Game colorSuitch = new Game(scene);
+    		
+    	colorSuitch.play();
+		
+	}
+	
+	
+	
+	public void initStage(Stage stage) {
+		//Set Stage
+        stage.setTitle("ColorSuitch");
+        stage.getIcons().add(new Image("file:../view/color_icon.png"));
+	}
 }

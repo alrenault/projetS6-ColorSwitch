@@ -10,7 +10,7 @@ public class Model {
      * points gagnés par ramassage d'etoiles
      */
 
-    public final double points_star;
+    public double points_star;
     /**
      * Taille de la fenetre en X
      */
@@ -19,6 +19,10 @@ public class Model {
      * Taille de la fenetre en Y
      */
     public double screen_sizeY;
+    
+    public Model() {
+    	
+    }
 
 
     public Model(double screen_sizeX, double screen_sizeY, double points_star) {

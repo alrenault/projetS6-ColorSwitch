@@ -10,7 +10,7 @@ import javafx.scene.shape.Shape;
 
 public abstract class Element {
 	
-	Group shape;
+	protected Group shape;
 	
 	List<Shape> shape_list;
 	

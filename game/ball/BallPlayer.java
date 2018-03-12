@@ -85,22 +85,7 @@ public class BallPlayer extends Ball {
         return ball;
 
     }
-
-    public Group getShape() {
-        return shape;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-        for(Shape s : getShapeList()){
-        	s.setFill(color);
-        }
-    }
-
+    
     public double getX() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
@@ -111,10 +96,11 @@ public class BallPlayer extends Ball {
         return coord.getMinY() + coord.getHeight() / 2;
 
     }
-
+    
     public Point2D getCoord() {
         return new Point2D(getX(), getY());
     }
+
 
     @Override
     public void applyGravity() {
@@ -181,6 +167,14 @@ public class BallPlayer extends Ball {
 
         tt1.play();
     }
+
+	@Override
+	public Group getShape() {
+		// TODO Auto-generated method stub
+		return shape;
+	}
+
+
 
 	
 
