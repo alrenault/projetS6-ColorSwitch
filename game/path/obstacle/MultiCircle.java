@@ -82,7 +82,7 @@ public class MultiCircle extends Obstacle {
         switch (version) {
             case 0:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-                cer2 = new Circle(x, y + bigRadial * 2 + width, bigRadial, width, nb_arc, true, false, Shapes.Speed.SYMPA, colors, 1);
+                cer2 = new Circle(x, y + bigRadial * 2 + width, bigRadial, width, nb_arc, true, false, Shapes.Speed.MOYEN, colors, 1);
 
                 addSL(cer1.getShapeList(),cer2.getShapeList());            
                 multiCircle.getChildren().add(cer1.getShape());
@@ -135,7 +135,7 @@ public class MultiCircle extends Obstacle {
                 break;
             case 4:
                 cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 2);
-                cer2 = new Circle(x, y + bigRadial, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
+                cer2 = new Circle(x, y + bigRadial+10, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
 
                 addSL(cer1.getShapeList(),cer2.getShapeList());            
                 multiCircle.getChildren().add(cer1.getShape());
