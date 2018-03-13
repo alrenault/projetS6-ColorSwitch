@@ -28,47 +28,45 @@ public class StagePseudo {
      * @return la stage et submit entraine (TODO) la stage de menu (recommencer une partie) ou de fin
      */
     public Stage stre(Stage primaryStage, Score scorePlayer){
-        Button clearButton,submitButton;
-        Label fNameLabel;
-        TextField fNameTextField;
+        Button buttonClear,buttonSubmit;
+        Label labelPseudo;
+        TextField inputPseudo;
         Scene scene;
         GestionDB gestion=new GestionDB();
         primaryStage.setTitle("Identification");
         primaryStage.setOnCloseRequest(e -> { primaryStage.close(); });
 
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(5,5,5,5));
-        grid.setVgap(5);
-        grid.setHgap(5);
+        GridPane grille = new GridPane();
+        grille.setPadding(new Insets(5,5,5,5));
+        grille.setVgap(5);
+        grille.setHgap(5);
 
-        fNameLabel = new Label("Pseudo :");
-        GridPane.setConstraints(fNameLabel,4,0);
-        grid.getChildren().add(fNameLabel);
+        labelPseudo = new Label("Pseudo :");
+        GridPane.setConstraints(labelPseudo,4,0);
+        grille.getChildren().add(labelPseudo);
 
-        fNameTextField = new TextField();
-        fNameTextField.setPromptText("Entrer un pseudo [a-Z_0-9]");
-        GridPane.setConstraints(fNameTextField,5,0);
-        grid.getChildren().add(fNameTextField);
+        inputPseudo = new TextField();
+        inputPseudo.setPromptText("Entrer un pseudo [a-Z_0-9]");
+        GridPane.setConstraints(inputPseudo,5,0);
+        grille.getChildren().add(inputPseudo);
 
-        clearButton = new Button("Reset");
-        GridPane.setConstraints(clearButton, 7, 5);
-        grid.getChildren().add(clearButton);
+        buttonClear = new Button("Reset");
+        GridPane.setConstraints(buttonClear, 7, 5);
+        grille.getChildren().add(buttonClear);
 
-        submitButton = new Button("Envoyer");
-        GridPane.setConstraints(submitButton, 8, 5);
-        grid.getChildren().add(submitButton);
+        buttonSubmit = new Button("Envoyer");
+        GridPane.setConstraints(buttonSubmit, 8, 5);
+        grille.getChildren().add(buttonSubmit);
 
-        submitButton.setOnAction(e -> {
-            String p = fNameTextField.getText();
-
-
+        buttonSubmit.setOnAction(e -> {
+            String p = inputPseudo.getText();
                 gestion.record(p,scorePlayer);
 
                 System.err.println(p);
             //on retourne au menu
         });
 
-        scene = new Scene(grid, 400, 400);
+        scene = new Scene(grille, 400, 400);
         //ou les tailles du model
         primaryStage.setScene(scene);
         return primaryStage;
