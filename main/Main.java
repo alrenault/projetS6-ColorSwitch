@@ -45,10 +45,15 @@ public class Main extends Application {
 		controller = new Controller();
 		
 		
+		
+		
         
         //Set Scene
         Group root = new Group();
         Scene scene = new Scene(root, 600, 1000);
+        
+        model.createGame(scene);
+		view.viewGame(scene);
     	
     	Game colorSuitch = new Game(scene);
     		

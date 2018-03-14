@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.Scene;
+
 /**
  * This class represents the model in the MVC pattern
  * It contains ALL the data needed for the view
@@ -34,4 +36,10 @@ public class Model {
     public double getPoints_star() {
         return points_star;
     }
+
+
+	public void createGame(Scene scene) {
+		// TODO Auto-generated method stub
+		
+	}
 }
