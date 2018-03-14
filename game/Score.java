@@ -93,7 +93,7 @@ public class Score {
      */
 
     public int getScore() {
-        return scoreStared*nbEtoilesRamassees +nbrObstaclesCrossed;
+        return scoreStared*nbEtoilesRamassees + nbrObstaclesCrossed;
     }
 
     /**

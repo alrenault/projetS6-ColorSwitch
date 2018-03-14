@@ -4,6 +4,7 @@ package main;
 import DB.GestionDB;
 import game.Colorable;
 import game.Difficulty;
+import game.Score;
 import game.ball.BallPlayer;
 import game.path.Path;
 import game.path.items.BallColorSwitch;
@@ -179,9 +180,11 @@ public class MainTest extends Application{
         
         scene1.setFill(Colorable.BLACK);
         //scene1.setFill(Color.valueOf("0xffff00ff"));
-        
-        
+
+		Score score = new Score();
         Label frame = new Label("Frame : " + nFrame);
+
+        frame.setTextFill(Color.WHITE);
         root.getChildren().add(frame);
 
 
@@ -225,13 +228,13 @@ public class MainTest extends Application{
         
         
         
-        
+        //apellé a chaque shape
         new AnimationTimer() {
 
 			@Override
 			public void handle(long now) {
 				checkCollision();
-				
+				//frame=score.getScore();
 				double x = player.getX();
 				double y = player.getY();
 				
@@ -256,12 +259,12 @@ public class MainTest extends Application{
 							
 								if(shape instanceof Arc && shape.getStroke() != ball.getFill()){
 									System.out.println("\n___________\nDEFEAT\n");
-									primaryStage.close();
+									//primaryStage.close();
 								}
 								
 								if(!(shape instanceof Arc) &&shape.getFill() != ball.getFill()) {
 									System.out.println("\n___________\nDEFEAT\n");
-									primaryStage.close();
+									//primaryStage.close();
 								}
 							
 							}
@@ -277,8 +280,6 @@ public class MainTest extends Application{
 								if (!intersection.getBoundsInParent().isEmpty()) {
 									System.out.println(shape.getFill());
 									System.out.println(ball.getFill());
-									
-									
 									if(shape.getFill() != ball.getFill()) {
 										Random r = new Random();
 										int size = ((BallColorSwitch) i).getColors_use().size();
@@ -301,7 +302,7 @@ public class MainTest extends Application{
 				
 				if(player.getY() >= scene1.getHeight()){
 					 System.out.println("\n___________\nDEFEAT\n");
-					primaryStage.close();
+					//primaryStage.close();
 				 }
 				
 			}
