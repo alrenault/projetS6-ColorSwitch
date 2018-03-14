@@ -21,9 +21,11 @@ public class GestionDB {
 
     private Connection connexion;
 
-
+    /**
+     * Constucteur de Gestion DB
+     */
     public GestionDB() {
-        this.connexion();
+        this.populateDB();
     }
 
     /**
@@ -101,13 +103,16 @@ public class GestionDB {
     /**
      * Sort tout les scores de joueur de la base
      * @param pseudoJoueur le pseudo du joueur à rechercher
-     * @return une liste (chainee) conenant tout les scores de joueur
+     * @return une liste (chainée) contenant tout les scores de joueur ou null si pseudo inexistant
      */
-    public List<Record> getScoresOfPlayer(String pseudoJoueur){
-
+    public LinkedList<Record> getScoresOfPlayer(String pseudoJoueur) {
+        // pas sur de le pourrir si le pseudo n'est pas dans la base
+  /*  if (!(pseudoInDB(pseudoJoueur))){
+        throw new Exception("Pseudo inexistant");
+    }
+    */
         if (!(pseudoInDB(pseudoJoueur)))return null;
-
-        List<Record> ret=new LinkedList<>();
+        LinkedList<Record> ret=new LinkedList<>();
         connexion();
         PreparedStatement stmt;
         try {
@@ -118,7 +123,6 @@ public class GestionDB {
 
             ResultSet reponse = stmt.executeQuery();
             while (reponse.next()) {
-
                 SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String date = patern.format(reponse.getTimestamp("date_heur_partie"));
 
@@ -134,8 +138,15 @@ public class GestionDB {
         }
         return ret;
     }
-    public List<Record> getNBestRecords(int limit){
-    assert(limit>0);
+
+
+    /**
+     * Genère les n premiers meilleurs scores de la base
+     * @param limite le nombre de records à obtenir (limit == return.size )
+     * @return une liste (chainée) contenant les [limite] meilleurs scores tout joueur confondus
+     */
+    public List<Record> getNBestRecords(int limite){
+    assert(limite>0);
 
         List<Record> ret=new LinkedList<>();
         connexion();
@@ -144,7 +155,7 @@ public class GestionDB {
             stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
                     " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user ORDER BY score_partie LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
-            stmt.setInt(1,limit);
+            stmt.setInt(1,limite);
             ResultSet reponse = stmt.executeQuery();
             while (reponse.next()) {
 
@@ -168,36 +179,32 @@ public class GestionDB {
      * Insert des Scores dans la base
      * ne peut inserer 2 fois
      */
-    public void populateDB(){
+    private void populateDB(){
         if (getScoresOfPlayer("Vincent")==null) {
 
+            int boundPortes=500;
+            int boundEtoiles=2500;
+            int boundScores=1000000;
             for (int i = 0; i < 15; i++) {
-                record("Vincent", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Quentin", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Alexis", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Yohan", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Anthony", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Pierrick", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Romain", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Jules", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Thomas", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Thomas2", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Jack", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Pierre", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Firmin", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Louis", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Richard", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Henry", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
-                record("Edward", new Score(new Random().nextInt(1000), new Random().nextInt(5000), new Random().nextInt(1000000)));
+                record("Vincent", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Quentin", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Alexis", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Yohan", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Anthony", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Pierrick", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Romain", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Jules", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Thomas", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Thomas2", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Jack", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Pierre", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Firmin", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Louis", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Richard", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Henry", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Edward", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
             }
         }
     }
-
-
-
-
-
-
-
 }
 

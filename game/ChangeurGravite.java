@@ -5,7 +5,7 @@ import game.path.items.GravitySwitch;
 import game.path.items.Star;
 
 
-/**Change la forde de gravité
+/**Change la force de gravité
  * @autor Vincent
  * @date 10/03/2018
  */

@@ -72,7 +72,7 @@ public class MultiCross extends Obstacle {
 
         switch (version) {
             case 0:
-                cr1 = new Cross(x + length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
+                cr1 = new Cross(x + length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0);
                 
                 addSL(cr1.getShapeList());            
                 multiCross.getChildren().add(cr1.getShape());
@@ -83,7 +83,7 @@ public class MultiCross extends Obstacle {
                 break;
                 
             case 1:
-                cr1 = new Cross(x - length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
+                cr1 = new Cross(x - length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0);
                 
                 
                 addSL(cr1.getShapeList());            
