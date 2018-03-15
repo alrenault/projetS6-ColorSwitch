@@ -8,7 +8,7 @@ import game.path.items.Star;
  * @date 16/02/2018
  */
 public class Score {
-private static final int nbPointsParObstacle=50;
+    private static final int nbPointsParObstacle=50;
     /**
      *Le nombre d'Obstacles franchis
      * */
@@ -44,27 +44,17 @@ private static final int nbPointsParObstacle=50;
         this.scoreStored = scoreStored;
     }
 
-    /**
-     *
-     * @param nbrObstaclesCrossed
-     * @param nbEtoilesRamassees
-     */
-    public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees) {
-        this.nbrObstaclesCrossed = nbrObstaclesCrossed;
-        this.nbEtoilesRamassees = nbEtoilesRamassees;
-        this.scoreStored = getScore();
-    }
 
     /**
-     *
+     *Incremente le nombre d'obstacles traversés
      */
     public void increaseNOC() {
         nbrObstaclesCrossed++;
     }
 
     /**
-     *
-     * @param item
+     *Augmente le score du joueur avec le nombre de points associé à l'item
+     * @param item l'item en collision avec le joueur
      */
     public void ramasseItem(Item item) {
         if (item instanceof Star) {
@@ -72,9 +62,9 @@ private static final int nbPointsParObstacle=50;
         }
         scoreStored += item.getNbPoints();
     }
-/**
- * Retourne le nombre d'étoiles
- */
+    /**
+     * Retourne le nombre d'étoiles
+     */
 
     public int getNbEtoilesRamassees() {
         return nbEtoilesRamassees;

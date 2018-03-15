@@ -28,6 +28,7 @@ public class Menu {
 		goGameNormal.setMinHeight(buttonHeight);
 		goGameHard.setMinHeight(buttonHeight);
 		goScore.setMinHeight(buttonHeight);
+
 		
 		goGameEasy.setMinWidth(buttonWidth);
 		goGameNormal.setMinWidth(buttonWidth);
