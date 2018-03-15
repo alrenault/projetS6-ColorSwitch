@@ -19,12 +19,12 @@ public class Score {
     /**
      * Les points gagnés par étoiles
      * */
-    private int scoreStared;
+    private int scoreStored;
 
     public Score() {
         nbrObstaclesCrossed = 0;
         nbEtoilesRamassees = 0;
-        scoreStared = 0;
+        scoreStored = 0;
 
 
     }
@@ -33,12 +33,12 @@ public class Score {
      * ONLY FOR TESTING !
      * @param nbrObstaclesCrossed
      * @param nbEtoilesRamassees
-     * @param scoreStared
+     * @param scoreStored
      */
-    public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, int scoreStared) {
+    public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, int scoreStored) {
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
-        this.scoreStared = scoreStared;
+        this.scoreStored = scoreStored;
     }
 
     /**
@@ -49,7 +49,7 @@ public class Score {
     public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees) {
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
-        this.scoreStared = getScore();
+        this.scoreStored = getScore();
     }
 
     /**
@@ -66,7 +66,7 @@ public class Score {
     public void ramasseEtoile(int gain) {
         assert (gain>0);
 
-        scoreStared+=gain;
+        scoreStored +=gain;
         nbEtoilesRamassees++;
     }
 
@@ -93,7 +93,7 @@ public class Score {
      */
 
     public int getScore() {
-        return scoreStared*nbEtoilesRamassees + nbrObstaclesCrossed;
+        return scoreStored *nbEtoilesRamassees + nbrObstaclesCrossed;
     }
 
     /**
@@ -105,7 +105,7 @@ public class Score {
         return "{" +
                 "" + nbrObstaclesCrossed +
                 ", " + nbEtoilesRamassees +
-                ", " + scoreStared +
+                ", " + scoreStored +
                 "}";
     }
 }

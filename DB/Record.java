@@ -23,18 +23,58 @@ public class Record {
         this.dateRecordJoueur = dateRecordJoueur;
     }
 
+    /**
+     * Accesseur de pseudoJoueur
+     * @return pseudoJoueur
+     */
     public String getPseudoJoueur() {
         return pseudoJoueur;
     }
 
-    public Score getScoreJoueur() {
+    /**
+     * Accesseur de ScoreJoueur
+     * @return scoreJoueur contenu dans le Score
+     */
+    public Score getScoreJoueurRecord() {
         return scoreJoueur;
     }
 
+    /**
+     * Accesseur du nombre d'etoiles ramassées
+     * @return le nombre d'etoiles ramassées contenu dans le Score
+     */
+     public int getNbEtoilesRamassees() {
+        return scoreJoueur.getNbEtoilesRamassees();
+    }
+
+    /**
+     * Accesseur du nombre d'obstacles traversés
+     * @return le nombre d'obstacles traversés contenu dans le Score
+     */
+    public int getNbrObstaclesCrossed() {
+        return scoreJoueur.getNbrObstaclesCrossed();
+    }
+
+    /**
+     * Assesseur du score du joueur
+     * @return le score du joueur contenu dans le Score
+     */
+    public int getScore() {
+        return scoreJoueur.getScore();
+    }
+
+    /**
+     * Accesseur de la date du score du joueur
+     * @return La date du score casté en String
+     */
     public String getDateRecordJoueur() {
         return dateRecordJoueur;
     }
 
+    /**
+     * Pour tests
+     * @return le toString de Score
+     */
     @Override
     public String toString() {
         return "[" +
