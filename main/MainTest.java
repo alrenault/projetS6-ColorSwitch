@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import view.Menu;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import game.path.shapes.Circle;
@@ -295,14 +296,7 @@ public class MainTest extends Application{
 								break;
 							}
 						}
-						/*
-						if (i instanceof GravitySwitch){
-
-						}
-						 if (i instanceof GravityInverser){
-
-						 }
-						*/
+					
 						score.ramasseItem(i);
 
 					}	 
@@ -319,7 +313,11 @@ public class MainTest extends Application{
         }.start();
         
         
-        primaryStage.setScene(scene1);
+        //primaryStage.setScene(scene1);
+        Scene sc = Menu.createInstance(600,1000);
+        primaryStage.setScene(sc);
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(false);
         primaryStage.show();
 
     }

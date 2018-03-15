@@ -72,6 +72,8 @@ public abstract class Element {
 	
 	
 	
+	
+	
     protected void check() {
     	assert(shape != null);
     	assert(shape_list != null);
