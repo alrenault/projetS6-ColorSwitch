@@ -27,7 +27,7 @@ public class GravityInverser extends Item {
      * @param y coordonnée y de l'objet
      */
     public GravityInverser(double x, double y) {
-        super(x, y, null);
+        super(x, y, null,5);
         this.width = 3.0;
         item = buildItem();
     }

@@ -25,7 +25,7 @@ private int coefForce;
      * @param y coordonnée y de l'objet
      */
     public GravitySwitch(double x, double y,int coefForce) {
-        super(x, y,null);
+        super(x, y,null,5);
         this.width = 3.0;
         this.coefForce=coefForce;
         item = buildItem();

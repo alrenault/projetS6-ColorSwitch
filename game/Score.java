@@ -8,7 +8,7 @@ import game.path.items.Star;
  * @date 16/02/2018
  */
 public class Score {
-
+private static final int nbPointsParObstacle=50;
     /**
      *Le nombre d'Obstacles franchis
      * */
@@ -95,7 +95,7 @@ public class Score {
      */
 
     public int getScore() {
-        return scoreStored *nbEtoilesRamassees + nbrObstaclesCrossed;
+        return scoreStored + nbrObstaclesCrossed*nbPointsParObstacle;
     }
 
     /**

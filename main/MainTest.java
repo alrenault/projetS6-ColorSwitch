@@ -312,7 +312,8 @@ public class MainTest extends Application{
 					 System.out.println("\n___________\nDEFEAT\n");
 					//primaryStage.close();
 				 }
-				
+				System.err.println( score.getScore());
+
 			}
         	
         }.start();
