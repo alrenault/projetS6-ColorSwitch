@@ -30,7 +30,16 @@ public abstract class Item extends Element {
     /**
      * Liste de couleurs à appliquer à la forme
      */
+
+
     protected List<Color> colors;
+
+    /**
+     * Le nombre de points gagné
+     */
+    protected int nbPoints;
+
+
     protected Bounds coord;
 
     /**
@@ -39,9 +48,10 @@ public abstract class Item extends Element {
      * @param y coordonnée y de l'objet
      * @param colors Liste de couleur à appliquer
      */
-    public Item(double x, double y, List<Color> colors) {
+    public Item(double x, double y, List<Color> colors,int nbPoints) {
         this.x = x;
         this.y = y;
+        this.nbPoints=nbPoints;
         if (colors==null) {
             List<Color> c = new ArrayList<>();
             c.add(Color.WHITE);
@@ -52,6 +62,8 @@ public abstract class Item extends Element {
         item = new Group();
 
     }
+
+
 
     /**
      * Genere la forme
@@ -64,6 +76,9 @@ public abstract class Item extends Element {
 		return buildItem();
 	}
 
+    public int getNbPoints() {
+        return nbPoints;
+    }
 
     /**
      * Assesseur de coordonnée x

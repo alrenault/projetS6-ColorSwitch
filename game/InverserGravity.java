@@ -9,6 +9,7 @@ import game.path.items.GravitySwitch;
  */
 public class InverserGravity extends Modifiers {
     public InverserGravity(int nbPoints, double x, double y) {
-        super(new GravitySwitch(x,y,null),nbPoints);
+        super();
+        //super(new GravitySwitch(x,y,null),nbPoints);
     }
 }

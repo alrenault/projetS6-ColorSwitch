@@ -1,5 +1,8 @@
 package game;
 
+import game.path.items.Item;
+import game.path.items.Star;
+
 /**
  * @autor Vincent
  * @date 16/02/2018
@@ -61,15 +64,14 @@ public class Score {
 
     /**
      *
-     * @param gain
+     * @param item
      */
-    public void ramasseEtoile(int gain) {
-        assert (gain>0);
-
-        scoreStored +=gain;
-        nbEtoilesRamassees++;
+    public void ramasseItem(Item item) {
+        if (item instanceof Star) {
+            nbEtoilesRamassees++;
+        }
+        scoreStored += item.getNbPoints();
     }
-
 /**
  * Retourne le nombre d'étoiles
  */

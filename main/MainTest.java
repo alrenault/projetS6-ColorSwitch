@@ -6,11 +6,9 @@ import game.Colorable;
 import game.Difficulty;
 import game.Score;
 import game.ball.BallPlayer;
+import game.path.Modifiers;
 import game.path.Path;
-import game.path.items.BallColorSwitch;
-import game.path.items.GravitySwitch;
-import game.path.items.Item;
-import game.path.items.Star;
+import game.path.items.*;
 import game.path.obstacle.CircleInCircle;
 import game.path.obstacle.MultiCross;
 import game.path.obstacle.MultiLinee;
@@ -256,7 +254,7 @@ public class MainTest extends Application{
 							if (!intersection.getBoundsInParent().isEmpty()) {
 								System.out.println(shape.getFill());
 								System.out.println(ball.getFill());
-							
+								score.increaseNOC();
 								if(shape instanceof Arc && shape.getStroke() != ball.getFill()){
 									System.out.println("\n___________\nDEFEAT\n");
 									//primaryStage.close();
@@ -278,8 +276,8 @@ public class MainTest extends Application{
 								Shape intersection = Shape.intersect(ball,shape);
 								
 								if (!intersection.getBoundsInParent().isEmpty()) {
-									System.out.println(shape.getFill());
-									System.out.println(ball.getFill());
+									System.out.println(shape.getFill().toString());
+									System.out.println(ball.getFill().toString());
 									if(shape.getFill() != ball.getFill()) {
 										Random r = new Random();
 										int size = ((BallColorSwitch) i).getColors_use().size();
@@ -297,6 +295,16 @@ public class MainTest extends Application{
 								break;
 							}
 						}
+						/*
+						if (i instanceof GravitySwitch){
+
+						}
+						 if (i instanceof GravityInverser){
+
+						 }
+						*/
+						score.ramasseItem(i);
+
 					}	 
 				}
 				

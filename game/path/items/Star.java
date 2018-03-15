@@ -17,7 +17,6 @@ public class Star extends Item {
      * Rayon de l'etoile
      */
     private double radius;
-
     /**
      *
      * @param x Coordonnée x de l'Etoile
@@ -25,15 +24,16 @@ public class Star extends Item {
      * @param _radius Rayon de l'Etoile
      * @param colors couleur de l'Etoile
      */
-    public Star(double x, double y, double _radius,List<Color> colors) {
-        super(x, y, colors);
+    public Star(double x, double y, double _radius,List<Color> colors,int nbPoints) {
+        super(x, y, colors,nbPoints);
         this.radius = _radius;
         //recuperation de la position
         //  this.coord = shape.localToScene(shape.getBoundsInLocal());
+        this.item = buildItem();
     }
 
-    public Star(double x, double y,List<Color> colors) {
-        super(x, y, colors);
+    public Star(double x, double y) {
+        super(x, y, null,10);
         this.radius = 10.0;
         // this.coord = shape.localToScene(shape.getBoundsInLocal());
         this.item = buildItem();

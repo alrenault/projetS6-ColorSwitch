@@ -17,6 +17,10 @@ public abstract class Modifiers {
      * Le nombre de points obtenus en attrapant cet item
      * */
     private int nbPoints;
+
+    public Modifiers() {
+    }
+
     public Modifiers(Item forme, int nbPoints) {
         this.forme = forme;
         this.nbPoints = nbPoints;

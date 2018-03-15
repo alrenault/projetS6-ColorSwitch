@@ -1,33 +1,34 @@
 package game.path.items;
 
-import java.util.List;
-
 import game.Colorable;
 import javafx.scene.Group;
-import javafx.scene.shape.Polygon;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 /**Objet graphique Changeur de gravité
  * @autor Vincent
  * @date 09/02/2018
  */
-public class GravitySwitch extends Item {
+public class GravityInverser extends Item {
 
     /**
      * La taille
      */
     private double width;
-private int coefForce;
+
+
     /**
      * Constructeur
      * @param x coordonnée x de l'objet
      * @param y coordonnée y de l'objet
      */
-    public GravitySwitch(double x, double y,int coefForce) {
-        super(x, y,null);
+    public GravityInverser(double x, double y) {
+        super(x, y, null);
         this.width = 3.0;
-        this.coefForce=coefForce;
         item = buildItem();
     }
 

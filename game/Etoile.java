@@ -15,7 +15,10 @@ public class Etoile extends Modifiers {
      * @param y        coordonnée y de l'etoile
      * @param size     la taille de l'étoile (diametre)
      */
+
     public Etoile(int nbPoints, double x, double y, double size) {
-        super(new Star(x, y, size / 2, null), nbPoints);
+        super();
+        //super(new Star(x, y, size / 2, null), nbPoints);
+        //super(new Star(x, y, size / 2, null), nbPoints);
     }
 }
