@@ -54,7 +54,7 @@ public class GestionDB {
         assert(pseudo.length()<25);
         try {
             connexion();
-            PreparedStatement stmt = connexion.prepareStatement("SELECT ID_user from user WHERE pseudo_user = ?");
+            PreparedStatement stmt = connexion.prepareStatement("SELECT ID_user FROM user WHERE pseudo_user = ?");
             stmt.setString(1,pseudo);
             ResultSet reponse = stmt.executeQuery();
             boolean r =reponse.next();//on stocke le booleen avac de retouner la valeur pour fermer la connnection,et requete
@@ -88,7 +88,7 @@ public class GestionDB {
             PreparedStatement preparedStatement =connexion.prepareStatement("INSERT INTO partie (ID_user, " +
                     "date_heur_partie,nb_portes_traversees_partie," +
                     "nb_etoiles_ramassee_partie,score_partie ) " +
-                    "VALUES ((SELECT ID_user from user WHERE pseudo_user = ?),NOW(),?,?,?)");
+                    "VALUES ((SELECT ID_user FROM user WHERE pseudo_user = ?),NOW(),?,?,?)");
             preparedStatement.setString(1,pseudo);
             preparedStatement.setInt(2,scoreToInsrt.getNbrObstaclesCrossed());
             preparedStatement.setInt(3,scoreToInsrt.getNbEtoilesRamassees());
@@ -117,7 +117,7 @@ public class GestionDB {
         PreparedStatement stmt;
         try {
             stmt = connexion.prepareStatement("SELECT date_heur_partie,nb_portes_traversees_partie," +
-                    " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user WHERE pseudo_user = ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+                    " nb_etoiles_ramassee_partie,score_partie FROM partie NATURAL JOIN user WHERE pseudo_user = ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
             stmt.setString(1,pseudoJoueur);
 
@@ -145,15 +145,15 @@ public class GestionDB {
      * @param limite le nombre de records à obtenir (limit == return.size )
      * @return une liste (chainée) contenant les [limite] meilleurs scores tout joueur confondus
      */
-    public List<Record> getNBestRecords(int limite){
+    public LinkedList<Record> getNBestRecords(int limite){
     assert(limite>0);
 
-        List<Record> ret=new LinkedList<>();
+        LinkedList<Record> ret=new LinkedList<>();
         connexion();
         PreparedStatement stmt;
         try {
             stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
-                    " nb_etoiles_ramassee_partie,score_partie from partie NATURAL JOIN user ORDER BY score_partie LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+                    " nb_etoiles_ramassee_partie,score_partie FROM partie NATURAL JOIN user ORDER BY score_partie ASC LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
             stmt.setInt(1,limite);
             ResultSet reponse = stmt.executeQuery();
@@ -167,6 +167,32 @@ public class GestionDB {
                                 reponse.getInt("nb_etoiles_ramassee_partie"),
                                 reponse.getInt("score_partie")),
                         date));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    /**
+     * Sort le classement des joueurs selon leur somme de scores
+     * @return une liste (chainée) contenant des Triplets (classement ,joueur,scoreTotal) triée par ordre decroissant
+     */
+    public LinkedList<SumScore> topJoueurs(){
+
+        LinkedList<SumScore> ret=new LinkedList<>();
+        connexion();
+        PreparedStatement stmt;
+        try {
+            stmt = connexion.prepareStatement("SELECT pseudo_user,SUM(score_partie) AS score_total FROM partie NATURAL JOIN user ORDER BY score_partie",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+
+            ResultSet reponse = stmt.executeQuery();
+            int position=0;
+            while (reponse.next()) {
+                position++;
+
+                ret.add(new SumScore(position,reponse.getString("pseudo_user"),reponse.getInt("score_total")));
 
             }
         } catch (SQLException e) {

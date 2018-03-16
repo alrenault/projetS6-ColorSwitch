@@ -67,5 +67,6 @@ public class Main extends Application {
 		//Set Stage
         stage.setTitle("ColorSuitch");
         stage.getIcons().add(new Image("file:../view/color_icon.png"));
+        stage.setFullScreen(1==0);
 	}
 }
