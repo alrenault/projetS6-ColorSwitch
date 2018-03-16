@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
+import view.ViewGameManagement;
 
 /**
  * This class is used to create a game
@@ -35,7 +36,7 @@ import javafx.stage.Stage;
 public class Game {
 
     Ball ball;
-    Path path;
+	Path path;
     Universe universe;
     
     Stage stage;
@@ -52,7 +53,21 @@ public class Game {
     public Game() {
     	
     }
+    
+    
+	public Ball getBall() {
+		return ball;
+	}
 
+	public Path getPath() {
+		return path;
+	}
+
+	public Universe getUniverse() {
+		return universe;
+	}
+
+	
     public Game(Scene scene) {
         System.out.println(
         		"\n_______________"
@@ -70,6 +85,8 @@ public class Game {
     	this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	
     	this.universe = new Universe();
+    	
+    	ViewGameManagement.view(this,scene);
         
         
     }
@@ -257,4 +274,5 @@ public class Game {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

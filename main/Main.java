@@ -55,22 +55,26 @@ public class Main extends Application {
 		
 		controller = new Controller(model, view);
 		
+		controller.init();
+		
 		
 		
 		
 		
         
         //Set Scene
-        Group root = new Group();
-        Scene scene = new Scene(root, 600, 1000);
+		Group root = new Group();
+		Scene scene = new Scene(root, 600, 1000);
+		Game colorSuitch = new Game(scene); 
         
         model.startGame();
-        view.basicView();
-		//view.viewGame(model.getGame());
+        //view.viewGame(model.getGame());
+		
+        //view.viewGame(colorSuitch);
 		
 		help();
     	
-    	//Game colorSuitch = new Game(scene);
+    	
     		
     	//colorSuitch.play();
 		
