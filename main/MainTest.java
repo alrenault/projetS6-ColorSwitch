@@ -133,8 +133,8 @@ public class MainTest extends Application{
         //MultiSquare squaires = new MultiSquare(scene1.getWidth() / 2, scene1.getHeight() / 2, CUSTOM, 0);
         //Group multiSquaire = squaires.getObstacle();
 
-        //MultiShapes shapes = new MultiShapes(scene1.getWidth() / 2, scene1.getHeight() / 2, CUSTOM, scene1, 3);
-       // Group multiShapes = shapes.getObstacle();
+        //MultiShapes shapes = new MultiShapes(scene1.getWidth() / 2, scene1.getHeight() / 2, CUSTOM, scene1, 7);
+        //Group multiShapes = shapes.getObstacle();
 
 
         //Star s = new Star(300, 250);
@@ -154,7 +154,7 @@ public class MainTest extends Application{
        // gr.getChildren().add(multiSquaire);
         //gr.getChildren().add(str);
         // gr.getChildren().add(ge);
-        // gr.getChildren().add(multiShapes);
+        //root.getChildren().add(multiShapes);
         //gr.getChildren().add(tringle);
 
        // gr.getChildren().add(cercle);
@@ -167,7 +167,7 @@ public class MainTest extends Application{
 
         //gr.getChildren().add(mult);
 
-        Path p = new Path(scene1, CUSTOM, 10   , Difficulty.EASY);
+        Path p = new Path(scene1, CUSTOM, 100   , Difficulty.EASY);
         //MultiCross mc = new MultiCross(scene1.getWidth()/2,scene1.getHeight()/2,CUSTOM,5);
         //Group multiCross = mc.getObstacle();
         
@@ -253,8 +253,8 @@ public class MainTest extends Application{
 						Shape intersection = Shape.intersect(ball, shape);
 						
 							if (!intersection.getBoundsInParent().isEmpty()) {
-								System.out.println(shape.getFill());
-								System.out.println(ball.getFill());
+								//System.out.println(shape.getFill());
+								//System.out.println(ball.getFill());
 								score.increaseNOC();
 								if(shape instanceof Arc && shape.getStroke() != ball.getFill()){
 									System.out.println("\n___________\nDEFEAT\n");
@@ -277,8 +277,8 @@ public class MainTest extends Application{
 								Shape intersection = Shape.intersect(ball,shape);
 								
 								if (!intersection.getBoundsInParent().isEmpty()) {
-									System.out.println(shape.getFill().toString());
-									System.out.println(ball.getFill().toString());
+									//System.out.println(shape.getFill().toString());
+									//System.out.println(ball.getFill().toString());
 									if(shape.getFill() != ball.getFill()) {
 										Random r = new Random();
 										int size = ((BallColorSwitch) i).getColors_use().size();
@@ -291,13 +291,28 @@ public class MainTest extends Application{
 									
 								}
 							}
-							if(touch){
-								touch = false;
-								break;
+						}
+						if(i instanceof Star){
+							for(Shape shape : i.getShapeList()){
+								Shape intersection = Shape.intersect(ball,shape);
+								
+								if (!intersection.getBoundsInParent().isEmpty()) {
+									//METTRE L'AJOUT DE SCORE
+									//score.ramasseItem(i);
+									System.err.println("Score :"+ score.getScore());
+									p.remove(i);
+									touch = true;
+									break;
+								}
+									
 							}
 						}
+						
+						if(touch){
+							touch = false;
+							break;
+						}
 					
-						score.ramasseItem(i);
 
 					}	 
 				}
@@ -306,16 +321,15 @@ public class MainTest extends Application{
 					 System.out.println("\n___________\nDEFEAT\n");
 					//primaryStage.close();
 				 }
-				System.err.println("Score :"+ score.getScore());
 
 			}
         	
         }.start();
         
         
-        //primaryStage.setScene(scene1);
-        Scene sc = Menu.createInstance(600,1000);
-        primaryStage.setScene(sc);
+        primaryStage.setScene(scene1);
+        //Scene sc = Menu.createInstance(600,1000);
+        primaryStage.setScene(scene1);
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(false);
         primaryStage.show();

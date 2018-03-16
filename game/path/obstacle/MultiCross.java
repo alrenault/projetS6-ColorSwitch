@@ -32,11 +32,11 @@ public class MultiCross extends Obstacle {
     public MultiCross(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = CircleInCircle.getRandomEasyVersion();
+            version = MultiCross.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = CircleInCircle.getRandomMediumVersion();
+            version = MultiCross.getRandomMediumVersion();
         else
-            version = CircleInCircle.getRandomHardVersion();
+            version = MultiCross.getRandomHardVersion();
         obstacle = buildObstacle();
     }
 
