@@ -25,6 +25,8 @@ public class Model {
     public Model() {
     	
     }
+    
+    
 
 
     public Model(double screen_sizeX, double screen_sizeY, int points_star) {
