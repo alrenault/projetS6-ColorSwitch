@@ -48,6 +48,10 @@ public class Game {
         this.path = _path;
         this.universe = _universe;
     }
+    
+    public Game() {
+    	
+    }
 
     public Game(Scene scene) {
         System.out.println(
@@ -248,4 +252,9 @@ public class Game {
         primaryStage.show();
 
     }
+
+	public void jump() {
+		// TODO Auto-generated method stub
+		
+	}
 }

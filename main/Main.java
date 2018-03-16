@@ -33,16 +33,28 @@ public class Main extends Application {
     	launch(args);
     }
     
+    static int j = 0;
+    public static void help() {
+    	Throwable t = new Throwable();
+        t.fillInStackTrace();
+        StackTraceElement e = t.getStackTrace()[1];
+        String className = e.getClassName();
+        String functionName = e.getMethodName();
+        System.out.println(className + "." + functionName + " - "+ j);
+        j++;
+    }
     
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		initStage(primaryStage);
+		help();
 		
 		model = new Model();
-		view = new View();
-		controller = new Controller();
+		view = new View(primaryStage);
+		
+		controller = new Controller(model, view);
+		
 		
 		//Hello
 		
@@ -54,21 +66,19 @@ public class Main extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 600, 1000);
         
-        model.createGame(scene);
-		view.viewGame(scene);
+        model.startGame();
+        view.basicView();
+		//view.viewGame(model.getGame());
+		
+		help();
     	
-    	Game colorSuitch = new Game(scene);
+    	//Game colorSuitch = new Game(scene);
     		
-    	colorSuitch.play();
+    	//colorSuitch.play();
 		
 	}
 	
 	
 	
-	public void initStage(Stage stage) {
-		//Set Stage
-        stage.setTitle("ColorSuitch");
-        stage.getIcons().add(new Image("file:../view/color_icon.png"));
-        stage.setFullScreen(1==0);
-	}
+	
 }
