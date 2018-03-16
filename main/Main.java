@@ -44,6 +44,8 @@ public class Main extends Application {
 		view = new View();
 		controller = new Controller();
 		
+		//Hello
+		
 		
 		
 		
