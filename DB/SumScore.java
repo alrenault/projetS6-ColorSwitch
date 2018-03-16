@@ -62,5 +62,5 @@ public class SumScore {
      * @return Le toString de this
      */
     @Override
-    public String toString() { return "[" + classement + "]'" + joueur +"," + sumScoreJoueur; }
+    public String toString() { return "[" + classement + "]" + joueur +"," + sumScoreJoueur; }
 }

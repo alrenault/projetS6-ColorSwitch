@@ -5,7 +5,6 @@ import game.Score;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
 /**Gestion des entrées - sorties de la base de données
@@ -123,6 +122,7 @@ public class GestionDB {
 
             ResultSet reponse = stmt.executeQuery();
             while (reponse.next()) {
+
                 SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String date = patern.format(reponse.getTimestamp("date_heur_partie"));
 
@@ -153,21 +153,19 @@ public class GestionDB {
         PreparedStatement stmt;
         try {
             stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
-                    " nb_etoiles_ramassee_partie,score_partie FROM partie NATURAL JOIN user ORDER BY score_partie ASC LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+                    " nb_etoiles_ramassee_partie,score_partie FROM partie NATURAL JOIN user ORDER BY score_partie DESC LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
             stmt.setInt(1,limite);
             ResultSet reponse = stmt.executeQuery();
-            while (reponse.next()) {
 
+            while (reponse.next()) {
                 SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String date = patern.format(reponse.getTimestamp("date_heur_partie"));
-
                 ret.add(new Record(reponse.getString("pseudo_user"),
                         new Score(reponse.getInt("nb_portes_traversees_partie"),
                                 reponse.getInt("nb_etoiles_ramassee_partie"),
                                 reponse.getInt("score_partie")),
                         date));
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -185,7 +183,7 @@ public class GestionDB {
         connexion();
         PreparedStatement stmt;
         try {
-            stmt = connexion.prepareStatement("SELECT pseudo_user,SUM(score_partie) AS score_total FROM partie NATURAL JOIN user ORDER BY score_partie",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            stmt = connexion.prepareStatement("SELECT pseudo_user,SUM(score_partie) AS score_total FROM partie NATURAL JOIN user GROUP BY pseudo_user ORDER BY score_total DESC ",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
             ResultSet reponse = stmt.executeQuery();
             int position=0;
