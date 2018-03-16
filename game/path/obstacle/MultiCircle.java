@@ -40,11 +40,11 @@ public class MultiCircle extends Obstacle {
     public MultiCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = CircleInCircle.getRandomEasyVersion();
+            version = MultiCircle.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = CircleInCircle.getRandomMediumVersion();
+            version = MultiCircle.getRandomMediumVersion();
         else
-            version = CircleInCircle.getRandomHardVersion();
+            version = MultiCircle.getRandomHardVersion();
         obstacle = buildObstacle();
     }
 
@@ -134,8 +134,8 @@ public class MultiCircle extends Obstacle {
                 color_use.addAll(cer3.getColors_use());
                 break;
             case 4:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 2);
-                cer2 = new Circle(x, y + bigRadial+10, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
+                cer1 = new Circle(x, y, bigRadial+20, width, nb_arc, true, false, Speed.SYMPA, colors, 2);
+                cer2 = new Circle(x, y + bigRadial+12, bigRadial+20, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
 
                 addSL(cer1.getShapeList(),cer2.getShapeList());            
                 multiCircle.getChildren().add(cer1.getShape());

@@ -19,10 +19,12 @@ public class MultiShapes extends Obstacle {
 	 version 3 : Deux croix avec une ligne au dessus et en dessous faisant des allez-retour
 	 version 4 : Cercle tournant dans le sens horraire avec une barre verticale faisant des allez retour
 	 version 5 : Carré tournant dans le sens horraire avec une barre verticale faisant des allez retour
+	 version 6 : Triangle tournant dans le sens horraire
+	 version 7 : Triangle tournant dans le sens contre horraire
 	 */
 
-    public static final int NBR_VERSIONS = 6;
-    protected static int[] versionEasy = {4};
+    public static final int NBR_VERSIONS = 8;
+    protected static int[] versionEasy = {4, 6, 7};
     protected static int[] versionMedium = {1, 2, 3, 5};
     protected static int[] versionHard = {0};
     Scene scene;
@@ -37,11 +39,11 @@ public class MultiShapes extends Obstacle {
     public MultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, Scene scene) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = CircleInCircle.getRandomEasyVersion();
+            version = MultiShapes.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = CircleInCircle.getRandomMediumVersion();
+            version = MultiShapes.getRandomMediumVersion();
         else
-            version = CircleInCircle.getRandomHardVersion();
+            version = MultiShapes.getRandomHardVersion();
 
         this.scene = scene;
         obstacle = buildObstacle();
@@ -85,6 +87,7 @@ public class MultiShapes extends Obstacle {
         VerticalLine vl2;
         Cross cr1;
         Cross cr2;
+        Triangle t1;
 
         if (version >= NBR_VERSIONS)
             version = versionDefault;
@@ -168,7 +171,6 @@ public class MultiShapes extends Obstacle {
                 color_use.addAll(cer1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
                 color_use.addAll(vl2.getColors_use());
-                System.out.println("taille1 : "+color_use);
                 break;
 
             case 5:
@@ -184,8 +186,27 @@ public class MultiShapes extends Obstacle {
                 color_use.addAll(squa1.getColors_use());
                 color_use.addAll(vl1.getColors_use());
                 color_use.addAll(vl2.getColors_use());
-                System.out.println("taille2 : "+color_use);
                 break;
+                
+            case 6:
+            	t1 = new Triangle(x, y, length, width, true, false, Speed.SYMPA, colors,1);
+            	
+            	addSL(t1.getShapeList());
+            	multiShapes.getChildren().add(t1.getShape());
+            	difficulty = Difficulty.EASY;
+            	color_use.addAll(t1.getColors_use());
+            	System.out.println("ca marche");
+            	break;
+            	
+            case 7:
+            	t1 = new Triangle(x, y, length, width, false, false, Speed.SYMPA, colors,0);
+            	
+            	addSL(t1.getShapeList());
+            	multiShapes.getChildren().add(t1.getShape());
+            	difficulty = Difficulty.EASY;
+            	color_use.addAll(t1.getColors_use());
+            	System.out.println("ca marche 1");
+            	break;
         }
 
         return multiShapes;

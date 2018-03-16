@@ -33,11 +33,11 @@ public class MultiSquare extends Obstacle {
     public MultiSquare(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = CircleInCircle.getRandomEasyVersion();
+            version = MultiSquare.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = CircleInCircle.getRandomMediumVersion();
+            version = MultiSquare.getRandomMediumVersion();
         else
-            version = CircleInCircle.getRandomHardVersion();
+            version = MultiSquare.getRandomHardVersion();
         obstacle = buildObstacle();
     }
 

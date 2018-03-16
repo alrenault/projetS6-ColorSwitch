@@ -1,8 +1,9 @@
 package DB;
 
 import game.Score;
+import java.lang.String;
 
-/**
+/**Objet de gestion des interactions avec la base de données
  * @autor Vincent
  * @date 07/03/2018
  */

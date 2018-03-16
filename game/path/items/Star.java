@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import model.Model;
+import javafx.scene.shape.Shape;
+
 
 
 /**Objet graphique Etoile
@@ -18,20 +20,26 @@ public class Star extends Item {
      */
     private double radius;
     /**
-     *
+     *Constructeur d'Etoile
      * @param x Coordonnée x de l'Etoile
      * @param y Coordonnée y de l'Etoile
-     * @param _radius Rayon de l'Etoile
+     * @param radius Rayon de l'Etoile
      * @param colors couleur de l'Etoile
      */
-    public Star(double x, double y, double _radius,List<Color> colors,int nbPoints) {
+    public Star(double x, double y, double radius,List<Color> colors,int nbPoints) {
         super(x, y, colors,nbPoints);
-        this.radius = _radius;
+        this.radius = radius;
         //recuperation de la position
         //  this.coord = shape.localToScene(shape.getBoundsInLocal());
         this.item = buildItem();
     }
 
+    /**
+     *Constructeur d'Etoile
+     * @param x Coordonnée x de l'Etoile
+     * @param y Coordonnée y de l'Etoile
+
+     */
     public Star(double x, double y) {
         super(x, y, null,10);
         this.radius = 10.0;
@@ -57,9 +65,16 @@ public class Star extends Item {
         p.setFill(colors.get(0));
 
         g.getChildren().add(p);
+        addSL(p);
 
 
         return g;
+    }
+    
+    public void setY(double y){
+    	for(Shape s : getShapeList()){
+    		s.setLayoutY(y);
+    	}
     }
 
 

@@ -16,6 +16,10 @@ public interface Colorable {
     Color PURPLE = Color.rgb(144, 13, 255);
     Color ROSE = Color.rgb(255, 1, 129);
     Color BLUE = Color.rgb(50, 219, 240);
+    
+    Color BRONZE = Color.rgb(97, 78,26);
+    Color SILVER = Color.rgb(206, 206, 206);
+    Color GOLD = Color.rgb(255,215,0);
    // Set<Color> CUSTOM;
     
 	/*public static default List<Color> custom(){
