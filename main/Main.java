@@ -65,7 +65,7 @@ public class Main extends Application {
         //Set Scene
 		Group root = new Group();
 		Scene scene = new Scene(root, 600, 1000);
-		Game colorSuitch = new Game(scene); 
+		Game colorSuitch = new Game(scene);
         
         model.startGame();
         //view.viewGame(model.getGame());

@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class View implements InterfaceViewJavaFX {
+public class View implements InterfaceViewColorSwitch {
 	
 	Stage stage;
 	int tailleX = 600;

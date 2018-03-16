@@ -11,7 +11,7 @@ import game.Difficulty;
  * This class represents the model in the MVC pattern
  * It contains ALL the data needed for the view
  */
-public class Model implements InterfaceColorSwitch {
+public class Model implements InterfaceModelColorSwitch {
 	
 	private Game game;
 	
