@@ -16,7 +16,7 @@ public class View implements InterfaceViewJavaFX {
 	public View(Stage primaryStage) {
 		stage = primaryStage;
 		initStage(stage);
-		viewMenu();
+		basicView();
 	}
 
 	public View() {
@@ -30,11 +30,24 @@ public class View implements InterfaceViewJavaFX {
         stage.setTitle("ColorSuitch");
         stage.getIcons().add(new Image("file:../view/color_icon.png"));
         stage.setFullScreen(1==0);
+        stage.setResizable(false);
 	}
 	
+	public void display(Scene scene) {
+        stage.setScene(scene);
+        stage.show();
+	}
+	
+	
+	public void basicView() {
+		viewMenu();
+	}
+	
+	
+	
 	private void viewMenu() {
-		// TODO Auto-generated method stub
-		
+		Scene sc = Menu.createInstance(600,1000);
+		display(sc);	
 	}
 
 	public void viewGame(Game thisGame) {
@@ -44,6 +57,10 @@ public class View implements InterfaceViewJavaFX {
 		
 		ViewGameManagement.view(thisGame,scene);
 		
+		display(scene);
+		
 	}
+
+
 	
 }

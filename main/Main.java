@@ -65,7 +65,8 @@ public class Main extends Application {
         Scene scene = new Scene(root, 600, 1000);
         
         model.startGame();
-		view.viewGame(model.getGame());
+        view.basicView();
+		//view.viewGame(model.getGame());
 		
 		help();
     	
