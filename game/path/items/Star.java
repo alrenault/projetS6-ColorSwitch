@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import model.Model;
+import javafx.scene.shape.Shape;
+
 
 
 /**Objet graphique Etoile
@@ -57,9 +59,16 @@ public class Star extends Item {
         p.setFill(colors.get(0));
 
         g.getChildren().add(p);
+        addSL(p);
 
 
         return g;
+    }
+    
+    public void setY(double y){
+    	for(Shape s : getShapeList()){
+    		s.setLayoutY(y);
+    	}
     }
 
 

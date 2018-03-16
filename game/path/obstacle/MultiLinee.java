@@ -41,11 +41,11 @@ public class MultiLinee extends Obstacle {
     public MultiLinee(double x, double y, List<Color> colors, Difficulty difficulty, Scene scene) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = CircleInCircle.getRandomEasyVersion();
+            version = MultiLinee.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = CircleInCircle.getRandomMediumVersion();
+            version = MultiLinee.getRandomMediumVersion();
         else
-            version = CircleInCircle.getRandomHardVersion();
+            version = MultiLinee.getRandomHardVersion();
 
         this.scene = scene;
         obstacle = buildObstacle();
