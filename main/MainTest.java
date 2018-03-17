@@ -50,8 +50,7 @@ public class MainTest extends Application{
     @Override
     public void start(Stage primaryStage) {
     	
-    	System.out.println("_________________________________________"
-    			+ "\n\nStart\n");
+    	//System.out.println("_________________________________________"+ "\n\nStart\n");
     	
     	List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
@@ -110,8 +109,8 @@ public class MainTest extends Application{
        
         Game game = new Game();
         
-        ViewTimer timer = new ViewTimer(game, scene1);
-        timer.start();
+       // ViewTimer timer = new ViewTimer(game, scene1);
+        //timer.start();
         
         
         //apellé a chaque shape
