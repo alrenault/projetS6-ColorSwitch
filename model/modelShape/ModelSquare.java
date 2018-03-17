@@ -21,7 +21,7 @@ public class ModelSquare extends ModelShape {
      * @param colors La liste des couleurs de la forme à transmettre
      * @param pos_color La position initiale pour le parcours de la liste de couleurs
 	 */
-	protected ModelSquare(double x, double y, double length, double width,
+	public ModelSquare(double x, double y, double length, double width,
             boolean mouvementDirection, boolean acceleration, Speed mouvementSpeed, List<Color> colors, int pos_color) {
 		super(x, y, width, mouvementDirection, acceleration, mouvementSpeed, colors, pos_color);
 

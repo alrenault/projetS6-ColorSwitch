@@ -72,12 +72,12 @@ public class Triangle extends Shapes {
         arc_1.getPoints().addAll(xa, ya, xb, yb, xc, yc, xd, yd);
         arc_2.getPoints().addAll(xb, yb, xe, ye, xf, yf, xc, yc);
         arc_3.getPoints().addAll(xe, ye, xf, yf, xd, yd, xa, ya);
-        color(arc_1);
-        verifPosColor();
-        color(arc_2);
-        verifPosColor();
-        color(arc_3);
-        verifPosColor();
+        mt.color(arc_1);
+        mt.verifPosColor();
+        mt.color(arc_2);
+        mt.verifPosColor();
+        mt.color(arc_3);
+        mt.verifPosColor();
 
         addSL(arc_1,arc_2,arc_3);
         t.getChildren().add(arc_1);

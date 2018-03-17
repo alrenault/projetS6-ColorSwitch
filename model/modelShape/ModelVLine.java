@@ -48,7 +48,7 @@ public class ModelVLine extends ModelShape {
      * @param pos_colors La position de départ dans la liste
      * @param goal Le point d'arrivée pour l'animation 
      */
-	protected ModelVLine(double x, double y, double height, double width, double distanceSeparation, boolean acceleration
+	public ModelVLine(double x, double y, double height, double width, double distanceSeparation, boolean acceleration
             , boolean reverse, Speed mouvementSpeed, int nbr_seg, List<Color> colors, int pos_color, double goal) {
 		super(x, y, width, true, acceleration, mouvementSpeed, colors, pos_color);
 		

@@ -24,7 +24,7 @@ public class ModelTriangle extends ModelShape {
      * @param colors la liste de couleurs à applique aux traits du triangle
      * @param pos_color
      */
-	protected ModelTriangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, 
+	public ModelTriangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, 
 			Speed mouvementSpeed, List<Color> colors, int pos_color) {
 
 		super(x, y, width, mouvementDirection, acceleration, mouvementSpeed, colors, pos_color);

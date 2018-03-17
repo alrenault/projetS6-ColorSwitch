@@ -7,7 +7,10 @@ import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelObstacle.ModelCircleInCircle;
+import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
+import model.modelShape.ModelShape;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,17 +29,14 @@ public class CircleInCircle extends Obstacle {
 	default : version 4
 	*/
 
-    public static final int NBR_VERSIONS = 7;
-    protected static int[] versionEasy = {4, 5};
-    protected static int[] versionMedium = {0, 1, 6};
-    protected static int[] versionHard = {2, 3};
+    
 
-    public CircleInCircle(double x, double y, List<Color> colors, int version) {
-        super(x, y, colors, version, 4);
-        obstacle = buildObstacle();
+    public CircleInCircle(ModelCircleInCircle mcic) {
+        super(mcic);
+        obstacle = buildObstacle(mcic);
     }
 
-    public CircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
+   /* public CircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
             version = CircleInCircle.getRandomEasyVersion();
@@ -45,24 +45,10 @@ public class CircleInCircle extends Obstacle {
         else
             version = CircleInCircle.getRandomHardVersion();
         obstacle = buildObstacle();
-    }
+    }*/
 
-    public static int getRandomEasyVersion() {
-        Random r = new Random();
-        return versionEasy[r.nextInt(versionEasy.length)];
-    }
 
-    public static int getRandomMediumVersion() {
-        Random r = new Random();
-        return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion() {
-        Random r = new Random();
-        return versionHard[r.nextInt(versionHard.length)];
-    }
-
-    protected Group buildObstacle() {
+    protected Group buildObstacle(ModelObstacle mcic) {
         double tinyRadial = 60.0;
         double mediumRadial = 70.0;
         double internRadial = 85.0;
@@ -70,119 +56,90 @@ public class CircleInCircle extends Obstacle {
         double width = 15.0;
         int nb_arc = 4;
         
+        double x = mcic.getX();
+        double y = mcic.getY();
+        List<Color> colors = mcic.getColors();
+        
         //BuildShape builder = new BuildShape();
         
         Group circleInCircle = new Group();
         Circle cer1;
-        Circle cer2;
-        Circle cer3;
         
-        
-        //Ou List<ModelShape> modelC = new ArrayList<>();
-        List<ModelCircle> modelC = new ArrayList<>();
-        
-        ModelCircle model1 = null;
-        ModelCircle model2 = null;
-        ModelCircle model3 = null;
+        List<ModelShape> modelC = new ArrayList<>();
 
-        if (version >= NBR_VERSIONS)
-            version = versionDefault;
+
+        if(mcic.getVersion() >= mcic.getNbr_Versions())
+            mcic.setVersion(mcic.getVersionDefault());
 
         //double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
         //boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color
         
-        switch (version) {
+        switch (mcic.getVersion()) {
 
             case 0:
-            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
+            	modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
+            	modelC.add(new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3));
                 
-                difficulty = Difficulty.NORMAL;
-                break;
+            	mcic.setDifficulty(Difficulty.NORMAL);
+            	break;
 
             case 1:
-            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
-            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 3);
+            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1));
+            	modelC.add( new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 3));
                 
-                difficulty = Difficulty.NORMAL;
-                break;
+            	mcic.setDifficulty(Difficulty.NORMAL);
+            	break;
 
             case 2:
-            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
-            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
-            	model3 = new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1));
+            	modelC.add( new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1));
+            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1));
                 
-                difficulty = Difficulty.HARD;
-                
+            	mcic.setDifficulty(Difficulty.HARD);
                 break;
 
             case 3:
-            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
-            	model3 = new ModelCircle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
+            	modelC.add( new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3));
+            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
                 
-                difficulty = Difficulty.HARD;
+            	mcic.setDifficulty(Difficulty.HARD);
                 break;
 
             case 4:
-            	model1 = new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0);
-            	model2 = new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 2);
+            	modelC.add( new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0));
+            	modelC.add( new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 2));
                 
-                difficulty = Difficulty.EASY;
+            	mcic.setDifficulty(Difficulty.EASY);
                 break;
 
             case 5:
-            	model1 = new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0);
-            	model2 = new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 2);
+            	modelC.add( new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0));
+            	modelC.add(new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 2));
                 
-                difficulty = Difficulty.NORMAL;
+            	mcic.setDifficulty(Difficulty.EASY);
                 break;
 
             case 6:
-            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-            	model2 = new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
+            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
+            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3));
                 
-                difficulty = Difficulty.NORMAL;
-                break;
+            	mcic.setDifficulty(Difficulty.NORMAL);
+            	break;
 
             default:
-            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
               
-                difficulty = Difficulty.EASY;
-
+            	mcic.setDifficulty(Difficulty.EASY);
         }
         
-        if(model1 != null) {
-        	modelC.add(model1);
-        }
-        if(model2 != null) {
-        	modelC.add(model3);
-        }
-        if(model3 != null) {
-        	modelC.add(model3);
-        }
-        
-        
-        
-        //A déplacer dans une classe pour la vue
-        if(model1 != null){
-        	cer1 = (Circle)BuildShape.constructShape(model1);
+        for(ModelShape ms : modelC){
+        	cer1 = (Circle)BuildShape.constructShape(ms);
             addSL(cer1.getShapeList());  
             circleInCircle.getChildren().add(cer1.getShape());
-            color_use.addAll(model1.getColors_use());
+            mcic.getColor_use().addAll(ms.getColors_use());
         }
-        if(model2 != null){
-        	cer2 = (Circle)BuildShape.constructShape(model2);
-            addSL(cer2.getShapeList());  
-            circleInCircle.getChildren().add(cer2.getShape());
-            color_use.addAll(model2.getColors_use());
-        }
-        if(model3 != null){
-        	cer3 = (Circle)BuildShape.constructShape(model3);
-            addSL(cer3.getShapeList());  
-            circleInCircle.getChildren().add(cer3.getShape());
-            color_use.addAll(model3.getColors_use());
-        }
+        
         return circleInCircle;
 
     }

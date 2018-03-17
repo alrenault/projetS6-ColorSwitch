@@ -70,26 +70,26 @@ public class Cross extends Shapes {
         middle.setFill(Color.WHITE);
 
         if (mc.getNbr_rect() == 4) {
-            color(part_1);
-            verifPosColor();
+            mc.color(part_1);
+            mc.verifPosColor();
 
-            color(part_2);
-            verifPosColor();
+            mc.color(part_2);
+            mc.verifPosColor();
 
-            color(part_3);
-            verifPosColor();
+            mc.color(part_3);
+            mc.verifPosColor();
 
-            color(part_4);
-            verifPosColor();
+            mc.color(part_4);
+            mc.verifPosColor();
 
         } else {
-            color(part_1);
-            color(part_3);
-            verifPosColor();
+            mc.color(part_1);
+            mc.color(part_3);
+            mc.verifPosColor();
 
-            color(part_2);
-            color(part_4);
-            verifPosColor();
+            mc.color(part_2);
+            mc.color(part_4);
+            mc.verifPosColor();
         }
         
         addSL(part_1,part_2,part_3,part_4,middle);

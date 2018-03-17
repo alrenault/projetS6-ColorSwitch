@@ -34,9 +34,9 @@ public class Linee extends Shapes {
         Group line = new Group();
 
         for (int i = 0; i < mhl.getNbr_seg(); i++) {
-            verifPosColor();
+            mhl.verifPosColor();
             Rectangle rec = new Rectangle(mhl.getX() + mhl.getLength() * i, mhl.getY(), mhl.getLength(), mhl.getWidth());
-            color(rec);
+            mhl.color(rec);
             
             addSL(rec);
             line.getChildren().add(rec);

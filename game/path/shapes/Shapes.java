@@ -26,7 +26,7 @@ import java.util.Set;
  * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
  */
 
-public class Shapes extends Element implements Colorable{
+public class Shapes extends Element{
 
 	/**
      *Coordonnée en x du centre de la forme
@@ -209,28 +209,7 @@ public class Shapes extends Element implements Colorable{
     	return shape;
     }*/
 
-    public void verifPosColor() {
-        model_shape.setPos_color(model_shape.getPos_color()+1);
-        if (model_shape.getPos_color() == model_shape.getColors().size())
-            model_shape.setPos_color(0);
-    }
-
-    /**
-     * Colorie une (JavaFX) Shape en fonction de l'ensemble de couleurs qui lui est associe
-     * @param s La (JavaFX) Shape a colorier
-     */
-    public void color(Shape s) {
-    	Iterator<Color> it = model_shape.getColors().iterator();
-    	Color c = null;
-    	for(int i = 0;it.hasNext() && i <= model_shape.getPos_color();i++){
-    		c = it.next();
-    	}
-    	
-    	if(c == null)
-    		c = Color.WHITE;
-        s.setFill(c);
-        model_shape.getColors_use().add(c);
-    }
+    
     
 	public Bounds getCoord() {
 		return coord;

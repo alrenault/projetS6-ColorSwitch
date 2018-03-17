@@ -40,9 +40,9 @@ public class VerticalLine extends Shapes {
         Group hline = new Group();
 
         for (int i = 0; i < mvl.getNbr_seg(); i++) {
-            verifPosColor();
+            mvl.verifPosColor();
             Rectangle rec = new Rectangle(mvl.getX() + mvl.getDistanceSeparation() * i, mvl.getY(), mvl.getWidth(), mvl.getHeight());
-            color(rec);
+            mvl.color(rec);
             
             addSL(rec);
             hline.getChildren().add(rec);

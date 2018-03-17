@@ -61,14 +61,14 @@ public class Square extends Shapes {
         Rectangle rec4 = new Rectangle(pos4_x, pos4_y, width, length - width);
 
 
-        color(rec1);
-        verifPosColor();
-        color(rec2);
-        verifPosColor();
-        color(rec3);
-        verifPosColor();
-        color(rec4);
-        verifPosColor();
+        ms.color(rec1);
+        ms.verifPosColor();
+        ms.color(rec2);
+        ms.verifPosColor();
+        ms.color(rec3);
+        ms.verifPosColor();
+        ms.color(rec4);
+        ms.verifPosColor();
 
         addSL(rec1,rec2,rec3,rec4);
         squaire.getChildren().add(rec1);

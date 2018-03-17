@@ -1,17 +1,13 @@
 package game.path.obstacle;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import game.Difficulty;
 import game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelObstacle.ModelObstacle;
 
 /**
  * An Obstacle is a Group of Shapes which contains at least one of it
@@ -20,40 +16,26 @@ import javafx.scene.shape.Shape;
 public abstract class Obstacle extends Element {
 
     protected Group obstacle;
-    protected double x;
-    protected double y;
-    protected List<Color> colors;
-    protected int version;
-    protected int versionDefault;
-    protected int nbr_Versions;
-    protected Difficulty difficulty;
+
     protected Bounds coord;
-    protected List<Color> color_use;
     protected List<Shape> shape_list;
+    static ModelObstacle model_obstacle;
 
 
-    public Obstacle(double x, double y, List<Color> colors, int version, int versionDefault) {
+    public Obstacle(ModelObstacle mo) {
         super();
-    	this.x = x;
-        this.y = y;
-        this.colors = colors;
-        this.versionDefault = versionDefault;
-        if (0 > version) {
-            this.version = versionDefault;
-        } else {
-            this.version = version;
-        }
-        color_use = new ArrayList<>();
+        model_obstacle = mo;
+    	
         
         //this.obstacle = build();
         //check();
     }
     
     protected Group build() {
-    	return buildObstacle();
+    	return buildObstacle(model_obstacle);
     }
     
-    protected abstract Group buildObstacle();
+    protected abstract Group buildObstacle(ModelObstacle mo);
 
 
     public double getX() {
@@ -83,16 +65,6 @@ public abstract class Obstacle extends Element {
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getHeight();
     }
-
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    
-    
-    public List<Color> getColor_use() {
-		return color_use;
-	}
 
 
 	public boolean isOver(int x, int y) {

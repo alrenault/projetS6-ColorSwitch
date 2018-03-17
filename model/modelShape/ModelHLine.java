@@ -15,7 +15,7 @@ public class ModelHLine extends ModelShape {
 	
 	private double goal;
 
-	protected ModelHLine(double x, double y, double length, double width, boolean acceleration
+	public ModelHLine(double x, double y, double length, double width, boolean acceleration
             , boolean reverse, Speed mouvementSpeed, int nbr_seg, List<Color> colors, int pos_color, double goal) {
 		super(x, y, width, true, acceleration, mouvementSpeed, colors, pos_color);
 		
