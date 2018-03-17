@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.modelShape.ModelCircle;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -76,6 +77,10 @@ public class CircleInCircle extends Obstacle {
         Circle cer2;
         Circle cer3;
         
+        
+        //Ou List<ModelShape> modelC = new ArrayList<>();
+        List<ModelCircle> modelC = new ArrayList<>();
+        
         ModelCircle model1 = null;
         ModelCircle model2 = null;
         ModelCircle model3 = null;
@@ -108,6 +113,7 @@ public class CircleInCircle extends Obstacle {
             	model3 = new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 
                 difficulty = Difficulty.HARD;
+                
                 break;
 
             case 3:
@@ -145,6 +151,20 @@ public class CircleInCircle extends Obstacle {
                 difficulty = Difficulty.EASY;
 
         }
+        
+        if(model1 != null) {
+        	modelC.add(model1);
+        }
+        if(model2 != null) {
+        	modelC.add(model3);
+        }
+        if(model3 != null) {
+        	modelC.add(model3);
+        }
+        
+        
+        
+        //A déplacer dans une classe pour la vue
         if(model1 != null){
         	cer1 = (Circle)BuildShape.constructShape(model1);
             addSL(cer1.getShapeList());  
