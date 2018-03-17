@@ -138,7 +138,6 @@ public class MultiLinee extends Obstacle {
             	Random r = new Random();
             	modelC.add(new ModelVLine(-width * 4 - separation * 3, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), (scWidth + 4 * width + separation*3)));
             	modelC.add(new ModelVLine(scWidth, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), -(scWidth + width * 4 + separation*3)));
-                System.out.println("ça passe ?");
             	mo.setDifficulty(Difficulty.HARD);
             	break;
             	

@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.sun.glass.ui.Timer;
 
 
 public class MainTest extends Application{
@@ -111,8 +110,8 @@ public class MainTest extends Application{
        
         Game game = new Game();
         
-        //ViewTimer timer = new ViewTimer(game, scene1);
-        //timer.start();
+        ViewTimer timer = new ViewTimer(game, scene1);
+        timer.start();
         
         
         //apellé a chaque shape
