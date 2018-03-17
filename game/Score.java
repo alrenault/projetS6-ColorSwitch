@@ -20,10 +20,13 @@ public class Score {
     private int nbEtoilesRamassees;
 
     /**
-     * Les points gagnés par étoiles
+     * Le score calculé
      * */
     private int scoreStored;
 
+    /**
+     * Constructeur aveugle de Score  (initialiseur)
+     */
     public Score() {
         nbrObstaclesCrossed = 0;
         nbEtoilesRamassees = 0;
@@ -34,9 +37,9 @@ public class Score {
 
     /**
      * ONLY FOR TESTING !
-     * @param nbrObstaclesCrossed
-     * @param nbEtoilesRamassees
-     * @param scoreStored
+     * @param nbrObstaclesCrossed Le nombre d'Obstacles franchis
+     * @param nbEtoilesRamassees Le nombre d'étoiles rammassées
+     * @param scoreStored Le score calculé
      */
     public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, int scoreStored) {
         assert(nbrObstaclesCrossed>=0);
@@ -67,16 +70,17 @@ public class Score {
         }
         scoreStored += item.getNbPoints();
     }
+
     /**
      * Retourne le nombre d'étoiles
+     * @return nbEtoiles
      */
-
     public int getNbEtoilesRamassees() {
         return nbEtoilesRamassees;
     }
 
     /**
-     *
+     *Accesseur du nombre d'obsctacles
      * @return le nombre d'obstacles franchis
      */
     public int getNbrObstaclesCrossed() {
@@ -99,10 +103,6 @@ public class Score {
      */
     @Override
     public String toString() {
-        return "{" +
-                "" + nbrObstaclesCrossed +
-                ", " + nbEtoilesRamassees +
-                ", " + scoreStored +
-                "}";
+        return "{ " + nbrObstaclesCrossed +", " + nbEtoilesRamassees +", " + scoreStored +" }";
     }
 }

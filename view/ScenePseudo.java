@@ -5,6 +5,7 @@ package view;
 * @date 13/03/2018
 */
 
+import controller.Controller;
 import game.Score;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -23,17 +24,15 @@ public class ScenePseudo {
 
     /**
      * Genère une stage contant un form pour entrer un pseudo
-     * @param primaryStage la stage de jeu (game over ou gagné)
-     * @param scorePlayer le score du joueur à inserer
      * @return la stage et submit entraine (TODO) la stage de menu (recommencer une partie) ou de fin
      */
-    public Stage stre(View v,Stage primaryStage, Score scorePlayer){
+    public Scene stre(Controller c){
         Button buttonClear,buttonSubmit;
         Label labelPseudo;
         TextField inputPseudo;
         Scene scene;
-        primaryStage.setTitle("Identification");
-        primaryStage.setOnCloseRequest(e -> { primaryStage.close(); });
+/*        primaryStage.setTitle("Identification");
+        primaryStage.setOnCloseRequest(e -> { primaryStage.close(); });*/
 
         GridPane grille = new GridPane();
         grille.setPadding(new Insets(5,5,5,5));
@@ -60,12 +59,13 @@ public class ScenePseudo {
         buttonSubmit.setOnAction(e -> {
             String p = inputPseudo.getText();
             System.err.println(p);
-            //appel à Model.registerScore(p)
+            c.scoring(p,c.getScore());
+           //appel Controleur
+
         });
 
         scene = new Scene(grille, 400, 400);
         //ou les tailles du model
-        primaryStage.setScene(scene);
-        return primaryStage;
+        return scene;
     }
 }

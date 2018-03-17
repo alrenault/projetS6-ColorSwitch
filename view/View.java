@@ -66,7 +66,17 @@ public class View implements InterfaceViewColorSwitch {
 		
 	}
 
+	@Override
+	public void viewGameOver() {
+		Scene form = null;
+		try {
+			form = ScenePseudo.class.newInstance().stre( controller);
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		display(form);
+	}
 
-
-	
 }

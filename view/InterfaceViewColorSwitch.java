@@ -9,5 +9,6 @@ public interface InterfaceViewColorSwitch {
 	public void viewMenu() ;
 
 	public void viewGame(Game thisGame);
-	
+
+    void viewGameOver();
 }
