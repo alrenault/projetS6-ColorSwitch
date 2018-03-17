@@ -36,7 +36,12 @@ public class BallPlayer extends Ball {
         this.shape = buildBall();
     }
 
-    public Group buildBall() {
+    public BallPlayer(int i, Color color2) {
+        this.size = size;
+        this.color = color;
+	}
+
+	public Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
         player.setCenterX(scene.getWidth() / 2);

@@ -51,7 +51,7 @@ public class Main extends Application {
 		help();
 		
 		model = new Model();
-		view = new View(primaryStage);
+		view = new View(controller,primaryStage);
 		
 		controller = new Controller(model, view);
 		
@@ -68,7 +68,7 @@ public class Main extends Application {
 		Game colorSuitch = new Game(scene);
         
         model.startGame();
-        //view.viewGame(model.getGame());
+        view.viewGame(model.getGame());
 		
         //view.viewGame(colorSuitch);
 		

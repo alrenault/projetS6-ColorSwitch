@@ -50,6 +50,18 @@ public class MultiLinee extends Obstacle {
         this.scene = scene;
         obstacle = buildObstacle();
     }
+    
+    public MultiLinee(double x, double y, List<Color> colors, Difficulty difficulty) {
+        super(x, y, colors, 0, 4);
+        if (difficulty == Difficulty.EASY)
+            version = CircleInCircle.getRandomEasyVersion();
+        else if (difficulty == Difficulty.NORMAL)
+            version = CircleInCircle.getRandomMediumVersion();
+        else
+            version = CircleInCircle.getRandomHardVersion();
+        
+        //obstacle = buildObstacle();
+    }
 
     public static int getRandomEasyVersion() {
         Random r = new Random();

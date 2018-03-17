@@ -39,6 +39,9 @@ public class Game {
 	Path path;
     Universe universe;
     
+    Difficulty difficulty;
+    List<Color> colors;
+    
     Stage stage;
     Scene scene;
     
@@ -51,7 +54,16 @@ public class Game {
     }
     
     public Game() {
+    	difficulty = Difficulty.NO;
+    	colors = new ArrayList<Color>();
+    	colors.add(Colorable.YELLOW);
+    	colors.add(Colorable.PURPLE);
+    	colors.add(Colorable.ROSE);
+    	colors.add(Colorable.BLUE);
     	
+    	ball = new BallPlayer(10, colors.get(0));
+    	path = new Path(colors, Integer.MAX_VALUE, difficulty);
+    	universe = new Universe();
     }
     
     

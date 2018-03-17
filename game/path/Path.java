@@ -56,7 +56,13 @@ public class Path extends Element {
     	items = new ArrayList<>();
     }
 
-    private Group buildPathRandom() {
+    public Path(List<Color> colors, int nb_Obstacle, Difficulty difficulty) {
+		this.colors = colors;
+		this.nbr_Obs = nb_Obstacle;
+		this.gameDifficulty = difficulty;
+	}
+
+	private Group buildPathRandom() {
     	
         Group newPath = new Group();
         Random r = new Random();
@@ -66,8 +72,7 @@ public class Path extends Element {
         double posX = scene.getWidth() / 2;
         Difficulty obstacleDifficulty;
 
-        //factory
-        BuildObstacle bo = new BuildObstacle();
+
 
         //Constrution
         for (int i = 0; i < nbr_Obs; i++) {
@@ -76,7 +81,7 @@ public class Path extends Element {
             obstacleDifficulty = obstacleDifficulty(variante);
             
             //Generation de l'obstacle avec son colorSwitch
-            Obstacle o = bo.BuildObstacleVersionAlea(type, obstacleDifficulty, posX, posY, colors, scene);
+            Obstacle o = BuildObstacle.VersionAlea(type, obstacleDifficulty, posX, posY, colors);
             BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight()/2 + 100,o.getColor_use());
 
             //System.out.println("colors : "+bcs.getColors_use());

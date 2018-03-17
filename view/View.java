@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import game.Game;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,18 +10,17 @@ import javafx.stage.Stage;
 public class View implements InterfaceViewColorSwitch {
 	
 	Stage stage;
+	Controller controller;
+	
 	int tailleX = 600;
 	int tailleY = 1000;
 	//Preferences
 	
-	public View(Stage primaryStage) {
-		stage = primaryStage;
+	public View(Controller ctrl, Stage primaryStage) {
+		controller = ctrl ;
+		stage = primaryStage ;
 		initStage(stage);
-		//basicView();
-	}
-
-	public View() {
-		this(new Stage());
+		basicView();
 	}
 	
 	
@@ -49,8 +49,8 @@ public class View implements InterfaceViewColorSwitch {
 	
 	
 	public void viewMenu() {
-		Scene sc = Menu.createInstance(600,1000);
-		display(sc);	
+		Scene scene = Menu.createInstance(600,1000);
+		display(scene);	
 	}
 
 	public void viewGame(Game thisGame) {
