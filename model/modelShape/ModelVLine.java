@@ -1,10 +1,10 @@
 package model.modelShape;
 
 import java.util.List;
-
 import game.Speed;
 import javafx.scene.paint.Color;
 import model.ShapeType;
+
 
 public class ModelVLine extends ModelShape {
 	
@@ -43,10 +43,10 @@ public class ModelVLine extends ModelShape {
      * @param distanceSeparation La distance separant 2 segments
      * @param acceleration Active l'accélération de l'animation
      * @param reverse Active les allez-retour
-     * @param _mouvementSpeed La vitesse du mouvement
+     * @param mouvementSpeed La vitesse du mouvement
      * @param nbr_seg Le nombre de rectangle pour la ligne
      * @param colors L'ensemble de couleurs que l'on peut utiliser
-     * @param pos_colors La position de départ dans la liste
+     * @param pos_color La position de départ dans la liste
      * @param goal Le point d'arrivée pour l'animation 
      */
 	public ModelVLine(double x, double y, double height, double width, double distanceSeparation, boolean acceleration

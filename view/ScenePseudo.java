@@ -5,7 +5,6 @@ package view;
 * @date 13/03/2018
 */
 
-import DB.GestionDB;
 import game.Score;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -16,9 +15,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
- *
+ *Mini Form recuperrant le pseudo du joueur à la fin de la partie
  */
-public class StagePseudo {
+public class ScenePseudo {
+
 
 
     /**
@@ -27,12 +27,11 @@ public class StagePseudo {
      * @param scorePlayer le score du joueur à inserer
      * @return la stage et submit entraine (TODO) la stage de menu (recommencer une partie) ou de fin
      */
-    public Stage stre(Stage primaryStage, Score scorePlayer){
+    public Stage stre(View v,Stage primaryStage, Score scorePlayer){
         Button buttonClear,buttonSubmit;
         Label labelPseudo;
         TextField inputPseudo;
         Scene scene;
-        GestionDB gestion=new GestionDB();
         primaryStage.setTitle("Identification");
         primaryStage.setOnCloseRequest(e -> { primaryStage.close(); });
 
@@ -60,10 +59,8 @@ public class StagePseudo {
 
         buttonSubmit.setOnAction(e -> {
             String p = inputPseudo.getText();
-                gestion.record(p,scorePlayer);
-
-                System.err.println(p);
-            //on retourne au menu
+            System.err.println(p);
+            //appel à Model.registerScore(p)
         });
 
         scene = new Scene(grille, 400, 400);
