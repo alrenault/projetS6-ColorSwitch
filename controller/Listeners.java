@@ -27,7 +27,6 @@ public class Listeners {
             public void handle(KeyEvent ke) {
                 //if(ke.getCode() == KeyCode.ENTER){
                 if (ke.getCode().getName().equals("Space")) {
-                    System.out.println("Jump");
                     ball.jump();
 
                     Point2D coordPlayer = ball.getCoord();

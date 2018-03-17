@@ -133,9 +133,7 @@ public class BallPlayer extends Ball {
         if (scene.getHeight() / 2 - jumpHeight >= getY()) {
             tt3.setByY(-((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2));
             tt3.play();
-            System.out.println("Jump Ball 1");
         } else {
-            System.out.println("Jump Ball");
             tt2.play();
         }
         

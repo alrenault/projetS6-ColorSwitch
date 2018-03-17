@@ -12,8 +12,8 @@ public class View implements InterfaceViewColorSwitch {
 	Stage stage;
 	Controller controller;
 	
-	double tailleX = 600;
-	double tailleY = 1000;
+	int tailleX = 600;
+	int tailleY = 1000;
 	//Preferences
 	
 	public View(Controller ctrl, Stage primaryStage) {
@@ -59,14 +59,14 @@ public class View implements InterfaceViewColorSwitch {
 		Scene scene = new Scene(root,tailleX,tailleY);
 		
 		ViewGameManagement.view(thisGame,scene);
-
+		
 		
 		
 		display(scene);
 		
 	}
 
-	public Controller getController() {
-		return controller;
-	}
+
+
+	
 }

@@ -56,7 +56,6 @@ public class MultiSquare extends Obstacle {
 
         if (mo.getVersion() >= ModelMultiSquare.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
-
         switch (mo.getVersion()) {
             case 0:
                 modelC.add(new ModelSquare(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, 0));
