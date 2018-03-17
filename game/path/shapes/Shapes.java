@@ -7,6 +7,13 @@ import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelShape.ModelCircle;
+import model.modelShape.ModelCross;
+import model.modelShape.ModelHLine;
+import model.modelShape.ModelShape;
+import model.modelShape.ModelSquare;
+import model.modelShape.ModelTriangle;
+import model.modelShape.ModelVLine;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,7 +26,7 @@ import java.util.Set;
  * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
  */
 
-public abstract class Shapes extends Element implements Colorable{
+public class Shapes extends Element implements Colorable{
 
 	/**
      *Coordonnée en x du centre de la forme
@@ -32,7 +39,7 @@ public abstract class Shapes extends Element implements Colorable{
     /**
      * Le groupe représentant la forme
      */
-    protected Group shape;
+    protected Group group_shape;
     
     /**
      * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
@@ -80,6 +87,11 @@ public abstract class Shapes extends Element implements Colorable{
      * L'ensemble des (JavaFX) Shape utilisées par la forme
      */
     List<Shape> shape_list;
+    
+    /**
+     * Patron de la forme
+     */
+    static ModelShape model_shape;
 
     /**
      *
@@ -129,8 +141,14 @@ public abstract class Shapes extends Element implements Colorable{
         //check();
 
     }
+    
+    protected Shapes(ModelShape modelShape) {
+    	model_shape = modelShape;
+    	group_shape = buildShape();
+    	
+    }
 
-    /**
+	/**
      * Assesseur de l'épaisseur de la forme
      * @return l'épaisseur de la forme
      */
@@ -146,7 +164,43 @@ public abstract class Shapes extends Element implements Colorable{
     	return buildShape();
     }
 
-    protected abstract Group buildShape();
+    public static Group buildShape() {
+    	Group shape;
+    	
+    	switch(model_shape.getType()) {
+    		case Circle:
+    			shape = Circle.build((ModelCircle) model_shape);
+    			break;
+    		
+    		case Cross:
+    			shape = Cross.build((ModelCross) model_shape);
+    			break;
+    			
+    		case Square:
+    			shape = Square.build((ModelSquare) model_shape);
+    			break;
+    		
+    		case Triangle:
+    			shape = Triangle.build((ModelTriangle) model_shape);
+    			break;
+    			
+    		case Horizontal_Line:
+    			shape = Linee.build((ModelHLine) model_shape);
+    			break;
+    			
+    		case Vertical_Line:
+    			shape = VerticalLine.build((ModelVLine) model_shape);
+    			break;
+    			
+    			
+    		default:
+    			shape = new Group();
+    			break;
+    		
+    	}
+    	
+    	return shape;
+    }
 
     public void verifPosColor() {
         pos_color++;
@@ -176,7 +230,7 @@ public abstract class Shapes extends Element implements Colorable{
      * @return La coordonnée en x de la forme
      */
     public double getX() {
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
 
@@ -186,7 +240,7 @@ public abstract class Shapes extends Element implements Colorable{
      * @return La coordonnée en y de la forme
      */
     public double getY() {
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
     }
 
@@ -213,7 +267,7 @@ public abstract class Shapes extends Element implements Colorable{
      * @return
      */
     public boolean isOver(double _x, double _y) {
-        return this.shape.contains(_x, _y);
+        return this.group_shape.contains(_x, _y);
         //return this.shape.intersects(getX(),getY(),coord.getWidth(),coord.getHeight());
     }
     
@@ -222,7 +276,7 @@ public abstract class Shapes extends Element implements Colorable{
      * @return Le groupe correspondant a la forme
      */
     public Group getShape() {
-    	return shape;
+    	return group_shape;
     }
     
     /**

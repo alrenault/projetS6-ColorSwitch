@@ -63,10 +63,10 @@ public class VerticalLine extends Shapes {
         this.nbr_seg = nbr_seg;
         this.goal = goal;
         this.reverse = reverse;
-        this.shape = build();
+        this.group_shape = build();
 
         //recuperation de la position
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         
         check();
     }

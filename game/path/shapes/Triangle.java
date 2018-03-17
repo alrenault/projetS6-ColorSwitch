@@ -35,10 +35,10 @@ public class Triangle extends Shapes {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
         this.height = height;
 
-        this.shape = build();
+        this.group_shape = build();
 
         //recuperation de la position
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         
         check();
     }

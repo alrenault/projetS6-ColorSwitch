@@ -12,7 +12,7 @@ public abstract class Element {
 	
 	protected Group shape;
 	
-	List<Shape> shape_list;
+	static List<Shape> shape_list;
 	
 	public Element() {
 		//shape = new Group();
@@ -35,7 +35,7 @@ public abstract class Element {
 	}
 	
 	
-	protected List<Shape> addSL(Shape ... shapes) {
+	protected static List<Shape> addSL(Shape ... shapes) {
 		
 		
 		

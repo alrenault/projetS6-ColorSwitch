@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import model.modelShape.ModelShape;
 
 /**Objet graphique d'une croix
  */
@@ -33,7 +34,7 @@ public class Cross extends Shapes {
     public Cross(double x, double y, double width, double length, List<Color> colors) {
         super(x, y, width, true, false, Speed.SYMPA, colors, 1);
         this.length = length;
-        this.shape = build();
+        this.group_shape = build();
     }
 
     /**
@@ -57,10 +58,10 @@ public class Cross extends Shapes {
             this.nbr_rect = 4;
 
         this.length = length;
-        this.shape = build();
+        this.group_shape = build();
 
         //recuperation de la position
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         
         check();
     }
@@ -69,7 +70,7 @@ public class Cross extends Shapes {
      * Génère la croix
      * @return le Group correspondant à la croix
      */
-    protected Group buildShape() {
+    protected static Group buildShape() {
 
         //Initialisation
         Group croix = new Group();
