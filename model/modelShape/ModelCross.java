@@ -4,6 +4,7 @@ import java.util.List;
 
 import game.Speed;
 import javafx.scene.paint.Color;
+import model.ShapeType;
 
 public class ModelCross extends ModelShape {
 
@@ -38,6 +39,7 @@ public class ModelCross extends ModelShape {
             this.nbr_rect = 4;
 
         this.length = length;
+        type = ShapeType.Cross;
     }
 
 	public int getNbr_rect() {

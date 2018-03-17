@@ -19,7 +19,7 @@ public abstract class Obstacle extends Element {
 
     protected Bounds coord;
     protected List<Shape> shape_list;
-    static ModelObstacle model_obstacle;
+    protected ModelObstacle model_obstacle;
 
 
     public Obstacle(ModelObstacle mo) {
@@ -31,7 +31,11 @@ public abstract class Obstacle extends Element {
         //check();
     }
     
-    protected Group build() {
+    public ModelObstacle getModel_obstacle() {
+		return model_obstacle;
+	}
+
+	protected Group build() {
     	return buildObstacle(model_obstacle);
     }
     

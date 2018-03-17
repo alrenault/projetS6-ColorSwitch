@@ -4,6 +4,7 @@ import java.util.List;
 
 import game.Speed;
 import javafx.scene.paint.Color;
+import model.ShapeType;
 
 public class ModelHLine extends ModelShape {
 	
@@ -23,6 +24,7 @@ public class ModelHLine extends ModelShape {
 		this.reverse = reverse;
 		this.nbr_seg = nbr_seg;
 		this.goal = goal;
+        type = ShapeType.Horizontal_Line;
 	}
 
 	public double getLength() {

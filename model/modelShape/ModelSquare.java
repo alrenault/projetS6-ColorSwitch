@@ -4,6 +4,7 @@ import java.util.List;
 
 import game.Speed;
 import javafx.scene.paint.Color;
+import model.ShapeType;
 
 public class ModelSquare extends ModelShape {
 
@@ -26,6 +27,8 @@ public class ModelSquare extends ModelShape {
 		super(x, y, width, mouvementDirection, acceleration, mouvementSpeed, colors, pos_color);
 
 		this.length = length;
+        type = ShapeType.Square;
+
 	}
 
 	public double getLength() {

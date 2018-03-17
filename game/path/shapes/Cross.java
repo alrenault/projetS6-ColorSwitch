@@ -44,7 +44,7 @@ public class Cross extends Shapes {
 
         //Computing hight-left corner of the first rectangle
         double x_pos_1 = mc.getX() - rad - len / 2;
-        double y_pos_1 = mc.getY() - rad / 2;
+        double y_pos_1 = mc.getY() - len / 2;
 
         //Computing hight-left corner of the second rectangle
         double x_pos_2 = mc.getX() - len / 2;

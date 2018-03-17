@@ -4,6 +4,7 @@ import java.util.List;
 
 import game.Speed;
 import javafx.scene.paint.Color;
+import model.ShapeType;
 
 public class ModelCircle extends ModelShape {
 
@@ -36,6 +37,7 @@ public class ModelCircle extends ModelShape {
         
         this.radial = radial;
         this.arcs_nbr = arcs_nbr;
+        type = ShapeType.Circle;
         
 
     }

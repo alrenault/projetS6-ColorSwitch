@@ -4,6 +4,7 @@ import java.util.List;
 
 import game.Speed;
 import javafx.scene.paint.Color;
+import model.ShapeType;
 
 public class ModelTriangle extends ModelShape {
 	
@@ -29,6 +30,7 @@ public class ModelTriangle extends ModelShape {
 
 		super(x, y, width, mouvementDirection, acceleration, mouvementSpeed, colors, pos_color);
 		this.height = height;
+        type = ShapeType.Triangle;
 	}
 
 	public double getHeight() {

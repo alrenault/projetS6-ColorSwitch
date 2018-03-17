@@ -55,7 +55,7 @@ public class MultiShapes extends Obstacle {
         List<Color> colors = mo.getColors();
         double x = mo.getX();
         double y = mo.getY();
-        Scene scene = ((ModelMultiShapes)mo).getScene();
+        double scWidth =((ModelMultiShapes)mo).getScWidth();
         
         Random r = new Random();
         int colorR1 = r.nextInt(colors.size());
@@ -65,7 +65,7 @@ public class MultiShapes extends Obstacle {
         List<ModelShape> modelC = new ArrayList<>();
 
 
-        if (mo.getVersion() >= mo.getNbr_Versions())
+        if (mo.getVersion() >= ModelMultiShapes.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
 
         switch (mo.getVersion()) {
@@ -78,16 +78,16 @@ public class MultiShapes extends Obstacle {
 
             case 1:
                 modelC.add(new ModelSquare(x, y, length, width, false, false, Speed.MOYEN, colors, 0));
-                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scene.getWidth() + length));
-                modelC.add(new ModelHLine((int) scene.getWidth(), y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scene.getWidth() + length)));
+                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scWidth + length));
+                modelC.add(new ModelHLine((int) scWidth, y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scWidth + length)));
                 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 2:
                 modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
-                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scene.getWidth() + length));
-                modelC.add(new ModelHLine((int) scene.getWidth(), y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scene.getWidth() + length)));
+                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scWidth + length));
+                modelC.add(new ModelHLine((int) scWidth, y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scWidth + length)));
                 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
@@ -95,24 +95,24 @@ public class MultiShapes extends Obstacle {
             case 3:
                 modelC.add(new ModelCross(x + tinyLength + width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, 0));
                 modelC.add(new ModelCross(x - tinyLength - width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, 2));
-                modelC.add(new ModelHLine(-length * 4, y - length - width * 2, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4));
-                modelC.add(new ModelHLine(0, y + length + width * 2, length, width, false, false, Speed.MOYEN, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4)));
+                modelC.add(new ModelHLine(-length * 4, y - length - width * 2, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+                modelC.add(new ModelHLine(0, y + length + width * 2, length, width, false, false, Speed.MOYEN, (int) scWidth / (int) length + 4, colors, 1, -(length * 4)));
                 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 4:
                 modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1));
-                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scene.getWidth() + width)));
-                modelC.add(new ModelVLine(scene.getWidth(), y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scene.getWidth() + width)));
+                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scWidth + width)));
+                modelC.add(new ModelVLine(scWidth, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scWidth + width)));
                 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 5:
                 modelC.add(new ModelSquare(x, y, length, width, false, false, Speed.MOYEN, colors, 0));
-                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scene.getWidth() + width)));
-                modelC.add(new ModelVLine(scene.getWidth(), y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scene.getWidth() + width)));
+                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scWidth + width)));
+                modelC.add(new ModelVLine(scWidth, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scWidth + width)));
 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;

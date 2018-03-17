@@ -4,6 +4,7 @@ import java.util.List;
 
 import game.Speed;
 import javafx.scene.paint.Color;
+import model.ShapeType;
 
 public class ModelVLine extends ModelShape {
 	
@@ -57,6 +58,7 @@ public class ModelVLine extends ModelShape {
 		this.goal = goal;
 		this.reverse = reverse;
 		this.distanceSeparation = distanceSeparation;
+        type = ShapeType.Vertical_Line;
 	}
 
 	public double getHeight() {

@@ -50,7 +50,7 @@ public class MultiCross extends Obstacle {
         Cross cr2;
         List<ModelShape> modelC = new ArrayList<>();
 
-        if (mo.getVersion() >= mo.getNbr_Versions())
+        if (mo.getVersion() >= ModelMultiCross.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
 
         switch (mo.getVersion()) {

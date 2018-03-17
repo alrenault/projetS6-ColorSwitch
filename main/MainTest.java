@@ -77,7 +77,7 @@ public class MainTest extends Application{
 
 
         
-        Path p = new Path(scene1, CUSTOM, 10   , Difficulty.EASY);
+        Path p = new Path(scene1, CUSTOM, 100 , Difficulty.EASY);
         jObstacles.getChildren().add(p.getPath());
         
         

@@ -68,7 +68,7 @@ public class CircleInCircle extends Obstacle {
         List<ModelShape> modelC = new ArrayList<>();
 
 
-        if(mcic.getVersion() >= mcic.getNbr_Versions())
+        if(mcic.getVersion() >= ModelCircleInCircle.NBR_VERSIONS)
             mcic.setVersion(mcic.getVersionDefault());
 
         //double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,

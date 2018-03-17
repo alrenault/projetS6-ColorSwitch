@@ -20,11 +20,11 @@ public class ModelCircleInCircle extends ModelObstacle {
     public ModelCircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = getRandomEasyVersion();
+            version = ModelCircleInCircle.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = getRandomMediumVersion();
+            version = ModelCircleInCircle.getRandomMediumVersion();
         else
-            version = getRandomHardVersion();
+            version = ModelCircleInCircle.getRandomHardVersion();
     }
     
     public static int getRandomEasyVersion() {
@@ -41,4 +41,7 @@ public class ModelCircleInCircle extends ModelObstacle {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }
+
+    
+    
 }

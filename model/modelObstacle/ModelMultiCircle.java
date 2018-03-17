@@ -20,11 +20,12 @@ public class ModelMultiCircle extends ModelObstacle {
 	public ModelMultiCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = getRandomEasyVersion();
+            version = ModelMultiCircle.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = getRandomMediumVersion();
-        else
-            version = getRandomHardVersion();
+            version = ModelMultiCircle.getRandomMediumVersion();
+        else{
+            version = ModelMultiCircle.getRandomHardVersion();
+        }
     }
 	
 	 public static int getRandomEasyVersion() {
@@ -41,5 +42,8 @@ public class ModelMultiCircle extends ModelObstacle {
 	        Random r = new Random();
 	        return versionHard[r.nextInt(versionHard.length)];
 	    }
+
+	    
+	    
 
 }

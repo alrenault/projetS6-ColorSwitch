@@ -21,11 +21,11 @@ public class ModelMultiSquare extends ModelObstacle {
     public ModelMultiSquare(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = getRandomEasyVersion();
+            version = ModelMultiSquare.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = getRandomMediumVersion();
+            version = ModelMultiSquare.getRandomMediumVersion();
         else
-            version = getRandomHardVersion();
+            version = ModelMultiSquare.getRandomHardVersion();
     }
     
     public static int getRandomEasyVersion() {
@@ -42,5 +42,7 @@ public class ModelMultiSquare extends ModelObstacle {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }
+    
+    
 
 }

@@ -13,35 +13,36 @@ public class ModelMultiLine extends ModelObstacle {
 	public static final int NBR_VERSIONS = 11;
     protected static int[] versionEasy = {0, 1, 4, 7};
     protected static int[] versionMedium = {2, 3, 5, 6, 8};
-    protected static int[] versionHard = {9, 11};
+    protected static int[] versionHard = {9, 10};
     
-    Scene scene;
+    double scWidth;
 
-    public ModelMultiLine(double x, double y, List<Color> colors, int version, Scene scene) {
+    public ModelMultiLine(double x, double y, List<Color> colors, int version, double scWidth) {
         super(x, y, colors, version, 4);
-        this.scene = scene;
+        
+        this.scWidth = scWidth;
     }
 
-    public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, Scene scene) {
+    public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = getRandomEasyVersion();
+            version = ModelMultiLine.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = getRandomMediumVersion();
+            version = ModelMultiLine.getRandomMediumVersion();
         else
-            version = getRandomHardVersion();
+            version = ModelMultiLine.getRandomHardVersion();
 
-        this.scene = scene;
+        this.scWidth = scWidth;
     }
     
     public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = getRandomEasyVersion();
+            version = ModelMultiLine.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = getRandomMediumVersion();
+            version = ModelMultiLine.getRandomMediumVersion();
         else
-            version = getRandomHardVersion();
+            version = ModelMultiLine.getRandomHardVersion();
         
         //obstacle = buildObstacle();
     }
@@ -61,9 +62,12 @@ public class ModelMultiLine extends ModelObstacle {
         return versionHard[r.nextInt(versionHard.length)];
     }
 
-	public Scene getScene() {
-		return scene;
+	public double getScWidth() {
+		return scWidth;
 	}
+
+
+	
     
     
 

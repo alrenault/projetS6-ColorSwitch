@@ -81,8 +81,8 @@ public class Path extends Element {
             obstacleDifficulty = obstacleDifficulty(variante);
             
             //Generation de l'obstacle avec son colorSwitch
-            Obstacle o = BuildObstacle.VersionAlea(type, obstacleDifficulty, posX, posY, colors);
-            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight()/2 + 100,o.getColor_use());
+            Obstacle o = BuildObstacle.VersionAlea(type, obstacleDifficulty, posX, posY, colors,scene.getWidth());
+            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight()/2 + 100,o.getModel_obstacle().getColor_use());
 
             //System.out.println("colors : "+bcs.getColors_use());
             
@@ -111,7 +111,7 @@ public class Path extends Element {
         while (itObs.hasNext()) {
             o = itObs.next();
             newPath.getChildren().add(o.getObstacle());
-            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,o.getY() + o.getObstacleHeight()/2 + 100 + o.getObstacleHeight()/2 + 100,o.getColor_use());
+            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,o.getY() + o.getObstacleHeight()/2 + 100 + o.getObstacleHeight()/2 + 100,o.getModel_obstacle().getColor_use());
             
             addSL(o.getShapeList());
             addSL(bcs.getShapeList());

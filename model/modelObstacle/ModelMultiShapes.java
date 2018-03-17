@@ -14,33 +14,34 @@ public class ModelMultiShapes extends ModelObstacle {
     protected static int[] versionEasy = {4};
     protected static int[] versionMedium = {1, 2, 3, 5};
     protected static int[] versionHard = {0};
-    Scene scene;
+    
+    double scWidth;
 
-    public ModelMultiShapes(double x, double y, List<Color> colors, Scene scene, int version) {
+    public ModelMultiShapes(double x, double y, List<Color> colors, double scWidth, int version) {
         super(x, y, colors, version, 1);
-        this.scene = scene;
+        this.scWidth = scWidth;
     }
 
-    public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, Scene scene) {
+    public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth) {
         super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = getRandomEasyVersion();
+            version = ModelMultiShapes.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = getRandomMediumVersion();
+            version = ModelMultiShapes.getRandomMediumVersion();
         else
-            version = getRandomHardVersion();
+            version = ModelMultiShapes.getRandomHardVersion();
 
-        this.scene = scene;
+        this.scWidth = scWidth;
     }
 
     public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty) {
 		super(x, y, colors, 0, 4);
         if (difficulty == Difficulty.EASY)
-            version = getRandomEasyVersion();
+            version = ModelMultiShapes.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
-            version = getRandomMediumVersion();
+            version = ModelMultiShapes.getRandomMediumVersion();
         else
-            version = getRandomHardVersion();
+            version = ModelMultiShapes.getRandomHardVersion();
 
 	}
 
@@ -59,7 +60,9 @@ public class ModelMultiShapes extends ModelObstacle {
         return versionHard[r.nextInt(versionHard.length)];
     }
 
-	public Scene getScene() {
-		return scene;
+	public double getScWidth() {
+		return scWidth;
 	}
+
+	
 }

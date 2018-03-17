@@ -54,7 +54,7 @@ public class MultiSquare extends Obstacle {
         Shapes s;
         List<ModelShape> modelC = new ArrayList<>();
 
-        if (mo.getVersion() >= mo.getNbr_Versions())
+        if (mo.getVersion() >= ModelMultiSquare.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
 
         switch (mo.getVersion()) {

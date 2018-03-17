@@ -53,8 +53,10 @@ public class MultiLinee extends Obstacle {
         
         double y = mo.getY();
         List<Color> colors = mo.getColors();
-        Scene scene = ((ModelMultiLine) mo).getScene();
-
+        
+       // Scene scene = ((ModelMultiLine) mo).getScene();
+        double scWidth = ((ModelMultiLine) mo).getScWidth();
+        
         Shapes s;
         
         List<ModelShape> modelC = new ArrayList<>();
@@ -62,86 +64,86 @@ public class MultiLinee extends Obstacle {
 
 		/*public Linee(int x, int y,int length, int width, boolean acceleration,
 				boolean reverse,int _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors,int goal) {*/
-        if(mo.getVersion() >= mo.getNbr_Versions())
+        if(mo.getVersion() >= ModelMultiLine.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
 
         switch (mo.getVersion()) {
             case 0:
-                modelC.add(new ModelHLine(-length, y, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scene.getWidth() + length));
+                modelC.add(new ModelHLine(-length, y, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scWidth + length));
                 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 1:
-            	modelC.add(new ModelHLine((int) scene.getWidth(), y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scene.getWidth() + length)));
+            	modelC.add(new ModelHLine((int) scWidth, y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scWidth + length)));
                 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 2:
-            	modelC.add(new ModelHLine((int) scene.getWidth(), y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scene.getWidth() + length)));
-            	modelC.add(new ModelHLine(-length, y + width, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scene.getWidth() + length));
+            	modelC.add(new ModelHLine((int) scWidth, y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scWidth + length)));
+            	modelC.add(new ModelHLine(-length, y + width, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scWidth + length));
 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 3:
-            	modelC.add(new ModelHLine((-length) * 4, y, length, width, false, true, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelHLine((-length) * 4, y, length, width, false, true, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
                 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 4:
-            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
                 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 5:
-            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4));
-            	modelC.add(new ModelHLine(0, y + width, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4)));
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelHLine(0, y + width, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 1, -(length * 4)));
                 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 6:
-            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4));
-            	modelC.add(new ModelHLine(0, y + width + 100, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4)));
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelHLine(0, y + width + 100, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 1, -(length * 4)));
                 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 7:
-            	modelC.add(new ModelVLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scene.getWidth() + 2 * width + separation)));
+            	modelC.add(new ModelVLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scWidth + 2 * width + separation)));
 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 8:
-            	modelC.add(new ModelVLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scene.getWidth() + 2 * width + separation)));
-            	modelC.add(new ModelVLine(scene.getWidth(), y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 2, -(scene.getWidth() + width * 2 + separation)));
+            	modelC.add(new ModelVLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scWidth + 2 * width + separation)));
+            	modelC.add(new ModelVLine(scWidth, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 2, -(scWidth + width * 2 + separation)));
             	
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 9:
-            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4));
-            	modelC.add(new ModelVLine(-width, y - length, length, width, separation, false, true, Speed.SYMPA, 1, colors, 0, (scene.getWidth() + width)));
-            	modelC.add(new ModelVLine(scene.getWidth(), y + width, length, width, separation, false, true, Speed.SYMPA, 1, colors, 2, -(scene.getWidth() + width)));
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelVLine(-width, y - length, length, width, separation, false, true, Speed.SYMPA, 1, colors, 0, (scWidth + width)));
+            	modelC.add(new ModelVLine(scWidth, y + width, length, width, separation, false, true, Speed.SYMPA, 1, colors, 2, -(scWidth + width)));
                 
             	mo.setDifficulty(Difficulty.HARD);
                 break;
                 
             case 10:
             	Random r = new Random();
-            	modelC.add(new ModelVLine(-width * 4 - separation * 3, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), (scene.getWidth() + 4 * width + separation*3)));
-            	modelC.add(new ModelVLine(scene.getWidth(), y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), -(scene.getWidth() + width * 4 + separation*3)));
-                
+            	modelC.add(new ModelVLine(-width * 4 - separation * 3, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), (scWidth + 4 * width + separation*3)));
+            	modelC.add(new ModelVLine(scWidth, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), -(scWidth + width * 4 + separation*3)));
+                System.out.println("ça passe ?");
             	mo.setDifficulty(Difficulty.HARD);
             	break;
             	
             default:
-            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
             	
             	mo.setDifficulty(Difficulty.EASY);
         }
