@@ -1,5 +1,6 @@
 package model.modelShape;
 
+import game.Speed;
 import game.Colorable;
 import game.path.Element;
 import javafx.geometry.Bounds;
@@ -31,10 +32,7 @@ public abstract class ModelShape implements Colorable{
      */
     protected double y;
     
-    /**
-     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
-     */
-    protected Bounds coord;
+    
     
     /**
      * L'épaisseur du trait de la forme
@@ -77,7 +75,7 @@ public abstract class ModelShape implements Colorable{
      * Type de la forme
      */
     ShapeType type;
-    
+        
     
 
     /**
@@ -123,6 +121,7 @@ public abstract class ModelShape implements Colorable{
             this.pos_color = pos_color % colors.size();
         }
         this.colors_use = new ArrayList<>();
+        
 
     }
 
@@ -132,10 +131,6 @@ public abstract class ModelShape implements Colorable{
 
 	public double getY() {
 		return y;
-	}
-
-	public Bounds getCoord() {
-		return coord;
 	}
 
 	public boolean isMouvementDirection() {
@@ -172,7 +167,13 @@ public abstract class ModelShape implements Colorable{
             pos_color = 0;
     }
 
-    /**
+
+
+	public void setPos_color(int pos_color) {
+		this.pos_color = pos_color;
+	}
+
+	/**
      * Colorie une (JavaFX) Shape en fonction de l'ensemble de couleurs qui lui est associe
      * @param s La (JavaFX) Shape a colorier
      */
@@ -203,13 +204,7 @@ public abstract class ModelShape implements Colorable{
     /**
      * Determine la vitesse de mouvement de la Forme
      */
-    public enum Speed {
-        SYMPA,
-        MOYEN,
-        HARD,
-        TRESSYMPA,
-        NONE
-    }
+    
 
 
 	public ShapeType getType() {

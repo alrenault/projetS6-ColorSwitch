@@ -2,7 +2,7 @@ package model.modelShape;
 
 import java.util.List;
 
-import game.path.shapes.Shapes.Speed;
+import game.Speed;
 import javafx.scene.paint.Color;
 
 public class ModelCircle extends ModelShape {
@@ -39,6 +39,7 @@ public class ModelCircle extends ModelShape {
         
 
     }
+
 
 	public double getRadial() {
 		return radial;

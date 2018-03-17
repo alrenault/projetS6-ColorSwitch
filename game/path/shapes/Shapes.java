@@ -31,11 +31,11 @@ public class Shapes extends Element implements Colorable{
 	/**
      *Coordonnée en x du centre de la forme
      */
-    protected double x;
+   // protected double x;
     /**
      *Coordonnée en y du centre de la forme
      */
-    protected double y;
+   // protected double y;
     /**
      * Le groupe représentant la forme
      */
@@ -44,44 +44,44 @@ public class Shapes extends Element implements Colorable{
     /**
      * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
      */
-    protected Bounds coord;
+    //protected Bounds coord;
     
     /**
      * L'épaisseur du trait de la forme
      */
     
-    double width;
+   // double width;
     
     /**
      * Indique la direction du mouvement de la forme
      */
     
-    boolean mouvementDirection;
+   // boolean mouvementDirection;
     /**
      * Indique si la rotation de la forme est linéaire ou est soumise à une accéleration
      */
     
-    boolean acceleration;
+    //boolean acceleration;
     
     /**
      * Position actuelle pour le parcours de la liste de couleurs
      */
-    int pos_color;
+    //int pos_color;
     
     /**
      * Vitesse de rotation de la forme
      */
-    double mouvementSpeed;
+    //double mouvementSpeed;
     
     /**
      * L'ensemble de couleurs que l'on peut utiliser
      */
-    List<Color> colors;
+    //List<Color> colors;
     
     /**
      * L'ensemble des couleurs utilisées par la forme
      */
-    List<Color> colors_use;
+    //List<Color> colors_use;
     
     /**
      * L'ensemble des (JavaFX) Shape utilisées par la forme
@@ -92,9 +92,16 @@ public class Shapes extends Element implements Colorable{
      * Patron de la forme
      */
     static ModelShape model_shape;
+    
+    /**
+     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
+     */
+    protected Bounds coord;
+    
+
 
     /**
-     *
+     * Constructeur d'une Shapes
      * @param x La coordonnée en x du centre de la forme
      * @param y La coordonnée en y du centre de la forme
      * @param width l'epaisseur de la forme
@@ -104,7 +111,7 @@ public class Shapes extends Element implements Colorable{
      * @param colors Liste des couleurs de la forme à transmettre
      * @param pos_color La position initiale pour le parcours de la liste de couleurs
      */
-    protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
+   /* protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
         super();
     	this.x = x;
         this.y = y;
@@ -140,11 +147,11 @@ public class Shapes extends Element implements Colorable{
         //this.shape = build();
         //check();
 
-    }
+    }*/
     
     protected Shapes(ModelShape modelShape) {
     	model_shape = modelShape;
-    	group_shape = buildShape();
+    	//group_shape = buildShape();
     	
     }
 
@@ -152,19 +159,19 @@ public class Shapes extends Element implements Colorable{
      * Assesseur de l'épaisseur de la forme
      * @return l'épaisseur de la forme
      */
-    public double getWidth() {
+   /* public double getWidth() {
         return width;
-    }
+    }*/
 
     /**
      * Génère la forme
      * @return Le Group représentant la forme
      */
-    protected Group build() {
+   /* protected Group build() {
     	return buildShape();
     }
 
-    public static Group buildShape() {
+    public Group buildShape() {
     	Group shape;
     	
     	switch(model_shape.getType()) {
@@ -200,12 +207,12 @@ public class Shapes extends Element implements Colorable{
     	}
     	
     	return shape;
-    }
+    }*/
 
     public void verifPosColor() {
-        pos_color++;
-        if (pos_color == colors.size())
-            pos_color = 0;
+        model_shape.setPos_color(model_shape.getPos_color()+1);
+        if (model_shape.getPos_color() == model_shape.getColors().size())
+            model_shape.setPos_color(0);
     }
 
     /**
@@ -213,17 +220,25 @@ public class Shapes extends Element implements Colorable{
      * @param s La (JavaFX) Shape a colorier
      */
     public void color(Shape s) {
-    	Iterator<Color> it = colors.iterator();
+    	Iterator<Color> it = model_shape.getColors().iterator();
     	Color c = null;
-    	for(int i = 0;it.hasNext() && i <= pos_color;i++){
+    	for(int i = 0;it.hasNext() && i <= model_shape.getPos_color();i++){
     		c = it.next();
     	}
     	
     	if(c == null)
     		c = Color.WHITE;
         s.setFill(c);
-        colors_use.add(c);
+        model_shape.getColors_use().add(c);
     }
+    
+	public Bounds getCoord() {
+		return coord;
+	}
+	
+    public void setCoord(Bounds coord) {
+		this.coord = coord;
+	}
 
     /**
      * Assesseur de la coordonée en x de la forme
@@ -248,18 +263,9 @@ public class Shapes extends Element implements Colorable{
      * Assesseur des coordonnees de la forme sous la forme d'un Point2D
      * @return Les coordonnees de ka forme
      */
-    public Point2D getCoord() {
+    public Point2D getCoord2D() {
         return new Point2D(getX(), getY());
     }
-
-    /**
-     * Assesseur de l'ensemble des couleurs utilisees par la forme
-     * @return L'ensemble des couleurs utilisees par la forme
-     */
-    public List<Color> getColors_use() {
-        return colors_use;
-    }
-
     /**
      * 
      * @param _x
@@ -278,15 +284,10 @@ public class Shapes extends Element implements Colorable{
     public Group getShape() {
     	return group_shape;
     }
-    
-    /**
-     * Determine la vitesse de mouvement de la Forme
-     */
-    public enum Speed {
-        SYMPA,
-        MOYEN,
-        HARD,
-        TRESSYMPA,
-        NONE
-    }
+
+	@Override
+	protected Group build() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

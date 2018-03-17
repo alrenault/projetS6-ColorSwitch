@@ -1,11 +1,13 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.shapes.BuildShape;
 import game.path.shapes.Circle;
-import game.path.shapes.Shapes.Speed;
+import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelShape.ModelCircle;
 
 import java.util.List;
 import java.util.Random;
@@ -66,125 +68,100 @@ public class CircleInCircle extends Obstacle {
         double bigRadial = 100.0;
         double width = 15.0;
         int nb_arc = 4;
+        
+        //BuildShape builder = new BuildShape();
+        
         Group circleInCircle = new Group();
         Circle cer1;
         Circle cer2;
         Circle cer3;
+        
+        ModelCircle model1 = null;
+        ModelCircle model2 = null;
+        ModelCircle model3 = null;
 
         if (version >= NBR_VERSIONS)
             version = versionDefault;
 
-        //int xCenter, int yCenter, int radial, int width, int arcs_nbr, boolean rotationDirection,boolean acceleration, int vitesseRotation,Color[] colors,int pos_color
-
+        //double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
+        //boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color
+        
         switch (version) {
 
             case 0:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
-
-                addSL(cer1.getShapeList(),cer2.getShapeList());            
-                circleInCircle.getChildren().add(cer1.getShape());
-                circleInCircle.getChildren().add(cer2.getShape());
+            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
                 
                 difficulty = Difficulty.NORMAL;
-                color_use.addAll(cer1.getColors_use());
-                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 1:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 3);
-
-                addSL(cer1.getShapeList(),cer2.getShapeList());            
-                circleInCircle.getChildren().add(cer1.getShape());
-                circleInCircle.getChildren().add(cer2.getShape());
+            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 3);
                 
                 difficulty = Difficulty.NORMAL;
-                color_use.addAll(cer1.getColors_use());
-                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 2:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
-                cer3 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
-
-                addSL(cer1.getShapeList(),cer2.getShapeList(),cer3.getShapeList());            
-                circleInCircle.getChildren().add(cer1.getShape());
-                circleInCircle.getChildren().add(cer2.getShape());
-                circleInCircle.getChildren().add(cer3.getShape());
+            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
+            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1);
+            	model3 = new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1);
                 
                 difficulty = Difficulty.HARD;
-                color_use.addAll(cer1.getColors_use());
-                color_use.addAll(cer2.getColors_use());
-                color_use.addAll(cer3.getColors_use());
                 break;
 
             case 3:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-                cer2 = new Circle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
-                cer3 = new Circle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-
-                addSL(cer1.getShapeList(),cer2.getShapeList(),cer3.getShapeList());            
-                circleInCircle.getChildren().add(cer1.getShape());
-                circleInCircle.getChildren().add(cer2.getShape());
-                circleInCircle.getChildren().add(cer3.getShape());
+            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+            	model2 = new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
+            	model3 = new ModelCircle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
                 
                 difficulty = Difficulty.HARD;
-                color_use.addAll(cer1.getColors_use());
-                color_use.addAll(cer2.getColors_use());
-                color_use.addAll(cer3.getColors_use());
-
                 break;
 
             case 4:
-                cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0);
-                cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 2);
-                
-                addSL(cer1.getShapeList(),cer2.getShapeList());
-                circleInCircle.getChildren().add(cer1.getShape());
-                circleInCircle.getChildren().add(cer2.getShape());
+            	model1 = new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0);
+            	model2 = new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 2);
                 
                 difficulty = Difficulty.EASY;
-                color_use.addAll(cer1.getColors_use());
-                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 5:
-                cer1 = new Circle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0);
-                cer2 = new Circle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 2);
-                
-                addSL(cer1.getShapeList(),cer2.getShapeList());            
-                circleInCircle.getChildren().add(cer1.getShape());
-                circleInCircle.getChildren().add(cer2.getShape());
+            	model1 = new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0);
+            	model2 = new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 2);
                 
                 difficulty = Difficulty.NORMAL;
-                color_use.addAll(cer1.getColors_use());
-                color_use.addAll(cer2.getColors_use());
                 break;
 
             case 6:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-                cer2 = new Circle(x, y, mediumRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
-                
-                addSL(cer1.getShapeList(),cer2.getShapeList());            
-                circleInCircle.getChildren().add(cer1.getShape());
-                circleInCircle.getChildren().add(cer2.getShape());
+            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+            	model2 = new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.MOYEN, colors, 3);
                 
                 difficulty = Difficulty.NORMAL;
-                color_use.addAll(cer1.getColors_use());
-                color_use.addAll(cer2.getColors_use());
                 break;
 
             default:
-                cer1 = new Circle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
-                
-                addSL(cer1.getShapeList());            
-                circleInCircle.getChildren().add(cer1.getShape());
-                
+            	model1 = new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1);
+              
                 difficulty = Difficulty.EASY;
-                color_use.addAll(cer1.getColors_use());
 
+        }
+        if(model1 != null){
+        	cer1 = (Circle)BuildShape.constructShape(model1);
+            addSL(cer1.getShapeList());  
+            circleInCircle.getChildren().add(cer1.getShape());
+            color_use.addAll(model1.getColors_use());
+        }
+        if(model2 != null){
+        	cer2 = (Circle)BuildShape.constructShape(model2);
+            addSL(cer2.getShapeList());  
+            circleInCircle.getChildren().add(cer2.getShape());
+            color_use.addAll(model2.getColors_use());
+        }
+        if(model3 != null){
+        	cer3 = (Circle)BuildShape.constructShape(model3);
+            addSL(cer3.getShapeList());  
+            circleInCircle.getChildren().add(cer3.getShape());
+            color_use.addAll(model3.getColors_use());
         }
         return circleInCircle;
 

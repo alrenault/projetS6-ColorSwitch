@@ -2,7 +2,7 @@ package model.modelShape;
 
 import java.util.List;
 
-import game.path.shapes.Shapes.Speed;
+import game.Speed;
 import javafx.scene.paint.Color;
 
 public class ModelCross extends ModelShape {
@@ -39,5 +39,15 @@ public class ModelCross extends ModelShape {
 
         this.length = length;
     }
+
+	public int getNbr_rect() {
+		return nbr_rect;
+	}
+
+	public double getLength() {
+		return length;
+	}
+    
+    
 
 }

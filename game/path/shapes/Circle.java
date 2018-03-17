@@ -20,16 +20,17 @@ import model.modelShape.ModelShape;
 public class Circle extends Shapes {
 
 
-	protected Circle(ModelShape modelShape) {
-		super(modelShape);
-		group_shape = build();
+	protected Circle(ModelCircle mc) {
+		super(mc);
+		group_shape = buildShape(mc);
+	    coord = group_shape.localToScene(group_shape.getBoundsInLocal());
 	}
 
 	/**
      * Generateur de la forme du cercle
      * @return un ensemble d'arcs
      */
-    protected static Group build(ModelCircle mc) {
+    protected Group buildShape(ModelCircle mc) {
 
 
 

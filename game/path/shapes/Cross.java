@@ -8,20 +8,12 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import model.modelShape.ModelCross;
 import model.modelShape.ModelShape;
 
 /**Objet graphique d'une croix
  */
 public class Cross extends Shapes {
-	/**
-	 * Nombre de rectangle (par defaut 2. Pourra aussi valoir 4
-	 */
-    private int nbr_rect = 2;
-    
-    /**
-     * Longueur d'un rectangle de la croix
-     */
-    private double length;
     
     /**
      * Constructeur basique de la croix (direction à true, acceleration à false, la vitesse la plus faible, et la position de la couleur à 1
@@ -31,70 +23,43 @@ public class Cross extends Shapes {
      * @param length Longueur d'un rectangle
      * @param colors L'ensemble de couleurs utilisées par la croix
      */
-    public Cross(double x, double y, double width, double length, List<Color> colors) {
-        super(x, y, width, true, false, Speed.SYMPA, colors, 1);
-        this.length = length;
-        this.group_shape = build();
-    }
-
-    /**
-     * Constructeur plus précis de la croix
-     * @param x Coordonnée en x de la croix
-     * @param y Coordonnée en y de la croix
-     * @param width Largeur d'un rectangle
-     * @param length Longueur d'un rectangle
-     * @param mouvementDirection Direction du mouvement (true sens horraire, false contre-horraire)
-     * @param acceleration Permet d'activer ou de désactiver l'accélération de la croix
-     * @param _mouvementSpeed La vitesse de la croix
-     * @param nbr_rect Le nombre de rectangle (2 ou 4)
-     * @param colors L'ensemble de couleurs que l'on peut utiliser
-     * @param pos_color La position initiale pour le parcours de la liste
-     */
-    public Cross(double x, double y, double width, double length, boolean mouvementDirection, boolean acceleration,
-                 Speed _mouvementSpeed, int nbr_rect, List<Color> colors, int pos_color) {
-
-        super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
-        if (nbr_rect != 2)
-            this.nbr_rect = 4;
-
-        this.length = length;
-        this.group_shape = build();
-
-        //recuperation de la position
+    
+    public Cross(ModelCross mc){
+    	super(mc);
+    	group_shape = build(mc);
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-        
-        check();
     }
+
 
     /**
      * Génère la croix
      * @return le Group correspondant à la croix
      */
-    protected static Group buildShape() {
+    protected Group build(ModelCross mc) {
 
         //Initialisation
         Group croix = new Group();
-        double rad = width;
-        double len = length;
+        double rad = mc.getWidth();
+        double len = mc.getLength();
 
         //Computing hight-left corner of the first rectangle
-        double x_pos_1 = x - width - length / 2;
-        double y_pos_1 = y - length / 2;
+        double x_pos_1 = mc.getX() - rad - len / 2;
+        double y_pos_1 = mc.getY() - rad / 2;
 
         //Computing hight-left corner of the second rectangle
-        double x_pos_2 = x - length / 2;
-        double y_pos_2 = y - width - length / 2;
+        double x_pos_2 = mc.getX() - len / 2;
+        double y_pos_2 = mc.getY() - rad - len / 2;
 
         //Computing hight-left corner of the second rectangle
-        double x_pos_3 = x + length / 2;
-        double y_pos_3 = y - length / 2;
+        double x_pos_3 = mc.getX() + len / 2;
+        double y_pos_3 = mc.getY() - len / 2;
 
         //Computing hight-left corner of the second rectangle
-        double x_pos_4 = x - length / 2;
-        double y_pos_4 = y + length / 2;
+        double x_pos_4 = mc.getX() - len / 2;
+        double y_pos_4 = mc.getY() + len / 2;
 
-        double x_middle = x - length / 2;
-        double y_middle = y - length / 2;
+        double x_middle = mc.getX() - len / 2;
+        double y_middle = mc.getY() - len / 2;
 
         //Building Cross
         Rectangle part_1 = new Rectangle(x_pos_1, y_pos_1, rad, len);
@@ -104,7 +69,7 @@ public class Cross extends Shapes {
         Rectangle middle = new Rectangle(x_middle, y_middle, len, len);
         middle.setFill(Color.WHITE);
 
-        if (nbr_rect == 4) {
+        if (mc.getNbr_rect() == 4) {
             color(part_1);
             verifPosColor();
 
@@ -136,11 +101,11 @@ public class Cross extends Shapes {
         croix.getChildren().add(middle);
 
 
-        RotateTransition rt1 = new RotateTransition(Duration.seconds(mouvementSpeed), croix);
+        RotateTransition rt1 = new RotateTransition(Duration.seconds(mc.getMouvementSpeed()), croix);
 
-        rt1.setByAngle(360 * ((mouvementDirection) ? 1 : -1));
+        rt1.setByAngle(360 * ((mc.isMouvementDirection()) ? 1 : -1));
 
-        if (!acceleration) {
+        if (!mc.isAcceleration()) {
             rt1.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
         }
 

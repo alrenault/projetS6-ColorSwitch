@@ -2,7 +2,7 @@ package game.path.obstacle;
 
 import game.Difficulty;
 import game.path.shapes.Cross;
-import game.path.shapes.Shapes.Speed;
+import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
