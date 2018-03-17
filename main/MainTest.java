@@ -4,6 +4,7 @@ package main;
 import DB.GestionDB;
 import game.Colorable;
 import game.Difficulty;
+import game.Game;
 import game.Score;
 import game.ball.BallPlayer;
 import game.path.Modifiers;
@@ -15,7 +16,6 @@ import game.path.obstacle.MultiLinee;
 import game.path.obstacle.MultiShapes;
 import game.path.obstacle.MultiSquare;
 import game.path.obstacle.Obstacle;
-import game.path.shapes.Shapes.Speed;
 import game.path.shapes.Triangle;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -35,6 +35,8 @@ import javafx.scene.shape.Arc;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.sun.glass.ui.Timer;
 
 
 public class MainTest extends Application{
@@ -107,7 +109,10 @@ public class MainTest extends Application{
 	
         	
        
+        Game game = new Game();
         
+        //ViewTimer timer = new ViewTimer(game, scene1);
+        //timer.start();
         
         
         //apellé a chaque shape
@@ -140,13 +145,11 @@ public class MainTest extends Application{
 								System.out.println(ball.getFill());
 								score.increaseNOC();
 								if(shape instanceof Arc && shape.getStroke() != ball.getFill()){
-									System.out.println("\n___________\nDEFEAT\n");
-									//primaryStage.close();
+									defeat();
 								}
 								
 								if(!(shape instanceof Arc) &&shape.getFill() != ball.getFill()) {
-									System.out.println("\n___________\nDEFEAT\n");
-									//primaryStage.close();
+									defeat();
 								}
 							
 							}
@@ -186,8 +189,7 @@ public class MainTest extends Application{
 				}
 				
 				if(player.getY() >= scene1.getHeight()){
-					 System.out.println("\n___________\nDEFEAT\n");
-					//primaryStage.close();
+					 defeat();
 				 }
 				System.err.println("Score :"+ score.getScore());
 
@@ -220,6 +222,11 @@ public class MainTest extends Application{
     	
     	}
     	return shapy;
+    }
+    
+    public void defeat() {
+    	System.out.println("\n___________\nDEFEAT\n");
+		//primaryStage.close();
     }
 
 	

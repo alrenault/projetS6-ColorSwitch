@@ -41,6 +41,7 @@ public class Game {
     
     Difficulty difficulty;
     List<Color> colors;
+    Score score;
     
     Stage stage;
     Scene scene;
@@ -78,6 +79,10 @@ public class Game {
 	public Universe getUniverse() {
 		return universe;
 	}
+	
+	public Score getScore() {
+		return score;
+	}
 
 	
     public Game(Scene scene) {
@@ -97,6 +102,8 @@ public class Game {
     	this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	
     	this.universe = new Universe();
+    	
+    	this.score = new Score();
     	
     	ViewGameManagement.view(this,scene);
         
@@ -286,5 +293,7 @@ public class Game {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }
