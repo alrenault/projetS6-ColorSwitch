@@ -21,7 +21,7 @@ public class ModelTriangle extends ModelShape {
      * @param width epaisseur du trait du triangle
      * @param mouvementDirection indique la direction de la rotation
      * @param acceleration Indique si la rotation du  triangle est linéaire ou est soumise à une accéleration
-     * @param _mouvementSpeed   vitesse de rotation du triangle
+     * @param mouvementSpeed   vitesse de rotation du triangle
      * @param colors la liste de couleurs à applique aux traits du triangle
      * @param pos_color
      */

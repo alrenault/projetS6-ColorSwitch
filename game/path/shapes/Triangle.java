@@ -44,45 +44,43 @@ public class Triangle extends Shapes {
         double x = mt.getX();
         double y = mt.getY();
         
-        double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef, coefReduction;
-        Polygon arc_1, arc_2, arc_3;
-        arc_1 = new Polygon();
-        arc_2 = new Polygon();
-        arc_3 = new Polygon();
+        double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, cote, coefReduction;
+        Polygon trapeze_1, trapeze_2, trapeze_3;
+        trapeze_1 = new Polygon();
+        trapeze_2 = new Polygon();
+        trapeze_3 = new Polygon();
         coefReduction = (height - (3.0 * width)) / height;
-        coef = (Math.sqrt((4.0 * height * height) / 5.0));
+        cote = (2.0*height)/Math.sqrt(3.0);
+                //(Math.sqrt((4.0 * height * height) / 5.0));
+
 
         xa = x;
-        ya = y - (height / 2.0);//+
-        xb = x + (coef / 2.0);
-        yb = y + (height / 2.0);
-        xc = x + ((coef / 2.0) * coefReduction);
+        ya = y - (height * (2.0/3.0));//+
+        xb = x + (cote / 2.0);
+        yb = y + (height * (1.0/3.0));
+        xc = x + ((cote / 2.0) * coefReduction);
         yc = yb - width;
         xd = x;
         yd = ya + 2.0 * width;
-
-
-        xe = x - (coef / 2.0);
+        xe = x - (cote / 2.0);
         ye = yb;
-
-
-        xf = x - ((coef / 2.0) * coefReduction);
+        xf = x - ((cote / 2.0) * coefReduction);
         yf = yc;
 
-        arc_1.getPoints().addAll(xa, ya, xb, yb, xc, yc, xd, yd);
-        arc_2.getPoints().addAll(xb, yb, xe, ye, xf, yf, xc, yc);
-        arc_3.getPoints().addAll(xe, ye, xf, yf, xd, yd, xa, ya);
-        mt.color(arc_1);
+        trapeze_1.getPoints().addAll(xa, ya, xb, yb, xc, yc, xd, yd);
+        trapeze_2.getPoints().addAll(xb, yb, xe, ye, xf, yf, xc, yc);
+        trapeze_3.getPoints().addAll(xe, ye, xf, yf, xd, yd, xa, ya);
+        mt.color(trapeze_1);
         mt.verifPosColor();
-        mt.color(arc_2);
+        mt.color(trapeze_2);
         mt.verifPosColor();
-        mt.color(arc_3);
+        mt.color(trapeze_3);
         mt.verifPosColor();
 
-        addSL(arc_1,arc_2,arc_3);
-        t.getChildren().add(arc_1);
-        t.getChildren().add(arc_2);
-        t.getChildren().add(arc_3);
+        addSL(trapeze_1,trapeze_2,trapeze_3);
+        t.getChildren().add(trapeze_1);
+        t.getChildren().add(trapeze_2);
+        t.getChildren().add(trapeze_3);
 
 
         RotateTransition rotation = new RotateTransition(Duration.seconds(mt.getMouvementSpeed()), t);
