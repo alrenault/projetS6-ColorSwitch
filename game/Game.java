@@ -97,7 +97,7 @@ public class Game {
     	CUSTOM.add(Colorable.BLUE);
     	
     	
-    	this.path = new Path(scene, CUSTOM, 10   , Difficulty.EASY);
+    	this.path = new Path(scene.getWidth(),scene.getHeight(), CUSTOM, 10   , Difficulty.EASY);
     	
     	this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	
@@ -244,7 +244,7 @@ public class Game {
 
         
 
-        Path p = new Path(scene1, CUSTOM, 10   , Difficulty.EASY);
+        Path p = new Path(scene1.getWidth(),scene1.getHeight(), CUSTOM, 10   , Difficulty.EASY);
         
         jObstacles.getChildren().add(p.getPath());
         
