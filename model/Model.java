@@ -1,13 +1,11 @@
 package model;
 
-import DB.GestionDB;
 import game.Game;
 import game.ball.Ball;
 import game.law.Universe;
 import game.path.Path;
 import controller.Controller;
 import game.Difficulty;
-import view.View;
 
 /**
  * This class represents the model in the MVC pattern
@@ -16,7 +14,7 @@ import view.View;
 public class Model implements InterfaceModelColorSwitch {
 	
 	private Game game;
-
+	
 	public Model() {
 		
 	}
@@ -45,7 +43,7 @@ public class Model implements InterfaceModelColorSwitch {
 		// TODO Auto-generated method stub
 		
 		//Perdre la partie
-
+		
 	}
 
 	@Override
@@ -57,10 +55,13 @@ public class Model implements InterfaceModelColorSwitch {
 		
 	}
 
-    @Override
-    public void registerScore(String name) {
-	//	Controller game.getScore();
-    }
+	@Override
+	public void registerScore() {
+		// TODO Auto-generated method stub
+		
+		//Enregistrer le score
+		
+	}
 
 	@Override
 	public void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Ball ball) {

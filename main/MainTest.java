@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+import com.sun.glass.ui.Timer;
 
 
 public class MainTest extends Application{
@@ -77,7 +77,7 @@ public class MainTest extends Application{
 
 
         
-        Path p = new Path(scene1, CUSTOM, 100 , Difficulty.EASY);
+        Path p = new Path(scene1.getWidth(), scene1.getHeight(), CUSTOM, 100 , Difficulty.EASY);
         jObstacles.getChildren().add(p.getPath());
         
         

@@ -59,7 +59,7 @@ public class ViewTimer {
 							}
 							
 							Boolean touch = false;
-							 for(Item i : game.getPath().getItem()){
+							 for(Item i : p.getItem()){
 								if(i instanceof BallColorSwitch){
 									for(Shape shape : i.getShapeList()){
 										Shape intersection = Shape.intersect(ball,shape);

@@ -61,8 +61,6 @@ public class MultiCircle extends Obstacle {
         if (mo.getVersion() >= ModelMultiCircle.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
         
-        System.out.println("Apres "+mo.getVersion());
-
 
         switch (mo.getVersion()) {
             case 0:

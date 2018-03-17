@@ -18,7 +18,7 @@ public interface InterfaceModelColorSwitch {
 	
 	public void jump();
 	
-	public void registerScore(String name);
+	public void registerScore();
 	
 	public Game getGame();
 	
