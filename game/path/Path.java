@@ -1,8 +1,10 @@
 package game.path;
 
+import game.Colorable;
 import game.Difficulty;
 import game.ennemy.Ennemy;
 import game.path.items.Item;
+import game.path.items.Star;
 import game.path.obstacle.BuildObstacle;
 import game.path.obstacle.Obstacle;
 import game.path.items.BallColorSwitch;
@@ -86,12 +88,36 @@ public class Path extends Element {
             Obstacle o = BuildObstacle.VersionAlea(type, obstacleDifficulty, posX, posY, colors,scWidth);
             BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + o.getObstacleHeight()/2 + 150,o.getModel_obstacle().getColor_use());
 
+               List<Color> l = new ArrayList<Color>();
+                     Star s;
+                        if(o.getDifficulty() == Difficulty.EASY){
+                           	l.add(Colorable.BRONZE);
+                                s = new Star(scene.getWidth()/2,o.getY(),10,l,10);
+                            }
+                        else if(o.getDifficulty() == Difficulty.NORMAL){
+                            	l.add(Colorable.SILVER);
+                                s = new Star(scene.getWidth()/2,o.getY(),15,l,20);
+                            }
+                       else{
+                            	l.add(Colorable.GOLD);
+                                s = new Star(scene.getWidth()/2,o.getY(),20,l,30);
+                           }
+
+                                        //marche pas encore tout à fait
+                                               /*for(Shape partStar : s.getShapeList()){
+             	for(Shape shape : o.getShapeList()){
+                 	while(!Shape.intersect(shape,partStar).getBoundsInParent().isEmpty()){
+                 		s.setY(s.getY()+1);
+                 	}
+                 }
+             }*/
             //System.out.println("colors : "+bcs.getColors_use());
             
             //System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
             
             newPath.getChildren().add(o.getObstacle());
             newPath.getChildren().add(bcs.getItem());
+           // newPath.getChildren().add();
             
             add(o);
             add(bcs);
