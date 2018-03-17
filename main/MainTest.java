@@ -175,6 +175,20 @@ public class MainTest extends Application{
 									
 								}
 							}
+							if(i instanceof Star){
+								for(Shape shape : i.getShapeList()){
+									Shape intersection = Shape.intersect(ball, shape);
+									
+									if(!intersection.getBoundsInParent().isEmpty()){
+										//METTRE A JOUR LE SCORE
+										
+										System.err.println("Score : "+score.getScore());
+										p.remove(i);
+										touch = true;
+										break;
+									}
+								}
+							}
 							if(touch){
 								touch = false;
 								break;

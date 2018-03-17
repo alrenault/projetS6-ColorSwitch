@@ -10,8 +10,8 @@ import javafx.scene.paint.Color;
 
 public class ModelMultiShapes extends ModelObstacle {
 	
-	public static final int NBR_VERSIONS = 6;
-    protected static int[] versionEasy = {4};
+	public static final int NBR_VERSIONS = 8;
+    protected static int[] versionEasy = {4,6,7};
     protected static int[] versionMedium = {1, 2, 3, 5};
     protected static int[] versionHard = {0};
     

@@ -94,8 +94,8 @@ public class MultiCircle extends Obstacle {
                 break;
                 
             case 4:
-            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 2));
-            	modelC.add( new ModelCircle(x, y + bigRadial+10, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1));
+            	modelC.add( new ModelCircle(x, y, bigRadial+20, width, nb_arc, true, false, Speed.SYMPA, colors, 2));
+            	modelC.add( new ModelCircle(x, y + bigRadial+12, bigRadial+20, width, nb_arc, true, false, Speed.MOYEN, colors, 1));
 
             	mo.setDifficulty(Difficulty.HARD);
                 break;

@@ -13,6 +13,7 @@ import model.modelShape.ModelCross;
 import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelSquare;
+import model.modelShape.ModelTriangle;
 import model.modelShape.ModelVLine;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class MultiShapes extends Obstacle {
 	 version 3 : Deux croix avec une ligne au dessus et en dessous faisant des allez-retour
 	 version 4 : Cercle tournant dans le sens horraire avec une barre verticale faisant des allez retour
 	 version 5 : Carré tournant dans le sens horraire avec une barre verticale faisant des allez retour
+	 version 6 : Triangle tournant dans le sens horraire
+	 version 7 : Triangle tournant dans le sens contre horraire
 	 */
 
     
@@ -116,6 +119,18 @@ public class MultiShapes extends Obstacle {
 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
+                
+            case 6:
+            	modelC.add(new ModelTriangle(x,y,length,width,true,false,Speed.SYMPA,colors,1));
+            	
+            	mo.setDifficulty(Difficulty.EASY);
+            	break;
+            		
+            case 7:
+            	modelC.add(new ModelTriangle(x,y,length,width,false,false,Speed.SYMPA,colors,1));
+            	
+            	mo.setDifficulty(Difficulty.EASY);
+            	break;
         }
         
         for(ModelShape ms : modelC){

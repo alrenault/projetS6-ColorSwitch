@@ -90,21 +90,21 @@ public class Path extends Element {
 
                List<Color> l = new ArrayList<Color>();
                      Star s;
-                        if(o.getDifficulty() == Difficulty.EASY){
+                        if(o.getModel_obstacle().getDifficulty() == Difficulty.EASY){
                            	l.add(Colorable.BRONZE);
-                                s = new Star(scene.getWidth()/2,o.getY(),10,l,10);
+                                s = new Star(scWidth/2,o.getY(),10,l,10);
                             }
-                        else if(o.getDifficulty() == Difficulty.NORMAL){
+                        else if(o.getModel_obstacle().getDifficulty() == Difficulty.NORMAL){
                             	l.add(Colorable.SILVER);
-                                s = new Star(scene.getWidth()/2,o.getY(),15,l,20);
+                                s = new Star(scWidth/2,o.getY(),15,l,20);
                             }
                        else{
                             	l.add(Colorable.GOLD);
-                                s = new Star(scene.getWidth()/2,o.getY(),20,l,30);
+                                s = new Star(scWidth/2,o.getY(),20,l,30);
                            }
 
-                                        //marche pas encore tout à fait
-                                               /*for(Shape partStar : s.getShapeList()){
+            //marche pas encore tout à fait
+            /*for(Shape partStar : s.getShapeList()){
              	for(Shape shape : o.getShapeList()){
                  	while(!Shape.intersect(shape,partStar).getBoundsInParent().isEmpty()){
                  		s.setY(s.getY()+1);
@@ -117,13 +117,15 @@ public class Path extends Element {
             
             newPath.getChildren().add(o.getObstacle());
             newPath.getChildren().add(bcs.getItem());
-           // newPath.getChildren().add();
+            newPath.getChildren().add(s.getItem());
             
             add(o);
             add(bcs);
+            add(s);
             
             addSL(o.getShapeList());
             addSL(bcs.getShapeList());
+            addSL(s.getShapeList());
             
             posY = posY - o.getObstacleHeight() / 2 - 600;
         }
@@ -161,9 +163,9 @@ public class Path extends Element {
     	Difficulty obstacleDifficulty;
     	switch (gameDifficulty) {
         case EASY:
-            if (variante <= 5)//60%
+            if (variante <= 6)//70%
                 obstacleDifficulty = Difficulty.EASY;
-            else if (variante > 5 && variante < 9)//30%
+            else if (variante > 6 && variante < 9)//20%
                 obstacleDifficulty = Difficulty.NORMAL;
             else //10%
                 obstacleDifficulty = Difficulty.HARD;
