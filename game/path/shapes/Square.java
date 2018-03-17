@@ -34,6 +34,7 @@ public class Square extends Shapes {
     public Square(double x, double y, double length, double width,
                   boolean mouvementDirection, boolean acceleration, Speed mouvementSpeed, List<Color> colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, mouvementSpeed, colors, pos_color);
+        assert(length>0);
         this.length = length;
 
         this.shape = build();

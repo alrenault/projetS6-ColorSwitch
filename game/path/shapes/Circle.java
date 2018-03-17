@@ -41,9 +41,10 @@ public class Circle extends Shapes {
     public Circle(double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
                   boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color) {
 
-        super(xCenter, yCenter, width, rotationDirection, acceleration, vitesseRotation, colors, pos_color);
-        System.out.println(this.pos_color);
-        this.radial = radial;
+        super(xCenter, yCenter, Math.min(width,radial), rotationDirection, acceleration, vitesseRotation, colors, pos_color);
+        assert (arcs_nbr>0);
+        //System.out.println(this.pos_color);
+        this.radial = Math.max(width,radial);
 
         this.arcs_nbr = arcs_nbr;
         this.shape = build();

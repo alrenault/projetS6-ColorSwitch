@@ -39,6 +39,9 @@ public class Score {
      * @param scoreStored
      */
     public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, int scoreStored) {
+        assert(nbrObstaclesCrossed>=0);
+        assert(nbEtoilesRamassees>=0);
+        assert(scoreStored>=0);
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
         this.scoreStored = scoreStored;
@@ -57,6 +60,7 @@ public class Score {
      * @param item l'item en collision avec le joueur
      */
     public void ramasseItem(Item item) {
+        assert (item!=null);
         if (item instanceof Star) {
             nbEtoilesRamassees++;
         }

@@ -7,12 +7,9 @@ import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Une Shapes représent un group de shapes de JavaFX
@@ -88,19 +85,22 @@ public abstract class Shapes extends Element implements Colorable{
      * @param width l'epaisseur de la forme
      * @param mouvementDirection La direction de mouvement
      * @param acceleration L'acceleration du mouvement (ou non)
-     * @param s Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
+     * @param speed Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
      * @param colors Liste des couleurs de la forme à transmettre
      * @param pos_color La position initiale pour le parcours de la liste de couleurs
      */
-    protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
+    protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed speed, List<Color> colors, int pos_color) {
         super();
-    	this.x = x;
+        assert(x>=0);
+        assert(y>=0);
+        assert(width>=0);
+        this.x = x;
         this.y = y;
         this.width = width;
 
         this.mouvementDirection = mouvementDirection;
         this.acceleration = acceleration;
-        switch (s) {
+        switch (speed) {
             case SYMPA:
                 mouvementSpeed = 6.0;
                 break;

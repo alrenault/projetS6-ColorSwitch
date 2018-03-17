@@ -32,6 +32,7 @@ public class Cross extends Shapes {
      */
     public Cross(double x, double y, double width, double length, List<Color> colors) {
         super(x, y, width, true, false, Speed.SYMPA, colors, 1);
+        assert(length>0);
         this.length = length;
         this.shape = build();
     }
@@ -53,9 +54,10 @@ public class Cross extends Shapes {
                  Speed _mouvementSpeed, int nbr_rect, List<Color> colors, int pos_color) {
 
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
+        assert(length>0);
+
         if (nbr_rect != 2)
             this.nbr_rect = 4;
-
         this.length = length;
         this.shape = build();
 

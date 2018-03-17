@@ -28,6 +28,7 @@ public class Star extends Item {
      */
     public Star(double x, double y, double radius,List<Color> colors,int nbPoints) {
         super(x, y, colors,nbPoints);
+        assert (radius>0);
         this.radius = radius;
         //recuperation de la position
         //  this.coord = shape.localToScene(shape.getBoundsInLocal());

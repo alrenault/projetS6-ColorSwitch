@@ -1,7 +1,6 @@
 package game.path.shapes;
 
 import java.util.List;
-
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;

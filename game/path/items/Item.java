@@ -49,6 +49,9 @@ public abstract class Item extends Element {
      * @param colors Liste de couleur à appliquer
      */
     public Item(double x, double y, List<Color> colors,int nbPoints) {
+        assert (x>=0);
+        assert (y>=0);
+        assert (nbPoints>=0);
         this.x = x;
         this.y = y;
         this.nbPoints=nbPoints;

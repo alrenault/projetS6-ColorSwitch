@@ -33,6 +33,7 @@ public class Triangle extends Shapes {
      */
     public Triangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, Speed _mouvementSpeed, List<Color> colors, int pos_color) {
         super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
+        assert(height>0);
         this.height = height;
 
         this.shape = build();

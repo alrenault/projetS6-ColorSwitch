@@ -27,7 +27,7 @@ public class StagePseudo {
      * @param scorePlayer le score du joueur à inserer
      * @return la stage et submit entraine (TODO) la stage de menu (recommencer une partie) ou de fin
      */
-    public Stage stre(Stage primaryStage, Score scorePlayer){
+    public Stage promptPseudo(Stage primaryStage, Score scorePlayer){
         Button buttonClear,buttonSubmit;
         Label labelPseudo;
         TextField inputPseudo;
