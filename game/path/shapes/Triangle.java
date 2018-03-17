@@ -8,49 +8,42 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
+import model.modelShape.ModelTriangle;
 
 /**
  * Objet graphique d'un triangle
  */
 public class Triangle extends Shapes {
-    /**
-     * Hauteur du triangle
-     */
-    private double height;
+   
 
 
     /**
      * Constructeur de Triangle
-     * @param x coordonnée x du centre de gravité du triangle construit
-     * @param y coordonnée y du centre de gravité du triangle construit
-     * @param height hauteur du triangle construit
-     * @param width epaisseur du trait du triangle
-     * @param mouvementDirection indique la direction de la rotation
-     * @param acceleration Indique si la rotation du  triangle est linéaire ou est soumise à une accéleration
-     * @param _mouvementSpeed   vitesse de rotation du triangle
-     * @param colors la liste de couleurs à applique aux traits du triangle
-     * @param pos_color
+     
      */
-    public Triangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, Speed _mouvementSpeed, List<Color> colors, int pos_color) {
-        super(x, y, width, mouvementDirection, acceleration, _mouvementSpeed, colors, pos_color);
-        assert(height>0);
-        this.height = height;
+    public Triangle(ModelTriangle mt) {
+        super(mt);
 
-        this.shape = build();
+        this.group_shape = buildShape(mt);
 
-        //recuperation de la position
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        //recuperation de la position (a voir si on ne peut pas le mettre dans la factory)
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         
-        check();
+        //check();
     }
 
     /**
      * Génère le triangle
      * @return le Group correspondant au triangle
      */
-    protected Group buildShape() {
+    protected Group buildShape(ModelTriangle mt) {
         Group t = new Group();
 
+        double height = mt.getHeight();
+        double width = mt.getWidth();
+        double x = mt.getX();
+        double y = mt.getY();
+        
         double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, coef, coefReduction;
         Polygon arc_1, arc_2, arc_3;
         arc_1 = new Polygon();
@@ -79,12 +72,12 @@ public class Triangle extends Shapes {
         arc_1.getPoints().addAll(xa, ya, xb, yb, xc, yc, xd, yd);
         arc_2.getPoints().addAll(xb, yb, xe, ye, xf, yf, xc, yc);
         arc_3.getPoints().addAll(xe, ye, xf, yf, xd, yd, xa, ya);
-        color(arc_1);
-        verifPosColor();
-        color(arc_2);
-        verifPosColor();
-        color(arc_3);
-        verifPosColor();
+        mt.color(arc_1);
+        mt.verifPosColor();
+        mt.color(arc_2);
+        mt.verifPosColor();
+        mt.color(arc_3);
+        mt.verifPosColor();
 
         addSL(arc_1,arc_2,arc_3);
         t.getChildren().add(arc_1);
@@ -92,12 +85,12 @@ public class Triangle extends Shapes {
         t.getChildren().add(arc_3);
 
 
-        RotateTransition rotation = new RotateTransition(Duration.seconds(mouvementSpeed), t);
+        RotateTransition rotation = new RotateTransition(Duration.seconds(mt.getMouvementSpeed()), t);
 
-        rotation.setByAngle(360 * ((mouvementDirection) ? 1 : -1));
+        rotation.setByAngle(360 * ((mt.isMouvementDirection()) ? 1 : -1));
 
         rotation.setCycleCount((int) Double.POSITIVE_INFINITY);
-        if (!acceleration) {
+        if (!mt.isAcceleration()) {
             rotation.setInterpolator(Interpolator.LINEAR);
         }
 

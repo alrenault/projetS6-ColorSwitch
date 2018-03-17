@@ -7,100 +7,119 @@ import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelShape.ModelCircle;
+import model.modelShape.ModelCross;
+import model.modelShape.ModelHLine;
+import model.modelShape.ModelShape;
+import model.modelShape.ModelSquare;
+import model.modelShape.ModelTriangle;
+import model.modelShape.ModelVLine;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Une Shapes représent un group de shapes de JavaFX
  * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
  */
 
-public abstract class Shapes extends Element implements Colorable{
+public class Shapes extends Element{
 
 	/**
      *Coordonnée en x du centre de la forme
      */
-    protected double x;
+   // protected double x;
     /**
      *Coordonnée en y du centre de la forme
      */
-    protected double y;
+   // protected double y;
     /**
      * Le groupe représentant la forme
      */
-    protected Group shape;
+    protected Group group_shape;
+    
+    /**
+     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
+     */
+    //protected Bounds coord;
+    
+    /**
+     * L'épaisseur du trait de la forme
+     */
+    
+   // double width;
+    
+    /**
+     * Indique la direction du mouvement de la forme
+     */
+    
+   // boolean mouvementDirection;
+    /**
+     * Indique si la rotation de la forme est linéaire ou est soumise à une accéleration
+     */
+    
+    //boolean acceleration;
+    
+    /**
+     * Position actuelle pour le parcours de la liste de couleurs
+     */
+    //int pos_color;
+    
+    /**
+     * Vitesse de rotation de la forme
+     */
+    //double mouvementSpeed;
+    
+    /**
+     * L'ensemble de couleurs que l'on peut utiliser
+     */
+    //List<Color> colors;
+    
+    /**
+     * L'ensemble des couleurs utilisées par la forme
+     */
+    //List<Color> colors_use;
+    
+    /**
+     * L'ensemble des (JavaFX) Shape utilisées par la forme
+     */
+    List<Shape> shape_list;
+    
+    /**
+     * Patron de la forme
+     */
+    static ModelShape model_shape;
     
     /**
      * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
      */
     protected Bounds coord;
     
-    /**
-     * L'épaisseur du trait de la forme
-     */
-    
-    double width;
-    
-    /**
-     * Indique la direction du mouvement de la forme
-     */
-    
-    boolean mouvementDirection;
-    /**
-     * Indique si la rotation de la forme est linéaire ou est soumise à une accéleration
-     */
-    
-    boolean acceleration;
-    
-    /**
-     * Position actuelle pour le parcours de la liste de couleurs
-     */
-    int pos_color;
-    
-    /**
-     * Vitesse de rotation de la forme
-     */
-    double mouvementSpeed;
-    
-    /**
-     * L'ensemble de couleurs que l'on peut utiliser
-     */
-    List<Color> colors;
-    
-    /**
-     * L'ensemble des couleurs utilisées par la forme
-     */
-    List<Color> colors_use;
-    
-    /**
-     * L'ensemble des (JavaFX) Shape utilisées par la forme
-     */
-    List<Shape> shape_list;
+
 
     /**
-     *
+     * Constructeur d'une Shapes
      * @param x La coordonnée en x du centre de la forme
      * @param y La coordonnée en y du centre de la forme
      * @param width l'epaisseur de la forme
      * @param mouvementDirection La direction de mouvement
      * @param acceleration L'acceleration du mouvement (ou non)
-     * @param speed Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
+     * @param s Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
      * @param colors Liste des couleurs de la forme à transmettre
      * @param pos_color La position initiale pour le parcours de la liste de couleurs
      */
-    protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed speed, List<Color> colors, int pos_color) {
+   /* protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
         super();
-        assert(x>=0);
-        assert(y>=0);
-        assert(width>=0);
-        this.x = x;
+    	this.x = x;
         this.y = y;
         this.width = width;
 
         this.mouvementDirection = mouvementDirection;
         this.acceleration = acceleration;
-        switch (speed) {
+        switch (s) {
             case SYMPA:
                 mouvementSpeed = 6.0;
                 break;
@@ -128,55 +147,84 @@ public abstract class Shapes extends Element implements Colorable{
         //this.shape = build();
         //check();
 
+    }*/
+    
+    protected Shapes(ModelShape modelShape) {
+    	model_shape = modelShape;
+    	//group_shape = buildShape();
+    	
     }
 
-    /**
+	/**
      * Assesseur de l'épaisseur de la forme
      * @return l'épaisseur de la forme
      */
-    public double getWidth() {
+   /* public double getWidth() {
         return width;
-    }
+    }*/
 
     /**
      * Génère la forme
      * @return Le Group représentant la forme
      */
-    protected Group build() {
+   /* protected Group build() {
     	return buildShape();
     }
 
-    protected abstract Group buildShape();
-
-    public void verifPosColor() {
-        pos_color++;
-        if (pos_color == colors.size())
-            pos_color = 0;
-    }
-
-    /**
-     * Colorie une (JavaFX) Shape en fonction de l'ensemble de couleurs qui lui est associe
-     * @param s La (JavaFX) Shape a colorier
-     */
-    public void color(Shape s) {
-    	Iterator<Color> it = colors.iterator();
-    	Color c = null;
-    	for(int i = 0;it.hasNext() && i <= pos_color;i++){
-    		c = it.next();
+    public Group buildShape() {
+    	Group shape;
+    	
+    	switch(model_shape.getType()) {
+    		case Circle:
+    			shape = Circle.build((ModelCircle) model_shape);
+    			break;
+    		
+    		case Cross:
+    			shape = Cross.build((ModelCross) model_shape);
+    			break;
+    			
+    		case Square:
+    			shape = Square.build((ModelSquare) model_shape);
+    			break;
+    		
+    		case Triangle:
+    			shape = Triangle.build((ModelTriangle) model_shape);
+    			break;
+    			
+    		case Horizontal_Line:
+    			shape = Linee.build((ModelHLine) model_shape);
+    			break;
+    			
+    		case Vertical_Line:
+    			shape = VerticalLine.build((ModelVLine) model_shape);
+    			break;
+    			
+    			
+    		default:
+    			shape = new Group();
+    			break;
+    		
     	}
     	
-    	if(c == null)
-    		c = Color.WHITE;
-        s.setFill(c);
-        colors_use.add(c);
-    }
+    	return shape;
+    }*/
+
+    
+    
+	public Bounds getCoord() {
+		return coord;
+	}
+	
+    public void setCoord(Bounds coord) {
+		this.coord = coord;
+	}
 
     /**
      * Assesseur de la coordonée en x de la forme
      * @return La coordonnée en x de la forme
      */
     public double getX() {
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
 
@@ -186,7 +234,7 @@ public abstract class Shapes extends Element implements Colorable{
      * @return La coordonnée en y de la forme
      */
     public double getY() {
-        coord = shape.localToScene(shape.getBoundsInLocal());
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
     }
 
@@ -194,18 +242,9 @@ public abstract class Shapes extends Element implements Colorable{
      * Assesseur des coordonnees de la forme sous la forme d'un Point2D
      * @return Les coordonnees de ka forme
      */
-    public Point2D getCoord() {
+    public Point2D getCoord2D() {
         return new Point2D(getX(), getY());
     }
-
-    /**
-     * Assesseur de l'ensemble des couleurs utilisees par la forme
-     * @return L'ensemble des couleurs utilisees par la forme
-     */
-    public List<Color> getColors_use() {
-        return colors_use;
-    }
-
     /**
      * 
      * @param _x
@@ -213,7 +252,7 @@ public abstract class Shapes extends Element implements Colorable{
      * @return
      */
     public boolean isOver(double _x, double _y) {
-        return this.shape.contains(_x, _y);
+        return this.group_shape.contains(_x, _y);
         //return this.shape.intersects(getX(),getY(),coord.getWidth(),coord.getHeight());
     }
     
@@ -222,17 +261,12 @@ public abstract class Shapes extends Element implements Colorable{
      * @return Le groupe correspondant a la forme
      */
     public Group getShape() {
-    	return shape;
+    	return group_shape;
     }
-    
-    /**
-     * Determine la vitesse de mouvement de la Forme
-     */
-    public enum Speed {
-        SYMPA,
-        MOYEN,
-        HARD,
-        TRESSYMPA,
-        NONE
-    }
+
+	@Override
+	protected Group build() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

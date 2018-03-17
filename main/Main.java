@@ -51,9 +51,11 @@ public class Main extends Application {
 		help();
 		
 		model = new Model();
-		view = new View(primaryStage);
+		view = new View(controller,primaryStage);
 		
 		controller = new Controller(model, view);
+		
+		controller.init();
 		
 		
 		//Hello
@@ -63,16 +65,18 @@ public class Main extends Application {
 		
         
         //Set Scene
-        Group root = new Group();
-        Scene scene = new Scene(root, 600, 1000);
+		Group root = new Group();
+		Scene scene = new Scene(root, 600, 1000);
+		Game colorSuitch = new Game(scene);
         
         model.startGame();
-        view.basicView();
-		//view.viewGame(model.getGame());
+        view.viewGame(model.getGame());
+		
+        //view.viewGame(colorSuitch);
 		
 		help();
     	
-    	//Game colorSuitch = new Game(scene);
+    	
     		
     	//colorSuitch.play();
 		

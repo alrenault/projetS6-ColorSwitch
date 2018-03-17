@@ -2,11 +2,18 @@ package game.path.obstacle;
 
 import game.Colorable;
 import game.Difficulty;
-import game.path.shapes.Shapes.Speed;
+import game.Speed;
+import game.path.shapes.BuildShape;
+import game.path.shapes.Shapes;
 import game.path.shapes.Square;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.modelObstacle.ModelMultiSquare;
+import model.modelObstacle.ModelObstacle;
+import model.modelShape.ModelShape;
+import model.modelShape.ModelSquare;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -20,112 +27,73 @@ public class MultiSquare extends Obstacle {
 	 version 4 : un rectangle moyen dans un grand rectangle tournant dans des sens contraire
 	 */
 
-    public static final int NBR_VERSIONS = 5;
-    protected static int[] versionEasy = {2, 3};
-    protected static int[] versionMedium = {0, 1};
-    protected static int[] versionHard = {4};
 
-    public MultiSquare(double x, double y, List<Color> colors, int version) {
-        super(x, y, colors, version, 2);
-        obstacle = buildObstacle();
+
+    public MultiSquare(ModelMultiSquare mms) {
+        super(mms);
+        obstacle = buildObstacle(mms);
     }
 
-    public MultiSquare(double x, double y, List<Color> colors, Difficulty difficulty) {
-        super(x, y, colors, 0, 4);
-        if (difficulty == Difficulty.EASY)
-            version = MultiSquare.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = MultiSquare.getRandomMediumVersion();
-        else
-            version = MultiSquare.getRandomHardVersion();
-        obstacle = buildObstacle();
-    }
 
-    public static int getRandomEasyVersion() {
-        Random r = new Random();
-        return versionEasy[r.nextInt(versionEasy.length)];
-    }
+    
 
-    public static int getRandomMediumVersion() {
-        Random r = new Random();
-        return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion() {
-        Random r = new Random();
-        return versionHard[r.nextInt(versionHard.length)];
-    }
-
-    public Group buildObstacle() {
-        Group multiShapes = new Group();
+    public Group buildObstacle(ModelObstacle mo) {
+        Group multiSquare = new Group();
 
         double tinyLength = 150.0;
         double mediumLength = 200.0;
         double bigLength = 300.0;
         double width = 15.0;
+        
+        double x = mo.getX();
+        double y = mo.getY();
+        List<Color> colors = mo.getColors();
 
         //public Square(double x, double y, double length, double width,
         //boolean mouvementDirection, boolean acceleration,int mouvementSpeed,Color[] colors, int pos_color)
-        Square squa1;
-        Square squa2;
+        Shapes s;
+        List<ModelShape> modelC = new ArrayList<>();
 
-        if (version >= NBR_VERSIONS)
-            version = versionDefault;
-
-        switch (version) {
+        if (mo.getVersion() >= ModelMultiSquare.NBR_VERSIONS)
+            mo.setVersion(mo.getVersionDefault());
+        switch (mo.getVersion()) {
             case 0:
-                squa1 = new Square(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, 0);
-                
-                addSL(squa1.getShapeList());
-                multiShapes.getChildren().add(squa1.getShape());
-                
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(squa1.getColors_use());
+                modelC.add(new ModelSquare(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, 0));
+
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
             case 1:
-                squa1 = new Square(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, 0);
+            	modelC.add(new ModelSquare(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, 0));
                 
-                addSL(squa1.getShapeList());
-                multiShapes.getChildren().add(squa1.getShape());
-                
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(squa1.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
             case 2:
-                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0);
+            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0));
                 
-                addSL(squa1.getShapeList());
-                multiShapes.getChildren().add(squa1.getShape());
-                
-                difficulty = Difficulty.EASY;
-                color_use.addAll(squa1.getColors_use());
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
             case 3:
-                squa1 = new Square(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, 0);
+            	modelC.add(new ModelSquare(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, 0));
                 
-                addSL(squa1.getShapeList());
-                multiShapes.getChildren().add(squa1.getShape());
-                
-                difficulty = Difficulty.EASY;
-                color_use.addAll(squa1.getColors_use());
+            	mo.setDifficulty(Difficulty.EASY);
                 
                 break;
             case 4:
-                squa1 = new Square(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0);
-                squa2 = new Square(x, y, bigLength, width, true, false, Speed.MOYEN, colors, 2);
+            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0));
+            	modelC.add(new ModelSquare(x, y, bigLength, width, true, false, Speed.MOYEN, colors, 2));
                 
-                addSL(squa1.getShapeList(),squa2.getShapeList());
-                multiShapes.getChildren().add(squa1.getShape());
-                multiShapes.getChildren().add(squa2.getShape());
-                
-                difficulty = Difficulty.HARD;
-                color_use.addAll(squa1.getColors_use());
-                color_use.addAll(squa2.getColors_use());
+            	mo.setDifficulty(Difficulty.HARD);
                 break;
-                
-                	
+                  	
+        }
+        
+        for(ModelShape ms : modelC){
+        	s = BuildShape.constructShape(ms);
+            addSL(s.getShapeList());  
+            multiSquare.getChildren().add(s.getShape());
+            mo.getColor_use().addAll(ms.getColors_use());
         }
 
-        return multiShapes;
+        return multiSquare;
     }
 }

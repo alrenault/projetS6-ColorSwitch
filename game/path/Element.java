@@ -12,7 +12,7 @@ public abstract class Element {
 	
 	protected Group shape;
 	
-	List<Shape> shape_list;
+	static List<Shape> shape_list;
 	
 	public Element() {
 		//shape = new Group();
@@ -35,7 +35,7 @@ public abstract class Element {
 	}
 	
 	
-	protected List<Shape> addSL(Shape ... shapes) {
+	protected static List<Shape> addSL(Shape ... shapes) {
 		
 		
 		
@@ -47,7 +47,6 @@ public abstract class Element {
 			}
 		}
 		
-		//System.out.println("Empty ?"+shape_list.isEmpty());
 		return shape_list;
 	}
 	
@@ -60,12 +59,10 @@ public abstract class Element {
 		if (shapes_list != null) {
 			if(shape_list == null) shape_list = new ArrayList<>();
 			for (List<Shape> j : shapes_list) {
-				//System.out.println("j null : " + j);
 				shape_list.addAll(j);
 				
 			}
 		}
-		//System.out.println("Empty ?"+shape_list.isEmpty());
 		return shape_list;
 		
 	}

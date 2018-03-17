@@ -1,10 +1,8 @@
 package game.path;
 
-import game.Colorable;
 import game.Difficulty;
 import game.ennemy.Ennemy;
 import game.path.items.Item;
-import game.path.items.Star;
 import game.path.obstacle.BuildObstacle;
 import game.path.obstacle.Obstacle;
 import game.path.items.BallColorSwitch;
@@ -25,19 +23,21 @@ public class Path extends Element {
     private List<Ennemy> ennemies;
     private Group path;
     private Difficulty gameDifficulty;
-    private Scene scene;
+    private double scWidth;
+    private double scHeight;
     private List<Color> colors;
     private int nbr_Obs;
 
 
-    public Path(Scene scene, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
+    public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
     	super();
         obstacles = new ArrayList<>();
         ennemies = new ArrayList<>();
         items = new ArrayList<>();
         this.gameDifficulty = gameDifficulty;
         this.colors = colors;
-        this.scene = scene;
+        this.scWidth = scWidth;
+        this.scHeight = scHeight;
         this.nbr_Obs = nbr_Obs;
 
         path = buildPathRandom();
@@ -58,19 +58,23 @@ public class Path extends Element {
     	items = new ArrayList<>();
     }
 
-    private Group buildPathRandom() {
-    	System.out.println("DANS LE PATH");
+    public Path(List<Color> colors, int nb_Obstacle, Difficulty difficulty) {
+		this.colors = colors;
+		this.nbr_Obs = nb_Obstacle;
+		this.gameDifficulty = difficulty;
+	}
+
+	private Group buildPathRandom() {
     	
         Group newPath = new Group();
         Random r = new Random();
         int type;
         int variante;
-        double posY = scene.getHeight() / 3;
-        double posX = scene.getWidth() / 2;
+        double posY = scHeight / 3;
+        double posX = scWidth / 2;
         Difficulty obstacleDifficulty;
 
-        //factory
-        BuildObstacle bo = new BuildObstacle();
+
 
         //Constrution
         for (int i = 0; i < nbr_Obs; i++) {
@@ -79,46 +83,21 @@ public class Path extends Element {
             obstacleDifficulty = obstacleDifficulty(variante);
             
             //Generation de l'obstacle avec son colorSwitch
-            Obstacle o = bo.BuildObstacleVersionAlea(type, obstacleDifficulty, posX, posY, colors, scene);
-            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,posY + o.getObstacleHeight()/2 + 110,o.getColor_use());
+            Obstacle o = BuildObstacle.VersionAlea(type, obstacleDifficulty, posX, posY, colors,scWidth);
+            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + o.getObstacleHeight()/2 + 150,o.getModel_obstacle().getColor_use());
 
-            List<Color> l = new ArrayList<Color>();
-            Star s;
-            if(o.getDifficulty() == Difficulty.EASY){
-            	l.add(Colorable.BRONZE);
-                s = new Star(scene.getWidth()/2,o.getY(),10,l,10);
-            }
-            else if(o.getDifficulty() == Difficulty.NORMAL){
-            	l.add(Colorable.SILVER);
-                s = new Star(scene.getWidth()/2,o.getY(),15,l,20);
-            }
-            else{
-            	l.add(Colorable.GOLD);
-                s = new Star(scene.getWidth()/2,o.getY(),20,l,30);
-            }
+            //System.out.println("colors : "+bcs.getColors_use());
             
-            
-            //marche pas encore tout à fait
-            /*for(Shape partStar : s.getShapeList()){
-            	for(Shape shape : o.getShapeList()){
-                	while(!Shape.intersect(shape,partStar).getBoundsInParent().isEmpty()){
-                		s.setY(s.getY()+1);
-                	}
-                }
-            }*/
-            
+            //System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
             
             newPath.getChildren().add(o.getObstacle());
             newPath.getChildren().add(bcs.getItem());
-            newPath.getChildren().add(s.getItem());
             
             add(o);
             add(bcs);
-            add(s);
             
             addSL(o.getShapeList());
             addSL(bcs.getShapeList());
-            addSL(s.getShapeList());
             
             posY = posY - o.getObstacleHeight() / 2 - 600;
         }
@@ -127,8 +106,6 @@ public class Path extends Element {
         return newPath;
     }
 
-    
-    
     private Group buildPath() {
         Group newPath = new Group();
         Iterator<Obstacle> itObs = obstacles.iterator();
@@ -136,7 +113,7 @@ public class Path extends Element {
         while (itObs.hasNext()) {
             o = itObs.next();
             newPath.getChildren().add(o.getObstacle());
-            BallColorSwitch bcs = new BallColorSwitch(scene.getWidth()/2,o.getY() + o.getObstacleHeight()/2 + 100 + o.getObstacleHeight()/2 + 100,o.getColor_use());
+            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,o.getY() + o.getObstacleHeight()/2 + 150 + o.getObstacleHeight()/2 + 100,o.getModel_obstacle().getColor_use());
             
             addSL(o.getShapeList());
             addSL(bcs.getShapeList());
@@ -158,9 +135,9 @@ public class Path extends Element {
     	Difficulty obstacleDifficulty;
     	switch (gameDifficulty) {
         case EASY:
-            if (variante <= 6)//70%
+            if (variante <= 5)//60%
                 obstacleDifficulty = Difficulty.EASY;
-            else if (variante > 6 && variante < 9)//20%
+            else if (variante > 5 && variante < 9)//30%
                 obstacleDifficulty = Difficulty.NORMAL;
             else //10%
                 obstacleDifficulty = Difficulty.HARD;

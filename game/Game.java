@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
+import view.ViewGameManagement;
 
 /**
  * This class is used to create a game
@@ -35,8 +36,12 @@ import javafx.stage.Stage;
 public class Game {
 
     Ball ball;
-    Path path;
+	Path path;
     Universe universe;
+    
+    Difficulty difficulty;
+    List<Color> colors;
+    Score score;
     
     Stage stage;
     Scene scene;
@@ -50,9 +55,36 @@ public class Game {
     }
     
     public Game() {
+    	difficulty = Difficulty.NO;
+    	colors = new ArrayList<Color>();
+    	colors.add(Colorable.YELLOW);
+    	colors.add(Colorable.PURPLE);
+    	colors.add(Colorable.ROSE);
+    	colors.add(Colorable.BLUE);
     	
+    	ball = new BallPlayer(10, colors.get(0));
+    	path = new Path(colors, Integer.MAX_VALUE, difficulty);
+    	universe = new Universe();
     }
+    
+    
+	public Ball getBall() {
+		return ball;
+	}
 
+	public Path getPath() {
+		return path;
+	}
+
+	public Universe getUniverse() {
+		return universe;
+	}
+	
+	public Score getScore() {
+		return score;
+	}
+
+	
     public Game(Scene scene) {
         System.out.println(
         		"\n_______________"
@@ -65,11 +97,15 @@ public class Game {
     	CUSTOM.add(Colorable.BLUE);
     	
     	
-    	this.path = new Path(scene, CUSTOM, 10   , Difficulty.EASY);
+    	this.path = new Path(scene.getWidth(),scene.getHeight(), CUSTOM, 10   , Difficulty.EASY);
     	
     	this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	
     	this.universe = new Universe();
+    	
+    	this.score = new Score();
+    	
+    	ViewGameManagement.view(this,scene);
         
         
     }
@@ -208,7 +244,7 @@ public class Game {
 
         
 
-        Path p = new Path(scene1, CUSTOM, 10   , Difficulty.EASY);
+        Path p = new Path(scene1.getWidth(),scene1.getHeight(), CUSTOM, 10   , Difficulty.EASY);
         
         jObstacles.getChildren().add(p.getPath());
         
@@ -257,4 +293,7 @@ public class Game {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
 }

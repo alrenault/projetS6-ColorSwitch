@@ -1,13 +1,22 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.shapes.BuildShape;
+import game.path.shapes.Circle;
 import game.path.shapes.Linee;
-import game.path.shapes.Shapes.Speed;
+import game.path.shapes.Shapes;
+import game.Speed;
 import game.path.shapes.VerticalLine;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import model.modelObstacle.ModelMultiLine;
+import model.modelObstacle.ModelObstacle;
+import model.modelShape.ModelShape;
+import model.modelShape.ModelVLine;
+import model.modelShape.ModelHLine;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -26,201 +35,123 @@ public class MultiLinee extends Obstacle {
 	version 10 : 4 barres verticales des 2 côtés faisant les allez-retour
 	*/
 
-    public static final int NBR_VERSIONS = 11;
-    protected static int[] versionEasy = {0, 1, 4, 7};
-    protected static int[] versionMedium = {2, 3, 5, 6, 8};
-    protected static int[] versionHard = {9, 11};
-    Scene scene;
+    
 
-    public MultiLinee(double x, double y, List<Color> colors, int version, Scene scene) {
-        super(x, y, colors, version, 4);
-        this.scene = scene;
-        obstacle = buildObstacle();
+    public MultiLinee(ModelMultiLine mml) {
+        super(mml);
+        obstacle = buildObstacle(mml);
     }
 
-    public MultiLinee(double x, double y, List<Color> colors, Difficulty difficulty, Scene scene) {
-        super(x, y, colors, 0, 4);
-        if (difficulty == Difficulty.EASY)
-            version = MultiLinee.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = MultiLinee.getRandomMediumVersion();
-        else
-            version = MultiLinee.getRandomHardVersion();
+    
 
-        this.scene = scene;
-        obstacle = buildObstacle();
-    }
-
-    public static int getRandomEasyVersion() {
-        Random r = new Random();
-        return versionEasy[r.nextInt(versionEasy.length)];
-    }
-
-    public static int getRandomMediumVersion() {
-        Random r = new Random();
-        return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion() {
-        Random r = new Random();
-        return versionHard[r.nextInt(versionHard.length)];
-    }
-
-    protected Group buildObstacle() {
+    protected Group buildObstacle(ModelObstacle mo) {
 
         double length = 100.0;
         double width = 20.0;
         double separation = 300;
         Group multiLinee = new Group();
+        
+        double y = mo.getY();
+        List<Color> colors = mo.getColors();
+        
+       // Scene scene = ((ModelMultiLine) mo).getScene();
+        double scWidth = ((ModelMultiLine) mo).getScWidth();
+        
+        Shapes s;
+        
+        List<ModelShape> modelC = new ArrayList<>();
 
-        Linee l1;
-        Linee l2;
-        VerticalLine vl1;
-        VerticalLine vl2;
 
 		/*public Linee(int x, int y,int length, int width, boolean acceleration,
 				boolean reverse,int _mouvementSpeed, int nbr_seg, Color[] colors, int pos_colors,int goal) {*/
-        if (version >= NBR_VERSIONS)
-            version = versionDefault;
+        if(mo.getVersion() >= ModelMultiLine.NBR_VERSIONS)
+            mo.setVersion(mo.getVersionDefault());
 
-        switch (version) {
+        switch (mo.getVersion()) {
             case 0:
-                l1 = new Linee(-length, y, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scene.getWidth() + length);
+                modelC.add(new ModelHLine(-length, y, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scWidth + length));
                 
-                addSL(l1.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                
-                difficulty = Difficulty.EASY;
-                color_use.addAll(l1.getColors_use());
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 1:
-                l1 = new Linee((int) scene.getWidth(), y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scene.getWidth() + length));
+            	modelC.add(new ModelHLine((int) scWidth, y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scWidth + length)));
                 
-                addSL(l1.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                
-                difficulty = Difficulty.EASY;
-                color_use.addAll(l1.getColors_use());
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 2:
-                l1 = new Linee((int) scene.getWidth(), y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scene.getWidth() + length));
-                l2 = new Linee(-length, y + width, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scene.getWidth() + length);
+            	modelC.add(new ModelHLine((int) scWidth, y, length, width, false, true, Speed.MOYEN, 1, colors, 1, -((int) scWidth + length)));
+            	modelC.add(new ModelHLine(-length, y + width, length, width, false, true, Speed.HARD, 1, colors, 0, (int) scWidth + length));
 
-                addSL(l1.getShapeList(),l2.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                multiLinee.getChildren().add(l2.getShape());
-                
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(l1.getColors_use());
-                color_use.addAll(l2.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 3:
-                l1 = new Linee(-length * 4, y, length, width, false, true, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+            	modelC.add(new ModelHLine((-length) * 4, y, length, width, false, true, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
                 
-                addSL(l1.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(l1.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 4:
-                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
                 
-                addSL(l1.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                
-                difficulty = Difficulty.EASY;
-                color_use.addAll(l1.getColors_use());
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 5:
-                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                l2 = new Linee(0, y + width, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
-
-                addSL(l1.getShapeList(),l2.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                multiLinee.getChildren().add(l2.getShape());
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelHLine(0, y + width, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 1, -(length * 4)));
                 
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(l1.getColors_use());
-                color_use.addAll(l2.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 6:
-                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                l2 = new Linee(0, y + width + 100, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 1, -(length * 4));
-
-                addSL(l1.getShapeList(),l2.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                multiLinee.getChildren().add(l2.getShape());
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelHLine(0, y + width + 100, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 1, -(length * 4)));
                 
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(l1.getColors_use());
-                color_use.addAll(l2.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 7:
-                vl1 = new VerticalLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scene.getWidth() + 2 * width + separation));
-                
-                addSL(vl1.getShapeList());
-                multiLinee.getChildren().add(vl1.getShape());
-                difficulty = Difficulty.EASY;
-                color_use.addAll(vl1.getColors_use());
+            	modelC.add(new ModelVLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scWidth + 2 * width + separation)));
+
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 8:
-                vl1 = new VerticalLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scene.getWidth() + 2 * width + separation));
-                vl2 = new VerticalLine(scene.getWidth(), y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 2, -(scene.getWidth() + width * 2 + separation));
-                
-                addSL(vl1.getShapeList(),vl2.getShapeList());
-                multiLinee.getChildren().add(vl1.getShape());
-                multiLinee.getChildren().add(vl2.getShape());
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(vl1.getColors_use());
-                color_use.addAll(vl2.getColors_use());
+            	modelC.add(new ModelVLine(-width * 2 - separation, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 0, (scWidth + 2 * width + separation)));
+            	modelC.add(new ModelVLine(scWidth, y, length, width, separation, false, true, Speed.SYMPA, 2, colors, 2, -(scWidth + width * 2 + separation)));
+            	
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 9:
-                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                vl1 = new VerticalLine(-width, y - length, length, width, separation, false, true, Speed.SYMPA, 1, colors, 0, (scene.getWidth() + width));
-                vl2 = new VerticalLine(scene.getWidth(), y + width, length, width, separation, false, true, Speed.SYMPA, 1, colors, 2, -(scene.getWidth() + width));
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+            	modelC.add(new ModelVLine(-width, y - length, length, width, separation, false, true, Speed.SYMPA, 1, colors, 0, (scWidth + width)));
+            	modelC.add(new ModelVLine(scWidth, y + width, length, width, separation, false, true, Speed.SYMPA, 1, colors, 2, -(scWidth + width)));
                 
-                addSL(l1.getShapeList(),vl1.getShapeList(),vl2.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                multiLinee.getChildren().add(vl1.getShape());
-                multiLinee.getChildren().add(vl2.getShape());
-                
-                difficulty = Difficulty.HARD;
-                color_use.addAll(l1.getColors_use());
-                color_use.addAll(vl1.getColors_use());
-                color_use.addAll(vl2.getColors_use());
+            	mo.setDifficulty(Difficulty.HARD);
                 break;
                 
             case 10:
             	Random r = new Random();
-                vl1 = new VerticalLine(-width * 4 - separation * 3, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), (scene.getWidth() + 4 * width + separation*3));
-                vl2 = new VerticalLine(scene.getWidth(), y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), -(scene.getWidth() + width * 4 + separation*3));
-                
-                addSL(vl1.getShapeList(),vl2.getShapeList());
-                multiLinee.getChildren().add(vl1.getShape());
-                multiLinee.getChildren().add(vl2.getShape());
-                
-                difficulty = Difficulty.HARD;
-                color_use.addAll(vl1.getColors_use());
-                color_use.addAll(vl2.getColors_use());
+            	modelC.add(new ModelVLine(-width * 4 - separation * 3, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), (scWidth + 4 * width + separation*3)));
+            	modelC.add(new ModelVLine(scWidth, y, length, width, separation, false, true, Speed.MOYEN, 4, colors, r.nextInt(4), -(scWidth + width * 4 + separation*3)));
+            	mo.setDifficulty(Difficulty.HARD);
             	break;
             	
             default:
-                l1 = new Linee(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scene.getWidth() / (int) length + 4, colors, 0, length * 4);
-                
-                addSL(l1.getShapeList());
-                multiLinee.getChildren().add(l1.getShape());
-                difficulty = Difficulty.EASY;
-                color_use.addAll(l1.getColors_use());
+            	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
+            	
+            	mo.setDifficulty(Difficulty.EASY);
+        }
+        
+        for(ModelShape ms : modelC){
+        	s = BuildShape.constructShape(ms);
+            addSL(s.getShapeList());  
+            multiLinee.getChildren().add(s.getShape());
+            mo.getColor_use().addAll(ms.getColors_use());
         }
 
         return multiLinee;

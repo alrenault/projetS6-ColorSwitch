@@ -53,6 +53,7 @@ public class Score {
      */
     public void increaseNOC() {
         nbrObstaclesCrossed++;
+        System.err.println(nbrObstaclesCrossed);
     }
 
     /**

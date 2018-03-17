@@ -1,11 +1,18 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.shapes.BuildShape;
+import game.path.shapes.Circle;
 import game.path.shapes.Cross;
-import game.path.shapes.Shapes.Speed;
+import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.modelObstacle.ModelMultiCross;
+import model.modelObstacle.ModelObstacle;
+import model.modelShape.ModelCross;
+import model.modelShape.ModelShape;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -19,46 +26,21 @@ public class MultiCross extends Obstacle {
 	version 5 : 2 grandes croix
 	*/
 
-    public static final int NBR_VERSIONS = 6;
-    protected static int[] versionEasy = {0, 1};
-    protected static int[] versionMedium = {2, 5};
-    protected static int[] versionHard = {3,4};
 
-    public MultiCross(double x, double y, List<Color> colors, int version) {
-        super(x, y, colors, version, 0);
-        obstacle = buildObstacle();
+
+    public MultiCross(ModelMultiCross mmc) {
+        super(mmc);
+        obstacle = buildObstacle(mmc);
     }
 
-    public MultiCross(double x, double y, List<Color> colors, Difficulty difficulty) {
-        super(x, y, colors, 0, 4);
-        if (difficulty == Difficulty.EASY)
-            version = MultiCross.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = MultiCross.getRandomMediumVersion();
-        else
-            version = MultiCross.getRandomHardVersion();
-        obstacle = buildObstacle();
-    }
-
-    public static int getRandomEasyVersion() {
-        Random r = new Random();
-        return versionEasy[r.nextInt(versionEasy.length)];
-    }
-
-    public static int getRandomMediumVersion() {
-        Random r = new Random();
-        return versionMedium[r.nextInt(versionMedium.length)];
-    }
-
-    public static int getRandomHardVersion() {
-        Random r = new Random();
-        return versionHard[r.nextInt(versionHard.length)];
-    }
-
-    protected Group buildObstacle() {
+    protected Group buildObstacle(ModelObstacle mo) {
         Group multiCross = new Group();
         double length = 100.0;
         double width = 15.0;
+        
+        double x = mo.getX();
+        double y = mo.getY();
+        List<Color> colors = mo.getColors();
 
 
 		/*public Cross(int x, int y, int width, int length, boolean mouvementDirection, boolean acceleration,
@@ -66,95 +48,66 @@ public class MultiCross extends Obstacle {
 
         Cross cr1;
         Cross cr2;
+        List<ModelShape> modelC = new ArrayList<>();
 
-        if (version >= NBR_VERSIONS)
-            version = versionDefault;
+        if (mo.getVersion() >= ModelMultiCross.NBR_VERSIONS)
+            mo.setVersion(mo.getVersionDefault());
 
-        switch (version) {
+        switch (mo.getVersion()) {
             case 0:
-                cr1 = new Cross(x + length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0);
+                modelC.add(new ModelCross(x + length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0));
                 
-                addSL(cr1.getShapeList());            
-                multiCross.getChildren().add(cr1.getShape());
-                
-                difficulty = Difficulty.EASY;
-                color_use.addAll(cr1.getColors_use());
-                
+            	mo.setDifficulty(Difficulty.EASY);                
                 break;
                 
             case 1:
-                cr1 = new Cross(x - length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0);
+            	modelC.add(new ModelCross(x - length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0));
                 
-                
-                addSL(cr1.getShapeList());            
-                multiCross.getChildren().add(cr1.getShape());
-                
-                difficulty = Difficulty.EASY;
-                color_use.addAll(cr1.getColors_use());
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 2:
-                cr1 = new Cross(x + length + width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 0);
-                cr2 = new Cross(x - length - width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 2);
-
-                addSL(cr1.getShapeList(),cr2.getShapeList());            
-                multiCross.getChildren().add(cr1.getShape());
-                multiCross.getChildren().add(cr2.getShape());
+            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 0));
+            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 2));
                 
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(cr1.getColors_use());
-                color_use.addAll(cr2.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 3:
-                cr1 = new Cross(x + length + width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 0);
-                cr2 = new Cross(x - length - width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 2);
-
-                addSL(cr1.getShapeList(),cr2.getShapeList());            
-                multiCross.getChildren().add(cr1.getShape());
-                multiCross.getChildren().add(cr2.getShape());
+            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 0));
+            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 2));
                 
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(cr1.getColors_use());
-                color_use.addAll(cr2.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 4:
-            	cr1 = new Cross(x + length + width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0);
-                cr2 = new Cross(x - length - width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 2);
+            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0));
+            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 2));
                 
-                Cross cr3 = new Cross(x + length + width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 0);
-                Cross cr4 = new Cross(x - length - width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 2);
+            	modelC.add(new ModelCross(x + length + width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 0));
+            	modelC.add(new ModelCross(x - length - width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 2));
                 
-                addSL(cr1.getShapeList(),cr2.getShapeList(),cr3.getShapeList(),cr4.getShapeList());            
-                multiCross.getChildren().add(cr1.getShape());
-                multiCross.getChildren().add(cr2.getShape());
-                multiCross.getChildren().add(cr3.getShape());
-                multiCross.getChildren().add(cr4.getShape());
-                
-                difficulty = Difficulty.HARD;
-                color_use.addAll(cr1.getColors_use());
-                color_use.addAll(cr2.getColors_use());
+            	mo.setDifficulty(Difficulty.HARD);
                 break;
                 
             case 5:
-            	cr1 = new Cross(x + length*3 + width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 0);
-                cr2 = new Cross(x - length*3 - width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 2);
+            	modelC.add(new ModelCross(x + length*3 + width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 0));
+            	modelC.add(new ModelCross(x - length*3 - width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 2));
                 
-                System.out.println("cr1"+cr1);
-                System.out.println("cr1 sl"+cr1.getShapeList());
-                addSL(cr1.getShapeList(),cr2.getShapeList());            
-                multiCross.getChildren().add(cr1.getShape());
-                multiCross.getChildren().add(cr2.getShape());
-                
-                difficulty = Difficulty.NORMAL;
-                color_use.addAll(cr1.getColors_use());
-                color_use.addAll(cr2.getColors_use());
+            	mo.setDifficulty(Difficulty.NORMAL);
             	break;
             	
             default:
             	System.out.println("Hello");
         }
+        
+        for(ModelShape ms : modelC){
+        	cr1 = (Cross)BuildShape.constructShape(ms);
+            addSL(cr1.getShapeList());  
+            multiCross.getChildren().add(cr1.getShape());
+            mo.getColor_use().addAll(ms.getColors_use());
+        }
+        
         return multiCross;
     }
 
