@@ -18,13 +18,15 @@ public class GravitySwitch extends Item {
      * La taille
      */
     private double width;
-private int coefForce;
+    private double coefForce;
+
     /**
      * Constructeur
      * @param x coordonnée x de l'objet
      * @param y coordonnée y de l'objet
+     * @param coefForce coeficient de gravité
      */
-    public GravitySwitch(double x, double y,int coefForce) {
+    public GravitySwitch(double x, double y,double coefForce) {
         super(x, y,null,5);
         this.width = 3.0;
         this.coefForce=coefForce;
@@ -76,5 +78,9 @@ private int coefForce;
         return g;
 
 
+    }
+
+    public double getCoefForce() {
+        return coefForce;
     }
 }
