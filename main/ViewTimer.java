@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import game.Game;
-/¨¨
+
 
 public class ViewTimer {
 	/**
