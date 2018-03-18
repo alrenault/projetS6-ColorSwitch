@@ -7,7 +7,9 @@ import game.path.shapes.Shapes;
 import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.modelObstacle.ModelCircleInCircle;
 import model.modelObstacle.ModelMultiCircle;
+import model.modelObstacle.ModelMultiSquare;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
 import model.modelShape.ModelShape;
@@ -37,11 +39,16 @@ public class MultiCircle extends Obstacle {
 
     public MultiCircle(ModelMultiCircle mmc) {
         super(mmc);
-        obstacle = buildObstacle(mmc);
     }
 
 
     protected Group buildObstacle(ModelObstacle mo) {
+    	
+    	if(!(mo instanceof ModelMultiCircle)){
+    		throw new IllegalArgumentException("Modele de MultiCircle necessaire");
+    	}
+    	
+    	
         Group multiCircle = new Group();
 
         double tinyRadial = 60.0;
@@ -140,7 +147,7 @@ public class MultiCircle extends Obstacle {
         for(ModelShape ms : modelC){
         	cer1 = (Circle)BuildShape.constructShape(ms);
             addSL(cer1.getShapeList());  
-            multiCircle.getChildren().add(cer1.getShape());
+            multiCircle.getChildren().add(cer1.getModel_shape().getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
 

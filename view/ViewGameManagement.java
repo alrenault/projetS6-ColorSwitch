@@ -46,7 +46,7 @@ public class ViewGameManagement {
 		for(ModelObstacle mo : path.getObstacles()) {
 			System.out.println(mo.getType());
 			Obstacle obstacle = BuildObstacle.build(mo);
-			add(obstacle.getObstacle());
+			add(obstacle.getModel_obstacle().getObstacle());
 		}
 		
 		

@@ -42,15 +42,4 @@ public abstract class Ball extends Element {
     
 
 
-
-
-    
-
-	@Override
-	protected Group build() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 }

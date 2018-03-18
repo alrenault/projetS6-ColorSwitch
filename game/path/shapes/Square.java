@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelSquare;
 
@@ -22,11 +23,6 @@ public class Square extends Shapes {
      */
     public Square(ModelSquare ms) {
         super(ms);
-
-        this.group_shape = buildShape(ms);
-
-        //recuperation de la position
-        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         
         //check();
 
@@ -36,7 +32,15 @@ public class Square extends Shapes {
      * Génère le carre
      * @return le Group correspondant au carre
      */
-    protected Group buildShape(ModelSquare ms) {
+    protected Group buildShape(ModelShape m) {
+    	
+    	ModelSquare ms = null;
+    	if(m instanceof ModelSquare ){
+    		ms = (ModelSquare)m;
+    	}
+    	else
+    		throw new IllegalArgumentException("Modele de carre necessaire");
+    	
         Group squaire = new Group();
         double length = ms.getLength();
         double x = ms.getX();

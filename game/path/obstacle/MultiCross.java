@@ -7,7 +7,9 @@ import game.path.shapes.Cross;
 import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.modelObstacle.ModelMultiCircle;
 import model.modelObstacle.ModelMultiCross;
+import model.modelObstacle.ModelMultiSquare;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCross;
 import model.modelShape.ModelShape;
@@ -30,10 +32,15 @@ public class MultiCross extends Obstacle {
 
     public MultiCross(ModelMultiCross mmc) {
         super(mmc);
-        obstacle = buildObstacle(mmc);
     }
 
     protected Group buildObstacle(ModelObstacle mo) {
+    	
+    	if(!(mo instanceof ModelMultiCross)){
+    		throw new IllegalArgumentException("Modele de MultiCross necessaire");
+    	}
+    	
+    	
         Group multiCross = new Group();
         double length = 100.0;
         double width = 15.0;
@@ -104,7 +111,7 @@ public class MultiCross extends Obstacle {
         for(ModelShape ms : modelC){
         	cr1 = (Cross)BuildShape.constructShape(ms);
             addSL(cr1.getShapeList());  
-            multiCross.getChildren().add(cr1.getShape());
+            multiCross.getChildren().add(cr1.getModel_shape().getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
         

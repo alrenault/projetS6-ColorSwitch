@@ -171,7 +171,6 @@ public class BallPlayer extends Ball {
         tt1.play();
     }
 
-	@Override
 	public Group getShape() {
 		// TODO Auto-generated method stub
 		return shape;

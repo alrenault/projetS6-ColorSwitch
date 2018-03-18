@@ -56,6 +56,9 @@ public class BuildObstacle {
     public static Obstacle build(ModelObstacle mo) {
     	Obstacle o;
     	
+    	System.out.println("build o path mon x "+mo.getX());
+        System.out.println("build o path mon y "+mo.getY());
+    	
     	
     	switch (mo.getType()) {
 	    	case CircleInCircle:
@@ -85,6 +88,9 @@ public class BuildObstacle {
 	        default:
 	            o = new MultiCircle((ModelMultiCircle)mo);
     	}
+    	
+    	System.out.println("build o apres path mon x "+o.getModel_obstacle().getX());
+        System.out.println("build o apres path mon y "+o.getModel_obstacle().getY());
     	
     	return o;
     }

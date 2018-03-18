@@ -74,10 +74,9 @@ public abstract class Item extends Element {
      */
     protected abstract Group buildItem();
     
-	@Override
-	protected Group build() {
+	/*protected Group build() {
 		return buildItem();
-	}
+	}*/
 
     public int getNbPoints() {
         return nbPoints;
@@ -114,9 +113,4 @@ public abstract class Item extends Element {
     }
 
 
-	@Override
-	public Group getShape() {
-		// TODO Auto-generated method stub
-		return item;
-	}
 }

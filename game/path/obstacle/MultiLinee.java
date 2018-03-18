@@ -10,7 +10,9 @@ import game.path.shapes.VerticalLine;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import model.modelObstacle.ModelMultiCircle;
 import model.modelObstacle.ModelMultiLine;
+import model.modelObstacle.ModelMultiSquare;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelVLine;
@@ -39,12 +41,16 @@ public class MultiLinee extends Obstacle {
 
     public MultiLinee(ModelMultiLine mml) {
         super(mml);
-        obstacle = buildObstacle(mml);
     }
 
     
 
     protected Group buildObstacle(ModelObstacle mo) {
+    	
+    	if(!(mo instanceof ModelMultiLine)){
+    		throw new IllegalArgumentException("Modele de MultiLine necessaire");
+    	}
+    	
 
         double length = 100.0;
         double width = 20.0;
@@ -150,7 +156,7 @@ public class MultiLinee extends Obstacle {
         for(ModelShape ms : modelC){
         	s = BuildShape.constructShape(ms);
             addSL(s.getShapeList());  
-            multiLinee.getChildren().add(s.getShape());
+            multiLinee.getChildren().add(s.getModel_shape().getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
 

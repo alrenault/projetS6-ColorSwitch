@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
+import model.modelShape.ModelShape;
 import model.modelShape.ModelTriangle;
 
 /**
@@ -23,11 +24,6 @@ public class Triangle extends Shapes {
      */
     public Triangle(ModelTriangle mt) {
         super(mt);
-
-        this.group_shape = buildShape(mt);
-
-        //recuperation de la position (a voir si on ne peut pas le mettre dans la factory)
-        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         
         //check();
     }
@@ -36,7 +32,14 @@ public class Triangle extends Shapes {
      * Génère le triangle
      * @return le Group correspondant au triangle
      */
-    protected Group buildShape(ModelTriangle mt) {
+    protected Group buildShape(ModelShape ms) {
+    	
+    	ModelTriangle mt = null;
+    	if(ms instanceof ModelTriangle ){
+    		mt = (ModelTriangle)ms;
+    	}
+    	else
+    		throw new IllegalArgumentException("Modele de triangle necessaire");
         Group t = new Group();
 
         double height = mt.getHeight();

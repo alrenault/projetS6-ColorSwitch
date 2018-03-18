@@ -8,8 +8,10 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.modelObstacle.ModelCircleInCircle;
+import model.modelObstacle.ModelMultiSquare;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
+import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
 
 import java.util.ArrayList;
@@ -33,7 +35,6 @@ public class CircleInCircle extends Obstacle {
 
     public CircleInCircle(ModelCircleInCircle mcic) {
         super(mcic);
-        obstacle = buildObstacle(mcic);
     }
 
    /* public CircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
@@ -49,6 +50,11 @@ public class CircleInCircle extends Obstacle {
 
 
     protected Group buildObstacle(ModelObstacle mcic) {
+    	
+    	if(!(mcic instanceof ModelCircleInCircle)){
+    		throw new IllegalArgumentException("Modele de CircleInCircle necessaire");
+    	}
+    	
         double tinyRadial = 60.0;
         double mediumRadial = 70.0;
         double internRadial = 85.0;
@@ -58,6 +64,8 @@ public class CircleInCircle extends Obstacle {
         
         double x = mcic.getX();
         double y = mcic.getY();
+        
+        
         List<Color> colors = mcic.getColors();
         
         //BuildShape builder = new BuildShape();
@@ -136,7 +144,7 @@ public class CircleInCircle extends Obstacle {
         for(ModelShape ms : modelC){
         	cer1 = (Circle)BuildShape.constructShape(ms);
             addSL(cer1.getShapeList());  
-            circleInCircle.getChildren().add(cer1.getShape());
+            circleInCircle.getChildren().add(cer1.getModel_shape().getShape());
             mcic.getColor_use().addAll(ms.getColors_use());
         }
         

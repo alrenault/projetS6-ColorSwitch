@@ -15,16 +15,15 @@ import model.modelObstacle.ModelObstacle;
  */
 public abstract class Obstacle extends Element {
 
-    protected Group obstacle;
-
-    protected Bounds coord;
-    protected List<Shape> shape_list;
+    
     protected ModelObstacle model_obstacle;
 
 
     public Obstacle(ModelObstacle mo) {
         super();
         model_obstacle = mo;
+        model_obstacle.setObstacle(buildObstacle(model_obstacle));
+    	//model_obstacle.setCoord(model_obstacle.getObstacle().localToScene(model_obstacle.getObstacle().getBoundsInLocal()));
     	
         
         //this.obstacle = build();
@@ -35,55 +34,14 @@ public abstract class Obstacle extends Element {
 		return model_obstacle;
 	}
 
-	protected Group build() {
-    	return buildObstacle(model_obstacle);
-    }
     
     protected abstract Group buildObstacle(ModelObstacle mo);
 
-
-    public double getX() {
-        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-        return coord.getMinX() + coord.getWidth() / 2;
-    }
-
-    public double getY() {
-        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-        return coord.getMinY() + coord.getHeight() / 2;
-    }
-
-    public Point2D getCoord() {
-        return new Point2D(getX(), getY());
-    }
-
-    public Group getObstacle() {
-        return obstacle;
-    }
-
-    public double getObstacleWidth() {
-        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-        return coord.getWidth();
-    }
-
-    public double getObstacleHeight() {
-        coord = obstacle.localToScene(obstacle.getBoundsInLocal());
-        return coord.getHeight();
-    }
+    
 
 
-	public boolean isOver(int x, int y) {
-        return this.obstacle.contains(x, y);
-    }
 	
 	
-	
-	
-	
-	@Override
-	public Group getShape() {
-		// TODO Auto-generated method stub
-		return obstacle;
-	}
 
 
     // public enum Difficulty {EASY, NORMAL, HARD}

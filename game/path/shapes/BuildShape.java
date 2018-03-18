@@ -13,7 +13,7 @@ public class BuildShape {
 
 	public static Shapes constructShape(ModelShape model_shape){
 		
-		Shapes shape;
+		Shapes shape = null;
     	
     	switch(model_shape.getType()) {
     		case Circle:
@@ -40,8 +40,6 @@ public class BuildShape {
     			shape = new VerticalLine((ModelVLine) model_shape);
     			break;
     			
-    		default :
-    			shape = new Shapes(model_shape);
     	}
     	
     	return shape;

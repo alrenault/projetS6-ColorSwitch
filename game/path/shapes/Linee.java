@@ -7,8 +7,10 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import model.modelShape.ModelCircle;
 import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
+import model.modelShape.ModelSquare;
 
 /**
  * Objet graphique d'une ligne horizontale
@@ -21,15 +23,22 @@ public class Linee extends Shapes {
      */
     public Linee(ModelHLine mhl) {
         super(mhl);
-        this.group_shape = buildShape(mhl);
-        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 
     /**
      * Génère la ligne
      * @return le Group correspondant à la ligne
      */
-    protected Group buildShape(ModelHLine mhl) {
+    protected Group buildShape(ModelShape ms) {
+    	
+    	ModelHLine mhl = null;
+    	if(ms instanceof ModelHLine ){
+    		mhl = (ModelHLine)ms;
+    	}
+    	else
+    		throw new IllegalArgumentException("Modele de ligne horizontale necessaire");
+
+    	
         Group line = new Group();
 
         for (int i = 0; i < mhl.getNbr_seg(); i++) {

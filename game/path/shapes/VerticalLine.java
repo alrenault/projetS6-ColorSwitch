@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import model.modelShape.ModelShape;
 import model.modelShape.ModelVLine;
 
 /**
@@ -23,10 +24,6 @@ public class VerticalLine extends Shapes {
      */
     public VerticalLine(ModelVLine mvl) {
         super(mvl);
-        this.group_shape = buildShape(mvl);
-
-        //recuperation de la position
-        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         
        // check();
     }
@@ -36,7 +33,14 @@ public class VerticalLine extends Shapes {
      * Génère la ligne verticale
      * @return le Group correspondant a la ligne verticale
      */
-    protected Group buildShape(ModelVLine mvl) {
+    protected Group buildShape(ModelShape ms) {
+    	
+    	ModelVLine mvl = null;
+    	if(ms instanceof ModelVLine ){
+    		mvl = (ModelVLine)ms;
+    	}
+    	else
+    		throw new IllegalArgumentException("Modele de ligne verticale necessaire");
         Group hline = new Group();
 
         for (int i = 0; i < mvl.getNbr_seg(); i++) {

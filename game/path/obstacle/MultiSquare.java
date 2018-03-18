@@ -8,6 +8,7 @@ import game.path.shapes.Shapes;
 import game.path.shapes.Square;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.modelObstacle.ModelMultiCircle;
 import model.modelObstacle.ModelMultiSquare;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelShape;
@@ -31,13 +32,17 @@ public class MultiSquare extends Obstacle {
 
     public MultiSquare(ModelMultiSquare mms) {
         super(mms);
-        obstacle = buildObstacle(mms);
     }
 
 
     
 
     public Group buildObstacle(ModelObstacle mo) {
+    	
+    	if(!(mo instanceof ModelMultiSquare)){
+    		throw new IllegalArgumentException("Modele de MultiSquare necessaire");
+    	}
+    	
         Group multiSquare = new Group();
 
         double tinyLength = 150.0;
@@ -90,7 +95,7 @@ public class MultiSquare extends Obstacle {
         for(ModelShape ms : modelC){
         	s = BuildShape.constructShape(ms);
             addSL(s.getShapeList());  
-            multiSquare.getChildren().add(s.getShape());
+            multiSquare.getChildren().add(s.getModel_shape().getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
 

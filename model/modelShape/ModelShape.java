@@ -75,6 +75,21 @@ public abstract class ModelShape implements Colorable{
      * Type de la forme
      */
     ShapeType type;
+    
+    /**
+     * Le groupe représentant la forme
+     */
+    protected Group group_shape;
+    
+    /**
+     * L'ensemble des (JavaFX) Shape utilisées par la forme
+     */
+    List<Shape> shape_list;
+    
+    /**
+     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
+     */
+    protected Bounds coord;
         
     
 
@@ -122,19 +137,22 @@ public abstract class ModelShape implements Colorable{
         }
         this.colors_use = new ArrayList<>();
         
-
+        group_shape = new Group();
+        
     }
-
-    public double getX() {
-		return x;
-	}
-
-	public double getY() {
-		return y;
-	}
 
 	public boolean isMouvementDirection() {
 		return mouvementDirection;
+	}
+
+	public Group getGroup_shape() {
+		return group_shape;
+	}
+	
+	
+
+	public void setGroup_shape(Group group_shape) {
+		this.group_shape = group_shape;
 	}
 
 	public boolean isAcceleration() {
@@ -204,10 +222,60 @@ public abstract class ModelShape implements Colorable{
     /**
      * Determine la vitesse de mouvement de la Forme
      */
-    
-
-
 	public ShapeType getType() {
 		return type;
 	}
+	
+	public Bounds getCoord() {
+		return coord;
+	}
+	
+    public void setCoord(Bounds coord) {
+		this.coord = coord;
+	}
+
+    /**
+     * Assesseur de la coordonée en x de la forme
+     * @return La coordonnée en x de la forme
+     */
+    public double getX() {
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
+        return coord.getMinX() + coord.getWidth() / 2;
+    }
+
+
+    /**
+     * Assesseur de la coordonée en y de la forme
+     * @return La coordonnée en y de la forme
+     */
+    public double getY() {
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
+        return coord.getMinY() + coord.getHeight() / 2;
+    }
+
+    /**
+     * Assesseur des coordonnees de la forme sous la forme d'un Point2D
+     * @return Les coordonnees de ka forme
+     */
+    public Point2D getCoord2D() {
+        return new Point2D(getX(), getY());
+    }
+    /**
+     * 
+     * @param _x
+     * @param _y
+     * @return
+     */
+    public boolean isOver(double _x, double _y) {
+        return this.group_shape.contains(_x, _y);
+        //return this.shape.intersects(getX(),getY(),coord.getWidth(),coord.getHeight());
+    }
+    
+    /**
+     * Retourne le groupe correspondant a la forme
+     * @return Le groupe correspondant a la forme
+     */
+    public Group getShape() {
+    	return group_shape;
+    }
 }

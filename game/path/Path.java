@@ -87,6 +87,10 @@ public class Path {
             obstacleDifficulty = obstacleDifficulty(variante);
             
             //Generation de l'obstacle avec son colorSwitch
+            
+            System.out.println("path mon x "+posX);
+            System.out.println("path mon y "+posY);
+            
             ModelObstacle mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
             BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
 

@@ -24,11 +24,11 @@ public abstract class Element {
 	
 	
 	
-	protected abstract Group build();
+	//protected abstract Group build();
 	
 	
 	
-	public abstract Group getShape();
+	//public abstract Group getShape();
 	
 	public List<Shape> getShapeList(){
 		return shape_list;

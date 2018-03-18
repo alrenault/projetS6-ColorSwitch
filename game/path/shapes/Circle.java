@@ -13,6 +13,7 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.util.Duration;
 import model.modelShape.ModelCircle;
+import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
 
 /**Objet graphique Cercle
@@ -22,16 +23,20 @@ public class Circle extends Shapes {
 
 	protected Circle(ModelCircle mc) {
 		super(mc);
-		group_shape = buildShape(mc);
-	    coord = group_shape.localToScene(group_shape.getBoundsInLocal());
 	}
 
 	/**
      * Generateur de la forme du cercle
      * @return un ensemble d'arcs
      */
-    protected Group buildShape(ModelCircle mc) {
+    protected Group buildShape(ModelShape ms) {
 
+    	ModelCircle mc = null;
+    	if(ms instanceof ModelCircle ){
+    		mc = (ModelCircle)ms;
+    	}
+    	else
+    		throw new IllegalArgumentException("Modele de cercle necessaire");
 
 
         Group cercle = new Group();

@@ -80,7 +80,7 @@ public class Game {
     	CUSTOM.add(Colorable.ROSE);
     	CUSTOM.add(Colorable.BLUE);
     	
-    	this.path = new Path(600,1000, CUSTOM, 10   , Difficulty.EASY);
+    	this.path = new Path(600,1000, CUSTOM, 1   , Difficulty.EASY);
     	
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	

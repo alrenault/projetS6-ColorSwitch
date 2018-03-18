@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import model.modelShape.ModelCross;
+import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
 
 /**Objet graphique d'une croix
@@ -26,8 +27,6 @@ public class Cross extends Shapes {
     
     public Cross(ModelCross mc){
     	super(mc);
-    	group_shape = build(mc);
-        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 
 
@@ -35,7 +34,15 @@ public class Cross extends Shapes {
      * Génère la croix
      * @return le Group correspondant à la croix
      */
-    protected Group build(ModelCross mc) {
+    protected Group buildShape(ModelShape ms) {
+    	
+    	ModelCross mc = null;
+    	if(ms instanceof ModelCross ){
+    		mc = (ModelCross)ms;
+    	}
+    	else
+    		throw new IllegalArgumentException("Modele de croix necessaire");
+
 
         //Initialisation
         Group croix = new Group();
