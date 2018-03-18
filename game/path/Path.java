@@ -12,6 +12,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelObstacle.BuildModelObstacle;
+import model.modelObstacle.ModelObstacle;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,11 +21,11 @@ import java.util.List;
 import java.util.Random;
 
 
-public class Path extends Element {
+public class Path {
     private List<Item> items;
-    private List<Obstacle> obstacles;
+    private List<ModelObstacle> obstacles;
     private List<Ennemy> ennemies;
-    private Group path;
+    //private Group path;
     private Difficulty gameDifficulty;
     private double scWidth;
     private double scHeight;
@@ -42,18 +44,18 @@ public class Path extends Element {
         this.scHeight = scHeight;
         this.nbr_Obs = nbr_Obs;
 
-        path = buildPathRandom();
+        buildPathRandom();
     }
 
-    public Path(List<Obstacle> _obstacles, List<Ennemy> _ennemies) {
+    public Path(List<ModelObstacle> _obstacles, List<Ennemy> _ennemies) {
     	super();
         obstacles = _obstacles;
         ennemies = _ennemies;
         items = new ArrayList<>();
-        path = buildPath();
+        //buildPath();
     }
     
-    public Path(List<Obstacle> _obstacles){
+    public Path(List<ModelObstacle> _obstacles){
     	super();
     	obstacles = _obstacles;
     	ennemies = new ArrayList<>();
@@ -66,9 +68,9 @@ public class Path extends Element {
 		this.gameDifficulty = difficulty;
 	}
 
-	private Group buildPathRandom() {
+	private void buildPathRandom() {
     	
-        Group newPath = new Group();
+        //Group newPath = new Group();
         Random r = new Random();
         int type;
         int variante;
@@ -78,29 +80,29 @@ public class Path extends Element {
 
 
 
-        //Constrution
+        //Construction
         for (int i = 0; i < nbr_Obs; i++) {
             type = r.nextInt(6);
             variante = r.nextInt(10);
             obstacleDifficulty = obstacleDifficulty(variante);
             
             //Generation de l'obstacle avec son colorSwitch
-            Obstacle o = BuildObstacle.VersionAlea(type, obstacleDifficulty, posX, posY, colors,scWidth);
-            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + o.getObstacleHeight()/2 + 150,o.getModel_obstacle().getColor_use());
+            ModelObstacle mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
+            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
 
                List<Color> l = new ArrayList<Color>();
                      Star s;
-                        if(o.getModel_obstacle().getDifficulty() == Difficulty.EASY){
+                        if(mo.getDifficulty() == Difficulty.EASY){
                            	l.add(Colorable.BRONZE);
-                                s = new Star(scWidth/2,o.getY(),10,l,10);
+                                s = new Star(scWidth/2,mo.getY(),10,l,10);
                             }
-                        else if(o.getModel_obstacle().getDifficulty() == Difficulty.NORMAL){
+                        else if(mo.getDifficulty() == Difficulty.NORMAL){
                             	l.add(Colorable.SILVER);
-                                s = new Star(scWidth/2,o.getY(),15,l,20);
+                                s = new Star(scWidth/2,mo.getY(),15,l,20);
                             }
                        else{
                             	l.add(Colorable.GOLD);
-                                s = new Star(scWidth/2,o.getY(),20,l,30);
+                                s = new Star(scWidth/2,mo.getY(),20,l,30);
                            }
 
             //marche pas encore tout à fait
@@ -115,36 +117,37 @@ public class Path extends Element {
             
             //System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
             
-            newPath.getChildren().add(o.getObstacle());
-            newPath.getChildren().add(bcs.getItem());
-            newPath.getChildren().add(s.getItem());
+            //newPath.getChildren().add(o.getObstacle());
+            //newPath.getChildren().add(bcs.getItem());
+            //newPath.getChildren().add(s.getItem());
             
-            add(o);
+            add(mo);
             add(bcs);
             add(s);
             
-            addSL(o.getShapeList());
-            addSL(bcs.getShapeList());
-            addSL(s.getShapeList());
+            //addSL(o.getShapeList());
+            //addSL(bcs.getShapeList());
+            //addSL(s.getShapeList());
             
-            posY = posY - o.getObstacleHeight() / 2 - 600;
+            posY = posY - mo.getObstacleHeight() / 2 - 600;
         }
 
 
-        return newPath;
+        //return newPath;
     }
 
+	/* Fonction normalement obsolete maintenant
     private Group buildPath() {
         Group newPath = new Group();
-        Iterator<Obstacle> itObs = obstacles.iterator();
-        Obstacle o;
+        Iterator<ModelObstacle> itObs = obstacles.iterator();
+        ModelObstacle o;
         while (itObs.hasNext()) {
             o = itObs.next();
-            newPath.getChildren().add(o.getObstacle());
-            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,o.getY() + o.getObstacleHeight()/2 + 150 + o.getObstacleHeight()/2 + 100,o.getModel_obstacle().getColor_use());
+            //newPath.getChildren().add(o.getObstacle());
+            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,o.getY() + mo.getObstacleHeight()/2 + 150 + o.getObstacleHeight()/2 + 100,o.getModel_obstacle().getColor_use());
             
-            addSL(o.getShapeList());
-            addSL(bcs.getShapeList());
+            //addSL(o.getShapeList());
+            //addSL(bcs.getShapeList());
         }
 
         Iterator<Ennemy> itEnn = ennemies.iterator();
@@ -155,7 +158,7 @@ public class Path extends Element {
         }
 
         return newPath;
-    }
+    }*/
     
     
     
@@ -205,7 +208,7 @@ public class Path extends Element {
     
     
 
-    public void add(Obstacle o) {
+    public void add(ModelObstacle o) {
         obstacles.add(o);
         //addSL(o.getShapeList());
         //path.getChildren().add(o.getShape());
@@ -219,7 +222,7 @@ public class Path extends Element {
         return items.add(item);
     }
 
-
+/*
     public boolean remove(Item item) {
     for(Shape s : item.getShapeList()){
     	s.setFill(Color.TRANSPARENT);
@@ -236,7 +239,7 @@ public class Path extends Element {
     public void remove(Ennemy e){
     	path.getChildren().remove(e);
         ennemies.remove(e);
-    }
+    }*/
 
     public boolean isCorrect() {
         //TODO
@@ -253,7 +256,7 @@ public class Path extends Element {
 
     /*c'est pas cool !!!*/
     //TODO
-    public List<Obstacle> getObstacles() {
+    public List<ModelObstacle> getObstacles() {
         return obstacles;
     }
 
@@ -266,20 +269,9 @@ public class Path extends Element {
     	return items;
     }
 
-    public Group getPath() {
+    /*public Group getPath() {
         return path;
-    }
-
-	@Override
-	protected Group build() {
-		return buildPathRandom();
-	}
-
-	@Override
-	public Group getShape() {
-		// TODO Auto-generated method stub
-		return path;
-	}
+    }*/
 	
 
 

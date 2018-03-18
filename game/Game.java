@@ -120,6 +120,7 @@ public class Game {
     	stage.close();
     }
 
+    /*
 	public void play() {
 
 		new AnimationTimer() {
@@ -207,7 +208,7 @@ public class Game {
         	
         }.start();
 		
-	}
+	}*/
 	
 	
 
@@ -246,7 +247,7 @@ public class Game {
 
         Path p = new Path(scene1.getWidth(),scene1.getHeight(), CUSTOM, 10   , Difficulty.EASY);
         
-        jObstacles.getChildren().add(p.getPath());
+        //jObstacles.getChildren().add(p.getPath());
         
         
         

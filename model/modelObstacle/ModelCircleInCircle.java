@@ -5,6 +5,7 @@ import java.util.Random;
 
 import game.Difficulty;
 import javafx.scene.paint.Color;
+import model.ObstacleType;
 
 public class ModelCircleInCircle extends ModelObstacle {
 	
@@ -13,12 +14,12 @@ public class ModelCircleInCircle extends ModelObstacle {
     protected static int[] versionMedium = {0, 1, 6};
     protected static int[] versionHard = {2, 3};
 
-    public ModelCircleInCircle(double x, double y, List<Color> colors, int version){
-    	super(x, y,  colors, version, 4);
+    public ModelCircleInCircle(double x, double y, List<Color> colors, int version, ObstacleType type){
+    	super(x, y,  colors, version, 4, type);
     }
     
-    public ModelCircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
-        super(x, y, colors, 0, 4);
+    public ModelCircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
+        super(x, y, colors, 0, 4, type);
         if (difficulty == Difficulty.EASY)
             version = ModelCircleInCircle.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)

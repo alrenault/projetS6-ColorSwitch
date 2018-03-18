@@ -7,6 +7,7 @@ import game.Difficulty;
 import game.path.obstacle.CircleInCircle;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import model.ObstacleType;
 
 public class ModelMultiLine extends ModelObstacle {
 	
@@ -17,14 +18,14 @@ public class ModelMultiLine extends ModelObstacle {
     
     double scWidth;
 
-    public ModelMultiLine(double x, double y, List<Color> colors, int version, double scWidth) {
-        super(x, y, colors, version, 4);
+    public ModelMultiLine(double x, double y, List<Color> colors, int version, double scWidth, ObstacleType type) {
+        super(x, y, colors, version, 4, type);
         
         this.scWidth = scWidth;
     }
 
-    public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth) {
-        super(x, y, colors, 0, 4);
+    public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth, ObstacleType type) {
+        super(x, y, colors, 0, 4, type);
         if (difficulty == Difficulty.EASY)
             version = ModelMultiLine.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
@@ -35,8 +36,8 @@ public class ModelMultiLine extends ModelObstacle {
         this.scWidth = scWidth;
     }
     
-    public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty) {
-        super(x, y, colors, 0, 4);
+    public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
+        super(x, y, colors, 0, 4, type);
         if (difficulty == Difficulty.EASY)
             version = ModelMultiLine.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)

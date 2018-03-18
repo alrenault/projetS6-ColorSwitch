@@ -6,6 +6,7 @@ import java.util.Random;
 import game.Difficulty;
 import game.path.obstacle.CircleInCircle;
 import javafx.scene.paint.Color;
+import model.ObstacleType;
 
 public class ModelMultiSquare extends ModelObstacle {
 	
@@ -14,12 +15,12 @@ public class ModelMultiSquare extends ModelObstacle {
     protected static int[] versionMedium = {0, 1};
     protected static int[] versionHard = {4};
 
-    public ModelMultiSquare(double x, double y, List<Color> colors, int version) {
-        super(x, y, colors, version, 2);
+    public ModelMultiSquare(double x, double y, List<Color> colors, int version, ObstacleType type) {
+        super(x, y, colors, version, 2, type);
     }
 
-    public ModelMultiSquare(double x, double y, List<Color> colors, Difficulty difficulty) {
-        super(x, y, colors, 0, 4);
+    public ModelMultiSquare(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
+        super(x, y, colors, 0, 4, type);
         if (difficulty == Difficulty.EASY)
             version = ModelMultiSquare.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)

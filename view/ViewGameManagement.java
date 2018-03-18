@@ -4,10 +4,12 @@ import game.Colorable;
 import game.Difficulty;
 import game.Game;
 import game.path.Path;
+import game.path.obstacle.BuildObstacle;
 import game.path.obstacle.Obstacle;
 import game.path.shapes.Shapes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import model.modelObstacle.ModelObstacle;
 
 public class ViewGameManagement {
 	
@@ -40,7 +42,15 @@ public class ViewGameManagement {
 	public static Group buildObstacles(Path path) {
 		Group jObstacles = new Group();
 		
-		//for(Obstacle obstacle : path.getObstacles()) {
+		
+		
+		for(ModelObstacle mo : path.getObstacles()) {
+			//System.out.println(mo == null);
+			Obstacle obstacle = BuildObstacle.build(mo);
+			add(obstacle.getObstacle());
+		}
+		
+		
 			//obstacle -> group
 			//ajouter à jObstacles
 			

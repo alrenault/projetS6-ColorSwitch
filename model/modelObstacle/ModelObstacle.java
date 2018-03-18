@@ -5,6 +5,7 @@ import java.util.List;
 
 import game.Difficulty;
 import javafx.scene.paint.Color;
+import model.ObstacleType;
 
 public class ModelObstacle {
 
@@ -16,8 +17,9 @@ public class ModelObstacle {
     protected int nbr_Versions;
     protected Difficulty difficulty;
     protected List<Color> color_use;
+    protected ObstacleType type;
     
-    public ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault){
+    public ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType){
     	this.x = x;
         this.y = y;
         this.colors = colors;
@@ -28,6 +30,7 @@ public class ModelObstacle {
             this.version = version;
         }
         color_use = new ArrayList<>();
+        this.type = obstacleType;
     }
 
 	public double getX() {
@@ -68,6 +71,14 @@ public class ModelObstacle {
 
 	public List<Color> getColor_use() {
 		return color_use;
+	}
+
+	public ObstacleType getType() {
+		return type;
+	}
+
+	public int getObstacleHeight() {
+		return 600;
 	}
     
 	   

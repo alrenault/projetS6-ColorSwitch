@@ -6,6 +6,7 @@ import java.util.Random;
 import game.Difficulty;
 import game.path.obstacle.CircleInCircle;
 import javafx.scene.paint.Color;
+import model.ObstacleType;
 
 public class ModelMultiCross extends ModelObstacle {
 	
@@ -14,13 +15,13 @@ public class ModelMultiCross extends ModelObstacle {
     protected static int[] versionMedium = {2, 5};
     protected static int[] versionHard = {3,4};
 
-	public ModelMultiCross(double x, double y, List<Color> colors, int version, int versionDefault) {
-		super(x, y, colors, version, versionDefault);
+	public ModelMultiCross(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType type) {
+		super(x, y, colors, version, versionDefault, type);
 		// TODO Auto-generated constructor stub
 	}
 	
-    public ModelMultiCross(double x, double y, List<Color> colors, Difficulty difficulty) {
-        super(x, y, colors, 0, 4);
+    public ModelMultiCross(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
+        super(x, y, colors, 0, 4, type);
         if (difficulty == Difficulty.EASY)
             version = ModelMultiCross.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)

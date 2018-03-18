@@ -7,6 +7,7 @@ import game.Difficulty;
 import game.path.obstacle.CircleInCircle;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import model.ObstacleType;
 
 public class ModelMultiShapes extends ModelObstacle {
 	
@@ -17,13 +18,13 @@ public class ModelMultiShapes extends ModelObstacle {
     
     double scWidth;
 
-    public ModelMultiShapes(double x, double y, List<Color> colors, double scWidth, int version) {
-        super(x, y, colors, version, 1);
+    public ModelMultiShapes(double x, double y, List<Color> colors, double scWidth, int version, ObstacleType type) {
+        super(x, y, colors, version, 1, type);
         this.scWidth = scWidth;
     }
 
-    public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth) {
-        super(x, y, colors, 0, 4);
+    public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth, ObstacleType type) {
+        super(x, y, colors, 0, 4, type);
         if (difficulty == Difficulty.EASY)
             version = ModelMultiShapes.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)
@@ -34,8 +35,8 @@ public class ModelMultiShapes extends ModelObstacle {
         this.scWidth = scWidth;
     }
 
-    public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty) {
-		super(x, y, colors, 0, 4);
+    public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
+		super(x, y, colors, 0, 4, type);
         if (difficulty == Difficulty.EASY)
             version = ModelMultiShapes.getRandomEasyVersion();
         else if (difficulty == Difficulty.NORMAL)

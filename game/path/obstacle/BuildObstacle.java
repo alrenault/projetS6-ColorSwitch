@@ -9,6 +9,7 @@ import model.modelObstacle.*;
 
 public class BuildObstacle {
 
+	/*
     public static Obstacle VersionAlea(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors, double scWidth) {
         ModelObstacle mo;
         Obstacle o;
@@ -50,41 +51,43 @@ public class BuildObstacle {
         }
         
         return o;
+    }*/
+    
+    public static Obstacle build(ModelObstacle mo) {
+    	Obstacle o;
+    	
+    	
+    	switch (mo.getType()) {
+	    	case CircleInCircle:
+	            o = new CircleInCircle((ModelCircleInCircle)mo);
+	            break;
+	
+	        case MultiCircle:
+	            o = new MultiCircle((ModelMultiCircle)mo);
+	            break;
+	
+	        case MultiCross:
+	            o = new MultiCross((ModelMultiCross)mo);
+	            break;
+	
+	        case MultiLine:
+	            o = new MultiLinee((ModelMultiLine)mo);
+	            break;
+	
+	        case MultiShapes:
+	            o = new MultiShapes((ModelMultiShapes)mo);
+	            break;
+	
+	        case MultiSquare:
+	            o = new MultiSquare((ModelMultiSquare)mo);
+	            break;
+	
+	        default:
+	            o = new MultiCircle((ModelMultiCircle)mo);
+    	}
+    	
+    	return o;
     }
     
-    /*public static Obstacle VersionAlea(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors) {
-        Obstacle o;
-
-        System.out.println("Builder");
-        switch (obs) {
-            case 0:
-                o = new CircleInCircle(posX, posY, colors, difficulty);
-                break;
-
-            case 1:
-                o = new MultiCircle(posX, posY, colors, difficulty);
-                break;
-
-            case 2:
-                o = new MultiCross(posX, posY, colors, difficulty);
-                break;
-
-            case 3:
-                o = new MultiLinee(posX, posY, colors, difficulty);
-                break;
-
-            case 4:
-                o = new MultiShapes(posX, posY, colors, difficulty);
-                break;
-
-            case 5:
-                o = new MultiSquare(posX, posY, colors, difficulty);
-                break;
-
-            default:
-                o = new MultiCircle(posX, posY, colors, difficulty);
-        }
-        
-        return o;
-    }*/
+    
 }
