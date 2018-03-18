@@ -25,8 +25,7 @@ public class ViewGameManagement {
 		Group jObstacles = buildObstacles(path);
 
         
-        add(path.getPath());
-        add(jObstacles);
+		add(jObstacles);
         
         
         
@@ -41,12 +40,12 @@ public class ViewGameManagement {
 	public static Group buildObstacles(Path path) {
 		Group jObstacles = new Group();
 		
-		for(Obstacle obstacle : path.getObstacles()) {
+		//for(Obstacle obstacle : path.getObstacles()) {
 			//obstacle -> group
 			//ajouter à jObstacles
 			
 			
-		}
+		//}
 		
 		
 		return jObstacles;

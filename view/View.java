@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.Main;
 
 public class View implements InterfaceViewColorSwitch {
 	
@@ -16,11 +17,15 @@ public class View implements InterfaceViewColorSwitch {
 	int tailleY = 1000;
 	//Preferences
 	
-	public View(Controller ctrl, Stage primaryStage) {
-		controller = ctrl ;
+	public View(Stage primaryStage) {
 		stage = primaryStage ;
 		initStage(stage);
-		basicView();
+		//basicView();
+		
+	}
+	
+	public void setController(Controller c) {
+		controller = c;
 	}
 	
 	
@@ -49,7 +54,8 @@ public class View implements InterfaceViewColorSwitch {
 	
 	
 	public void viewMenu() {
-		Scene scene = Menu.createInstance(600,1000);
+ 
+		Scene scene = Menu.createInstance(controller,600,1000);
 		display(scene);	
 	}
 
@@ -59,7 +65,6 @@ public class View implements InterfaceViewColorSwitch {
 		Scene scene = new Scene(root,tailleX,tailleY);
 		
 		ViewGameManagement.view(thisGame,scene);
-		
 		
 		
 		display(scene);
@@ -77,6 +82,14 @@ public class View implements InterfaceViewColorSwitch {
 			e.printStackTrace();
 		}
 		display(form);
+	}
+
+
+
+	@Override
+	public Controller getController() {
+		return controller;
+		
 	}
 
 }

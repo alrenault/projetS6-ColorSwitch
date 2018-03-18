@@ -10,9 +10,17 @@ public interface InterfaceModelColorSwitch {
 	
 	public void startColorSwitch();
 
+	
 	public void startGame();
 	
+	public void startGame(Difficulty difficulty);
+	
 	public void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Ball ball);
+	
+	
+	
+	
+	
 	
 	public void gameOver();
 	
@@ -21,6 +29,8 @@ public interface InterfaceModelColorSwitch {
 	public void registerScore();
 	
 	public Game getGame();
+
+	
 	
 
 }

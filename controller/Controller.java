@@ -1,12 +1,14 @@
 package controller;
 
 import DB.GestionDB;
+import game.Difficulty;
 import game.Game;
 import game.Score;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import main.Main;
 import model.InterfaceModelColorSwitch;
 import view.InterfaceViewColorSwitch;
 import view.View;
@@ -20,7 +22,16 @@ public class Controller {
 	public Controller(InterfaceModelColorSwitch model, InterfaceViewColorSwitch view) {
 		this.model = model;
 		this.view = view;
-		connectionDB=new GestionDB();
+		view.setController(this);
+		
+		/*
+		try {
+			connectionDB=new GestionDB();
+		} catch(Exception e) {
+			//e.printStackTrace();
+			System.out.println("Connexion with database failed.");
+		}*/
+		
 
 	}
 
@@ -43,12 +54,20 @@ public class Controller {
 //
 		connectionDB.record(nom,score);
 	}
-public void gameOver(){
+	
+	public void gameOver(){
 		model.gameOver();
 		view.viewGameOver();
 	}
 
 	public Score getScore() {
 		return model.getGame().getScore();
+	}
+
+
+	public void startGame(Difficulty difficulty) {
+		System.out.println("J");
+		model.startGame(difficulty);
+		view.viewGame(model.getGame());
 	}
 }

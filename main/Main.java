@@ -9,7 +9,9 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.InterfaceModelColorSwitch;
 import model.Model;
+import view.InterfaceViewColorSwitch;
 import view.View;
 
 import java.util.LinkedList;
@@ -25,8 +27,8 @@ import java.util.List;
  */
 public class Main extends Application {
 	
-	Model model;
-	View view;
+	InterfaceModelColorSwitch model;
+	InterfaceViewColorSwitch view;
 	Controller controller;
 
     public static void main(String[] args) {
@@ -51,9 +53,12 @@ public class Main extends Application {
 		help();
 		
 		model = new Model();
-		view = new View(controller,primaryStage);
+		
+		view = new View(primaryStage);
+		
 		
 		controller = new Controller(model, view);
+		
 		
 		controller.init();
 		
@@ -69,8 +74,8 @@ public class Main extends Application {
 		Scene scene = new Scene(root, 600, 1000);
 		Game colorSuitch = new Game(scene);
         
-        model.startGame();
-        view.viewGame(model.getGame());
+        //model.startGame();
+        //view.viewGame(model.getGame());
 		
         //view.viewGame(colorSuitch);
 		

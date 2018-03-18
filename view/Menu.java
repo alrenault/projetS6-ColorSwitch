@@ -1,13 +1,18 @@
 package view;
 
 import javafx.scene.Scene;
+import controller.Controller;
+import game.Difficulty;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import main.Main;
 
 public class Menu {
 	
-	public static Scene createInstance(double width, double height){
+	public static Scene createInstance(Controller controller,double width, double height){
+		
+
 		
 		int buttonWidth = 200;
 		int buttonHeight = 50;
@@ -39,6 +44,8 @@ public class Menu {
 		
 		Scene sc = new Scene(root, width, height);
         root.setStyle("-fx-background-color: #393939");
+
+        goGameEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
 
 		
 		return sc;

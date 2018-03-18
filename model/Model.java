@@ -76,5 +76,11 @@ public class Model implements InterfaceModelColorSwitch {
 	public Game getGame() {
 		return game;
 	}
+
+	@Override
+	public void startGame(Difficulty difficulty) {
+		this.game = new Game();
+		
+	}
 	
 }
