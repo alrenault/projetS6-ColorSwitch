@@ -3,6 +3,7 @@ package view;
 import game.Colorable;
 import game.Difficulty;
 import game.Game;
+import game.ball.BallPlayer;
 import game.path.Path;
 import game.path.items.BuildItem;
 import game.path.items.Item;
@@ -13,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import model.modelObstacle.ModelObstacle;
 import model.modelItem.ModelItem;
+import model.modelBall.ModelBallPlayer;
 
 
 public class ViewGameManagement {
@@ -34,8 +36,7 @@ public class ViewGameManagement {
         
 		add(jObstacles);
 		add(jItems);
-        
-        
+		        
         
         
         thisScene.setFill(Colorable.BLACK);

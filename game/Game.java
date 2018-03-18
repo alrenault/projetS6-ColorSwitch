@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
+import model.modelBall.ModelBallPlayer;
 import view.ViewGameManagement;
 
 /**
@@ -123,7 +124,8 @@ public class Game {
     	
     	this.path = new Path(scene.getWidth(),scene.getHeight(), CUSTOM, 10   , Difficulty.EASY);
     	
-    	this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+
     	
     	this.universe = new Universe();
     	
