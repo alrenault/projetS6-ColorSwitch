@@ -32,7 +32,7 @@ public class Path {
     private double scWidth;
     private double scHeight;
     private List<Color> colors;
-    private int nbr_Obs;
+	private int nbr_Obs;
 
 
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
@@ -281,6 +281,10 @@ public class Path {
     public List<ModelItem> getItem(){
     	return items;
     }
+    
+    public List<Color> getColors() {
+		return colors;
+	}
 
     /*public Group getPath() {
         return path;

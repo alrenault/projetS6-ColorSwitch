@@ -29,13 +29,19 @@ public class ViewGameManagement {
 		
 		
 		Path path = game.getPath();
+		BallPlayer ball = new BallPlayer(10, path.getColors().get(0), thisScene);
+		
 		
 		Group jObstacles = buildObstacles(path);
 		Group jItems = buildItems(path);
+		Group jBall = ball.getShape();
+		
+		
 
         
 		add(jObstacles);
 		add(jItems);
+		add(jBall);
 		        
         
         
@@ -48,21 +54,12 @@ public class ViewGameManagement {
 	
 	public static Group buildObstacles(Path path) {
 		Group jObstacles = new Group();
-		
-		
+				
 		for(ModelObstacle mo : path.getObstacles()) {
 			System.out.println(mo.getType());
 			Obstacle obstacle = BuildObstacle.build(mo);
 			add(obstacle.getObstacle());
 		}
-		
-		
-			//obstacle -> group
-			//ajouter à jObstacles
-			
-			
-		//}
-		
 		
 		return jObstacles;
 	}
@@ -70,20 +67,11 @@ public class ViewGameManagement {
 	public static Group buildItems(Path path) {
 		Group jItems = new Group();
 	
-		
 		for(ModelItem mi : path.getItem()) {
 			System.out.println(mi.getType());
 			Item item = BuildItem.build(mi);
 			add(item.getItem());
 		}
-		
-		
-			//obstacle -> group
-			//ajouter à jObstacles
-			
-			
-		//}
-		
 		
 		return jItems;
 	}
