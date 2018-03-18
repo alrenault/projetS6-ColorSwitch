@@ -6,13 +6,24 @@ import game.law.Universe;
 import game.path.Path;
 import game.Difficulty;
 
+/**
+ *
+ */
 public interface InterfaceModelColorSwitch {
-	
+	/**
+	 *
+	 */
 	public void startColorSwitch();
 
-	
+	/**
+	 *
+ 	 */
 	public void startGame();
-	
+
+	/**
+	 *
+	 * @param difficulty
+	 */
 	public void startGame(Difficulty difficulty);
 	
 	public void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Ball ball);
@@ -25,9 +36,16 @@ public interface InterfaceModelColorSwitch {
 	public void gameOver();
 	
 	public void jump();
-	
+
+	/**
+	 *
+	 */
 	public void registerScore();
-	
+
+	/**
+	 *
+	 * @return
+	 */
 	public Game getGame();
 
 	

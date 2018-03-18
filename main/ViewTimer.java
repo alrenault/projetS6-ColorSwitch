@@ -11,11 +11,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import game.Game;
+/¨¨
 
 public class ViewTimer {
-
+	/**
+	 *
+	 */
 	AnimationTimer timer;
-	
+
+	/**
+	 *
+	 * @param game
+	 * @param scene
+	 */
 	public ViewTimer(Game game, Scene scene) {
 		timer = //apellé a chaque shape
 		        new AnimationTimer() {

@@ -16,12 +16,24 @@ import model.modelObstacle.ModelObstacle;
 import model.modelItem.ModelItem;
 import model.modelBall.ModelBallPlayer;
 
-
+/**
+ *
+ */
 public class ViewGameManagement {
-	
+	/**
+	 *
+	 */
 	static Group root;
+	/**
+	 *
+	 */
 	static Game game;
 
+	/**
+	 *
+	 * @param thisGame
+	 * @param thisScene
+	 */
 	public static void view(Game thisGame, Scene thisScene) {
 		
         root = (Group) thisScene.getRoot();
@@ -41,11 +53,20 @@ public class ViewGameManagement {
         
         thisScene.setFill(Colorable.BLACK);
 	}
-	
+
+	/**
+	 * Methode d'ajout de Shape, Item ... dans root
+	 * @param group L'item,Shape,... à ajouter
+	 */
 	private static void add(Group group) {
 		root.getChildren().add(group);
 	}
-	
+
+	/**
+	 *
+	 * @param path
+	 * @return
+	 */
 	public static Group buildObstacles(Path path) {
 		Group jObstacles = new Group();
 		
@@ -66,7 +87,12 @@ public class ViewGameManagement {
 		
 		return jObstacles;
 	}
-	
+
+	/**
+	 *
+	 * @param path
+	 * @return
+	 */
 	public static Group buildItems(Path path) {
 		Group jItems = new Group();
 	

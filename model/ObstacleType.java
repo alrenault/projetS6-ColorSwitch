@@ -1,7 +1,10 @@
 package model;
 
-
+/**
+ *
+ */
 public enum ObstacleType {
+
 	No(-1),
 	CircleInCircle(0),
 	MultiCircle(1),
@@ -9,18 +12,34 @@ public enum ObstacleType {
 	MultiLine(3),
 	MultiShapes(4),
 	MultiSquare(5);
-	
+	/**
+	 *
+	 */
 	private int type = -1;
 	   
 	  //Constructeur
+
+	/**
+	 *
+	 * @param t
+	 */
 	  ObstacleType(int t){
 	    this.type = t;
 	  }
-	  
-	  public int getType() {
+
+	/**
+	 *
+	 * @return
+	 */
+	public int getType() {
 		  return type;
 	  }
 
+	/**
+	 *
+	 * @param i
+	 * @return
+	 */
 	public static ObstacleType getEnum(int i) {
 		ObstacleType type;
 		switch(i) {

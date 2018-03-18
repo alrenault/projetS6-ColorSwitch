@@ -1,5 +1,5 @@
 package main;
-/*
+/**
 *@autor Vincent
 @date 16/03/2018*/
 
@@ -9,6 +9,9 @@ import DB.SumScore;
 
 import java.util.LinkedList;
 
+/**
+ * Main de Test de connection et utlisation de la base de données
+ */
 public class MainTestDB {
     public static void main(String[] args) {
         GestionDB gestion =new GestionDB();

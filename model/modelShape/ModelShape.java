@@ -232,12 +232,11 @@ public abstract class ModelShape implements Colorable{
     public List<Color> getColors_use() {
         return colors_use;
     }
-    
-    
 
-    
-
-
+    /**
+     *
+     * @return
+     */
 	public ShapeType getType() {
 		return type;
 	}

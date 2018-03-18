@@ -6,18 +6,34 @@ public enum ItemType {
 	GravityInverser(1),
 	GravitySwitch(2),
 	Star(3);
-	
+	/**
+	 *
+	 */
 	private int type = -1;
 	   
 	  //Constructeur
+
+	/**
+	 *
+	 * @param t
+	 */
 	ItemType(int t){
 	    this.type = t;
 	  }
-	  
-	  public int getType() {
+
+	/**
+	 *
+	 * @return
+	 */
+	public int getType() {
 		  return type;
 	  }
 
+	/**
+	 *
+	 * @param i
+	 * @return
+	 */
 	public static ItemType getEnum(int i) {
 		ItemType type;
 		switch(i) {

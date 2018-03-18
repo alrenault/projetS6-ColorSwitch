@@ -15,7 +15,7 @@ public class ModelBallPlayer {
 	 */
         int  x = 70;
 	/**
-	 *
+	 *La taille de la Balle
 	 */
     private float size;
 	/**
@@ -27,7 +27,7 @@ public class ModelBallPlayer {
 	 */
     private double scHeight;
 	/**
-	 *
+	 * La couleur de la Balle
 	 */
 	private Color color;
 	/**
