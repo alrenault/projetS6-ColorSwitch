@@ -251,10 +251,18 @@ public class Path {
         return false;
     }
 
+    /**
+     * Accesseur du nombre d'items
+     * @return le nombre d'items
+     */
     public int getItemNbr() {
         return items.size();
     }
 
+    /**
+     * Accesseur du nombre d'Obstacles
+     * @return le nombre d'Obstacles dans la liste
+     */
     public int getObstacleNbr() {
         return obstacles.size();
     }

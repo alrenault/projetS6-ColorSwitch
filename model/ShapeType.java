@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Enum des différents types de Shapes
+ */
 public enum ShapeType {
 	Circle,
 	Cross,

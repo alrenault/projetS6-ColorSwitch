@@ -33,16 +33,22 @@ public class MultiShapes extends Obstacle {
 	 version 7 : Triangle tournant dans le sens contre horraire
 	 */
 
-    
 
-
+    /**
+     * Constructeur de multiShapes
+     * @param mms le model de la multiShapes à construire
+     */
     public MultiShapes(ModelMultiShapes mms) {
         super(mms);
         obstacle = buildObstacle(mms);
     }
 
-	
 
+    /**
+     * Générateur de Groupe formant une MultiShape
+     * @param mo le model
+     * @return un groupe de multiShapes
+     */
     public Group buildObstacle(ModelObstacle mo) {
         Group multiShapes = new Group();
 

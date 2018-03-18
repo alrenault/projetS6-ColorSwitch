@@ -13,9 +13,21 @@ import game.path.obstacle.Obstacle;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 
+/**
+ *
+ */
 public class BuildModelObstacle {
-	
-	
+
+    /**
+     *
+     * @param obs
+     * @param difficulty
+     * @param posX
+     * @param posY
+     * @param colors
+     * @param scWidth
+     * @return
+     */
 	public static ModelObstacle build(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors, double scWidth) {
         ModelObstacle mo;
         ObstacleType type = ObstacleType.getEnum(obs);

@@ -2,19 +2,25 @@ package model.modelItem;
 
 import model.ItemType;
 
+/**
+ * Modele d'Inverseur de gravité
+ */
 public class ModelGravityInverser extends ModelGravitySwitch {
-
-	private double width;
+    /**
+     * La taille de l'Inverseur de gravité
+     */
+	private double size;
 
 
     /**
      * Constructeur
-     * @param x coordonnée x de l'objet
-     * @param y coordonnée y de l'objet
+     * @param x coordonnée x de l'Inverseur de gravité
+     * @param y coordonnée y de l'Inverseur de gravité
+     * @param type
      */
     public ModelGravityInverser(double x, double y, ItemType type) {
         super(x, y,-1.0,type);
-        this.width = 3.0;
+        this.size = 3.0;
     }
 
 }

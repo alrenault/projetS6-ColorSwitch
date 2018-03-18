@@ -159,7 +159,7 @@ public class Shapes extends Element{
      * Assesseur de l'épaisseur de la forme
      * @return l'épaisseur de la forme
      */
-   /* public double getWidth() {
+   /* public double getSize() {
         return width;
     }*/
 
@@ -253,7 +253,7 @@ public class Shapes extends Element{
      */
     public boolean isOver(double _x, double _y) {
         return this.group_shape.contains(_x, _y);
-        //return this.shape.intersects(getX(),getY(),coord.getWidth(),coord.getHeight());
+        //return this.shape.intersects(getX(),getY(),coord.getSize(),coord.getHeight());
     }
     
     /**

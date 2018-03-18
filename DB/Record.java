@@ -4,12 +4,22 @@ import game.Score;
 import java.lang.String;
 
 /**Objet de gestion des interactions avec la base de données
+ * Utlisé par GestionDB in getNBestRecords et getScoreOfPlayer
  * @autor Vincent
  * @date 07/03/2018
  */
 public class Record {
+    /**
+     * Le pseudo du joueur ayant efféctué ce score
+     */
     private String pseudoJoueur;
+    /**
+     * Le score associé au joueur
+     */
     private Score scoreJoueur;
+    /**
+     * La date du record (String car il s'agit que d'afficher la date )
+     */
     private String dateRecordJoueur;
 
     /**

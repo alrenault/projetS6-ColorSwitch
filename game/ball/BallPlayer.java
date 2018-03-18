@@ -17,24 +17,54 @@ import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import model.modelBall.ModelBallPlayer;
 
+/**
+ *
+ */
 public class BallPlayer extends Ball {
-
+    /**
+     *
+     */
     private Group shape;
+    /**
+     *
+     */
     private TranslateTransition gravity;
+    /**
+     *
+     */
     private TranslateTransition tt2;
+    /**
+     *
+     */
     private TranslateTransition tt3;
+    /**
+     *
+     */
     private Bounds coord;
+    /**
+     *
+     */
     private Scene sc;
-    
+    /**
+     *
+     */
     private ModelBallPlayer model_ball;
 
+    /**
+     *
+     * @param sc
+     * @param mbp
+     */
     public BallPlayer(Scene sc,ModelBallPlayer mbp) {
     	this.sc = sc;
     	model_ball = mbp;
         this.shape = buildBall();
     }
 
-
+    /**
+     *
+     * @return
+     */
 	public Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(model_ball.getSize(), color);
@@ -87,23 +117,37 @@ public class BallPlayer extends Ball {
         return ball;
 
     }
-    
+
+    /**
+     *
+     * @return
+     */
     public double getX() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getY() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
 
     }
-    
+
+    /**
+     *
+     * @return
+     */
     public Point2D getCoord() {
         return new Point2D(getX(), getY());
     }
 
-
+    /**
+     *
+     */
     @Override
     public void applyGravity() {
         //System.out.println("Gravity Ball");
@@ -120,6 +164,9 @@ public class BallPlayer extends Ball {
 
     //static int xj = 100;
 
+    /**
+     *
+     */
     @Override
     public void jump() {
         // TODO Auto-generated method stub
@@ -159,6 +206,9 @@ public class BallPlayer extends Ball {
 
     }
 
+    /**
+     *
+     */
     public void jumpLimit() {
         TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), sc.getRoot());
         tt1.setByY(100);
@@ -168,6 +218,10 @@ public class BallPlayer extends Ball {
         tt1.play();
     }
 
+    /**
+     *
+     * @return
+     */
 	@Override
 	public Group getShape() {
 		// TODO Auto-generated method stub

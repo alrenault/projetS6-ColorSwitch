@@ -12,12 +12,30 @@ import java.util.Random;
  * @date 26/02/2018
  */
 public class GestionDB {
+    /**
+     * Addresse du driver de MySql
+     */
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    /**
+     * Nom de la base de données
+     */
     private static final String DB_NAME="ColorSwitch";
+    /**
+     * Addresse de la base de données
+     */
     private static final String DB_URL = "jdbc:mysql://localhost:8889/"+DB_NAME;
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";
+    /**
+     * Nom de l'utilisateur de la base de données
+     */
+    private static final String DB_USERNAME = "root";
+    /**
+     * Mot de passe associé à DB_USERNAME de la base de données
+     */
+    private static final String DB_PASSWORD = "root";
 
+    /**
+     * Connection sur laquelle se fera toutes les interractions
+     */
     private Connection connexion;
 
     /**
@@ -35,7 +53,7 @@ public class GestionDB {
         try {
             if (connexion==null||connexion.isClosed()) {
                 Class.forName(JDBC_DRIVER);
-                connexion = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+                connexion = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             }
         }
         catch (SQLException | ClassNotFoundException e) {

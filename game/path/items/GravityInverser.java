@@ -19,13 +19,13 @@ public class GravityInverser extends GravitySwitch {
     /**
      * La taille
      */
-    private double width;
+    private double size;
+
 
 
     /**
-     * Constructeur
-     * @param x coordonnée x de l'objet
-     * @param y coordonnée y de l'objet
+     *
+     * @param mgi
      */
     public GravityInverser(ModelGravityInverser mgi) {
         super(mgi);

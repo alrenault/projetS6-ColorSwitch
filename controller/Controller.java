@@ -50,7 +50,13 @@ public class Controller {
 		model.startGame();
 		view.viewGame(model.getGame());
 	}
-	public void scoring(String nom, Score score){
+
+	/**
+	 * Enregistre le score
+	 * @param nom nom du joueur
+	 * @param score Score du joueur
+	 */
+	public void recordScore(String nom, Score score){
 //
 		connectionDB.record(nom,score);
 	}

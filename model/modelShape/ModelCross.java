@@ -19,7 +19,7 @@ public class ModelCross extends ModelShape {
     private double length;
     
     /**
-     * Constructeur plus précis de la croix
+     * Constructeur de croix
      * @param x Coordonnée en x de la croix
      * @param y Coordonnée en y de la croix
      * @param width Largeur d'un rectangle
@@ -42,10 +42,18 @@ public class ModelCross extends ModelShape {
         type = ShapeType.Cross;
     }
 
+    /**
+     * Accesseur du nombre de rectangles de la Croix
+     * @return le nombre de rectangles de la Croix
+     */
 	public int getNbr_rect() {
 		return nbr_rect;
 	}
 
+    /**
+     * Accesseur de la valeur de la longueur du rectangle
+     * @return la longueur du rectangle
+     */
 	public double getLength() {
 		return length;
 	}

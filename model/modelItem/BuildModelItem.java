@@ -5,9 +5,21 @@ import java.util.List;
 import javafx.scene.paint.Color;
 import model.ItemType;
 
-
+/**
+ *
+ */
 public class BuildModelItem {
-
+    /**
+     *
+     * @param obs
+     * @param posX
+     * @param posY
+     * @param colors
+     * @param coefForce
+     * @param radius
+     * @param nbPoint
+     * @return
+     */
 	public static ModelItem build(int obs, double posX, double posY, List<Color> colors, double coefForce, double radius, int nbPoint) {
         ModelItem mi;
         ItemType type = ItemType.getEnum(obs);

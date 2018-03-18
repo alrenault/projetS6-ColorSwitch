@@ -1,10 +1,7 @@
 package game.ball;
 
-import java.util.List;
 
 import game.path.Element;
-import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
@@ -14,38 +11,60 @@ import javafx.scene.shape.Shape;
  * To create a ball, you have to extend this class
  */
 public abstract class Ball extends Element {
-	
 
+    /**
+     * Couleur de la Balle
+     */
     protected Color color;
 
-
+    /**
+     * Application de la gravité
+     */
     public abstract void applyGravity();
 
+    /**
+     * Application de l'action 'jump'
+     */
     public abstract void jump();
-    
-    public abstract double getX();
-    
-    public abstract double getY();
-    
-    
 
+    /**
+     * Accesseur de coordonée x de la Balle
+     *
+     * @return La coordonée x de la Balle
+     */
+    public abstract double getX();
+
+    /**
+     * Accesseur de coordonée y de la Balle
+     * @return La coordonée y de la Balle
+     */
+    public abstract double getY();
+
+
+    /**
+     *
+     * @return
+     */
     public Color getColor() {
         return color;
     }
 
+    /**
+     *
+     * @param color
+     */
     public void setColor(Color color) {
         this.color = color;
         for(Shape s : getShapeList()){
         	s.setFill(color);
         }
     }
-    
 
 
-
-
-    
-
+    /**
+     *
+     * @return
+     */
 	@Override
 	protected Group build() {
 		// TODO Auto-generated method stub

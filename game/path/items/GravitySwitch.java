@@ -1,13 +1,9 @@
 package game.path.items;
 
-import java.util.List;
-
-import game.Colorable;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import model.modelItem.ModelGravitySwitch;
 import model.modelItem.ModelItem;
-import javafx.scene.paint.Color;
 
 
 /**Objet graphique Changeur de gravité
@@ -30,7 +26,7 @@ public class GravitySwitch extends Item {
      * @return un ensemble de forme
      */
     protected Group buildItem(ModelItem mi) {
-        double w = ((ModelGravitySwitch)mi).getWidth();
+        double w = ((ModelGravitySwitch)mi).getSize();
         double x = mi.getX();
         double y = mi.getY();
         

@@ -26,9 +26,17 @@ import java.util.List;
  * @version 1.0
  */
 public class Main extends Application {
-	
+	/**
+	 *
+	 */
 	InterfaceModelColorSwitch model;
+	/**
+	 *
+	 */
 	InterfaceViewColorSwitch view;
+	/**
+	 *
+	 */
 	Controller controller;
 
     public static void main(String[] args) {

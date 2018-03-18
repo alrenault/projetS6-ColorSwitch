@@ -1,16 +1,19 @@
 package model.modelItem;
 
-import java.util.List;
-
-import javafx.scene.paint.Color;
 import model.ItemType;
 
+/**
+ * Modele de Modifieur de gravité
+ */
 public class ModelGravitySwitch extends ModelItem{
 
 	 /**
-     * La taille
+     * La taille du modifieur de gravité
      */
-    private double width;
+    private double size;
+    /**
+     * Le coeficient de gravité (nouvel)
+     */
     private double coefForce;
 
     /**
@@ -21,14 +24,22 @@ public class ModelGravitySwitch extends ModelItem{
      */
     public ModelGravitySwitch(double x, double y,double coefForce, ItemType type) {
         super(x, y,null,5, type);
-        this.width = 3.0;
+        this.size = 3.0;
         this.coefForce=coefForce;
     }
 
-	public double getWidth() {
-		return width;
+    /**
+     * Accesseur de la valeur de taille du modifieur de gravité
+     * @return Sa taille
+     */
+	public double getSize() {
+		return size;
 	}
 
+    /**
+     * Accesseur de la valeur du coeficient de gravité
+     * @return Le coeficient de gravité
+     */
 	public double getCoefForce() {
 		return coefForce;
 	}

@@ -125,30 +125,60 @@ public abstract class ModelShape implements Colorable{
 
     }
 
+    /**
+     *
+     * @return
+     */
     public double getX() {
 		return x;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public double getY() {
 		return y;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public boolean isMouvementDirection() {
 		return mouvementDirection;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public boolean isAcceleration() {
 		return acceleration;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public int getPos_color() {
 		return pos_color;
 	}
 
+
+	/**
+     * Determine la vitesse de mouvement de la Forme
+     *
+     * @return
+     */
 	public double getMouvementSpeed() {
 		return mouvementSpeed;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public List<Color> getColors() {
 		return colors;
 	}
@@ -161,6 +191,9 @@ public abstract class ModelShape implements Colorable{
         return width;
     }
 
+    /**
+     *
+     */
     public void verifPosColor() {
         pos_color++;
         if (pos_color == colors.size())
@@ -201,9 +234,7 @@ public abstract class ModelShape implements Colorable{
     }
     
     
-    /**
-     * Determine la vitesse de mouvement de la Forme
-     */
+
     
 
 

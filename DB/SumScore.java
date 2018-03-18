@@ -1,6 +1,7 @@
 package DB;
 /**
 *Objet permettant de stocker des Triplets (classement, joueur , score total)
+ * utilidé dans GestionDB in topJoueur
 * @autor Vincent
 * @date 16/03/2018
 *

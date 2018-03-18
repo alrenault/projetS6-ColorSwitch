@@ -6,14 +6,12 @@ package view;
 */
 
 import controller.Controller;
-import game.Score;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 /**
  *Mini Form recuperrant le pseudo du joueur à la fin de la partie
@@ -59,7 +57,7 @@ public class ScenePseudo {
         buttonSubmit.setOnAction(e -> {
             String p = inputPseudo.getText();
             System.err.println(p);
-            c.scoring(p,c.getScore());
+            c.recordScore(p,c.getScore());
            //appel Controleur
 
         });

@@ -22,8 +22,8 @@ public class ModelTriangle extends ModelShape {
      * @param mouvementDirection indique la direction de la rotation
      * @param acceleration Indique si la rotation du  triangle est linéaire ou est soumise à une accéleration
      * @param mouvementSpeed   vitesse de rotation du triangle
-     * @param colors la liste de couleurs à applique aux traits du triangle
-     * @param pos_color
+     * @param colors la liste de couleurs à appliquer aux trapezes du triangle
+     * @param pos_color L'indice de liste de colors
      */
 	public ModelTriangle(double x, double y, double height, double width, boolean mouvementDirection, boolean acceleration, 
 			Speed mouvementSpeed, List<Color> colors, int pos_color) {
@@ -33,6 +33,10 @@ public class ModelTriangle extends ModelShape {
         type = ShapeType.Triangle;
 	}
 
+	/**
+	 * Accesseur de la valeur de la hauteur du triangle
+	 * @return La hauteur du triangle
+	 */
 	public double getHeight() {
 		return height;
 	}

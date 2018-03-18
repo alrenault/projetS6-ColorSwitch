@@ -6,8 +6,13 @@ import game.Speed;
 import javafx.scene.paint.Color;
 import model.ShapeType;
 
+/**
+ *
+ */
 public class ModelSquare extends ModelShape {
-
+	/**
+	 *
+	 */
 	private double length;
 	
 	/**
@@ -31,6 +36,10 @@ public class ModelSquare extends ModelShape {
 
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public double getLength() {
 		return length;
 	}
