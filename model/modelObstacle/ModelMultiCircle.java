@@ -10,6 +10,7 @@ import model.ObstacleType;
 public class ModelMultiCircle extends ModelObstacle {
 	
 	public static final int NBR_VERSIONS = 11;
+	public static final double MAX_HEIGHT = 690;
     protected static int[] versionEasy = {0, 1, 7, 8, 9, 10};
     protected static int[] versionMedium = {2, 5, 6};
     protected static int[] versionHard = {3, 4};
@@ -44,7 +45,9 @@ public class ModelMultiCircle extends ModelObstacle {
 	        return versionHard[r.nextInt(versionHard.length)];
 	    }
 
-	    
+	    public double getObstacleHeight() {
+			return MAX_HEIGHT;
+		}
 	    
 
 }

@@ -12,6 +12,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelItem;
 import model.modelObstacle.BuildModelObstacle;
 import model.modelObstacle.ModelObstacle;
 
@@ -22,7 +24,7 @@ import java.util.Random;
 
 
 public class Path {
-    private List<Item> items;
+    private List<ModelItem> items;
     private List<ModelObstacle> obstacles;
     private List<Ennemy> ennemies;
     //private Group path;
@@ -74,7 +76,7 @@ public class Path {
         Random r = new Random();
         int type;
         int variante;
-        double posY = scHeight / 3;
+        double posY = scHeight / 5;
         double posX = scWidth / 2;
         Difficulty obstacleDifficulty;
 
@@ -88,22 +90,25 @@ public class Path {
             
             //Generation de l'obstacle avec son colorSwitch
             ModelObstacle mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
-            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
+            ModelItem modelBCS = BuildModelItem.build(0, scWidth/2, posY + mo.getObstacleHeight()/2 + 150, colors, 0, 0, 0);
+           // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
 
-               List<Color> l = new ArrayList<Color>();
-                     Star s;
-                        if(mo.getDifficulty() == Difficulty.EASY){
+               
+            
+            List<Color> l = new ArrayList<Color>();
+                     ModelItem modelStar;
+                        if(obstacleDifficulty == Difficulty.EASY){
                            	l.add(Colorable.BRONZE);
-                                s = new Star(scWidth/2,mo.getY(),10,l,10);
+                           	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10);
                             }
-                        else if(mo.getDifficulty() == Difficulty.NORMAL){
+                        else if(obstacleDifficulty == Difficulty.NORMAL){
                             	l.add(Colorable.SILVER);
-                                s = new Star(scWidth/2,mo.getY(),15,l,20);
+                            	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20);
                             }
                        else{
                             	l.add(Colorable.GOLD);
-                                s = new Star(scWidth/2,mo.getY(),20,l,30);
-                           }
+                            	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30);    
+                            }
 
             //marche pas encore tout à fait
             /*for(Shape partStar : s.getShapeList()){
@@ -122,8 +127,8 @@ public class Path {
             //newPath.getChildren().add(s.getItem());
             
             add(mo);
-            add(bcs);
-            add(s);
+            add(modelBCS);
+            add(modelStar);
             
             //addSL(o.getShapeList());
             //addSL(bcs.getShapeList());
@@ -218,7 +223,7 @@ public class Path {
         ennemies.add(e);
     }
 
-    public boolean add(Item item) {
+    public boolean add(ModelItem item) {
         return items.add(item);
     }
 
@@ -265,7 +270,7 @@ public class Path {
         return ennemies;
     }
     
-    public List<Item> getItem(){
+    public List<ModelItem> getItem(){
     	return items;
     }
 

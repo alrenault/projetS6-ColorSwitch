@@ -12,6 +12,7 @@ import model.ObstacleType;
 public class ModelMultiLine extends ModelObstacle {
 	
 	public static final int NBR_VERSIONS = 11;
+	public static final double MAX_HEIGHT = 220;
     protected static int[] versionEasy = {0, 1, 4, 7};
     protected static int[] versionMedium = {2, 3, 5, 6, 8};
     protected static int[] versionHard = {9, 10};
@@ -68,7 +69,9 @@ public class ModelMultiLine extends ModelObstacle {
 	}
 
 
-	
+	public double getObstacleHeight() {
+		return MAX_HEIGHT;
+	}
     
     
 

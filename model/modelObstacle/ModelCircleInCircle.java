@@ -10,6 +10,7 @@ import model.ObstacleType;
 public class ModelCircleInCircle extends ModelObstacle {
 	
 	public static final int NBR_VERSIONS = 7;
+	public static final double MAX_HEIGHT = 230;
     protected static int[] versionEasy = {4, 5};
     protected static int[] versionMedium = {0, 1, 6};
     protected static int[] versionHard = {2, 3};
@@ -42,6 +43,10 @@ public class ModelCircleInCircle extends ModelObstacle {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }
+    
+    public double getObstacleHeight() {
+		return MAX_HEIGHT;
+	}
 
     
     

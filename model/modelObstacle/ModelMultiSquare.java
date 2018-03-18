@@ -11,6 +11,7 @@ import model.ObstacleType;
 public class ModelMultiSquare extends ModelObstacle {
 	
     public static final int NBR_VERSIONS = 5;
+	public static final double MAX_HEIGHT = 300;
     protected static int[] versionEasy = {2, 3};
     protected static int[] versionMedium = {0, 1};
     protected static int[] versionHard = {4};
@@ -44,6 +45,9 @@ public class ModelMultiSquare extends ModelObstacle {
         return versionHard[r.nextInt(versionHard.length)];
     }
     
+    public double getObstacleHeight() {
+		return MAX_HEIGHT;
+	}
     
 
 }

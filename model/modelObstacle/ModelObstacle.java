@@ -7,7 +7,7 @@ import game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 
-public class ModelObstacle {
+public abstract class ModelObstacle {
 
     protected double x;
     protected double y;
@@ -77,9 +77,7 @@ public class ModelObstacle {
 		return type;
 	}
 
-	public int getObstacleHeight() {
-		return 600;
-	}
+	public abstract double getObstacleHeight();
     
 	   
 }

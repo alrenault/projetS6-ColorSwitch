@@ -9,20 +9,15 @@ import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelItem.ModelItem;
 
 /**
  * @autor Vincent
  * @date 17/02/2018
  */
 public abstract class Item extends Element {
-	/**
-     * coordonnée x de l'objet
-     */
-    protected double x;
-    /**
-     * coordonnée Y de l'objet
-     */
-    protected double y;
+	
+    
     /**
      * Forme de l'objet
      */
@@ -32,15 +27,10 @@ public abstract class Item extends Element {
      */
 
 
-    protected List<Color> colors;
-
-    /**
-     * Le nombre de points gagné
-     */
-    protected int nbPoints;
-
 
     protected Bounds coord;
+    
+    ModelItem model_item;
 
     /**
      * Constructeur de la forme
@@ -48,20 +38,8 @@ public abstract class Item extends Element {
      * @param y coordonnée y de l'objet
      * @param colors Liste de couleur à appliquer
      */
-    public Item(double x, double y, List<Color> colors,int nbPoints) {
-        assert (x>=0);
-        assert (y>=0);
-        assert (nbPoints>=0);
-        this.x = x;
-        this.y = y;
-        this.nbPoints=nbPoints;
-        if (colors==null) {
-            List<Color> c = new ArrayList<>();
-            c.add(Color.WHITE);
-            this.colors = c;
-        }else {
-            this.colors = colors;
-        }
+    public Item(ModelItem mi) {
+       model_item = mi;
         item = new Group();
 
     }
@@ -72,16 +50,13 @@ public abstract class Item extends Element {
      * Genere la forme
      * @return un ensemble de Forme
      */
-    protected abstract Group buildItem();
+    protected abstract Group buildItem(ModelItem mi);
     
 	@Override
 	protected Group build() {
-		return buildItem();
+		return null;
 	}
 
-    public int getNbPoints() {
-        return nbPoints;
-    }
 
     /**
      * Assesseur de coordonnée x
@@ -119,4 +94,12 @@ public abstract class Item extends Element {
 		// TODO Auto-generated method stub
 		return item;
 	}
+
+
+
+	public ModelItem getModel_item() {
+		return model_item;
+	}
+	
+	
 }

@@ -68,7 +68,7 @@ public class Score {
         if (item instanceof Star) {
             nbEtoilesRamassees++;
         }
-        scoreStored += item.getNbPoints();
+        scoreStored += item.getModel_item().getNbPoints();
     }
 
     /**

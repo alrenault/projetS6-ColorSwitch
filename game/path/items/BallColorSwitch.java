@@ -6,27 +6,25 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Shape;
+import model.modelItem.ModelBallColorSwitch;
+import model.modelItem.ModelItem;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class BallColorSwitch extends Item implements Colorable {
-
-    private double size;
-    private int pos_color = 0;
-    private List<Color> colors_use;
+public class BallColorSwitch extends Item {
 
 
-    public BallColorSwitch(double x, double y, List<Color> colors) {
-    	super(x,y,colors,10);
-        this.size = 12;
-
-        this.colors_use = new ArrayList<>();
-        item = buildItem();
+    public BallColorSwitch(ModelBallColorSwitch mbcs) {
+    	super(mbcs);
+        item = buildItem(mbcs);
     }
 
-    public Group buildItem() {
+    public Group buildItem(ModelItem mi) {
+    	
+    	ModelBallColorSwitch mbcs = (ModelBallColorSwitch)mi;
+    	
         Group ball = new Group();
 
         double angle = 90;
@@ -35,10 +33,10 @@ public class BallColorSwitch extends Item implements Colorable {
 
 
         for (int i = 0; i <= 4; i++) {
-            Arc arc_1 = new Arc(x, y, size, size, i * angle, angle);
+            Arc arc_1 = new Arc(mbcs.getX(), mbcs.getY(), mbcs.getSize(), mbcs.getSize(), i * angle, angle);
             arc_1.setType(type);
-            color(arc_1);
-            verifPosColor();
+            mbcs.color(arc_1);
+            mbcs.verifPosColor();
             ball.getChildren().add(arc_1);
             addSL(arc_1);
         }
@@ -46,32 +44,6 @@ public class BallColorSwitch extends Item implements Colorable {
         return ball;
 
     }
-
-    public void verifPosColor() {
-        pos_color++;
-        //System.out.println("position " + pos_color);
-        if (pos_color == colors.size())
-            pos_color = 0;
-    }
-
-    public void color(Shape s) {
-    	Iterator<Color> it = colors.iterator();
-    	Color c = null;
-    	for(int i = 0;it.hasNext() && i <= pos_color;i++){
-    		c = it.next();
-    	}
-    	
-    	if(c == null)
-    		c = Color.WHITE;
-        s.setFill(c);
-        colors_use.add(c);
-    }
-
-	public List<Color> getColors_use() {
-		return colors_use;
-	}
-
-
     
     
 

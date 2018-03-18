@@ -12,6 +12,7 @@ import model.ObstacleType;
 public class ModelMultiShapes extends ModelObstacle {
 	
 	public static final int NBR_VERSIONS = 8;
+	public static final double MAX_HEIGHT = 500;
     protected static int[] versionEasy = {4,6,7};
     protected static int[] versionMedium = {1, 2, 3, 5};
     protected static int[] versionHard = {0};
@@ -65,5 +66,8 @@ public class ModelMultiShapes extends ModelObstacle {
 		return scWidth;
 	}
 
+	public double getObstacleHeight() {
+		return MAX_HEIGHT;
+	}
 	
 }
