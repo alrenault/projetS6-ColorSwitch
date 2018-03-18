@@ -76,7 +76,7 @@ public class MainTest extends Application{
 
         
         Path p = new Path(scene1.getWidth(), scene1.getHeight(), CUSTOM, 100 , Difficulty.EASY);
-        jObstacles.getChildren().add(p.getPath());
+        //jObstacles.getChildren().add(p.getPath());
         
         
         
@@ -114,6 +114,7 @@ public class MainTest extends Application{
         
         
         //apellé a chaque shape
+        /*
         new AnimationTimer() {
 
 			@Override
@@ -207,8 +208,8 @@ public class MainTest extends Application{
 
 			}
         	
-        }//.start();
-        ;
+        }//.start();*/
+        
         
         //primaryStage.setScene(scene1);
         //Scene sc = Menu.createInstance(600,1000);
