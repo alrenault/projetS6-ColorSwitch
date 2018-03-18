@@ -55,6 +55,7 @@ public class Game {
     }
     
     public Game() {
+    	/*
     	difficulty = Difficulty.NO;
     	colors = new ArrayList<Color>();
     	colors.add(Colorable.YELLOW);
@@ -65,6 +66,29 @@ public class Game {
     	ball = new BallPlayer(10, colors.get(0));
     	path = new Path(colors, Integer.MAX_VALUE, difficulty);
     	universe = new Universe();
+    	
+    	this.score = new Score();
+    	*/
+    	
+    	System.out.println(
+        		"\n_______________"
+        		+ "\nRandom Game\n\n");
+        
+        List<Color> CUSTOM = new ArrayList<Color>();
+    	CUSTOM.add(Colorable.YELLOW);
+    	CUSTOM.add(Colorable.PURPLE);
+    	CUSTOM.add(Colorable.ROSE);
+    	CUSTOM.add(Colorable.BLUE);
+    	
+    	this.path = new Path(600,1000, CUSTOM, 10   , Difficulty.EASY);
+    	
+    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+    	
+    	this.universe = new Universe();
+    	
+    	this.score = new Score();
+    	
+    	
     }
     
     

@@ -77,7 +77,7 @@ public class Main extends Application {
         //model.startGame();
         //view.viewGame(model.getGame());
 		
-        view.viewGame(colorSuitch);
+        //view.viewGame(colorSuitch);
 		
 		help();
     	
