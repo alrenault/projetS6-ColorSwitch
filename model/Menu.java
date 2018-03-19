@@ -9,7 +9,10 @@ import javafx.scene.layout.HBox;
  * This class represents the menu before playing a game
  */
 public class Menu {
-	
+	/**
+	 *
+	 * @return
+	 */
 	public Scene createInstance(){
 		HBox root = new HBox(10);
 		Button newGameEasy = new Button("Nouvelle partie (facile)");

@@ -20,8 +20,11 @@ import game.Game;
 import game.ball.Ball;
 import game.ball.BallPlayer;
 
-public class ViewTimer {
 
+public class ViewTimer {
+	/**
+	 *
+	 */
 	AnimationTimer timer;
 	List<UseLaw> laws;
 	
@@ -63,6 +66,14 @@ public class ViewTimer {
 	
 	
 	
+	//public ViewTimer(Game game,ViewPath path,BallPlayer ball, Scene scene) {
+
+
+	/**
+	 *
+	 * @param game
+	 * @param scene
+	 */
 	public ViewTimer(Game game,ViewPath path,BallPlayer ball, Scene scene) {
 		timer = //apellé a chaque shape
 		        new AnimationTimer() {

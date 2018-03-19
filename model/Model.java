@@ -12,13 +12,18 @@ import game.Difficulty;
  * It contains ALL the data needed for the view
  */
 public class Model implements InterfaceModelColorSwitch {
-	
+	/**
+	 *
+	 */
 	private Game game;
-	
+
+	/**
+	 *
+	 */
 	public Model() {
 		
 	}
-	
+
 	@Override
 	public void startColorSwitch() {
 		// TODO Auto-generated method stub
@@ -62,6 +67,7 @@ public class Model implements InterfaceModelColorSwitch {
 		// TODO Auto-generated method stub
 		
 		//Enregistrer le score
+
 		
 	}
 

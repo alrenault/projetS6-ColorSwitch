@@ -1,7 +1,6 @@
 package DB;
 
 import game.Score;
-
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
@@ -42,6 +41,8 @@ public class GestionDB {
      * Constucteur de Gestion DB
      */
     public GestionDB() {
+
+        if (this.connexion())
         this.populateDB();
     }
 
@@ -49,16 +50,17 @@ public class GestionDB {
      * Doit etre uniquement utilisée dans et par cette classe
      * Effectue la connexion sql
      */
-    private void connexion(){
+    private boolean connexion(){
         try {
             if (connexion==null||connexion.isClosed()) {
                 Class.forName(JDBC_DRIVER);
                 connexion = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             }
         }
-        catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+        catch ( ClassNotFoundException  | SQLException e) {
+            return false;
         }
+        return true;
     }
 
     /**
@@ -195,20 +197,20 @@ public class GestionDB {
      * Sort le classement des joueurs selon leur somme de scores
      * @return une liste (chainée) contenant des Triplets (classement ,joueur,scoreTotal) triée par ordre decroissant
      */
-    public LinkedList<SumScore> topJoueurs(){
+    public LinkedList<SumScore> topJoueurs() {
 
-        LinkedList<SumScore> ret=new LinkedList<>();
+        LinkedList<SumScore> ret = new LinkedList<>();
         connexion();
         PreparedStatement stmt;
         try {
-            stmt = connexion.prepareStatement("SELECT pseudo_user,SUM(score_partie) AS score_total FROM partie NATURAL JOIN user GROUP BY pseudo_user ORDER BY score_total DESC ",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            stmt = connexion.prepareStatement("SELECT pseudo_user,SUM(score_partie) AS score_total FROM partie NATURAL JOIN user GROUP BY pseudo_user ORDER BY score_total DESC ", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 
             ResultSet reponse = stmt.executeQuery();
-            int position=0;
+            int position = 0;
             while (reponse.next()) {
                 position++;
 
-                ret.add(new SumScore(position,reponse.getString("pseudo_user"),reponse.getInt("score_total")));
+                ret.add(new SumScore(position, reponse.getString("pseudo_user"), reponse.getInt("score_total")));
 
             }
         } catch (SQLException e) {
@@ -217,6 +219,11 @@ public class GestionDB {
         return ret;
     }
 
+    /**
+     * Methode de test de la connexion à la BD
+     * @return true si aucun probleme materiel ,SQL ou autre Exeption est levée
+     */
+    public boolean testConnexionDB(){return this.connexion(); }
     /**
      * Insert des Scores dans la base
      * ne peut inserer 2 fois

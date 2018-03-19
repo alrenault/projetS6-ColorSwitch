@@ -8,28 +8,52 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import main.Main;
 
+/**
+ *
+ */
 public class View implements InterfaceViewColorSwitch {
-	
+	/**
+	 *
+	 */
 	Stage stage;
+	/**
+	 *
+	 */
 	Controller controller;
-	
+	/**
+	 *
+	 */
 	int tailleX = 600;
+	/**
+	 *
+	 */
 	int tailleY = 1000;
 	//Preferences
-	
+
+	/**
+	 *
+	 * @param primaryStage
+	 */
 	public View(Stage primaryStage) {
 		stage = primaryStage ;
 		initStage(stage);
 		//basicView();
 		
 	}
-	
+
+	/**
+	 *
+	 * @param c
+	 */
 	public void setController(Controller c) {
 		controller = c;
 	}
-	
-	
 
+
+	/**
+	 *
+	 * @param stage
+	 */
 	private void initStage(Stage stage) {
 		//Set Stage
         stage.setTitle("ColorSuitch");
@@ -37,28 +61,38 @@ public class View implements InterfaceViewColorSwitch {
         stage.setFullScreen(1==0);
         stage.setResizable(false);
 	}
-	
+
+	/**
+	 *
+	 * @param scene
+	 */
 	private void display(Scene scene) {
         stage.setScene(scene);
         stage.show();
 	}
-	
-	
-	
+
+
+	/**
+	 *
+	 */
 	public void basicView() {
 		viewMenu();
 	}
-	
-	
-	
-	
-	
+
+
+	/**
+	 *
+	 */
 	public void viewMenu() {
  
 		Scene scene = Menu.createInstance(controller,600,1000);
 		display(scene);	
 	}
 
+	/**
+	 *
+	 * @param thisGame
+	 */
 	public void viewGame(Game thisGame) {
 		
 		Group root = new Group();
@@ -71,6 +105,9 @@ public class View implements InterfaceViewColorSwitch {
 		
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void viewGameOver() {
 		Scene form = null;
@@ -85,7 +122,10 @@ public class View implements InterfaceViewColorSwitch {
 	}
 
 
-
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public Controller getController() {
 		return controller;

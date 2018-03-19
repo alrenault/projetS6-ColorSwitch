@@ -16,7 +16,7 @@ public class ModelBall extends Ball {
 	 */
         int  x = 70;
 	/**
-	 *
+	 *La taille de la Balle
 	 */
     private float size;
 	/**
@@ -28,7 +28,7 @@ public class ModelBall extends Ball {
 	 */
     private double scHeight;
 	/**
-	 *
+	 * La couleur de la Balle
 	 */
 	private Color color;
 	/**

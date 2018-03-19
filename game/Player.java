@@ -1,7 +1,7 @@
 package game;
 
 /**
- * Modelise le joueur de l'appli
+ * Modelise le joueur de l'appli (Non utlisée ( on ne demande pas le nom du joueur au début)
  * @autor Vincent
  * @date 25/02/2018
  */
@@ -11,6 +11,9 @@ public class Player {
      * */
 
     private String namePlayer;
+    /**
+     *
+     */
     private Score scorePlayer;
 
     /**
