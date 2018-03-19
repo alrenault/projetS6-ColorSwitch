@@ -10,7 +10,7 @@ import javafx.scene.shape.Shape;
  * This is a generic ball which represents the player in the game
  * To create a ball, you have to extend this class
  */
-public abstract class Ball extends Element {
+public abstract class Ball {
 
     /**
      * Couleur de la Balle
@@ -55,21 +55,15 @@ public abstract class Ball extends Element {
      */
     public void setColor(Color color) {
         this.color = color;
-        for(Shape s : getShapeList()){
-        	s.setFill(color);
-        }
     }
 
+	public abstract double getSize();
 
     /**
      *
      * @return
      */
-	@Override
-	protected Group build() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 
 }

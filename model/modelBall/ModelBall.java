@@ -1,5 +1,6 @@
 package model.modelBall;
 
+import game.ball.Ball;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
@@ -9,7 +10,7 @@ import javafx.scene.paint.Color;
 /**
  *
  */
-public class ModelBallPlayer {
+public class ModelBall extends Ball {
 	/**
 	 *
 	 */
@@ -42,7 +43,7 @@ public class ModelBallPlayer {
      * @param scWidth
      * @param scHeight
      */
-    public ModelBallPlayer(float size, Color color, double scWidth, double scHeight) {
+    public ModelBall(float size, Color color, double scWidth, double scHeight) {
         this.size = size;
         this.color = color;
         this.scWidth = scWidth;
@@ -53,7 +54,7 @@ public class ModelBallPlayer {
      *
      * @return
      */
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
@@ -61,7 +62,7 @@ public class ModelBallPlayer {
      *
      * @return
      */
-	public float getSize() {
+	public double getSize() {
 		return size;
 	}
 
@@ -95,6 +96,24 @@ public class ModelBallPlayer {
      */
 	public double getJumpHeight() {
 		return jumpHeight;
+	}
+
+	@Override
+	public void applyGravity() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void jump() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public double getY() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
     
     

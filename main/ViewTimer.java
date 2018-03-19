@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import game.path.items.BallColorSwitch;
@@ -10,13 +12,58 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
+import view.ViewPath;
+import view.useLaw.J;
+import view.useLaw.JtGravity;
+import view.useLaw.UseLaw;
 import game.Game;
+import game.ball.Ball;
+import game.ball.BallPlayer;
 
 public class ViewTimer {
 
 	AnimationTimer timer;
+	List<UseLaw> laws;
 	
-	public ViewTimer(Game game, Scene scene) {
+	public ViewTimer(BallPlayer ball) {
+		laws = new ArrayList<>();
+		
+		J j = new J();
+		laws.add(j);
+		
+		JtGravity gravity = new JtGravity(ball);
+		laws.add(gravity);
+		
+		
+		
+		
+		timer = new AnimationTimer() {
+			long startTime = System.currentTimeMillis();
+			@Override
+			public void handle(long now) {
+				long currentTime = System.currentTimeMillis();
+				long duree = currentTime - startTime;
+				System.out.println("Time : "+ duree + " ms");
+				
+				for(UseLaw j : laws) {
+					j.apply();
+				}
+			}
+		};
+	}
+	
+	public void play() {
+		timer.start();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public ViewTimer(Game game,ViewPath path,BallPlayer ball, Scene scene) {
 		timer = //apellé a chaque shape
 		        new AnimationTimer() {
 
@@ -24,8 +71,8 @@ public class ViewTimer {
 					public void handle(long now) {
 						checkCollision();
 						//frame=score.getScore();
-						double x = game.getBall().getX();
-						double y = game.getBall().getY();
+						double x = ball.getX();
+						double y = ball.getY();
 						
 						
 						//nFrame++;
@@ -34,9 +81,9 @@ public class ViewTimer {
 
 					private void checkCollision() {
 						
-						for(Shape ball : game.getBall().getShapeList()) {
+						for(Shape ball : ball.getShapeList()) {
 							
-							for(Obstacle o : game.getPath().getObstacles()) {
+							for(Obstacle o : path.getObstacles()) {
 								
 								for(Shape shape : o.getShapeList()){
 								
@@ -59,7 +106,7 @@ public class ViewTimer {
 							}
 							
 							Boolean touch = false;
-							 for(Item i : game.getPath().getItem()){
+							 for(Item i : path.getItems()){
 								if(i instanceof BallColorSwitch){
 									for(Shape shape : i.getShapeList()){
 										Shape intersection = Shape.intersect(ball,shape);
@@ -69,10 +116,10 @@ public class ViewTimer {
 											System.out.println(ball.getFill().toString());
 											if(shape.getFill() != ball.getFill()) {
 												Random r = new Random();
-												int size = ((BallColorSwitch) i).getColors_use().size();
-												Color c = ((BallColorSwitch) i).getColors_use().get(r.nextInt(size));
-												game.getPath().remove(i);
-												game.getBall().setColor(c);
+												//int size = ((BallColorSwitch) i).getColors_use().size();
+												//Color c = ((BallColorSwitch) i).getColors_use().get(r.nextInt(size));
+												path.removeItem(i);
+												//ball.setColor(c);
 												touch = true;
 												break;
 											}

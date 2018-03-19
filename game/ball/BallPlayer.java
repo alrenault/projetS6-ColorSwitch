@@ -3,6 +3,7 @@ package game.ball;
 import java.util.List;
 
 import controller.Listeners;
+import game.path.Element;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -15,11 +16,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
+import model.modelBall.ModelBall;
 
-public class BallPlayer extends Ball {
+public class BallPlayer extends Element{
 
     int x = 70;
-    private float size;
+    private double size;
     private Color color;
     private Group shape;
     private Scene scene;
@@ -28,12 +30,24 @@ public class BallPlayer extends Ball {
     private TranslateTransition tt3;
     private Bounds coord;
     private double jumpHeight = 50;
+    private Ball ball;
+    
 
     public BallPlayer(float size, Color color, Scene scene) {
         this.size = size;
         this.color = color;
         this.scene = scene;
         this.shape = buildBall();
+    }
+    
+    public BallPlayer(Ball ball, Scene scene) {
+    	this.scene = scene;
+    	this.ball = ball;
+    	this.size = ball.getSize();
+    	this.color = ball.getColor();
+    	
+    	this.shape = buildBall();
+    	
     }
 
     public BallPlayer(int i, Color color2) {
@@ -47,7 +61,7 @@ public class BallPlayer extends Ball {
         player.setCenterX(scene.getWidth() / 2);
         player.setCenterY(scene.getHeight() - 150);
         
-        addSL(player);
+        //addSL(player);
         ball.getChildren().add(player);
 
         //recuperation de la position
@@ -107,7 +121,7 @@ public class BallPlayer extends Ball {
     }
 
 
-    @Override
+    
     public void applyGravity() {
         //System.out.println("Gravity Ball");
         gravity = new TranslateTransition(Duration.seconds(4), shape);
@@ -123,9 +137,10 @@ public class BallPlayer extends Ball {
 
     //static int xj = 100;
 
-    @Override
+    
     public void jump() {
         // TODO Auto-generated method stub
+    	applyGravity();
         gravity.pause();
         gravity.stop();
         tt2.stop();
@@ -171,11 +186,22 @@ public class BallPlayer extends Ball {
         tt1.play();
     }
 
-	@Override
+	
+	public double getSize() {
+		return size;
+	}
+	
 	public Group getShape() {
-		// TODO Auto-generated method stub
 		return shape;
 	}
+
+	@Override
+	protected Group build() {
+		return buildBall();
+	}
+
+    
+
 
 
 

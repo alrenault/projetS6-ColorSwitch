@@ -25,7 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
-import model.modelBall.ModelBallPlayer;
+import model.modelBall.ModelBall;
 import view.ViewGameManagement;
 
 /**
@@ -84,6 +84,7 @@ public class Game {
     	this.path = new Path(600,1000, CUSTOM, 10   , Difficulty.EASY);
     	
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+    	this.ball = new ModelBall(10,CUSTOM.get(0), 10,10);
     	
     	this.universe = new Universe();
     	
@@ -136,7 +137,11 @@ public class Game {
         
     }
 
-    public void applyGravity() {
+    public Game(Difficulty difficulty) {
+    	this();
+	}
+
+	public void applyGravity() {
         ball.applyGravity();
     }
     

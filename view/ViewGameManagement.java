@@ -3,6 +3,7 @@ package view;
 import game.Colorable;
 import game.Difficulty;
 import game.Game;
+import game.ball.Ball;
 import game.ball.BallPlayer;
 import game.path.Path;
 import game.path.items.BuildItem;
@@ -12,15 +13,18 @@ import game.path.obstacle.Obstacle;
 import game.path.shapes.Shapes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import main.ViewTimer;
 import model.modelObstacle.ModelObstacle;
 import model.modelItem.ModelItem;
-import model.modelBall.ModelBallPlayer;
+import model.modelBall.BuildBall;
+import model.modelBall.ModelBall;
 
 
 public class ViewGameManagement {
 	
 	static Group root;
 	static Game game;
+	static ViewTimer timer;
 
 	public static void view(Game thisGame, Scene thisScene) {
 		
@@ -29,12 +33,15 @@ public class ViewGameManagement {
 		
 		
 		Path path = game.getPath();
-		BallPlayer ball = new BallPlayer(10, path.getColors().get(0), thisScene);
+		Ball ball = game.getBall();
+		
+		BallPlayer qball = new BallPlayer(10, path.getColors().get(0), thisScene);
+		BallPlayer ballplayer = BuildBall.build(ball,thisScene);
 		
 		
 		Group jObstacles = buildObstacles(path);
 		Group jItems = buildItems(path);
-		Group jBall = ball.getShape();
+		Group jBall = ballplayer.getShape();
 		
 		
 
@@ -42,6 +49,12 @@ public class ViewGameManagement {
 		add(jObstacles);
 		add(jItems);
 		add(jBall);
+		
+		ViewPath viewpath = new ViewPath(path);
+		
+		timer = new ViewTimer(ballplayer);
+		timer.play();
+		//ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
 		        
         
         
@@ -51,6 +64,7 @@ public class ViewGameManagement {
 	private static void add(Group group) {
 		root.getChildren().add(group);
 	}
+	
 	
 	public static Group buildObstacles(Path path) {
 		Group jObstacles = new Group();
