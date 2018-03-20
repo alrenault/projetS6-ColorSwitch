@@ -67,7 +67,7 @@ public class ViewTimer {
 				circle.setTranslateY(circle.getTranslateY()+4);
 				for(Shape ball : ball.getShapeList()) {
 					Shape intersection = Shape.intersect(ball, circle);
-					System.out.println(intersection);
+					//System.out.println(intersection);
 					
 					if (!intersection.getBoundsInParent().isEmpty()) {
 						System.out.println("AIE");

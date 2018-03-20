@@ -41,6 +41,7 @@ public class MultiShapes extends Obstacle {
     public MultiShapes(ModelMultiShapes mms) {
         super(mms);
         obstacle = buildObstacle(mms);
+
     }
 
 

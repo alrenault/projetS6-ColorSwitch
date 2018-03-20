@@ -7,6 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import main.Main;
+import javafx.scene.PerspectiveCamera;
+
+
+
+
 
 /**
  *
@@ -97,6 +102,7 @@ public class View implements InterfaceViewColorSwitch {
 		
 		Group root = new Group();
 		Scene scene = new Scene(root,tailleX,tailleY);
+		scene.setCamera(new PerspectiveCamera());
 		
 		ViewGameManagement.view(thisGame,scene,controller);
 		

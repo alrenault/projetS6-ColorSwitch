@@ -30,7 +30,9 @@ public class BallPlayer extends Element{
     private TranslateTransition tt3;
     private Bounds coord;
     private double jumpHeight = 50;
-    private Ball ball;
+    private double limiteJump;
+    private TranslateTransition ttl;
+    //private Ball ball;
     
 
     public BallPlayer(float size, Color color, Scene scene) {
@@ -39,24 +41,21 @@ public class BallPlayer extends Element{
         this.color = color;
         this.scene = scene;
         this.shape = buildBall();
+        
     }
     
     public BallPlayer(Ball ball, Scene scene) {
     	super();
     	this.scene = scene;
-    	this.ball = ball;
+    	//this.ball = ball;
     	this.size = ball.getSize();
     	this.color = ball.getColor();
+    	limiteJump = scene.getHeight() / 2;
     	
     	this.shape = buildBall();
     	
     }
 
-    public BallPlayer(int i, Color color2) {
-    	super();
-        this.size = size;
-        this.color = color;
-	}
 
 	public Group buildBall() {
         Group ball = new Group();
@@ -86,8 +85,9 @@ public class BallPlayer extends Element{
             }
         });
 
+
         //animation si se rapproche des 50% de la hauteur de la fenetre
-        tt3 = new TranslateTransition(Duration.millis((150 * ((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2)) / jumpHeight), ball);
+       /* tt3 = new TranslateTransition(Duration.millis((150 * ((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2)) / jumpHeight), ball);
         tt3.setByY(-((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2));
         tt3.setCycleCount(1);
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
@@ -97,7 +97,7 @@ public class BallPlayer extends Element{
             public void handle(ActionEvent event) {
                 gravity.play();
             }
-        });
+        });*/
 
         l.jump(ball);
 
@@ -147,13 +147,14 @@ public class BallPlayer extends Element{
         gravity.pause();
         gravity.stop();
         tt2.stop();
-        tt3.stop();
-        if (scene.getHeight() / 2 - jumpHeight >= getY()) {
+        //tt3.stop();
+       /* if (scene.getHeight() / 2 - jumpHeight >= getY()) {
             tt3.setByY(-((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2));
             tt3.play();
         } else {
             tt2.play();
-        }
+        }*/
+        tt2.play();
         
         
         
@@ -181,12 +182,30 @@ public class BallPlayer extends Element{
     }
 
     public void jumpLimit() {
-        TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
+    	//scene.getCamera().setTranslateY(scene.getCamera().getTranslateY()-100);
+    	//Group g = (Group)scene.getRoot();
+    	//g.setTranslateY(g.getTranslateY()+100);
+    	//scene.getCamera().setLayoutY(scene.getCamera().getLayoutY()-100);
+    	if(ttl != null){
+    		//ttl.stop();
+    		ttl.setByY(ttl.getByY());
+    	}
+    	else{
+    		ttl = new TranslateTransition(Duration.seconds(0.2), scene.getCamera());
+            ttl.setByY(-100);
+            ttl.setInterpolator(Interpolator.LINEAR);
+
+    	}
+        ttl.play();
+    	//scene.getCamera().setTranslateY(-100);
+    	limiteJump -= 100;
+    	System.out.println("jumplimit "+ limiteJump);
+        /*TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
         tt1.setByY(100);
 
         tt1.setInterpolator(Interpolator.LINEAR);
 
-        tt1.play();
+        tt1.play();*/
     }
 
 	
@@ -202,6 +221,11 @@ public class BallPlayer extends Element{
 	protected Group build() {
 		return buildBall();
 	}
+
+	public double getLimiteJump() {
+		return limiteJump;
+	}
+	
 
     
 

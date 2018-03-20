@@ -30,7 +30,7 @@ public class Listeners {
                     ball.jump();
 
                     Point2D coordPlayer = ball.getCoord();
-                    if (coordPlayer.getY() <= sc.getHeight() / 2) {
+                    if (coordPlayer.getY() <= ball.getLimiteJump()) {
                         //appel d'une methode pour faire descendre tout le monde
                         //System.out.println(coordPlayer.getX() + "," + coordPlayer.getY());
                         ball.jumpLimit();
