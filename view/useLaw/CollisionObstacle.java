@@ -3,6 +3,7 @@ package view.useLaw;
 import controller.Controller;
 import game.ball.BallPlayer;
 import game.path.obstacle.Obstacle;
+import javafx.scene.Group;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
@@ -34,7 +35,7 @@ public class CollisionObstacle implements UseLaw {
 				
 				
 				Shape intersection = Shape.intersect(b, shape);
-				System.out.println(intersection + " - " +ball.getY());
+				//System.out.println(intersection + " - " +ball.getY());
 				
 				
 				

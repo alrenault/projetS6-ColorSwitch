@@ -9,9 +9,11 @@ import game.path.items.BallColorSwitch;
 import game.path.items.Item;
 import game.path.obstacle.Obstacle;
 import javafx.animation.AnimationTimer;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
 import view.useLaw.CollisionObstacle;
@@ -31,7 +33,7 @@ public class ViewTimer {
 	List<UseLaw> laws;
 	Controller controller;
 	
-	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller) {
+	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Group root) {
 		laws = new ArrayList<>();
 		this.controller = controller;
 		
@@ -44,7 +46,8 @@ public class ViewTimer {
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		laws.add(co);
 		
-		
+		Circle circle = new Circle(300,500,50,Color.ALICEBLUE);
+		root.getChildren().add(circle);
 		
 		timer = new AnimationTimer() {
 			long startTime = System.currentTimeMillis();
@@ -58,6 +61,17 @@ public class ViewTimer {
 				
 				for(UseLaw j : laws) {
 					j.apply();
+				}
+				
+				
+				circle.setTranslateY(circle.getTranslateY()+4);
+				for(Shape ball : ball.getShapeList()) {
+					Shape intersection = Shape.intersect(ball, circle);
+					System.out.println(intersection);
+					
+					if (!intersection.getBoundsInParent().isEmpty()) {
+						System.out.println("AIE");
+					}
 				}
 				
 				
