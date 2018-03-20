@@ -3,10 +3,14 @@ package game.path.obstacle;
 import java.util.List;
 
 import game.path.Element;
+import game.path.items.BallColorSwitch;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelObstacle.ModelObstacle;
 
 /**
@@ -29,6 +33,8 @@ public abstract class Obstacle extends Element {
         //this.obstacle = build();
         //check();
     }
+    
+
     
     public ModelObstacle getModel_obstacle() {
 		return model_obstacle;
@@ -65,6 +71,7 @@ public abstract class Obstacle extends Element {
     }
 
     public double getObstacleHeight() {
+    	System.out.println(obstacle == null);
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getHeight();
     }
@@ -74,10 +81,7 @@ public abstract class Obstacle extends Element {
         return this.obstacle.contains(x, y);
     }
 	
-	
-	
-	
-	
+
 	@Override
 	public Group getShape() {
 		// TODO Auto-generated method stub

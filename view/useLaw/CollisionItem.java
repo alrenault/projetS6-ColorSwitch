@@ -1,10 +1,16 @@
 package view.useLaw;
 
+import java.util.Random;
+
 import controller.Controller;
 import game.ball.BallPlayer;
+import game.path.items.BallColorSwitch;
+import game.path.items.Item;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
+import model.modelItem.ModelBallColorSwitch;
 
 public class CollisionItem implements UseLaw {
 	
@@ -20,23 +26,43 @@ public class CollisionItem implements UseLaw {
 
 	@Override
 	public void apply() {
-		for(Shape b : ball.getShapeList()) {
-			for(Shape shape : path.getItemsShapes()) {
-				Shape intersection = Shape.intersect(b, shape);
-				
-				if (!intersection.getBoundsInParent().isEmpty()) {
-					if(shape instanceof Arc && shape.getStroke() != b.getFill()){
-						controller.gameOver();
-					}
+		Boolean touch = false;
+		for(Shape b : ball.getShapeList()){
+			for(Item item : path.getItems()){
+				for(Shape i : path.getItemsShapes()){
+					Shape intersection = Shape.intersect(b,i);
 					
-					if(!(shape instanceof Arc) &&shape.getFill() != b.getFill()) {
-						controller.gameOver();
-					}
+					if (!intersection.getBoundsInParent().isEmpty()) {
+						System.out.println("test");
+						//System.out.println(shape.getFill().toString());
+						//System.out.println(ball.getFill().toString());
+						if(item instanceof BallColorSwitch){
+							System.out.println("C'EST MA BALLE");
+							Random r = new Random();
+							ModelBallColorSwitch mBCS = (ModelBallColorSwitch)((BallColorSwitch)item).getModel_item();
+							int size = mBCS.getColors_use().size();
+							Color c = mBCS.getColors_use().get(r.nextInt(size));
+							path.removeItem(item);
+							ball.setColor(c);
+							touch = true;
+							break;
+						}
 				
+					}
+				}
+				if(touch){
+					touch = false;
+					break;
 				}
 			}
 			
+			
+			
 		}
+		 
+		
+			//game.getScore().ramasseItem(i);
 
-	}
+		}	
+
 }

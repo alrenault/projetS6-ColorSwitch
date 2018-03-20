@@ -42,6 +42,7 @@ public class ModelCircleInCircle extends ModelObstacle {
      */
     public ModelCircleInCircle(double x, double y, List<Color> colors, int version, ObstacleType type){
     	super(x, y,  colors, version, 4, type);
+
     }
 
     /**

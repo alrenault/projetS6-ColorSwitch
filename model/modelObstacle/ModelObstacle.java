@@ -6,6 +6,8 @@ import java.util.List;
 import game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
 
 public abstract class ModelObstacle {
 	/**
@@ -44,6 +46,8 @@ public abstract class ModelObstacle {
 	 *
 	 */
     protected ObstacleType type;
+    
+    protected ModelBallColorSwitch bcs;
 
 	/**
 	 *
@@ -66,6 +70,12 @@ public abstract class ModelObstacle {
         }
         color_use = new ArrayList<>();
         this.type = obstacleType;
+    	bcs = buildBCS();
+    }
+    
+    protected ModelBallColorSwitch buildBCS(){
+    	ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, x, y + getObstacleHeight()/2 + 150,colors, 0, 0, 0);
+        return modelBCS;
     }
 
 	/**
@@ -154,6 +164,10 @@ public abstract class ModelObstacle {
 	 */
 	public ObstacleType getType() {
 		return type;
+	}
+
+	public ModelBallColorSwitch getBcs() {
+		return bcs;
 	}
 
 	/**

@@ -16,6 +16,7 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
+import view.useLaw.CollisionItem;
 import view.useLaw.CollisionObstacle;
 import view.useLaw.J;
 import view.useLaw.JtGravity;
@@ -44,7 +45,10 @@ public class ViewTimer {
 		//laws.add(gravity);
 		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
+		CollisionItem ci = new CollisionItem(ball,path,controller);
+		
 		laws.add(co);
+		laws.add(ci);
 		
 		Circle circle = new Circle(300,500,50,Color.ALICEBLUE);
 		root.getChildren().add(circle);

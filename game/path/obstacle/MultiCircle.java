@@ -1,12 +1,15 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.items.BallColorSwitch;
 import game.path.shapes.BuildShape;
 import game.path.shapes.Circle;
 import game.path.shapes.Shapes;
 import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelObstacle.ModelMultiCircle;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
@@ -143,6 +146,7 @@ public class MultiCircle extends Obstacle {
             multiCircle.getChildren().add(cer1.getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
+
 
         return multiCircle;
     }

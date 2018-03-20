@@ -1,12 +1,15 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.items.BallColorSwitch;
 import game.path.shapes.BuildShape;
 import game.path.shapes.Circle;
 import game.path.shapes.Cross;
 import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelObstacle.ModelMultiCross;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCross;
@@ -108,7 +111,10 @@ public class MultiCross extends Obstacle {
             mo.getColor_use().addAll(ms.getColors_use());
         }
         
+        
+        
         return multiCross;
     }
+    
 
 }

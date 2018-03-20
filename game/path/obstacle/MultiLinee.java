@@ -1,6 +1,7 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.items.BallColorSwitch;
 import game.path.shapes.BuildShape;
 import game.path.shapes.Circle;
 import game.path.shapes.Linee;
@@ -10,6 +11,8 @@ import game.path.shapes.VerticalLine;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelObstacle.ModelMultiLine;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelShape;
@@ -153,8 +156,11 @@ public class MultiLinee extends Obstacle {
             multiLinee.getChildren().add(s.getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
+        
 
         return multiLinee;
 
     }
+    
+
 }

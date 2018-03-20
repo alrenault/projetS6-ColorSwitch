@@ -1,11 +1,14 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.items.BallColorSwitch;
 import game.path.shapes.*;
 import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelObstacle.ModelMultiShapes;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
@@ -41,7 +44,6 @@ public class MultiShapes extends Obstacle {
     public MultiShapes(ModelMultiShapes mms) {
         super(mms);
         obstacle = buildObstacle(mms);
-
     }
 
 
@@ -146,6 +148,7 @@ public class MultiShapes extends Obstacle {
             multiShapes.getChildren().add(s.getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
+        
 
         return multiShapes;
     }

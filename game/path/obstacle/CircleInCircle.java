@@ -1,12 +1,16 @@
 package game.path.obstacle;
 
 import game.Difficulty;
+import game.path.items.BallColorSwitch;
 import game.path.shapes.BuildShape;
 import game.path.shapes.Circle;
 import game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
+import model.modelItem.ModelItem;
 import model.modelObstacle.ModelCircleInCircle;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
@@ -34,6 +38,8 @@ public class CircleInCircle extends Obstacle {
     public CircleInCircle(ModelCircleInCircle mcic) {
         super(mcic);
         obstacle = buildObstacle(mcic);
+        
+
     }
 
    /* public CircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
@@ -140,9 +146,13 @@ public class CircleInCircle extends Obstacle {
             mcic.getColor_use().addAll(ms.getColors_use());
         }
         
+        
+        
         return circleInCircle;
 
     }
+    
+    
 
 
 

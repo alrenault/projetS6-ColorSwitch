@@ -61,6 +61,8 @@ public class BuildModelObstacle {
                 mo = new ModelMultiCircle(posX, posY, colors, difficulty, type);
         }
         
+        System.out.println(mo.getBcs());
+        
         return mo;
     }
 }

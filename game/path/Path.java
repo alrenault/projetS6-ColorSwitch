@@ -90,7 +90,7 @@ public class Path {
             
             //Generation de l'obstacle avec son colorSwitch
             ModelObstacle mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
-            ModelItem modelBCS = BuildModelItem.build(0, scWidth/2, posY + mo.getObstacleHeight()/2 + 150, colors, 0, 0, 0);
+           // ModelItem modelBCS = BuildModelItem.build(0, scWidth/2, posY + mo.getObstacleHeight()/2 + 150, colors, 0, 0, 0);
            // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
 
                
@@ -127,7 +127,8 @@ public class Path {
             //newPath.getChildren().add(s.getItem());
             
             add(mo);
-            add(modelBCS);
+            //System.out.println(mo.getBcs());
+            add(mo.getBcs());
             add(modelStar);
             
             //addSL(o.getShapeList());

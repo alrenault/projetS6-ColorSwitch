@@ -225,6 +225,14 @@ public class BallPlayer extends Element{
 	public double getLimiteJump() {
 		return limiteJump;
 	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
 	
 
     
