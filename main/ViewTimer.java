@@ -34,7 +34,7 @@ public class ViewTimer {
 	List<UseLaw> laws;
 	Controller controller;
 	
-	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Group root) {
+	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Group jItems) {
 		laws = new ArrayList<>();
 		this.controller = controller;
 		
@@ -45,13 +45,13 @@ public class ViewTimer {
 		//laws.add(gravity);
 		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
-		CollisionItem ci = new CollisionItem(ball,path,controller);
+		CollisionItem ci = new CollisionItem(ball,path,controller,jItems);
 		
 		laws.add(co);
 		laws.add(ci);
 		
 		Circle circle = new Circle(300,500,50,Color.ALICEBLUE);
-		root.getChildren().add(circle);
+		jItems.getChildren().add(circle);
 		
 		timer = new AnimationTimer() {
 			long startTime = System.currentTimeMillis();

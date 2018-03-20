@@ -6,6 +6,7 @@ import controller.Controller;
 import game.ball.BallPlayer;
 import game.path.items.BallColorSwitch;
 import game.path.items.Item;
+import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
@@ -17,11 +18,13 @@ public class CollisionItem implements UseLaw {
 	BallPlayer ball;
 	ViewPath path;
 	Controller controller;
+	Group jItems;
 	
-	public CollisionItem(BallPlayer ball, ViewPath path, Controller controller){
+	public CollisionItem(BallPlayer ball, ViewPath path, Controller controller, Group jItems){
 		this.ball = ball ;
 		this.path = path ;
 		this.controller = controller ;
+		this.jItems = jItems ;
 	}
 
 	@Override
@@ -44,6 +47,13 @@ public class CollisionItem implements UseLaw {
 							Color c = mBCS.getColors_use().get(r.nextInt(size));
 							ball.setColor(c);
 							touch = true;
+							
+							jItems.getChildren().remove(item.getShape());
+							for(Shape oui : item.getShapeList()) {
+								oui.setFill(Color.TRANSPARENT);
+								
+							}
+							
 							path.removeItem(item);
 							break;
 						}
