@@ -22,20 +22,24 @@ public class CollisionObstacle implements UseLaw {
 	@Override
 	public void apply() {
 		
-		//System.out.println(ball.getShapeList().size());
+		System.out.println(ball.getShapeList().size());
 		for(Shape b : ball.getShapeList()) {
 			
-			//System.out.println(path.getObstaclesShapes().size());
+			for(Obstacle o : path.getObstacles()) {
+				System.out.println(o.getY());
+			}
+			
+			System.out.println(path.getObstaclesShapes().size());
 			for(Shape shape : path.getObstaclesShapes()) {
 				
 				
 				Shape intersection = Shape.intersect(b, shape);
-				//System.out.println(intersection + " - " +ball.getY());
+				System.out.println(intersection + " - " +ball.getY());
 				
 				
 				
 				if (!intersection.getBoundsInParent().isEmpty()) {
-					System.out.println("Pitié");
+					System.out.println("Intersection !");
 					
 					if(shape instanceof Arc && shape.getStroke() != b.getFill()){
 						System.out.println("Game Over 1");

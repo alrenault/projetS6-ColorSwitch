@@ -81,11 +81,11 @@ public class Game {
     	CUSTOM.add(Colorable.ROSE);
     	CUSTOM.add(Colorable.BLUE);
     	
-    	this.path = new Path(600,1000, CUSTOM, 10   , Difficulty.EASY);
+    	this.path = new Path(600,1000, CUSTOM, 1, Difficulty.EASY);
     	System.out.println("Celui là");
     	
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
-    	this.ball = new ModelBall(10,CUSTOM.get(0), 10,10);
+    	this.ball = new ModelBall(10,CUSTOM.get(0), 600, 1000);
     	
     	this.universe = new Universe();
     	
