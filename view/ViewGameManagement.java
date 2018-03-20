@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import game.Colorable;
 import game.Difficulty;
 import game.Game;
@@ -32,13 +33,15 @@ public class ViewGameManagement {
 	 */
 	static Game game;
 	static ViewTimer timer;
+	
+	Controller controller;
 
 	/**
 	 *
 	 * @param thisGame
 	 * @param thisScene
 	 */
-	public static void view(Game thisGame, Scene thisScene) {
+	public static void view(Game thisGame, Scene thisScene, Controller controller) {
 		
         root = (Group) thisScene.getRoot();
         game = thisGame;
@@ -64,7 +67,7 @@ public class ViewGameManagement {
 		
 		ViewPath viewpath = new ViewPath(path);
 		
-		timer = new ViewTimer(ballplayer);
+		timer = new ViewTimer(ballplayer, viewpath, controller);
 		timer.play();
 		//ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
 		        

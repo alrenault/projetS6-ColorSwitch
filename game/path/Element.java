@@ -12,7 +12,7 @@ public abstract class Element {
 	
 	protected Group shape;
 	
-	static List<Shape> shape_list;
+	List<Shape> shape_list;
 	
 	public Element() {
 		//shape = new Group();
@@ -35,7 +35,7 @@ public abstract class Element {
 	}
 	
 	
-	protected static List<Shape> addSL(Shape ... shapes) {
+	protected List<Shape> addSL(Shape ... shapes) {
 		
 		
 		
@@ -60,6 +60,7 @@ public abstract class Element {
 			if(shape_list == null) shape_list = new ArrayList<>();
 			for (List<Shape> j : shapes_list) {
 				shape_list.addAll(j);
+
 				
 			}
 		}

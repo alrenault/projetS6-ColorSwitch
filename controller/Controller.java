@@ -37,16 +37,19 @@ public class Controller {
 
 
 	public void init() {
+		System.out.println("Initialisation");
 		view.basicView();
 	}
 	
 	
 	
 	public void startMenu() {
+		System.out.println("Menu");
 		view.viewMenu();
 	}
 	
 	public void startGame() {
+		System.out.println("New Game !");
 		model.startGame();
 		view.viewGame(model.getGame());
 	}
@@ -62,6 +65,7 @@ public class Controller {
 	}
 	
 	public void gameOver(){
+		System.out.println("Game Over !");
 		model.gameOver();
 		view.viewGameOver();
 	}

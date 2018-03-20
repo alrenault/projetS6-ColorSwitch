@@ -84,11 +84,6 @@ public class Shapes extends Element{
     //List<Color> colors_use;
     
     /**
-     * L'ensemble des (JavaFX) Shape utilisées par la forme
-     */
-    List<Shape> shape_list;
-    
-    /**
      * Patron de la forme
      */
     static ModelShape model_shape;
@@ -150,6 +145,7 @@ public class Shapes extends Element{
     }*/
     
     protected Shapes(ModelShape modelShape) {
+    	super();
     	model_shape = modelShape;
     	//group_shape = buildShape();
     	

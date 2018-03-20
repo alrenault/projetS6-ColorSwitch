@@ -26,6 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import view.Menu;
+import view.ViewPath;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import game.path.shapes.Circle;
@@ -76,7 +77,12 @@ public class MainTest extends Application{
 
         
         Path p = new Path(scene1.getWidth(), scene1.getHeight(), CUSTOM, 100 , Difficulty.EASY);
-        //jObstacles.getChildren().add(p.getPath());
+        ViewPath vp = new ViewPath(p);
+        
+        for(Shape tamere : vp.getObstaclesShapes()) {
+        	jObstacles.getChildren().add(tamere);
+        }
+        
         
         
         
@@ -114,12 +120,13 @@ public class MainTest extends Application{
         
         
         //apellé a chaque shape
-        /*
+        
         new AnimationTimer() {
 
 			@Override
 			public void handle(long now) {
 				checkCollision();
+				//checkItem();
 				//frame=score.getScore();
 				double x = player.getX();
 				double y = player.getY();
@@ -131,13 +138,26 @@ public class MainTest extends Application{
 
 			private void checkCollision() {
 				
+				System.out.println("A");
+				
 				for(Shape ball : player.getShapeList()) {
 					
-					for(Obstacle o : p.getObstacles()) {
+					System.out.println("B");
+					
+					for(Obstacle o : vp.getObstacles()) {
+						
+						System.out.println("C");
 						
 						for(Shape shape : o.getShapeList()){
+							
+							System.out.println("D");
 						
 						Shape intersection = Shape.intersect(ball, shape);
+						
+						System.out.println("Shape");
+						System.out.println(shape.getFill());
+						System.out.println("Ball");
+						System.out.println(ball.getFill());
 						
 							if (!intersection.getBoundsInParent().isEmpty()) {
 								System.out.println(shape.getFill());
@@ -154,6 +174,12 @@ public class MainTest extends Application{
 							}
 						}
 					}
+				}
+			}
+			
+			private void checkItem() {
+				
+				for(Shape ball : player.getShapeList()) {
 					
 					Boolean touch = false;
 					 for(Item i : p.getItem()){
@@ -208,7 +234,7 @@ public class MainTest extends Application{
 
 			}
         	
-        }//.start();*/
+        }.start();
         
         
         //primaryStage.setScene(scene1);

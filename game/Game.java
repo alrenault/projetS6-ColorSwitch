@@ -82,6 +82,7 @@ public class Game {
     	CUSTOM.add(Colorable.BLUE);
     	
     	this.path = new Path(600,1000, CUSTOM, 10   , Difficulty.EASY);
+    	System.out.println("Celui là");
     	
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	this.ball = new ModelBall(10,CUSTOM.get(0), 10,10);
@@ -132,7 +133,7 @@ public class Game {
     	
     	this.score = new Score();
     	
-    	ViewGameManagement.view(this,scene);
+    	//ViewGameManagement.view(this,scene,controller);
         
         
     }

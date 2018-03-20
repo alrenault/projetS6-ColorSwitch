@@ -34,6 +34,7 @@ public class BallPlayer extends Element{
     
 
     public BallPlayer(float size, Color color, Scene scene) {
+    	super();
         this.size = size;
         this.color = color;
         this.scene = scene;
@@ -41,6 +42,7 @@ public class BallPlayer extends Element{
     }
     
     public BallPlayer(Ball ball, Scene scene) {
+    	super();
     	this.scene = scene;
     	this.ball = ball;
     	this.size = ball.getSize();
@@ -51,6 +53,7 @@ public class BallPlayer extends Element{
     }
 
     public BallPlayer(int i, Color color2) {
+    	super();
         this.size = size;
         this.color = color;
 	}
@@ -61,7 +64,7 @@ public class BallPlayer extends Element{
         player.setCenterX(scene.getWidth() / 2);
         player.setCenterY(scene.getHeight() - 150);
         
-        //addSL(player);
+        addSL(player);
         ball.getChildren().add(player);
 
         //recuperation de la position

@@ -98,7 +98,7 @@ public class View implements InterfaceViewColorSwitch {
 		Group root = new Group();
 		Scene scene = new Scene(root,tailleX,tailleY);
 		
-		ViewGameManagement.view(thisGame,scene);
+		ViewGameManagement.view(thisGame,scene,controller);
 		
 		
 		display(scene);
@@ -110,6 +110,7 @@ public class View implements InterfaceViewColorSwitch {
 	 */
 	@Override
 	public void viewGameOver() {
+		stage.close();
 		Scene form = null;
 		try {
 			form = ScenePseudo.class.newInstance().stre( controller);

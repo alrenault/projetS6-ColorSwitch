@@ -18,7 +18,6 @@ public abstract class Obstacle extends Element {
     protected Group obstacle;
 
     protected Bounds coord;
-    protected List<Shape> shape_list;
     protected ModelObstacle model_obstacle;
 
 

@@ -267,8 +267,6 @@ public class Path {
         return obstacles.size();
     }
 
-    /*c'est pas cool !!!*/
-    //TODO
     public List<ModelObstacle> getObstacles() {
         return obstacles;
     }
