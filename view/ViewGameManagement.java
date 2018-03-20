@@ -1,5 +1,7 @@
 package view;
 
+import java.io.File;
+
 import controller.Controller;
 import game.Colorable;
 import game.Difficulty;
@@ -14,6 +16,9 @@ import game.path.obstacle.Obstacle;
 import game.path.shapes.Shapes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import main.ViewTimer;
 import model.modelObstacle.ModelObstacle;
 import model.modelItem.ModelItem;
@@ -72,6 +77,8 @@ public class ViewGameManagement {
 		//ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
 		        
         
+		
+		
         
         thisScene.setFill(Colorable.BLACK);
 	}

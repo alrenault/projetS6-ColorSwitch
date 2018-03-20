@@ -8,12 +8,18 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.InterfaceModelColorSwitch;
 import model.Model;
 import view.InterfaceViewColorSwitch;
 import view.View;
 
+import java.io.File;
+import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -92,6 +98,40 @@ public class Main extends Application {
     	
     		
     	//colorSuitch.play();
+		
+		//SOUND
+				String musicFile = "src/SpringCS.mp3";     
+
+				Media sound = new Media(new File(musicFile).toURI().toString());
+				MediaPlayer mediaPlayer = new MediaPlayer(sound);
+				MediaView mv = new MediaView(mediaPlayer);
+				root.getChildren().add(mv);
+				mediaPlayer.setAutoPlay(true);
+				//mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+				
+				mediaPlayer.setOnEndOfMedia(new Runnable() {
+				       public void run() {
+				           mediaPlayer.seek(Duration.ZERO);
+				         }
+				     });
+				
+				mediaPlayer.setOnError(() -> { 
+		            mediaPlayer.getError().printStackTrace(); 
+		        }); 
+				
+				//mediaPlayer.play();
+				mediaPlayer.setAutoPlay(true);
+				
+				
+				/*
+				 URL resource = getClass().getResource("abcd.mp3");
+				 MediaPlayer a =new MediaPlayer(new Media(resource.toString()));
+				 a.setOnEndOfMedia(new Runnable() {
+				       public void run() {
+				         a.seek(Duration.ZERO);
+				       }
+				   });
+				  a.play();*/
 		
 	}
 	
