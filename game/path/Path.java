@@ -228,16 +228,12 @@ public class Path {
         return items.add(item);
     }
 
-/*
-    public boolean remove(Item item) {
-    for(Shape s : item.getShapeList()){
-    	s.setFill(Color.TRANSPARENT);
-    }
-    	path.getChildren().remove(item);
+
+    public boolean remove(ModelItem item) {
         return items.remove(item);
     }
 
-    public void remove(Obstacle o) {
+    /*public void remove(Obstacle o) {
     	path.getChildren().remove(o);
         obstacles.remove(o);
     }

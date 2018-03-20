@@ -42,9 +42,9 @@ public class CollisionItem implements UseLaw {
 							ModelBallColorSwitch mBCS = (ModelBallColorSwitch)((BallColorSwitch)item).getModel_item();
 							int size = mBCS.getColors_use().size();
 							Color c = mBCS.getColors_use().get(r.nextInt(size));
-							path.removeItem(item);
 							ball.setColor(c);
 							touch = true;
+							path.removeItem(item);
 							break;
 						}
 				

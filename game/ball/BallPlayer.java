@@ -231,6 +231,9 @@ public class BallPlayer extends Element{
 	}
 
 	public void setColor(Color color) {
+		for(Shape s : getShapeList()){
+			s.setFill(color);
+		}
 		this.color = color;
 	}
 	
