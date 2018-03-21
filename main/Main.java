@@ -113,14 +113,14 @@ public class Main extends Application {
 				    
 
 				
-
+				/*
 				{
 			        String bip = "src/ressources/Spring.wav";
 			        Media hit = new Media(Paths.get(bip).toUri().toString());
 			        AudioClip putain = new AudioClip(hit.getSource());
 			        putain.play();
 			    }
-				
+				*/
 				
 				
 		
