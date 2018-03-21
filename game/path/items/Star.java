@@ -5,7 +5,7 @@ import java.util.Random;
 
 import controller.Controller;
 import game.Colorable;
-import game.ball.Ball;
+import game.ball.Player;
 import game.ball.BallPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;

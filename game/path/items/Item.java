@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.Controller;
-import game.ball.Ball;
+import game.ball.Player;
 import game.ball.BallPlayer;
 import game.path.Element;
 import javafx.geometry.Bounds;

@@ -1,7 +1,7 @@
 package game.path.items;
 
 import game.Colorable;
-import game.ball.Ball;
+import game.ball.Player;
 import game.ball.BallPlayer;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;

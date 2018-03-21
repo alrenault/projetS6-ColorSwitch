@@ -1,7 +1,7 @@
 package model;
 
 import game.Game;
-import game.ball.Ball;
+import game.ball.Player;
 import game.law.Universe;
 import game.path.Path;
 
@@ -20,7 +20,7 @@ public class Generator {
      * @param _path
      * @param _universe
      */
-    public Generator(Ball _balle, Path _path, Universe _universe) {
+    public Generator(Player _balle, Path _path, Universe _universe) {
         game = new Game(_balle, _path, _universe);
     }
 

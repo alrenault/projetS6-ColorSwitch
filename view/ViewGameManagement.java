@@ -6,7 +6,7 @@ import controller.Controller;
 import game.Colorable;
 import game.Difficulty;
 import game.Game;
-import game.ball.Ball;
+import game.ball.Player;
 import game.ball.BallPlayer;
 import game.path.Path;
 import game.path.items.BuildItem;
@@ -23,7 +23,7 @@ import model.modelObstacle.ModelObstacle;
 import view.useLaw.ViewTimer;
 import model.modelItem.ModelItem;
 import model.modelBall.BuildBall;
-import model.modelBall.ModelBall;
+import model.modelBall.Ball;
 
 /**
  *
@@ -53,7 +53,7 @@ public class ViewGameManagement {
 		
 		
 		Path path = game.getPath();
-		Ball ball = game.getBall();
+		Player ball = game.getBall();
 		
 		//BallPlayer qball = new BallPlayer(10, path.getColors().get(0), thisScene);
 		BallPlayer ballplayer = BuildBall.build(ball,thisScene);

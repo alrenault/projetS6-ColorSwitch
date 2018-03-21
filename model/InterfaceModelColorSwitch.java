@@ -1,7 +1,7 @@
 package model;
 
 import game.Game;
-import game.ball.Ball;
+import game.ball.Player;
 import game.law.Universe;
 import game.path.Path;
 import model.modelItem.ModelItem;
@@ -27,7 +27,7 @@ public interface InterfaceModelColorSwitch {
 	 */
 	public void startGame(Difficulty difficulty);
 	
-	public void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Ball ball);
+	public void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Player ball);
 	
 	
 	

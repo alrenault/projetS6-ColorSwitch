@@ -1,6 +1,6 @@
 package model.modelBall;
 
-import game.ball.Ball;
+import game.ball.Player;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 /**
  *
  */
-public class ModelBall {
+public class Ball {
 	/**
 	 *
 	 */
@@ -45,7 +45,7 @@ public class ModelBall {
      * @param size
      * @param color
      */
-    public ModelBall(float size, Color color) {
+    public Ball(float size, Color color) {
         this.size = size;
         this.color = color;
     }

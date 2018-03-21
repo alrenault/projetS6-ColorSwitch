@@ -16,9 +16,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
-import model.modelBall.ModelBall;
+import model.modelBall.Ball;
 
-public class BallPlayer extends Ball{
+public class BallPlayer extends Player{
 
     int x = 70;
     private double size;
@@ -44,7 +44,7 @@ public class BallPlayer extends Ball{
         
     }
     
-    public BallPlayer(Ball ball, Scene scene) {
+    public BallPlayer(Player ball, Scene scene) {
     	super();
     	this.scene = scene;
     	//this.ball = ball;

@@ -17,7 +17,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
 import game.Game;
-import game.ball.Ball;
+import game.ball.Player;
 import game.ball.BallPlayer;
 
 

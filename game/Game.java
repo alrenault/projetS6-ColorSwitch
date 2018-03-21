@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-import game.ball.Ball;
+import game.ball.Player;
 import game.ball.BallPlayer;
 import game.law.Universe;
 import game.path.Path;
@@ -25,7 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
-import model.modelBall.ModelBall;
+import model.modelBall.Ball;
 import view.ViewGameManagement;
 
 /**
@@ -36,7 +36,7 @@ import view.ViewGameManagement;
 
 public class Game {
 
-    Ball ball;
+    Player ball;
 	Path path;
     Universe universe;
     
@@ -49,7 +49,7 @@ public class Game {
     
     int nFrame = 0;
 
-    public Game(Ball _ball, Path _path, Universe _universe) {
+    public Game(Player _ball, Path _path, Universe _universe) {
         this.ball = _ball;
         this.path = _path;
         this.universe = _universe;
@@ -85,7 +85,7 @@ public class Game {
     	System.out.println("Celui là");
     	
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
-    	this.ball = new ModelBall(10,CUSTOM.get(0), 600, 1000);
+    	this.ball = new Ball(10,CUSTOM.get(0));
     	
     	this.universe = new Universe();
     	
@@ -95,7 +95,7 @@ public class Game {
     }
     
     
-	public Ball getBall() {
+	public Player getBall() {
 		return ball;
 	}
 
