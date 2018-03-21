@@ -194,6 +194,38 @@ public class GestionDB {
     }
 
     /**
+     * Genère les n derniers scores de la base
+     * @param limite le nombre de records à obtenir (limit == return.size )
+     * @return une liste (chainée) contenant les [limite] derniers scores tout joueur confondus (en terme de date)
+     */
+    public LinkedList<Record> getLastRecords(int limite){
+        assert(limite>0);
+
+        LinkedList<Record> ret=new LinkedList<>();
+        connexion();
+        PreparedStatement stmt;
+        try {
+            stmt = connexion.prepareStatement("SELECT pseudo_user,date_heur_partie,nb_portes_traversees_partie," +
+                    " nb_etoiles_ramassee_partie,score_partie FROM partie NATURAL JOIN user ORDER BY date_heur_partie DESC LIMIT ?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+
+            stmt.setInt(1,limite);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                SimpleDateFormat patern = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String date = patern.format(resultSet.getTimestamp("date_heur_partie"));
+                ret.add(new Record(resultSet.getString("pseudo_user"),
+                        new Score(resultSet.getInt("nb_portes_traversees_partie"),
+                                resultSet.getInt("nb_etoiles_ramassee_partie"),
+                                resultSet.getInt("score_partie")),
+                        date));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+    /**
      * Sort le classement des joueurs selon leur somme de scores
      * @return une liste (chainée) contenant des Triplets (classement ,joueur,scoreTotal) triée par ordre decroissant
      */

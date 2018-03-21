@@ -107,7 +107,7 @@ public class Controller {
 		System.err.println((testCo)?"Co Ok":"Pas de co");
 		if (testCo){
 
-
+			view.viewScores(connectionDB.getLastRecords(15*2));
 		}else{
 			view.viewScoreNoCo();
 

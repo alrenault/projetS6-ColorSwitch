@@ -12,17 +12,17 @@ public class Score {
     /**
      *Le nombre d'Obstacles franchis
      * */
-    private int nbrObstaclesCrossed;
+    private Integer nbrObstaclesCrossed;
 
     /**
      * Le nombre d'étoiles rammassées
      * */
-    private int nbEtoilesRamassees;
+    private Integer nbEtoilesRamassees;
 
     /**
      * Le score calculé
      * */
-    private int scoreStored;
+    private Integer scoreStored;
 
     /**
      * Constructeur aveugle de Score  (initialiseur)
@@ -37,11 +37,12 @@ public class Score {
 
     /**
      * ONLY FOR TESTING !
+     * Utilisé uniquement dans populate
      * @param nbrObstaclesCrossed Le nombre d'Obstacles franchis
      * @param nbEtoilesRamassees Le nombre d'étoiles rammassées
      * @param scoreStored Le score calculé
      */
-    public Score(int nbrObstaclesCrossed, int nbEtoilesRamassees, int scoreStored) {
+    public Score(Integer nbrObstaclesCrossed, Integer nbEtoilesRamassees, Integer scoreStored) {
         assert(nbrObstaclesCrossed>=0);
         assert(nbEtoilesRamassees>=0);
         assert(scoreStored>=0);
@@ -70,24 +71,23 @@ public class Score {
         }
         scoreStored += item.getModel_item().getNbPoints();
     }
+    public void incEtoile(){
+    	nbEtoilesRamassees++;
+    }
 
     /**
      * Retourne le nombre d'étoiles
      * @return nbEtoiles
      */
-    public int getNbEtoilesRamassees() {
+    public Integer getNbEtoilesRamassees() {
         return nbEtoilesRamassees;
-    }
-    
-    public void incEtoile(){
-    	nbEtoilesRamassees++;
     }
 
     /**
      *Accesseur du nombre d'obsctacles
      * @return le nombre d'obstacles franchis
      */
-    public int getNbrObstaclesCrossed() {
+    public Integer getNbrObstaclesCrossed() {
         return nbrObstaclesCrossed;
     }
 
@@ -97,7 +97,7 @@ public class Score {
      * Generateur du score calculé selon les données de (this)
      */
 
-    public int getScore() {
+    public Integer getScore() {
         return scoreStored + nbrObstaclesCrossed*nbPointsParObstacle;
     }
 

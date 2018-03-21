@@ -11,7 +11,7 @@ public class SumScore {
     /**
      * Le numéro de classement du joueur (= la position du joueur dans le classement )
      */
-    private int classement;
+    private Integer classement;
     /**
      * Le nom du joueur
      */
@@ -19,7 +19,7 @@ public class SumScore {
     /**
      * La somme de ses scores
      */
-    private int sumScoreJoueur;
+    private Integer sumScoreJoueur;
 
 
     /**
@@ -28,7 +28,7 @@ public class SumScore {
      * @param joueur le pseudo du joueur
      * @param sumScoreJoueur la somme de ses scores
      */
-    public SumScore(int classement, String joueur, int sumScoreJoueur) {
+    public SumScore(Integer classement, String joueur, Integer sumScoreJoueur) {
         this.classement = classement;
         this.joueur = joueur;
         this.sumScoreJoueur = sumScoreJoueur;
@@ -46,7 +46,7 @@ public class SumScore {
      * Accesseur du score total du joueur
      * @return le score total
      */
-    public int getSumScoreJoueur() {
+    public Integer getSumScoreJoueur() {
         return sumScoreJoueur;
     }
 
@@ -54,7 +54,7 @@ public class SumScore {
      * Accesseur du calssement du joueur
      * @return la position du joueur dans le classement
      */
-    public int getClassement() {
+    public Integer getClassement() {
         return classement;
     }
 
