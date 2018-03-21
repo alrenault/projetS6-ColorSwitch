@@ -36,21 +36,22 @@ public class Circle extends Shapes {
 
         Group cercle = new Group();
         double angle = 360.0 / mc.getArcs_nbr();
+        
 
         ArcType type = ArcType.OPEN;
 
         for (int i = 0; i < mc.getArcs_nbr(); i++) {
-            Arc arc_1 = new Arc(mc.getX(), mc.getY(), mc.getRadial(), mc.getRadial(), 135 + i * angle, angle);
+            Arc arc_1 = new Arc(mc.getX(), mc.getY(), mc.getRadial(), mc.getRadial(), (-45) + i * angle, angle);
 
             arc_1.setType(type);
             arc_1.setFill(null);
             mc.verifPosColor();
             
-            Iterator<Color> it = mc.getColors().iterator();
-        	Color c = null;
-        	for(int j = 0;it.hasNext() && j <= mc.getPos_color();j++){
+            //Iterator<Color> it = mc.getColors().iterator();
+        	Color c = mc.getColors().get(mc.getPos_color());
+        	/*for(int j = 0;it.hasNext() && j <= mc.getPos_color();j++){
         		c = it.next();
-        	}
+        	}*/
             arc_1.setStroke(c);
             mc.getColors_use().add(c);
 
