@@ -10,12 +10,12 @@ import javafx.scene.paint.Color;
 /**
  *
  */
-public class ModelBall extends Ball {
+public class ModelBall {
 	/**
 	 *
 	 */
-        int  x = 70;
-        int  y = 70;
+        double x = 70;
+        double y = 70;
 	/**
 	 *La taille de la Balle
 	 */
@@ -37,21 +37,17 @@ public class ModelBall extends Ball {
 	 */
     private final double  jumpHeight = 50;
     
-    private double vectorX;
-    private double vectorY;
+    private double vectorX = 0;
+    private double vectorY = 0;
 
     /**
      *
      * @param size
      * @param color
-     * @param scWidth
-     * @param scHeight
      */
-    public ModelBall(float size, Color color, double scWidth, double scHeight) {
+    public ModelBall(float size, Color color) {
         this.size = size;
         this.color = color;
-        this.scWidth = scWidth;
-        this.scHeight = scHeight;
     }
 
     /**
@@ -60,6 +56,11 @@ public class ModelBall extends Ball {
      */
 	public double getX() {
 		return x;
+	}
+	
+	
+	public double getY() {
+		return y;
 	}
 
     /**
@@ -101,23 +102,6 @@ public class ModelBall extends Ball {
 	public double getJumpHeight() {
 		return jumpHeight;
 	}
-
-	@Override
-	public void applyGravity() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void jump() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public double getY() {
-		return y;
-	}
     
     public double addVectorX(double j) {
     	return vectorX+=j;
@@ -133,6 +117,11 @@ public class ModelBall extends Ball {
     
     public double getVectorY(double j) {
     	return vectorY;
+    }
+    
+    public void moveBall() {
+    	x+=vectorX;
+    	y+=vectorY;
     }
 
 }

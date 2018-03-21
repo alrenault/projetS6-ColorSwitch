@@ -5,17 +5,20 @@ import game.path.Element;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import model.modelBall.ModelBall;
 
 /**
  * This is a generic ball which represents the player in the game
  * To create a ball, you have to extend this class
  */
-public abstract class Ball {
+public abstract class Ball extends Element {
 
     /**
      * Couleur de la Balle
      */
     protected Color color;
+    
+    protected ModelBall model_ball;
 
     /**
      * Application de la gravité
@@ -58,6 +61,10 @@ public abstract class Ball {
     }
 
 	public abstract double getSize();
+	
+	public ModelBall getModelBall() {
+		return model_ball;
+	}
 	
 	
 

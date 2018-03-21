@@ -18,7 +18,7 @@ import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import model.modelBall.ModelBall;
 
-public class BallPlayer extends Element{
+public class BallPlayer extends Ball{
 
     int x = 70;
     private double size;
