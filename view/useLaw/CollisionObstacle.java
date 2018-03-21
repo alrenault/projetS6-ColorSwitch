@@ -13,7 +13,13 @@ public class CollisionObstacle implements UseLaw {
 	BallPlayer ball;
 	ViewPath path;
 	Controller controller;
-	
+
+	/**
+	 *
+	 * @param ball
+	 * @param path
+	 * @param controller
+	 */
 	public CollisionObstacle(BallPlayer ball, ViewPath path, Controller controller){
 		this.ball = ball ;
 		this.path = path ;

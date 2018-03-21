@@ -20,15 +20,25 @@ public class CollisionItem implements UseLaw {
 	private Controller controller;
 	private Group jItems;
 	private int nbrColliStar = 0;
-	
-	
+
+	/**
+	 *
+	 * @param ball
+	 * @param path
+	 * @param controller
+	 * @param jItems
+	 */
 	public CollisionItem(BallPlayer ball, ViewPath path, Controller controller, Group jItems){
 		this.ball = ball ;
 		this.path = path ;
 		this.controller = controller ;
 		this.jItems = jItems ;
+		this.nbrColliStar=0;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void apply() {
 		Boolean touch = false;
@@ -49,12 +59,12 @@ public class CollisionItem implements UseLaw {
 							//Color c = mBCS.getColors_use().get(r.nextInt(size));
 							//ball.setColor(c);
 							touch = true;
-							
+
 							item.get(path, controller, ball);
-							
+
 							jItems.getChildren().remove(item.getShape());
-							
-							
+
+
 							path.removeItem(item);
 							//break;
 						//}
@@ -82,7 +92,7 @@ public class CollisionItem implements UseLaw {
 
 		}
 
-	
-	
+
+
 
 }

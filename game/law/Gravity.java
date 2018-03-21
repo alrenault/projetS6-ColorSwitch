@@ -34,7 +34,9 @@ public class Gravity extends Law {
         return vectorY;
     }
 
+/*DOIT VIRER */
+    @Override
+    public void apply(Game game) {
 
-
-
+    }
 }

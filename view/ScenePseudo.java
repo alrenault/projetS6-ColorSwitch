@@ -22,13 +22,16 @@ public class ScenePseudo {
 
     /**
      * Genère une stage contant un form pour entrer un pseudo
+     * @param c
      * @return la stage et submit entraine (TODO) la stage de menu (recommencer une partie) ou de fin
      */
+
     public Scene stre(Controller c){
         Button buttonClear,buttonSubmit;
         Label labelPseudo;
         TextField inputPseudo;
         Scene scene;
+
 /*        primaryStage.setTitle("Identification");
         primaryStage.setOnCloseRequest(e -> { primaryStage.close(); });*/
 
@@ -58,8 +61,6 @@ public class ScenePseudo {
             String p = inputPseudo.getText();
             System.err.println(p);
             c.recordScore(p,c.getScore());
-           //appel Controleur
-
         });
 
         scene = new Scene(grille, 400, 400);

@@ -7,13 +7,22 @@ import java.util.List;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 
-
+/**
+ *
+ */
 public abstract class Element {
-	
+	/**
+	 *
+	 */
 	protected Group shape;
-	
+	/**
+	 *
+	 */
 	List<Shape> shape_list;
-	
+
+	/**
+	 *
+	 */
 	public Element() {
 		//shape = new Group();
 		shape_list = new ArrayList<>();
