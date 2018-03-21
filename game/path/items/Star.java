@@ -1,14 +1,20 @@
 package game.path.items;
 
 import java.util.List;
+import java.util.Random;
 
+import controller.Controller;
 import game.Colorable;
+import game.ball.Ball;
+import game.ball.BallPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import model.Model;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelItem;
 import model.modelItem.ModelStar;
+import view.ViewPath;
 import javafx.scene.shape.Shape;
 
 
@@ -57,6 +63,13 @@ public class Star extends Item {
     	for(Shape s : getShapeList()){
     		s.setLayoutY(y);
     	}
+    }
+    
+    public void get(ViewPath vPath, Controller c, BallPlayer b){
+    	c.incItem(model_item);
+    	
+    	if(c.getScore().getNbEtoilesRamassees() > 1)
+    		vPath.removeObstacle(vPath.getObstacles().get(0));
     }
 
 

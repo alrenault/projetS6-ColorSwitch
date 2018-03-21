@@ -4,6 +4,7 @@ import game.Game;
 import game.ball.Ball;
 import game.law.Universe;
 import game.path.Path;
+import model.modelItem.ModelItem;
 import game.Difficulty;
 
 /**
@@ -36,6 +37,8 @@ public interface InterfaceModelColorSwitch {
 	public void gameOver();
 	
 	public void jump();
+	
+	public void incItem(ModelItem mi);
 
 	/**
 	 *

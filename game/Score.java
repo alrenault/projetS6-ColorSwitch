@@ -78,6 +78,10 @@ public class Score {
     public int getNbEtoilesRamassees() {
         return nbEtoilesRamassees;
     }
+    
+    public void incEtoile(){
+    	nbEtoilesRamassees++;
+    }
 
     /**
      *Accesseur du nombre d'obsctacles

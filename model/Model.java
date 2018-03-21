@@ -4,6 +4,7 @@ import game.Game;
 import game.ball.Ball;
 import game.law.Universe;
 import game.path.Path;
+import model.modelItem.ModelItem;
 import controller.Controller;
 import game.Difficulty;
 
@@ -87,6 +88,10 @@ public class Model implements InterfaceModelColorSwitch {
 	public void startGame(Difficulty difficulty) {
 		this.game = new Game(difficulty);
 		
+	}
+	
+	public void incItem(ModelItem mi){
+		game.getScore().incEtoile();
 	}
 	
 }

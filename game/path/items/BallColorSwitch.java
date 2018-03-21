@@ -1,6 +1,8 @@
 package game.path.items;
 
 import game.Colorable;
+import game.ball.Ball;
+import game.ball.BallPlayer;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -8,10 +10,14 @@ import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Shape;
 import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelItem;
+import view.ViewPath;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+
+import controller.Controller;
 
 public class BallColorSwitch extends Item {
 
@@ -43,6 +49,15 @@ public class BallColorSwitch extends Item {
 
         return ball;
 
+    }
+    
+    public void get(ViewPath vPath, Controller c, BallPlayer b){
+    	Random r = new Random();
+		ModelBallColorSwitch mBCS = (ModelBallColorSwitch)getModel_item();
+		int size = mBCS.getColors_use().size();
+		Color color = mBCS.getColors_use().get(r.nextInt(size));
+		b.setColor(color);
+		vPath.addNewObstacle();
     }
     
     

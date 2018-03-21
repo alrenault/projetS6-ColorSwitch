@@ -15,10 +15,12 @@ import model.modelItem.ModelBallColorSwitch;
 
 public class CollisionItem implements UseLaw {
 	
-	BallPlayer ball;
-	ViewPath path;
-	Controller controller;
-	Group jItems;
+	private BallPlayer ball;
+	private ViewPath path;
+	private Controller controller;
+	private Group jItems;
+	private int nbrColliStar = 0;
+	
 	
 	public CollisionItem(BallPlayer ball, ViewPath path, Controller controller, Group jItems){
 		this.ball = ball ;
@@ -39,25 +41,29 @@ public class CollisionItem implements UseLaw {
 						System.out.println("test");
 						//System.out.println(shape.getFill().toString());
 						//System.out.println(ball.getFill().toString());
-						if(item instanceof BallColorSwitch){
-							System.out.println("C'EST MA BALLE");
-							Random r = new Random();
-							ModelBallColorSwitch mBCS = (ModelBallColorSwitch)((BallColorSwitch)item).getModel_item();
-							int size = mBCS.getColors_use().size();
-							Color c = mBCS.getColors_use().get(r.nextInt(size));
-							ball.setColor(c);
+						//if(item instanceof BallColorSwitch){
+							//System.out.println("C'EST MA BALLE");
+							//Random r = new Random();
+							//ModelBallColorSwitch mBCS = (ModelBallColorSwitch)((BallColorSwitch)item).getModel_item();
+							//int size = mBCS.getColors_use().size();
+							//Color c = mBCS.getColors_use().get(r.nextInt(size));
+							//ball.setColor(c);
 							touch = true;
 							
+							item.get(path, controller, ball);
+							
 							jItems.getChildren().remove(item.getShape());
-							for(Shape oui : item.getShapeList()) {
-								oui.setFill(Color.TRANSPARENT);
-								
-							}
+							
 							
 							path.removeItem(item);
-							path.addNewObstacle();
+							//break;
+						//}
+						//else{
+							//touch = true;
+							//System.err.println("COUCOU");
+							//path.removeItem(item);
 							break;
-						}
+						//}
 				
 					}
 				}
@@ -74,6 +80,9 @@ public class CollisionItem implements UseLaw {
 		
 			//game.getScore().ramasseItem(i);
 
-		}	
+		}
+
+	
+	
 
 }

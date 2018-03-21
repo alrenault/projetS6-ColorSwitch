@@ -15,6 +15,7 @@ import javafx.scene.shape.Shape;
 import model.modelItem.BuildModelItem;
 import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelItem;
+import model.modelItem.ModelStar;
 import model.modelObstacle.BuildModelObstacle;
 import model.modelObstacle.ModelObstacle;
 
@@ -33,12 +34,12 @@ public class Path {
     private double scWidth;
     private double scHeight;
     private List<Color> colors;
-	private int nbr_Obs;
+	private int nbr_ObsDeb;
 	private double posX;
 	private double posY;
 
 
-    public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
+    public Path(double scWidth, double scHeight, List<Color> colors, int nbr_ObsDeb, Difficulty gameDifficulty) {
     	super();
         obstacles = new ArrayList<>();
         ennemies = new ArrayList<>();
@@ -47,11 +48,11 @@ public class Path {
         this.colors = colors;
         this.scWidth = scWidth;
         this.scHeight = scHeight;
-        this.nbr_Obs = nbr_Obs;
+        this.nbr_ObsDeb = nbr_ObsDeb;
         posX = scWidth / 2;
         this.posY = scHeight / 5;
 
-        buildPathRandom();
+        //buildPathRandom();
     }
 
     public Path(List<ModelObstacle> _obstacles, List<Ennemy> _ennemies) {
@@ -77,7 +78,7 @@ public class Path {
 
     public Path(List<Color> colors, int nb_Obstacle, Difficulty difficulty) {
 		this.colors = colors;
-		this.nbr_Obs = nb_Obstacle;
+		this.nbr_ObsDeb = nb_Obstacle;
 		this.gameDifficulty = difficulty;
 	}
 
@@ -93,9 +94,9 @@ public class Path {
 
 
         //Construction
-        for (int i = 0; i < nbr_Obs; i++) {
+        for (int i = 0; i < nbr_ObsDeb; i++) {
         	ModelObstacle mo = addNewObstacle();
-        	addNewColorSwitch(mo);
+        	addNewColorSwitch(mo.getY() + mo.getObstacleHeight()/2 + 150);
             
 
             //marche pas encore tout à fait
@@ -163,34 +164,41 @@ public class Path {
 
 	           
 	        
-	        List<Color> l = new ArrayList<Color>();
-	        ModelItem modelStar;
-	        if(obstacleDifficulty == Difficulty.EASY){
-	           	l.add(Colorable.BRONZE);
-	           	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10);
-	        }
-	        else if(obstacleDifficulty == Difficulty.NORMAL){
-	           	l.add(Colorable.SILVER);
-	          	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20);
-	        }
-	        else{
-	           	l.add(Colorable.GOLD);
-	           	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30);    
-	        }
+	       
 	        add(mo);
 	        //System.out.println(mo.getBcs());
-	       // add(modelStar);
+	        //add(modelStar);
 	        posY = posY - mo.getObstacleHeight() / 2 - 600;
 	        
 	        return mo;
 	    }
 	 
-	 public ModelBallColorSwitch addNewColorSwitch(ModelObstacle mo){
-		 ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, scWidth/2, posY + mo.getObstacleHeight()/2 + 150, colors, 0, 0, 0);
+	 public ModelBallColorSwitch addNewColorSwitch(double y){
+		 ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, scWidth/2,y, colors, 0, 0, 0);
 	     add(modelBCS);
 	     return modelBCS;
 	 }
     
+	 public ModelStar addNewStar(ModelObstacle mo){
+		 List<Color> l = new ArrayList<Color>();
+		 ModelStar modelStar;
+	     if(mo.getDifficulty() == Difficulty.EASY){
+	       	l.add(Colorable.BRONZE);
+	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10);
+	     }
+	     else if(mo.getDifficulty() == Difficulty.NORMAL){
+	       	l.add(Colorable.SILVER);
+	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20);
+	     }
+	     else{
+	       	l.add(Colorable.GOLD);
+	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30);    
+	     }
+	     add(modelStar);
+	     
+	     return modelStar;
+	        
+	 }
     
     private Difficulty obstacleDifficulty(int variante){
     	Difficulty obstacleDifficulty;
@@ -259,12 +267,11 @@ public class Path {
         return items.remove(item);
     }
 
-    /*public void remove(Obstacle o) {
-    	path.getChildren().remove(o);
-        obstacles.remove(o);
+    public boolean remove(ModelObstacle o) {
+       return obstacles.remove(o);
     }
 
-    public void remove(Ennemy e){
+    /*public void remove(Ennemy e){
     	path.getChildren().remove(e);
         ennemies.remove(e);
     }*/
@@ -282,7 +289,13 @@ public class Path {
         return items.size();
     }
 
-    /**
+    
+    
+    public int getNbr_ObsDeb() {
+		return nbr_ObsDeb;
+	}
+
+	/**
      * Accesseur du nombre d'Obstacles
      * @return le nombre d'Obstacles dans la liste
      */
