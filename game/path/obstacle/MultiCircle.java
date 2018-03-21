@@ -40,7 +40,6 @@ public class MultiCircle extends Obstacle {
 
     public MultiCircle(ModelMultiCircle mmc) {
         super(mmc);
-        obstacle = buildObstacle(mmc);
     }
 
 

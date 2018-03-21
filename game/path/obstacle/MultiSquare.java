@@ -34,7 +34,6 @@ public class MultiSquare extends Obstacle {
 
     public MultiSquare(ModelMultiSquare mms) {
         super(mms);
-        obstacle = buildObstacle(mms);
     }
 
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import game.path.Element;
 import game.path.items.BallColorSwitch;
+import game.path.items.BuildItem;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
@@ -28,15 +29,14 @@ public abstract class Obstacle extends Element {
     public Obstacle(ModelObstacle mo) {
         super();
         model_obstacle = mo;
-    	
+        obstacle = buildObstacle(mo);
         
         //this.obstacle = build();
         //check();
     }
-    
+ 
 
-    
-    public ModelObstacle getModel_obstacle() {
+	public ModelObstacle getModel_obstacle() {
 		return model_obstacle;
 	}
 

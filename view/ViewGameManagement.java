@@ -59,20 +59,18 @@ public class ViewGameManagement {
 		BallPlayer ballplayer = BuildBall.build(ball,thisScene);
 		
 		
-		Group jObstacles = buildObstacles(path);
-		Group jItems = buildItems(path);
+		
 		Group jBall = ballplayer.getShape();
 		
 		
 
         
-		add(jObstacles);
-		add(jItems);
+		
 		add(jBall);
 		
 		ViewPath viewpath = new ViewPath(path);
 		
-		timer = new ViewTimer(ballplayer, viewpath, controller,jItems);
+		timer = new ViewTimer(ballplayer, viewpath, controller);
 		timer.play();
 		//ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
 		        
@@ -87,7 +85,7 @@ public class ViewGameManagement {
 	 * Methode d'ajout de Shape, Item ... dans root
 	 * @param group L'item,Shape,... à ajouter
 	 */
-	private static void add(Group group) {
+	public static void add(Group group) {
 		root.getChildren().add(group);
 	}
 

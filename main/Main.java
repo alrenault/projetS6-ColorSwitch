@@ -110,7 +110,7 @@ public class Main extends Application {
 				
 
 				{
-			        String bip = "src/SpringCS.mp3";
+			        String bip = "src/ressources/SpringCS.mp3";
 			        Media hit = new Media(Paths.get(bip).toUri().toString());
 			        AudioClip putain = new AudioClip(hit.getSource());
 			        putain.play();

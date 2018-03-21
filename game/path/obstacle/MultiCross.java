@@ -33,7 +33,6 @@ public class MultiCross extends Obstacle {
 
     public MultiCross(ModelMultiCross mmc) {
         super(mmc);
-        obstacle = buildObstacle(mmc);
     }
 
     protected Group buildObstacle(ModelObstacle mo) {

@@ -10,6 +10,7 @@ import game.path.obstacle.BuildObstacle;
 import game.path.obstacle.Obstacle;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelItem;
 import model.modelObstacle.ModelObstacle;
 import javafx.scene.paint.Color;
@@ -24,8 +25,18 @@ public class ViewPath {
 	
 	private Path path;
 	
+	Group jObstacles;
+	Group jItems;
+	
 	public ViewPath(Path path) {
 		this.path = path;
+		
+		jObstacles = ViewGameManagement.buildObstacles(path);
+		jItems = ViewGameManagement.buildItems(path);
+		
+		ViewGameManagement.add(jObstacles);
+		ViewGameManagement.add(jItems);
+		
 		obstacles = new ArrayList<>();
 		items = new ArrayList<>();
 		obstaclesShapes = new ArrayList<>();
@@ -37,17 +48,30 @@ public class ViewPath {
 	
 	
 	//ADD
-	public void addObstacle(ModelObstacle mo) {
+	public Obstacle addObstacle(ModelObstacle mo) {
 		Obstacle obstacle = BuildObstacle.build(mo);
 		obstacles.add(obstacle);
 		obstaclesShapes.addAll(obstacle.getShapeList());
 		System.out.println(obstacle.getShapeList());
+		return obstacle;
 	}
 	
-	public void addItem(ModelItem mi) {
+	public void addNewObstacle(){
+		ModelObstacle mo = path.addNewObstacle();
+		Obstacle o = addObstacle(mo);
+		jObstacles.getChildren().add(o.getShape());
+		
+		ModelItem bcs = path.addNewColorSwitch(mo);
+		//bcs.setY(o.getY() + mo.getObstacleHeight()/2 + 150);
+		Item i = addItem(bcs);
+		jItems.getChildren().add(i.getShape());
+	}
+	
+	public Item addItem(ModelItem mi) {
 		Item item = BuildItem.build(mi);
 		items.add(item);
 		itemsShapes.addAll(item.getShapeList());
+		return item;
 	}
 	
 	//REMOVE
@@ -107,6 +131,18 @@ public class ViewPath {
 			addItem(mi);
 		}
 	}
+
+
+	public Group getjObstacles() {
+		return jObstacles;
+	}
+
+
+	public Group getjItems() {
+		return jItems;
+	}
+	
+	
 
 	
 }

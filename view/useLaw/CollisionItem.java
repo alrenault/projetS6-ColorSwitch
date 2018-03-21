@@ -55,6 +55,7 @@ public class CollisionItem implements UseLaw {
 							}
 							
 							path.removeItem(item);
+							path.addNewObstacle();
 							break;
 						}
 				

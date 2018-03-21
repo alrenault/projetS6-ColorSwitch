@@ -37,8 +37,7 @@ public class CircleInCircle extends Obstacle {
 
     public CircleInCircle(ModelCircleInCircle mcic) {
         super(mcic);
-        obstacle = buildObstacle(mcic);
-        
+       
 
     }
 

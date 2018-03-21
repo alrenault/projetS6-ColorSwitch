@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.modelItem.BuildModelItem;
+import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelItem;
 import model.modelObstacle.BuildModelObstacle;
 import model.modelObstacle.ModelObstacle;
@@ -33,6 +34,8 @@ public class Path {
     private double scHeight;
     private List<Color> colors;
 	private int nbr_Obs;
+	private double posX;
+	private double posY;
 
 
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs, Difficulty gameDifficulty) {
@@ -45,6 +48,8 @@ public class Path {
         this.scWidth = scWidth;
         this.scHeight = scHeight;
         this.nbr_Obs = nbr_Obs;
+        posX = scWidth / 2;
+        this.posY = scHeight / 5;
 
         buildPathRandom();
     }
@@ -54,6 +59,8 @@ public class Path {
         obstacles = _obstacles;
         ennemies = _ennemies;
         items = new ArrayList<>();
+        posX = scWidth / 2;
+        this.posY = scHeight / 5;
         //buildPath();
     }
     
@@ -62,6 +69,10 @@ public class Path {
     	obstacles = _obstacles;
     	ennemies = new ArrayList<>();
     	items = new ArrayList<>();
+        posX = scWidth / 2;
+        this.posY = scHeight / 5;
+        posX = scWidth / 2;
+        this.posY = scHeight / 5;
     }
 
     public Path(List<Color> colors, int nb_Obstacle, Difficulty difficulty) {
@@ -73,42 +84,19 @@ public class Path {
 	private void buildPathRandom() {
     	
         //Group newPath = new Group();
-        Random r = new Random();
+        /*Random r = new Random();
         int type;
         int variante;
-        double posY = scHeight / 5;
-        double posX = scWidth / 2;
-        Difficulty obstacleDifficulty;
+       // double posY = scHeight / 5;
+        Difficulty obstacleDifficulty;*/
 
 
 
         //Construction
         for (int i = 0; i < nbr_Obs; i++) {
-            type = r.nextInt(6);
-            variante = r.nextInt(10);
-            obstacleDifficulty = obstacleDifficulty(variante);
+        	ModelObstacle mo = addNewObstacle();
+        	addNewColorSwitch(mo);
             
-            //Generation de l'obstacle avec son colorSwitch
-            ModelObstacle mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
-           // ModelItem modelBCS = BuildModelItem.build(0, scWidth/2, posY + mo.getObstacleHeight()/2 + 150, colors, 0, 0, 0);
-           // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
-
-               
-            
-            List<Color> l = new ArrayList<Color>();
-                     ModelItem modelStar;
-                        if(obstacleDifficulty == Difficulty.EASY){
-                           	l.add(Colorable.BRONZE);
-                           	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10);
-                            }
-                        else if(obstacleDifficulty == Difficulty.NORMAL){
-                            	l.add(Colorable.SILVER);
-                            	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20);
-                            }
-                       else{
-                            	l.add(Colorable.GOLD);
-                            	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30);    
-                            }
 
             //marche pas encore tout à fait
             /*for(Shape partStar : s.getShapeList()){
@@ -126,16 +114,13 @@ public class Path {
             //newPath.getChildren().add(bcs.getItem());
             //newPath.getChildren().add(s.getItem());
             
-            add(mo);
-            //System.out.println(mo.getBcs());
-            add(mo.getBcs());
-            add(modelStar);
+            
             
             //addSL(o.getShapeList());
             //addSL(bcs.getShapeList());
             //addSL(s.getShapeList());
             
-            posY = posY - mo.getObstacleHeight() / 2 - 600;
+            
         }
 
 
@@ -166,6 +151,45 @@ public class Path {
         return newPath;
     }*/
     
+	 public ModelObstacle addNewObstacle(){
+	    	Random r = new Random();
+	    	int type = r.nextInt(6);
+	        int variante = r.nextInt(10);
+	        Difficulty obstacleDifficulty = obstacleDifficulty(variante);
+	        
+	        //Generation de l'obstacle avec son colorSwitch
+	        ModelObstacle mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
+	       // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
+
+	           
+	        
+	        List<Color> l = new ArrayList<Color>();
+	        ModelItem modelStar;
+	        if(obstacleDifficulty == Difficulty.EASY){
+	           	l.add(Colorable.BRONZE);
+	           	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10);
+	        }
+	        else if(obstacleDifficulty == Difficulty.NORMAL){
+	           	l.add(Colorable.SILVER);
+	          	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20);
+	        }
+	        else{
+	           	l.add(Colorable.GOLD);
+	           	modelStar = BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30);    
+	        }
+	        add(mo);
+	        //System.out.println(mo.getBcs());
+	       // add(modelStar);
+	        posY = posY - mo.getObstacleHeight() / 2 - 600;
+	        
+	        return mo;
+	    }
+	 
+	 public ModelBallColorSwitch addNewColorSwitch(ModelObstacle mo){
+		 ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, scWidth/2, posY + mo.getObstacleHeight()/2 + 150, colors, 0, 0, 0);
+	     add(modelBCS);
+	     return modelBCS;
+	 }
     
     
     private Difficulty obstacleDifficulty(int variante){
@@ -219,6 +243,8 @@ public class Path {
         //addSL(o.getShapeList());
         //path.getChildren().add(o.getShape());
     }
+    
+   
 
     public void add(Ennemy e) {
         ennemies.add(e);
@@ -279,6 +305,10 @@ public class Path {
     
     public List<Color> getColors() {
 		return colors;
+	}
+
+	public double getPosY() {
+		return posY;
 	}
 
     /*public Group getPath() {

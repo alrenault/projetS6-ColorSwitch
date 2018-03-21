@@ -107,6 +107,10 @@ public class ModelItem {
 	public ItemType getType() {
 		return type;
 	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
 	
 	
 

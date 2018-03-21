@@ -42,7 +42,6 @@ public class MultiLinee extends Obstacle {
 
     public MultiLinee(ModelMultiLine mml) {
         super(mml);
-        obstacle = buildObstacle(mml);
     }
 
     
