@@ -44,7 +44,7 @@ public class BallPlayer extends Player{
         
     }
     
-    public BallPlayer(Player ball, Scene scene) {
+    public BallPlayer(Ball ball, Scene scene) {
     	super();
     	this.scene = scene;
     	//this.ball = ball;

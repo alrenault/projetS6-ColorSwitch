@@ -36,7 +36,7 @@ import view.ViewGameManagement;
 
 public class Game {
 
-    Player ball;
+    Ball ball;
 	Path path;
     Universe universe;
     
@@ -49,7 +49,7 @@ public class Game {
     
     int nFrame = 0;
 
-    public Game(Player _ball, Path _path, Universe _universe) {
+    public Game(Ball _ball, Path _path, Universe _universe) {
         this.ball = _ball;
         this.path = _path;
         this.universe = _universe;
@@ -95,7 +95,7 @@ public class Game {
     }
     
     
-	public Player getBall() {
+	public Ball getBall() {
 		return ball;
 	}
 
@@ -142,9 +142,6 @@ public class Game {
     	this();
 	}
 
-	public void applyGravity() {
-        ball.applyGravity();
-    }
     
     public void defeat() {
     	

@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 
 public class BuildBall {
 
-	public static BallPlayer build(Player ball, Scene scene) {
+	public static BallPlayer build(Ball ball, Scene scene) {
 		BallPlayer ballplayer;
 		
 		ballplayer = new BallPlayer(ball,scene);

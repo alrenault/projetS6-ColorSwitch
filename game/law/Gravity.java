@@ -35,12 +35,6 @@ public class Gravity extends Law {
     }
 
 
-    @Override
-    public void apply(Game game) {
-        System.out.println("Gravity");
-        game.applyGravity(); //Do Something
-
-    }
 
 
 }
