@@ -15,6 +15,7 @@ public class ModelBall extends Ball {
 	 *
 	 */
         int  x = 70;
+        int  y = 70;
 	/**
 	 *La taille de la Balle
 	 */
@@ -35,6 +36,9 @@ public class ModelBall extends Ball {
 	 *
 	 */
     private final double  jumpHeight = 50;
+    
+    private double vectorX;
+    private double vectorY;
 
     /**
      *
@@ -112,10 +116,23 @@ public class ModelBall extends Ball {
 
 	@Override
 	public double getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return y;
 	}
     
+    public double addVectorX(double j) {
+    	return vectorX+=j;
+    }
     
+    public double addVectorY(double j) {
+    	return vectorY+=j;
+    }
+    
+    public double getVectorX(double j) {
+    	return vectorX;
+    }
+    
+    public double getVectorY(double j) {
+    	return vectorY;
+    }
 
 }
