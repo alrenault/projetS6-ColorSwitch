@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import main.Main;
 import model.InterfaceModelColorSwitch;
+import model.modelItem.ModelItem;
 import view.InterfaceViewColorSwitch;
 import view.View;
 
@@ -79,5 +80,9 @@ public class Controller {
 		System.out.println("J");
 		model.startGame(difficulty);
 		view.viewGame(model.getGame());
+	}
+	
+	public void incItem(ModelItem mi){
+		model.incItem(mi);
 	}
 }

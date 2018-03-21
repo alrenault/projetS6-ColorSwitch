@@ -60,7 +60,7 @@ public class Main extends Application {
         String functionName = e.getMethodName();
         System.out.println(className + "." + functionName + " - "+ j);
         j++;
-    }
+    }  
     
 
 	@Override

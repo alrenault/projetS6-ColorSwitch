@@ -3,6 +3,9 @@ package game.path.items;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.Controller;
+import game.ball.Ball;
+import game.ball.BallPlayer;
 import game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
@@ -10,6 +13,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.modelItem.ModelItem;
+import view.ViewPath;
 
 /**
  * @autor Vincent
@@ -57,6 +61,7 @@ public abstract class Item extends Element {
 		return null;
 	}
 
+	public abstract void get(ViewPath vPath, Controller c, BallPlayer b);
 
     /**
      * Assesseur de coordonnée x
