@@ -70,7 +70,7 @@ public class ViewGameManagement {
 		
 		ViewPath viewpath = new ViewPath(path);
 		
-		timer = new ViewTimer(ballplayer, viewpath, controller, thisScene);
+		timer = new ViewTimer(ballplayer, viewpath, controller);
 		timer.play();
 		//ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
 		        

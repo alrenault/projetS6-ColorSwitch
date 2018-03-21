@@ -39,6 +39,7 @@ public class MultiCross extends Obstacle {
         Group multiCross = new Group();
         double length = 100.0;
         double width = 15.0;
+        int nb_rect = 4;
         
         double x = mo.getX();
         double y = mo.getY();
@@ -51,51 +52,61 @@ public class MultiCross extends Obstacle {
         Cross cr1;
         Cross cr2;
         List<ModelShape> modelC = new ArrayList<>();
+        
+        Random r = new Random();
+        int colorDeb = r.nextInt(mo.getColors().size());
+        int colorOppose = (colorDeb+nb_rect/2) % mo.getColors().size();
 
         if (mo.getVersion() >= ModelMultiCross.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
 
         switch (mo.getVersion()) {
             case 0:
-                modelC.add(new ModelCross(x + length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0));
-                
+                modelC.add(new ModelCross(x + length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, colorDeb));
+            	color_passable.addAll(mo.getColors());
+            	
             	mo.setDifficulty(Difficulty.EASY);                
                 break;
                 
             case 1:
-            	modelC.add(new ModelCross(x - length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, 0));
-                
+            	modelC.add(new ModelCross(x - length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, colorDeb));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.EASY);
                 break;
                 
             case 2:
-            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 0));
-            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, 2));
-                
+            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, colorDeb));
+            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, colorOppose));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 3:
-            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 0));
-            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, 2));
-                
+            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, colorDeb));
+            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, colorOppose));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 4:
-            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 0));
-            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, 2));
+            	modelC.add(new ModelCross(x + length + width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, colorDeb));
+            	modelC.add(new ModelCross(x - length - width / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, colorOppose));
                 
-            	modelC.add(new ModelCross(x + length + width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 0));
-            	modelC.add(new ModelCross(x - length - width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, 2));
-                
+            	modelC.add(new ModelCross(x + length + width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, colorDeb));
+            	modelC.add(new ModelCross(x - length - width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, colorOppose));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.HARD);
                 break;
                 
             case 5:
-            	modelC.add(new ModelCross(x + length*3 + width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 0));
-            	modelC.add(new ModelCross(x - length*3 - width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, 2));
-                
+            	modelC.add(new ModelCross(x + length*3 + width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, colorDeb));
+            	modelC.add(new ModelCross(x - length*3 - width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, colorOppose));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.NORMAL);
             	break;
             	

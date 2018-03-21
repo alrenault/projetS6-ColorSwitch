@@ -93,6 +93,11 @@ public abstract class Obstacle extends Element {
 	}
 
 
+	public List<Color> getColor_passable() {
+		return color_passable;
+	}
+
+
     // public enum Difficulty {EASY, NORMAL, HARD}
 
 

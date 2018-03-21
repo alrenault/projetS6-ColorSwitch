@@ -20,7 +20,6 @@ import view.useLaw.CollisionItem;
 import view.useLaw.CollisionObstacle;
 import view.useLaw.J;
 import view.useLaw.JtGravity;
-import view.useLaw.Race;
 import view.useLaw.UseLaw;
 import game.Game;
 import game.ball.Ball;
@@ -35,7 +34,7 @@ public class ViewTimer {
 	List<UseLaw> laws;
 	Controller controller;
 	
-	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene) {
+	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller) {
 		laws = new ArrayList<>();
 		this.controller = controller;
 		
@@ -47,9 +46,6 @@ public class ViewTimer {
 		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		CollisionItem ci = new CollisionItem(ball,path,controller,path.getjItems());
-		
-		Race race = new Race(ball,scene);
-		laws.add(race);
 		
 		laws.add(co);
 		laws.add(ci);

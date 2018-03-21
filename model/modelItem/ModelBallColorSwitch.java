@@ -98,7 +98,13 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable{
 		if(c == null)
 			c = Color.WHITE;
 		s.setFill(c);
-		colors_use.add(c);
+		//colors_use.add(c);
 	}
+
+	public void setColors_use(List<Color> colors_use) {
+		this.colors_use = colors_use;
+	}
+	
+	
 
 }

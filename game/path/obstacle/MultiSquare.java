@@ -50,6 +50,10 @@ public class MultiSquare extends Obstacle {
         double x = mo.getX();
         double y = mo.getY();
         List<Color> colors = mo.getColors();
+        
+        Random r = new Random();
+        int colorDeb = r.nextInt(mo.getColors().size());
+        int colorOppose = (colorDeb+mo.getColors().size()) % mo.getColors().size();
 
         //public Square(double x, double y, double length, double width,
         //boolean mouvementDirection, boolean acceleration,int mouvementSpeed,Color[] colors, int pos_color)
@@ -60,29 +64,35 @@ public class MultiSquare extends Obstacle {
             mo.setVersion(mo.getVersionDefault());
         switch (mo.getVersion()) {
             case 0:
-                modelC.add(new ModelSquare(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, 0));
+                modelC.add(new ModelSquare(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, colorDeb));
+            	color_passable.addAll(mo.getColors());
 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
             case 1:
-            	modelC.add(new ModelSquare(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, 0));
-                
+            	modelC.add(new ModelSquare(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, colorDeb));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
             case 2:
-            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0));
-                
+            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, colorDeb));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.EASY);
                 break;
             case 3:
-            	modelC.add(new ModelSquare(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, 0));
-                
+            	modelC.add(new ModelSquare(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, colorDeb));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.EASY);
                 
                 break;
             case 4:
-            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, 0));
-            	modelC.add(new ModelSquare(x, y, bigLength, width, true, false, Speed.MOYEN, colors, 2));
+            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, colorDeb));
+            	modelC.add(new ModelSquare(x, y, bigLength, width, true, false, Speed.SYMPA, colors, colorOppose));
+            	color_passable.add(mo.getColors().get(colorDeb));
+            	color_passable.add(mo.getColors().get(colorOppose));
                 
             	mo.setDifficulty(Difficulty.HARD);
                 break;

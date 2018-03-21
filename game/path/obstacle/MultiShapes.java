@@ -30,8 +30,8 @@ public class MultiShapes extends Obstacle {
 	 version 1 : Carré avec 1 segment au dessus et en dessous faisant des allez-retour
 	 version 2 : Cercle avec 1 segment au dessus et en dessous faisant des allez-retour
 	 version 3 : Deux croix avec une ligne au dessus et en dessous faisant des allez-retour
-	 version 4 : Cercle tournant dans le sens horraire avec une barre verticale faisant des allez retour
-	 version 5 : Carré tournant dans le sens horraire avec une barre verticale faisant des allez retour
+	 version 4 : Cercle tournant dans le sens horraire avec une barre verticale en haut et en bas faisant des allez retour
+	 version 5 : Carré tournant dans le sens horraire avec une barre verticale en haut et en bas faisant des allez retour
 	 version 6 : Triangle tournant dans le sens horraire
 	 version 7 : Triangle tournant dans le sens contre horraire
 	 */
@@ -68,12 +68,17 @@ public class MultiShapes extends Obstacle {
         double y = mo.getY();
         double scWidth =((ModelMultiShapes)mo).getScWidth();
         
-        Random r = new Random();
-        int colorR1 = r.nextInt(colors.size());
-        int colorR2 = r.nextInt(colors.size());
+       // Random r = new Random();
+        //int colorR1 = r.nextInt(colors.size());
+        //int colorR2 = r.nextInt(colors.size());
         
         Shapes s;
         List<ModelShape> modelC = new ArrayList<>();
+        
+        Random r = new Random();
+        int colorDeb = r.nextInt(mo.getColors().size());
+        int colorOppose = (colorDeb+mo.getColors().size()/2) % mo.getColors().size();
+        int colorRand = r.nextInt(mo.getColors().size());
 
 
         if (mo.getVersion() >= ModelMultiShapes.NBR_VERSIONS)
@@ -81,61 +86,74 @@ public class MultiShapes extends Obstacle {
 
         switch (mo.getVersion()) {
             case 0:
-                modelC.add( new ModelSquare(x, y, length, width, false, false, Speed.MOYEN, colors, 0));
-                modelC.add(new ModelCircle(x, y, bigRadial - (3 * width) / 2, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
-                
+                modelC.add( new ModelSquare(x, y, length, width, false, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelCircle(x, y, bigRadial - (3 * width) / 2, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.add(mo.getColors().get(colorDeb));
+            	color_passable.add(mo.getColors().get(colorOppose));
+            	
             	mo.setDifficulty(Difficulty.HARD);
                 break;
 
             case 1:
                 modelC.add(new ModelSquare(x, y, length, width, false, false, Speed.MOYEN, colors, 0));
-                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scWidth + length));
-                modelC.add(new ModelHLine((int) scWidth, y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scWidth + length)));
-                
+                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorDeb, (int) scWidth + length));
+                modelC.add(new ModelHLine((int) scWidth, y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorRand, -((int) scWidth + length)));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 2:
                 modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 1));
-                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR1, (int) scWidth + length));
-                modelC.add(new ModelHLine((int) scWidth, y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorR2, -((int) scWidth + length)));
-                
+                modelC.add(new ModelHLine(-length, y - length - width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorDeb, (int) scWidth + length));
+                modelC.add(new ModelHLine((int) scWidth, y + length + width * 2, length, width, false, true, Speed.MOYEN, 1, colors, colorRand, -((int) scWidth + length)));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 3:
-                modelC.add(new ModelCross(x + tinyLength + width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, 0));
-                modelC.add(new ModelCross(x - tinyLength - width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, 2));
-                modelC.add(new ModelHLine(-length * 4, y - length - width * 2, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, 0, length * 4));
-                modelC.add(new ModelHLine(0, y + length + width * 2, length, width, false, false, Speed.MOYEN, (int) scWidth / (int) length + 4, colors, 1, -(length * 4)));
-                
+                modelC.add(new ModelCross(x + tinyLength + width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, colorDeb));
+                modelC.add(new ModelCross(x - tinyLength - width / 2, y, tinyLength, width, false, false, Speed.MOYEN, 4, colors, colorOppose));
+                modelC.add(new ModelHLine(-length * 4, y - length - width * 2, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, colorDeb, length * 4));
+                modelC.add(new ModelHLine(0, y + length + width * 2, length, width, false, false, Speed.MOYEN, (int) scWidth / (int) length + 4, colors, colorRand, -(length * 4)));
+                color_passable.add(mo.getColors().get(colorDeb));
+            	color_passable.add(mo.getColors().get(colorOppose));
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 4:
-                modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, 1));
-                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scWidth + width)));
-                modelC.add(new ModelVLine(scWidth, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scWidth + width)));
-                
+                modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.MOYEN, colors, colorDeb));
+                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, colorDeb, (scWidth + width)));
+                modelC.add(new ModelVLine(scWidth, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, colorRand, -(scWidth + width)));
+            	color_passable.addAll(mo.getColors());
+
             	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 5:
-                modelC.add(new ModelSquare(x, y, length, width, false, false, Speed.MOYEN, colors, 0));
-                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 0, (scWidth + width)));
-                modelC.add(new ModelVLine(scWidth, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, 2, -(scWidth + width)));
+                modelC.add(new ModelSquare(x, y, length, width, false, false, Speed.MOYEN, colors, colorDeb));
+                modelC.add(new ModelVLine(-width, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, colorDeb, (scWidth + width)));
+                modelC.add(new ModelVLine(scWidth, y - length / 2, length, width, 300, false, true, Speed.TRESSYMPA, 1, colors, colorRand, -(scWidth + width)));
+            	color_passable.addAll(mo.getColors());
 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
                 
             case 6:
-            	modelC.add(new ModelTriangle(x,y,length,width,true,false,Speed.SYMPA,colors,1));
+            	modelC.add(new ModelTriangle(x,y,length,width,true,false,Speed.SYMPA,colors,colorDeb));
+            	color_passable.add(mo.getColors().get(colorDeb));
+            	color_passable.add(mo.getColors().get((colorDeb+1)%mo.getColors().size()));
+            	color_passable.add(mo.getColors().get((colorDeb+2)%mo.getColors().size()));
             	
             	mo.setDifficulty(Difficulty.EASY);
             	break;
             		
             case 7:
-            	modelC.add(new ModelTriangle(x,y,length,width,false,false,Speed.SYMPA,colors,1));
+            	modelC.add(new ModelTriangle(x,y,length,width,false,false,Speed.SYMPA,colors,colorDeb));
+            	color_passable.add(mo.getColors().get(colorDeb));
+            	color_passable.add(mo.getColors().get((colorDeb+1)%mo.getColors().size()));
+            	color_passable.add(mo.getColors().get((colorDeb+2)%mo.getColors().size()));
             	
             	mo.setDifficulty(Difficulty.EASY);
             	break;
