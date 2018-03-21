@@ -1,4 +1,4 @@
-package main;
+package view.useLaw;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +16,6 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
-import view.useLaw.CollisionItem;
-import view.useLaw.CollisionObstacle;
-import view.useLaw.J;
-import view.useLaw.JtGravity;
-import view.useLaw.UseLaw;
 import game.Game;
 import game.ball.Ball;
 import game.ball.BallPlayer;
@@ -50,7 +45,6 @@ public class ViewTimer {
 		laws.add(co);
 		laws.add(ci);
 		
-		Circle circle = new Circle(300,500,50,Color.ALICEBLUE);
 		
 		timer = new AnimationTimer() {
 			long startTime = System.currentTimeMillis();
@@ -67,86 +61,8 @@ public class ViewTimer {
 				}
 				
 				
-				circle.setTranslateY(circle.getTranslateY()+4);
-				for(Shape ball : ball.getShapeList()) {
-					Shape intersection = Shape.intersect(ball, circle);
-					//System.out.println(intersection);
-					
-					if (!intersection.getBoundsInParent().isEmpty()) {
-						System.out.println("AIE");
-					}
-				}
-				
-				
-				//checkCollision();
 			}
 			
-			private void checkCollision() {
-				
-				for(Shape ball : ball.getShapeList()) {
-					
-					for(Obstacle o : path.getObstacles()) {
-						
-						for(Shape shape : o.getShapeList()){
-						
-						Shape intersection = Shape.intersect(ball, shape);
-						
-							if (!intersection.getBoundsInParent().isEmpty()) {
-								//System.out.println(shape.getFill());
-								//System.out.println(ball.getFill());
-								//game.getScore().increaseNOC();
-								if(shape instanceof Arc && shape.getStroke() != ball.getFill()){
-									System.out.println("Game Over check");
-									//game.defeat();
-								}
-								
-								if(!(shape instanceof Arc) &&shape.getFill() != ball.getFill()) {
-									//game.defeat();
-									System.out.println("Game Over check");
-								}
-							
-							}
-						}
-					}
-					
-					Boolean touch = false;
-					 for(Item i : path.getItems()){
-						if(i instanceof BallColorSwitch){
-							for(Shape shape : i.getShapeList()){
-								Shape intersection = Shape.intersect(ball,shape);
-								
-								if (!intersection.getBoundsInParent().isEmpty()) {
-									//System.out.println(shape.getFill().toString());
-									//System.out.println(ball.getFill().toString());
-									if(shape.getFill() != ball.getFill()) {
-										Random r = new Random();
-										//int size = ((BallColorSwitch) i).getColors_use().size();
-										//Color c = ((BallColorSwitch) i).getColors_use().get(r.nextInt(size));
-										path.removeItem(i);
-										//ball.setColor(c);
-										touch = true;
-										break;
-									}
-									
-								}
-							}
-							if(touch){
-								touch = false;
-								break;
-							}
-						}
-					
-						//game.getScore().ramasseItem(i);
-
-					}	 
-				}
-				
-				/*if(game.getBall().getY() >= scene.getHeight()){
-					 game.defeat();
-				 }
-				System.err.println("Score :"+ game.getScore());*/
-
-			}
 		};
 	}
 	
