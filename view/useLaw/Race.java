@@ -12,15 +12,22 @@ public class Race implements UseLaw {
 	
 	public Race(BallPlayer ball, Scene scene) {
 		this.ball = ball;
+		this.scene = scene;
 	}
 	
 	@Override
 	public void apply() {
 		// TODO Auto-generated method stub
+		
+		
 
 		ball.getShape().setTranslateY(ball.getShape().getTranslateY()-5);
 		
-		//scene.setOnMouseDragged(event -> System.out.println("Hello"));
+		scene.setOnMouseMoved(event -> {
+			double i;
+			i = event.getSceneX();
+			ball.getShape().setTranslateX(i-scene.getWidth()/2);
+		});
 		//scene.setOnKeyPressed(event -> System.out.println("Hello"));
 		
 		
