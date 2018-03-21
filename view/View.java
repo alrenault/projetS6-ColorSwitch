@@ -121,7 +121,7 @@ public class View implements InterfaceViewColorSwitch {
 	 */
 	@Override
 	public void viewGameOver() {
-		stage.close();
+		//stage.close();
 		Scene form = null;
 		try {
 			form = ScenePseudo.class.newInstance().stre( controller);
