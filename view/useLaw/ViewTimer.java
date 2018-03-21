@@ -39,6 +39,9 @@ public class ViewTimer {
 		JtGravity gravity = new JtGravity(ball);
 		//laws.add(gravity);
 		
+		MoveBall mv = new MoveBall(ball);
+		laws.add(mv);
+		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		CollisionItem ci = new CollisionItem(ball,path,controller,path.getjItems());
 		
