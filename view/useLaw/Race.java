@@ -5,6 +5,9 @@ import game.ball.BallPlayer;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 
+/**
+ *
+ */
 public class Race implements UseLaw {
 
 	BallPlayer ball;

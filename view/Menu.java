@@ -52,7 +52,10 @@ public class Menu {
 		root.setStyle("-fx-background-color: #393939");
 
 		goGameEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
+		goScore.setOnAction(event->controller.showScoresMenu());
 
+
+		//goScore.setOnAction(e -> );
 
 		return sc;
 	}

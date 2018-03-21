@@ -7,17 +7,34 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 
-
+/**
+ *
+ */
 public class Listeners {
+    /**
+     *
+     */
     private Scene sc;
+    /**
+     *
+     */
     private BallPlayer ball;
 
+    /**
+     *
+     * @param sc
+     * @param ball
+     */
     public Listeners(Scene sc, BallPlayer ball) {
         this.sc = sc;
         //TODO
         this.ball = ball;
     }
 
+    /**
+     *
+     * @param group
+     */
     public void jump(Group group) {
         //Label l1 = new Label("je test");
         //group.getChildren().add(l1);

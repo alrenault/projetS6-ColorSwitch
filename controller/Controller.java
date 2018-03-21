@@ -15,16 +15,29 @@ import view.InterfaceViewColorSwitch;
 import view.View;
 
 public class Controller {
-	
+	/**
+	 *
+	 */
 	InterfaceModelColorSwitch model;
+	/**
+	 *
+	 */
 	InterfaceViewColorSwitch view;
+	/**
+	 *
+	 */
 	GestionDB connectionDB;
-	
+
+	/**
+	 *
+	 * @param model
+	 * @param view
+	 */
 	public Controller(InterfaceModelColorSwitch model, InterfaceViewColorSwitch view) {
 		this.model = model;
 		this.view = view;
 		view.setController(this);
-		
+		connectionDB=new GestionDB();
 		/*
 		try {
 			connectionDB=new GestionDB();
@@ -36,19 +49,26 @@ public class Controller {
 
 	}
 
-
+	/**
+	 *
+	 */
 	public void init() {
 		System.out.println("Initialisation");
 		view.basicView();
 	}
-	
-	
-	
+
+
+	/**
+	 *
+	 */
 	public void startMenu() {
 		System.out.println("Menu");
 		view.viewMenu();
 	}
-	
+
+	/**
+	 *
+	 */
 	public void startGame() {
 		System.out.println("New Game !");
 		model.startGame();
@@ -64,18 +84,40 @@ public class Controller {
 //
 		connectionDB.record(nom,score);
 	}
-	
+
+	/**
+	 *
+	 */
 	public void gameOver(){
 		System.out.println("Game Over !");
 		model.gameOver();
 		view.viewGameOver();
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public Score getScore() {
 		return model.getGame().getScore();
 	}
 
+	public void showScoresMenu(){
+		boolean testCo=connectionDB.testConnexionDB();
+		System.err.println((testCo)?"Co Ok":"Pas de co");
+		if (testCo){
 
+
+		}else{
+			view.viewScoreNoCo();
+
+		}
+
+	}
+	/**
+	 *
+	 * @param difficulty
+	 */
 	public void startGame(Difficulty difficulty) {
 		System.out.println("J");
 		model.startGame(difficulty);

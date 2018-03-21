@@ -36,6 +36,11 @@ public interface InterfaceViewColorSwitch {
 
 	/**
 	 *
+	 */
+	void viewScoreNoCo();
+
+	/**
+	 *
 	 * @param controller
 	 */
 	public void setController(Controller controller);

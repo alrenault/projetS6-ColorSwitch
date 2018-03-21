@@ -17,7 +17,7 @@ public abstract class Player extends Element {
      * Couleur de la Balle
      */
     protected Color color;
-    
+
     protected Ball model_ball;
 
     /**
@@ -60,13 +60,21 @@ public abstract class Player extends Element {
         this.color = color;
     }
 
+    /**
+     *
+     * @return
+     */
 	public abstract double getSize();
-	
+
+    /**
+     *
+     * @return
+     */
 	public Ball getModelBall() {
 		return model_ball;
 	}
-	
-	
+
+
 
     /**
      *
