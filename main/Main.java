@@ -104,13 +104,18 @@ public class Main extends Application {
 		//SOUND
 		
 		
-		
+		/*{
+			 String bip = "src/ressources/Spring.wav";
+			 Media hit = new Media(Paths.get(bip).toUri().toString());
+			 MediaPlayer truc = new MediaPlayer(hit);
+			 truc.play();
+		}*/
 				    
 
 				
 
 				{
-			        String bip = "src/ressources/SpringCS.mp3";
+			        String bip = "src/ressources/Spring.wav";
 			        Media hit = new Media(Paths.get(bip).toUri().toString());
 			        AudioClip putain = new AudioClip(hit.getSource());
 			        putain.play();

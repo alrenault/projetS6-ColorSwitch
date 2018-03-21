@@ -40,7 +40,7 @@ public class Circle extends Shapes {
         ArcType type = ArcType.OPEN;
 
         for (int i = 0; i < mc.getArcs_nbr(); i++) {
-            Arc arc_1 = new Arc(mc.getX(), mc.getY(), mc.getRadial(), mc.getRadial(), i * angle, angle);
+            Arc arc_1 = new Arc(mc.getX(), mc.getY(), mc.getRadial(), mc.getRadial(), 45 + i * angle, angle);
 
             arc_1.setType(type);
             arc_1.setFill(null);

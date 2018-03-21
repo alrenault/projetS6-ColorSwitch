@@ -1,5 +1,6 @@
 package game.path.obstacle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import game.path.Element;
@@ -24,11 +25,14 @@ public abstract class Obstacle extends Element {
 
     protected Bounds coord;
     protected ModelObstacle model_obstacle;
+    protected List<Color> color_passable;
 
 
     public Obstacle(ModelObstacle mo) {
         super();
         model_obstacle = mo;
+        color_passable = new ArrayList<>();
+
         obstacle = buildObstacle(mo);
         
         //this.obstacle = build();

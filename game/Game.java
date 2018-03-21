@@ -81,7 +81,7 @@ public class Game {
     	CUSTOM.add(Colorable.ROSE);
     	CUSTOM.add(Colorable.BLUE);
     	
-    	this.path = new Path(600,1000, CUSTOM, 5, Difficulty.EASY);
+    	this.path = new Path(600,1000, CUSTOM, 5, Difficulty.HARD);
     	System.out.println("Celui là");
     	
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
