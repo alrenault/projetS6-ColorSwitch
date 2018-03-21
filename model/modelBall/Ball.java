@@ -122,6 +122,12 @@ public class Ball {
     public void moveBall() {
     	x+=vectorX;
     	y+=vectorY;
+    	resetVectors();
+    }
+    
+    public void resetVectors() {
+    	vectorX=0;
+    	vectorY=0;
     }
 
 }
