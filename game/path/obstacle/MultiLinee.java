@@ -76,7 +76,7 @@ public class MultiLinee extends Obstacle {
             mo.setVersion(mo.getVersionDefault());
 
         switch (mo.getVersion()) {
-           /* case 0:
+            case 0:
                 modelC.add(new ModelHLine(-length, y, length, width, false, true, Speed.HARD, 1, colors, colorDeb, (int) scWidth + length));
             	color_passable.addAll(mo.getColors());
             	
@@ -110,9 +110,9 @@ public class MultiLinee extends Obstacle {
             	color_passable.addAll(mo.getColors());
 
             	mo.setDifficulty(Difficulty.EASY);
-                break;*/
+                break;
                 
-           default:// case 5:
+           case 5:
             	modelC.add(new ModelHLine(-150 * 4, y, 150, width, false, false, Speed.SYMPA, (int) scWidth / (int) 150 + 4, colors, colorDeb, 150 * 4));
             	modelC.add(new ModelHLine(0, y + width, 150, width, false, false, Speed.SYMPA, (int) scWidth / (int) 150 + 4, colors,(colorDeb+1)%mo.getColors().size(), -(150 * 4)));
             	color_passable.add(mo.getColors().get(colorDeb));
@@ -120,7 +120,7 @@ public class MultiLinee extends Obstacle {
             	
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
-           /*     
+               
             case 6:
             	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, colorDeb, length * 4));
             	modelC.add(new ModelHLine(0, y + width + 120, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, colorRand, -(length * 4)));
@@ -159,13 +159,13 @@ public class MultiLinee extends Obstacle {
             	color_passable.addAll(mo.getColors());
 
             	mo.setDifficulty(Difficulty.HARD);
-            	break;*/
+            	break;
             	
-           /* default:
+           default:
             	modelC.add(new ModelHLine(-length * 4, y, length, width, false, false, Speed.SYMPA, (int) scWidth / (int) length + 4, colors, colorDeb, length * 4));
             	color_passable.addAll(mo.getColors());
 
-            	mo.setDifficulty(Difficulty.EASY);*/
+            	mo.setDifficulty(Difficulty.EASY);
         }
         
         for(ModelShape ms : modelC){
