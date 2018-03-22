@@ -4,20 +4,11 @@ import DB.Record;
 import controller.Controller;
 import game.Colorable;
 import game.Game;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.PerspectiveCamera;
-
 import java.util.LinkedList;
 
 
@@ -146,71 +137,22 @@ public class View implements InterfaceViewColorSwitch {
 //TODO ajouter de quoi retourner au menu
 	@Override
 	public void viewScoreNoCo() {
-		Group root = new Group();
-		String noCo="\nHum c'est embarrassant !\n Il semblerait que tu n'aie pas de connection...\nPas de connexion, pas de scores.";
-        Text t =new Text(noCo);
-        t.setTextAlignment(TextAlignment.CENTER);
-        t.setFont(new Font(26));
-        t.setFill(Color.WHITE);
-        root.getChildren().add(t);
-		Scene scene = new Scene(root,tailleX,tailleY);
+
+		Scene scene = new Scene(ViewScores.GroupeScoresNoK(),tailleX,tailleY);
 		scene.setFill(Colorable.BLACK);
         display(scene);
 	}
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
-	    Group root = new Group();
 
-        VBox vBox = new VBox();
-        HBox hBox =new HBox();
-
-
-
-        vBox.setAlignment(Pos.CENTER);
-
-        hBox.getChildren().add(aggranditBlancit("Date"));
-        hBox.getChildren().add(aggranditBlancit("Joueur"));
-        hBox.getChildren().add(aggranditBlancit("Nombre d'étoiles"));
-        hBox.getChildren().add(aggranditBlancit("Nombre d'obstacles"));
-
-        hBox.getChildren().add(aggranditBlancit("Score"));
-
-        vBox.getChildren().add(hBox);
-
-		for (Record rec : liste) {
-            hBox =new HBox();
-            hBox.getChildren().add(aggranditBlancit(rec.getDateRecordJoueur()));
-
-            hBox.getChildren().add(aggranditBlancit(rec.getPseudoJoueur()));
-
-            hBox.getChildren().add(aggranditBlancit(Integer.toString(rec.getNbEtoilesRamassees())));
-
-            hBox.getChildren().add(aggranditBlancit(Integer.toString(rec.getNbrObstaclesCrossed())));
-
-            hBox.getChildren().add(aggranditBlancit(Integer.toString(rec.getScore())));
-
-
-            vBox.getChildren().add(hBox);
-
-        }
-        root.getChildren().add(vBox);
-        Scene scene = new Scene(root,tailleX,tailleY);
+      //  Scene scene = new Scene(SceneScoreOk(liste),tailleX,tailleY);
+		Scene scene = new Scene(ViewScores.GroupeScoreOk(liste),tailleX,tailleY);
         scene.setFill(Colorable.BLACK);
 
 		display(scene);
 	}
 
-    /**
-     * Aggrandit et blanchit
-     * @param s la chaine à transformer
-     * @return un Text correspondant à s en plus grand et moins (ne pas raciser)
-     */
-	private Text aggranditBlancit(String s){
-        Text text=new Text(s);
-        text.setFont(new Font(15));
-        text.setFill(Color.WHITE);
-        return text;
-    }
+
 
 
 	public int getTailleX() {
