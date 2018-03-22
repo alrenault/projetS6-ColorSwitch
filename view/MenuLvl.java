@@ -35,11 +35,13 @@ public class MenuLvl {
 		Label niveaux = new Label("Niveaux");
 		Label modesJeu = new Label("Modes de jeu");
 		Button retour = new Button();
-		retour.setOnMouseClicked(event ->View.controller.startMenu());
-		retour.setOnAction(e->View.controller.startMenu());
+		//retour.setOnMouseClicked(event ->View.controller.startMenu());
+		VBox boxMenu = new VBox();
+		boxMenu.getChildren().add(retour);
+		retour.setOnAction(e->controller.startMenu());
 
 		retour.setText(" <-- ");
-		root.getChildren().add(retour);
+		root.getChildren().add(boxMenu);
 
 		niveaux.setTextFill(Colorable.GOLD);
 		niveaux.setFont(Font.font("Verdana",FontWeight.BOLD,20));
@@ -81,7 +83,7 @@ public class MenuLvl {
 		
 		vBoxRoot.setAlignment(Pos.CENTER);
 		
-		root.getChildren().add(vBoxRoot);
+		boxMenu.getChildren().add(vBoxRoot);
 		
 		Scene sc = new Scene(root,width,height);
 		sc.setFill(Colorable.BLACK);
