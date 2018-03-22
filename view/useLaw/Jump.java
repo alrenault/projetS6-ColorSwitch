@@ -1,7 +1,5 @@
 package view.useLaw;
 
-import org.omg.Messaging.SyncScopeHelper;
-
 import game.ball.BallPlayer;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
