@@ -41,7 +41,7 @@ public class ViewScores {
     }
 
 
-    private static HBox entete(){
+    public static HBox entete(){
         HBox h = new HBox();
         Button retour = new Button();
         retour.setOnAction(e-> View.controller.startMenu());
@@ -62,6 +62,7 @@ public class ViewScores {
         Text text=new Text(s);
         text.setFont(new Font(15));
         text.setFill(Color.WHITE);
+        text.setTextAlignment(TextAlignment.CENTER);
         return text;
     }
 
@@ -75,7 +76,7 @@ public class ViewScores {
         GridPane g = new GridPane();
 
         g.setAlignment(Pos.CENTER);
-
+        g.setHgap(10);
 
         Integer i=0,j=0;
         g.add(transforme("Date"),i,j);
@@ -96,21 +97,7 @@ public class ViewScores {
             g.add(transforme(Integer.toString(rec.getNbEtoilesRamassees())),i++,j);
             g.add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())),i++,j);
             g.add(transforme(Integer.toString(rec.getScore())),i++,j);
-
-
-
         }
-/*
-        for (Record rec : liste) {
-            g.getChildren().add(transforme(rec.getDateRecordJoueur()));
-            g.getChildren().add(transforme(rec.getPseudoJoueur()));
-            g.getChildren().add(transforme(Integer.toString(rec.getNbEtoilesRamassees())));
-            g.getChildren().add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())));
-            g.getChildren().add(transforme(Integer.toString(rec.getScore())));
-
-            g.getChildren().add(g);
-
-        }*/
         root.getChildren().add(g);
 
         return formater(root);

@@ -1,7 +1,5 @@
 package view.useLaw;
 
-import org.omg.Messaging.SyncScopeHelper;
-
 import game.ball.BallPlayer;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -46,8 +44,6 @@ public class Jump implements UseLaw {
 		
 		double j = computePosition(duration_since_last_jump);
 		
-		
-		System.out.println("vec - "+j);
 		ball.getBall().addVectorY(-j);
 
 	}
