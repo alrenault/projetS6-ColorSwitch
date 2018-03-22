@@ -229,6 +229,15 @@ public class Path {
             else//60%
                 obstacleDifficulty = Difficulty.HARD;
             break;
+            
+        case RANDOM:
+        	int r = new Random().nextInt(3);
+        	if(r == 0)
+                obstacleDifficulty = Difficulty.EASY;
+        	else if(r == 1)
+                obstacleDifficulty = Difficulty.NORMAL;
+        	else
+                obstacleDifficulty = Difficulty.HARD;    	
 
         default:
             if (variante <= 5)//60%

@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.PerspectiveCamera;
 import java.util.LinkedList;
+import java.util.Random;
 
 
 /**
@@ -24,7 +25,7 @@ public class View implements InterfaceViewColorSwitch {
 	/**
 	 *
 	 */
-	Controller controller;
+	protected static Controller controller;
 	/**
 	 *
 	 */
@@ -122,8 +123,8 @@ public class View implements InterfaceViewColorSwitch {
 		Scene form =  ScenePseudo.stre( controller);
 		display(form);
 		*/
-
-		Score scoreTest = new Score(14567,787,3);
+		Random r = new Random();
+		Score scoreTest = new Score(r.nextInt(500),r.nextInt(2500),0);
 		//TODO ajouter bouton de ragequit(vers menu) et de view form
 
 		display(ViewScores.GroupeScoreJoueurEnCours(scoreTest));
