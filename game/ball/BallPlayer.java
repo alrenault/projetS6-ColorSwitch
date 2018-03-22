@@ -42,10 +42,15 @@ public class BallPlayer extends Player{
         this.size = size;
         this.color = color;
         this.scene = scene;
-        model_ball.setX(scene.getWidth()/2);
-        model_ball.setY(scene.getHeight()*(4/5));
         
         this.shape = buildBall();
+        
+        System.out.println("X : "+model_ball.getX() + " Y : "+model_ball.getY());
+        
+        model_ball.setX(scene.getWidth()/2);
+        model_ball.setY(scene.getHeight()/2);
+        
+        System.out.println("X : "+model_ball.getX() + " Y : "+model_ball.getY());
         
     }
     
@@ -62,14 +67,20 @@ public class BallPlayer extends Player{
     	
     	this.shape = buildBall();
     	
+    	model_ball.setX(scene.getWidth()/2);
+    	
+        model_ball.setY(scene.getHeight()/1.25);
+        
+        
+    	
     }
 
 
 	public Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
-        player.setCenterX(scene.getWidth() / 2);
-        player.setCenterY(scene.getHeight() - 150);
+        //player.setCenterX(scene.getWidth() / 2);
+        //player.setCenterY(scene.getHeight() - 150);
         
         addSL(player);
         ball.getChildren().add(player);

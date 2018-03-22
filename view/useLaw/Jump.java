@@ -50,7 +50,7 @@ public class Jump implements UseLaw {
 		double j = computePosition(duration_since_last_jump);
 		
 		//System.out.println(j);
-		ball.getModelBall().addVectorY(-j/2);
+		ball.getBall().addVectorY(-j/2);
 
 	}
 	

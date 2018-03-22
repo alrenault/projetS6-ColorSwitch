@@ -16,13 +16,18 @@ public class FollowBall implements UseLaw {
 	
 	@Override
 	public void apply() {
-		// TODO Auto-generated method stub
 		
-		double difference = Math.abs(ball.getModelBall().getY()) - scene.getHeight()/2 ;
+		System.out.println("Y Ball - "+ball.getBall().getY());
+		System.out.println("Scene moitié - "+scene.getHeight()/2);
+		
+		double difference = Math.abs(ball.getBall().getY()) - scene.getHeight()/2 ;
+		
+		System.out.println("Difference : " + difference);
+		System.out.println("Hello");
 		
 		if (difference > 0){
 			//System.out.println("HELLO BOBBY !!");
-			scene.getCamera().setTranslateY(-difference);
+			//scene.getCamera().setTranslateY(-difference);
 		}
 
 	}

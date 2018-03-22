@@ -78,7 +78,7 @@ public abstract class Player extends Element {
      *
      * @return
      */
-	public Ball getModelBall() {
+	public Ball getBall() {
 		return model_ball;
 	}
 
