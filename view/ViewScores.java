@@ -46,6 +46,7 @@ public class ViewScores {
     public static HBox entete(){
         HBox h = new HBox();
         Button retour = new Button();
+        retour.setOnMouseClicked(event -> View.controller.startMenu());
         retour.setOnAction(e-> View.controller.startMenu());
         retour.setText(" <-- ");
         h.getChildren().add(retour);
