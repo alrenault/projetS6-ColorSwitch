@@ -40,18 +40,18 @@ public class ViewTimer {
 		laws.add(gravity);
 		
 		MoveBall mv = new MoveBall(ball);
-		//laws.add(mv);
+		laws.add(mv);
 		
 		Jump jump = new Jump(ball,scene);
 		laws.add(jump);
 		
 		FollowBall fb = new FollowBall(scene,ball);
 		LockBall lb = new LockBall(scene,ball);
-		laws.add(lb);
-		//laws.add(fb);
+		//laws.add(lb);
+		laws.add(fb);
 		
 		Race race = new Race(ball,scene);
-		laws.add(race);
+		//laws.add(race);
 		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		CollisionItem ci = new CollisionItem(ball,path,controller,path.getjItems());

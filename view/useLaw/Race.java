@@ -15,11 +15,13 @@ public class Race implements UseLaw {
 	double startTime;
 	double currentTime;
 	double duration;
+	double speed;
 	
 	public Race(BallPlayer ball, Scene scene) {
 		this.ball = ball;
 		this.scene = scene;
 		startTime = System.currentTimeMillis();
+		speed = 5;
 	}
 	
 	@Override
@@ -30,8 +32,12 @@ public class Race implements UseLaw {
 		
 		duration = currentTime-startTime;
 		
+		
+		if (speed > 10) speed = 5 + (duration/12000);
+		else speed = 10 ;
+		
 
-		ball.getShape().setTranslateY(ball.getShape().getTranslateY()-5-(duration/1000));
+		ball.getShape().setTranslateY(ball.getShape().getTranslateY()-speed);
 		
 		scene.setOnMouseMoved(event -> {
 			double i;
