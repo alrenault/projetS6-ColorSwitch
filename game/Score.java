@@ -10,7 +10,7 @@ import model.modelItem.ModelStar;
  * @date 16/02/2018
  */
 public class Score {
-    private static final int nbPointsParObstacle=50;
+    private static final int nbPointsParObstacle=5;
     /**
      *Le nombre d'Obstacles franchis
      * */
@@ -53,18 +53,10 @@ public class Score {
         this.scoreStored = scoreStored;
     }
 
-
-    /**
-     *Incremente le nombre d'obstacles traversés
-     */
-    public void increaseNOC() {
-        nbrObstaclesCrossed++;
-        System.err.println(nbrObstaclesCrossed);
-    }
-
     /**
      *Augmente le score du joueur avec le nombre de points associé à l'item
-     * @param item l'item en collision avec le joueur
+     * Et met à jour les nbs
+     * @param item me ModelItem en collision avec le joueur
      */
     public void ramasseItem(ModelItem item) {
         assert (item!=null);
@@ -72,12 +64,12 @@ public class Score {
         if (item.getType()== ItemType.Star) {
             nbEtoilesRamassees++;
         }
+        if (item.getType()== ItemType.InvisibleLine){
+            nbrObstaclesCrossed++;
+        }
 
         scoreStored += item.getNbPoints();
         System.err.println(getScore());
-    }
-    public void incEtoile(){
-    	nbEtoilesRamassees++;
     }
 
     /**
@@ -103,7 +95,7 @@ public class Score {
      */
 
     public Integer getScore() {
-        return scoreStored + nbrObstaclesCrossed*nbPointsParObstacle;
+        return scoreStored + nbrObstaclesCrossed*nbPointsParObstacle *nbEtoilesRamassees;
     }
 
     /**
