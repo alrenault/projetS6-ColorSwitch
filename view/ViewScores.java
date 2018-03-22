@@ -91,7 +91,7 @@ public class ViewScores {
         for (Record rec : liste) {
             j++;
             i=0;
-            g.add(transforme(rec.getDateRecordJoueur()),i,j);
+            g.add(transforme(rec.getDateRecordJoueur()),i++,j);
             g.add(transforme(rec.getPseudoJoueur()),i++,j);
             g.add(transforme(Integer.toString(rec.getNbEtoilesRamassees())),i++,j);
             g.add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())),i++,j);
