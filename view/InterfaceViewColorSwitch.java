@@ -13,18 +13,18 @@ public interface InterfaceViewColorSwitch {
 	/**
 	 *
 	 */
-	public void basicView();
+	void basicView();
 
 	/**
 	 *
 	 */
-	public void viewMenu() ;
+	void viewMenu() ;
 
 	/**
 	 *
 	 * @param thisGame
 	 */
-	public void viewGame(Game thisGame);
+	void viewGame(Game thisGame);
 
 	/**
 	 *
@@ -35,7 +35,7 @@ public interface InterfaceViewColorSwitch {
 	 *
 	 * @return
 	 */
-	public Controller getController();
+	Controller getController();
 
 	/**
 	 * Génère une vue d'érreur
@@ -46,7 +46,7 @@ public interface InterfaceViewColorSwitch {
 	 *
 	 * @param controller
 	 */
-	public void setController(Controller controller);
+	void setController(Controller controller);
 
 	/**
 	 * Génère une vue contenant les scores de liste

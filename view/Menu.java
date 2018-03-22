@@ -57,8 +57,6 @@ public class Menu {
 		goScore.setOnAction(event->controller.showScoresMenu());
 
 
-		//goScore.setOnAction(e -> );
-
 		return sc;
 	}
 

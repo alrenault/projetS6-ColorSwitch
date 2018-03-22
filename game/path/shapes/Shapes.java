@@ -96,15 +96,6 @@ public class Shapes extends Element{
 
 
     /**
-     * Constructeur d'une Shapes
-     * @param x La coordonnée en x du centre de la forme
-     * @param y La coordonnée en y du centre de la forme
-     * @param width l'epaisseur de la forme
-     * @param mouvementDirection La direction de mouvement
-     * @param acceleration L'acceleration du mouvement (ou non)
-     * @param s Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
-     * @param colors Liste des couleurs de la forme à transmettre
-     * @param pos_color La position initiale pour le parcours de la liste de couleurs
      */
    /* protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
         super();

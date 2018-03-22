@@ -113,8 +113,8 @@ public class MultiLinee extends Obstacle {
                 break;
                 
            case 5:
-            	modelC.add(new ModelHLine(-150 * 4, y, 150, width, false, false, Speed.SYMPA, (int) scWidth / (int) 150 + 4, colors, colorDeb, 150 * 4));
-            	modelC.add(new ModelHLine(0, y + width, 150, width, false, false, Speed.SYMPA, (int) scWidth / (int) 150 + 4, colors,(colorDeb+1)%colors.size(), -(150 * 4)));
+            	modelC.add(new ModelHLine(-150 * 4, y, 150, width, false, false, Speed.SYMPA, (int) scWidth / 150 + 4, colors, colorDeb, 150 * 4));
+            	modelC.add(new ModelHLine(0, y + width, 150, width, false, false, Speed.SYMPA, (int) scWidth / 150 + 4, colors,(colorDeb+1)%colors.size(), -(150 * 4)));
             	color_passable.add(colors.get((colorDeb+1)%colors.size()));
             	color_passable.add(colors.get((colorDeb+1)%colors.size()));
             	

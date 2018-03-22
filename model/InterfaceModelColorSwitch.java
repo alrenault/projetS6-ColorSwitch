@@ -14,42 +14,42 @@ public interface InterfaceModelColorSwitch {
 	/**
 	 *
 	 */
-	public void startColorSwitch();
+    void startColorSwitch();
 
 	/**
 	 *
  	 */
-	public void startGame();
+    void startGame();
 
 	/**
 	 *
 	 * @param difficulty
 	 */
-	public void startGame(Difficulty difficulty);
+    void startGame(Difficulty difficulty);
 	
-	public void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Player ball);
-	
-	
+	void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Player ball);
 	
 	
 	
 	
-	public void gameOver();
 	
-	public void jump();
 	
-	public void incItem(ModelItem mi);
+	void gameOver();
+	
+	void jump();
+	
+	void incItem(ModelItem mi);
 
 	/**
 	 *
 	 */
-	public void registerScore();
+    void registerScore();
 
 	/**
 	 *
 	 * @return
 	 */
-	public Game getGame();
+    Game getGame();
 
 	
 	

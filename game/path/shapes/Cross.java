@@ -17,11 +17,6 @@ public class Cross extends Shapes {
     
     /**
      * Constructeur basique de la croix (direction à true, acceleration à false, la vitesse la plus faible, et la position de la couleur à 1
-     * @param x Coordonnée en x de la croix
-     * @param y Coordonnée en y de la croix
-     * @param width Largeur d'un rectangle
-     * @param length Longueur d'un rectangle
-     * @param colors L'ensemble de couleurs utilisées par la croix
      */
     
     public Cross(ModelCross mc){

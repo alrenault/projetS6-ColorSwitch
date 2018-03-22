@@ -38,9 +38,6 @@ public abstract class Item extends Element {
 
     /**
      * Constructeur de la forme
-     * @param x coordonnée x de l'objet
-     * @param y coordonnée y de l'objet
-     * @param colors Liste de couleur à appliquer
      */
     public Item(ModelItem mi) {
        model_item = mi;

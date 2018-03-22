@@ -4,5 +4,5 @@ public interface UseLaw {
 	/**
 	 *
 	 */
-	public void apply();
+    void apply();
 }
