@@ -56,40 +56,7 @@ public class Game {
     }
     
     public Game() {
-    	/*
-    	difficulty = Difficulty.NO;
-    	colors = new ArrayList<Color>();
-    	colors.add(Colorable.YELLOW);
-    	colors.add(Colorable.PURPLE);
-    	colors.add(Colorable.ROSE);
-    	colors.add(Colorable.BLUE);
-    	
-    	ball = new BallPlayer(10, colors.get(0));
-    	path = new Path(colors, Integer.MAX_VALUE, difficulty);
-    	universe = new Universe();
-    	
-    	this.score = new Score();
-    	*/
-    	
-    	System.out.println(
-        		"\n_______________"
-        		+ "\nRandom Game\n\n");
-        
-        List<Color> CUSTOM = new ArrayList<Color>();
-    	CUSTOM.add(Colorable.YELLOW);
-    	CUSTOM.add(Colorable.PURPLE);
-    	CUSTOM.add(Colorable.ROSE);
-    	CUSTOM.add(Colorable.BLUE);
-    	
-    	this.path = new Path(600,1000, CUSTOM, 5, Difficulty.HARD);
-    	System.out.println("Celui là");
-    	
-    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
-    	this.ball = new Ball(10,CUSTOM.get(0));
-    	
-    	this.universe = new Universe();
-    	
-    	this.score = new Score();
+    	this(Difficulty.EASY);
     	
     	
     }
@@ -139,7 +106,25 @@ public class Game {
     }
 
     public Game(Difficulty difficulty) {
-    	this();
+    	System.out.println(
+        		"\n_______________"
+        		+ "\nRandom Game\n\n");
+        
+        List<Color> CUSTOM = new ArrayList<Color>();
+    	CUSTOM.add(Colorable.YELLOW);
+    	CUSTOM.add(Colorable.PURPLE);
+    	CUSTOM.add(Colorable.ROSE);
+    	CUSTOM.add(Colorable.BLUE);
+    	
+    	this.path = new Path(600,1000, CUSTOM, 5, difficulty);
+    	System.out.println("Celui là");
+    	
+    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+    	this.ball = new Ball(10,CUSTOM.get(0));
+    	
+    	this.universe = new Universe();
+    	
+    	this.score = new Score();
 	}
 
     
