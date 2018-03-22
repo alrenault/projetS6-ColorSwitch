@@ -3,15 +3,7 @@ package view.game.path;
 import view.game.Colorable;
 import view.game.Difficulty;
 import view.game.ennemy.Ennemy;
-import view.game.path.items.Item;
-import view.game.path.items.Star;
-import view.game.path.obstacle.BuildObstacle;
-import view.game.path.obstacle.Obstacle;
-import view.game.path.items.BallColorSwitch;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
 import model.modelItem.BuildModelItem;
 import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelInvisibleLine;
@@ -21,7 +13,6 @@ import model.modelObstacle.BuildModelObstacle;
 import model.modelObstacle.ModelObstacle;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -234,18 +225,20 @@ public class Path {
 	 public ModelStar addNewStar(ModelObstacle mo){
 		 List<Color> l = new ArrayList<Color>();
 		 ModelStar modelStar;
-	     if(mo.getDifficulty() == Difficulty.EASY){
-	       	l.add(Colorable.BRONZE);
-	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10, scWidth);
-	     }
-	     else if(mo.getDifficulty() == Difficulty.NORMAL){
-	       	l.add(Colorable.SILVER);
-	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20, scWidth);
-	     }
-	     else{
-	       	l.add(Colorable.GOLD);
-	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30, scWidth);    
-	     }
+         switch (mo.getDifficulty()) {
+             case EASY:
+                 l.add(Colorable.BRONZE);
+                 modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 10, 10, scWidth);
+                 break;
+             case NORMAL:
+                 l.add(Colorable.SILVER);
+                 modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 15, 20, scWidth);
+                 break;
+             default:
+                 l.add(Colorable.GOLD);
+                 modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 20, 30, scWidth);
+                 break;
+         }
 	     add(modelStar);
 	     
 	     return modelStar;
@@ -290,12 +283,17 @@ public class Path {
             
         case RANDOM:
         	int r = new Random().nextInt(3);
-        	if(r == 0)
-                obstacleDifficulty = Difficulty.EASY;
-        	else if(r == 1)
-                obstacleDifficulty = Difficulty.NORMAL;
-        	else
-                obstacleDifficulty = Difficulty.HARD;    	
+            switch (r) {
+                case 0:
+                    obstacleDifficulty = Difficulty.EASY;
+                    break;
+                case 1:
+                    obstacleDifficulty = Difficulty.NORMAL;
+                    break;
+                default:
+                    obstacleDifficulty = Difficulty.HARD;
+                    break;
+            }
 
         default:
             if (variante <= 5)//60%
@@ -325,17 +323,17 @@ public class Path {
         ennemies.add(e);
     }
 
-    public boolean add(ModelItem item) {
-        return items.add(item);
+    public void add(ModelItem item) {
+        items.add(item);
     }
 
 
-    public boolean remove(ModelItem item) {
-        return items.remove(item);
+    public void remove(ModelItem item) {
+        items.remove(item);
     }
 
-    public boolean remove(ModelObstacle o) {
-       return obstacles.remove(o);
+    public void remove(ModelObstacle o) {
+        obstacles.remove(o);
     }
 
     /*public void remove(Ennemy e){

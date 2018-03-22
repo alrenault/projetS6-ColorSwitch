@@ -1,10 +1,5 @@
 package view.game.path.obstacle;
 
-import java.util.List;
-
-import view.game.Difficulty;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import model.modelObstacle.*;
 
 public class BuildObstacle {

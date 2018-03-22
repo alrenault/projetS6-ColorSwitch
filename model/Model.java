@@ -5,7 +5,6 @@ import view.game.ball.Player;
 import view.game.law.Universe;
 import view.game.path.Path;
 import model.modelItem.ModelItem;
-import controller.Controller;
 import view.game.Difficulty;
 
 /**

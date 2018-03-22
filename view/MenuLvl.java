@@ -7,13 +7,11 @@ import java.util.List;
 import javafx.scene.Scene;
 import controller.Controller;
 import view.game.Colorable;
-import view.game.Difficulty;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
-import main.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -69,8 +67,8 @@ public class MenuLvl {
 		hBoxNiveaux.getChildren().add(niveau30);
 		hBoxNiveaux.getChildren().add(enferCercle);
 		
-		hBoxNiveaux.setTranslateX(50);;
-		
+		hBoxNiveaux.setTranslateX(50);
+
 		//Modes de jeu
 		
 		

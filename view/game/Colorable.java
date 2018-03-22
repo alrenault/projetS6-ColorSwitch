@@ -3,8 +3,6 @@ package view.game;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**

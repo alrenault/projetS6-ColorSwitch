@@ -2,9 +2,7 @@ package view.game.ball;
 
 
 import view.game.path.Element;
-import javafx.scene.Group;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
 import model.modelBall.Ball;
 
 /**
@@ -81,14 +79,6 @@ public abstract class Player extends Element {
 	public Ball getBall() {
 		return model_ball;
 	}
-
-
-
-    /**
-     *
-     * @return
-     */
-
 
 
 }

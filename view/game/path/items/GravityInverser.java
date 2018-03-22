@@ -1,13 +1,6 @@
 package view.game.path.items;
 
-import view.game.Colorable;
-import javafx.scene.Group;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Polygon;
 import model.modelItem.ModelGravityInverser;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 /**Objet graphique Changeur de gravité

@@ -1,42 +1,12 @@
 package main;
 
 
-import DB.GestionDB;
 import view.game.Colorable;
-import view.game.Difficulty;
-import view.game.Game;
-import view.game.Score;
-import view.game.ball.BallPlayer;
-import view.game.path.Modifiers;
-import view.game.path.Path;
-import view.game.path.items.*;
-import view.game.path.obstacle.CircleInCircle;
-import view.game.path.obstacle.MultiCross;
-import view.game.path.obstacle.MultiLinee;
-import view.game.path.obstacle.MultiShapes;
-import view.game.path.obstacle.MultiSquare;
-import view.game.path.obstacle.Obstacle;
-import view.game.path.shapes.Triangle;
-import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.shape.Circle;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import view.Menu;
-import view.ViewPath;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
-import view.game.path.shapes.Cross;
-import javafx.scene.shape.Arc;
 import javafx.scene.shape.Polygon;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 
 
 public class MainTest extends Application{

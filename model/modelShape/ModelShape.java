@@ -2,19 +2,13 @@ package model.modelShape;
 
 import view.game.Speed;
 import view.game.Colorable;
-import view.game.path.Element;
-import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
-import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.ShapeType;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Une Shapes représent un group de shapes de JavaFX

@@ -1,9 +1,6 @@
 package view.game.ball;
 
-import java.util.List;
-
 import controller.Listeners;
-import view.game.path.Element;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;

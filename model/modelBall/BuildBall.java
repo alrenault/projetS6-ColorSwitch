@@ -1,6 +1,5 @@
 package model.modelBall;
 
-import view.game.ball.Player;
 import view.game.ball.BallPlayer;
 import javafx.scene.Scene;
 

@@ -1,10 +1,5 @@
 package model.modelBall;
 
-import view.game.ball.Player;
-import javafx.animation.TranslateTransition;
-import javafx.geometry.Bounds;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 /**
@@ -119,9 +114,9 @@ public class Ball {
     	return vectorX+=j;
     }
     
-    public double addVectorY(double j) {
-    	return vectorY+=j;
-    }
+    public void addVectorY(double j) {
+		vectorY += j;
+	}
     
     public double getVectorX() {
     	return vectorX;

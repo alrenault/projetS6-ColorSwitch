@@ -10,7 +10,7 @@ public abstract class Modifiers {
     /**
      * La forme de l' item
      * */
-    Item forme;
+    private Item forme;
 
 
     /**

@@ -1,7 +1,6 @@
 package view.game;
 
 import view.game.path.Modifiers;
-import view.game.path.items.GravitySwitch;
 
 /** Change le sens de gravité
  * @autor Vincent

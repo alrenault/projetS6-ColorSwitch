@@ -22,15 +22,15 @@ public class ModelMultiCircle extends ModelObstacle {
 	/**
 	 *
 	 */
-    protected static int[] versionEasy = {0, 1, 7, 8, 9, 10};
+    protected static final int[] versionEasy = {0, 1, 7, 8, 9, 10};
 	/**
 	 *
 	 */
-	protected static int[] versionMedium = {2, 5, 6};
+	protected static final int[] versionMedium = {2, 5, 6};
 	/**
 	 *
 	 */
-    protected static int[] versionHard = {3, 4};
+    protected static final int[] versionHard = {3, 4};
 
 	/**
 	 *
@@ -55,13 +55,17 @@ public class ModelMultiCircle extends ModelObstacle {
 	 */
 	public ModelMultiCircle(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
-        if (difficulty == Difficulty.EASY)
-            version = ModelMultiCircle.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = ModelMultiCircle.getRandomMediumVersion();
-        else{
-            version = ModelMultiCircle.getRandomHardVersion();
-        }
+		switch (difficulty) {
+			case EASY:
+				version = ModelMultiCircle.getRandomEasyVersion();
+				break;
+			case NORMAL:
+				version = ModelMultiCircle.getRandomMediumVersion();
+				break;
+			default:
+				version = ModelMultiCircle.getRandomHardVersion();
+				break;
+		}
     }
 
 	/**
