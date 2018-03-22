@@ -84,7 +84,7 @@ public class MultiCircle extends Obstacle {
 
             case 1:
             	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add( new ModelCircle(x, y + bigRadial * 2 + width, bigRadial, width, nb_arc, false, false, Speed.MOYEN, colors, colorOppose));
+            	modelC.add( new ModelCircle(x, y + bigRadial * 2 + width, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorOppose));
             	color_passable.add(colors.get(colorDeb));
             	color_passable.add(colors.get(colorOppose));
             	
