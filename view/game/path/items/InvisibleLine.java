@@ -13,6 +13,7 @@ public class InvisibleLine extends Item{
 
 	public InvisibleLine(ModelInvisibleLine mil) {
 		super(mil);
+        item = buildItem(mil);
 		// TODO Auto-generated constructor stub
 	}
 	

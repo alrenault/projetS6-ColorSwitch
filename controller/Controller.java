@@ -127,9 +127,8 @@ public class Controller {
 		view.viewGame(model.getGame());
 	}
 	
-	public Scene menuLvl(){
+	public void menuLvl(){
 		view.viewMenuLvl();
-		return null;
 	}
 	
 	public void incItem(ModelItem mi){

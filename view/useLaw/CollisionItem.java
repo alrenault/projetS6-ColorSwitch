@@ -43,6 +43,8 @@ public class CollisionItem implements UseLaw {
 					
 					if (!intersection.getBoundsInParent().isEmpty()) {
 						System.out.println("test");
+						if(item instanceof InvisibleLine)
+							System.err.println("LIGNE");
 						//System.out.println(shape.getFill().toString());
 						//System.out.println(ball.getFill().toString());
 						//if(item instanceof BallColorSwitch){

@@ -23,7 +23,7 @@ public class BuildModelItem {
 	public static ModelItem build(int obs, double posX, double posY, List<Color> colors, double coefForce, double radius, int nbPoint, double scWidth) {
         ModelItem mi;
         ItemType type = ItemType.getEnum(obs);
-        System.out.println(type);
+        System.out.println("builder : "+type);
 
         switch (type) {
             case BallColorSwitch:
