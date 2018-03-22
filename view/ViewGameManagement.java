@@ -15,9 +15,11 @@ import view.game.path.obstacle.BuildObstacle;
 import view.game.path.obstacle.Obstacle;
 import view.game.path.shapes.Shapes;
 import javafx.scene.Group;
+import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import model.modelObstacle.ModelObstacle;
 import view.useLaw.ViewTimer;
@@ -51,6 +53,10 @@ public class ViewGameManagement {
         root = (Group) thisScene.getRoot();
         game = thisGame;
 		
+        
+        
+        
+        
 		
 		Path path = game.getPath();
 		Ball ball = game.getBall();
