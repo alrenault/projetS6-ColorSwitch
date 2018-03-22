@@ -5,6 +5,7 @@ import java.util.List;
 
 import view.game.path.Path;
 import view.game.path.items.BuildItem;
+import view.game.path.items.InvisibleLine;
 import view.game.path.items.Item;
 import view.game.path.obstacle.BuildObstacle;
 import view.game.path.obstacle.Obstacle;
@@ -90,6 +91,8 @@ public class ViewPath {
 		if(!path.isFinite()){
 			ModelInvisibleLine il = path.addNewInvisibleLine(mo.getY());
 			Item line = addItem(il);
+			System.err.print("forme : ");
+			System.err.println(line.getCoord());
 			jItems.getChildren().add(line.getShape());
 		}
 		

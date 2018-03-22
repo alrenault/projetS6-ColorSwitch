@@ -5,6 +5,7 @@ import java.util.Random;
 import controller.Controller;
 import view.game.ball.BallPlayer;
 import view.game.path.items.BallColorSwitch;
+import view.game.path.items.InvisibleLine;
 import view.game.path.items.Item;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
@@ -49,6 +50,8 @@ public class CollisionItem implements UseLaw {
 					
 					if (!intersection.getBoundsInParent().isEmpty()) {
 						System.out.println("test");
+						if(item instanceof InvisibleLine)
+							System.err.println("LIGNE");
 						//System.out.println(shape.getFill().toString());
 						//System.out.println(ball.getFill().toString());
 						//if(item instanceof BallColorSwitch){
