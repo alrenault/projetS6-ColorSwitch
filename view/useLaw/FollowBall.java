@@ -21,7 +21,7 @@ public class FollowBall implements UseLaw {
 		double difference = Math.abs(ball.getModelBall().getY()) - scene.getHeight()/2 ;
 		
 		if (difference > 0){
-			System.out.println("HELLO BOBBY !!");
+			//System.out.println("HELLO BOBBY !!");
 			scene.getCamera().setTranslateY(-difference);
 		}
 

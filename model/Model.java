@@ -91,7 +91,8 @@ public class Model implements InterfaceModelColorSwitch {
 	}
 	
 	public void incItem(ModelItem mi){
-		game.getScore().incEtoile();
+
+	game.getScore().ramasseItem(mi);
 	}
 	
 }

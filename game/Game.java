@@ -26,6 +26,7 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.modelBall.Ball;
+import model.modelItem.ModelItem;
 import view.ViewGameManagement;
 
 /**
