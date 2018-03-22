@@ -12,6 +12,7 @@ import game.path.obstacle.BuildObstacle;
 import game.path.obstacle.CircleInCircle;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
@@ -68,7 +69,18 @@ public class Menu {
 		//randomButton.getChildren().add(triangle);
 		randomButton.getChildren().add(playRandom);
 		vBox.getChildren().add(randomButton);
+		
+		Polygon playEasy = FilledTriangle.create(x, y, side/2, Color.LIGHTGREEN);
+		Polygon playNormal = FilledTriangle.create(x, y, side/2, Color.ORANGERED);
+		Polygon playHard = FilledTriangle.create(x, y, side/2, Color.DARKRED);
+		
+		HBox infinite_difficulties = new HBox();
+		
+		infinite_difficulties.getChildren().add(playEasy);
+		infinite_difficulties.getChildren().add(playNormal);
+		infinite_difficulties.getChildren().add(playHard);
         
+		vBox.getChildren().add(infinite_difficulties);
         
 		vBox.getChildren().add(goContinuEasy);
 		vBox.getChildren().add(goContinuNormal);
