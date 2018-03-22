@@ -1,16 +1,24 @@
 package view;
 
+import java.io.File;
+
 import controller.Controller;
 import view.game.Colorable;
+import view.game.Difficulty;
 import view.game.Game;
+import view.game.ball.Player;
 import view.game.ball.BallPlayer;
 import view.game.path.Path;
 import view.game.path.items.BuildItem;
 import view.game.path.items.Item;
 import view.game.path.obstacle.BuildObstacle;
 import view.game.path.obstacle.Obstacle;
+import view.game.path.shapes.Shapes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import model.modelObstacle.ModelObstacle;
 import view.useLaw.ViewTimer;
 import model.modelItem.ModelItem;
