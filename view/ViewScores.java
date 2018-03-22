@@ -97,21 +97,7 @@ public class ViewScores {
             g.add(transforme(Integer.toString(rec.getNbEtoilesRamassees())),i++,j);
             g.add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())),i++,j);
             g.add(transforme(Integer.toString(rec.getScore())),i++,j);
-
-
-
         }
-/*
-        for (Record rec : liste) {
-            g.getChildren().add(transforme(rec.getDateRecordJoueur()));
-            g.getChildren().add(transforme(rec.getPseudoJoueur()));
-            g.getChildren().add(transforme(Integer.toString(rec.getNbEtoilesRamassees())));
-            g.getChildren().add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())));
-            g.getChildren().add(transforme(Integer.toString(rec.getScore())));
-
-            g.getChildren().add(g);
-
-        }*/
         root.getChildren().add(g);
 
         return formater(root);
