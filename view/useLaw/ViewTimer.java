@@ -45,6 +45,9 @@ public class ViewTimer {
 		Jump jump = new Jump(ball,scene);
 		laws.add(jump);
 		
+		FollowBall fb = new FollowBall(scene,ball);
+		laws.add(fb);
+		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		CollisionItem ci = new CollisionItem(ball,path,controller,path.getjItems());
 		
