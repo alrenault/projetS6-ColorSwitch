@@ -51,12 +51,12 @@ public class CollisionObstacle implements UseLaw {
 					
 					if(shape instanceof Arc && shape.getStroke() != b.getFill()){
 						System.out.println("Game Over 1");
-						//controller.gameOver();
+						controller.gameOver();
 					}
 					
 					if(!(shape instanceof Arc) &&shape.getFill() != b.getFill()) {
 						System.out.println("Game Over 2");
-						//controller.gameOver();
+						controller.gameOver();
 					}
 				
 				}
