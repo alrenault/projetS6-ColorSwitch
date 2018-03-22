@@ -10,6 +10,7 @@ import game.Score;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -21,7 +22,13 @@ import java.util.LinkedList;
 
 public class ViewScores {
     private static Scene formateScene(Group racine){
+        HBox h = new HBox();
+        Button retour = new Button();
+        retour.setOnAction(e-> View.controller.startMenu());
+        retour.setText(" <-- ");
+        h.getChildren().add(retour);
 
+        racine.getChildren().add(h);
         Scene s = new Scene(racine,View.tailleX,View.tailleY);
         s.setFill(Colorable.BLACK);
         return s;
@@ -44,9 +51,8 @@ public class ViewScores {
 
         VBox vBox = new VBox();
         HBox hBox =new HBox();
+vBox.setSpacing(20);
         hBox.setSpacing(10);
-
-
         vBox.setAlignment(Pos.CENTER);
 
         hBox.getChildren().add(transforme("Date"));
@@ -76,6 +82,8 @@ public class ViewScores {
 
         }
         root.getChildren().add(vBox);
+
+
         return formateScene(root);
     }
     public static Scene GroupeScoresNoK(){
