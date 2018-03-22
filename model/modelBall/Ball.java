@@ -123,11 +123,11 @@ public class Ball {
     	return vectorY+=j;
     }
     
-    public double getVectorX(double j) {
+    public double getVectorX() {
     	return vectorX;
     }
     
-    public double getVectorY(double j) {
+    public double getVectorY() {
     	return vectorY;
     }
     
