@@ -38,6 +38,7 @@ public class Path {
 	private int nbr_ObsDeb;
 	private double posX;
 	private double posY;
+	private double finishLine;
 	
 	private boolean isFinite;
 	private boolean isCircleHell = false;
@@ -396,6 +397,22 @@ public class Path {
 
 	public boolean isCircleHell() {
 		return isCircleHell;
+	}
+
+	public double getFinishLine() {
+		return finishLine;
+	}
+
+	public void setFinishLine(double finishLine) {
+		this.finishLine = finishLine;
+	}
+
+	public double getScWidth() {
+		return scWidth;
+	}
+
+	public double getScHeight() {
+		return scHeight;
 	}
 	
 	

@@ -70,6 +70,10 @@ public class ViewGameManagement {
 		
 		ViewPath viewpath = new ViewPath(path);
 		
+		if(viewpath.getFinishLine() != null){
+			root.getChildren().add(viewpath.getFinishLine());
+		}
+		
 		timer = new ViewTimer(ballplayer, viewpath, controller, thisScene);
 		timer.play();
 		//ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
