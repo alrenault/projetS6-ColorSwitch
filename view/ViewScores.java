@@ -4,8 +4,12 @@ package view;
 @date 22/03/2018*/
 
 import DB.Record;
+import controller.Controller;
+import game.Colorable;
+import game.Score;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -16,7 +20,12 @@ import javafx.scene.text.TextAlignment;
 import java.util.LinkedList;
 
 public class ViewScores {
+    private static Scene formateScene(Group racine){
 
+        Scene s = new Scene(racine,View.tailleX,View.tailleY);
+        s.setFill(Colorable.BLACK);
+        return s;
+    }
 
     /**
      * Aggrandit et blanchit
@@ -69,7 +78,8 @@ public class ViewScores {
         root.getChildren().add(vBox);
         return root;
     }
-    public static Group GroupeScoresNoK(){
+    public static Scene GroupeScoresNoK(){
+
         Group root = new Group();
         String noCo="\nHum c'est embarrassant !\n Il semblerait que tu n'aie pas de connection...\nPas de connexion, pas de scores.";
         Text t =new Text(noCo);
@@ -77,6 +87,21 @@ public class ViewScores {
         t.setFont(new Font(26));
         t.setFill(Color.WHITE);
         root.getChildren().add(t);
-        return root;
+
+        return formateScene(root);
+    }
+    public static Group GroupeScoreJoueurEnCours(Score s){
+        Group root = new Group();
+        String AfficheScore="\nFin de partie!\n " +
+                "Tu as fait "+s.getScore()+" points\n" +
+                "Rammassé "+s.getNbEtoilesRamassees()+" étoiles et \n" +
+                "traversé "+s.getNbrObstaclesCrossed()+" obstacles.";
+        Text t =new Text(AfficheScore);
+        t.setTextAlignment(TextAlignment.CENTER);
+        t.setFont(new Font(26));
+        t.setFill(Color.WHITE);
+        root.getChildren().add(t);
+
+        //return formateScene(root);
     }
 }

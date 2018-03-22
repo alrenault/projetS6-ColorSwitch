@@ -4,6 +4,7 @@ import DB.Record;
 import controller.Controller;
 import game.Colorable;
 import game.Game;
+import game.Score;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -27,11 +28,11 @@ public class View implements InterfaceViewColorSwitch {
 	/**
 	 *
 	 */
-	private final int tailleX = 600;
+	protected static final Integer tailleX = 600;
 	/**
 	 *
 	 */
-	private final int tailleY = 1000;
+	protected static final Integer tailleY = 1000;
 	//Preferences
 
 	/**
@@ -117,10 +118,13 @@ public class View implements InterfaceViewColorSwitch {
 	 */
 	@Override
 	public void viewGameOver() {
-		Scene form = null;
-			form = ScenePseudo.stre( controller);
-
+		/*
+		Scene form =  ScenePseudo.stre( controller);
 		display(form);
+		*/
+		Scene s = new Scene(ViewScores.GroupeScoreJoueurEnCours(new Score(14567,787,3)),tailleX,tailleY);
+		s.setFill(Colorable.BLACK);
+		display(s);
 	}
 
 
@@ -138,28 +142,21 @@ public class View implements InterfaceViewColorSwitch {
 	@Override
 	public void viewScoreNoCo() {
 
-		Scene scene = new Scene(ViewScores.GroupeScoresNoK(),tailleX,tailleY);
-		scene.setFill(Colorable.BLACK);
-        display(scene);
+
+        display(ViewScores.GroupeScoresNoK());
 	}
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
-
-      //  Scene scene = new Scene(SceneScoreOk(liste),tailleX,tailleY);
+		/*
 		Scene scene = new Scene(ViewScores.GroupeScoreOk(liste),tailleX,tailleY);
         scene.setFill(Colorable.BLACK);
 
 		display(scene);
+		*/
+		viewGameOver();
 	}
 
 
 
 
-	public int getTailleX() {
-		return tailleX;
-	}
-
-	public int getTailleY() {
-		return tailleY;
-	}
 }
