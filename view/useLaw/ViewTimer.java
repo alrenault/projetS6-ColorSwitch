@@ -43,7 +43,7 @@ public class ViewTimer {
 		laws.add(mv);
 		
 		Jump jump = new Jump(ball,scene);
-		//laws.add(jump);
+		laws.add(jump);
 		
 		FollowBall fb = new FollowBall(scene,ball);
 		laws.add(fb);

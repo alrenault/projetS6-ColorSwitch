@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -39,10 +40,6 @@ public class ViewScores {
         return scene;
     }
 
-    public static Scene viewList(LinkedList<Record> liste){
-
-        return formater(GroupeScoreOk(liste));
-    }
 
     private static HBox entete(){
         HBox h = new HBox();
@@ -68,40 +65,61 @@ public class ViewScores {
         return text;
     }
 
-    public static Group GroupeScoreOk(LinkedList<Record> liste){
+    /**
+     *
+     * @param liste
+     * @return
+     */
+    public static Scene GroupeScoreOk(LinkedList<Record> liste){
         Group root = new Group();
+        GridPane g = new GridPane();
 
-        VBox vBox = new VBox();
-        HBox hBox =new HBox();
-        vBox.setAlignment(Pos.CENTER);
-        vBox.getChildren().add(hBox);
-        hBox =new HBox();
-        hBox.setSpacing(30);
-        hBox.getChildren().add(transforme("Date"));
-        hBox.getChildren().add(transforme("Joueur"));
-        hBox.getChildren().add(transforme("Nombre d'étoiles"));
-        hBox.getChildren().add(transforme("Nombre d'obstacles"));
+        g.setAlignment(Pos.CENTER);
 
-        hBox.getChildren().add(transforme("Score"));
 
-        vBox.getChildren().add(hBox);
+        Integer i=0,j=0;
+        g.add(transforme("Date"),i,j);
+        i++;
+        g.add(transforme("Joueur"),i,j);
+        i++;
+        g.add(transforme("Nombre d'étoiles"),i,j);
+        i++;
+        g.add(transforme("Nombre d'obstacles"),i,j);
+        i++;
+        g.add(transforme("Score"),i,j);
 
         for (Record rec : liste) {
-            hBox =new HBox();
-            hBox.setSpacing(10);
-            hBox.getChildren().add(transforme(rec.getDateRecordJoueur()));
-            hBox.getChildren().add(transforme(rec.getPseudoJoueur()));
-            hBox.getChildren().add(transforme(Integer.toString(rec.getNbEtoilesRamassees())));
-            hBox.getChildren().add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())));
-            hBox.getChildren().add(transforme(Integer.toString(rec.getScore())));
+            j++;
+            i=0;
+            g.add(transforme(rec.getDateRecordJoueur()),i,j);
+            g.add(transforme(rec.getPseudoJoueur()),i++,j);
+            g.add(transforme(Integer.toString(rec.getNbEtoilesRamassees())),i++,j);
+            g.add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())),i++,j);
+            g.add(transforme(Integer.toString(rec.getScore())),i++,j);
 
-            vBox.getChildren().add(hBox);
+
 
         }
-        root.getChildren().add(vBox);
+/*
+        for (Record rec : liste) {
+            g.getChildren().add(transforme(rec.getDateRecordJoueur()));
+            g.getChildren().add(transforme(rec.getPseudoJoueur()));
+            g.getChildren().add(transforme(Integer.toString(rec.getNbEtoilesRamassees())));
+            g.getChildren().add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())));
+            g.getChildren().add(transforme(Integer.toString(rec.getScore())));
 
-        return root;
+            g.getChildren().add(g);
+
+        }*/
+        root.getChildren().add(g);
+
+        return formater(root);
     }
+
+    /**
+     *
+     * @return
+     */
     public static Scene viewError(){
 
         Group error = new Group();
@@ -115,6 +133,12 @@ public class ViewScores {
 
         return formater(error);
     }
+
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static Scene viewEndScore(Score s){
         Group fin = new Group();
         String AfficheScore="\nFin de partie!\n " +

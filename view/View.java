@@ -151,7 +151,7 @@ public class View implements InterfaceViewColorSwitch {
 	public void viewScores(LinkedList<Record> liste) {
 
 
-		display(ViewScores.viewList(liste));
+		display(ViewScores.GroupeScoreOk(liste));
 
 		//viewGameOver();
 	}
