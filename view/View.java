@@ -4,10 +4,13 @@ import DB.Record;
 import controller.Controller;
 import game.Colorable;
 import game.Game;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -159,40 +162,43 @@ public class View implements InterfaceViewColorSwitch {
 	}
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
-        Group root = new Group();
-		GridPane g = new GridPane();
+	    Group root = new Group();
 
-        g.setVgap(5);
-        g.setHgap(5);
-		int i = 0;
+        VBox vBox = new VBox();
+        HBox hBox =new HBox();
 
 
 
-        g.add(aggranditBlancit("Date"),0,i);
-        g.add(aggranditBlancit("Joueur"),1,i);
-        g.add(aggranditBlancit("Nombre d'étoiles"),2,i);
-        g.add(aggranditBlancit("Nombre d'obstacles"),3,i);
-        g.add(aggranditBlancit("Score"),4,i);
-		i++;
-		for (Record rec : liste){
+        vBox.setAlignment(Pos.CENTER);
+
+        hBox.getChildren().add(aggranditBlancit("Date"));
+        hBox.getChildren().add(aggranditBlancit("Joueur"));
+        hBox.getChildren().add(aggranditBlancit("Nombre d'étoiles"));
+        hBox.getChildren().add(aggranditBlancit("Nombre d'obstacles"));
+
+        hBox.getChildren().add(aggranditBlancit("Score"));
+
+        vBox.getChildren().add(hBox);
+
+		for (Record rec : liste) {
+            hBox =new HBox();
+            hBox.getChildren().add(aggranditBlancit(rec.getDateRecordJoueur()));
+
+            hBox.getChildren().add(aggranditBlancit(rec.getPseudoJoueur()));
+
+            hBox.getChildren().add(aggranditBlancit(Integer.toString(rec.getNbEtoilesRamassees())));
+
+            hBox.getChildren().add(aggranditBlancit(Integer.toString(rec.getNbrObstaclesCrossed())));
+
+            hBox.getChildren().add(aggranditBlancit(Integer.toString(rec.getScore())));
 
 
+            vBox.getChildren().add(hBox);
 
-			g.add(aggranditBlancit(rec.getDateRecordJoueur()),0,i);
-			g.add(aggranditBlancit(rec.getPseudoJoueur()),1,i);
-			g.add(aggranditBlancit(Integer.toString(rec.getNbEtoilesRamassees())),2,i);
-			g.add(aggranditBlancit(Integer.toString(rec.getNbrObstaclesCrossed())),3,i);
-			g.add(aggranditBlancit(Integer.toString(rec.getScore())),4,i);
-
-			i++;
-
-		}
-        root.getChildren().add(g);
+        }
+        root.getChildren().add(vBox);
         Scene scene = new Scene(root,tailleX,tailleY);
         scene.setFill(Colorable.BLACK);
-
-
-
 
 		display(scene);
 	}
