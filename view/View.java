@@ -122,9 +122,11 @@ public class View implements InterfaceViewColorSwitch {
 		Scene form =  ScenePseudo.stre( controller);
 		display(form);
 		*/
-		Scene s = new Scene(ViewScores.GroupeScoreJoueurEnCours(new Score(14567,787,3)),tailleX,tailleY);
-		s.setFill(Colorable.BLACK);
-		display(s);
+
+		Score scoreTest = new Score(14567,787,3);
+		//TODO ajouter bouton de ragequit(vers menu) et de veiw form
+
+		display(ViewScores.GroupeScoreJoueurEnCours(scoreTest));
 	}
 
 

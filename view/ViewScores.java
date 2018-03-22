@@ -90,7 +90,7 @@ public class ViewScores {
 
         return formateScene(root);
     }
-    public static Group GroupeScoreJoueurEnCours(Score s){
+    public static Scene GroupeScoreJoueurEnCours(Score s){
         Group root = new Group();
         String AfficheScore="\nFin de partie!\n " +
                 "Tu as fait "+s.getScore()+" points\n" +
@@ -102,6 +102,6 @@ public class ViewScores {
         t.setFill(Color.WHITE);
         root.getChildren().add(t);
 
-        //return formateScene(root);
+        return formateScene(root);
     }
 }
