@@ -51,6 +51,8 @@ public class Star extends Item {
 
         p.getPoints().addAll(ax[1], ay[1], ax[4], ay[4], ax[2], ay[2], ax[0], ay[0], ax[3], ay[3]);
         p.setFill(mi.getColors().get(0));
+        
+        p.setRotate(125);
 
         g.getChildren().add(p);
         addSL(p);

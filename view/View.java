@@ -124,7 +124,7 @@ public class View implements InterfaceViewColorSwitch {
 		*/
 
 		Score scoreTest = new Score(14567,787,3);
-		//TODO ajouter bouton de ragequit(vers menu) et de veiw form
+		//TODO ajouter bouton de ragequit(vers menu) et de view form
 
 		display(ViewScores.GroupeScoreJoueurEnCours(scoreTest));
 	}

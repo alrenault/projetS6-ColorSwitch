@@ -20,7 +20,6 @@ import model.modelBall.Ball;
 
 public class BallPlayer extends Player{
 
-    int x = 70;
     private double size;
     private Color color;
     private Group shape;
@@ -43,6 +42,9 @@ public class BallPlayer extends Player{
         this.size = size;
         this.color = color;
         this.scene = scene;
+        model_ball.setX(scene.getWidth()/2);
+        model_ball.setY(scene.getHeight()*(4/5));
+        
         this.shape = buildBall();
         
     }
