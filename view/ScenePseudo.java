@@ -32,9 +32,6 @@ public class ScenePseudo {
         TextField inputPseudo;
         Scene scene;
 
-/*        primaryStage.setTitle("Identification");
-        primaryStage.setOnCloseRequest(e -> { primaryStage.close(); });*/
-
         GridPane grille = new GridPane();
         grille.setPadding(new Insets(5,5,5,5));
         grille.setVgap(5);
@@ -63,7 +60,7 @@ public class ScenePseudo {
             c.recordScore(p,c.getScore());
         });
 
-        scene = new Scene(grille, 400, 400);
+        scene = new Scene(grille, View.tailleX, View.tailleY);
         //ou les tailles du model
         return scene;
     }
