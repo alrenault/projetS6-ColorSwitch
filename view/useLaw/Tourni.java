@@ -4,8 +4,8 @@ import javafx.scene.Scene;
 
 public class Tourni implements UseLaw {
 
-	Scene scene ;
-	int i = 0;
+	private Scene scene ;
+	private int i = 0;
 	
 	public Tourni(Scene scene) {
 		this.scene = scene ;
