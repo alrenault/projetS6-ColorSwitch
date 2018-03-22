@@ -16,6 +16,7 @@ import model.modelItem.ModelItem;
 import model.modelItem.ModelStar;
 import model.modelObstacle.ModelObstacle;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class ViewPath {
 
@@ -29,6 +30,8 @@ public class ViewPath {
 	
 	Group jObstacles;
 	Group jItems;
+	
+	Rectangle finishLine;
 	
 	public ViewPath(Path path) {
 		this.path = path;
@@ -45,8 +48,13 @@ public class ViewPath {
 		itemsShapes = new ArrayList<>();
 		
 		for(int i = 0; i< path.getNbr_ObsDeb(); i++){
-			System.out.println("addO");
 			addNewObstacle();
+		}
+		
+		if(path.isFinite()){
+			path.setFinishLine(path.getPosY());
+			finishLine = new Rectangle(0, path.getPosY()-10,path.getScWidth(),10); 
+			finishLine.setFill(Color.RED);
 		}
 		
 		//buildObstacles(path);
@@ -169,6 +177,11 @@ public class ViewPath {
 
 	public Group getjItems() {
 		return jItems;
+	}
+
+
+	public Rectangle getFinishLine() {
+		return finishLine;
 	}
 	
 	
