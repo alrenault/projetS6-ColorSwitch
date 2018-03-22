@@ -54,8 +54,8 @@ public class MultiCross extends Obstacle {
         List<ModelShape> modelC = new ArrayList<>();
         
         Random r = new Random();
-        int colorDeb = r.nextInt(mo.getColors().size());
-        int colorOppose = (colorDeb+nb_rect/2) % mo.getColors().size();
+        int colorDeb = r.nextInt(colors.size());
+        int colorOppose = (colorDeb+nb_rect/2) % colors.size();
 
         if (mo.getVersion() >= ModelMultiCross.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
@@ -63,14 +63,14 @@ public class MultiCross extends Obstacle {
         switch (mo.getVersion()) {
             case 0:
                 modelC.add(new ModelCross(x + length / 2, y, length, width, true, false, Speed.SYMPA, 4, colors, colorDeb));
-            	color_passable.addAll(mo.getColors());
+            	color_passable.addAll(colors);
             	
             	mo.setDifficulty(Difficulty.EASY);                
                 break;
                 
             case 1:
             	modelC.add(new ModelCross(x - length / 2, y, length, width, false, false, Speed.SYMPA, 4, colors, colorDeb));
-            	color_passable.addAll(mo.getColors());
+            	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
@@ -78,7 +78,7 @@ public class MultiCross extends Obstacle {
             case 2:
             	modelC.add(new ModelCross(x + length + width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, colorDeb));
             	modelC.add(new ModelCross(x - length - width / 2, y, length, width, true, false, Speed.MOYEN, 4, colors, colorOppose));
-            	color_passable.addAll(mo.getColors());
+            	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
@@ -86,7 +86,7 @@ public class MultiCross extends Obstacle {
             case 3:
             	modelC.add(new ModelCross(x + length + width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, colorDeb));
             	modelC.add(new ModelCross(x - length - width / 2, y, length, width, false, false, Speed.MOYEN, 4, colors, colorOppose));
-            	color_passable.addAll(mo.getColors());
+            	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
@@ -97,7 +97,7 @@ public class MultiCross extends Obstacle {
                 
             	modelC.add(new ModelCross(x + length + width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, colorDeb));
             	modelC.add(new ModelCross(x - length - width / 2, y - length*2 - 100, length, width, false, false, Speed.SYMPA, 4, colors, colorOppose));
-            	color_passable.addAll(mo.getColors());
+            	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.HARD);
                 break;
@@ -105,7 +105,7 @@ public class MultiCross extends Obstacle {
             case 5:
             	modelC.add(new ModelCross(x + length*3 + width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, colorDeb));
             	modelC.add(new ModelCross(x - length*3 - width / 2, y, length*3, width, true, false, Speed.SYMPA, 4, colors, colorOppose));
-            	color_passable.addAll(mo.getColors());
+            	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.NORMAL);
             	break;
