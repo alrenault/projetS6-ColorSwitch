@@ -55,9 +55,9 @@ public class ViewGameManagement {
 		Path path = game.getPath();
 		Ball ball = game.getBall();
 		
+		
 		//BallPlayer qball = new BallPlayer(10, path.getColors().get(0), thisScene);
 		BallPlayer ballplayer = BuildBall.build(ball,thisScene);
-		
 		
 		
 		Group jBall = ballplayer.getShape();

@@ -1,5 +1,7 @@
 package view.useLaw;
 
+import org.omg.Messaging.SyncScopeHelper;
+
 import game.ball.BallPlayer;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -26,22 +28,17 @@ public class Jump implements UseLaw {
 		
 		current_time = System.currentTimeMillis();
 		
+		//scene.setOnKeyTyped(event -> System.out.println("Type"));
+		
+		//scene.setOnKeyReleased(event -> System.out.println("Release"));
+		
 		scene.setOnKeyPressed(event -> {
 			
-			
-			
-			
-			
-			
 			boolean space = event.getCode() == KeyCode.SPACE;
-			if(space) {
+			if(space && duration_since_last_jump > 150) {
 				last_jump_time = current_time ;
+				System.out.println("Press");
 			}
-			
-			
-			
-			
-			//ball.getShape().setTranslateX(i-scene.getWidth()/2);
 		});
 		
 		
@@ -50,12 +47,12 @@ public class Jump implements UseLaw {
 		double j = computePosition(duration_since_last_jump);
 		
 		//System.out.println(j);
-		ball.getModelBall().addVectorY(-j/2);
+		ball.getBall().addVectorY(-j);
 
 	}
 	
 	private double computePosition(double time) {
-		vectorY = 1000/(time+0.01);
+		vectorY = 800/(time+0.01);
 		return vectorY;
 	}
 

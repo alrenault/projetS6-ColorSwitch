@@ -68,7 +68,11 @@ public class Ball {
 	}
 	
 	public void setY(double newY){
+		System.out.println("Y ? "+newY);
+		System.out.println("y ? "+y);
 		y = newY;
+		System.out.println("Y ? "+newY);
+		System.out.println("y ? "+y);
 	}
 
     /**
@@ -119,11 +123,11 @@ public class Ball {
     	return vectorY+=j;
     }
     
-    public double getVectorX(double j) {
+    public double getVectorX() {
     	return vectorX;
     }
     
-    public double getVectorY(double j) {
+    public double getVectorY() {
     	return vectorY;
     }
     

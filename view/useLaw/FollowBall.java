@@ -1,6 +1,7 @@
 package view.useLaw;
 
 import game.ball.BallPlayer;
+import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 
 
@@ -8,22 +9,32 @@ public class FollowBall implements UseLaw {
 
 	Scene scene;
 	BallPlayer ball;
+	double difference;
+	double limite;
+	double yCamera;
 	
 	public FollowBall(Scene scene, BallPlayer ball) {
 		this.scene = scene;
 		this.ball = ball;
+		difference = 0;
+		limite = scene.getHeight()/2;
+		yCamera = 0;
+		
 	}
 	
 	@Override
 	public void apply() {
-		// TODO Auto-generated method stub
 		
-		double difference = Math.abs(ball.getModelBall().getY()) - scene.getHeight()/2 ;
+		Point2D coordPlayer = ball.getCoord();
 		
-		if (difference > 0){
-			//System.out.println("HELLO BOBBY !!");
-			scene.getCamera().setTranslateY(-difference);
+		difference = coordPlayer.getY() - limite ;
+		
+		if (difference < 0) {
+			limite+=difference;
+			yCamera+=difference;
 		}
+		
+		scene.getCamera().setTranslateY(yCamera);
 
 	}
 
