@@ -11,6 +11,7 @@ import game.path.obstacle.Obstacle;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 import model.modelItem.ModelBallColorSwitch;
+import model.modelItem.ModelInvisibleLine;
 import model.modelItem.ModelItem;
 import model.modelItem.ModelStar;
 import model.modelObstacle.ModelObstacle;
@@ -76,6 +77,12 @@ public class ViewPath {
 		ModelStar star = path.addNewStar(mo);
 		Item s = addItem(star);
 		jItems.getChildren().add(s.getShape());
+		
+		ModelInvisibleLine il = path.addNewInvisibleLine(mo.getY());
+		Item line = addItem(il);
+		jItems.getChildren().add(line.getShape());
+		
+		
 		
 	}
 	

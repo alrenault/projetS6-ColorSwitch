@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.modelItem.BuildModelItem;
 import model.modelItem.ModelBallColorSwitch;
+import model.modelItem.ModelInvisibleLine;
 import model.modelItem.ModelItem;
 import model.modelItem.ModelStar;
 import model.modelObstacle.BuildModelObstacle;
@@ -174,7 +175,7 @@ public class Path {
 	    }
 	 
 	 public ModelBallColorSwitch addNewColorSwitch(double y){
-		 ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, scWidth/2,y, colors, 0, 0, 0);
+		 ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, scWidth/2,y, colors, 0, 0, 0, scWidth);
 	     add(modelBCS);
 	     return modelBCS;
 	 }
@@ -184,20 +185,26 @@ public class Path {
 		 ModelStar modelStar;
 	     if(mo.getDifficulty() == Difficulty.EASY){
 	       	l.add(Colorable.BRONZE);
-	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10);
+	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 10, 10, scWidth);
 	     }
 	     else if(mo.getDifficulty() == Difficulty.NORMAL){
 	       	l.add(Colorable.SILVER);
-	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20);
+	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 15, 20, scWidth);
 	     }
 	     else{
 	       	l.add(Colorable.GOLD);
-	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30);    
+	       	modelStar = (ModelStar)BuildModelItem.build(3, scWidth/2, mo.getY(), l, 0, 20, 30, scWidth);    
 	     }
 	     add(modelStar);
 	     
 	     return modelStar;
 	        
+	 }
+	 
+	 public ModelInvisibleLine addNewInvisibleLine(double y){
+		 ModelInvisibleLine modelIL = (ModelInvisibleLine)BuildModelItem.build(4, scWidth/2,y, colors, 0, 0, 0, scWidth);
+	     add(modelIL);
+	     return modelIL;
 	 }
     
     private Difficulty obstacleDifficulty(int variante){

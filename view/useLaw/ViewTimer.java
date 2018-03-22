@@ -51,7 +51,7 @@ public class ViewTimer {
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		CollisionItem ci = new CollisionItem(ball,path,controller,path.getjItems());
 		
-		laws.add(co);
+		//laws.add(co);
 		laws.add(ci);
 		
 		

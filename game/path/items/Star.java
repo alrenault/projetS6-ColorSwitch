@@ -70,8 +70,8 @@ public class Star extends Item {
     public void get(ViewPath vPath, Controller c, BallPlayer b){
     	c.incItem(model_item);
     	
-    	if(c.getScore().getNbEtoilesRamassees() > 1)
-    		vPath.removeObstacle(vPath.getObstacles().get(0));
+    	//if(c.getScore().getNbEtoilesRamassees() > 1)
+    	//	vPath.removeObstacle(vPath.getObstacles().get(0));
     }
 
 

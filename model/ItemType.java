@@ -5,7 +5,8 @@ public enum ItemType {
 	BallColorSwitch(0),
 	GravityInverser(1),
 	GravitySwitch(2),
-	Star(3);
+	Star(3),
+	InvisibleLine(4);
 	/**
 	 *
 	 */
@@ -46,6 +47,8 @@ public enum ItemType {
 				type = GravitySwitch; break;
 			case 3:
 				type = Star; break;
+			case 4:
+				type = InvisibleLine; break;
 			default:
 				type = No; break;	
 		}

@@ -20,9 +20,10 @@ public class BuildModelItem {
      * @param nbPoint le nomnre de points gagnés lors du rammassage de l'Item
      * @return un Model d'Item corespondant au paramètres
      */
-	public static ModelItem build(int obs, double posX, double posY, List<Color> colors, double coefForce, double radius, int nbPoint) {
+	public static ModelItem build(int obs, double posX, double posY, List<Color> colors, double coefForce, double radius, int nbPoint, double scWidth) {
         ModelItem mi;
         ItemType type = ItemType.getEnum(obs);
+        System.out.println(type);
 
         switch (type) {
             case BallColorSwitch:
@@ -40,6 +41,10 @@ public class BuildModelItem {
             case Star:
                 mi = new ModelStar(posX, posY,radius, colors, nbPoint, type);
                 break;
+                
+            case InvisibleLine:
+            	mi = new ModelInvisibleLine(posX, posY, colors, nbPoint, type,scWidth);
+            	break;
 
             default:
                 mi = new ModelGravityInverser(posX, posY, type);

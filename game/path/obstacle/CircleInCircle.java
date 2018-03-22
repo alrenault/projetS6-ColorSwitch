@@ -136,8 +136,8 @@ public class CircleInCircle extends Obstacle {
             case 5:
             	modelC.add( new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
             	modelC.add(new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.add(colors.get((colorDeb+1)%colors.size()));
-            	color_passable.add(colors.get((colorOppose+1)%colors.size()));
+            	color_passable.add(colors.get(colorDeb));
+            	color_passable.add(colors.get(colorOppose));
             	
             	mcic.setDifficulty(Difficulty.EASY);
                 break;

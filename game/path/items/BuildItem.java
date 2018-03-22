@@ -12,6 +12,8 @@ import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelGravityInverser;
 import model.modelItem.ModelGravitySwitch;
 import model.modelItem.ModelStar;
+import model.modelItem.ModelInvisibleLine;
+
 
 public class BuildItem {
 
@@ -35,6 +37,11 @@ public class BuildItem {
 	        case Star:
 	            i = new Star((ModelStar)mi);
 	            break;	
+	            
+	        case InvisibleLine:
+	        	i = new InvisibleLine((ModelInvisibleLine)mi);
+	        	break;
+	        	
 	        default:
 	            i = new GravityInverser((ModelGravityInverser)mi);
     	}
