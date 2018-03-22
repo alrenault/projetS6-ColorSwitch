@@ -90,6 +90,18 @@ public class Model implements InterfaceModelColorSwitch {
 		
 	}
 	
+	public void startLvl(int nbr_obs){
+		this.game = new Game(nbr_obs);
+	}
+	
+	public void startHellCircle(){
+		this.game = new Game();
+	}
+	
+	public void circleHell(){
+		
+	}
+	
 	public void incItem(ModelItem mi){
 
 	game.getScore().ramasseItem(mi);

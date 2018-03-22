@@ -45,6 +45,7 @@ public class ViewPath {
 		itemsShapes = new ArrayList<>();
 		
 		for(int i = 0; i< path.getNbr_ObsDeb(); i++){
+			System.out.println("addO");
 			addNewObstacle();
 		}
 		
@@ -78,9 +79,12 @@ public class ViewPath {
 		Item s = addItem(star);
 		jItems.getChildren().add(s.getShape());
 		
-		ModelInvisibleLine il = path.addNewInvisibleLine(mo.getY());
-		Item line = addItem(il);
-		jItems.getChildren().add(line.getShape());
+		if(!path.isFinite()){
+			ModelInvisibleLine il = path.addNewInvisibleLine(mo.getY());
+			Item line = addItem(il);
+			jItems.getChildren().add(line.getShape());
+		}
+		
 		
 		
 		

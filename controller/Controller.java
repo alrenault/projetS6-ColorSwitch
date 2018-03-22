@@ -123,6 +123,21 @@ public class Controller {
 		view.viewGame(model.getGame());
 	}
 	
+	public void startLvl(int nbr_obs){
+		model.startLvl(nbr_obs);
+		view.viewGame(model.getGame());
+	}
+	
+	public void startHellCircle(){
+		model.startHellCircle();
+		view.viewGame(model.getGame());
+	}
+	
+	public Scene menuLvl(){
+		view.viewMenuLvl();
+		return null;
+	}
+	
 	public void incItem(ModelItem mi){
 		model.incItem(mi);
 	}

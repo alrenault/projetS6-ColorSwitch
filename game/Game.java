@@ -57,27 +57,42 @@ public class Game {
     }
     
     public Game() {
-    	this(Difficulty.EASY);
+    	List<Color> CUSTOM = new ArrayList<Color>();
+    	CUSTOM.add(Colorable.YELLOW);
+    	CUSTOM.add(Colorable.PURPLE);
+    	CUSTOM.add(Colorable.ROSE);
+    	CUSTOM.add(Colorable.BLUE);
+    	
+    	this.path = new Path(600,1000, CUSTOM);
+    	
+    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+    	this.ball = new Ball(10,CUSTOM.get(0));
+    	
+    	this.universe = new Universe();
+    	
+    	this.score = new Score();
     	
     	
     }
     
-    
-	public Ball getBall() {
-		return ball;
-	}
+    public Game(int nbr_obs){
+    	List<Color> CUSTOM = new ArrayList<Color>();
+    	CUSTOM.add(Colorable.YELLOW);
+    	CUSTOM.add(Colorable.PURPLE);
+    	CUSTOM.add(Colorable.ROSE);
+    	CUSTOM.add(Colorable.BLUE);
+    	
+    	this.path = new Path(600,1000, CUSTOM, nbr_obs);
+    	System.out.println("Celui là");
+    	
+    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+    	this.ball = new Ball(10,CUSTOM.get(0));
+    	
+    	this.universe = new Universe();
+    	
+    	this.score = new Score();
+    }
 
-	public Path getPath() {
-		return path;
-	}
-
-	public Universe getUniverse() {
-		return universe;
-	}
-	
-	public Score getScore() {
-		return score;
-	}
 
 	
     public Game(Scene scene) {
@@ -308,6 +323,24 @@ public class Game {
 	public void jump() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+    
+    
+	public Ball getBall() {
+		return ball;
+	}
+
+	public Path getPath() {
+		return path;
+	}
+
+	public Universe getUniverse() {
+		return universe;
+	}
+	
+	public Score getScore() {
+		return score;
 	}
 
 

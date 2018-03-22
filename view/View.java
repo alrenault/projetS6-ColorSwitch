@@ -96,6 +96,11 @@ public class View implements InterfaceViewColorSwitch {
 		Scene scene = Menu.createInstance(controller,600,1000);
 		display(scene);	
 	}
+	
+	public void viewMenuLvl(){
+		Scene scene = MenuLvl.createInstance(controller,600,1000);
+		display(scene);
+	}
 
 	/**
 	 *

@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
-import main.Main;
 import model.ObstacleType;
 import model.modelObstacle.ModelCircleInCircle;
 import javafx.scene.Group;
@@ -123,14 +122,14 @@ public class Menu {
 
 
 		Scene sc = new Scene(root, width, height);
-		vBox.setStyle("-fx-background-color: #393939");
+		//vBox.setStyle("-fx-background-color: #393939");
 		sc.setFill(Colorable.BLACK);
 		triangle.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
 		
 		goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
 		goContinuNormal.setOnAction(event -> controller.startGame(Difficulty.NORMAL));
 		goContinuHard.setOnAction(event -> controller.startGame(Difficulty.HARD));
-		//goLvl.setOnAction(event -> );
+		goLvl.setOnAction(event -> controller.menuLvl() );
 		goScore.setOnAction(event->controller.showScoresMenu());
 
 

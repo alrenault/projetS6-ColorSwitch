@@ -29,8 +29,9 @@ public interface InterfaceModelColorSwitch {
 	
 	void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Player ball);
 	
+	void startHellCircle();
 	
-	
+	public void startLvl(int nbr_obs);
 	
 	
 	

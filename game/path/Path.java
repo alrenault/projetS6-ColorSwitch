@@ -38,6 +38,9 @@ public class Path {
 	private int nbr_ObsDeb;
 	private double posX;
 	private double posY;
+	
+	private boolean isFinite;
+	private boolean isCircleHell = false;
 
 
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_ObsDeb, Difficulty gameDifficulty) {
@@ -52,9 +55,44 @@ public class Path {
         this.nbr_ObsDeb = nbr_ObsDeb;
         posX = scWidth / 2;
         this.posY = scHeight / 5;
+        isFinite = false;
 
         //buildPathRandom();
     }
+    
+    public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs) {
+    	super();
+        obstacles = new ArrayList<>();
+        ennemies = new ArrayList<>();
+        items = new ArrayList<>();
+        this.gameDifficulty = Difficulty.RANDOM;
+        this.colors = colors;
+        this.scWidth = scWidth;
+        this.scHeight = scHeight;
+        this.nbr_ObsDeb = nbr_Obs;
+        posX = scWidth / 2;
+        this.posY = scHeight / 5;
+        isFinite = true;
+        //buildPathRandom();
+    }
+    
+	public Path(double scWidth, double scHeight, List<Color> colors){
+		super();
+        obstacles = new ArrayList<>();
+        ennemies = new ArrayList<>();
+        items = new ArrayList<>();
+        this.gameDifficulty = Difficulty.RANDOM;
+        this.colors = colors;
+        this.scWidth = scWidth;
+        this.scHeight = scHeight;
+        posX = scWidth / 2;
+        this.posY = scHeight / 5;
+        isFinite = false;
+        isCircleHell = true;
+        this.nbr_ObsDeb = 3;
+
+	}
+
 
     public Path(List<ModelObstacle> _obstacles, List<Ennemy> _ennemies) {
     	super();
@@ -155,13 +193,23 @@ public class Path {
     
 	 public ModelObstacle addNewObstacle(){
 	    	Random r = new Random();
-	    	int type = r.nextInt(6);
+	    	int type;
 	        int variante = r.nextInt(10);
-	        Difficulty obstacleDifficulty = obstacleDifficulty(variante);
-	        
-	        //Generation de l'obstacle avec son colorSwitch
-	        ModelObstacle mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
+	    	Difficulty obstacleDifficulty = obstacleDifficulty(variante);
+	    	ModelObstacle mo;
+	    	
+	    	if(this.isCircleHell){
+	    		type = r.nextInt(2);
+	    	}
+	    	else{
+	    		type = r.nextInt(6);
+	    	}
+	    	
+	    	//Generation de l'obstacle avec son colorSwitch
+	        mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
 	       // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
+	    	
+	    	
 
 	           
 	        
@@ -173,6 +221,8 @@ public class Path {
 	        
 	        return mo;
 	    }
+	 
+	 
 	 
 	 public ModelBallColorSwitch addNewColorSwitch(double y){
 		 ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, scWidth/2,y, colors, 0, 0, 0, scWidth);
@@ -339,6 +389,18 @@ public class Path {
 	public double getPosY() {
 		return posY;
 	}
+
+	public boolean isFinite() {
+		return isFinite;
+	}
+
+	public boolean isCircleHell() {
+		return isCircleHell;
+	}
+	
+	
+	
+	
 
     /*public Group getPath() {
         return path;
