@@ -37,7 +37,7 @@ public class ViewTimer {
 		//laws.add(j);
 		
 		JtGravity gravity = new JtGravity(ball);
-		//laws.add(gravity);
+		laws.add(gravity);
 		
 		MoveBall mv = new MoveBall(ball);
 		laws.add(mv);
