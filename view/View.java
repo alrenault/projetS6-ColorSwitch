@@ -126,7 +126,7 @@ public class View implements InterfaceViewColorSwitch {
 
 		//TODO ajouter bouton de ragequit(vers menu) et de view form
 
-		display(ViewScores.GroupeScoreJoueurEnCours(controller.getScore()));
+		display(ViewScores.viewEndScore(controller.getScore()));
 	}
 
 
@@ -145,13 +145,13 @@ public class View implements InterfaceViewColorSwitch {
 	public void viewScoreNoCo() {
 
 
-        display(ViewScores.GroupeScoresNoK());
+        display(ViewScores.viewError());
 	}
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
 
 
-		display(ViewScores.GroupeScoreOk(liste));
+		display(ViewScores.viewList(liste));
 
 		//viewGameOver();
 	}

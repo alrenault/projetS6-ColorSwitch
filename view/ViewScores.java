@@ -21,18 +21,40 @@ import javafx.scene.text.TextAlignment;
 import java.util.LinkedList;
 
 public class ViewScores {
-    private static Scene formateScene(Group racine){
+
+    private static Scene formater(Group elements){
+
+
+        Group root = new Group();
+
+        Scene scene = new Scene(root,View.tailleX,View.tailleY);
+        scene.setFill(Colorable.BLACK);
+
+        VBox v = new VBox();
+        v.getChildren().add(entete());
+        v.getChildren().add(elements);
+
+        root.getChildren().add(v);
+
+        return scene;
+    }
+
+    public static Scene viewList(LinkedList<Record> liste){
+
+        return formater(GroupeScoreOk(liste));
+    }
+
+    private static HBox entete(){
         HBox h = new HBox();
         Button retour = new Button();
         retour.setOnAction(e-> View.controller.startMenu());
         retour.setText(" <-- ");
         h.getChildren().add(retour);
 
-        racine.getChildren().add(h);
-        Scene s = new Scene(racine,View.tailleX,View.tailleY);
-        s.setFill(Colorable.BLACK);
-        return s;
+        return h;
     }
+
+
 
     /**
      * Aggrandit et blanchit
@@ -46,7 +68,7 @@ public class ViewScores {
         return text;
     }
 
-    public static Scene GroupeScoreOk(LinkedList<Record> liste){
+    public static Group GroupeScoreOk(LinkedList<Record> liste){
         Group root = new Group();
 
         VBox vBox = new VBox();
@@ -54,7 +76,6 @@ public class ViewScores {
         vBox.setAlignment(Pos.CENTER);
         vBox.getChildren().add(hBox);
         hBox =new HBox();
-
         hBox.setSpacing(30);
         hBox.getChildren().add(transforme("Date"));
         hBox.getChildren().add(transforme("Joueur"));
@@ -69,13 +90,9 @@ public class ViewScores {
             hBox =new HBox();
             hBox.setSpacing(10);
             hBox.getChildren().add(transforme(rec.getDateRecordJoueur()));
-
             hBox.getChildren().add(transforme(rec.getPseudoJoueur()));
-
             hBox.getChildren().add(transforme(Integer.toString(rec.getNbEtoilesRamassees())));
-
             hBox.getChildren().add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())));
-
             hBox.getChildren().add(transforme(Integer.toString(rec.getScore())));
 
             vBox.getChildren().add(hBox);
@@ -83,23 +100,23 @@ public class ViewScores {
         }
         root.getChildren().add(vBox);
 
-
-        return formateScene(root);
+        return root;
     }
-    public static Scene GroupeScoresNoK(){
+    public static Scene viewError(){
 
-        Group root = new Group();
+        Group error = new Group();
         String noCo="\nHum c'est embarrassant !\n Il semblerait que tu n'aie pas de connection...\nPas de connexion, pas de scores.";
         Text t =new Text(noCo);
         t.setTextAlignment(TextAlignment.CENTER);
         t.setFont(new Font(26));
         t.setFill(Color.WHITE);
-        root.getChildren().add(t);
 
-        return formateScene(root);
+        error.getChildren().add(t);
+
+        return formater(error);
     }
-    public static Scene GroupeScoreJoueurEnCours(Score s){
-        Group root = new Group();
+    public static Scene viewEndScore(Score s){
+        Group fin = new Group();
         String AfficheScore="\nFin de partie!\n " +
                 "Tu as fait "+s.getScore()+" points\n" +
                 "Rammassé "+s.getNbEtoilesRamassees()+" étoiles et \n" +
@@ -108,8 +125,9 @@ public class ViewScores {
         t.setTextAlignment(TextAlignment.CENTER);
         t.setFont(new Font(26));
         t.setFill(Color.WHITE);
-        root.getChildren().add(t);
 
-        return formateScene(root);
+        fin.getChildren().add(t);
+
+        return formater(fin);
     }
 }
