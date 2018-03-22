@@ -42,6 +42,7 @@ public class Menu {
 		int buttonHeight = 50;
 		
 		Group root = new Group();
+		VBox vBox = new VBox(25);
 		//Circle c = new Circle(100,100,100,Color.BLUE);
     	//root.getChildren().add(c);
     	//c.setOnMouseClicked(event -> System.out.println("ca click"));
@@ -68,7 +69,7 @@ public class Menu {
         
         
         CircleInCircle cic = (CircleInCircle) BuildObstacle.build(new ModelCircleInCircle(x-15, y-13, colorExterne, 0, ObstacleType.CircleInCircle));
-    	root.getChildren().add(cic.getObstacle());
+    	//root.getChildren().add(cic.getObstacle());
         
        
         triangle.getPoints().addAll(
@@ -76,25 +77,31 @@ public class Menu {
                p2x, p2y, 
                p3x, p3y);
     
-        root.getChildren().add(triangle);
+        //root.getChildren().add(triangle);
         triangle.setRotate(90);
         //triangle.setOnMouseClicked(event -> System.out.println("ca click"));
     	//triangle.
     	triangle.setFill(Colorable.WHITE[0]);
 
-		/*VBox truc = new VBox(100);
-		truc.setAlignment(Pos.CENTER);
+		
+		vBox.setAlignment(Pos.CENTER);
 		Button goContinuEasy = new Button("Partie continue (facile)");
 		Button goContinuNormal = new Button("Partie continue (normale)");
 		Button goContinuHard = new Button("Partie continue (difficile)");
 		Button goLvl = new Button("Niveaux");
 		Button goScore = new Button("Score");
 
-		truc.getChildren().add(goContinuEasy);
-		truc.getChildren().add(goContinuNormal);
-		truc.getChildren().add(goContinuHard);
-		truc.getChildren().add(goLvl);
-		truc.getChildren().add(goScore);
+		Group randomButton = new Group();
+		randomButton.getChildren().add(cic.getObstacle());
+		randomButton.getChildren().add(triangle);
+		vBox.getChildren().add(randomButton);
+        
+        
+		vBox.getChildren().add(goContinuEasy);
+		vBox.getChildren().add(goContinuNormal);
+		vBox.getChildren().add(goContinuHard);
+		vBox.getChildren().add(goLvl);
+		vBox.getChildren().add(goScore);
 
 		goContinuEasy.setMinHeight(buttonHeight);
 		goContinuNormal.setMinHeight(buttonHeight);
@@ -109,22 +116,22 @@ public class Menu {
 		goLvl.setMinWidth(buttonWidth);
 		goScore.setMinWidth(buttonWidth);
 		
-		truc.setMinWidth(width);
-		truc.setMinHeight(height);
+		vBox.setMinWidth(width);
+		vBox.setMinHeight(height);
 
-		root.getChildren().add(truc);*/
+		root.getChildren().add(vBox);
 
 
 		Scene sc = new Scene(root, width, height);
-		//truc.setStyle("-fx-background-color: #393939");
+		vBox.setStyle("-fx-background-color: #393939");
 		sc.setFill(Colorable.BLACK);
-
-        triangle.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
-		/*goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
+		triangle.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
+		
+		goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
 		goContinuNormal.setOnAction(event -> controller.startGame(Difficulty.NORMAL));
 		goContinuHard.setOnAction(event -> controller.startGame(Difficulty.HARD));
 		//goLvl.setOnAction(event -> );
-		goScore.setOnAction(event->controller.showScoresMenu());*/
+		goScore.setOnAction(event->controller.showScoresMenu());
 
 
 		return sc;

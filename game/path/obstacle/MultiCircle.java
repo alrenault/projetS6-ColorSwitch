@@ -68,6 +68,9 @@ public class MultiCircle extends Obstacle {
        // System.err.println("nbr "+colorDeb);
         int colorOppose = (colorDeb+nb_arc/2) % colors.size();
         
+        boolean acceleration = r.nextBoolean();
+        
+        
 
         switch (mo.getVersion()) {
             case 0:
@@ -117,42 +120,42 @@ public class MultiCircle extends Obstacle {
                 break;
                 
             case 5:
-            	modelC.add( new ModelCircle(x, y, tinyRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+            	modelC.add( new ModelCircle(x, y, tinyRadial, width, nb_arc, true, acceleration, Speed.SYMPA, colors, colorDeb));
             	color_passable.addAll(colors);
             	
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 6:
-            	modelC.add( new ModelCircle(x, y, tinyRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+            	modelC.add( new ModelCircle(x, y, tinyRadial, width, nb_arc, false, acceleration, Speed.SYMPA, colors, colorDeb));
             	color_passable.addAll(colors);
             	
             	mo.setDifficulty(Difficulty.NORMAL);
                 break;
 
             case 7:
-            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, true, acceleration, Speed.SYMPA, colors, colorDeb));
             	color_passable.addAll(colors);
             	
             	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 8:
-            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, false, acceleration, Speed.SYMPA, colors, colorDeb));
             	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 9:
-            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, acceleration, Speed.SYMPA, colors, colorDeb));
             	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 10:
-            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 1));
+            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, false, acceleration, Speed.SYMPA, colors, 1));
             	color_passable.addAll(colors);
 
             	mo.setDifficulty(Difficulty.EASY);

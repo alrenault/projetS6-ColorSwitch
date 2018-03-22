@@ -57,7 +57,10 @@ public class BallColorSwitch extends Item {
 		int size = mBCS.getColors_use().size();
 		Color color = mBCS.getColors_use().get(r.nextInt(size));
 		b.setColor(color);
+
 		//vPath.addNewObstacle();
+
+
     }
     
     

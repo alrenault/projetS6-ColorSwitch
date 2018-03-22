@@ -33,6 +33,7 @@ public class InvisibleLine extends Item{
 	@Override
 	public void get(ViewPath vPath, Controller c, BallPlayer b) {
 		vPath.addNewObstacle();
+		c.incItem(model_item);
 		if(c.getScore().getNbEtoilesRamassees() > 1)
     		vPath.removeObstacle(vPath.getObstacles().get(0));
 	}

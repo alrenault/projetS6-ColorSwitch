@@ -51,10 +51,11 @@ public class ViewScores {
 
         VBox vBox = new VBox();
         HBox hBox =new HBox();
-vBox.setSpacing(20);
-        hBox.setSpacing(10);
         vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().add(hBox);
+        hBox =new HBox();
 
+        hBox.setSpacing(30);
         hBox.getChildren().add(transforme("Date"));
         hBox.getChildren().add(transforme("Joueur"));
         hBox.getChildren().add(transforme("Nombre d'étoiles"));
@@ -76,7 +77,6 @@ vBox.setSpacing(20);
             hBox.getChildren().add(transforme(Integer.toString(rec.getNbrObstaclesCrossed())));
 
             hBox.getChildren().add(transforme(Integer.toString(rec.getScore())));
-
 
             vBox.getChildren().add(hBox);
 

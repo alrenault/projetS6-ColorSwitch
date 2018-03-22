@@ -59,6 +59,9 @@ public abstract class Item extends Element {
 	}
 
 	public abstract void get(ViewPath vPath, Controller c, BallPlayer b);
+	/*{
+	    c.incItem(model_item);
+    }*/
 
     /**
      * Assesseur de coordonnée x

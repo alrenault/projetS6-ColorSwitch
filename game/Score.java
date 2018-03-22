@@ -1,7 +1,9 @@
 package game;
 
-import game.path.items.Item;
 import game.path.items.Star;
+import model.ItemType;
+import model.modelItem.ModelItem;
+import model.modelItem.ModelStar;
 
 /**
  * @autor Vincent
@@ -64,12 +66,15 @@ public class Score {
      *Augmente le score du joueur avec le nombre de points associé à l'item
      * @param item l'item en collision avec le joueur
      */
-    public void ramasseItem(Item item) {
+    public void ramasseItem(ModelItem item) {
         assert (item!=null);
-        if (item instanceof Star) {
+        System.err.println(item.getType().toString()+" "+item.getNbPoints());
+        if (item.getType()== ItemType.Star) {
             nbEtoilesRamassees++;
         }
-        scoreStored += item.getModel_item().getNbPoints();
+
+        scoreStored += item.getNbPoints();
+        System.err.println(getScore());
     }
     public void incEtoile(){
     	nbEtoilesRamassees++;
