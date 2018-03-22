@@ -39,7 +39,7 @@ public class ViewScores {
         return text;
     }
 
-    public static Group GroupeScoreOk(LinkedList<Record> liste){
+    public static Scene GroupeScoreOk(LinkedList<Record> liste){
         Group root = new Group();
 
         VBox vBox = new VBox();
@@ -76,7 +76,7 @@ public class ViewScores {
 
         }
         root.getChildren().add(vBox);
-        return root;
+        return formateScene(root);
     }
     public static Scene GroupeScoresNoK(){
 

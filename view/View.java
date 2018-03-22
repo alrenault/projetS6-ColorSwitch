@@ -149,13 +149,11 @@ public class View implements InterfaceViewColorSwitch {
 	}
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
-		/*
-		Scene scene = new Scene(ViewScores.GroupeScoreOk(liste),tailleX,tailleY);
-        scene.setFill(Colorable.BLACK);
 
-		display(scene);
-		*/
-		viewGameOver();
+
+		display(ViewScores.GroupeScoreOk(liste));
+
+		//viewGameOver();
 	}
 
 
