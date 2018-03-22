@@ -1,12 +1,13 @@
 package view;
-/*
+/**
 *@autor Vincent
-@date 22/03/2018*/
+*@date 22/03/2018
+ * */
 
 import DB.Record;
 import controller.Controller;
-import game.Colorable;
-import game.Score;
+import view.game.Colorable;
+import view.game.Score;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -22,25 +23,26 @@ import javafx.scene.text.TextAlignment;
 import java.util.LinkedList;
 
 public class ViewScores {
-
+    /**
+     *
+     * @param elements
+     * @return
+     */
     private static Scene formater(Group elements){
-
-
         Group root = new Group();
-
         Scene scene = new Scene(root,View.tailleX,View.tailleY);
         scene.setFill(Colorable.BLACK);
-
         VBox v = new VBox();
         v.getChildren().add(entete());
         v.getChildren().add(elements);
-
         root.getChildren().add(v);
-
         return scene;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public static HBox entete(){
         HBox h = new HBox();
         Button retour = new Button();
@@ -50,8 +52,6 @@ public class ViewScores {
 
         return h;
     }
-
-
 
     /**
      * Aggrandit et blanchit
@@ -67,9 +67,9 @@ public class ViewScores {
     }
 
     /**
-     *
-     * @param liste
-     * @return
+     *Génère une page contenant les derniers scores enregistrés
+     * @param liste La liste des scores
+     * @return Une scene contenant la grille des scores
      */
     public static Scene GroupeScoreOk(LinkedList<Record> liste){
         Group root = new Group();
@@ -88,7 +88,6 @@ public class ViewScores {
         g.add(transforme("Nombre d'obstacles"),i,j);
         i++;
         g.add(transforme("Score"),i,j);
-
         for (Record rec : liste) {
             j++;
             i=0;
@@ -104,8 +103,8 @@ public class ViewScores {
     }
 
     /**
-     *
-     * @return
+     *Génère une page comportant un message d'erreur (Scores)
+     * @return Une Scene Avec un message expliquatif
      */
     public static Scene viewError(){
 
@@ -122,8 +121,8 @@ public class ViewScores {
     }
 
     /**
-     *
-     * @param s
+     *Affiche le score de la partie et propose d'enregistrer
+     * @param s le score de la partie
      * @return
      */
     public static Scene viewEndScore(Score s){
@@ -138,6 +137,12 @@ public class ViewScores {
         t.setFill(Color.WHITE);
 
         fin.getChildren().add(t);
+
+
+
+
+
+
 
         return formater(fin);
     }

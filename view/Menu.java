@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.Controller;
-import game.Colorable;
-import game.Difficulty;
-import game.path.obstacle.BuildObstacle;
-import game.path.obstacle.CircleInCircle;
+import view.game.Colorable;
+import view.game.Difficulty;
+import view.game.path.obstacle.BuildObstacle;
+import view.game.path.obstacle.CircleInCircle;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;

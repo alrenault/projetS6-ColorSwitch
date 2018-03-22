@@ -3,7 +3,7 @@ package model.modelObstacle;
 import java.util.ArrayList;
 import java.util.List;
 
-import game.Difficulty;
+import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 import model.modelItem.BuildModelItem;

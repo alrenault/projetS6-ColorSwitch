@@ -2,7 +2,7 @@ package model.modelShape;
 
 import java.util.List;
 
-import game.Speed;
+import view.game.Speed;
 import javafx.scene.paint.Color;
 import model.ShapeType;
 

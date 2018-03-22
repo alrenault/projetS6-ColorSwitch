@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 import controller.Controller;
-import game.path.items.BallColorSwitch;
-import game.path.items.Item;
-import game.path.obstacle.Obstacle;
+import view.game.path.items.BallColorSwitch;
+import view.game.path.items.Item;
+import view.game.path.obstacle.Obstacle;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -16,9 +16,9 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
-import game.Game;
-import game.ball.Player;
-import game.ball.BallPlayer;
+import view.game.Game;
+import view.game.ball.Player;
+import view.game.ball.BallPlayer;
 
 
 public class ViewTimer {
@@ -87,7 +87,7 @@ public class ViewTimer {
 	
 	
 	
-	//public ViewTimer(Game game,ViewPath path,BallPlayer ball, Scene scene) {
+	//public ViewTimer(Game view.game,ViewPath path,BallPlayer ball, Scene scene) {
 
 
 	

@@ -1,12 +1,12 @@
 package model;
 
-import game.Game;
-import game.ball.Player;
-import game.law.Universe;
-import game.path.Path;
+import view.game.Game;
+import view.game.ball.Player;
+import view.game.law.Universe;
+import view.game.path.Path;
 import model.modelItem.ModelItem;
 import controller.Controller;
-import game.Difficulty;
+import view.game.Difficulty;
 
 /**
  * This class represents the model in the MVC pattern

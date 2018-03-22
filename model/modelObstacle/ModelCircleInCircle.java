@@ -3,7 +3,7 @@ package model.modelObstacle;
 import java.util.List;
 import java.util.Random;
 
-import game.Difficulty;
+import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 

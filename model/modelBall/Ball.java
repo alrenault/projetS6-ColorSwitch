@@ -1,6 +1,6 @@
 package model.modelBall;
 
-import game.ball.Player;
+import view.game.ball.Player;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;

@@ -2,9 +2,9 @@ package view;
 
 import DB.Record;
 import controller.Controller;
-import game.Colorable;
-import game.Game;
-import game.Score;
+import view.game.Colorable;
+import view.game.Game;
+import view.game.Score;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

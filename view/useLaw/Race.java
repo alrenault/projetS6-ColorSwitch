@@ -1,7 +1,7 @@
 package view.useLaw;
 
 
-import game.ball.BallPlayer;
+import view.game.ball.BallPlayer;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 

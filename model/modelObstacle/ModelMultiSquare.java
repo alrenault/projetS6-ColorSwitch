@@ -3,8 +3,8 @@ package model.modelObstacle;
 import java.util.List;
 import java.util.Random;
 
-import game.Difficulty;
-import game.path.obstacle.CircleInCircle;
+import view.game.Difficulty;
+import view.game.path.obstacle.CircleInCircle;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 

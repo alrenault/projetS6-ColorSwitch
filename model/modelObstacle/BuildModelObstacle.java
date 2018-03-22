@@ -2,14 +2,14 @@ package model.modelObstacle;
 
 import java.util.List;
 
-import game.Difficulty;
-import game.path.obstacle.CircleInCircle;
-import game.path.obstacle.MultiCircle;
-import game.path.obstacle.MultiCross;
-import game.path.obstacle.MultiLinee;
-import game.path.obstacle.MultiShapes;
-import game.path.obstacle.MultiSquare;
-import game.path.obstacle.Obstacle;
+import view.game.Difficulty;
+import view.game.path.obstacle.CircleInCircle;
+import view.game.path.obstacle.MultiCircle;
+import view.game.path.obstacle.MultiCross;
+import view.game.path.obstacle.MultiLinee;
+import view.game.path.obstacle.MultiShapes;
+import view.game.path.obstacle.MultiSquare;
+import view.game.path.obstacle.Obstacle;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 

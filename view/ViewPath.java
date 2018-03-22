@@ -3,11 +3,11 @@ package view;
 import java.util.ArrayList;
 import java.util.List;
 
-import game.path.Path;
-import game.path.items.BuildItem;
-import game.path.items.Item;
-import game.path.obstacle.BuildObstacle;
-import game.path.obstacle.Obstacle;
+import view.game.path.Path;
+import view.game.path.items.BuildItem;
+import view.game.path.items.Item;
+import view.game.path.obstacle.BuildObstacle;
+import view.game.path.obstacle.Obstacle;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 import model.modelItem.ModelBallColorSwitch;

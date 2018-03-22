@@ -3,7 +3,7 @@ package main;
 import DB.GestionDB;
 import DB.Record;
 import controller.Controller;
-import game.Game;
+import view.game.Game;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

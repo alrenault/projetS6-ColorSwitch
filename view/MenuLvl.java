@@ -6,8 +6,8 @@ import java.util.List;
 
 import javafx.scene.Scene;
 import controller.Controller;
-import game.Colorable;
-import game.Difficulty;
+import view.game.Colorable;
+import view.game.Difficulty;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;

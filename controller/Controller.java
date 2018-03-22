@@ -1,9 +1,9 @@
 package controller;
 
 import DB.GestionDB;
-import game.Difficulty;
-import game.Game;
-import game.Score;
+import view.game.Difficulty;
+import view.game.Game;
+import view.game.Score;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;

@@ -1,7 +1,7 @@
 package model.modelBall;
 
-import game.ball.Player;
-import game.ball.BallPlayer;
+import view.game.ball.Player;
+import view.game.ball.BallPlayer;
 import javafx.scene.Scene;
 
 public class BuildBall {

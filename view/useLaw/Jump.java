@@ -1,6 +1,6 @@
 package view.useLaw;
 
-import game.ball.BallPlayer;
+import view.game.ball.BallPlayer;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 

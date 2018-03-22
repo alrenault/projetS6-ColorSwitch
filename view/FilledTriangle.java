@@ -1,13 +1,8 @@
 package view;
 
-import game.Colorable;
-import game.path.obstacle.BuildObstacle;
-import game.path.obstacle.CircleInCircle;
-import javafx.scene.Group;
+
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
-import model.ObstacleType;
-import model.modelObstacle.ModelCircleInCircle;
 
 public class FilledTriangle {
 

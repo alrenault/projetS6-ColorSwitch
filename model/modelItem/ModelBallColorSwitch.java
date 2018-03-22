@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import game.Colorable;
+import view.game.Colorable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.ItemType;

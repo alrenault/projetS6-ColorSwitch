@@ -1,6 +1,6 @@
 package DB;
 
-import game.Score;
+import view.game.Score;
 import java.lang.String;
 
 /**Objet de gestion des interactions avec la base de données

@@ -1,8 +1,8 @@
 package model.modelShape;
 
-import game.Speed;
-import game.Colorable;
-import game.path.Element;
+import view.game.Speed;
+import view.game.Colorable;
+import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;

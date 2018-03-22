@@ -3,9 +3,9 @@ package view.useLaw;
 import java.util.Random;
 
 import controller.Controller;
-import game.ball.BallPlayer;
-import game.path.items.BallColorSwitch;
-import game.path.items.Item;
+import view.game.ball.BallPlayer;
+import view.game.path.items.BallColorSwitch;
+import view.game.path.items.Item;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -88,7 +88,7 @@ public class CollisionItem implements UseLaw {
 		}
 		 
 		
-			//game.getScore().ramasseItem(i);
+			//view.game.getScore().ramasseItem(i);
 
 		}
 

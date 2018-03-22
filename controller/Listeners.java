@@ -1,6 +1,6 @@
 package controller;
 
-import game.ball.BallPlayer;
+import view.game.ball.BallPlayer;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;

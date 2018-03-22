@@ -1,6 +1,6 @@
 package view.useLaw;
 
-import game.ball.BallPlayer;
+import view.game.ball.BallPlayer;
 
 public class MoveBall implements UseLaw {
 

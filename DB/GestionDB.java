@@ -1,6 +1,6 @@
 package DB;
 
-import game.Score;
+import view.game.Score;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
@@ -266,6 +266,7 @@ public class GestionDB {
             int boundPortes=500;
             int boundEtoiles=2500;
             int boundScores=1000000;
+
             for (int i = 0; i < 15; i++) {
                 record("Vincent", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
                 record("Quentin", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
