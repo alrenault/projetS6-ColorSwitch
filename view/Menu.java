@@ -45,42 +45,15 @@ public class Menu {
 		//Circle c = new Circle(100,100,100,Color.BLUE);
     	//root.getChildren().add(c);
     	//c.setOnMouseClicked(event -> System.out.println("ca click"));
-    	
-    	Polygon triangle = new Polygon();
 
     	double x = width/2;
         double y = 200;
         double side = 100;
-    	
-
-        //triangle.setTranslateX(x);
-        //triangle.setTranslateY(y);
-        
-        
-        double p1x = x;
-        double p1y = y-2.0/3.0 * side * (Math.sqrt(3.0)/2.0);
-        
-        double p2x = x + (side/2);
-        double p2y = y+1.0/3.0 * side * (Math.sqrt(3.0)/2.0);
-        
-        double p3x = x - (side/2);
-        double p3y = y+1.0/3.0 * side * (Math.sqrt(3.0)/2.0);
         
         
         CircleInCircle cic = (CircleInCircle) BuildObstacle.build(new ModelCircleInCircle(x-15, y-13, colorExterne, 0, ObstacleType.CircleInCircle));
-    	//root.getChildren().add(cic.getObstacle());
-        
-       
-        triangle.getPoints().addAll(
-               p1x, p1y, 
-               p2x, p2y, 
-               p3x, p3y);
-    
-        //root.getChildren().add(triangle);
-        triangle.setRotate(90);
-        //triangle.setOnMouseClicked(event -> System.out.println("ca click"));
-    	//triangle.
-    	triangle.setFill(Colorable.WHITE[0]);
+    	
+    	Polygon playRandom = FilledTriangle.create(x, y, side, Colorable.WHITE[0]);
 
 		
 		vBox.setAlignment(Pos.CENTER);
@@ -92,7 +65,8 @@ public class Menu {
 
 		Group randomButton = new Group();
 		randomButton.getChildren().add(cic.getObstacle());
-		randomButton.getChildren().add(triangle);
+		//randomButton.getChildren().add(triangle);
+		randomButton.getChildren().add(playRandom);
 		vBox.getChildren().add(randomButton);
         
         
@@ -124,7 +98,7 @@ public class Menu {
 		Scene sc = new Scene(root, width, height);
 		//vBox.setStyle("-fx-background-color: #393939");
 		sc.setFill(Colorable.BLACK);
-		triangle.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
+		playRandom.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
 		
 		goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
 		goContinuNormal.setOnAction(event -> controller.startGame(Difficulty.NORMAL));
