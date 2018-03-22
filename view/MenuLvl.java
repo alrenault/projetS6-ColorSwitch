@@ -34,9 +34,13 @@ public class MenuLvl {
 		Group root = new Group();
 		Label niveaux = new Label("Niveaux");
 		Label modesJeu = new Label("Modes de jeu");
-		
-		root.getChildren().add(ViewScores.entete());
-		
+		Button retour = new Button();
+		retour.setOnMouseClicked(event ->View.controller.startMenu());
+		retour.setOnAction(e->View.controller.startMenu());
+
+		retour.setText(" <-- ");
+		root.getChildren().add(retour);
+
 		niveaux.setTextFill(Colorable.GOLD);
 		niveaux.setFont(Font.font("Verdana",FontWeight.BOLD,20));
 		modesJeu.setTextFill(Colorable.GOLD);

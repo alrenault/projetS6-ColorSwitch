@@ -20,6 +20,6 @@ public final class J implements UseLaw {
 	 *
 	 */
 	public void apply() {
-		System.out.println(message);
+		System.err.println(message);
 	}
 }
