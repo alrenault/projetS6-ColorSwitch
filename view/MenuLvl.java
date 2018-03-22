@@ -58,6 +58,7 @@ public class MenuLvl {
 		enferCercle.setMinWidth(buttonWidth);
 		
 		HBox hBoxNiveaux = new HBox(20);
+		hBoxNiveaux.getChildren().add(ViewScores.entete());
 		hBoxNiveaux.getChildren().add(niveau10);
 		hBoxNiveaux.getChildren().add(niveau20);
 		hBoxNiveaux.getChildren().add(niveau30);
