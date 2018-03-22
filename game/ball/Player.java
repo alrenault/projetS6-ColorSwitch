@@ -19,6 +19,9 @@ public abstract class Player extends Element {
     protected Color color;
 
     protected Ball model_ball;
+    
+    protected double x;
+    protected double y;
 
     /**
      * Application de la gravité
@@ -35,14 +38,19 @@ public abstract class Player extends Element {
      *
      * @return La coordonée x de la Balle
      */
-    public abstract double getX();
+    public double getX() {
+    	return x;
+    }
+    
+    
 
     /**
      * Accesseur de coordonée y de la Balle
      * @return La coordonée y de la Balle
      */
-    public abstract double getY();
-
+    public double getY() {
+    	return y;
+    }
 
     /**
      *

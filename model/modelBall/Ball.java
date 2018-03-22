@@ -14,8 +14,8 @@ public class Ball {
 	/**
 	 *
 	 */
-        double x = 70;
-        double y = 70;
+        double x;
+        double y;
 	/**
 	 *La taille de la Balle
 	 */
@@ -61,6 +61,14 @@ public class Ball {
 	
 	public double getY() {
 		return y;
+	}
+	
+	public void setX(double newX){
+		x = newX;
+	}
+	
+	public void setY(double newY){
+		y = newY;
 	}
 
     /**
