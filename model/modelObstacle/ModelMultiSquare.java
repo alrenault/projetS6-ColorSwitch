@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import view.game.Difficulty;
-import view.game.path.obstacle.CircleInCircle;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 
@@ -20,15 +19,15 @@ public class ModelMultiSquare extends ModelObstacle {
     /**
      *
      */
-    protected static int[] versionEasy = {2, 3};
+    protected static final int[] versionEasy = {2, 3};
     /**
      *
      */
-    protected static int[] versionMedium = {0, 1};
+    protected static final int[] versionMedium = {0, 1};
     /**
      *
      */
-    protected static int[] versionHard = {4};
+    protected static final int[] versionHard = {4};
 
     /**
      *
@@ -52,12 +51,17 @@ public class ModelMultiSquare extends ModelObstacle {
      */
     public ModelMultiSquare(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
-        if (difficulty == Difficulty.EASY)
-            version = ModelMultiSquare.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = ModelMultiSquare.getRandomMediumVersion();
-        else
-            version = ModelMultiSquare.getRandomHardVersion();
+        switch (difficulty) {
+            case EASY:
+                version = ModelMultiSquare.getRandomEasyVersion();
+                break;
+            case NORMAL:
+                version = ModelMultiSquare.getRandomMediumVersion();
+                break;
+            default:
+                version = ModelMultiSquare.getRandomHardVersion();
+                break;
+        }
     }
 
     /**

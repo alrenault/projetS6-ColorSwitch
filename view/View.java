@@ -2,16 +2,13 @@ package view;
 
 import DB.Record;
 import controller.Controller;
-import view.game.Colorable;
 import view.game.Game;
-import view.game.Score;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.PerspectiveCamera;
 import java.util.LinkedList;
-import java.util.Random;
 
 
 /**
@@ -21,19 +18,19 @@ public class View implements InterfaceViewColorSwitch {
 	/**
 	 *
 	 */
-	Stage stage;
+    private Stage stage;
 	/**
 	 *
 	 */
-	protected static Controller controller;
+	static Controller controller;
 	/**
 	 *
 	 */
-	protected static final Integer tailleX = 600;
+	static final Integer tailleX = 600;
 	/**
 	 *
 	 */
-	protected static final Integer tailleY = 1000;
+	static final Integer tailleY = 1000;
 	//Preferences
 
 	/**

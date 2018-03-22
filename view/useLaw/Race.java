@@ -2,7 +2,6 @@ package view.useLaw;
 
 
 import view.game.ball.BallPlayer;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 
 /**

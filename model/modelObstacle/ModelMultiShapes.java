@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import view.game.Difficulty;
-import view.game.path.obstacle.CircleInCircle;
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 
@@ -24,15 +22,15 @@ public class ModelMultiShapes extends ModelObstacle {
     /**
      *
      */
-    protected static int[] versionEasy = {4,6,7};
+    protected static final int[] versionEasy = {4,6,7};
     /**
      *
      */
-    protected static int[] versionMedium = {1, 2, 3, 5};
+    protected static final int[] versionMedium = {1, 2, 3, 5};
     /**
      *
      */
-    protected static int[] versionHard = {0};
+    protected static final int[] versionHard = {0};
     /**
      *
      */
@@ -63,12 +61,17 @@ public class ModelMultiShapes extends ModelObstacle {
      */
     public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
-        if (difficulty == Difficulty.EASY)
-            version = ModelMultiShapes.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = ModelMultiShapes.getRandomMediumVersion();
-        else
-            version = ModelMultiShapes.getRandomHardVersion();
+        switch (difficulty) {
+            case EASY:
+                version = ModelMultiShapes.getRandomEasyVersion();
+                break;
+            case NORMAL:
+                version = ModelMultiShapes.getRandomMediumVersion();
+                break;
+            default:
+                version = ModelMultiShapes.getRandomHardVersion();
+                break;
+        }
 
         this.scWidth = scWidth;
     }
@@ -83,12 +86,17 @@ public class ModelMultiShapes extends ModelObstacle {
      */
     public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
 		super(x, y, colors, 0, 4, type);
-        if (difficulty == Difficulty.EASY)
-            version = ModelMultiShapes.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = ModelMultiShapes.getRandomMediumVersion();
-        else
-            version = ModelMultiShapes.getRandomHardVersion();
+        switch (difficulty) {
+            case EASY:
+                version = ModelMultiShapes.getRandomEasyVersion();
+                break;
+            case NORMAL:
+                version = ModelMultiShapes.getRandomMediumVersion();
+                break;
+            default:
+                version = ModelMultiShapes.getRandomHardVersion();
+                break;
+        }
 
 	}
 

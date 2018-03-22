@@ -4,15 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import view.game.path.Element;
-import view.game.path.items.BallColorSwitch;
-import view.game.path.items.BuildItem;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
-import model.modelItem.BuildModelItem;
-import model.modelItem.ModelBallColorSwitch;
 import model.modelObstacle.ModelObstacle;
 
 /**

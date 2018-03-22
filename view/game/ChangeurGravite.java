@@ -1,8 +1,6 @@
 package view.game;
 
 import view.game.path.Modifiers;
-import view.game.path.items.GravitySwitch;
-import view.game.path.items.Star;
 
 
 /**Change la force de gravité

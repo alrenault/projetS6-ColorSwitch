@@ -31,7 +31,7 @@ public interface InterfaceModelColorSwitch {
 	
 	void startHellCircle();
 	
-	public void startLvl(int nbr_obs);
+	void startLvl(int nbr_obs);
 	
 	
 	

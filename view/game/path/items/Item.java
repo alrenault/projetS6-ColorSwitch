@@ -1,17 +1,11 @@
 package view.game.path.items;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import controller.Controller;
-import view.game.ball.Player;
 import view.game.ball.BallPlayer;
 import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
 import model.modelItem.ModelItem;
 import view.ViewPath;
 

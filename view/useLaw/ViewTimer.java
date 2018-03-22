@@ -2,22 +2,11 @@ package view.useLaw;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import controller.Controller;
-import view.game.path.items.BallColorSwitch;
-import view.game.path.items.Item;
-import view.game.path.obstacle.Obstacle;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import view.ViewPath;
-import view.game.Game;
-import view.game.ball.Player;
 import view.game.ball.BallPlayer;
 
 
@@ -55,6 +44,9 @@ public class ViewTimer {
 		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		CollisionItem ci = new CollisionItem(ball,path,controller,path.getjItems());
+		
+		Tourni tourni = new Tourni(scene);
+		//laws.add(tourni);
 		
 		//laws.add(co);
 		laws.add(ci);

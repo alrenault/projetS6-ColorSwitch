@@ -7,13 +7,11 @@ import java.util.List;
 import javafx.scene.Scene;
 import controller.Controller;
 import view.game.Colorable;
-import view.game.Difficulty;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
-import main.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -34,9 +32,15 @@ public class MenuLvl {
 		Group root = new Group();
 		Label niveaux = new Label("Niveaux");
 		Label modesJeu = new Label("Modes de jeu");
-		
-		root.getChildren().add(ViewScores.entete());
-		
+		Button retour = new Button();
+		//retour.setOnMouseClicked(event ->View.controller.startMenu());
+		VBox boxMenu = new VBox();
+		boxMenu.getChildren().add(retour);
+		retour.setOnAction(e->controller.startMenu());
+
+		retour.setText(" <-- ");
+		root.getChildren().add(boxMenu);
+
 		niveaux.setTextFill(Colorable.GOLD);
 		niveaux.setFont(Font.font("Verdana",FontWeight.BOLD,20));
 		modesJeu.setTextFill(Colorable.GOLD);
@@ -65,8 +69,8 @@ public class MenuLvl {
 		hBoxNiveaux.getChildren().add(niveau30);
 		hBoxNiveaux.getChildren().add(enferCercle);
 		
-		hBoxNiveaux.setTranslateX(50);;
-		
+		hBoxNiveaux.setTranslateX(50);
+
 		//Modes de jeu
 		
 		
@@ -77,7 +81,7 @@ public class MenuLvl {
 		
 		vBoxRoot.setAlignment(Pos.CENTER);
 		
-		root.getChildren().add(vBoxRoot);
+		boxMenu.getChildren().add(vBoxRoot);
 		
 		Scene sc = new Scene(root,width,height);
 		sc.setFill(Colorable.BLACK);

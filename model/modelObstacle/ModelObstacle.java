@@ -6,8 +6,6 @@ import java.util.List;
 import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
-import model.modelItem.BuildModelItem;
-import model.modelItem.ModelBallColorSwitch;
 
 public abstract class ModelObstacle {
 	/**

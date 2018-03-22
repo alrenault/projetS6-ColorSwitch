@@ -8,9 +8,9 @@ public class LockBall implements UseLaw {
 
 	Scene scene;
 	BallPlayer ball;
-	double difference = 0;
-	double limite = 0;
-	double yCamera = 0;
+	double difference;
+	double limite;
+	double yCamera;
 	
 	public LockBall(Scene scene, BallPlayer ball) {
 		this.scene = scene ;

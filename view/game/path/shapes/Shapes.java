@@ -1,25 +1,10 @@
 package view.game.path.shapes;
 
-import view.game.Colorable;
 import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
-import model.modelShape.ModelCircle;
-import model.modelShape.ModelCross;
-import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
-import model.modelShape.ModelSquare;
-import model.modelShape.ModelTriangle;
-import model.modelShape.ModelVLine;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Une Shapes représent un group de shapes de JavaFX
@@ -28,59 +13,27 @@ import java.util.Set;
 
 public class Shapes extends Element{
 
-	/**
-     *Coordonnée en x du centre de la forme
-     */
-   // protected double x;
-    /**
-     *Coordonnée en y du centre de la forme
-     */
-   // protected double y;
+    // protected double x;
+    // protected double y;
     /**
      * Le groupe représentant la forme
      */
     protected Group group_shape;
-    
-    /**
-     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
-     */
+
     //protected Bounds coord;
-    
-    /**
-     * L'épaisseur du trait de la forme
-     */
-    
-   // double width;
-    
-    /**
-     * Indique la direction du mouvement de la forme
-     */
-    
-   // boolean mouvementDirection;
-    /**
-     * Indique si la rotation de la forme est linéaire ou est soumise à une accéleration
-     */
-    
+
+    // double width;
+
+    // boolean mouvementDirection;
+
     //boolean acceleration;
-    
-    /**
-     * Position actuelle pour le parcours de la liste de couleurs
-     */
+
     //int pos_color;
-    
-    /**
-     * Vitesse de rotation de la forme
-     */
+
     //double mouvementSpeed;
-    
-    /**
-     * L'ensemble de couleurs que l'on peut utiliser
-     */
+
     //List<Color> colors;
-    
-    /**
-     * L'ensemble des couleurs utilisées par la forme
-     */
+
     //List<Color> colors_use;
     
     /**
@@ -142,11 +95,7 @@ public class Shapes extends Element{
     	
     }
 
-	/**
-     * Assesseur de l'épaisseur de la forme
-     * @return l'épaisseur de la forme
-     */
-   /* public double getSize() {
+	/* public double getSize() {
         return width;
     }*/
 

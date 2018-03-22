@@ -22,15 +22,15 @@ public class ModelCircleInCircle extends ModelObstacle {
     /**
      *
      */
-    protected static int[] versionEasy = {4, 5};
+    protected static final int[] versionEasy = {4, 5};
     /**
      *
      */
-    protected static int[] versionMedium = {0, 1, 6};
+    protected static final int[] versionMedium = {0, 1, 6};
     /**
      *
      */
-    protected static int[] versionHard = {2, 3};
+    protected static final int[] versionHard = {2, 3};
 
     /**
      *
@@ -55,12 +55,17 @@ public class ModelCircleInCircle extends ModelObstacle {
      */
     public ModelCircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
-        if (difficulty == Difficulty.EASY)
-            version = ModelCircleInCircle.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = ModelCircleInCircle.getRandomMediumVersion();
-        else
-            version = ModelCircleInCircle.getRandomHardVersion();
+        switch (difficulty) {
+            case EASY:
+                version = ModelCircleInCircle.getRandomEasyVersion();
+                break;
+            case NORMAL:
+                version = ModelCircleInCircle.getRandomMediumVersion();
+                break;
+            default:
+                version = ModelCircleInCircle.getRandomHardVersion();
+                break;
+        }
     }
 
     /**

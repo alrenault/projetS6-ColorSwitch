@@ -20,7 +20,7 @@ public interface InterfaceViewColorSwitch {
 	 */
 	void viewMenu() ;
 	
-	public void viewMenuLvl();
+	void viewMenuLvl();
 
 	/**
 	 *

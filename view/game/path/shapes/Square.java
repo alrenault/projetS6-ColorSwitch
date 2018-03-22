@@ -1,14 +1,10 @@
 package view.game.path.shapes;
 
-import java.util.List;
-
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import model.modelShape.ModelShape;
 import model.modelShape.ModelSquare;
 
 /**

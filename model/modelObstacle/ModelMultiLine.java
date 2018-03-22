@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import view.game.Difficulty;
-import view.game.path.obstacle.CircleInCircle;
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
 
@@ -24,15 +22,15 @@ public class ModelMultiLine extends ModelObstacle {
     /**
      *
      */
-    protected static int[] versionEasy = {0, 1, 4, 7};
+    protected static final int[] versionEasy = {0, 1, 4, 7};
     /**
      *
      */
-    protected static int[] versionMedium = {2, 3, 5, 6, 8};
+    protected static final int[] versionMedium = {2, 3, 5, 6, 8};
     /**
      *
      */
-    protected static int[] versionHard = {9, 10};
+    protected static final int[] versionHard = {9, 10};
     /**
      *
      */
@@ -64,12 +62,17 @@ public class ModelMultiLine extends ModelObstacle {
      */
     public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
-        if (difficulty == Difficulty.EASY)
-            version = ModelMultiLine.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = ModelMultiLine.getRandomMediumVersion();
-        else
-            version = ModelMultiLine.getRandomHardVersion();
+        switch (difficulty) {
+            case EASY:
+                version = ModelMultiLine.getRandomEasyVersion();
+                break;
+            case NORMAL:
+                version = ModelMultiLine.getRandomMediumVersion();
+                break;
+            default:
+                version = ModelMultiLine.getRandomHardVersion();
+                break;
+        }
 
         this.scWidth = scWidth;
     }
@@ -84,12 +87,17 @@ public class ModelMultiLine extends ModelObstacle {
      */
     public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
-        if (difficulty == Difficulty.EASY)
-            version = ModelMultiLine.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = ModelMultiLine.getRandomMediumVersion();
-        else
-            version = ModelMultiLine.getRandomHardVersion();
+        switch (difficulty) {
+            case EASY:
+                version = ModelMultiLine.getRandomEasyVersion();
+                break;
+            case NORMAL:
+                version = ModelMultiLine.getRandomMediumVersion();
+                break;
+            default:
+                version = ModelMultiLine.getRandomHardVersion();
+                break;
+        }
         
         //obstacle = buildObstacle();
     }

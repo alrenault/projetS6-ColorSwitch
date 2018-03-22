@@ -1,11 +1,6 @@
 package view;
-/**
-*@autor Vincent
-*@date 22/03/2018
- * */
 
 import DB.Record;
-import controller.Controller;
 import view.game.Colorable;
 import view.game.Score;
 import javafx.geometry.Pos;
@@ -22,7 +17,7 @@ import javafx.scene.text.TextAlignment;
 
 import java.util.LinkedList;
 
-public class ViewScores {
+class ViewScores {
     /**
      *
      * @param elements
@@ -43,9 +38,10 @@ public class ViewScores {
      *
      * @return
      */
-    public static HBox entete(){
+    private static HBox entete(){
         HBox h = new HBox();
         Button retour = new Button();
+        retour.setOnMouseClicked(event -> View.controller.startMenu());
         retour.setOnAction(e-> View.controller.startMenu());
         retour.setText(" <-- ");
         h.getChildren().add(retour);

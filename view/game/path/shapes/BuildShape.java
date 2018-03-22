@@ -1,6 +1,5 @@
 package view.game.path.shapes;
 
-import javafx.scene.Group;
 import model.modelShape.ModelCircle;
 import model.modelShape.ModelCross;
 import model.modelShape.ModelHLine;
