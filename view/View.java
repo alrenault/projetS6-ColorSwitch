@@ -126,13 +126,9 @@ public class View implements InterfaceViewColorSwitch {
 	 */
 	@Override
 	public void viewGameOver() {
-		//stage.close();
 		Scene form = null;
-		try {
-			form = ScenePseudo.class.newInstance().stre( controller);
-		} catch (InstantiationException | IllegalAccessException e) {
-			e.printStackTrace();
-		}
+			form = ScenePseudo.stre( controller);
+
 		display(form);
 	}
 
@@ -146,6 +142,7 @@ public class View implements InterfaceViewColorSwitch {
 		return controller;
 		
 	}
+
 //TODO ajouter de quoi retourner au menu
 	@Override
 	public void viewScoreNoCo() {

@@ -26,7 +26,7 @@ public class ScenePseudo {
      * @return la stage et submit entraine (TODO) la stage de menu (recommencer une partie) ou de fin
      */
 
-    public Scene stre(Controller c){
+    public static  Scene stre(Controller c){
         Button buttonClear,buttonSubmit;
         Label labelPseudo;
         TextField inputPseudo;
