@@ -51,8 +51,7 @@ public class ViewScores {
 
         VBox vBox = new VBox();
         HBox hBox =new HBox();
-vBox.setSpacing(20);
-        hBox.setSpacing(10);
+        hBox.setSpacing(30);
         vBox.setAlignment(Pos.CENTER);
 
         hBox.getChildren().add(transforme("Date"));

@@ -82,7 +82,7 @@ public class Menu {
     	//triangle.
     	triangle.setFill(Colorable.WHITE[0]);
 
-		/*VBox truc = new VBox(100);
+		VBox truc = new VBox(25);
 		truc.setAlignment(Pos.CENTER);
 		Button goContinuEasy = new Button("Partie continue (facile)");
 		Button goContinuNormal = new Button("Partie continue (normale)");
@@ -112,19 +112,18 @@ public class Menu {
 		truc.setMinWidth(width);
 		truc.setMinHeight(height);
 
-		root.getChildren().add(truc);*/
+		root.getChildren().add(truc);
 
 
 		Scene sc = new Scene(root, width, height);
-		//truc.setStyle("-fx-background-color: #393939");
+		truc.setStyle("-fx-background-color: #393939");
 		sc.setFill(Colorable.BLACK);
-
-        triangle.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
-		/*goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
+		triangle.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
+		goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
 		goContinuNormal.setOnAction(event -> controller.startGame(Difficulty.NORMAL));
 		goContinuHard.setOnAction(event -> controller.startGame(Difficulty.HARD));
 		//goLvl.setOnAction(event -> );
-		goScore.setOnAction(event->controller.showScoresMenu());*/
+		goScore.setOnAction(event->controller.showScoresMenu());
 
 
 		return sc;

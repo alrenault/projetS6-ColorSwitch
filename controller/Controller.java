@@ -104,7 +104,6 @@ public class Controller {
 
 	public void showScoresMenu(){
 		boolean testCo=connectionDB.testConnexionDB();
-		System.err.println((testCo)?"Co Ok":"Pas de co");
 		if (testCo){
 
 			view.viewScores(connectionDB.getLastRecords(15*2));
