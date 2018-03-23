@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import model.InterfaceModelColorSwitch;
 import model.Model;
 import view.InterfaceViewColorSwitch;
+import view.Sound;
 import view.View;
 
 /**
@@ -79,29 +80,15 @@ public class Main extends Application {
 
         help();
 
-
-        //colorSuitch.play();
-
-        //SOUND
-		
-		
-		/*{
-			 String bip = "src/ressources/Spring.wav";
-			 Media hit = new Media(Paths.get(bip).toUri().toString());
-			 MediaPlayer truc = new MediaPlayer(hit);
-			 truc.play();
-		}*/
+        Sound sound = new Sound();
+        
+        Sound.playMusicSound();
 				    
 
 				
-				/*
-				{
-			        String bip = "src/ressources/Spring.wav";
-			        Media hit = new Media(Paths.get(bip).toUri().toString());
-			        AudioClip putain = new AudioClip(hit.getSource());
-			        putain.play();
-			    }
-				*/
+				
+				
+				
 
 
     }
