@@ -30,6 +30,7 @@ public class InvisibleLine extends Item{
         return line;
     }
 
+
 	@Override
 	public void get(ViewPath vPath, Controller c, BallPlayer b) {
 		vPath.addNewObstacle();

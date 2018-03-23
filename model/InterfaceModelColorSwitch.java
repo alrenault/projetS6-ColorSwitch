@@ -22,6 +22,7 @@ public interface InterfaceModelColorSwitch {
     void startGame();
 
     /**
+     *
      * @param difficulty
      */
     void startGame(Difficulty difficulty);
