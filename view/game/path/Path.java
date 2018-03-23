@@ -134,7 +134,6 @@ public class Path {
                  }
              }*/
 
-            // ln("Is it Empty ?"+o.getShapeList().isEmpty());
 
             //newPath.getChildren().add(o.getObstacle());
             //newPath.getChildren().add(bcs.getItem());
@@ -195,7 +194,6 @@ public class Path {
 
 
         add(mo);
-        // ln(mo.getBcs());
         //add(modelStar);
         posY = posY - mo.getObstacleHeight() / 2 - 600;
 

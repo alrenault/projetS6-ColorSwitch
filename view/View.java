@@ -25,7 +25,7 @@ public class View implements InterfaceViewColorSwitch {
      */
     static final Integer tailleY = 1000;
     /**
-     *
+     *Le Controller de jeu
      */
     static Controller controller;
     /**
@@ -122,15 +122,14 @@ public class View implements InterfaceViewColorSwitch {
     }
 
     /**
-     * @param c
+     * Mutateur de Controller
+     * @param c Le Controller
      */
     public void setController(Controller c) {
         controller = c;
     }
 
-    /*
-     * Affiche une fenetre d'érreur en cas de demande de score si pas de DB
-     */
+
     @Override
     public void viewScoreError() {
 

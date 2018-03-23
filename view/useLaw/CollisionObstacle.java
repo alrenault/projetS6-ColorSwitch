@@ -33,23 +33,18 @@ public class CollisionObstacle implements UseLaw {
 
 			}
 		*/
-            // ln("path "+ path.getObstacles().size());
             for (Shape shape : path.getObstaclesShapes()) {
 
                 Shape intersection = Shape.intersect(b, shape);
-                // ln("probleme ? "+intersection.getBoundsInParent().isEmpty());
 
 
                 if (!intersection.getBoundsInParent().isEmpty()) {
-                    // ln("Intersection !");
 
                     if (shape instanceof Arc && shape.getStroke() != b.getFill()) {
-                        //	 ln("Game Over 1");
                         controller.gameOver();
                     }
 
                     if (!(shape instanceof Arc) && shape.getFill() != b.getFill()) {
-                        //	 ln("Game Over 2");
                         controller.gameOver();
                     }
 

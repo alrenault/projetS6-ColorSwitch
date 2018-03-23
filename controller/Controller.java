@@ -30,13 +30,7 @@ public class Controller {
         this.view = view;
         view.setController(this);
         connectionDB = new GestionDB();
-		/*
-		try {
-			connectionDB=new GestionDB();
-		} catch(Exception e) {
-			//e.printStackTrace();
-			 ln("Connexion with database failed.");
-		}*/
+
 
 
     }

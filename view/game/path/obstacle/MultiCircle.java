@@ -59,7 +59,6 @@ public class MultiCircle extends Obstacle {
 
         Random r = new Random();
         int colorDeb = r.nextInt(colors.size());
-        //   ln("nbr "+colorDeb);
         int colorOppose = (colorDeb + nb_arc / 2) % colors.size();
 
         boolean acceleration = r.nextBoolean();

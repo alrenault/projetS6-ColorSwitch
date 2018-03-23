@@ -3,8 +3,6 @@ package view.game;
 import view.game.path.Modifiers;
 
 /**
- * @autor Vincent
- * @date 25/02/2018
  */
 class Etoile extends Modifiers {
 

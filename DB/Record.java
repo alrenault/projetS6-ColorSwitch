@@ -5,9 +5,6 @@ import view.game.Score;
 /**
  * Objet de gestion des interactions avec la base de données
  * Utlisé par GestionDB in getNBestRecords et getScoreOfPlayer
- *
- * @autor Vincent
- * @date 07/03/2018
  */
 public class Record {
     /**

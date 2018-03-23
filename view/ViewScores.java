@@ -55,7 +55,7 @@ class ViewScores {
      * Aggrandit et blanchit
      *
      * @param s la chaine à transformer
-     * @return un Text correspondant à s en plus grand et moins (ne pas raciser)
+     * @return un Text formaté
      */
     private static Text transforme(String s) {
         Text text = new Text(s);
@@ -124,8 +124,8 @@ class ViewScores {
     /**
      * Affiche le score de la partie et propose d'enregistrer
      *
-     * @param s le score de la partie
-     * @return
+     * @param s Le score de la partie
+     * @return Une Scene de fin de partie
      */
     public static Scene viewEndScore(Score s) {
         Group g = new Group();
