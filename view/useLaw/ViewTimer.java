@@ -53,7 +53,7 @@ public class ViewTimer {
         //laws.add(tourni);
         //laws.add(tourni);
 
-        //laws.add(co);
+        laws.add(co);
         laws.add(ci);
         
         FinishLine finishLine = new FinishLine(path,ball,controller);

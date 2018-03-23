@@ -52,7 +52,7 @@ class ScenePseudo {
 
         buttonSubmit.setOnAction(e -> {
             String p = inputPseudo.getText();
-
+            System.err.println(p+" : "+c.getScore().toString());
             c.recordScore(View.controller.getScore());
             View.controller.startMenu();
         });
