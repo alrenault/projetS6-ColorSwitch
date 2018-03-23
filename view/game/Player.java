@@ -5,7 +5,7 @@ package view.game;
  * @autor Vincent
  * @date 25/02/2018
  */
-public class Player {
+class Player {
     /**
      * Le nom du joueur
      * */

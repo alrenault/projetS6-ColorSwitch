@@ -6,12 +6,12 @@ import javafx.scene.input.KeyCode;
 
 public class Jump implements UseLaw {
 
-	BallPlayer ball;
-	Scene scene;
-	double last_jump_time;
-	double duration_since_last_jump;
-	double current_time;
-	double vectorY=0;
+	private BallPlayer ball;
+	private Scene scene;
+	private double last_jump_time;
+	private double duration_since_last_jump;
+	private double current_time;
+	private double vectorY=0;
 	
 	public Jump(BallPlayer ball,Scene scene) {
 		this.ball = ball ; 

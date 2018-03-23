@@ -223,7 +223,7 @@ public class Path {
 	 }
     
 	 public ModelStar addNewStar(ModelObstacle mo){
-		 List<Color> l = new ArrayList<Color>();
+		 List<Color> l = new ArrayList<>();
 		 ModelStar modelStar;
          switch (mo.getDifficulty()) {
              case EASY:
@@ -311,7 +311,7 @@ public class Path {
     
     
 
-    public void add(ModelObstacle o) {
+    private void add(ModelObstacle o) {
         obstacles.add(o);
         //addSL(o.getShapeList());
         //path.getChildren().add(o.getShape());
@@ -323,7 +323,7 @@ public class Path {
         ennemies.add(e);
     }
 
-    public void add(ModelItem item) {
+    private void add(ModelItem item) {
         items.add(item);
     }
 

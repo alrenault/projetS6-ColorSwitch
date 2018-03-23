@@ -18,7 +18,7 @@ public class Shapes extends Element{
     /**
      * Le groupe représentant la forme
      */
-    protected Group group_shape;
+    Group group_shape;
 
     //protected Bounds coord;
 
@@ -39,12 +39,12 @@ public class Shapes extends Element{
     /**
      * Patron de la forme
      */
-    static ModelShape model_shape;
+    private static ModelShape model_shape;
     
     /**
      * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
      */
-    protected Bounds coord;
+    Bounds coord;
     
 
 
@@ -87,8 +87,8 @@ public class Shapes extends Element{
         //check();
 
     }*/
-    
-    protected Shapes(ModelShape modelShape) {
+
+    Shapes(ModelShape modelShape) {
     	super();
     	model_shape = modelShape;
     	//group_shape = buildShape();
@@ -159,7 +159,7 @@ public class Shapes extends Element{
      * Assesseur de la coordonée en x de la forme
      * @return La coordonnée en x de la forme
      */
-    public double getX() {
+    private double getX() {
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
@@ -169,7 +169,7 @@ public class Shapes extends Element{
      * Assesseur de la coordonée en y de la forme
      * @return La coordonnée en y de la forme
      */
-    public double getY() {
+    private double getY() {
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
     }

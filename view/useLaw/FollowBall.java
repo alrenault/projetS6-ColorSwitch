@@ -7,11 +7,11 @@ import javafx.scene.Scene;
 
 public class FollowBall implements UseLaw {
 
-	Scene scene;
-	BallPlayer ball;
-	double difference;
-	double limite;
-	double yCamera;
+	private Scene scene;
+	private BallPlayer ball;
+	private double difference;
+	private double limite;
+	private double yCamera;
 	
 	public FollowBall(Scene scene, BallPlayer ball) {
 		this.scene = scene;

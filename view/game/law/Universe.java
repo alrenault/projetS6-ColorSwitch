@@ -11,7 +11,7 @@ import java.util.Set;
  * It represents all the rules in a view.game
  */
 public class Universe {
-    Set<Law> laws;
+    private Set<Law> laws;
 
     public Universe() {
         laws = new HashSet<>();

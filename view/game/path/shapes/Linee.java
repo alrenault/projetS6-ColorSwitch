@@ -10,7 +10,7 @@ import model.modelShape.ModelHLine;
 /**
  * Objet graphique d'une ligne horizontale
  */
-public class Linee extends Shapes {
+class Linee extends Shapes {
 
 
     /**
@@ -26,7 +26,7 @@ public class Linee extends Shapes {
      * Génère la ligne
      * @return le Group correspondant à la ligne
      */
-    protected Group buildShape(ModelHLine mhl) {
+    private Group buildShape(ModelHLine mhl) {
         Group line = new Group();
 
         for (int i = 0; i < mhl.getNbr_seg(); i++) {

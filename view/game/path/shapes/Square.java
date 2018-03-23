@@ -10,7 +10,7 @@ import model.modelShape.ModelSquare;
 /**
  * Objet graphique d'un carre
  */
-public class Square extends Shapes {
+class Square extends Shapes {
 
     /**
      * Constructeur d'un carre
@@ -32,7 +32,7 @@ public class Square extends Shapes {
      * Génère le carre
      * @return le Group correspondant au carre
      */
-    protected Group buildShape(ModelSquare ms) {
+    private Group buildShape(ModelSquare ms) {
         Group squaire = new Group();
         double length = ms.getLength();
         double x = ms.getX();

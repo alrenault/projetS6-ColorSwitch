@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import model.Model;
 
 
-public class Partie {
+class Partie {
     private Model model;
     private Path path;
 

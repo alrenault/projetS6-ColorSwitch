@@ -69,7 +69,7 @@ public class BallPlayer extends Player{
     }
 
 
-	public Group buildBall() {
+	private Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
         //player.setCenterX(scene.getWidth() / 2);
@@ -91,7 +91,7 @@ public class BallPlayer extends Player{
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt2.setAutoReverse(false);
         tt2.setInterpolator(Interpolator.EASE_OUT);
-        tt2.setOnFinished(new EventHandler<ActionEvent>() {
+        tt2.setOnFinished(new EventHandler<>() {
             public void handle(ActionEvent event) {
                 gravity.play();
             }

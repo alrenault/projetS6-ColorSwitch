@@ -20,16 +20,16 @@ import model.modelBall.Ball;
 /**
  *
  */
-public class ViewGameManagement {
+class ViewGameManagement {
 	/**
 	 *
 	 */
-	static Group root;
+	private static Group root;
 	/**
 	 *
 	 */
-	static Game game;
-	static ViewTimer timer;
+	private static Game game;
+	private static ViewTimer timer;
 	
 	Controller controller;
 

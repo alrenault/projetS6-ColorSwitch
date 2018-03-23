@@ -7,7 +7,7 @@ import view.game.path.Modifiers;
  * @autor Vincent
  * @date 10/03/2018
  */
-public class ChangeurGravite extends Modifiers {
+class ChangeurGravite extends Modifiers {
     /**
      * La nouvelle force de gravité
      */

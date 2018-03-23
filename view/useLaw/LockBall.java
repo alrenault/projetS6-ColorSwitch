@@ -6,11 +6,11 @@ import view.game.ball.BallPlayer;
 
 public class LockBall implements UseLaw {
 
-	Scene scene;
-	BallPlayer ball;
-	double difference;
-	double limite;
-	double yCamera;
+	private Scene scene;
+	private BallPlayer ball;
+	private double difference;
+	private double limite;
+	private double yCamera;
 	
 	public LockBall(Scene scene, BallPlayer ball) {
 		this.scene = scene ;

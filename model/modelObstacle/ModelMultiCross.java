@@ -18,19 +18,19 @@ public class ModelMultiCross extends ModelObstacle {
     /**
      *
      */
-	public static final double MAX_HEIGHT = 600;
+	private static final double MAX_HEIGHT = 600;
     /**
      *
      */
-    protected static final int[] versionEasy = {0, 1};
+    private static final int[] versionEasy = {0, 1};
     /**
      *
      */
-    protected static final int[] versionMedium = {2, 5};
+    private static final int[] versionMedium = {2, 5};
     /**
      *
      */
-    protected static final int[] versionHard = {3,4};
+    private static final int[] versionHard = {3,4};
 
     /**
      *
@@ -73,7 +73,7 @@ public class ModelMultiCross extends ModelObstacle {
      *
      * @return
      */
-	public static int getRandomEasyVersion() {
+	private static int getRandomEasyVersion() {
         Random r = new Random();
         return versionEasy[r.nextInt(versionEasy.length)];
     }
@@ -82,7 +82,7 @@ public class ModelMultiCross extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomMediumVersion() {
+    private static int getRandomMediumVersion() {
         Random r = new Random();
         return versionMedium[r.nextInt(versionMedium.length)];
     }
@@ -91,7 +91,7 @@ public class ModelMultiCross extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomHardVersion() {
+    private static int getRandomHardVersion() {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }

@@ -20,50 +20,50 @@ public abstract class ModelShape implements Colorable{
 	/**
      *Coordonnée en x du centre de la forme
      */
-    protected double x;
+    private double x;
     /**
      *Coordonnée en y du centre de la forme
      */
-    protected double y;
+    private double y;
     
     
     
     /**
      * L'épaisseur du trait de la forme
      */
-    
-    double width;
+
+    private double width;
     
     /**
      * Indique la direction du mouvement de la forme
      */
-    
-    boolean mouvementDirection;
+
+    private boolean mouvementDirection;
     /**
      * Indique si la rotation de la forme est linéaire ou est soumise à une accéleration
      */
-    
-    boolean acceleration;
+
+    private boolean acceleration;
     
     /**
      * Position actuelle pour le parcours de la liste de couleurs
      */
-    int pos_color;
+    private int pos_color;
     
     /**
      * Vitesse de rotation de la forme
      */
-    double mouvementSpeed;
+    private double mouvementSpeed;
     
     /**
      * L'ensemble de couleurs que l'on peut utiliser
      */
-    List<Color> colors;
+    private List<Color> colors;
     
     /**
      * L'ensemble des couleurs utilisées par la forme
      */
-    List<Color> colors_use;
+    private List<Color> colors_use;
     
     /**
      * Type de la forme
@@ -83,7 +83,7 @@ public abstract class ModelShape implements Colorable{
      * @param colors Liste des couleurs de la forme à transmettre
      * @param pos_color La position initiale pour le parcours de la liste de couleurs
      */
-    protected ModelShape(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
+    ModelShape(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
     	this.x = x;
         this.y = y;
         this.width = width;

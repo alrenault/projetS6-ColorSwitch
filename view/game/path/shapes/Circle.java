@@ -15,7 +15,7 @@ import model.modelShape.ModelCircle;
 public class Circle extends Shapes {
 
 
-	protected Circle(ModelCircle mc) {
+	Circle(ModelCircle mc) {
 		super(mc);
 		group_shape = buildShape(mc);
 	    coord = group_shape.localToScene(group_shape.getBoundsInLocal());
@@ -25,7 +25,7 @@ public class Circle extends Shapes {
      * Generateur de la forme du cercle
      * @return un ensemble d'arcs
      */
-    protected Group buildShape(ModelCircle mc) {
+    private Group buildShape(ModelCircle mc) {
 
 
 

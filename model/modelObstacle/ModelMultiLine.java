@@ -18,23 +18,23 @@ public class ModelMultiLine extends ModelObstacle {
     /**
      *
      */
-	public static final double MAX_HEIGHT = 220;
+	private static final double MAX_HEIGHT = 220;
     /**
      *
      */
-    protected static final int[] versionEasy = {0, 1, 4, 7};
+    private static final int[] versionEasy = {0, 1, 4, 7};
     /**
      *
      */
-    protected static final int[] versionMedium = {2, 3, 5, 6, 8};
+    private static final int[] versionMedium = {2, 3, 5, 6, 8};
     /**
      *
      */
-    protected static final int[] versionHard = {9, 10};
+    private static final int[] versionHard = {9, 10};
     /**
      *
      */
-    double scWidth;
+    private double scWidth;
 
     /**
      *
@@ -106,7 +106,7 @@ public class ModelMultiLine extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomEasyVersion() {
+    private static int getRandomEasyVersion() {
         Random r = new Random();
         return versionEasy[r.nextInt(versionEasy.length)];
     }
@@ -115,7 +115,7 @@ public class ModelMultiLine extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomMediumVersion() {
+    private static int getRandomMediumVersion() {
         Random r = new Random();
         return versionMedium[r.nextInt(versionMedium.length)];
     }
@@ -124,7 +124,7 @@ public class ModelMultiLine extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomHardVersion() {
+    private static int getRandomHardVersion() {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }

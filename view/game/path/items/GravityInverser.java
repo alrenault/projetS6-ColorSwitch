@@ -7,7 +7,7 @@ import model.modelItem.ModelGravityInverser;
  * @autor Vincent
  * @date 09/02/2018
  */
-public class GravityInverser extends GravitySwitch {
+class GravityInverser extends GravitySwitch {
 
     /**
      * La taille

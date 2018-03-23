@@ -9,7 +9,7 @@ public class JtGravity implements UseLaw {
 	/**
 	 *
 	 */
-	BallPlayer ball;
+    private BallPlayer ball;
 
 	/**
 	 *

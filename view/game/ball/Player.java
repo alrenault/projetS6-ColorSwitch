@@ -14,12 +14,12 @@ public abstract class Player extends Element {
     /**
      * Couleur de la Balle
      */
-    protected Color color;
+    private Color color;
 
-    protected Ball model_ball;
+    Ball model_ball;
     
-    protected double x;
-    protected double y;
+    private double x;
+    private double y;
 
     /**
      * Application de la gravité

@@ -9,8 +9,8 @@ public class Ball {
 	/**
 	 *
 	 */
-        double x;
-        double y;
+    private double x;
+        private double y;
 	/**
 	 *La taille de la Balle
 	 */
@@ -132,7 +132,7 @@ public class Ball {
     	resetVectors();
     }
     
-    public void resetVectors() {
+    private void resetVectors() {
     	vectorX=0;
     	vectorY=0;
     }

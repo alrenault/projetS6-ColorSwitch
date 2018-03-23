@@ -1,5 +1,5 @@
 package controller;
 
-public abstract class AI {
+abstract class AI {
 
 }

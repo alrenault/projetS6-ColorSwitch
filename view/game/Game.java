@@ -23,18 +23,18 @@ import model.modelBall.Ball;
 
 public class Game {
 
-    Ball ball;
-	Path path;
-    Universe universe;
+    private Ball ball;
+	private Path path;
+    private Universe universe;
     
     Difficulty difficulty;
     List<Color> colors;
-    Score score;
+    private Score score;
     
-    Stage stage;
+    private Stage stage;
     Scene scene;
     
-    int nFrame = 0;
+    private int nFrame = 0;
 
     public Game(Ball _ball, Path _path, Universe _universe) {
         this.ball = _ball;
@@ -43,7 +43,7 @@ public class Game {
     }
     
     public Game() {
-    	List<Color> CUSTOM = new ArrayList<Color>();
+    	List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
     	CUSTOM.add(Colorable.PURPLE);
     	CUSTOM.add(Colorable.ROSE);
@@ -62,7 +62,7 @@ public class Game {
     }
     
     public Game(int nbr_obs){
-    	List<Color> CUSTOM = new ArrayList<Color>();
+    	List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
     	CUSTOM.add(Colorable.PURPLE);
     	CUSTOM.add(Colorable.ROSE);
@@ -86,7 +86,7 @@ public class Game {
         		"\n_______________"
         		+ "\nRandom Game\n\n");
         
-        List<Color> CUSTOM = new ArrayList<Color>();
+        List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
     	CUSTOM.add(Colorable.PURPLE);
     	CUSTOM.add(Colorable.ROSE);
@@ -112,7 +112,7 @@ public class Game {
         		"\n_______________"
         		+ "\nRandom Game\n\n");
         
-        List<Color> CUSTOM = new ArrayList<Color>();
+        List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
     	CUSTOM.add(Colorable.PURPLE);
     	CUSTOM.add(Colorable.ROSE);
@@ -235,7 +235,7 @@ public class Game {
     	System.out.println("_________________________________________"
     			+ "\n\nStart\n");
     	
-    	List<Color> CUSTOM = new ArrayList<Color>();
+    	List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
     	CUSTOM.add(Colorable.PURPLE);
     	CUSTOM.add(Colorable.ROSE);

@@ -16,14 +16,14 @@ import model.modelObstacle.ModelObstacle;
  */
 public abstract class Obstacle extends Element {
 
-    protected Group obstacle;
+    private Group obstacle;
 
-    protected Bounds coord;
-    protected ModelObstacle model_obstacle;
-    protected List<Color> color_passable;
+    private Bounds coord;
+    private ModelObstacle model_obstacle;
+    List<Color> color_passable;
 
 
-    public Obstacle(ModelObstacle mo) {
+    Obstacle(ModelObstacle mo) {
         super();
         model_obstacle = mo;
         color_passable = new ArrayList<>();
@@ -46,7 +46,7 @@ public abstract class Obstacle extends Element {
     protected abstract Group buildObstacle(ModelObstacle mo);
 
 
-    public double getX() {
+    private double getX() {
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }

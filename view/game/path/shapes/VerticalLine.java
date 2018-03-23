@@ -10,7 +10,7 @@ import model.modelShape.ModelVLine;
 /**
  * Objet graphique d'une ligne verticale
  */
-public class VerticalLine extends Shapes {
+class VerticalLine extends Shapes {
 
     
 
@@ -33,7 +33,7 @@ public class VerticalLine extends Shapes {
      * Génère la ligne verticale
      * @return le Group correspondant a la ligne verticale
      */
-    protected Group buildShape(ModelVLine mvl) {
+    private Group buildShape(ModelVLine mvl) {
         Group hline = new Group();
 
         for (int i = 0; i < mvl.getNbr_seg(); i++) {

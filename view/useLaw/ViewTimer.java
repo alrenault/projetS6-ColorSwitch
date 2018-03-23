@@ -14,9 +14,9 @@ public class ViewTimer {
 	/**
 	 *
 	 */
-	AnimationTimer timer;
-	List<UseLaw> laws;
-	Controller controller;
+    private AnimationTimer timer;
+	private List<UseLaw> laws;
+	private Controller controller;
 	
 	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene) {
 		laws = new ArrayList<>();

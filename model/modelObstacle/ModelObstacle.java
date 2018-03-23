@@ -11,39 +11,39 @@ public abstract class ModelObstacle {
 	/**
 	 * Coordonnée en x de l'Obstacle
 	 */
-    protected double x;
+    private double x;
 	/**
 	 * Coordonnée en Y de l'Obstacle
 	 */
-	protected double y;
+    private double y;
 	/**
 	 *
 	 */
-    protected List<Color> colors;
+    private List<Color> colors;
 	/**
 	 *
 	 */
-	protected int version;
+    int version;
 	/**
 	 *
 	 */
-    protected int versionDefault;
+    private int versionDefault;
 	/**
 	 *
 	 */
-	protected int nbr_Versions;
+    private int nbr_Versions;
 	/**
 	 *
 	 */
-    protected Difficulty difficulty;
+    private Difficulty difficulty;
 	/**
 	 *
 	 */
-	protected List<Color> color_use;
+    private List<Color> color_use;
 	/**
 	 *
 	 */
-    protected ObstacleType type;
+    private ObstacleType type;
     
 	/**
 	 *
@@ -54,7 +54,7 @@ public abstract class ModelObstacle {
 	 * @param versionDefault
 	 * @param obstacleType
 	 */
-    public ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType){
+    ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType){
     	this.x = x;
         this.y = y;
         this.colors = colors;

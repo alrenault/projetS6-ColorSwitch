@@ -27,7 +27,7 @@ public class Cross extends Shapes {
      * Génère la croix
      * @return le Group correspondant à la croix
      */
-    protected Group build(ModelCross mc) {
+    private Group build(ModelCross mc) {
 
         //Initialisation
         Group croix = new Group();

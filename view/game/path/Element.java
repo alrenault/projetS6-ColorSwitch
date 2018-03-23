@@ -14,16 +14,16 @@ public abstract class Element {
 	/**
 	 *
 	 */
-	protected Group shape;
+    private Group shape;
 	/**
 	 *
 	 */
-	List<Shape> shape_list;
+    private List<Shape> shape_list;
 
 	/**
 	 *
 	 */
-	public Element() {
+    protected Element() {
 		//shape = new Group();
 		shape_list = new ArrayList<>();
 	}
@@ -46,7 +46,7 @@ public abstract class Element {
 		protected  void addSL(Shape ... shapes) {
 				
 				if (shapes != null) {
-					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					if(shape_list == null) shape_list = new ArrayList<>();
                     shape_list.addAll(Arrays.asList(shapes));
 				}
 				
@@ -59,7 +59,7 @@ public abstract class Element {
 		
 				
 				if (shapes_list != null) {
-					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					if(shape_list == null) shape_list = new ArrayList<>();
 					for (List<Shape> j : shapes_list) {
 						shape_list.addAll(j);
 						
@@ -71,7 +71,7 @@ public abstract class Element {
 			public  void removeSL(Shape ... shapes) {
 				
 				if (shapes != null) {
-					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					if(shape_list == null) shape_list = new ArrayList<>();
 					for (Shape j : shapes) {
 						shape_list.remove(j);
 					}
@@ -83,7 +83,7 @@ public abstract class Element {
 			public void removeSL(List<Shape> ... shapes_list) {
 				
 				if (shapes_list != null) {
-					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					if(shape_list == null) shape_list = new ArrayList<>();
 					for (List<Shape> j : shapes_list) {
 						shape_list.removeAll(j);
 						

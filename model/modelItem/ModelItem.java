@@ -14,24 +14,24 @@ public class ModelItem {
 	/**
      * coordonnée X de l'Item
      */
-    protected double x;
+    private double x;
     /**
      * coordonnée Y de l'Item
      */
-    protected double y;
+    private double y;
     
     /**
      * Le nombre de points gagnés en rammassant l'Item
      */
-    protected int nbPoints;
+    private int nbPoints;
     /**
      *La liste de couleurs que l'on peut utiliser pour cet Item
      */
-    protected List<Color> colors;
+    List<Color> colors;
     /**
      *
      */
-    protected ItemType type;
+    private ItemType type;
 
     /**
      *
@@ -41,7 +41,7 @@ public class ModelItem {
      * @param nbPoints nombre de points gagnés en rammassant l'Item
      * @param type
      */
-    public ModelItem(double x, double y, List<Color> colors,int nbPoints, ItemType type) {
+    ModelItem(double x, double y, List<Color> colors, int nbPoints, ItemType type) {
         assert (x>=0);
         assert (y>=0);
         assert (nbPoints>=0);

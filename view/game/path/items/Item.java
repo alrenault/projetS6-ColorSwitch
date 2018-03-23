@@ -19,21 +19,20 @@ public abstract class Item extends Element {
     /**
      * Forme de l'objet
      */
-    protected Group item;
+    Group item;
     /**
      * Liste de couleurs à appliquer à la forme
      */
 
 
-
-    protected Bounds coord;
+    private Bounds coord;
     
     ModelItem model_item;
 
     /**
      * Constructeur de la forme
      */
-    public Item(ModelItem mi) {
+    Item(ModelItem mi) {
        model_item = mi;
        item = new Group();
        item = buildItem(mi);
@@ -62,7 +61,7 @@ public abstract class Item extends Element {
      * Assesseur de coordonnée x
      * @return La coordonnée x
      */
-    public double getX() {
+    private double getX() {
         coord = item.localToScene(item.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
@@ -72,7 +71,7 @@ public abstract class Item extends Element {
      * @return La coordonnée y
      */
 
-    public double getY() {
+    private double getY() {
         coord = item.localToScene(item.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
     }

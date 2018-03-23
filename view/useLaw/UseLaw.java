@@ -1,6 +1,6 @@
 package view.useLaw;
 
-public interface UseLaw {
+interface UseLaw {
 	/**
 	 *
 	 */

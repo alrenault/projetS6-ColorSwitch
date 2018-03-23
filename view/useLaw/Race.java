@@ -9,12 +9,12 @@ import javafx.scene.Scene;
  */
 public class Race implements UseLaw {
 
-	BallPlayer ball;
-	Scene scene;
-	double startTime;
-	double currentTime;
-	double duration;
-	double speed;
+	private BallPlayer ball;
+	private Scene scene;
+	private double startTime;
+	private double currentTime;
+	private double duration;
+	private double speed;
 	
 	public Race(BallPlayer ball, Scene scene) {
 		this.ball = ball;

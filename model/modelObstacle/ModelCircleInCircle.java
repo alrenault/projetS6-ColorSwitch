@@ -18,19 +18,19 @@ public class ModelCircleInCircle extends ModelObstacle {
     /**
      *
      */
-	public static final double MAX_HEIGHT = 230;
+	private static final double MAX_HEIGHT = 230;
     /**
      *
      */
-    protected static final int[] versionEasy = {4, 5};
+    private static final int[] versionEasy = {4, 5};
     /**
      *
      */
-    protected static final int[] versionMedium = {0, 1, 6};
+    private static final int[] versionMedium = {0, 1, 6};
     /**
      *
      */
-    protected static final int[] versionHard = {2, 3};
+    private static final int[] versionHard = {2, 3};
 
     /**
      *
@@ -72,7 +72,7 @@ public class ModelCircleInCircle extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomEasyVersion() {
+    private static int getRandomEasyVersion() {
         Random r = new Random();
         return versionEasy[r.nextInt(versionEasy.length)];
     }
@@ -81,7 +81,7 @@ public class ModelCircleInCircle extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomMediumVersion() {
+    private static int getRandomMediumVersion() {
         Random r = new Random();
         return versionMedium[r.nextInt(versionMedium.length)];
     }
@@ -90,7 +90,7 @@ public class ModelCircleInCircle extends ModelObstacle {
      *
      * @return
      */
-    public static int getRandomHardVersion() {
+    private static int getRandomHardVersion() {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }

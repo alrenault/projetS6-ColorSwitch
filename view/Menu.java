@@ -26,7 +26,7 @@ import javafx.scene.Group;
 /**
  *
  */
-public class Menu {
+class Menu {
 	/**
 	 *
 	 * @param controller
@@ -35,10 +35,10 @@ public class Menu {
 	 * @return
 	 */
 	
-	static int i = 0;
+	private static int i = 0;
 
 	public static Scene createInstance(Controller controller,double width, double height){
-		List<Color> colorExterne = new ArrayList<Color>();
+		List<Color> colorExterne = new ArrayList<>();
 		colorExterne.add(Colorable.YELLOW);
 		colorExterne.add(Colorable.PURPLE);
 		colorExterne.add(Colorable.ROSE);

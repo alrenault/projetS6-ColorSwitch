@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 /**
  * This class represents the menu before playing a view.game
  */
-public class Menu {
+class Menu {
 	/**
 	 *
 	 * @return

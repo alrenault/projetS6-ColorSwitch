@@ -22,22 +22,22 @@ public class Main extends Application {
 	/**
 	 *
 	 */
-	InterfaceModelColorSwitch model;
+    private InterfaceModelColorSwitch model;
 	/**
 	 *
 	 */
-	InterfaceViewColorSwitch view;
+    private InterfaceViewColorSwitch view;
 	/**
 	 *
 	 */
-	Controller controller;
+    private Controller controller;
 
     public static void main(String[] args) {
       	launch(args);
     }
     
-    static int j = 0;
-    public static void help() {
+    private static int j = 0;
+    private static void help() {
     	Throwable t = new Throwable();
         t.fillInStackTrace();
         StackTraceElement e = t.getStackTrace()[1];

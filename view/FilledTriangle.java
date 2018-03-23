@@ -7,7 +7,7 @@ import javafx.scene.shape.Polygon;
 /**
  *
  */
-public class FilledTriangle {
+class FilledTriangle {
     /**
      *
      * @param x

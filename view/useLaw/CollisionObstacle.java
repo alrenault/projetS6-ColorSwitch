@@ -8,9 +8,9 @@ import view.ViewPath;
 
 public class CollisionObstacle implements UseLaw {
 	
-	BallPlayer ball;
-	ViewPath path;
-	Controller controller;
+	private BallPlayer ball;
+	private ViewPath path;
+	private Controller controller;
 
 	/**
 	 *

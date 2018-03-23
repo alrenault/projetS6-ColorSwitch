@@ -10,7 +10,7 @@ import model.modelShape.ModelTriangle;
 /**
  * Objet graphique d'un triangle
  */
-public class Triangle extends Shapes {
+class Triangle extends Shapes {
    
 
 
@@ -33,7 +33,7 @@ public class Triangle extends Shapes {
      * Génère le triangle
      * @return le Group correspondant au triangle
      */
-    protected Group buildShape(ModelTriangle mt) {
+    private Group buildShape(ModelTriangle mt) {
         Group t = new Group();
 
         double height = mt.getHeight();

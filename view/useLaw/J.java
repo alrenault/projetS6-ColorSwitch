@@ -7,7 +7,7 @@ public final class J implements UseLaw {
 	/**
 	 *
 	 */
-	String message;
+    private String message;
 
 	/**
 	 *

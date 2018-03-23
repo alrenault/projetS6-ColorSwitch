@@ -28,10 +28,10 @@ public class ViewPath {
 	
 	private Path path;
 	
-	Group jObstacles;
-	Group jItems;
+	private Group jObstacles;
+	private Group jItems;
 	
-	Rectangle finishLine;
+	private Rectangle finishLine;
 	
 	public ViewPath(Path path) {
 		this.path = path;
@@ -63,7 +63,7 @@ public class ViewPath {
 	
 	
 	//ADD
-	public Obstacle addObstacle(ModelObstacle mo) {
+	private Obstacle addObstacle(ModelObstacle mo) {
 		Obstacle obstacle = BuildObstacle.build(mo);
 		obstacles.add(obstacle);
 		obstaclesShapes.addAll(obstacle.getShapeList());
@@ -100,7 +100,7 @@ public class ViewPath {
 		
 	}
 	
-	public Item addItem(ModelItem mi) {
+	private Item addItem(ModelItem mi) {
 		Item item = BuildItem.build(mi);
 		items.add(item);
 		itemsShapes.addAll(item.getShapeList());

@@ -18,7 +18,7 @@ public abstract class Modifiers {
      * */
     private int nbPoints;
 
-    public Modifiers() {
+    protected Modifiers() {
     }
 
     public Modifiers(Item forme, int nbPoints) {

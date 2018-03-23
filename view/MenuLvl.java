@@ -17,10 +17,10 @@ import javafx.scene.Group;
 import javafx.scene.control.Label;
 
 
-public class MenuLvl {
+class MenuLvl {
 
 	public static Scene createInstance(Controller controller,double width, double height){
-		List<Color> colorExterne = new ArrayList<Color>();
+		List<Color> colorExterne = new ArrayList<>();
 		colorExterne.add(Colorable.YELLOW);
 		colorExterne.add(Colorable.PURPLE);
 		colorExterne.add(Colorable.ROSE);

@@ -1,8 +1,6 @@
 package view;
 
 import DB.Record;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import view.game.Colorable;
 import view.game.Score;
 import javafx.geometry.Pos;
