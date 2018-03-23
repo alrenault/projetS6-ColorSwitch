@@ -18,23 +18,21 @@ class Square extends Shapes {
     public Square(ModelSquare ms) {
         super(ms);
 
-        this.group_shape = buildShape(ms);
+        this.group_shape = buildShape();
 
         //recuperation de la position
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-
-        //check();
 
     }
 
     /**
      * Génère le carre
-     *
      * @return le Group correspondant au carre
      */
-    private Group buildShape(ModelSquare ms) {
+    protected Group buildShape() {
+    	ModelSquare ms1 = (ModelSquare)ms;
         Group squaire = new Group();
-        double length = ms.getLength();
+        double length = ms1.getLength();
         double x = ms.getX();
         double y = ms.getY();
         double width = ms.getWidth();

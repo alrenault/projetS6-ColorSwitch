@@ -18,16 +18,16 @@ class Linee extends Shapes {
      */
     public Linee(ModelHLine mhl) {
         super(mhl);
-        this.group_shape = buildShape(mhl);
+        this.group_shape = buildShape();
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 
     /**
      * Génère la ligne
-     *
      * @return le Group correspondant à la ligne
      */
-    private Group buildShape(ModelHLine mhl) {
+    protected Group buildShape() {
+    	ModelHLine mhl = (ModelHLine)ms;
         Group line = new Group();
 
         for (int i = 0; i < mhl.getNbr_seg(); i++) {

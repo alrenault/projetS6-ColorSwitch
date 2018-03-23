@@ -4,14 +4,12 @@ import model.modelObstacle.*;
 
 /**
  * Générateur d'Obstacle
- * @author alexis
- *
  */
 public class BuildObstacle {
     
 	/**
 	 * Génère un Obstacle en fonction du modèle (et de son type)
-	 * @param mi Le modèle dont on veut l'Obstacle
+	 * @param mo Le modèle dont on veut l'Obstacle
 	 * @return l'Obstacle représentant le modèle
 	 */
     public static Obstacle build(ModelObstacle mo) {

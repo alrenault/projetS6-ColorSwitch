@@ -28,6 +28,7 @@ public abstract class Item extends Element {
      * Le model contenant les données pour la construction e l'Item
      */
     ModelItem mi;
+    
     /**
      * Constructeur de la forme
      */
@@ -60,7 +61,7 @@ public abstract class Item extends Element {
 
 
     /**
-     * Assesseur de coordonnée x
+     * Accesseur de coordonnée x
      * @return La coordonnée x
      */
     private double getX() {

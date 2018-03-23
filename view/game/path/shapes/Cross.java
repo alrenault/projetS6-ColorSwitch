@@ -14,12 +14,11 @@ import model.modelShape.ModelCross;
 public class Cross extends Shapes {
 
     /**
-     * Constructeur basique de la croix (direction à true, acceleration à false, la vitesse la plus faible, et la position de la couleur à 1
+     * Constructeur de la croix 
      */
-
     public Cross(ModelCross mc) {
         super(mc);
-        group_shape = build(mc);
+        group_shape = build();
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 
@@ -29,9 +28,10 @@ public class Cross extends Shapes {
      *
      * @return le Group correspondant à la croix
      */
-    private Group build(ModelCross mc) {
+    protected Group buildShape() {
 
         //Initialisation
+    	ModelCross mc = (ModelCross)ms;
         Group croix = new Group();
         double rad = mc.getWidth();
         double len = mc.getLength();

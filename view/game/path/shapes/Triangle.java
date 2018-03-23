@@ -19,12 +19,10 @@ class Triangle extends Shapes {
     public Triangle(ModelTriangle mt) {
         super(mt);
 
-        this.group_shape = buildShape(mt);
+        this.group_shape = buildShape();
 
         //recuperation de la position (a voir si on ne peut pas le mettre dans la factory)
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-
-        //check();
     }
 
     /**
@@ -32,7 +30,8 @@ class Triangle extends Shapes {
      *
      * @return le Group correspondant au triangle
      */
-    private Group buildShape(ModelTriangle mt) {
+    protected Group buildShape() {
+    	ModelTriangle mt = (ModelTriangle) ms;
         Group t = new Group();
 
         double height = mt.getHeight();
