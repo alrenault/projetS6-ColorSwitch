@@ -1,11 +1,11 @@
 package model.modelObstacle;
 
-import java.util.List;
-import java.util.Random;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -18,7 +18,7 @@ public class ModelMultiCross extends ModelObstacle {
     /**
      *
      */
-	private static final double MAX_HEIGHT = 600;
+    private static final double MAX_HEIGHT = 600;
     /**
      *
      */
@@ -30,10 +30,9 @@ public class ModelMultiCross extends ModelObstacle {
     /**
      *
      */
-    private static final int[] versionHard = {3,4};
+    private static final int[] versionHard = {3, 4};
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -41,13 +40,12 @@ public class ModelMultiCross extends ModelObstacle {
      * @param versionDefault
      * @param type
      */
-	public ModelMultiCross(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType type) {
-		super(x, y, colors, version, versionDefault, type);
-		// TODO Auto-generated constructor stub
-	}
+    public ModelMultiCross(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType type) {
+        super(x, y, colors, version, versionDefault, type);
+        // TODO Auto-generated constructor stub
+    }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -70,16 +68,14 @@ public class ModelMultiCross extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
-	private static int getRandomEasyVersion() {
+    private static int getRandomEasyVersion() {
         Random r = new Random();
         return versionEasy[r.nextInt(versionEasy.length)];
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomMediumVersion() {
@@ -88,7 +84,6 @@ public class ModelMultiCross extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomHardVersion() {
@@ -97,11 +92,10 @@ public class ModelMultiCross extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     public double getObstacleHeight() {
-		return MAX_HEIGHT;
-	}
+        return MAX_HEIGHT;
+    }
 
 }

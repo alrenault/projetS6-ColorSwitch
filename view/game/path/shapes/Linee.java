@@ -24,6 +24,7 @@ class Linee extends Shapes {
 
     /**
      * Génère la ligne
+     *
      * @return le Group correspondant à la ligne
      */
     private Group buildShape(ModelHLine mhl) {
@@ -33,7 +34,7 @@ class Linee extends Shapes {
             mhl.verifPosColor();
             Rectangle rec = new Rectangle(mhl.getX() + mhl.getLength() * i, mhl.getY(), mhl.getLength(), mhl.getWidth());
             mhl.color(rec);
-            
+
             addSL(rec);
             line.getChildren().add(rec);
         }

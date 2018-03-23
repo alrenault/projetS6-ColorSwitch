@@ -1,12 +1,5 @@
 package view.game;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import view.game.law.Universe;
-import view.game.path.Path;
-
-
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -14,6 +7,11 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.modelBall.Ball;
+import view.game.law.Universe;
+import view.game.path.Path;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is used to create a view.game
@@ -23,17 +21,14 @@ import model.modelBall.Ball;
 
 public class Game {
 
-    private Ball ball;
-	private Path path;
-    private Universe universe;
-    
     Difficulty difficulty;
     List<Color> colors;
-    private Score score;
-    
-    private Stage stage;
     Scene scene;
-    
+    private Ball ball;
+    private Path path;
+    private Universe universe;
+    private Score score;
+    private Stage stage;
     private int nFrame = 0;
 
     public Game(Ball _ball, Path _path, Universe _universe) {
@@ -41,92 +36,91 @@ public class Game {
         this.path = _path;
         this.universe = _universe;
     }
-    
+
     public Game() {
-    	List<Color> CUSTOM = new ArrayList<>();
-    	CUSTOM.add(Colorable.YELLOW);
-    	CUSTOM.add(Colorable.PURPLE);
-    	CUSTOM.add(Colorable.ROSE);
-    	CUSTOM.add(Colorable.BLUE);
-    	
-    	this.path = new Path(600,1000, CUSTOM);
-    	
-    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
-    	this.ball = new Ball(10,CUSTOM.get(0));
-    	
-    	this.universe = new Universe();
-    	
-    	this.score = new Score();
-    	
-    	
-    }
-    
-    public Game(int nbr_obs){
-    	List<Color> CUSTOM = new ArrayList<>();
-    	CUSTOM.add(Colorable.YELLOW);
-    	CUSTOM.add(Colorable.PURPLE);
-    	CUSTOM.add(Colorable.ROSE);
-    	CUSTOM.add(Colorable.BLUE);
-    	
-    	this.path = new Path(600,1000, CUSTOM, nbr_obs);
+        List<Color> CUSTOM = new ArrayList<>();
+        CUSTOM.add(Colorable.YELLOW);
+        CUSTOM.add(Colorable.PURPLE);
+        CUSTOM.add(Colorable.ROSE);
+        CUSTOM.add(Colorable.BLUE);
 
-    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
-    	this.ball = new Ball(10,CUSTOM.get(0));
-    	
-    	this.universe = new Universe();
-    	
-    	this.score = new Score();
+        this.path = new Path(600, 1000, CUSTOM);
+
+        //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+        this.ball = new Ball(10, CUSTOM.get(0));
+
+        this.universe = new Universe();
+
+        this.score = new Score();
+
+
     }
 
+    public Game(int nbr_obs) {
+        List<Color> CUSTOM = new ArrayList<>();
+        CUSTOM.add(Colorable.YELLOW);
+        CUSTOM.add(Colorable.PURPLE);
+        CUSTOM.add(Colorable.ROSE);
+        CUSTOM.add(Colorable.BLUE);
 
-	
+        this.path = new Path(600, 1000, CUSTOM, nbr_obs);
+
+        //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+        this.ball = new Ball(10, CUSTOM.get(0));
+
+        this.universe = new Universe();
+
+        this.score = new Score();
+    }
+
+
     public Game(Scene scene) {
 
-        
-        List<Color> CUSTOM = new ArrayList<>();
-    	CUSTOM.add(Colorable.YELLOW);
-    	CUSTOM.add(Colorable.PURPLE);
-    	CUSTOM.add(Colorable.ROSE);
-    	CUSTOM.add(Colorable.BLUE);
-    	
-    	
-    	this.path = new Path(scene.getWidth(),scene.getHeight(), CUSTOM, 10   , Difficulty.EASY);
-    	
-    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
 
-    	
-    	this.universe = new Universe();
-    	
-    	this.score = new Score();
-    	
-    	//ViewGameManagement.view(this,scene,controller);
-        
-        
+        List<Color> CUSTOM = new ArrayList<>();
+        CUSTOM.add(Colorable.YELLOW);
+        CUSTOM.add(Colorable.PURPLE);
+        CUSTOM.add(Colorable.ROSE);
+        CUSTOM.add(Colorable.BLUE);
+
+
+        this.path = new Path(scene.getWidth(), scene.getHeight(), CUSTOM, 10, Difficulty.EASY);
+
+        //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+
+
+        this.universe = new Universe();
+
+        this.score = new Score();
+
+        //ViewGameManagement.view(this,scene,controller);
+
+
     }
 
     public Game(Difficulty difficulty) {
 
-        
+
         List<Color> CUSTOM = new ArrayList<>();
-    	CUSTOM.add(Colorable.YELLOW);
-    	CUSTOM.add(Colorable.PURPLE);
-    	CUSTOM.add(Colorable.ROSE);
-    	CUSTOM.add(Colorable.BLUE);
-    	
-    	this.path = new Path(600,1000, CUSTOM, 5, difficulty);
+        CUSTOM.add(Colorable.YELLOW);
+        CUSTOM.add(Colorable.PURPLE);
+        CUSTOM.add(Colorable.ROSE);
+        CUSTOM.add(Colorable.BLUE);
 
-    	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
-    	this.ball = new Ball(10,CUSTOM.get(0));
-    	
-    	this.universe = new Universe();
-    	
-    	this.score = new Score();
-	}
+        this.path = new Path(600, 1000, CUSTOM, 5, difficulty);
 
-    
+        //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
+        this.ball = new Ball(10, CUSTOM.get(0));
+
+        this.universe = new Universe();
+
+        this.score = new Score();
+    }
+
+
     public void defeat() {
-    	
-    	stage.close();
+
+        stage.close();
     }
 
     /*
@@ -213,50 +207,43 @@ public class Game {
         }.start();
 		
 	}*/
-	
-	
 
 
-    
     public void hello(Stage primaryStage) {
-    	
 
-    	List<Color> CUSTOM = new ArrayList<>();
-    	CUSTOM.add(Colorable.YELLOW);
-    	CUSTOM.add(Colorable.PURPLE);
-    	CUSTOM.add(Colorable.ROSE);
-    	CUSTOM.add(Colorable.BLUE);
 
-    	//Set Stage
+        List<Color> CUSTOM = new ArrayList<>();
+        CUSTOM.add(Colorable.YELLOW);
+        CUSTOM.add(Colorable.PURPLE);
+        CUSTOM.add(Colorable.ROSE);
+        CUSTOM.add(Colorable.BLUE);
+
+        //Set Stage
         primaryStage.setTitle("ColorSuitch");
         primaryStage.getIcons().add(new Image("file:../view/color_icon.png"));
-        
+
         //Set Scene
         Group root = new Group();
         Scene scene1 = new Scene(root, 600, 1000);
         //GestionDB g=new GestionDB();
-        
+
         Group jBall = new Group();
         Group jObstacles = new Group();
         Group jItems = new Group();
-        
+
         root.getChildren().add(jBall);
         root.getChildren().add(jObstacles);
         root.getChildren().add(jItems);
 
 
-        
+        Path p = new Path(scene1.getWidth(), scene1.getHeight(), CUSTOM, 10, Difficulty.EASY);
 
-        Path p = new Path(scene1.getWidth(),scene1.getHeight(), CUSTOM, 10   , Difficulty.EASY);
-        
         //jObstacles.getChildren().add(p.getPath());
-        
-        
-        
-        
+
+
         scene1.setFill(Colorable.BLACK);
-        
-        
+
+
         Label frame = new Label("Frame : " + nFrame);
         root.getChildren().add(frame);
 
@@ -277,44 +264,32 @@ public class Game {
         //player.applyGravity();
 
 
-	
-        	
-       
-        
-        
-        
-        
-        
-        
-        
         primaryStage.setScene(scene1);
         primaryStage.show();
 
     }
 
-	public void jump() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-    
-    
-	public Ball getBall() {
-		return ball;
-	}
+    public void jump() {
+        // TODO Auto-generated method stub
 
-	public Path getPath() {
-		return path;
-	}
+    }
 
-	public Universe getUniverse() {
-		return universe;
-	}
-	
-	public Score getScore() {
-		return score;
-	}
 
+    public Ball getBall() {
+        return ball;
+    }
+
+    public Path getPath() {
+        return path;
+    }
+
+    public Universe getUniverse() {
+        return universe;
+    }
+
+    public Score getScore() {
+        return score;
+    }
 
 
 }

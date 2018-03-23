@@ -1,11 +1,11 @@
 package model.modelObstacle;
 
-import java.util.List;
-import java.util.Random;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -14,11 +14,11 @@ public class ModelCircleInCircle extends ModelObstacle {
     /**
      *
      */
-	public static final int NBR_VERSIONS = 7;
+    public static final int NBR_VERSIONS = 7;
     /**
      *
      */
-	private static final double MAX_HEIGHT = 230;
+    private static final double MAX_HEIGHT = 230;
     /**
      *
      */
@@ -33,20 +33,18 @@ public class ModelCircleInCircle extends ModelObstacle {
     private static final int[] versionHard = {2, 3};
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
      * @param version
      * @param type
      */
-    public ModelCircleInCircle(double x, double y, List<Color> colors, int version, ObstacleType type){
-    	super(x, y,  colors, version, 4, type);
+    public ModelCircleInCircle(double x, double y, List<Color> colors, int version, ObstacleType type) {
+        super(x, y, colors, version, 4, type);
 
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -69,7 +67,6 @@ public class ModelCircleInCircle extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomEasyVersion() {
@@ -78,7 +75,6 @@ public class ModelCircleInCircle extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomMediumVersion() {
@@ -87,7 +83,6 @@ public class ModelCircleInCircle extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomHardVersion() {
@@ -96,13 +91,11 @@ public class ModelCircleInCircle extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     public double getObstacleHeight() {
-		return MAX_HEIGHT;
-	}
+        return MAX_HEIGHT;
+    }
 
-    
-    
+
 }

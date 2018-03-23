@@ -6,37 +6,35 @@ import javafx.scene.paint.Color;
  *
  */
 public class Ball {
-	/**
-	 *
-	 */
+    /**
+     *
+     */
+    private final double jumpHeight = 50;
+    /**
+     *
+     */
     private double x;
-        private double y;
-	/**
-	 *La taille de la Balle
-	 */
+    private double y;
+    /**
+     * La taille de la Balle
+     */
     private float size;
-	/**
-	 *
-	 */
-	private double scWidth;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
+    private double scWidth;
+    /**
+     *
+     */
     private double scHeight;
-	/**
-	 * La couleur de la Balle
-	 */
-	private Color color;
-	/**
-	 *
-	 */
-    private final double  jumpHeight = 50;
-    
+    /**
+     * La couleur de la Balle
+     */
+    private Color color;
     private double vectorX = 0;
     private double vectorY = 0;
 
     /**
-     *
      * @param size
      * @param color
      */
@@ -46,93 +44,88 @@ public class Ball {
     }
 
     /**
-     *
      * @return
      */
-	public double getX() {
-		return x;
-	}
-	
-	
-	public double getY() {
-		return y;
-	}
-	
-	public void setX(double newX){
-		x = newX;
-	}
-	
-	public void setY(double newY){
+    public double getX() {
+        return x;
+    }
 
-		y = newY;
+    public void setX(double newX) {
+        x = newX;
+    }
 
-	}
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double newY) {
+
+        y = newY;
+
+    }
 
     /**
-     *
      * @return
      */
-	public double getSize() {
-		return size;
-	}
+    public double getSize() {
+        return size;
+    }
 
     /**
-     *
      * @return
      */
-	public double getScWidth() {
-		return scWidth;
-	}
+    public double getScWidth() {
+        return scWidth;
+    }
 
     /**
-     *
      * @return
      */
-	public double getScHeight() {
-		return scHeight;
-	}
+    public double getScHeight() {
+        return scHeight;
+    }
 
     /**
-     *
      * @return
      */
-	public Color getColor() {
-		return color;
-	}
+    public Color getColor() {
+        return color;
+    }
 
     /**
      * Accesseur de la valeur de hauteur de saut
+     *
      * @return La hauteur de saut
      */
-	public double getJumpHeight() {
-		return jumpHeight;
-	}
-    
+    public double getJumpHeight() {
+        return jumpHeight;
+    }
+
     public double addVectorX(double j) {
-    	return vectorX+=j;
+        return vectorX += j;
     }
-    
+
     public void addVectorY(double j) {
-		vectorY += j;
-	}
-    
+        vectorY += j;
+    }
+
     public double getVectorX() {
-    	return vectorX;
+        return vectorX;
     }
-    
+
     public double getVectorY() {
-    	return vectorY;
+        return vectorY;
     }
-    
+
     public void moveBall() {
-    	x+=vectorX;
-    	y+=vectorY;
-    	resetVectors();
+        x += vectorX;
+        y += vectorY;
+        resetVectors();
     }
-    
+
     private void resetVectors() {
-    	vectorX=0;
-    	vectorY=0;
+        vectorX = 0;
+        vectorY = 0;
     }
 
 }

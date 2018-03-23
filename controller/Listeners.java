@@ -1,11 +1,11 @@
 package controller;
 
-import view.game.ball.BallPlayer;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import view.game.ball.BallPlayer;
 
 /**
  *
@@ -21,7 +21,6 @@ public class Listeners {
     private BallPlayer ball;
 
     /**
-     *
      * @param sc
      * @param ball
      */
@@ -32,7 +31,6 @@ public class Listeners {
     }
 
     /**
-     *
      * @param group
      */
     public void jump(Group group) {

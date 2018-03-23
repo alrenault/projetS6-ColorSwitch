@@ -1,9 +1,9 @@
 package view.game.ball;
 
 
-import view.game.path.Element;
 import javafx.scene.paint.Color;
 import model.modelBall.Ball;
+import view.game.path.Element;
 
 /**
  * This is a generic ball which represents the player in the view.game
@@ -11,13 +11,11 @@ import model.modelBall.Ball;
  */
 public abstract class Player extends Element {
 
+    Ball model_ball;
     /**
      * Couleur de la Balle
      */
     private Color color;
-
-    Ball model_ball;
-    
     private double x;
     private double y;
 
@@ -37,21 +35,20 @@ public abstract class Player extends Element {
      * @return La coordonée x de la Balle
      */
     public double getX() {
-    	return x;
+        return x;
     }
-    
-    
+
 
     /**
      * Accesseur de coordonée y de la Balle
+     *
      * @return La coordonée y de la Balle
      */
     public double getY() {
-    	return y;
+        return y;
     }
 
     /**
-     *
      * @return
      */
     public Color getColor() {
@@ -59,7 +56,6 @@ public abstract class Player extends Element {
     }
 
     /**
-     *
      * @param color
      */
     public void setColor(Color color) {
@@ -67,18 +63,16 @@ public abstract class Player extends Element {
     }
 
     /**
-     *
      * @return
      */
-	public abstract double getSize();
+    public abstract double getSize();
 
     /**
-     *
      * @return
      */
-	public Ball getBall() {
-		return model_ball;
-	}
+    public Ball getBall() {
+        return model_ball;
+    }
 
 
 }

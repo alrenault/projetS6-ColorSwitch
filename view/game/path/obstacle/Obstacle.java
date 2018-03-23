@@ -1,14 +1,14 @@
 package view.game.path.obstacle;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelObstacle;
+import view.game.path.Element;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An Obstacle is a Group of Shapes which contains at least one of it
@@ -16,11 +16,10 @@ import model.modelObstacle.ModelObstacle;
  */
 public abstract class Obstacle extends Element {
 
+    List<Color> color_passable;
     private Group obstacle;
-
     private Bounds coord;
     private ModelObstacle model_obstacle;
-    List<Color> color_passable;
 
 
     Obstacle(ModelObstacle mo) {
@@ -29,20 +28,20 @@ public abstract class Obstacle extends Element {
         color_passable = new ArrayList<>();
 
         obstacle = buildObstacle(mo);
-        
+
         //this.obstacle = build();
         //check();
     }
- 
 
-	public ModelObstacle getModel_obstacle() {
-		return model_obstacle;
-	}
 
-	protected Group build() {
-    	return buildObstacle(model_obstacle);
+    public ModelObstacle getModel_obstacle() {
+        return model_obstacle;
     }
-    
+
+    protected Group build() {
+        return buildObstacle(model_obstacle);
+    }
+
     protected abstract Group buildObstacle(ModelObstacle mo);
 
 
@@ -75,21 +74,21 @@ public abstract class Obstacle extends Element {
     }
 
 
-	public boolean isOver(int x, int y) {
+    public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
-	
-
-	@Override
-	public Group getShape() {
-		// TODO Auto-generated method stub
-		return obstacle;
-	}
 
 
-	public List<Color> getColor_passable() {
-		return color_passable;
-	}
+    @Override
+    public Group getShape() {
+        // TODO Auto-generated method stub
+        return obstacle;
+    }
+
+
+    public List<Color> getColor_passable() {
+        return color_passable;
+    }
 
 
     // public enum Difficulty {EASY, NORMAL, HARD}

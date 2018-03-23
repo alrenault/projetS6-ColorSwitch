@@ -8,31 +8,30 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import view.game.Colorable;
 
 /**
- *Mini Form recuperrant le pseudo du joueur à la fin de la partie
+ * Mini Form recuperrant le pseudo du joueur à la fin de la partie
  * et qui propose l'enregistrement
  */
 class ScenePseudo {
 
 
-
     /**
      * Genère une stage contant un form pour entrer un pseudo
+     *
      * @param c Le controleur de la partie
      * @return la stage et submit entraine  la stage de menu
      */
 
-    public static  Scene stre(Controller c){
-        Button buttonClear,buttonSubmit;
+    public static Scene stre(Controller c) {
+        Button buttonClear, buttonSubmit;
         Label labelPseudo;
         TextField inputPseudo;
         Scene scene;
 
         VBox root = new VBox();
-        HBox ligne_input_label=new HBox();
-        HBox ligne_buttons=new HBox();
+        HBox ligne_input_label = new HBox();
+        HBox ligne_buttons = new HBox();
         root.setStyle("-fx-background-color: #393939");
         labelPseudo = new Label("Pseudo :");
 

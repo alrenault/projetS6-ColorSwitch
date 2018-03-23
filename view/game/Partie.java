@@ -1,9 +1,9 @@
 package view.game;
 
 
-import view.game.path.Path;
 import javafx.scene.paint.Color;
 import model.Model;
+import view.game.path.Path;
 
 
 class Partie {

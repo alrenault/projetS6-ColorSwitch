@@ -1,10 +1,11 @@
 package DB;
 
 import view.game.Score;
-import java.lang.String;
 
-/**Objet de gestion des interactions avec la base de données
+/**
+ * Objet de gestion des interactions avec la base de données
  * Utlisé par GestionDB in getNBestRecords et getScoreOfPlayer
+ *
  * @autor Vincent
  * @date 07/03/2018
  */
@@ -24,8 +25,9 @@ public class Record {
 
     /**
      * Constructeur de Record
-     * @param pseudoJoueur le pseudo du joueur
-     * @param scoreJoueur  le score du joueur
+     *
+     * @param pseudoJoueur     le pseudo du joueur
+     * @param scoreJoueur      le score du joueur
      * @param dateRecordJoueur la date du record
      */
     public Record(String pseudoJoueur, Score scoreJoueur, String dateRecordJoueur) {
@@ -36,6 +38,7 @@ public class Record {
 
     /**
      * Accesseur de pseudoJoueur
+     *
      * @return pseudoJoueur
      */
     public String getPseudoJoueur() {
@@ -44,6 +47,7 @@ public class Record {
 
     /**
      * Accesseur de ScoreJoueur
+     *
      * @return scoreJoueur contenu dans le Score
      */
     public Score getScoreJoueurRecord() {
@@ -52,14 +56,16 @@ public class Record {
 
     /**
      * Accesseur du nombre d'etoiles ramassées
+     *
      * @return le nombre d'etoiles ramassées contenu dans le Score
      */
-     public int getNbEtoilesRamassees() {
+    public int getNbEtoilesRamassees() {
         return scoreJoueur.getNbEtoilesRamassees();
     }
 
     /**
      * Accesseur du nombre d'obstacles traversés
+     *
      * @return le nombre d'obstacles traversés contenu dans le Score
      */
     public int getNbrObstaclesCrossed() {
@@ -68,6 +74,7 @@ public class Record {
 
     /**
      * Assesseur du score du joueur
+     *
      * @return le score du joueur contenu dans le Score
      */
     public int getScore() {
@@ -76,6 +83,7 @@ public class Record {
 
     /**
      * Accesseur de la date du score du joueur
+     *
      * @return La date du score casté en String
      */
     public String getDateRecordJoueur() {
@@ -84,14 +92,15 @@ public class Record {
 
     /**
      * Pour tests
+     *
      * @return le toString de Score
      */
     @Override
     public String toString() {
         return "[" +
-                " " + pseudoJoueur  +
+                " " + pseudoJoueur +
                 ", " + scoreJoueur.toString() +
-                "," + dateRecordJoueur  +
+                "," + dateRecordJoueur +
                 " ]";
     }
 }

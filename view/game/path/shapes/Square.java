@@ -14,7 +14,6 @@ class Square extends Shapes {
 
     /**
      * Constructeur d'un carre
-     
      */
     public Square(ModelSquare ms) {
         super(ms);
@@ -23,13 +22,14 @@ class Square extends Shapes {
 
         //recuperation de la position
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-        
+
         //check();
 
     }
 
     /**
      * Génère le carre
+     *
      * @return le Group correspondant au carre
      */
     private Group buildShape(ModelSquare ms) {
@@ -66,7 +66,7 @@ class Square extends Shapes {
         ms.color(rec4);
         ms.verifPosColor();
 
-        addSL(rec1,rec2,rec3,rec4);
+        addSL(rec1, rec2, rec3, rec4);
         squaire.getChildren().add(rec1);
         squaire.getChildren().add(rec2);
         squaire.getChildren().add(rec3);

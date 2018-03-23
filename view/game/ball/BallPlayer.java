@@ -15,7 +15,7 @@ import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import model.modelBall.Ball;
 
-public class BallPlayer extends Player{
+public class BallPlayer extends Player {
 
     private double size;
     private Color color;
@@ -29,51 +29,50 @@ public class BallPlayer extends Player{
     private double limiteJump;
     private TranslateTransition ttl;
     //private Ball ball;
-    
+
 
     public BallPlayer(float size, Color color, Scene scene) {
-    	super();
-        this.model_ball = new Ball(size,color);
-    	
+        super();
+        this.model_ball = new Ball(size, color);
+
         this.size = size;
         this.color = color;
         this.scene = scene;
-        
+
         this.shape = buildBall();
-                
-        model_ball.setX(scene.getWidth()/2);
-        model_ball.setY(scene.getHeight()/2);
-                
+
+        model_ball.setX(scene.getWidth() / 2);
+        model_ball.setY(scene.getHeight() / 2);
+
     }
-    
+
     public BallPlayer(Ball ball, Scene scene) {
-    	super();
-    	
-    	this.model_ball = ball;
-    	
-    	this.scene = scene;
-    	//this.ball = ball;
-    	this.size = ball.getSize();
-    	this.color = ball.getColor();
-    	limiteJump = scene.getHeight() / 2;
-    	
-    	this.shape = buildBall();
-    	
-    	model_ball.setX(scene.getWidth()/2);
-    	
-        model_ball.setY(scene.getHeight()/1.25);
-        
-        
-    	
+        super();
+
+        this.model_ball = ball;
+
+        this.scene = scene;
+        //this.ball = ball;
+        this.size = ball.getSize();
+        this.color = ball.getColor();
+        limiteJump = scene.getHeight() / 2;
+
+        this.shape = buildBall();
+
+        model_ball.setX(scene.getWidth() / 2);
+
+        model_ball.setY(scene.getHeight() / 1.25);
+
+
     }
 
 
-	private Group buildBall() {
+    private Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
         //player.setCenterX(scene.getWidth() / 2);
         //player.setCenterY(scene.getHeight() - 150);
-        
+
         addSL(player);
         ball.getChildren().add(player);
 
@@ -118,7 +117,7 @@ public class BallPlayer extends Player{
         return ball;
 
     }
-    
+
     public double getX() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
@@ -129,13 +128,12 @@ public class BallPlayer extends Player{
         return coord.getMinY() + coord.getHeight() / 2;
 
     }
-    
+
     public Point2D getCoord() {
         return new Point2D(getX(), getY());
     }
 
 
-    
     public void applyGravity() {
         gravity = new TranslateTransition(Duration.seconds(4), shape);
         gravity.setByY(scene.getHeight() + size);
@@ -150,10 +148,10 @@ public class BallPlayer extends Player{
 
     //static int xj = 100;
 
-    
+
     public void jump() {
         // TODO Auto-generated method stub
-    	applyGravity();
+        applyGravity();
         gravity.pause();
         gravity.stop();
         tt2.stop();
@@ -192,23 +190,22 @@ public class BallPlayer extends Player{
     }
 
     public void jumpLimit() {
-    	//scene.getCamera().setTranslateY(scene.getCamera().getTranslateY()-100);
-    	//Group g = (Group)scene.getRoot();
-    	//g.setTranslateY(g.getTranslateY()+100);
-    	//scene.getCamera().setLayoutY(scene.getCamera().getLayoutY()-100);
-    	if(ttl != null){
-    		//ttl.stop();
-    		ttl.setByY(ttl.getByY());
-    	}
-    	else{
-    		ttl = new TranslateTransition(Duration.seconds(0.2), scene.getCamera());
+        //scene.getCamera().setTranslateY(scene.getCamera().getTranslateY()-100);
+        //Group g = (Group)scene.getRoot();
+        //g.setTranslateY(g.getTranslateY()+100);
+        //scene.getCamera().setLayoutY(scene.getCamera().getLayoutY()-100);
+        if (ttl != null) {
+            //ttl.stop();
+            ttl.setByY(ttl.getByY());
+        } else {
+            ttl = new TranslateTransition(Duration.seconds(0.2), scene.getCamera());
             ttl.setByY(-100);
             ttl.setInterpolator(Interpolator.LINEAR);
 
-    	}
+        }
         ttl.play();
-    	//scene.getCamera().setTranslateY(-100);
-    	limiteJump -= 100;
+        //scene.getCamera().setTranslateY(-100);
+        limiteJump -= 100;
         /*TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
         tt1.setByY(100);
 
@@ -217,41 +214,34 @@ public class BallPlayer extends Player{
         tt1.play();*/
     }
 
-	
-	public double getSize() {
-		return size;
-	}
-	
-	public Group getShape() {
-		return shape;
-	}
 
-	@Override
-	protected Group build() {
-		return buildBall();
-	}
+    public double getSize() {
+        return size;
+    }
 
-	public double getLimiteJump() {
-		return limiteJump;
-	}
+    public Group getShape() {
+        return shape;
+    }
 
-	public Color getColor() {
-		return color;
-	}
+    @Override
+    protected Group build() {
+        return buildBall();
+    }
 
-	public void setColor(Color color) {
-		for(Shape s : getShapeList()){
-			s.setFill(color);
-		}
-		this.color = color;
-	}
-	
+    public double getLimiteJump() {
+        return limiteJump;
+    }
 
-    
+    public Color getColor() {
+        return color;
+    }
 
+    public void setColor(Color color) {
+        for (Shape s : getShapeList()) {
+            s.setFill(color);
+        }
+        this.color = color;
+    }
 
-
-
-	
 
 }

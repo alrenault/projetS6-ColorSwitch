@@ -12,11 +12,9 @@ import model.modelShape.ModelVLine;
  */
 class VerticalLine extends Shapes {
 
-    
 
     /**
      * Constructeur d'une ligne verticale
-
      */
     public VerticalLine(ModelVLine mvl) {
         super(mvl);
@@ -24,13 +22,14 @@ class VerticalLine extends Shapes {
 
         //recuperation de la position
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-        
-       // check();
+
+        // check();
     }
 
 
     /**
      * Génère la ligne verticale
+     *
      * @return le Group correspondant a la ligne verticale
      */
     private Group buildShape(ModelVLine mvl) {
@@ -40,7 +39,7 @@ class VerticalLine extends Shapes {
             mvl.verifPosColor();
             Rectangle rec = new Rectangle(mvl.getX() + mvl.getDistanceSeparation() * i, mvl.getY(), mvl.getWidth(), mvl.getHeight());
             mvl.color(rec);
-            
+
             addSL(rec);
             hline.getChildren().add(rec);
         }

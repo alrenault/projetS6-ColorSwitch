@@ -2,13 +2,14 @@ package view.game;
 
 /**
  * Modelise le joueur de l'appli (Non utlisée ( on ne demande pas le nom du joueur au début)
+ *
  * @autor Vincent
  * @date 25/02/2018
  */
 class Player {
     /**
      * Le nom du joueur
-     * */
+     */
 
     private String namePlayer;
     /**
@@ -18,6 +19,7 @@ class Player {
 
     /**
      * Constucteur aveugle de Joueur
+     *
      * @param namePlayer le pseudo du Joueur
      */
     public Player(String namePlayer) {
@@ -33,7 +35,8 @@ class Player {
         this.scorePlayer = new Score();
     }
 
-    /**Getter du nom du Joueur
+    /**
+     * Getter du nom du Joueur
      *
      * @return le pseudo du Joueur
      */
@@ -42,7 +45,6 @@ class Player {
     }
 
     /**
-     *
      * @param namePlayer le pseudo du joueur
      */
     public void setNamePlayer(String namePlayer) {
@@ -50,7 +52,6 @@ class Player {
     }
 
     /**
-     *
      * @return le score du joueur
      */
     public double getScorePlayer() {

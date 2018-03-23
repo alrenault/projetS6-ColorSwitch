@@ -9,16 +9,16 @@ import java.util.Random;
  * This interface propose to use already defined colors when building shapes
  */
 public interface Colorable {
-	Color BLACK = Color.rgb(39, 39, 39);
+    Color BLACK = Color.rgb(39, 39, 39);
     Color YELLOW = Color.rgb(255, 255, 0);
     Color PURPLE = Color.rgb(144, 13, 255);
     Color ROSE = Color.rgb(255, 1, 129);
     Color BLUE = Color.rgb(50, 219, 240);
-    
-    Color BRONZE = Color.rgb(97, 78,26);
+
+    Color BRONZE = Color.rgb(97, 78, 26);
     Color SILVER = Color.rgb(206, 206, 206);
-    Color GOLD = Color.rgb(255,215,0);
-   // Set<Color> CUSTOM;
+    Color GOLD = Color.rgb(255, 215, 0);
+    // Set<Color> CUSTOM;
     
 	/*public static default List<Color> custom(){
 		List<Color> CUSTOM = new ArrayList<Color>();
@@ -28,7 +28,7 @@ public interface Colorable {
 		CUSTOM.add(BLUE);
 		return CUSTOM;
 	}*/
-    
+
 
     Color[] WHITE = {Color.rgb(255, 255, 255)};
     Color[] CUSTOM = {YELLOW, PURPLE, ROSE, BLUE};

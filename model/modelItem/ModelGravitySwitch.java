@@ -5,9 +5,9 @@ import model.ItemType;
 /**
  * Modele de Modifieur de gravité
  */
-public class ModelGravitySwitch extends ModelItem{
+public class ModelGravitySwitch extends ModelItem {
 
-	 /**
+    /**
      * La taille du modifieur de gravité
      */
     private double size;
@@ -18,32 +18,34 @@ public class ModelGravitySwitch extends ModelItem{
 
     /**
      * Constructeur
-     * @param x coordonnée x de l'objet
-     * @param y coordonnée y de l'objet
+     *
+     * @param x         coordonnée x de l'objet
+     * @param y         coordonnée y de l'objet
      * @param coefForce coeficient de gravité
      */
-    public ModelGravitySwitch(double x, double y,double coefForce, ItemType type) {
-        super(x, y,null,5, type);
+    public ModelGravitySwitch(double x, double y, double coefForce, ItemType type) {
+        super(x, y, null, 5, type);
         this.size = 3.0;
-        this.coefForce=coefForce;
+        this.coefForce = coefForce;
     }
 
     /**
      * Accesseur de la valeur de taille du modifieur de gravité
+     *
      * @return Sa taille
      */
-	public double getSize() {
-		return size;
-	}
+    public double getSize() {
+        return size;
+    }
 
     /**
      * Accesseur de la valeur du coeficient de gravité
+     *
      * @return Le coeficient de gravité
      */
-	public double getCoefForce() {
-		return coefForce;
-	}
-    
-    
+    public double getCoefForce() {
+        return coefForce;
+    }
+
 
 }

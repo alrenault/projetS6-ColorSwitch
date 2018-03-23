@@ -1,4 +1,5 @@
 package view.game;
+
 import view.game.path.Modifiers;
 
 /**

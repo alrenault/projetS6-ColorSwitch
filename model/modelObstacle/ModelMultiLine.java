@@ -1,11 +1,11 @@
 package model.modelObstacle;
 
-import java.util.List;
-import java.util.Random;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -14,11 +14,11 @@ public class ModelMultiLine extends ModelObstacle {
     /**
      *
      */
-	public static final int NBR_VERSIONS = 11;
+    public static final int NBR_VERSIONS = 11;
     /**
      *
      */
-	private static final double MAX_HEIGHT = 220;
+    private static final double MAX_HEIGHT = 220;
     /**
      *
      */
@@ -37,7 +37,6 @@ public class ModelMultiLine extends ModelObstacle {
     private double scWidth;
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -47,12 +46,11 @@ public class ModelMultiLine extends ModelObstacle {
      */
     public ModelMultiLine(double x, double y, List<Color> colors, int version, double scWidth, ObstacleType type) {
         super(x, y, colors, version, 4, type);
-        
+
         this.scWidth = scWidth;
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -78,7 +76,6 @@ public class ModelMultiLine extends ModelObstacle {
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -98,12 +95,11 @@ public class ModelMultiLine extends ModelObstacle {
                 version = ModelMultiLine.getRandomHardVersion();
                 break;
         }
-        
+
         //obstacle = buildObstacle();
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomEasyVersion() {
@@ -112,7 +108,6 @@ public class ModelMultiLine extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomMediumVersion() {
@@ -121,7 +116,6 @@ public class ModelMultiLine extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomHardVersion() {
@@ -130,21 +124,18 @@ public class ModelMultiLine extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
-	public double getScWidth() {
-		return scWidth;
-	}
+    public double getScWidth() {
+        return scWidth;
+    }
 
     /**
-     *
      * @return
      */
-	public double getObstacleHeight() {
-		return MAX_HEIGHT;
-	}
-    
-    
+    public double getObstacleHeight() {
+        return MAX_HEIGHT;
+    }
+
 
 }
