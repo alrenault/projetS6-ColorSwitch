@@ -22,7 +22,7 @@ public class GestionDB {
     /**
      * Addresse de la base de données
      */
-    private static final String DB_URL = "jdbc:mysql://localhost:8889/" + DB_NAME;
+    private static final String DB_URL = "jdbc:mysql://localhost:3309/" + DB_NAME;
     /**
      * Nom de l'utilisateur de la base de données
      */
@@ -30,7 +30,7 @@ public class GestionDB {
     /**
      * Mot de passe associé à DB_USERNAME de la base de données
      */
-    private static final String DB_PASSWORD = "root";
+    private static final String DB_PASSWORD = "";
 
     /**
      * Connection sur laquelle se fera toutes les interractions

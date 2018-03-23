@@ -51,9 +51,9 @@ class ScenePseudo {
         buttonSubmit = new Button("Envoyer");
 
         buttonSubmit.setOnAction(e -> {
-            String p = inputPseudo.getText();
-            System.err.println(p+" : "+c.getScore().toString());
-            c.recordScore(View.controller.getScore());
+            String pseudo = inputPseudo.getText();
+            System.err.println(pseudo+" : "+c.getScore().toString());
+            c.recordScore(pseudo,View.controller.getScore());
             View.controller.startMenu();
         });
         buttonClear.setOnAction(event -> inputPseudo.clear());

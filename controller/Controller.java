@@ -76,6 +76,7 @@ public class Controller {
     public void recordScore(String pseudo, Score score) {
 
 
+    	System.out.println("CA VA LA");
         connectionDB.record(pseudo, score);
     }
 
