@@ -4,8 +4,7 @@ import model.ItemType;
 import model.modelItem.ModelItem;
 
 /**
- * @autor Vincent
- * @date 16/02/2018
+ *
  */
 public class Score {
     private static final int nbPointsParObstacle = 5;
@@ -36,7 +35,7 @@ public class Score {
     }
 
     /**
-     * ONLY FOR TESTING && DB !
+     * ONLY FOR TESTING ET DB !
      * Utilisé uniquement dans populate
      *
      * @param nbrObstaclesCrossed Le nombre d'Obstacles franchis

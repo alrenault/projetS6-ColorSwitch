@@ -5,8 +5,6 @@ import view.game.path.Modifiers;
 /**
  * Change le sens de gravité
  *
- * @autor Vincent
- * @date 10/03/2018
  */
 class InverserGravity extends Modifiers {
     public InverserGravity(int nbPoints, double x, double y) {

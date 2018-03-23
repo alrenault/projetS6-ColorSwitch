@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *Modele générique d'Items
  */
 public class ModelItem {
 
@@ -37,7 +37,7 @@ public class ModelItem {
      * @param y        coordonnée y de l'Item
      * @param colors   L'ensemble de couleurs que l'on peut utiliser pour cet Item (Liste)
      * @param nbPoints nombre de points gagnés en rammassant l'Item
-     * @param type
+     * @param type Le type d'Item
      */
     ModelItem(double x, double y, List<Color> colors, int nbPoints, ItemType type) {
         assert (x >= 0);
@@ -58,14 +58,16 @@ public class ModelItem {
     }
 
     /**
-     * @return
+     * Accesseur de la liste des couleurs utilisables
+     * @return La liste des couleurs utilisables
      */
     public List<Color> getColors() {
         return colors;
     }
 
     /**
-     * @param colors
+     * Mutateur des couleurs utilisables
+     * @param colors La (nouvelle) liste des couleurs utilisables
      */
     public void setColors(List<Color> colors) {
         this.colors = colors;

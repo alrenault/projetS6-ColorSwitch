@@ -6,7 +6,7 @@ import model.ItemType;
 import java.util.List;
 
 /**
- *
+ * Modele d'Etoile
  */
 public class ModelStar extends ModelItem {
 
@@ -36,7 +36,7 @@ public class ModelStar extends ModelItem {
      *
      * @param x    Coordonnée x de l'Etoile
      * @param y    Coordonnée y de l'Etoile
-     * @param type
+     * @param type Le type
      */
     public ModelStar(double x, double y, ItemType type) {
         super(x, y, null, 10, type);

@@ -9,7 +9,7 @@ public class BuildShape {
 
 	/**
 	 * Génère une forme en fonction du modèle (et de son type)
-	 * @param mi Le modèle dont on veut la forme
+	 * @param model_shape Le modèle dont on veut la forme
 	 * @return l'Obstacle représentant le modèle
 	 */
     public static Shapes constructShape(ModelShape model_shape) {

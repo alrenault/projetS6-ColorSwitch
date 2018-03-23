@@ -14,13 +14,13 @@ import java.util.List;
  */
 public class ModelBallColorSwitch extends ModelItem implements Colorable {
     /**
-     *
+     * La taille de la ballCS
      */
     private double size;
     /**
      *
      */
-    private int pos_color = 0;
+    private Integer pos_color = 0;
     /**
      *
      */
@@ -42,7 +42,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
     /**
      * @return
      */
-    public int getPos_color() {
+    public Integer getPos_color() {
         return pos_color;
     }
 

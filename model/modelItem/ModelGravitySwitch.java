@@ -22,7 +22,9 @@ public class ModelGravitySwitch extends ModelItem {
      * @param x         coordonnée x de l'objet
      * @param y         coordonnée y de l'objet
      * @param coefForce coeficient de gravité
+     * @param type Le type d'Item (GravitySwitch)
      */
+
     public ModelGravitySwitch(double x, double y, double coefForce, ItemType type) {
         super(x, y, null, 5, type);
         this.size = 3.0;
@@ -32,7 +34,7 @@ public class ModelGravitySwitch extends ModelItem {
     /**
      * Accesseur de la valeur de taille du modifieur de gravité
      *
-     * @return Sa taille
+     * @return La taille du modifieur de gravité
      */
     public double getSize() {
         return size;
