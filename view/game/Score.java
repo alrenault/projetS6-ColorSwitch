@@ -36,19 +36,31 @@ public class Score {
     }
 
     /**
-     * ONLY FOR TESTING !
+     * ONLY FOR TESTING && DB !
      * Utilisé uniquement dans populate
      * @param nbrObstaclesCrossed Le nombre d'Obstacles franchis
      * @param nbEtoilesRamassees Le nombre d'étoiles rammassées
-     * @param scoreStored Le score calculé
      */
-    public Score(Integer nbrObstaclesCrossed, Integer nbEtoilesRamassees, Integer scoreStored) {
+    public Score(Integer nbrObstaclesCrossed, Integer nbEtoilesRamassees) {
         assert(nbrObstaclesCrossed>=0);
         assert(nbEtoilesRamassees>=0);
-        assert(scoreStored>=0);
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
-        this.scoreStored = scoreStored;
+        this.scoreStored = getScore();
+    }
+
+    /**
+     * Constructeur de Score complet (uniquement dans DB)
+     * @param nbrObstaclesCrossed Le nombre d'Obstacles franchis
+     * @param nbEtoilesRamassees Le nombre d'étoiles rammassées
+     * @param scoreStored Le score
+     */
+    public Score(Integer nbrObstaclesCrossed, Integer nbEtoilesRamassees,Integer scoreStored) {
+        assert(nbrObstaclesCrossed>=0);
+        assert(nbEtoilesRamassees>=0);
+        this.nbrObstaclesCrossed = nbrObstaclesCrossed;
+        this.nbEtoilesRamassees = nbEtoilesRamassees;
+        this.scoreStored =scoreStored;
     }
 
     /**
@@ -93,7 +105,7 @@ public class Score {
      */
 
     public Integer getScore() {
-        return scoreStored + nbrObstaclesCrossed*nbPointsParObstacle *nbEtoilesRamassees;
+        return scoreStored + nbrObstaclesCrossed*nbPointsParObstacle;
     }
 
     /**

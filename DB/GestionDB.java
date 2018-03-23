@@ -265,26 +265,25 @@ public class GestionDB {
 
             int boundPortes=500;
             int boundEtoiles=2500;
-            int boundScores=1000000;
 
             for (int i = 0; i < 15; i++) {
-                record("Vincent", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Quentin", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Alexis", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Yohan", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Anthony", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Pierrick", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Romain", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Jules", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Thomas", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Thomas2", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Jack", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Pierre", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Firmin", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Louis", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Richard", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Henry", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
-                record("Edward", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles), new Random().nextInt(boundScores)));
+                record("Vincent", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Quentin", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Alexis", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Yohan", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Anthony", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Pierrick", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Romain", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Jules", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Thomas", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Thomas2", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Jack", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Pierre", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Firmin", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Louis", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Richard", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Henry", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
+                record("Edward", new Score(new Random().nextInt(boundPortes), new Random().nextInt(boundEtoiles)));
             }
         }
     }
