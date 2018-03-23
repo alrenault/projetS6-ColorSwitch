@@ -30,11 +30,11 @@ public class GestionDB {
     /**
      * Nom de l'utilisateur de la base de données
      */
-    private static  String DB_USERNAME = "root";
+    private static String DB_USERNAME = "root";
     /**
      * Mot de passe associé à DB_USERNAME de la base de données
      */
-    private static  String DB_PASSWORD = "root";
+    private static String DB_PASSWORD = "root";
 
     /**
      * Connection sur laquelle se fera toutes les interractions
@@ -50,7 +50,11 @@ public class GestionDB {
             this.populateDB();
     }
     /**
-     * Constucteur de Gestion DB
+     * Constucteur de GestionDB
+     *
+     * @param user Le nom de l'utilsateur
+     * @param password le mot de passe de l'utilisateur
+     * @param nPorts le numero de port MySql
      */
     public GestionDB(String user,String password,Integer nPorts) {
 
@@ -76,6 +80,11 @@ public class GestionDB {
     /**
      * Doit etre uniquement utilisée dans et par cette classe
      * Effectue la connexion sql
+     *
+     * @param user Le nom de l'utilsateur
+     * @param password le mot de passe de l'utilisateur
+     * @param nPorts le numero de port MySql
+     * @return True si la connection est validée
      */
     private boolean connexion(String user,String password,Integer nPorts ) {
         try {
