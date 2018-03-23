@@ -24,10 +24,8 @@ class Menu {
 		root.getChildren().add(newGameHard);
 		
 		root.setLayoutY(500);
-		
-		Scene scene = new Scene(root, 600, 1000);
-		
-		return scene;
+
+		return new Scene(root, 600, 1000);
 		
 	}
 

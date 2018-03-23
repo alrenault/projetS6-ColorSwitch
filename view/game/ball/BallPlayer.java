@@ -33,8 +33,7 @@ public class BallPlayer extends Player{
 
     public BallPlayer(float size, Color color, Scene scene) {
     	super();
-    	Ball bawl = new Ball(size,color);
-    	this.model_ball = bawl;
+        this.model_ball = new Ball(size,color);
     	
         this.size = size;
         this.color = color;
