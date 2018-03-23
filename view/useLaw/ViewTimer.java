@@ -84,6 +84,7 @@ public class ViewTimer {
             }
 
         };
+        laws.add(tourni);
     }
 
     public void play() {
