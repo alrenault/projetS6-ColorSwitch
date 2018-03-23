@@ -51,6 +51,7 @@ class ScenePseudo {
             String p = inputPseudo.getText();
             System.err.println(p);
             System.err.println(c+"==" + ((c==null)?"Null":"Non null"));
+            System.err.println(View.controller.getScore().toString());
             c.recordScore(View.controller.getScore());
             View.controller.startMenu();
         });
