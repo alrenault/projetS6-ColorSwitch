@@ -28,7 +28,7 @@ public class ModelItem {
      */
     private int nbPoints;
     /**
-     *
+     *Le type de l'Item
      */
     private ItemType type;
 
@@ -72,32 +72,40 @@ public class ModelItem {
     }
 
     /**
-     * @return
+     * Accesseur de coordonnée en x
+     * @return La coordonnée x
      */
     public double getX() {
         return x;
     }
 
     /**
-     * @return
+     * Accesseur de coordonnée en y
+     * @return La coordonnée y
      */
     public double getY() {
         return y;
     }
 
+    /**
+     * Mutateur de coordonnée en y
+     * @param y La coordonnée en y
+     */
     public void setY(double y) {
         this.y = y;
     }
 
     /**
-     * @return
+     * Accesseur du nombre de points
+     * @return Le nombre de points
      */
     public int getNbPoints() {
         return nbPoints;
     }
 
     /**
-     * @return
+     * Accesseur du type d'Item
+     * @return Le type d'Item
      */
     public ItemType getType() {
         return type;
