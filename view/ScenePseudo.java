@@ -34,6 +34,7 @@ class ScenePseudo {
         VBox root = new VBox();
         HBox ligne_input_label=new HBox();
         HBox ligne_buttons=new HBox();
+
         labelPseudo = new Label("Pseudo :");
 
         inputPseudo = new TextField();
@@ -41,6 +42,7 @@ class ScenePseudo {
 
         ligne_input_label.getChildren().add(labelPseudo);
         ligne_input_label.getChildren().add(inputPseudo);
+        ligne_input_label.setAlignment(Pos.CENTER);
         root.getChildren().add(ligne_input_label);
 
         buttonClear = new Button("Reset");
@@ -55,11 +57,13 @@ class ScenePseudo {
             View.controller.startMenu();
         });
         buttonClear.setOnAction(event -> inputPseudo.clear());
+
         ligne_buttons.getChildren().add(buttonSubmit);
         ligne_buttons.getChildren().add(buttonClear);
+        ligne_buttons.setAlignment(Pos.CENTER);
         root.getChildren().add(ligne_buttons);
-
-        root.setAlignment(Pos.CENTER);// centre pas ou il faut
+        root.setSpacing(20);
+        //root.setAlignment(Pos.CENTER);// centre pas ou il faut
         scene = new Scene(root, View.tailleX, View.tailleY);
         scene.setFill(Colorable.BLACK);//ne colore pas
         return scene;
