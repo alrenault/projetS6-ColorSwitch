@@ -21,7 +21,6 @@ public class Circle extends Shapes {
 	 */
     Circle(ModelCircle mc) {
         super(mc);
-        group_shape = buildShape();
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 

@@ -18,7 +18,6 @@ class Square extends Shapes {
     public Square(ModelSquare ms) {
         super(ms);
 
-        this.group_shape = buildShape();
 
         //recuperation de la position
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());

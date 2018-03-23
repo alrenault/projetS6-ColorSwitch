@@ -19,7 +19,6 @@ class Triangle extends Shapes {
     public Triangle(ModelTriangle mt) {
         super(mt);
 
-        this.group_shape = buildShape();
 
         //recuperation de la position (a voir si on ne peut pas le mettre dans la factory)
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());

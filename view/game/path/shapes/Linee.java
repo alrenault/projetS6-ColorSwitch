@@ -18,7 +18,6 @@ class Linee extends Shapes {
      */
     public Linee(ModelHLine mhl) {
         super(mhl);
-        this.group_shape = buildShape();
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 

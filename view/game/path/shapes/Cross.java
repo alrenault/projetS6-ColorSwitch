@@ -18,7 +18,7 @@ public class Cross extends Shapes {
      */
     public Cross(ModelCross mc) {
         super(mc);
-        group_shape = build();
+        group_shape = buildShape();
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 
