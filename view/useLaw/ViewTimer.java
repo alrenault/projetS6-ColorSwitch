@@ -54,7 +54,7 @@ public class ViewTimer {
 		//laws.add(co);
 		laws.add(ci);
 		
-		
+
 		timer = new AnimationTimer() {
 			long startTime = System.currentTimeMillis();
 			long checkpoint = startTime;
@@ -65,9 +65,9 @@ public class ViewTimer {
 			public void handle(long now) {
 				long currentTime = System.currentTimeMillis();
 				long duree = currentTime - startTime;
-				
+
 				checkpoint = currentTime-checkpoint;
-				
+
 				System.out.println("Last time : "+checkpoint + " ms");
 				
 				checkpoint = currentTime;
