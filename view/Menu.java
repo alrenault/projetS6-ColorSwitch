@@ -12,10 +12,13 @@ import view.game.path.obstacle.BuildObstacle;
 import view.game.path.obstacle.CircleInCircle;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import model.ObstacleType;
 import model.modelObstacle.ModelCircleInCircle;
 import javafx.scene.Group;
@@ -31,21 +34,39 @@ public class Menu {
 	 * @param height
 	 * @return
 	 */
+	
+	static int i = 0;
+
 	public static Scene createInstance(Controller controller,double width, double height){
 		List<Color> colorExterne = new ArrayList<Color>();
 		colorExterne.add(Colorable.YELLOW);
 		colorExterne.add(Colorable.PURPLE);
 		colorExterne.add(Colorable.ROSE);
 		colorExterne.add(Colorable.BLUE);
+		
     	
 		int buttonWidth = 200;
 		int buttonHeight = 50;
 		
 		Group root = new Group();
+		
+		//VBox vColor = new VBox(10);
+		
+		
+		//vColor.getChildren().add(colorSwitch);
+		//root.getChildren().add(vColor);
+
 		VBox vBox = new VBox(25);
 		//Circle c = new Circle(100,100,100,Color.BLUE);
     	//root.getChildren().add(c);
     	//c.setOnMouseClicked(event -> System.out.println("ca click"));
+		Label colorSwitch = new Label("Color Switch");
+		Font f = Font.font("Verdana",FontWeight.BOLD,50);
+		colorSwitch.setFont(f);
+		colorSwitch.setTextFill(colorExterne.get(i));
+		//colorSwitch.setTranslateX(125);
+		//colorSwitch.setTranslateY(50);
+		vBox.getChildren().add(colorSwitch);
 
     	double x = width/2;
         double y = 200;
@@ -70,15 +91,15 @@ public class Menu {
 		randomButton.getChildren().add(playRandom);
 		vBox.getChildren().add(randomButton);
 		
-		Polygon playEasy = FilledTriangle.create(x, y, side/2, Color.LIGHTGREEN);
-		Polygon playNormal = FilledTriangle.create(x, y, side/2, Color.ORANGERED);
-		Polygon playHard = FilledTriangle.create(x, y, side/2, Color.DARKRED);
+		//Polygon playEasy = FilledTriangle.create(x, y, side/2, Color.LIGHTGREEN);
+		//Polygon playNormal = FilledTriangle.create(x, y, side/2, Color.ORANGERED);
+		//Polygon playHard = FilledTriangle.create(x, y, side/2, Color.DARKRED);
 		
 		HBox infinite_difficulties = new HBox();
 		
-		infinite_difficulties.getChildren().add(playEasy);
-		infinite_difficulties.getChildren().add(playNormal);
-		infinite_difficulties.getChildren().add(playHard);
+		//infinite_difficulties.getChildren().add(playEasy);
+		//infinite_difficulties.getChildren().add(playNormal);
+		//infinite_difficulties.getChildren().add(playHard);
         
 		vBox.getChildren().add(infinite_difficulties);
         
@@ -87,6 +108,8 @@ public class Menu {
 		vBox.getChildren().add(goContinuHard);
 		vBox.getChildren().add(goLvl);
 		vBox.getChildren().add(goScore);
+		
+		vBox.setTranslateY(-100);
 
 		goContinuEasy.setMinHeight(buttonHeight);
 		goContinuNormal.setMinHeight(buttonHeight);
@@ -117,6 +140,12 @@ public class Menu {
 		goContinuHard.setOnAction(event -> controller.startGame(Difficulty.HARD));
 		goLvl.setOnAction(event -> controller.menuLvl() );
 		goScore.setOnAction(event->controller.showScoresMenu());
+		
+
+		colorSwitch.setOnMouseClicked(event ->{
+			i = (i+1)% colorExterne.size();
+			colorSwitch.setTextFill(colorExterne.get(i));
+		});
 
 
 		return sc;
