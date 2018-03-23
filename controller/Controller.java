@@ -135,4 +135,9 @@ public class Controller {
     public boolean isConnect() {
         return connectionDB.testConnexionDB();
     }
+
+	public void win() {
+		System.out.println("Victoire");
+		
+	}
 }

@@ -49,11 +49,14 @@ public class ViewTimer {
         CollisionItem ci = new CollisionItem(ball, path, controller, path.getjItems());
 
         Tourni tourni = new Tourni(scene);
-        laws.add(tourni);
-        laws.add(tourni);
+        //laws.add(tourni);
+        //laws.add(tourni);
 
         //laws.add(co);
         laws.add(ci);
+        
+        FinishLine finishLine = new FinishLine(path,ball,controller);
+        laws.add(finishLine);
 
 
         timer = new AnimationTimer() {

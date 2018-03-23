@@ -53,6 +53,8 @@ public class ViewPath {
     private Group jItems;
 
     private Rectangle finishLine;
+    
+    private double yFinishLine=0;
 
     public ViewPath(Path path) {
         this.path = path;
@@ -76,6 +78,7 @@ public class ViewPath {
             path.setFinishLine(path.getPosY());
             finishLine = new Rectangle(0, path.getPosY() - 10, path.getScWidth(), 10);
             finishLine.setFill(Color.RED);
+            yFinishLine = path.getFinishLine();
         }
 
         //buildObstacles(path);
@@ -207,6 +210,11 @@ public class ViewPath {
     public Rectangle getFinishLine() {
         return finishLine;
     }
+
+
+	public double getYFinishLine() {
+		return yFinishLine;
+	}
 
 
 }
