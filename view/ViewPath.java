@@ -54,7 +54,7 @@ public class ViewPath {
 
     private Rectangle finishLine;
     
-    private double yFinishLine=0;
+    private double yFinishLine=Double.MAX_VALUE;
 
     public ViewPath(Path path) {
         this.path = path;
