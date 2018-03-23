@@ -18,16 +18,7 @@ public interface Colorable {
     Color BRONZE = Color.rgb(97, 78, 26);
     Color SILVER = Color.rgb(206, 206, 206);
     Color GOLD = Color.rgb(255, 215, 0);
-    // Set<Color> CUSTOM;
-    
-	/*public static default List<Color> custom(){
-		List<Color> CUSTOM = new ArrayList<Color>();
-		CUSTOM.add(YELLOW);
-		CUSTOM.add(PURPLE);
-		CUSTOM.add(ROSE);
-		CUSTOM.add(BLUE);
-		return CUSTOM;
-	}*/
+
 
 
     Color[] WHITE = {Color.rgb(255, 255, 255)};
