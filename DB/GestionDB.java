@@ -14,7 +14,7 @@ public class GestionDB {
     /**
      * Numero de port de MySql
      */
-    private static final Integer NoPORT = 8889;
+    private static Integer NoPORT = 8889;
     /**
      * Addresse du driver de MySql
      */
@@ -30,11 +30,11 @@ public class GestionDB {
     /**
      * Nom de l'utilisateur de la base de données
      */
-    private static final String DB_USERNAME = "root";
+    private static  String DB_USERNAME = "root";
     /**
      * Mot de passe associé à DB_USERNAME de la base de données
      */
-    private static final String DB_PASSWORD = "root";
+    private static  String DB_PASSWORD = "root";
 
     /**
      * Connection sur laquelle se fera toutes les interractions
@@ -47,6 +47,14 @@ public class GestionDB {
     public GestionDB() {
 
         if (this.connexion())
+            this.populateDB();
+    }
+    /**
+     * Constucteur de Gestion DB
+     */
+    public GestionDB(String user,String password,Integer nPorts) {
+
+        if (this.connexion(user, password, nPorts))
             this.populateDB();
     }
 
@@ -65,7 +73,24 @@ public class GestionDB {
         }
         return true;
     }
-
+    /**
+     * Doit etre uniquement utilisée dans et par cette classe
+     * Effectue la connexion sql
+     */
+    private boolean connexion(String user,String password,Integer nPorts ) {
+        try {
+            if (connexion == null || connexion.isClosed()) {
+                Class.forName(JDBC_DRIVER);
+                DB_USERNAME=user;
+                DB_PASSWORD=password;
+                NoPORT=nPorts;
+                connexion = DriverManager.getConnection(DB_URL, user, password);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            return false;
+        }
+        return true;
+    }
     /**
      * Teste l'existence d'un pseudo dans la base
      *
