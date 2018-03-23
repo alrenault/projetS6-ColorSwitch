@@ -70,12 +70,18 @@ public class ViewTimer {
 
 				System.out.println("Last time : "+checkpoint + " ms");
 				
-				checkpoint = currentTime;
+				
 				//System.out.println("Time : "+ duree + " ms");
 				
-				for(UseLaw j : laws) {
-					j.apply();
+				if(checkpoint >= 100) {
+					for(UseLaw j : laws) {
+						j.apply();
+					}
+					checkpoint = currentTime;
 				}
+				
+				
+				
 				
 				
 			}

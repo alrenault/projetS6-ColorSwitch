@@ -12,6 +12,7 @@ public class Jump implements UseLaw {
     private double duration_since_last_jump;
     private double current_time;
     private double vectorY = 0;
+    private double jump_duration;
 
     public Jump(BallPlayer ball, Scene scene) {
         this.ball = ball;
@@ -19,6 +20,7 @@ public class Jump implements UseLaw {
         current_time = System.currentTimeMillis();
         last_jump_time = current_time;
         duration_since_last_jump = 0;
+        jump_duration = 1;
     }
 
     @Override
@@ -44,8 +46,14 @@ public class Jump implements UseLaw {
 
     }
 
-    private double computePosition(double time) {
-        vectorY = 800 / (time + 0.01);
+    private double computePosition(double duration_since_last_jump) {
+    	double during_jump = jump_duration*1000-duration_since_last_jump ;
+    	System.out.println(jump_duration);
+    	if(during_jump < 0) during_jump = 0 ;
+    	vectorY = Math.abs(during_jump)/50;
+    	System.out.println("Y : "+vectorY);
+    	
+        //vectorY = 800 / (duration_since_last_jump + 0.01);
         return vectorY;
     }
 
