@@ -138,4 +138,8 @@ public class Controller {
 	public void incItem(ModelItem mi){
 		model.incItem(mi);
 	}
+
+	public boolean isConnect() {
+		return connectionDB.testConnexionDB();
+	}
 }
