@@ -42,17 +42,17 @@ public class Jump implements UseLaw {
 
         double j = computePosition(duration_since_last_jump);
 
-        ball.getBall().addVectorY(-j*0.75);
+        ball.getBall().addVectorY(-j * 0.75);
 
     }
 
     private double computePosition(double duration_since_last_jump) {
-    	double during_jump = jump_duration*1000-duration_since_last_jump ;
-    	System.out.println(jump_duration);
-    	if(during_jump < 0) during_jump = 0 ;
-    	vectorY = Math.abs(during_jump)/50;
-    	System.out.println("Y : "+vectorY);
-    	
+        double during_jump = jump_duration * 1000 - duration_since_last_jump;
+        System.out.println(jump_duration);
+        if (during_jump < 0) during_jump = 0;
+        vectorY = Math.abs(during_jump) / 50;
+        System.out.println("Y : " + vectorY);
+
         //vectorY = 800 / (duration_since_last_jump + 0.01);
         return vectorY;
     }

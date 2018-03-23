@@ -3,7 +3,6 @@ package view.game.path.obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelCircleInCircle;
-import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
 import model.modelShape.ModelShape;
 import view.game.Difficulty;
@@ -31,11 +30,12 @@ public class CircleInCircle extends Obstacle {
 	default : version 4
 	*/
 
-    
-	/**
-	 * Constructeur d'un CircleInCircle
-	 * @param mcic Le model utilisé pour le CircleInCircle
-	 */
+
+    /**
+     * Constructeur d'un CircleInCircle
+     *
+     * @param mcic Le model utilisé pour le CircleInCircle
+     */
     public CircleInCircle(ModelCircleInCircle mcic) {
         super(mcic);
 
@@ -49,11 +49,11 @@ public class CircleInCircle extends Obstacle {
         double bigRadial = 100.0;
         double width = 15.0;
         int nb_arc = 4;
-        
+
         double x = mo.getX();
         double y = mo.getY();
         List<Color> colors = mo.getColors();
-        
+
         //BuildShape builder = new BuildShape();
 
         Group circleInCircle = new Group();
@@ -62,91 +62,90 @@ public class CircleInCircle extends Obstacle {
         List<ModelShape> modelC = new ArrayList<>();
 
 
-        if(mo.getVersion() >= ModelCircleInCircle.NBR_VERSIONS)
+        if (mo.getVersion() >= ModelCircleInCircle.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
 
         //double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
         //boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color
         Random r = new Random();
         int colorDeb = r.nextInt(colors.size());
-        int colorOppose = (colorDeb+nb_arc/2)%colors.size();
-        
-        
-        
+        int colorOppose = (colorDeb + nb_arc / 2) % colors.size();
+
+
         switch (mo.getVersion()) {
 
             case 0:
-            	modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add(new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.add(colors.get(colorDeb));
-            	color_passable.add(colors.get(colorOppose));
-                
-            	mo.setDifficulty(Difficulty.NORMAL);
-            	break;
+                modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.add(colors.get(colorDeb));
+                color_passable.add(colors.get(colorOppose));
+
+                mo.setDifficulty(Difficulty.NORMAL);
+                break;
 
             case 1:
-            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add( new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.add(colors.get(colorDeb));
-            	color_passable.add(colors.get(colorOppose));
-                
-            	mo.setDifficulty(Difficulty.NORMAL);
-            	break;
+                modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.add(colors.get(colorDeb));
+                color_passable.add(colors.get(colorOppose));
+
+                mo.setDifficulty(Difficulty.NORMAL);
+                break;
 
             case 2:
-            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0));
-            	modelC.add( new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.SYMPA, colors,2));
-            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0));
-            	color_passable.add(colors.get(1));
-            	color_passable.add(colors.get(3));
-                
-            	mo.setDifficulty(Difficulty.HARD);
+                modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0));
+                modelC.add(new ModelCircle(x, y, internRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 2));
+                modelC.add(new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 0));
+                color_passable.add(colors.get(1));
+                color_passable.add(colors.get(3));
+
+                mo.setDifficulty(Difficulty.HARD);
                 break;
 
             case 3:
-            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0));
-            	modelC.add( new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 2));
-            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0));
-            	color_passable.add(colors.get(1));
-            	color_passable.add(colors.get(3));
-            	
-            	mo.setDifficulty(Difficulty.HARD);
+                modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0));
+                modelC.add(new ModelCircle(x, y, internRadial, width, nb_arc, false, false, Speed.SYMPA, colors, 2));
+                modelC.add(new ModelCircle(x, y, mediumRadial, width, nb_arc, true, false, Speed.SYMPA, colors, 0));
+                color_passable.add(colors.get(1));
+                color_passable.add(colors.get(3));
+
+                mo.setDifficulty(Difficulty.HARD);
                 break;
 
             case 4:
-            	modelC.add( new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add( new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.add(colors.get(colorDeb));
-            	color_passable.add(colors.get(colorOppose));
-            	
-            	mo.setDifficulty(Difficulty.EASY);
+                modelC.add(new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.add(colors.get(colorDeb));
+                color_passable.add(colors.get(colorOppose));
+
+                mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 5:
-            	modelC.add( new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add(new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.add(colors.get(colorDeb));
-            	color_passable.add(colors.get(colorOppose));
-            	
-            	mo.setDifficulty(Difficulty.EASY);
+                modelC.add(new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.add(colors.get(colorDeb));
+                color_passable.add(colors.get(colorOppose));
+
+                mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 6:
-            	modelC.add( new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add( new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.add(colors.get(colorDeb));
-            	color_passable.add(colors.get(colorOppose));
-            	
-            	mo.setDifficulty(Difficulty.NORMAL);
-            	break;
+                modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelCircle(x, y, mediumRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.add(colors.get(colorDeb));
+                color_passable.add(colors.get(colorOppose));
+
+                mo.setDifficulty(Difficulty.NORMAL);
+                break;
 
             default:
-            	modelC.add( new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add( new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorOppose));
-            	color_passable.add(colors.get(colorDeb));
-            color_passable.add(colors.get(colorOppose));
-            	
-            	mo.setDifficulty(Difficulty.EASY);
+                modelC.add(new ModelCircle(x - bigRadial / 2, y, bigRadial, width, nb_arc, false, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelCircle(x + bigRadial / 2, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorOppose));
+                color_passable.add(colors.get(colorDeb));
+                color_passable.add(colors.get(colorOppose));
+
+                mo.setDifficulty(Difficulty.EASY);
         }
 
         for (ModelShape ms : modelC) {

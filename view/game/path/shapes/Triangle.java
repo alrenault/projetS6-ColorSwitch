@@ -30,7 +30,7 @@ class Triangle extends Shapes {
      * @return le Group correspondant au triangle
      */
     protected Group buildShape() {
-    	ModelTriangle mt = (ModelTriangle) ms;
+        ModelTriangle mt = (ModelTriangle) ms;
         Group t = new Group();
 
         double height = mt.getHeight();

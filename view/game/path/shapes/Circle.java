@@ -15,10 +15,11 @@ import model.modelShape.ModelCircle;
  */
 public class Circle extends Shapes {
 
-	/**
-	 * Constructeur d'un cercle
-	 * @param mc Le model utilisé pour le MultiCircle
-	 */
+    /**
+     * Constructeur d'un cercle
+     *
+     * @param mc Le model utilisé pour le MultiCircle
+     */
     Circle(ModelCircle mc) {
         super(mc);
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
@@ -26,11 +27,12 @@ public class Circle extends Shapes {
 
     /**
      * Generateur de la forme du cercle
+     *
      * @return un group représentant un cercle
      */
     protected Group buildShape() {
 
-    	ModelCircle mc = (ModelCircle)ms;
+        ModelCircle mc = (ModelCircle) ms;
         Group cercle = new Group();
         double angle = 360.0 / mc.getArcs_nbr();
 

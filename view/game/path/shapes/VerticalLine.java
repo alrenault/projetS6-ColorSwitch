@@ -32,7 +32,7 @@ class VerticalLine extends Shapes {
      * @return le Group correspondant a la ligne verticale
      */
     protected Group buildShape() {
-    	ModelVLine mvl = (ModelVLine)ms;
+        ModelVLine mvl = (ModelVLine) ms;
         Group hline = new Group();
 
         for (int i = 0; i < mvl.getNbr_seg(); i++) {

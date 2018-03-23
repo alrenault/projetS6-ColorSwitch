@@ -5,7 +5,6 @@ import view.game.path.Modifiers;
 
 /**
  * Change la force de gravité
- *
  */
 class ChangeurGravite extends Modifiers {
     /**

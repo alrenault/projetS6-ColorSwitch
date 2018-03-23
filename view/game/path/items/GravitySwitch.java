@@ -4,12 +4,12 @@ import controller.Controller;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import model.modelItem.ModelGravitySwitch;
-import model.modelItem.ModelItem;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
 
 
-/**Objet graphique Changeur de gravité
+/**
+ * Objet graphique Changeur de gravité
  */
 public class GravitySwitch extends Item {
 
@@ -22,7 +22,7 @@ public class GravitySwitch extends Item {
     }
 
     protected Group buildItem() {
-        double w = ((ModelGravitySwitch)mi).getSize();
+        double w = ((ModelGravitySwitch) mi).getSize();
         double x = mi.getX();
         double y = mi.getY();
 

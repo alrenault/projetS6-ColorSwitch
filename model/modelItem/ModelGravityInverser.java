@@ -26,6 +26,7 @@ public class ModelGravityInverser extends ModelGravitySwitch {
 
     /**
      * Accesseur de la valeur de la taille du GravityInverser
+     *
      * @return La taille du GravityInverser
      */
     @Override

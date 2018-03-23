@@ -3,7 +3,6 @@ package view.game.path.obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelMultiCross;
-import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCross;
 import model.modelShape.ModelShape;
 import view.game.Difficulty;
@@ -30,10 +29,11 @@ public class MultiCross extends Obstacle {
 	*/
 
 
-	/**
-	 * Constructeur du MultiCross
-	 * @param mmc Le model utilisé pour le MultiCross
-	 */
+    /**
+     * Constructeur du MultiCross
+     *
+     * @param mmc Le model utilisé pour le MultiCross
+     */
     public MultiCross(ModelMultiCross mmc) {
         super(mmc);
     }

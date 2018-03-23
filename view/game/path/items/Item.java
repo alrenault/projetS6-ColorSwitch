@@ -20,22 +20,21 @@ public abstract class Item extends Element {
      */
     Group item;
     /**
-     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de l'Item) 
-     */
-    private Bounds coord;
-    
-    /**
      * Le model contenant les données pour la construction e l'Item
      */
     ModelItem mi;
-    
+    /**
+     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de l'Item)
+     */
+    private Bounds coord;
+
     /**
      * Constructeur de la forme
      */
     Item(ModelItem mi) {
-       this.mi = mi;
-       item = new Group();
-       item = buildItem();
+        this.mi = mi;
+        item = new Group();
+        item = buildItem();
     }
 
 
@@ -46,17 +45,19 @@ public abstract class Item extends Element {
      */
     protected abstract Group buildItem();
 
-	/**
-	 * Méthodes définissant les actions à réaliser une fois l'Item ramassé
-	 * @param vPath Le ViewPath dans lequel l'Item appartient
-	 * @param c Le Controlleur utilisé
-	 * @param b Le joueur ramassant l'Item
-	 */
-	public abstract void get(ViewPath vPath, Controller c, BallPlayer b);
+    /**
+     * Méthodes définissant les actions à réaliser une fois l'Item ramassé
+     *
+     * @param vPath Le ViewPath dans lequel l'Item appartient
+     * @param c     Le Controlleur utilisé
+     * @param b     Le joueur ramassant l'Item
+     */
+    public abstract void get(ViewPath vPath, Controller c, BallPlayer b);
 
 
     /**
      * Accesseur de coordonnée x
+     *
      * @return La coordonnée x
      */
     private double getX() {
@@ -66,6 +67,7 @@ public abstract class Item extends Element {
 
     /**
      * Accesseur de coordonnée y
+     *
      * @return La coordonnée y
      */
 
@@ -76,14 +78,16 @@ public abstract class Item extends Element {
 
     /**
      * Accesseur des coordonnées sous forme d'un Point2D
+     *
      * @return Les coordonnées
      */
     public Point2D getCoord() {
         return new Point2D(getX(), getY());
     }
-    
+
     /**
      * Accesseur de Forme de l'objet
+     *
      * @return La Forme de l'objet
      */
     public Group getItem() {
@@ -91,11 +95,12 @@ public abstract class Item extends Element {
     }
 
 
-	/**
-	 * Accesseur du model de l'Item
-	 * @return le model de l'Item
-	 */
-	public ModelItem getModel_item() {
-		return mi;
-	}
+    /**
+     * Accesseur du model de l'Item
+     *
+     * @return le model de l'Item
+     */
+    public ModelItem getModel_item() {
+        return mi;
+    }
 }

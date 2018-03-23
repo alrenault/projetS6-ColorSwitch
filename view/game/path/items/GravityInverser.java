@@ -15,9 +15,10 @@ class GravityInverser extends GravitySwitch {
 
 
     /**
-	 * Constructeur de la GravityInverser
-	 * @param mgi Le model utilisé pour le GravityInverser
-	 */
+     * Constructeur de la GravityInverser
+     *
+     * @param mgi Le model utilisé pour le GravityInverser
+     */
     public GravityInverser(ModelGravityInverser mgi) {
         super(mgi);
     }

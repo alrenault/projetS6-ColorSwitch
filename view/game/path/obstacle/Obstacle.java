@@ -15,25 +15,22 @@ import java.util.List;
  * This class is the pattern of all obstacles in the view.game
  */
 public abstract class Obstacle extends Element {
-	/**
-	 * La liste des couleurs passables
-	 */
-    List<Color> color_passable;
-    
-    /**
-     * Le Group représentant l'obstacle
-     */
-    private Group obstacle;
-    
-    /**
-     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de l'Item) 
-     */
-    private Bounds coord;
-    
     /**
      * Le model contenant les données pour la construction e l'obstacle
      */
     protected ModelObstacle mo;
+    /**
+     * La liste des couleurs passables
+     */
+    List<Color> color_passable;
+    /**
+     * Le Group représentant l'obstacle
+     */
+    private Group obstacle;
+    /**
+     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de l'Item)
+     */
+    private Bounds coord;
 
     /**
      * Constructeur de l'obstacle
@@ -45,19 +42,21 @@ public abstract class Obstacle extends Element {
 
         obstacle = buildObstacle();
     }
-    
+
     /**
      * Accesseur du modèle de l'obstacle
+     *
      * @return le modèle de l'obstacle
      */
-	public ModelObstacle getModel_obstacle() {
-		return mo;
-	}
-    
+    public ModelObstacle getModel_obstacle() {
+        return mo;
+    }
+
     protected abstract Group buildObstacle();
 
     /**
      * Accesseur de coordonnée x
+     *
      * @return La coordonnée x
      */
     private double getX() {
@@ -67,6 +66,7 @@ public abstract class Obstacle extends Element {
 
     /**
      * Accesseur de coordonnée y
+     *
      * @return La coordonnée y
      */
     public double getY() {
@@ -76,6 +76,7 @@ public abstract class Obstacle extends Element {
 
     /**
      * Accesseur des coordonnées sous forme d'un Point2D
+     *
      * @return Les coordonnées
      */
     public Point2D getCoord() {
@@ -84,6 +85,7 @@ public abstract class Obstacle extends Element {
 
     /**
      * Accesseur du groupe représentant l'obstacle
+     *
      * @return le groupe représentant l'obstacle
      */
     public Group getObstacle() {
@@ -92,6 +94,7 @@ public abstract class Obstacle extends Element {
 
     /**
      * Accesseur de la largeur de l'obstacle
+     *
      * @return la largeur de l'obstacle
      */
     public double getObstacleWidth() {
@@ -101,6 +104,7 @@ public abstract class Obstacle extends Element {
 
     /**
      * Accesseur de la hauteur de l'obstacle
+     *
      * @return la largeur de l'obstacle
      */
     public double getObstacleHeight() {
@@ -110,12 +114,12 @@ public abstract class Obstacle extends Element {
 
     /**
      * Accesseur de la liste de couleurs passables
+     *
      * @return la liste des couleurs passables
      */
     public List<Color> getColor_passable() {
         return color_passable;
     }
-
 
 
 }

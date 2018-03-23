@@ -9,6 +9,7 @@ class Etoile extends Modifiers {
 
     /**
      * Constructeur D'Etoile
+     *
      * @param nbPoints Le nombre de points obtenus en attrapant cette étoile
      * @param x        coordonnée x de l'etoile
      * @param y        coordonnée y de l'etoile

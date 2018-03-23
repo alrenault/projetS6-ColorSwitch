@@ -3,7 +3,6 @@ package view.game.path.obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelMultiLine;
-import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelVLine;
@@ -34,11 +33,12 @@ public class MultiLinee extends Obstacle {
 	version 10 : 4 barres verticales des 2 côtés faisant les allez-retour
 	*/
 
-    
-	/**
-	 * Constructeur du MultiLine
-	 * @param mml Le model utilisé pour le MultiLine
-	 */
+
+    /**
+     * Constructeur du MultiLine
+     *
+     * @param mml Le model utilisé pour le MultiLine
+     */
     public MultiLinee(ModelMultiLine mml) {
         super(mml);
     }

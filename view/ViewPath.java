@@ -37,7 +37,8 @@ public class ViewPath {
 
     /**
      *
-     */private static List<Shape> itemsShapes;
+     */
+    private static List<Shape> itemsShapes;
     /**
      *
      */

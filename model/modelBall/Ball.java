@@ -3,7 +3,7 @@ package model.modelBall;
 import javafx.scene.paint.Color;
 
 /**
- *La Balle de jeu (le joueur)
+ * La Balle de jeu (le joueur)
  */
 public class Ball {
     /**

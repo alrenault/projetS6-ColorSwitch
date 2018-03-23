@@ -3,6 +3,8 @@ package view;
 import controller.Controller;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import model.modelBall.Ball;
 import model.modelBall.BuildBall;
 import model.modelItem.ModelItem;
@@ -15,20 +17,6 @@ import view.game.path.items.BuildItem;
 import view.game.path.items.Item;
 import view.game.path.obstacle.BuildObstacle;
 import view.game.path.obstacle.Obstacle;
-import view.game.path.shapes.Shapes;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
-import javafx.util.Duration;
-import model.modelObstacle.ModelObstacle;
-import view.useLaw.ViewTimer;
-import model.modelItem.ModelItem;
-import model.modelBall.BuildBall;
-import model.modelBall.Ball;
-import javafx.scene.control.Label;
-import javafx.scene.Node;
 import view.useLaw.ViewTimer;
 
 /**
@@ -55,40 +43,37 @@ class ViewGameManagement {
 
         root = (Group) thisScene.getRoot();
         game = thisGame;
-		
-		
-		Path path = game.getPath();
-		Ball ball = game.getBall();
-		
-		
-		//BallPlayer qball = new BallPlayer(10, path.getColors().get(0), thisScene);
-		BallPlayer ballplayer = BuildBall.build(ball,thisScene);
-		
-		
-		Group jBall = ballplayer.getShape();
-		
-		add(jBall);
-		
-		
-		Label score = new Label("Oui");
-		score.setTextFill(Color.AQUAMARINE);
-		root.getChildren().add(score);
-		
-		
-		
-		ViewPath viewpath = new ViewPath(path);
-		
-		if(viewpath.getFinishLine() != null){
-			root.getChildren().add(viewpath.getFinishLine());
-		}
-		
-		timer = new ViewTimer(ballplayer, viewpath, controller, thisScene);
-		timer.play();
-		//ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
-		        
-        
-		
-		
+
+
+        Path path = game.getPath();
+        Ball ball = game.getBall();
+
+
+        //BallPlayer qball = new BallPlayer(10, path.getColors().get(0), thisScene);
+        BallPlayer ballplayer = BuildBall.build(ball, thisScene);
+
+
+        Group jBall = ballplayer.getShape();
+
+        add(jBall);
+
+
+        Label score = new Label("Oui");
+        score.setTextFill(Color.AQUAMARINE);
+        root.getChildren().add(score);
+
+
+        ViewPath viewpath = new ViewPath(path);
+
+        if (viewpath.getFinishLine() != null) {
+            root.getChildren().add(viewpath.getFinishLine());
+        }
+
+        timer = new ViewTimer(ballplayer, viewpath, controller, thisScene);
+        timer.play();
+        //ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
+
+
         thisScene.setFill(Colorable.BLACK);
     }
 

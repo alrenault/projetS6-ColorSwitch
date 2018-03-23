@@ -30,10 +30,10 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
     /**
      * Constructeur d'Etoile
      *
-     * @param x        Coordonnée x de l'Etoile
-     * @param y        Coordonnée y de l'Etoile
-     * @param colors   couleur de l'Etoile
-     * @param type     Le type
+     * @param x      Coordonnée x de l'Etoile
+     * @param y      Coordonnée y de l'Etoile
+     * @param colors couleur de l'Etoile
+     * @param type   Le type
      */
     public ModelBallColorSwitch(double x, double y, List<Color> colors, ItemType type) {
         super(x, y, colors, 10, type);

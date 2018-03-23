@@ -6,12 +6,13 @@ import model.modelObstacle.*;
  * Générateur d'Obstacle
  */
 public class BuildObstacle {
-    
-	/**
-	 * Génère un Obstacle en fonction du modèle (et de son type)
-	 * @param mo Le modèle dont on veut l'Obstacle
-	 * @return l'Obstacle représentant le modèle
-	 */
+
+    /**
+     * Génère un Obstacle en fonction du modèle (et de son type)
+     *
+     * @param mo Le modèle dont on veut l'Obstacle
+     * @return l'Obstacle représentant le modèle
+     */
     public static Obstacle build(ModelObstacle mo) {
         Obstacle o;
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Modele générique d'Items
+ * Modele générique d'Items
  */
 public class ModelItem {
 
@@ -28,7 +28,7 @@ public class ModelItem {
      */
     private int nbPoints;
     /**
-     *Le type de l'Item
+     * Le type de l'Item
      */
     private ItemType type;
 
@@ -37,7 +37,7 @@ public class ModelItem {
      * @param y        coordonnée y de l'Item
      * @param colors   L'ensemble de couleurs que l'on peut utiliser pour cet Item (Liste)
      * @param nbPoints nombre de points gagnés en rammassant l'Item
-     * @param type Le type d'Item
+     * @param type     Le type d'Item
      */
     ModelItem(double x, double y, List<Color> colors, int nbPoints, ItemType type) {
         assert (x >= 0);
@@ -59,6 +59,7 @@ public class ModelItem {
 
     /**
      * Accesseur de la liste des couleurs utilisables
+     *
      * @return La liste des couleurs utilisables
      */
     public List<Color> getColors() {
@@ -67,6 +68,7 @@ public class ModelItem {
 
     /**
      * Mutateur des couleurs utilisables
+     *
      * @param colors La (nouvelle) liste des couleurs utilisables
      */
     public void setColors(List<Color> colors) {
@@ -75,6 +77,7 @@ public class ModelItem {
 
     /**
      * Accesseur de coordonnée en x
+     *
      * @return La coordonnée x
      */
     public double getX() {
@@ -83,6 +86,7 @@ public class ModelItem {
 
     /**
      * Accesseur de coordonnée en y
+     *
      * @return La coordonnée y
      */
     public double getY() {
@@ -91,6 +95,7 @@ public class ModelItem {
 
     /**
      * Mutateur de coordonnée en y
+     *
      * @param y La coordonnée en y
      */
     public void setY(double y) {
@@ -99,6 +104,7 @@ public class ModelItem {
 
     /**
      * Accesseur du nombre de points
+     *
      * @return Le nombre de points
      */
     public int getNbPoints() {
@@ -107,6 +113,7 @@ public class ModelItem {
 
     /**
      * Accesseur du type d'Item
+     *
      * @return Le type d'Item
      */
     public ItemType getType() {

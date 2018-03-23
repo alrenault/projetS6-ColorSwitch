@@ -21,15 +21,15 @@ import view.View;
 public class Main extends Application {
     private static int j = 0;
     /**
-     *Le modele du jeu
+     * Le modele du jeu
      */
     private InterfaceModelColorSwitch model;
     /**
-     *La vue du jeu
+     * La vue du jeu
      */
     private InterfaceViewColorSwitch view;
     /**
-     *Le controller du jeu
+     * Le controller du jeu
      */
     private Controller controller;
 
