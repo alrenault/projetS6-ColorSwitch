@@ -15,10 +15,10 @@ class ChangeurGravite extends Modifiers {
 
     /**
      *
-     * @param nbPoints
-     * @param x
-     * @param y
-     * @param force
+     * @param nbPoints le nombre de points gagné lors du rammassage du changeur
+     * @param x Centre x du spawn
+     * @param y Centre y du spawn
+     * @param force Le coef de gravité
      */
     public ChangeurGravite(int nbPoints, double x, double y, double force) {
         super();
