@@ -16,57 +16,57 @@ import java.util.Random;
  * Représentation d'un chemin constitué d'une suite d'obstacles (un niveau) stockant des modèles
  */
 public class Path {
-	
-	/**
-	 * La liste des modèles d'items du path
-	 */
+
+    /**
+     * La liste des modèles d'items du path
+     */
     private List<ModelItem> items;
-    
+
     /**
      * La listes des modèles d'obstacles du path
      */
     private List<ModelObstacle> obstacles;
-    
+
     /**
      * La liste des ennemis du path (non utilisé)
      */
     private List<Ennemy> ennemies;
-    
+
     /**
      * Difficulté du niveau
      */
     private Difficulty gameDifficulty;
-    
+
     /**
      * La largeur de la fenêtre
      */
     private double scWidth;
-    
+
     /**
      * La hauteur de la fenêtre
      */
     private double scHeight;
-    
+
     /**
      * La liste de couleurs utilisées
      */
     private List<Color> colors;
-    
+
     /**
      * Le nombre d'obstacles du path
      */
     private int nbr_ObsDeb;
-    
+
     /**
      * La position en x où placer le prochain obstacle
      */
     private double posX;
-    
+
     /**
      * La position en y où placer le prochain obstacle
      */
     private double posY;
-    
+
     /**
      * La position en y de la ligne d'arrivée, dans le cas d'un niveau avec un nombre fini d'obstacles
      */
@@ -76,7 +76,7 @@ public class Path {
      * Défini si le niveau est fini ou non
      */
     private boolean isFinite;
-    
+
     /**
      * Défini si la partie est en CircleHell ou non
      */
@@ -84,10 +84,11 @@ public class Path {
 
     /**
      * Constructeur d'un path pour un niveau infini (avec un nombre défini d'obstacle  déjà placé)
-     * @param scWidth La largeur de la fenêtre
-     * @param scHeight La hauteur de la fenêtre
-     * @param colors La liste de couleurs utilisées
-     * @param nbr_ObsDeb Nombre d'obstacle à placer dès le début
+     *
+     * @param scWidth        La largeur de la fenêtre
+     * @param scHeight       La hauteur de la fenêtre
+     * @param colors         La liste de couleurs utilisées
+     * @param nbr_ObsDeb     Nombre d'obstacle à placer dès le début
      * @param gameDifficulty La difficulté de la partie
      */
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_ObsDeb, Difficulty gameDifficulty) {
@@ -108,10 +109,11 @@ public class Path {
 
     /**
      * Constructeur d'un path pour un niveau fini (la difficultée du niveau est défini en RANDOM)
-     * @param scWidth La largeur de la fenêtre
+     *
+     * @param scWidth  La largeur de la fenêtre
      * @param scHeight La hauteur de la fenêtre
-     * @param colors La liste de couleurs utilisées
-     * @param nbr_Obs Le nombre d'obstacle constituant le niveau
+     * @param colors   La liste de couleurs utilisées
+     * @param nbr_Obs  Le nombre d'obstacle constituant le niveau
      */
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs) {
         super();
@@ -130,9 +132,10 @@ public class Path {
 
     /**
      * Constructeur d'un path dans le cas d'une partie en CircleHell (difficulté en RANDOM et le nombre d'obstacle directement placé = 3)
-     * @param scWidth La largeur de la fenêtre
+     *
+     * @param scWidth  La largeur de la fenêtre
      * @param scHeight La hauteur de la fenêtre
-     * @param colors La liste de couleurs utilisées
+     * @param colors   La liste de couleurs utilisées
      */
     public Path(double scWidth, double scHeight, List<Color> colors) {
         super();
@@ -154,8 +157,9 @@ public class Path {
 
     /**
      * Ancien constructeur d'un path non utilisée qui aurait permis de rajouter des ennemis (ne respecte pas le MVC)
+     *
      * @param _obstacles La liste des obstacles déjà construit
-     * @param _ennemies La liste des ennemis déjà construit
+     * @param _ennemies  La liste des ennemis déjà construit
      */
     public Path(List<ModelObstacle> _obstacles, List<Ennemy> _ennemies) {
         super();
@@ -168,6 +172,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'obstacle au path
+     *
      * @return le modèle du nouvel obstacle
      */
     public ModelObstacle addNewObstacle() {
@@ -195,6 +200,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une BallColorSwitch au path
+     *
      * @return le modèle de la  nouvelle BallColorSwitch
      */
     public ModelBallColorSwitch addNewColorSwitch(double y) {
@@ -205,6 +211,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une Star au path
+     *
      * @return le modèle de la  nouvelle Star
      */
     public ModelStar addNewStar(ModelObstacle mo) {
@@ -232,6 +239,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une InvisibleLine au path
+     *
      * @return le modèle de la  nouvelle InvisbleLine
      */
     public ModelInvisibleLine addNewInvisibleLine(double y) {
@@ -299,6 +307,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'obstacle à la liste de modèles d'obstacle
+     *
      * @param o Le modèle d'obstacle à rajouter
      */
     private void add(ModelObstacle o) {
@@ -308,6 +317,7 @@ public class Path {
 
     /**
      * Rajoute un Ennemy à la liste d'Ennemy
+     *
      * @param e L'Ennemy à rajouter
      */
     public void add(Ennemy e) {
@@ -316,6 +326,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'item à la liste de modèles d'item
+     *
      * @param item Le modèle d'item à rajouter
      */
     private void add(ModelItem item) {
@@ -324,6 +335,7 @@ public class Path {
 
     /**
      * Supprime un modèle d'item à la liste de modèles d'item
+     *
      * @param item Le modèle d'item à supprimer
      */
     public void remove(ModelItem item) {
@@ -332,6 +344,7 @@ public class Path {
 
     /**
      * Supprime un modèle d'obstacle à la liste de modèles d'obstacle
+     *
      * @param o Le modèle d'obstacle à supprimer
      */
     public void remove(ModelObstacle o) {
@@ -340,6 +353,7 @@ public class Path {
 
     /**
      * Accesseur du nombre d'items
+     *
      * @return le nombre d'items
      */
     public int getItemNbr() {
@@ -348,6 +362,7 @@ public class Path {
 
     /**
      * Accesseur du nombre d'obstacles à créer dès le début
+     *
      * @return le nombre d'obstacles à créer dès le début
      */
     public int getNbr_ObsDeb() {
@@ -356,6 +371,7 @@ public class Path {
 
     /**
      * Accesseur du nombre d'Obstacles
+     *
      * @return le nombre d'Obstacles dans la liste
      */
     public int getObstacleNbr() {
@@ -364,6 +380,7 @@ public class Path {
 
     /**
      * Accesseur de la liste de modèles d'obstacle du path
+     *
      * @return la liste d'obstacles du path
      */
     public List<ModelObstacle> getObstacles() {
@@ -372,6 +389,7 @@ public class Path {
 
     /**
      * Accesseur des ennemies du path (non utilisé)
+     *
      * @return la liste des ennemies du path
      */
     public List<Ennemy> getEnnemies() {
@@ -380,6 +398,7 @@ public class Path {
 
     /**
      * Accesseur de la liste de modèles d'items du path
+     *
      * @return la liste d'items du path
      */
     public List<ModelItem> getItem() {
@@ -388,6 +407,7 @@ public class Path {
 
     /**
      * Accesseur de la position où ajouter le prochain obstacle
+     *
      * @return la position où ajouter le prochain obstacle
      */
     public double getPosY() {
@@ -396,6 +416,7 @@ public class Path {
 
     /**
      * Teste si le path est fini
+     *
      * @return si le path est fini
      */
     public boolean isFinite() {
@@ -404,6 +425,7 @@ public class Path {
 
     /**
      * Teste si le path correspond à une partie en CircleHell
+     *
      * @return si le path correspond à une partie en CircleHell
      */
     public boolean isCircleHell() {
@@ -412,6 +434,7 @@ public class Path {
 
     /**
      * Accesseur de la position en y de ligne d'arrivée
+     *
      * @return la position en y de ligne d'arrivée
      */
     public double getFinishLine() {
@@ -420,6 +443,7 @@ public class Path {
 
     /**
      * Mutateur de la position en y de ligne d'arrivée
+     *
      * @param finishLine La nouvelle position en y de la ligne d'arrivée
      */
     public void setFinishLine(double finishLine) {
@@ -428,6 +452,7 @@ public class Path {
 
     /**
      * Accesseur de la largeur de la scène
+     *
      * @return la largeur de la scène
      */
     public double getScWidth() {
@@ -436,10 +461,11 @@ public class Path {
 
     /**
      * Accesseur de la hauteur de la scène
+     *
      * @return la hauteur de la scène
      */
     public double getScHeight() {
         return scHeight;
     }
-	
+
 }

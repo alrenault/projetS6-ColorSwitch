@@ -20,7 +20,7 @@ public class ModelInvisibleLine extends ModelItem {
      * @param y        coordonnée y de la ligne
      * @param colors   L'ensemble de couleurs que l'on peut utiliser pour la ligne
      * @param nbPoints nombre de points gagnés en touchant la ligne
-     * @param type Le type d'Item
+     * @param type     Le type d'Item
      * @param length
      */
     public ModelInvisibleLine(double x, double y, List<Color> colors, int nbPoints, ItemType type, double length) {
@@ -30,6 +30,7 @@ public class ModelInvisibleLine extends ModelItem {
 
     /**
      * Accesseur de la valeur de la longueur de la ligne Invisible
+     *
      * @return la longueur de la ligne Invisible
      */
     public double getLength() {

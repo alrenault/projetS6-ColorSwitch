@@ -5,15 +5,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 /**
- *
+ *Génère un Triangle plein
  */
 class FilledTriangle {
     /**
-     * @param x
-     * @param y
-     * @param side
-     * @param color
-     * @return
+     * @param x Coordonnée x du centre du triangle
+     * @param y Coordonnée y du centre du triangle
+     * @param side Longueur du coté
+     * @param color Couleur du de la forme
+     * @return Un polygon en Triangle de la couleur color
      */
     public static Polygon create(double x, double y, double side, Color color) {
         Polygon triangle = new Polygon();

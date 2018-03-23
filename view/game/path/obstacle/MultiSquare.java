@@ -3,7 +3,6 @@ package view.game.path.obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelMultiSquare;
-import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelSquare;
 import view.game.Difficulty;
@@ -28,15 +27,15 @@ public class MultiSquare extends Obstacle {
 	 */
 
 
-
     /**
      * Constructeur de multiShapes
+     *
      * @param mms le model de la MultiSquare à construire
      */
     public MultiSquare(ModelMultiSquare mms) {
         super(mms);
     }
-    
+
 
     public Group buildObstacle() {
         Group multiSquare = new Group();

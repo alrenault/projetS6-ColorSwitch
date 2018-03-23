@@ -6,11 +6,12 @@ import model.ItemType;
 import java.util.List;
 
 /**
- *Générateur de Modeles d'Items
+ * Générateur de Modeles d'Items
  */
 public class BuildModelItem {
     /**
      * Constructeur de Modèles
+     *
      * @param obs       Represente le type d'Item à générer
      * @param posX      La posiion en x de l'Item à générer
      * @param posY      La posiion en i de l'Item à générer

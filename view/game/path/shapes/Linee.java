@@ -23,10 +23,11 @@ class Linee extends Shapes {
 
     /**
      * Génère la ligne
+     *
      * @return le Group correspondant à la ligne
      */
     protected Group buildShape() {
-    	ModelHLine mhl = (ModelHLine)ms;
+        ModelHLine mhl = (ModelHLine) ms;
         Group line = new Group();
 
         for (int i = 0; i < mhl.getNbr_seg(); i++) {

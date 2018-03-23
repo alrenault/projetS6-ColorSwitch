@@ -4,7 +4,6 @@ import controller.Controller;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
-import model.modelItem.ModelItem;
 import model.modelItem.ModelStar;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
@@ -50,19 +49,20 @@ public class Star extends Item {
 
         return g;
     }
-    
+
     /**
      * Mutateur de la coordonnée en y de l'étoile
+     *
      * @param y La nouvelle position de l'étoile
      */
-    public void setY(double y){
-    	for(Shape s : getShapeList()){
-    		s.setLayoutY(y);
-    	}
+    public void setY(double y) {
+        for (Shape s : getShapeList()) {
+            s.setLayoutY(y);
+        }
     }
-    
-    public void get(ViewPath vPath, Controller c, BallPlayer b){
-    	c.incItem(mi);
+
+    public void get(ViewPath vPath, Controller c, BallPlayer b) {
+        c.incItem(mi);
     }
 
 

@@ -3,7 +3,6 @@ package view.game.path.obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelMultiCircle;
-import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
 import model.modelShape.ModelShape;
 import view.game.Difficulty;
@@ -35,11 +34,11 @@ public class MultiCircle extends Obstacle {
 	*/
 
 
-
-	/**
-	 * Constructeur du MultiCircle
-	 * @param mmc Le model utilisé pour le MultiCircle
-	 */
+    /**
+     * Constructeur du MultiCircle
+     *
+     * @param mmc Le model utilisé pour le MultiCircle
+     */
 
     public MultiCircle(ModelMultiCircle mmc) {
         super(mmc);

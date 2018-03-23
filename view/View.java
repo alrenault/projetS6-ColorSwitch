@@ -25,7 +25,7 @@ public class View implements InterfaceViewColorSwitch {
      */
     static final Integer tailleY = 1000;
     /**
-     *Le Controller de jeu
+     * Le Controller de jeu
      */
     static Controller controller;
     /**
@@ -123,6 +123,7 @@ public class View implements InterfaceViewColorSwitch {
 
     /**
      * Mutateur de Controller
+     *
      * @param c Le Controller
      */
     public void setController(Controller c) {

@@ -3,7 +3,6 @@ package view.game.path.shapes;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
-import model.modelShape.ModelCircle;
 import model.modelShape.ModelShape;
 import view.game.path.Element;
 
@@ -23,7 +22,7 @@ public abstract class Shapes extends Element {
      * Le groupe représentant la forme
      */
     Group group_shape;
-    
+
     /**
      * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme)
      */
@@ -31,6 +30,7 @@ public abstract class Shapes extends Element {
 
     /**
      * Constructeuer permettant de construire une forme
+     *
      * @param modelShape Le modèle permettant de construire la forme
      */
     Shapes(ModelShape modelShape) {
@@ -39,10 +39,10 @@ public abstract class Shapes extends Element {
         group_shape = buildShape();
 
     }
-    
+
     protected abstract Group buildShape();
 
-	
+
     public Bounds getCoord() {
         return coord;
     }
@@ -100,5 +100,5 @@ public abstract class Shapes extends Element {
         return group_shape;
     }
 
-    
+
 }

@@ -6,29 +6,31 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import model.modelItem.ModelBallColorSwitch;
-import model.modelItem.ModelItem;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
 
 import java.util.Random;
 
-import controller.Controller;
-
-/**Objet graphique de la balle chnageuse de couleur
+/**
+ * Objet graphique de la balle chnageuse de couleur
  */
 public class BallColorSwitch extends Item {
 
-	/**
-	 * Constructeur de la BallColorSwitch
-	 * @param mbcs Le model utilisé pour créé la balle
-	 */
+    /**
+     * Constructeur de la BallColorSwitch
+     *
+     * @param mbcs Le model utilisé pour créé la balle
+     */
     public BallColorSwitch(ModelBallColorSwitch mbcs) {
         super(mbcs);
     }
 
+    /**
+     * @return
+     */
     public Group buildItem() {
-    	
-    	ModelBallColorSwitch mbcs = (ModelBallColorSwitch)mi;
+
+        ModelBallColorSwitch mbcs = (ModelBallColorSwitch) mi;
         Group ball = new Group();
 
         double angle = 90;

@@ -3,7 +3,6 @@ package view.game.path.obstacle;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelMultiShapes;
-import model.modelObstacle.ModelObstacle;
 import model.modelShape.*;
 import view.game.Difficulty;
 import view.game.Speed;

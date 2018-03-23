@@ -14,7 +14,7 @@ import model.modelShape.ModelCross;
 public class Cross extends Shapes {
 
     /**
-     * Constructeur de la croix 
+     * Constructeur de la croix
      */
     public Cross(ModelCross mc) {
         super(mc);
@@ -31,7 +31,7 @@ public class Cross extends Shapes {
     protected Group buildShape() {
 
         //Initialisation
-    	ModelCross mc = (ModelCross)ms;
+        ModelCross mc = (ModelCross) ms;
         Group croix = new Group();
         double rad = mc.getWidth();
         double len = mc.getLength();

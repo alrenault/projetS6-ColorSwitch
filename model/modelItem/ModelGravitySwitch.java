@@ -22,7 +22,7 @@ public class ModelGravitySwitch extends ModelItem {
      * @param x         coordonnée x de l'objet
      * @param y         coordonnée y de l'objet
      * @param coefForce coeficient de gravité
-     * @param type Le type d'Item (GravitySwitch)
+     * @param type      Le type d'Item (GravitySwitch)
      */
 
     public ModelGravitySwitch(double x, double y, double coefForce, ItemType type) {

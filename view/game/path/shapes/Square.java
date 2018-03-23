@@ -26,10 +26,11 @@ class Square extends Shapes {
 
     /**
      * Génère le carre
+     *
      * @return le Group correspondant au carre
      */
     protected Group buildShape() {
-    	ModelSquare ms1 = (ModelSquare)ms;
+        ModelSquare ms1 = (ModelSquare) ms;
         Group squaire = new Group();
         double length = ms1.getLength();
         double x = ms.getX();
