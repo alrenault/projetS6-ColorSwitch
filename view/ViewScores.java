@@ -24,7 +24,7 @@ class ViewScores {
      * @param elements Le groupe à Formater
      * @return Une Scene avec un bouton retour et une couleur noire en background
      */
-    private static Scene formater(Group elements) {
+    public static Scene formater(Group elements) {
         Group root = new Group();
         Scene scene = new Scene(root, View.tailleX, View.tailleY);
         scene.setFill(Colorable.BLACK);
