@@ -46,6 +46,7 @@ public class Score {
         assert (nbEtoilesRamassees >= 0);
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
+        this.scoreStored=0;
         this.scoreStored = getScore();
     }
 
@@ -68,18 +69,18 @@ public class Score {
      * Augmente le score du joueur avec le nombre de points associé à l'item
      * Et met à jour les nbs
      *
-     * @param item me ModelItem en collision avec le joueur
+     * @param modelItem me ModelItem en collision avec le joueur
      */
-    public void ramasseItem(ModelItem item) {
-        assert (item != null);
-        if (item.getType() == ItemType.Star) {
+    public void ramasseItem(ModelItem modelItem) {
+        assert (modelItem != null);
+        if (modelItem.getType() == ItemType.Star) {
             nbEtoilesRamassees++;
         }
-        if (item.getType() == ItemType.InvisibleLine) {
+        if (modelItem.getType() == ItemType.InvisibleLine) {
             nbrObstaclesCrossed++;
         }
 
-        scoreStored += item.getNbPoints();
+        scoreStored += modelItem.getNbPoints();
     }
 
     /**

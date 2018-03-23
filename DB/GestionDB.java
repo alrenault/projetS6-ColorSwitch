@@ -34,7 +34,7 @@ public class GestionDB {
     /**
      * Mot de passe associé à DB_USERNAME de la base de données
      */
-    private static final String DB_PASSWORD = "";
+    private static final String DB_PASSWORD = "root";
 
     /**
      * Connection sur laquelle se fera toutes les interractions
