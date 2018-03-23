@@ -1,228 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement>game.path.obstacle.MultiShapes</OriginalElement>
+  <OriginalElement />
   <nodes>
-    <node x="8262.052083333334" y="1709.5">model.modelObstacle.ModelMultiShapes</node>
-    <node x="9106.599305555555" y="500.0">model.modelItem.ModelStar</node>
-    <node x="9729.385416666668" y="879.0">model.ObstacleType</node>
-    <node x="4005.166666666667" y="1820.5">model.modelShape.ModelCircle</node>
-    <node x="4658.166666666667" y="1798.5">model.modelShape.ModelHLine</node>
-    <node x="6046.086831397774" y="2356.0">game.path.obstacle.MultiShapes</node>
-    <node x="1597.291666666667" y="2256.0">controller.Controller</node>
-    <node x="287.0" y="4132.0">model.Menu</node>
-    <node x="5361.166666666667" y="1820.5">model.modelShape.ModelCross</node>
-    <node x="2044.9775035570538" y="3559.0">view.View</node>
-    <node x="4581.166666666667" y="924.5">model.ShapeType</node>
-    <node x="67.25" y="1688.0">DB.GestionDB</node>
-    <node x="541.0" y="4132.0">model.InterfaceColorSwitch</node>
-    <node x="81.5" y="2367.5">main.MainTestDB</node>
-    <node x="6862.336831397775" y="1275.5">game.path.Element</node>
-    <node x="2391.166666666667" y="1798.5">view.InterfaceViewColorSwitch</node>
-    <node x="8040.333333333334" y="2779.0">view.useLaw.J</node>
-    <node x="6567.833333333334" y="2757.0">view.useLaw.CollisionItem</node>
-    <node x="2616.166666666667" y="1831.5">model.modelShape.ModelSquare</node>
-    <node x="8235.333333333334" y="2802.0">view.useLaw.Gravity</node>
-    <node x="762.0" y="4132.0">model.GestionColorSwitch</node>
-    <node x="9953.052083333334" y="1731.5">model.modelObstacle.ModelMultiCircle</node>
-    <node x="4366.666666666667" y="1221.0">model.modelShape.ModelShape</node>
-    <node x="8913.765972222223" y="0.0">model.ItemType</node>
-    <node x="2133.166666666667" y="1843.0">model.modelBall.BuildBall</node>
-    <node x="249.0" y="1276.0">DB.Record</node>
-    <node x="8676.599305555555" y="500.0">model.modelItem.ModelGravitySwitch</node>
-    <node x="10482.052083333334" y="1731.5">model.modelObstacle.ModelMultiSquare</node>
-    <node x="6956.083333333334" y="2757.0">view.useLaw.CollisionObstacle</node>
-    <node x="1771.1858368903868" y="3903.0">main.Main</node>
-    <node x="8765.524305555557" y="1221.0">model.modelObstacle.ModelObstacle</node>
-    <node x="1895.0" y="4132.0">model.Sucess</node>
-    <node x="0.0" y="4132.0">controller.Listeners</node>
-    <node x="6962.149686408926" y="2179.0">view.ViewPath</node>
-    <node x="1756.0" y="4132.0">model.Backup</node>
-    <node x="2032.0" y="4132.0">model.Editor</node>
-    <node x="1222.791666666667" y="2802.0">view.ScenePseudo</node>
-    <node x="8871.349305555555" y="979.5">model.modelItem.BuildModelItem</node>
-    <node x="7704.083333333334" y="2779.0">view.useLaw.JtGravity</node>
-    <node x="11020.052083333334" y="1731.5">model.modelObstacle.ModelCircleInCircle</node>
-    <node x="3253.166666666667" y="1787.5">model.modelShape.ModelVLine</node>
-    <node x="8852.052083333334" y="1709.5">model.modelObstacle.ModelMultiLine</node>
-    <node x="9994.729017494512" y="2367.5">model.modelObstacle.BuildModelObstacle</node>
-    <node x="6799.371874637368" y="3283.0">view.ViewGameManagement</node>
-    <node x="1447.791666666667" y="2802.0">view.Menu</node>
-    <node x="1227.4285714285716" y="1765.5">model.InterfaceModelColorSwitch</node>
-    <node x="977.0" y="4132.0">view.Background</node>
-    <node x="1617.0" y="4132.0">view.Camera</node>
-    <node x="1310.0" y="4132.0">view.Foreground</node>
-    <node x="9422.052083333334" y="1731.5">model.modelObstacle.ModelMultiCross</node>
-    <node x="748.5" y="2278.5">model.Model</node>
-    <node x="0.0" y="1309.0">DB.SumScore</node>
-    <node x="9041.849305555555" y="700.5">model.modelItem.ModelGravityInverser</node>
-    <node x="6015.166666666667" y="1831.5">model.modelShape.ModelTriangle</node>
-    <node x="7959.333333333334" y="2367.5">view.useLaw.UseLaw</node>
-    <node x="1145.0" y="4132.0">view.GameScene</node>
-    <node x="2162.0" y="4132.0">view.IHM</node>
-    <node x="8205.599305555555" y="656.0">model.modelItem.ModelBallColorSwitch</node>
-    <node x="1475.0" y="4132.0">controller.Options</node>
-    <node x="8464.099305555555" y="268.0">model.modelItem.ModelItem</node>
-    <node x="7241.496908631148" y="1709.5">game.path.obstacle.Obstacle</node>
+    <node x="874.0" y="332.0">model.modelObstacle.ModelMultiShapes</node>
+    <node x="1249.0" y="2220.5">model.modelItem.ModelStar</node>
+    <node x="3389.0" y="1801.0">model.modelShape.ModelCircle</node>
+    <node x="1407.0" y="2536.0">model.ObstacleType</node>
+    <node x="643.0" y="1779.0">model.modelShape.ModelHLine</node>
+    <node x="1428.0" y="2867.0">model.Menu</node>
+    <node x="1747.0" y="1975.0">controller.Controller</node>
+    <node x="2735.0" y="1801.0">model.modelShape.ModelCross</node>
+    <node x="2265.0" y="1975.0">DB.GestionDB</node>
+    <node x="2886.0" y="2536.0">model.ShapeType</node>
+    <node x="0.0" y="278.0">view.View</node>
+    <node x="2160.0" y="2867.0">model.InterfaceColorSwitch</node>
+    <node x="1931.0" y="2867.0">main.MainTestDB</node>
+    <node x="0.0" y="0.0">view.InterfaceViewColorSwitch</node>
+    <node x="561.0" y="2637.0">view.useLaw.CollisionItem</node>
+    <node x="2098.0" y="1812.0">model.modelShape.ModelSquare</node>
+    <node x="217.0" y="2681.0">view.useLaw.J</node>
+    <node x="400.0" y="2704.0">view.useLaw.Gravity</node>
+    <node x="2381.0" y="2867.0">model.GestionColorSwitch</node>
+    <node x="1464.0" y="354.0">model.modelObstacle.ModelMultiCircle</node>
+    <node x="1778.25" y="1391.0">model.modelShape.ModelShape</node>
+    <node x="1689.0" y="2536.0">model.ItemType</node>
+    <node x="1145.0" y="2867.0">model.modelBall.BuildBall</node>
+    <node x="1943.0" y="2536.0">DB.Record</node>
+    <node x="349.0" y="2220.5">model.modelItem.ModelGravitySwitch</node>
+    <node x="1993.0" y="354.0">model.modelObstacle.ModelMultiSquare</node>
+    <node x="981.0000000000001" y="2659.0">view.useLaw.CollisionObstacle</node>
+    <node x="2567.0" y="2536.0">main.Main</node>
+    <node x="1743.25" y="0.0">model.modelObstacle.ModelObstacle</node>
+    <node x="3514.0" y="2867.0">model.Sucess</node>
+    <node x="3392.0" y="2536.0">controller.Listeners</node>
+    <node x="0.0" y="1975.0">view.ViewPath</node>
+    <node x="3236.0" y="2867.0">model.Backup</node>
+    <node x="3651.0" y="2867.0">model.Editor</node>
+    <node x="1682.0" y="2867.0">view.ScenePseudo</node>
+    <node x="0.0" y="2681.0">view.useLaw.JtGravity</node>
+    <node x="0.0" y="2867.0">model.modelItem.BuildModelItem</node>
+    <node x="2531.0" y="354.0">model.modelObstacle.ModelCircleInCircle</node>
+    <node x="1346.0" y="1768.0">model.modelShape.ModelVLine</node>
+    <node x="3075.0" y="332.0">model.modelObstacle.ModelMultiLine</node>
+    <node x="589.0" y="2867.0">model.modelObstacle.BuildModelObstacle</node>
+    <node x="2238.0" y="2536.0">view.ViewGameManagement</node>
+    <node x="3679.0" y="2536.0">view.Menu</node>
+    <node x="0.0" y="707.0">model.InterfaceModelColorSwitch</node>
+    <node x="2596.0" y="2867.0">view.Background</node>
+    <node x="3375.0" y="2867.0">view.Camera</node>
+    <node x="2764.0" y="2867.0">view.Foreground</node>
+    <node x="343.0" y="354.0">model.modelObstacle.ModelMultiCross</node>
+    <node x="0.0" y="1029.0">model.Model</node>
+    <node x="3064.0" y="2536.0">DB.SumScore</node>
+    <node x="370.0" y="2400.0">model.modelItem.ModelGravityInverser</node>
+    <node x="0.0" y="1812.0">model.modelShape.ModelTriangle</node>
+    <node x="400.0" y="2536.0">view.useLaw.UseLaw</node>
+    <node x="2929.0" y="2867.0">view.GameScene</node>
+    <node x="3781.0" y="2867.0">view.IHM</node>
+    <node x="779.0" y="2187.0">model.modelItem.ModelBallColorSwitch</node>
+    <node x="3094.0" y="2867.0">controller.Options</node>
+    <node x="802.0" y="1975.0">model.modelItem.ModelItem</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="model.modelShape.ModelVLine" target="model.modelShape.ModelShape">
-      <point x="244.0" y="-81.0" />
-      <point x="3863.166666666667" y="1648.0" />
-      <point x="4517.974358974359" y="1648.0" />
-      <point x="-129.69230769230762" y="158.5" />
-    </edge>
-    <edge source="model.modelShape.ModelTriangle" target="model.modelShape.ModelShape">
-      <point x="0.0" y="-37.0" />
-      <point x="6326.666666666667" y="1618.0" />
-      <point x="4907.051282051282" y="1618.0" />
-      <point x="259.38461538461524" y="158.5" />
-    </edge>
-    <edge source="view.View" target="view.InterfaceViewColorSwitch">
-      <point x="51.25" y="-137.0" />
-      <point x="2198.7275035570538" y="3529.0" />
-      <point x="3018.923932128482" y="3529.0" />
-      <point x="3018.923932128482" y="2159.0" />
-      <point x="2534.666666666667" y="2159.0" />
-      <point x="41.0" y="70.0" />
-    </edge>
-    <edge source="model.modelObstacle.ModelMultiCircle" target="model.modelObstacle.ModelObstacle">
-      <point x="-169.66666666666652" y="-137.0" />
-      <point x="10037.885416666668" y="1638.0" />
-      <point x="9101.635416666668" y="1638.0" />
-      <point x="94.11111111111131" y="158.5" />
-    </edge>
-    <edge source="model.modelObstacle.ModelMultiSquare" target="model.modelObstacle.ModelObstacle">
-      <point x="0.0" y="-137.0" />
-      <point x="10741.052083333334" y="1608.0" />
-      <point x="9182.302083333336" y="1608.0" />
-      <point x="174.77777777777783" y="158.5" />
-    </edge>
     <edge source="view.useLaw.Gravity" target="view.useLaw.UseLaw">
       <point x="0.0" y="-25.5" />
-      <point x="8305.833333333334" y="2717.0" />
-      <point x="8090.2619047619055" y="2717.0" />
-      <point x="60.42857142857156" y="25.5" />
+      <point x="0.0" y="25.5" />
     </edge>
-    <edge source="view.useLaw.CollisionItem" target="view.useLaw.UseLaw">
-      <point x="147.08333333333303" y="-70.5" />
-      <point x="6891.416666666667" y="2717.0" />
-      <point x="7969.404761904762" y="2717.0" />
-      <point x="-60.42857142857156" y="25.5" />
-    </edge>
-    <edge source="model.modelItem.ModelStar" target="model.modelItem.ModelItem">
-      <point x="0.0" y="-48.0" />
-      <point x="9333.099305555555" y="460.0" />
-      <point x="8845.654861111112" y="460.0" />
-      <point x="179.55555555555566" y="81.0" />
-    </edge>
-    <edge source="model.modelShape.ModelCross" target="model.modelShape.ModelShape">
-      <point x="0.0" y="-48.0" />
-      <point x="5678.166666666667" y="1638.0" />
-      <point x="4820.589743589744" y="1638.0" />
-      <point x="172.92307692307713" y="158.5" />
-    </edge>
-    <edge source="model.modelShape.ModelSquare" target="model.modelShape.ModelShape">
-      <point x="0.0" y="-37.0" />
-      <point x="2924.666666666667" y="1618.0" />
-      <point x="4388.282051282052" y="1618.0" />
-      <point x="-259.38461538461524" y="158.5" />
-    </edge>
-    <edge source="model.modelObstacle.ModelMultiLine" target="model.modelObstacle.ModelObstacle">
-      <point x="-183.33333333333348" y="-159.0" />
-      <point x="8943.71875" y="1668.0" />
-      <point x="8994.079861111113" y="1668.0" />
-      <point x="-13.444444444444343" y="158.5" />
+    <edge source="model.modelShape.ModelVLine" target="model.modelShape.ModelShape">
+      <point x="0.0" y="-81.0" />
+      <point x="1712.0" y="1748.0" />
+      <point x="2012.416666666667" y="1748.0" />
+      <point x="-46.83333333333303" y="158.5" />
     </edge>
     <edge source="view.useLaw.JtGravity" target="view.useLaw.UseLaw">
-      <point x="-4.547473508864641E-13" y="-48.5" />
-      <point x="7802.583333333334" y="2737.0" />
-      <point x="8009.690476190477" y="2737.0" />
-      <point x="-20.142857142857338" y="25.5" />
-    </edge>
-    <edge source="model.modelItem.ModelGravitySwitch" target="model.modelItem.ModelItem">
-      <point x="-136.66666666666652" y="-48.0" />
-      <point x="8744.93263888889" y="480.0" />
-      <point x="8710.988194444446" y="480.0" />
-      <point x="44.88888888888869" y="81.0" />
-    </edge>
-    <edge source="game.path.obstacle.MultiShapes" target="game.path.obstacle.Obstacle">
-      <point x="86.33333333333303" y="-37.0" />
-      <point x="6280.420164731107" y="2099.0" />
-      <point x="7259.996908631148" y="2099.0" />
-      <point x="-129.5" y="159.0" />
-    </edge>
-    <edge source="model.modelItem.ModelBallColorSwitch" target="model.modelItem.ModelItem">
-      <point x="0.0" y="-81.5" />
-      <point x="8430.599305555555" y="636.0" />
-      <point x="8500.099305555555" y="636.0" />
-      <point x="8500.099305555555" y="470.0" />
-      <point x="8576.321527777778" y="470.0" />
-      <point x="-89.77777777777783" y="81.0" />
-    </edge>
-    <edge source="model.modelObstacle.ModelMultiCross" target="model.modelObstacle.ModelObstacle">
-      <point x="-170.33333333333337" y="-137.0" />
-      <point x="9507.21875" y="1658.0" />
-      <point x="9047.85763888889" y="1658.0" />
-      <point x="40.33333333333303" y="158.5" />
-    </edge>
-    <edge source="model.modelObstacle.ModelMultiShapes" target="model.modelObstacle.ModelObstacle">
-      <point x="0.0" y="-159.0" />
-      <point x="8547.052083333334" y="1648.0" />
-      <point x="8940.302083333334" y="1648.0" />
-      <point x="-67.22222222222217" y="158.5" />
-    </edge>
-    <edge source="model.Model" target="model.InterfaceModelColorSwitch">
-      <point x="103.0" y="-114.5" />
-      <point x="1057.5" y="2149.0" />
-      <point x="1278.9285714285716" y="2149.0" />
-      <point x="-154.5" y="103.0" />
-    </edge>
-    <edge source="view.useLaw.J" target="view.useLaw.UseLaw">
       <point x="0.0" y="-48.5" />
-      <point x="8121.833333333334" y="2737.0" />
-      <point x="8049.976190476191" y="2737.0" />
-      <point x="20.142857142857338" y="25.5" />
+      <point x="98.5" y="2607.0" />
+      <point x="414.10000000000036" y="2607.0" />
+      <point x="-56.399999999999636" y="25.5" />
     </edge>
-    <edge source="model.modelObstacle.ModelCircleInCircle" target="model.modelObstacle.ModelObstacle">
-      <point x="-174.66666666666652" y="-137.0" />
-      <point x="11107.385416666668" y="1598.0" />
-      <point x="9209.190972222223" y="1598.0" />
-      <point x="201.66666666666697" y="158.5" />
+    <edge source="model.modelObstacle.ModelMultiLine" target="model.modelObstacle.ModelObstacle">
+      <point x="0.0" y="-159.0" />
+      <point x="3350.0" y="292.0" />
+      <point x="2186.916666666666" y="292.0" />
+      <point x="201.66666666666606" y="136.0" />
     </edge>
     <edge source="model.modelShape.ModelHLine" target="model.modelShape.ModelShape">
-      <point x="-227.66666666666697" y="-70.0" />
-      <point x="4772.0" y="1668.0" />
-      <point x="4690.8974358974365" y="1668.0" />
-      <point x="43.23076923076951" y="158.5" />
+      <point x="0.0" y="-70.0" />
+      <point x="984.5" y="1738.0" />
+      <point x="1918.75" y="1738.0" />
+      <point x="-140.5" y="158.5" />
     </edge>
     <edge source="model.modelShape.ModelCircle" target="model.modelShape.ModelShape">
       <point x="0.0" y="-48.0" />
-      <point x="4321.166666666667" y="1658.0" />
-      <point x="4561.205128205129" y="1658.0" />
-      <point x="-86.46153846153811" y="158.5" />
+      <point x="3705.0" y="1728.0" />
+      <point x="2293.416666666667" y="1728.0" />
+      <point x="234.16666666666697" y="158.5" />
     </edge>
-    <edge source="game.path.obstacle.Obstacle" target="game.path.Element">
-      <point x="-37.0" y="-159.0" />
-      <point x="7352.496908631148" y="1558.0" />
-      <point x="7099.003498064441" y="1558.0" />
-      <point x="94.66666666666697" y="104.0" />
+    <edge source="model.modelItem.ModelGravitySwitch" target="model.modelItem.ModelItem">
+      <point x="0.0" y="-48.0" />
+      <point x="554.0" y="2162.0" />
+      <point x="869.3333333333339" y="2162.0" />
+      <point x="-134.66666666666606" y="81.0" />
+    </edge>
+    <edge source="model.modelItem.ModelBallColorSwitch" target="model.modelItem.ModelItem">
+      <point x="0.0" y="-81.5" />
+      <point x="0.0" y="81.0" />
+    </edge>
+    <edge source="view.useLaw.CollisionItem" target="view.useLaw.UseLaw">
+      <point x="0.0" y="-92.5" />
+      <point x="761.0" y="2617.0" />
+      <point x="498.6999999999998" y="2617.0" />
+      <point x="28.199999999999818" y="25.5" />
+    </edge>
+    <edge source="model.modelObstacle.ModelMultiCross" target="model.modelObstacle.ModelObstacle">
+      <point x="0.0" y="-137.0" />
+      <point x="598.5" y="292.0" />
+      <point x="1783.583333333334" y="292.0" />
+      <point x="-201.66666666666606" y="136.0" />
+    </edge>
+    <edge source="model.modelObstacle.ModelMultiShapes" target="model.modelObstacle.ModelObstacle">
+      <point x="0.0" y="-159.0" />
+      <point x="1159.0" y="302.0" />
+      <point x="1864.25" y="302.0" />
+      <point x="-121.0" y="136.0" />
+    </edge>
+    <edge source="model.modelShape.ModelTriangle" target="model.modelShape.ModelShape">
+      <point x="0.0" y="-37.0" />
+      <point x="311.5" y="1728.0" />
+      <point x="1825.083333333333" y="1728.0" />
+      <point x="-234.16666666666697" y="158.5" />
+    </edge>
+    <edge source="model.modelItem.ModelStar" target="model.modelItem.ModelItem">
+      <point x="0.0" y="-48.0" />
+      <point x="1475.5" y="2162.0" />
+      <point x="1138.666666666666" y="2162.0" />
+      <point x="134.66666666666606" y="81.0" />
     </edge>
     <edge source="model.modelItem.ModelGravityInverser" target="model.modelItem.ModelGravitySwitch">
-      <point x="-122.66666666666652" y="-37.0" />
-      <point x="9103.18263888889" y="626.0" />
-      <point x="8881.599305555555" y="626.0" />
+      <point x="0.0" y="-37.0" />
       <point x="0.0" y="48.0" />
     </edge>
+    <edge source="view.View" target="view.InterfaceViewColorSwitch">
+      <point x="0.0" y="-192.0" />
+      <point x="0.0" y="114.0" />
+    </edge>
+    <edge source="model.modelShape.ModelCross" target="model.modelShape.ModelShape">
+      <point x="0.0" y="-48.0" />
+      <point x="3052.0" y="1738.0" />
+      <point x="2199.75" y="1738.0" />
+      <point x="140.5" y="158.5" />
+    </edge>
+    <edge source="model.Model" target="model.InterfaceModelColorSwitch">
+      <point x="0.0" y="-158.5" />
+      <point x="0.0" y="136.0" />
+    </edge>
+    <edge source="view.useLaw.J" target="view.useLaw.UseLaw">
+      <point x="0.0" y="-48.5" />
+      <point x="298.5" y="2617.0" />
+      <point x="442.3000000000002" y="2617.0" />
+      <point x="-28.199999999999818" y="25.5" />
+    </edge>
+    <edge source="model.modelShape.ModelSquare" target="model.modelShape.ModelShape">
+      <point x="0.0" y="-37.0" />
+      <point x="2406.5" y="1748.0" />
+      <point x="2106.083333333333" y="1748.0" />
+      <point x="46.83333333333303" y="158.5" />
+    </edge>
     <edge source="view.useLaw.CollisionObstacle" target="view.useLaw.UseLaw">
-      <point x="158.75" y="-70.5" />
-      <point x="7305.333333333334" y="2727.0" />
-      <point x="7989.54761904762" y="2727.0" />
-      <point x="-40.28571428571422" y="25.5" />
+      <point x="0.0" y="-70.5" />
+      <point x="1171.5" y="2607.0" />
+      <point x="526.8999999999996" y="2607.0" />
+      <point x="56.399999999999636" y="25.5" />
+    </edge>
+    <edge source="model.modelObstacle.ModelCircleInCircle" target="model.modelObstacle.ModelObstacle">
+      <point x="0.0" y="-137.0" />
+      <point x="2793.0" y="302.0" />
+      <point x="2106.25" y="302.0" />
+      <point x="121.0" y="136.0" />
+    </edge>
+    <edge source="model.modelObstacle.ModelMultiCircle" target="model.modelObstacle.ModelObstacle">
+      <point x="0.0" y="-137.0" />
+      <point x="1718.5" y="312.0" />
+      <point x="1944.916666666666" y="312.0" />
+      <point x="-40.33333333333394" y="136.0" />
+    </edge>
+    <edge source="model.modelObstacle.ModelMultiSquare" target="model.modelObstacle.ModelObstacle">
+      <point x="0.0" y="-137.0" />
+      <point x="2252.0" y="312.0" />
+      <point x="2025.583333333334" y="312.0" />
+      <point x="40.33333333333394" y="136.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.3536210404835088" x="3623.0881558418487" y="3103.3812020522364" />
+  <settings layout="Hierarchic Group" zoom="0.36537900392431766" x="2887.9051431875323" y="2698.3513766852675" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
