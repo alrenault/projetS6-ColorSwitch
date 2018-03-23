@@ -72,7 +72,7 @@ public class Controller {
 	 */
 	public void recordScore(Score score){
 
-		view.viewGameOverSuite();
+		view.viewGameOverRecord();
 	}
 	/**
 	 * Enregistre le score
@@ -106,7 +106,7 @@ public class Controller {
 
 			view.viewScores(connectionDB.getLastRecords(15*2));
 		}else{
-			view.viewScoreNoCo();
+			view.viewScoreError();
 
 		}
 

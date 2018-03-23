@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.PerspectiveCamera;
-import view.game.Score;
 
 import java.util.LinkedList;
 
@@ -26,11 +25,11 @@ public class View implements InterfaceViewColorSwitch {
 	 */
 	static Controller controller;
 	/**
-	 *
+	 * La largeur des fenètres
 	 */
 	static final Integer tailleX = 600;
 	/**
-	 *
+	 *La hauteur des fenètres
 	 */
 	static final Integer tailleY = 1000;
 	//Preferences
@@ -42,8 +41,7 @@ public class View implements InterfaceViewColorSwitch {
 	public View(Stage primaryStage) {
 		stage = primaryStage ;
 		initStage(stage);
-		//basicView();
-		
+
 	}
 
 	/**
@@ -61,7 +59,6 @@ public class View implements InterfaceViewColorSwitch {
 	 * @param stage
 	 */
 	private void initStage(Stage stage) {
-		//Set Stage
         stage.setTitle("ColorSuitch");
         stage.getIcons().add(new Image("file:../view/color_icon.png"));
         stage.setFullScreen(false);
@@ -119,29 +116,27 @@ public class View implements InterfaceViewColorSwitch {
 	}
 
 	/**
-	 *
+	 *Génère l'affichage de fin de partie en cas de GameOver
 	 */
 	@Override
 	public void viewGameOver() {
-		/*
-		Scene form =  ScenePseudo.stre( controller);
-		display(form);
-		*/
 
-		//TODO ajouter bouton de ragequit(vers menu) et de view form
 
-		//display(ViewScores.viewEndScore(controller.getScore()));
 
-		display(ViewScores.viewEndScore(new Score(67,90,90)));
+		display(ViewScores.viewEndScore(controller.getScore()));
+
 	}
 
+	/**
+	 *
+	 */
 	@Override
-	public void viewGameOverSuite() {
+	public void viewGameOverRecord() {
 		display(ScenePseudo.stre(controller));
 	}
 	/**
-	 *
-	 * @return
+	 *Accesseur de controller
+	 * @return le Controller de jeu
 	 */
 	@Override
 	public Controller getController() {
@@ -149,19 +144,25 @@ public class View implements InterfaceViewColorSwitch {
 		
 	}
 
-//TODO ajouter de quoi retourner au menu
+	/**
+	 * Affiche une fenetre d'érreur en cas de demande de score si pas de DB
+	 */
 	@Override
-	public void viewScoreNoCo() {
+	public void viewScoreError() {
 
 
         display(ViewScores.viewError());
 	}
+
+	/**
+	 * Affiche les Scores des parties précédantes
+	 * @param liste La liste des records à afficher
+	 */
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
 
-//		display(ViewScores.GroupeScoreOk(liste));
+		display(ViewScores.GroupeScoreOk(liste));
 
-		viewGameOver();
 	}
 
 

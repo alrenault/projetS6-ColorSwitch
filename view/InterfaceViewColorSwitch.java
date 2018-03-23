@@ -33,7 +33,7 @@ public interface InterfaceViewColorSwitch {
 	 */
     void viewGameOver();
 
-	void viewGameOverSuite();
+	void viewGameOverRecord();
 
 	/**
 	 *
@@ -44,7 +44,7 @@ public interface InterfaceViewColorSwitch {
 	/**
 	 * Génère une vue d'érreur
 	 */
-	void viewScoreNoCo();
+	void viewScoreError();
 
 	/**
 	 *
