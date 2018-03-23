@@ -127,11 +127,6 @@ public class GestionDB {
      * @return une liste (chainée) contenant tout les scores de joueur ou null si pseudo inexistant
      */
     public LinkedList<Record> getScoresOfPlayer(String pseudoJoueur) {
-        // pas sur de le pourrir si le pseudo n'est pas dans la base
-  /*  if (!(pseudoInDB(pseudoJoueur))){
-        throw new Exception("Pseudo inexistant");
-    }
-    */
         if (!(pseudoInDB(pseudoJoueur))) return null;
         LinkedList<Record> ret = new LinkedList<>();
         connexion();
