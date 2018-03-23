@@ -67,8 +67,8 @@ public class View implements InterfaceViewColorSwitch {
 	}
 
 	/**
-	 *
-	 * @param scene
+	 * Affiche la Scene
+	 * @param scene La scene à afficher
 	 */
 	private void display(Scene scene) {
         stage.setScene(scene);
@@ -76,17 +76,12 @@ public class View implements InterfaceViewColorSwitch {
 	}
 
 
-	/**
-	 *
-	 */
 	public void basicView() {
 		viewMenu();
 	}
 
 
-	/**
-	 *
-	 */
+
 	public void viewMenu() {
  
 		Scene scene = Menu.createInstance(controller);
@@ -98,10 +93,7 @@ public class View implements InterfaceViewColorSwitch {
 		display(scene);
 	}
 
-	/**
-	 *
-	 * @param thisGame
-	 */
+
 	public void viewGame(Game thisGame) {
 		
 		Group root = new Group();
@@ -115,7 +107,7 @@ public class View implements InterfaceViewColorSwitch {
 		
 	}
 
-	/**
+	/*
 	 *Génère l'affichage de fin de partie en cas de GameOver
 	 */
 	@Override
@@ -127,14 +119,14 @@ public class View implements InterfaceViewColorSwitch {
 
 	}
 
-	/**
+	/*
 	 *Propose d'enregistrer le Score in DB
 	 */
 	@Override
 	public void viewGameOverRecord() {
 		display(ScenePseudo.stre(controller));
 	}
-	/**
+	/*
 	 *Accesseur de controller
 	 * @return le Controller de jeu
 	 */
@@ -144,7 +136,7 @@ public class View implements InterfaceViewColorSwitch {
 		
 	}
 
-	/**
+	/*
 	 * Affiche une fenetre d'érreur en cas de demande de score si pas de DB
 	 */
 	@Override
@@ -154,10 +146,7 @@ public class View implements InterfaceViewColorSwitch {
         display(ViewScores.viewError());
 	}
 
-	/**
-	 * Affiche les Scores des parties précédantes
-	 * @param liste La liste des records à afficher
-	 */
+
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
 

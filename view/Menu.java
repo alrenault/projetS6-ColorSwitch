@@ -27,16 +27,14 @@ import javafx.scene.Group;
  *
  */
 class Menu {
-	/**
-	 *
-	 * @param controller
-	 * @param width
-	 * @param height
-	 * @return
-	 */
 	
 	private static int i = 0;
 
+	/**
+	 *
+	 * @param controller
+	 * @return
+	 */
 	public static Scene createInstance(Controller controller){
 		List<Color> colorExterne = new ArrayList<>();
 		colorExterne.add(Colorable.YELLOW);

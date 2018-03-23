@@ -19,7 +19,10 @@ public interface InterfaceViewColorSwitch {
 	 *
 	 */
 	void viewMenu() ;
-	
+
+	/**
+	 *
+	 */
 	void viewMenuLvl();
 
 	/**
@@ -29,20 +32,22 @@ public interface InterfaceViewColorSwitch {
 	void viewGame(Game thisGame);
 
 	/**
-	 *
+	 *Génère l'affichage de fin de partie en cas de GameOver
 	 */
     void viewGameOver();
-
+	/**
+	 *Propose d'enregistrer le Score in DB
+	 */
 	void viewGameOverRecord();
 
 	/**
-	 *
-	 * @return
+	 *Accesseur de controller
+	 * @return le Controller de jeu
 	 */
 	Controller getController();
 
 	/**
-	 * Génère une vue d'érreur
+	 * Affiche une fenetre d'érreur en cas de demande de score si pas de DB
 	 */
 	void viewScoreError();
 

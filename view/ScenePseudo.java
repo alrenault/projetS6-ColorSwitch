@@ -33,7 +33,7 @@ class ScenePseudo {
         VBox root = new VBox();
         HBox ligne_input_label=new HBox();
         HBox ligne_buttons=new HBox();
-
+        root.setStyle("-fx-background-color: #393939");
         labelPseudo = new Label("Pseudo :");
 
         inputPseudo = new TextField();
@@ -64,8 +64,9 @@ class ScenePseudo {
         root.getChildren().add(ligne_buttons);
         root.setSpacing(20);
         //root.setAlignment(Pos.CENTER);// centre pas ou il faut
+
         scene = new Scene(root, View.tailleX, View.tailleY);
-        scene.setFill(Colorable.BLACK);//ne colore pas
+
         return scene;
     }
 }
