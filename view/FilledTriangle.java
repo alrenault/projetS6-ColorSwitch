@@ -1,19 +1,22 @@
 package view;
 
 
+import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 /**
- *
+ *Génère un Triangle plein
  */
 class FilledTriangle {
     /**
-     * @param x
-     * @param y
-     * @param side
-     * @param color
-     * @return
+     * @param x Coordonnée x du centre du triangle
+     * @param y Coordonnée y du centre du triangle
+     * @param side Longueur du coté
+     * @param color Couleur du de la forme
+     * @return Un polygon en Triangle de la couleur color
      */
     public static Polygon create(double x, double y, double side, Color color) {
         Polygon triangle = new Polygon();
@@ -39,5 +42,26 @@ class FilledTriangle {
         triangle.setFill(color);
 
         return triangle;
+    }
+    
+    public static Group create(double x, double y, double side, Color color, String text) {
+    	Group level = new Group();
+    	
+    	Group labelContainer = new Group();
+    	Label label = new Label(text);
+    	label.setTextFill(color);
+    	labelContainer.getChildren().add(label);
+    	
+    	labelContainer.setTranslateY(y+20);
+    	labelContainer.setTranslateX(x);
+    	
+        label.setMaxWidth(Double.MAX_VALUE);
+        label.setAlignment(Pos.CENTER);
+    	
+    	level.getChildren().add(create(x, y, side, color));
+    	
+    	level.getChildren().add(labelContainer);
+    	
+    	return level ;
     }
 }

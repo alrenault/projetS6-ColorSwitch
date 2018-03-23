@@ -10,30 +10,32 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
+ * Modèle de la balle changeant la couleur
  */
 public class ModelBallColorSwitch extends ModelItem implements Colorable {
     /**
      * La taille de la ballCS
      */
     private double size;
+    
     /**
-     *
+     * La position à laquelle on commence à parcourir la liste de couleurs
      */
     private Integer pos_color = 0;
+    
     /**
-     *
+     * La liste des couleurs utilisées
      */
     private List<Color> colors_use;
 
 
     /**
-     * Constructeur d'Etoile
+     * Constructeur d'un modèle de BallColorSwitch
      *
-     * @param x      Coordonnée x de l'Etoile
-     * @param y      Coordonnée y de l'Etoile
-     * @param colors couleur de l'Etoile
-     * @param type   Le type
+     * @param x      Coordonnée x du modèle de la BallColorSwitch
+     * @param y      Coordonnée y du modèle de la BallColorSwitch
+     * @param colors L'ensemble des couleurs utilisées
+     * @param type   Le type de l'Item
      */
     public ModelBallColorSwitch(double x, double y, List<Color> colors, ItemType type) {
         super(x, y, colors, 10, type);
@@ -43,39 +45,47 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
     }
 
     /**
-     * @return
+     * Accesseur de la pos_color
+     * @return La pos_color
      */
     public Integer getPos_color() {
         return pos_color;
     }
 
     /**
-     * @param pos_color
+     * Mutateur de la pos_color
+     * @param pos_color La nouvelle position
      */
     public void setPos_color(int pos_color) {
         this.pos_color = pos_color;
     }
 
     /**
-     * @return
+     * Accesseur de la taille de la balle
+     * @return La taille de la balle
      */
     public double getSize() {
         return size;
     }
 
     /**
-     * @return
+     * Accesseur de la liste de couleur utilisées
+     * @return La liste de couleurs utilsées
      */
     public List<Color> getColors_use() {
         return colors_use;
     }
 
+    /**
+     * Mutateur de la liste de couleurs utilisées
+     * @param colors_use La nouvelle liste de couleurs utilisées
+     */
     public void setColors_use(List<Color> colors_use) {
         this.colors_use = colors_use;
     }
 
     /**
-     *
+     * Vérifié que pos_color reste inférieur à la taille de la liste de couleurs
      */
     public void verifPosColor() {
         pos_color++;
@@ -84,6 +94,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
     }
 
     /**
+     * Donne une couleur à une shape en fonction la pos_color
      * @param s
      */
     public void color(Shape s) {
@@ -96,7 +107,6 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
         if (c == null)
             c = Color.WHITE;
         s.setFill(c);
-        //colors_use.add(c);
     }
 
 

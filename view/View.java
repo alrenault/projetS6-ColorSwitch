@@ -102,7 +102,13 @@ public class View implements InterfaceViewColorSwitch {
         display(ViewScores.viewEndScore(controller.getScore()));
 
     }
+    @Override
+    public void viewGameEnd() {
 
+
+        display(ViewScores.viewEndScore(controller.getScore()));
+
+    }
     /*
      *Propose d'enregistrer le Score in DB
      */

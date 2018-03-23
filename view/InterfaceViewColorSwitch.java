@@ -35,6 +35,8 @@ public interface InterfaceViewColorSwitch {
      */
     void viewGameOver();
 
+    void viewGameEnd();
+
     /**
      * Propose d'enregistrer le Score in DB
      */

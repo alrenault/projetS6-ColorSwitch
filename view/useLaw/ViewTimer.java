@@ -11,6 +11,7 @@ import java.util.List;
 
 
 public class ViewTimer {
+
     /**
      *
      */
@@ -87,6 +88,7 @@ public class ViewTimer {
             }
 
         };
+        laws.add(tourni);
     }
 
     public void play() {
@@ -100,5 +102,6 @@ public class ViewTimer {
     public void start() {
         timer.start();
     }
+
 
 }

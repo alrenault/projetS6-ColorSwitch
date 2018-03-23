@@ -30,7 +30,6 @@ class MainTestDB {
         System.out.println(TEST);
         LinkedList<SumScore> l = gestion.topJoueurs();
         for (SumScore s : l) {
-            //System.err.println(s.toString());
             System.out.println(s.toString());
         }
 
@@ -42,7 +41,6 @@ class MainTestDB {
         System.out.println(TEST);
         LinkedList<Record> la = gestion.getScoresOfPlayer("Alexis");
         for (Record r : la) {
-            //System.err.println(s.toString());
             System.out.println(r.toString());
         }
 
