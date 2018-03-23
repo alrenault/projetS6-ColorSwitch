@@ -23,6 +23,9 @@ public class ViewTimer {
 		this.controller = controller;
 		
 		J j = new J();
+		
+		LabelScore score = new LabelScore(controller.getScore(),scene);
+		laws.add(score);
 		//laws.add(j);
 		
 		JtGravity gravity = new JtGravity(ball);

@@ -18,12 +18,15 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import model.modelObstacle.ModelObstacle;
 import view.useLaw.ViewTimer;
 import model.modelItem.ModelItem;
 import model.modelBall.BuildBall;
 import model.modelBall.Ball;
+import javafx.scene.control.Label;
+import javafx.scene.Node;
 
 /**
  *
@@ -62,11 +65,14 @@ public class ViewGameManagement {
 		
 		Group jBall = ballplayer.getShape();
 		
-		
-
-        
-		
 		add(jBall);
+		
+		
+		Label score = new Label("Oui");
+		score.setTextFill(Color.AQUAMARINE);
+		root.getChildren().add(score);
+		
+		
 		
 		ViewPath viewpath = new ViewPath(path);
 		
