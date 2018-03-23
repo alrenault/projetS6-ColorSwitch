@@ -19,9 +19,9 @@ import java.util.LinkedList;
 
 class ViewScores {
     /**
-     *
-     * @param elements
-     * @return
+     * Formate le groupe en une scene formattée ( Factorisation de code)
+     * @param elements Le groupe à Formater
+     * @return Une Scene avec un bouton retour et une couleur noire en background
      */
     private static Scene formater(Group elements){
         Group root = new Group();
@@ -35,8 +35,8 @@ class ViewScores {
     }
 
     /**
-     *
-     * @return
+     *Insere de quoi retourner au menu
+     * @return Un Hbox contenant un bouton retour
      */
     private static HBox entete(){
         HBox h = new HBox();
@@ -122,35 +122,43 @@ class ViewScores {
      * @param s le score de la partie
      * @return
      */
-    public static Scene viewEndScore(Score s){
+    public static Scene viewEndScore(Score s) {
         Group g = new Group();
 
         VBox stack = new VBox();
 
-        HBox ligne=new HBox();
-        Button recordScore_oui = new Button();
-        recordScore_oui.setText("Oui");
-       recordScore_oui.setOnAction(event->View.controller.recordScore(s));
-        Button recordScore_non = new Button();
-        recordScore_non.setText("Non");
-        recordScore_non.setOnAction(event -> View.controller.startMenu());
-        String AfficheScore="\nFin de partie!\n " +
-                "Tu as fait "+s.getScore()+" points\n" +
-                "Rammassé "+s.getNbEtoilesRamassees()+" étoiles et \n" +
-                "traversé "+s.getNbrObstaclesCrossed()+" obstacles.";
-        Text t =new Text(AfficheScore);
+        HBox ligne = new HBox();
+
+        String AfficheScore = "\nFin de partie!\n " +
+                "Tu as fait " + s.getScore() + " points\n" +
+                "Rammassé " + s.getNbEtoilesRamassees() + " étoiles et \n" +
+                "traversé " + s.getNbrObstaclesCrossed() + " obstacles.";
+        Text t = new Text(AfficheScore);
         t.setTextAlignment(TextAlignment.CENTER);
         t.setFont(new Font(26));
         t.setFill(Color.WHITE);
+        if (View.controller.isConnect()){
+            Button recordScore_oui = new Button();
+            recordScore_oui.setText("Oui");
+            recordScore_oui.setOnAction(event -> View.controller.recordScore(s));
+            Button recordScore_non = new Button();
+            recordScore_non.setText("Non");
+            recordScore_non.setOnAction(event -> View.controller.startMenu());
+            Text boutons = new Text();
+            boutons.setText("Enregistrer score ? :");
+            boutons.setTextAlignment(TextAlignment.CENTER);
+            boutons.setFont(new Font(26));
+            boutons.setFill(Color.WHITE);
 
-        Text boutons =new Text();
-        boutons.setText("Enregistrer score ? :");
-        boutons.setTextAlignment(TextAlignment.CENTER);
-        boutons.setFont(new Font(26));
-        boutons.setFill(Color.WHITE);
+            ligne.getChildren().addAll(boutons, recordScore_oui, recordScore_non);
+        }else {
 
-        ligne.getChildren().addAll(boutons,recordScore_oui,recordScore_non);
+            Button retourMenu = new Button();
+            retourMenu.setText("Retour au Menu");
+            retourMenu.setOnAction(event -> View.controller.startMenu());
 
+            ligne.getChildren().add(retourMenu);
+        }
         stack.getChildren().add(t);
         stack.getChildren().add(ligne);
         stack.setAlignment(Pos.CENTER);
