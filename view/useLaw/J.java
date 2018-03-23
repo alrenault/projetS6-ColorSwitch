@@ -4,22 +4,21 @@ package view.useLaw;
  *
  */
 public final class J implements UseLaw {
-	/**
-	 *
-	 */
-	String message;
+    /**
+     *
+     */
+    private String message;
 
-	/**
-	 *
-	 */
-	public J() {
-		message = "J" ;
-	}
+    /**
+     *
+     */
+    public J() {
+        message = "J";
+    }
 
-	/**
-	 *
-	 */
-	public void apply() {
-		System.err.println(message);
-	}
+    /**
+     *
+     */
+    public void apply() {
+    }
 }

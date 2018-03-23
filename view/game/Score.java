@@ -8,20 +8,20 @@ import model.modelItem.ModelItem;
  * @date 16/02/2018
  */
 public class Score {
-    private static final int nbPointsParObstacle=5;
+    private static final int nbPointsParObstacle = 5;
     /**
-     *Le nombre d'Obstacles franchis
-     * */
+     * Le nombre d'Obstacles franchis
+     */
     private Integer nbrObstaclesCrossed;
 
     /**
      * Le nombre d'étoiles rammassées
-     * */
+     */
     private Integer nbEtoilesRamassees;
 
     /**
      * Le score calculé
-     * */
+     */
     private Integer scoreStored;
 
     /**
@@ -36,42 +36,56 @@ public class Score {
     }
 
     /**
-     * ONLY FOR TESTING !
+     * ONLY FOR TESTING && DB !
      * Utilisé uniquement dans populate
+     *
      * @param nbrObstaclesCrossed Le nombre d'Obstacles franchis
-     * @param nbEtoilesRamassees Le nombre d'étoiles rammassées
-     * @param scoreStored Le score calculé
+     * @param nbEtoilesRamassees  Le nombre d'étoiles rammassées
+     */
+    public Score(Integer nbrObstaclesCrossed, Integer nbEtoilesRamassees) {
+        assert (nbrObstaclesCrossed >= 0);
+        assert (nbEtoilesRamassees >= 0);
+        this.nbrObstaclesCrossed = nbrObstaclesCrossed;
+        this.nbEtoilesRamassees = nbEtoilesRamassees;
+        this.scoreStored = getScore();
+    }
+
+    /**
+     * Constructeur de Score complet (uniquement dans DB)
+     *
+     * @param nbrObstaclesCrossed Le nombre d'Obstacles franchis
+     * @param nbEtoilesRamassees  Le nombre d'étoiles rammassées
+     * @param scoreStored         Le score
      */
     public Score(Integer nbrObstaclesCrossed, Integer nbEtoilesRamassees, Integer scoreStored) {
-        assert(nbrObstaclesCrossed>=0);
-        assert(nbEtoilesRamassees>=0);
-        assert(scoreStored>=0);
+        assert (nbrObstaclesCrossed >= 0);
+        assert (nbEtoilesRamassees >= 0);
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
         this.scoreStored = scoreStored;
     }
 
     /**
-     *Augmente le score du joueur avec le nombre de points associé à l'item
+     * Augmente le score du joueur avec le nombre de points associé à l'item
      * Et met à jour les nbs
+     *
      * @param item me ModelItem en collision avec le joueur
      */
     public void ramasseItem(ModelItem item) {
-        assert (item!=null);
-        System.err.println(item.getType().toString()+" "+item.getNbPoints());
-        if (item.getType()== ItemType.Star) {
+        assert (item != null);
+        if (item.getType() == ItemType.Star) {
             nbEtoilesRamassees++;
         }
-        if (item.getType()== ItemType.InvisibleLine){
+        if (item.getType() == ItemType.InvisibleLine) {
             nbrObstaclesCrossed++;
         }
 
         scoreStored += item.getNbPoints();
-        System.err.println(getScore());
     }
 
     /**
      * Retourne le nombre d'étoiles
+     *
      * @return nbEtoiles
      */
     public Integer getNbEtoilesRamassees() {
@@ -79,7 +93,8 @@ public class Score {
     }
 
     /**
-     *Accesseur du nombre d'obsctacles
+     * Accesseur du nombre d'obsctacles
+     *
      * @return le nombre d'obstacles franchis
      */
     public Integer getNbrObstaclesCrossed() {
@@ -88,20 +103,22 @@ public class Score {
 
 
     //TODO
+
     /**
      * Generateur du score calculé selon les données de (this)
      */
 
     public Integer getScore() {
-        return scoreStored + nbrObstaclesCrossed*nbPointsParObstacle *nbEtoilesRamassees;
+        return scoreStored + nbrObstaclesCrossed * nbPointsParObstacle;
     }
 
     /**
      * Only for tests
+     *
      * @return le contenu de this
      */
     @Override
     public String toString() {
-        return "{ " + nbrObstaclesCrossed +", " + nbEtoilesRamassees +", " + scoreStored +" }";
+        return "{ " + nbrObstaclesCrossed + ", " + nbEtoilesRamassees + ", " + scoreStored + " }";
     }
 }

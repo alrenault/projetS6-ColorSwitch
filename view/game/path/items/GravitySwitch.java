@@ -1,15 +1,17 @@
 package view.game.path.items;
 
 import controller.Controller;
-import view.game.ball.BallPlayer;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import model.modelItem.ModelGravitySwitch;
 import model.modelItem.ModelItem;
 import view.ViewPath;
+import view.game.ball.BallPlayer;
 
 
-/**Objet graphique Changeur de gravité
+/**
+ * Objet graphique Changeur de gravité
+ *
  * @autor Vincent
  * @date 09/02/2018
  */
@@ -21,18 +23,18 @@ public class GravitySwitch extends Item {
      */
     public GravitySwitch(ModelGravitySwitch mgs) {
         super(mgs);
-        item = buildItem(mgs);
     }
 
     /**
      * Genere la forme
+     *
      * @return un ensemble de forme
      */
     protected Group buildItem(ModelItem mi) {
-        double w = ((ModelGravitySwitch)mi).getSize();
+        double w = ((ModelGravitySwitch) mi).getSize();
         double x = mi.getX();
         double y = mi.getY();
-        
+
         Polygon p = new Polygon();
         //1
         p.getPoints().add(x - w);
@@ -73,8 +75,8 @@ public class GravitySwitch extends Item {
 
 
     }
-    
-    public void get(ViewPath vPah, Controller c, BallPlayer b){
-    	//TODO
+
+    public void get(ViewPath vPah, Controller c, BallPlayer b) {
+        //TODO
     }
 }

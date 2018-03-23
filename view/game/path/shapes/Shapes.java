@@ -1,24 +1,24 @@
 package view.game.path.shapes;
 
-import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import model.modelShape.ModelShape;
+import view.game.path.Element;
 
 /**
  * Une Shapes représent un group de shapes de JavaFX
  * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
  */
 
-public class Shapes extends Element{
+public class Shapes extends Element {
 
     // protected double x;
     // protected double y;
     /**
-     * Le groupe représentant la forme
+     * Patron de la forme
      */
-    protected Group group_shape;
+    private static ModelShape model_shape;
 
     //protected Bounds coord;
 
@@ -35,17 +35,14 @@ public class Shapes extends Element{
     //List<Color> colors;
 
     //List<Color> colors_use;
-    
     /**
-     * Patron de la forme
+     * Le groupe représentant la forme
      */
-    static ModelShape model_shape;
-    
+    Group group_shape;
     /**
-     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme) 
+     * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme)
      */
-    protected Bounds coord;
-    
+    Bounds coord;
 
 
     /**
@@ -87,12 +84,12 @@ public class Shapes extends Element{
         //check();
 
     }*/
-    
-    protected Shapes(ModelShape modelShape) {
-    	super();
-    	model_shape = modelShape;
-    	//group_shape = buildShape();
-    	
+
+    Shapes(ModelShape modelShape) {
+        super();
+        model_shape = modelShape;
+        //group_shape = buildShape();
+
     }
 
 	/* public double getSize() {
@@ -101,6 +98,7 @@ public class Shapes extends Element{
 
     /**
      * Génère la forme
+     *
      * @return Le Group représentant la forme
      */
    /* protected Group build() {
@@ -144,22 +142,20 @@ public class Shapes extends Element{
     	
     	return shape;
     }*/
+    public Bounds getCoord() {
+        return coord;
+    }
 
-    
-    
-	public Bounds getCoord() {
-		return coord;
-	}
-	
     public void setCoord(Bounds coord) {
-		this.coord = coord;
-	}
+        this.coord = coord;
+    }
 
     /**
      * Assesseur de la coordonée en x de la forme
+     *
      * @return La coordonnée en x de la forme
      */
-    public double getX() {
+    private double getX() {
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
@@ -167,22 +163,24 @@ public class Shapes extends Element{
 
     /**
      * Assesseur de la coordonée en y de la forme
+     *
      * @return La coordonnée en y de la forme
      */
-    public double getY() {
+    private double getY() {
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
         return coord.getMinY() + coord.getHeight() / 2;
     }
 
     /**
      * Assesseur des coordonnees de la forme sous la forme d'un Point2D
+     *
      * @return Les coordonnees de ka forme
      */
     public Point2D getCoord2D() {
         return new Point2D(getX(), getY());
     }
+
     /**
-     * 
      * @param _x
      * @param _y
      * @return
@@ -191,18 +189,19 @@ public class Shapes extends Element{
         return this.group_shape.contains(_x, _y);
         //return this.shape.intersects(getX(),getY(),coord.getSize(),coord.getHeight());
     }
-    
+
     /**
      * Retourne le groupe correspondant a la forme
+     *
      * @return Le groupe correspondant a la forme
      */
     public Group getShape() {
-    	return group_shape;
+        return group_shape;
     }
 
-	@Override
-	protected Group build() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    protected Group build() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

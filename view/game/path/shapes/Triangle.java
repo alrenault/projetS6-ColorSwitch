@@ -10,13 +10,11 @@ import model.modelShape.ModelTriangle;
 /**
  * Objet graphique d'un triangle
  */
-public class Triangle extends Shapes {
-   
+class Triangle extends Shapes {
 
 
     /**
      * Constructeur de Triangle
-     
      */
     public Triangle(ModelTriangle mt) {
         super(mt);
@@ -25,36 +23,37 @@ public class Triangle extends Shapes {
 
         //recuperation de la position (a voir si on ne peut pas le mettre dans la factory)
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-        
+
         //check();
     }
 
     /**
      * Génère le triangle
+     *
      * @return le Group correspondant au triangle
      */
-    protected Group buildShape(ModelTriangle mt) {
+    private Group buildShape(ModelTriangle mt) {
         Group t = new Group();
 
         double height = mt.getHeight();
         double width = mt.getWidth();
         double x = mt.getX();
         double y = mt.getY();
-        
+
         double xa, ya, xb, yb, xc, yc, xd, yd, xe, ye, xf, yf, cote, coefReduction;
         Polygon trapeze_1, trapeze_2, trapeze_3;
         trapeze_1 = new Polygon();
         trapeze_2 = new Polygon();
         trapeze_3 = new Polygon();
         coefReduction = (height - (3.0 * width)) / height;
-        cote = (2.0*height)/Math.sqrt(3.0);
-                //(Math.sqrt((4.0 * height * height) / 5.0));
+        cote = (2.0 * height) / Math.sqrt(3.0);
+        //(Math.sqrt((4.0 * height * height) / 5.0));
 
 
         xa = x;
-        ya = y - (height * (2.0/3.0));//+
+        ya = y - (height * (2.0 / 3.0));//+
         xb = x + (cote / 2.0);
-        yb = y + (height * (1.0/3.0));
+        yb = y + (height * (1.0 / 3.0));
         xc = x + ((cote / 2.0) * coefReduction);
         yc = yb - width;
         xd = x;
@@ -74,7 +73,7 @@ public class Triangle extends Shapes {
         mt.color(trapeze_3);
         mt.verifPosColor();
 
-        addSL(trapeze_1,trapeze_2,trapeze_3);
+        addSL(trapeze_1, trapeze_2, trapeze_3);
         t.getChildren().add(trapeze_1);
         t.getChildren().add(trapeze_2);
         t.getChildren().add(trapeze_3);

@@ -10,49 +10,57 @@ import java.util.LinkedList;
  *
  */
 public interface InterfaceViewColorSwitch {
-	/**
-	 *
-	 */
-	void basicView();
+    /**
+     *
+     */
+    void basicView();
 
-	/**
-	 *
-	 */
-	void viewMenu() ;
-	
-	void viewMenuLvl();
+    /**
+     *
+     */
+    void viewMenu();
 
-	/**
-	 *
-	 * @param thisGame
-	 */
-	void viewGame(Game thisGame);
+    /**
+     *
+     */
+    void viewMenuLvl();
 
-	/**
-	 *
-	 */
+    /**
+     * @param thisGame
+     */
+    void viewGame(Game thisGame);
+
+    /**
+     * Génère l'affichage de fin de partie en cas de GameOver
+     */
     void viewGameOver();
 
-	/**
-	 *
-	 * @return
-	 */
-	Controller getController();
+    /**
+     * Propose d'enregistrer le Score in DB
+     */
+    void viewGameOverRecord();
 
-	/**
-	 * Génère une vue d'érreur
-	 */
-	void viewScoreNoCo();
+    /**
+     * Accesseur de controller
+     *
+     * @return le Controller de jeu
+     */
+    Controller getController();
 
-	/**
-	 *
-	 * @param controller
-	 */
-	void setController(Controller controller);
+    /**
+     * @param controller
+     */
+    void setController(Controller controller);
 
-	/**
-	 * Génère une vue contenant les scores de liste
-	 * @param liste La liste des records à afficher
-	 */
-	void viewScores(LinkedList<Record> liste);
+    /**
+     * Affiche une fenetre d'érreur en cas de demande de score si pas de DB
+     */
+    void viewScoreError();
+
+    /**
+     * Génère une vue contenant les scores de liste
+     *
+     * @param liste La liste des records à afficher
+     */
+    void viewScores(LinkedList<Record> liste);
 }

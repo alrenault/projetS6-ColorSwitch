@@ -1,14 +1,14 @@
 package view.game.path.obstacle;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelObstacle;
+import view.game.path.Element;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An Obstacle is a Group of Shapes which contains at least one of it
@@ -16,37 +16,36 @@ import model.modelObstacle.ModelObstacle;
  */
 public abstract class Obstacle extends Element {
 
-    protected Group obstacle;
+    List<Color> color_passable;
+    private Group obstacle;
+    private Bounds coord;
+    private ModelObstacle model_obstacle;
 
-    protected Bounds coord;
-    protected ModelObstacle model_obstacle;
-    protected List<Color> color_passable;
 
-
-    public Obstacle(ModelObstacle mo) {
+    Obstacle(ModelObstacle mo) {
         super();
         model_obstacle = mo;
         color_passable = new ArrayList<>();
 
         obstacle = buildObstacle(mo);
-        
+
         //this.obstacle = build();
         //check();
     }
- 
 
-	public ModelObstacle getModel_obstacle() {
-		return model_obstacle;
-	}
 
-	protected Group build() {
-    	return buildObstacle(model_obstacle);
+    public ModelObstacle getModel_obstacle() {
+        return model_obstacle;
     }
-    
+
+    protected Group build() {
+        return buildObstacle(model_obstacle);
+    }
+
     protected abstract Group buildObstacle(ModelObstacle mo);
 
 
-    public double getX() {
+    private double getX() {
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
     }
@@ -70,27 +69,26 @@ public abstract class Obstacle extends Element {
     }
 
     public double getObstacleHeight() {
-    	System.out.println(obstacle == null);
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getHeight();
     }
 
 
-	public boolean isOver(int x, int y) {
+    public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
-	
-
-	@Override
-	public Group getShape() {
-		// TODO Auto-generated method stub
-		return obstacle;
-	}
 
 
-	public List<Color> getColor_passable() {
-		return color_passable;
-	}
+    @Override
+    public Group getShape() {
+        // TODO Auto-generated method stub
+        return obstacle;
+    }
+
+
+    public List<Color> getColor_passable() {
+        return color_passable;
+    }
 
 
     // public enum Difficulty {EASY, NORMAL, HARD}

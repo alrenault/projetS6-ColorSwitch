@@ -8,26 +8,28 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import model.modelShape.ModelCross;
 
-/**Objet graphique d'une croix
+/**
+ * Objet graphique d'une croix
  */
 public class Cross extends Shapes {
-    
+
     /**
      * Constructeur basique de la croix (direction à true, acceleration à false, la vitesse la plus faible, et la position de la couleur à 1
      */
-    
-    public Cross(ModelCross mc){
-    	super(mc);
-    	group_shape = build(mc);
+
+    public Cross(ModelCross mc) {
+        super(mc);
+        group_shape = build(mc);
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
     }
 
 
     /**
      * Génère la croix
+     *
      * @return le Group correspondant à la croix
      */
-    protected Group build(ModelCross mc) {
+    private Group build(ModelCross mc) {
 
         //Initialisation
         Group croix = new Group();
@@ -83,8 +85,8 @@ public class Cross extends Shapes {
             mc.color(part_4);
             mc.verifPosColor();
         }
-        
-        addSL(part_1,part_2,part_3,part_4,middle);
+
+        addSL(part_1, part_2, part_3, part_4, middle);
 
         croix.getChildren().add(part_1);
         croix.getChildren().add(part_2);

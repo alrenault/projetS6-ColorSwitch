@@ -10,28 +10,29 @@ import javafx.scene.shape.ArcType;
 import javafx.util.Duration;
 import model.modelShape.ModelCircle;
 
-/**Objet graphique Cercle
+/**
+ * Objet graphique Cercle
  */
 public class Circle extends Shapes {
 
 
-	protected Circle(ModelCircle mc) {
-		super(mc);
-		group_shape = buildShape(mc);
-	    coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-	}
+    Circle(ModelCircle mc) {
+        super(mc);
+        group_shape = buildShape(mc);
+        coord = group_shape.localToScene(group_shape.getBoundsInLocal());
+    }
 
-	/**
+    /**
      * Generateur de la forme du cercle
+     *
      * @return un ensemble d'arcs
      */
-    protected Group buildShape(ModelCircle mc) {
-
+    private Group buildShape(ModelCircle mc) {
 
 
         Group cercle = new Group();
         double angle = 360.0 / mc.getArcs_nbr();
-        
+
 
         ArcType type = ArcType.OPEN;
 
@@ -41,9 +42,9 @@ public class Circle extends Shapes {
             arc_1.setType(type);
             arc_1.setFill(null);
             mc.verifPosColor();
-            
+
             //Iterator<Color> it = mc.getColors().iterator();
-        	Color c = mc.getColors().get(mc.getPos_color());
+            Color c = mc.getColors().get(mc.getPos_color());
         	/*for(int j = 0;it.hasNext() && j <= mc.getPos_color();j++){
         		c = it.next();
         	}*/
@@ -51,7 +52,7 @@ public class Circle extends Shapes {
             mc.getColors_use().add(c);
 
             arc_1.setStrokeWidth(mc.getWidth());
-            
+
             cercle.getChildren().add(arc_1);
             addSL(arc_1);
         }

@@ -3,6 +3,6 @@ package view;
 /**
  *
  */
-public class IHM {
+class IHM {
 
 }

@@ -1,11 +1,11 @@
 package model.modelObstacle;
 
-import java.util.List;
-import java.util.Random;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -14,30 +14,29 @@ public class ModelMultiLine extends ModelObstacle {
     /**
      *
      */
-	public static final int NBR_VERSIONS = 11;
+    public static final int NBR_VERSIONS = 11;
     /**
      *
      */
-	public static final double MAX_HEIGHT = 220;
+    private static final double MAX_HEIGHT = 220;
     /**
      *
      */
-    protected static final int[] versionEasy = {0, 1, 4, 7};
+    private static final int[] versionEasy = {0, 1, 4, 7};
     /**
      *
      */
-    protected static final int[] versionMedium = {2, 3, 5, 6, 8};
+    private static final int[] versionMedium = {2, 3, 5, 6, 8};
     /**
      *
      */
-    protected static final int[] versionHard = {9, 10};
+    private static final int[] versionHard = {9, 10};
     /**
      *
      */
-    double scWidth;
+    private double scWidth;
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -47,12 +46,11 @@ public class ModelMultiLine extends ModelObstacle {
      */
     public ModelMultiLine(double x, double y, List<Color> colors, int version, double scWidth, ObstacleType type) {
         super(x, y, colors, version, 4, type);
-        
+
         this.scWidth = scWidth;
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -78,7 +76,6 @@ public class ModelMultiLine extends ModelObstacle {
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -98,53 +95,47 @@ public class ModelMultiLine extends ModelObstacle {
                 version = ModelMultiLine.getRandomHardVersion();
                 break;
         }
-        
+
         //obstacle = buildObstacle();
     }
 
     /**
-     *
      * @return
      */
-    public static int getRandomEasyVersion() {
+    private static int getRandomEasyVersion() {
         Random r = new Random();
         return versionEasy[r.nextInt(versionEasy.length)];
     }
 
     /**
-     *
      * @return
      */
-    public static int getRandomMediumVersion() {
+    private static int getRandomMediumVersion() {
         Random r = new Random();
         return versionMedium[r.nextInt(versionMedium.length)];
     }
 
     /**
-     *
      * @return
      */
-    public static int getRandomHardVersion() {
+    private static int getRandomHardVersion() {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }
 
     /**
-     *
      * @return
      */
-	public double getScWidth() {
-		return scWidth;
-	}
+    public double getScWidth() {
+        return scWidth;
+    }
 
     /**
-     *
      * @return
      */
-	public double getObstacleHeight() {
-		return MAX_HEIGHT;
-	}
-    
-    
+    public double getObstacleHeight() {
+        return MAX_HEIGHT;
+    }
+
 
 }

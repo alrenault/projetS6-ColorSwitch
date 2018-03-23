@@ -2,12 +2,13 @@ package view;
 
 import DB.Record;
 import controller.Controller;
-import view.game.Game;
 import javafx.scene.Group;
+import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.scene.PerspectiveCamera;
+import view.game.Game;
+
 import java.util.LinkedList;
 
 
@@ -15,150 +16,134 @@ import java.util.LinkedList;
  *
  */
 public class View implements InterfaceViewColorSwitch {
-	/**
-	 *
-	 */
+    /**
+     * La largeur des fenètres
+     */
+    static final Integer tailleX = 600;
+    /**
+     * La hauteur des fenètres
+     */
+    static final Integer tailleY = 1000;
+    /**
+     *Le Controller de jeu
+     */
+    static Controller controller;
+    /**
+     *
+     */
     private Stage stage;
-	/**
-	 *
-	 */
-	static Controller controller;
-	/**
-	 *
-	 */
-	static final Integer tailleX = 600;
-	/**
-	 *
-	 */
-	static final Integer tailleY = 1000;
-	//Preferences
+    //Preferences
 
-	/**
-	 *
-	 * @param primaryStage
-	 */
-	public View(Stage primaryStage) {
-		stage = primaryStage ;
-		initStage(stage);
-		//basicView();
-		
-	}
+    /**
+     * @param primaryStage
+     */
+    public View(Stage primaryStage) {
+        stage = primaryStage;
+        initStage(stage);
 
-	/**
-	 *
-	 * @param c
-	 */
-	public void setController(Controller c) {
-		controller = c;
-	}
+    }
 
-
-
-	/**
-	 *
-	 * @param stage
-	 */
-	private void initStage(Stage stage) {
-		//Set Stage
+    /**
+     * @param stage
+     */
+    private void initStage(Stage stage) {
         stage.setTitle("ColorSuitch");
         stage.getIcons().add(new Image("file:../view/color_icon.png"));
-        stage.setFullScreen(1==0);
+        stage.setFullScreen(false);
         stage.setResizable(false);
         stage.setOnCloseRequest(event -> stage.close());
-	}
+    }
 
-	/**
-	 *
-	 * @param scene
-	 */
-	private void display(Scene scene) {
+    /**
+     * Affiche la Scene
+     *
+     * @param scene La scene à afficher
+     */
+    private void display(Scene scene) {
         stage.setScene(scene);
         stage.show();
-	}
+    }
+
+    public void basicView() {
+        viewMenu();
+    }
+
+    public void viewMenu() {
+
+        Scene scene = Menu.createInstance(controller);
+        display(scene);
+    }
+
+    public void viewMenuLvl() {
+        Scene scene = MenuLvl.createInstance(controller);
+        display(scene);
+    }
+
+    public void viewGame(Game thisGame) {
+
+        Group root = new Group();
+        Scene scene = new Scene(root, tailleX, tailleY);
+        scene.setCamera(new PerspectiveCamera());
+
+        ViewGameManagement.view(thisGame, scene, controller);
 
 
-	/**
-	 *
-	 */
-	public void basicView() {
-		viewMenu();
-	}
+        display(scene);
+
+    }
+
+    /*
+     *Génère l'affichage de fin de partie en cas de GameOver
+     */
+    @Override
+    public void viewGameOver() {
 
 
-	/**
-	 *
-	 */
-	public void viewMenu() {
- 
-		Scene scene = Menu.createInstance(controller,600,1000);
-		display(scene);	
-	}
-	
-	public void viewMenuLvl(){
-		Scene scene = MenuLvl.createInstance(controller,600,1000);
-		display(scene);
-	}
+        display(ViewScores.viewEndScore(controller.getScore()));
 
-	/**
-	 *
-	 * @param thisGame
-	 */
-	public void viewGame(Game thisGame) {
-		
-		Group root = new Group();
-		Scene scene = new Scene(root,tailleX,tailleY);
-		scene.setCamera(new PerspectiveCamera());
-		
-		ViewGameManagement.view(thisGame,scene,controller);
-		
-		
-		display(scene);
-		
-	}
+    }
 
-	/**
-	 *
-	 */
-	@Override
-	public void viewGameOver() {
-		/*
-		Scene form =  ScenePseudo.stre( controller);
-		display(form);
-		*/
+    /*
+     *Propose d'enregistrer le Score in DB
+     */
+    @Override
+    public void viewGameOverRecord() {
+        display(ScenePseudo.stre(controller));
+    }
 
-		//TODO ajouter bouton de ragequit(vers menu) et de view form
+    /*
+     *Accesseur de controller
+     * @return le Controller de jeu
+     */
+    @Override
+    public Controller getController() {
+        return controller;
 
-		display(ViewScores.viewEndScore(controller.getScore()));
-	}
+    }
+
+    /**
+     * Mutateur de Controller
+     * @param c Le Controller
+     */
+    public void setController(Controller c) {
+        controller = c;
+    }
 
 
-	/**
-	 *
-	 * @return
-	 */
-	@Override
-	public Controller getController() {
-		return controller;
-		
-	}
-
-//TODO ajouter de quoi retourner au menu
-	@Override
-	public void viewScoreNoCo() {
+    @Override
+    public void viewScoreError() {
 
 
         display(ViewScores.viewError());
-	}
-	@Override
-	public void viewScores(LinkedList<Record> liste) {
+    }
 
 
-		display(ViewScores.GroupeScoreOk(liste));
+    @Override
+    public void viewScores(LinkedList<Record> liste) {
 
-		//viewGameOver();
-	}
+        display(ViewScores.GroupeScoreOk(liste));
 
-
+    }
 
 
 }

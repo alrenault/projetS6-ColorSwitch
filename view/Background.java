@@ -3,6 +3,6 @@ package view;
 /**
  *
  */
-public class Background {
+class Background {
 
 }

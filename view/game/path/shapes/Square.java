@@ -10,11 +10,10 @@ import model.modelShape.ModelSquare;
 /**
  * Objet graphique d'un carre
  */
-public class Square extends Shapes {
+class Square extends Shapes {
 
     /**
      * Constructeur d'un carre
-     
      */
     public Square(ModelSquare ms) {
         super(ms);
@@ -23,16 +22,17 @@ public class Square extends Shapes {
 
         //recuperation de la position
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
-        
+
         //check();
 
     }
 
     /**
      * Génère le carre
+     *
      * @return le Group correspondant au carre
      */
-    protected Group buildShape(ModelSquare ms) {
+    private Group buildShape(ModelSquare ms) {
         Group squaire = new Group();
         double length = ms.getLength();
         double x = ms.getX();
@@ -66,7 +66,7 @@ public class Square extends Shapes {
         ms.color(rec4);
         ms.verifPosColor();
 
-        addSL(rec1,rec2,rec3,rec4);
+        addSL(rec1, rec2, rec3, rec4);
         squaire.getChildren().add(rec1);
         squaire.getChildren().add(rec2);
         squaire.getChildren().add(rec3);

@@ -1,11 +1,11 @@
 package model.modelObstacle;
 
-import java.util.List;
-import java.util.Random;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
+import java.util.Random;
 
 public class ModelMultiSquare extends ModelObstacle {
     /**
@@ -15,22 +15,21 @@ public class ModelMultiSquare extends ModelObstacle {
     /**
      *
      */
-	public static final double MAX_HEIGHT = 300;
+    private static final double MAX_HEIGHT = 300;
     /**
      *
      */
-    protected static final int[] versionEasy = {2, 3};
+    private static final int[] versionEasy = {2, 3};
     /**
      *
      */
-    protected static final int[] versionMedium = {0, 1};
+    private static final int[] versionMedium = {0, 1};
     /**
      *
      */
-    protected static final int[] versionHard = {4};
+    private static final int[] versionHard = {4};
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -42,7 +41,6 @@ public class ModelMultiSquare extends ModelObstacle {
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -65,39 +63,35 @@ public class ModelMultiSquare extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
-    public static int getRandomEasyVersion() {
+    private static int getRandomEasyVersion() {
         Random r = new Random();
         return versionEasy[r.nextInt(versionEasy.length)];
     }
 
     /**
-     *
      * @return
      */
-    public static int getRandomMediumVersion() {
+    private static int getRandomMediumVersion() {
         Random r = new Random();
         return versionMedium[r.nextInt(versionMedium.length)];
     }
 
     /**
-     *
      * @return
      */
-    public static int getRandomHardVersion() {
+    private static int getRandomHardVersion() {
         Random r = new Random();
         return versionHard[r.nextInt(versionHard.length)];
     }
 
     /**
-     *
      * @return
      */
     public double getObstacleHeight() {
-		return MAX_HEIGHT;
-	}
-    
+        return MAX_HEIGHT;
+    }
+
 
 }

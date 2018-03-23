@@ -1,12 +1,14 @@
 package view;
 
-import java.io.File;
-
 import controller.Controller;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import model.modelBall.Ball;
+import model.modelBall.BuildBall;
+import model.modelItem.ModelItem;
+import model.modelObstacle.ModelObstacle;
 import view.game.Colorable;
-import view.game.Difficulty;
 import view.game.Game;
-import view.game.ball.Player;
 import view.game.ball.BallPlayer;
 import view.game.path.Path;
 import view.game.path.items.BuildItem;
@@ -27,30 +29,30 @@ import model.modelBall.BuildBall;
 import model.modelBall.Ball;
 import javafx.scene.control.Label;
 import javafx.scene.Node;
+import view.useLaw.ViewTimer;
 
 /**
  *
  */
-public class ViewGameManagement {
-	/**
-	 *
-	 */
-	static Group root;
-	/**
-	 *
-	 */
-	static Game game;
-	static ViewTimer timer;
-	
-	Controller controller;
+class ViewGameManagement {
+    /**
+     *
+     */
+    private static Group root;
+    /**
+     *
+     */
+    private static Game game;
+    private static ViewTimer timer;
 
-	/**
-	 *
-	 * @param thisGame
-	 * @param thisScene
-	 */
-	public static void view(Game thisGame, Scene thisScene, Controller controller) {
-		
+    Controller controller;
+
+    /**
+     * @param thisGame
+     * @param thisScene
+     */
+    public static void view(Game thisGame, Scene thisScene, Controller controller) {
+
         root = (Group) thisScene.getRoot();
         game = thisGame;
 		
@@ -87,50 +89,48 @@ public class ViewGameManagement {
         
 		
 		
-        
         thisScene.setFill(Colorable.BLACK);
-	}
+    }
 
-	/**
-	 * Methode d'ajout de Shape, Item ... dans root
-	 * @param group L'item,Shape,... à ajouter
-	 */
-	public static void add(Group group) {
-		root.getChildren().add(group);
-	}
+    /**
+     * Methode d'ajout de Shape, Item ... dans root
+     *
+     * @param group L'item,Shape,... à ajouter
+     */
+    public static void add(Group group) {
+        root.getChildren().add(group);
+    }
 
 
-	/**
-	 *
-	 * @param path
-	 * @return
-	 */
-	public static Group buildObstacles(Path path) {
-		Group jObstacles = new Group();
-				
-		for(ModelObstacle mo : path.getObstacles()) {
-			System.out.println(mo.getType());
-			Obstacle obstacle = BuildObstacle.build(mo);
-			add(obstacle.getObstacle());
-		}
-		
-		return jObstacles;
-	}
+    /**
+     * @param path
+     * @return
+     */
+    public static Group buildObstacles(Path path) {
+        Group jObstacles = new Group();
 
-	/**
-	 *
-	 * @param path
-	 * @return
-	 */
-	public static Group buildItems(Path path) {
-		Group jItems = new Group();
-	
-		for(ModelItem mi : path.getItem()) {
-			System.out.println(mi.getType());
-			Item item = BuildItem.build(mi);
-			add(item.getItem());
-		}
-		
-		return jItems;
-	}
+        for (ModelObstacle mo : path.getObstacles()) {
+
+            Obstacle obstacle = BuildObstacle.build(mo);
+            add(obstacle.getObstacle());
+        }
+
+        return jObstacles;
+    }
+
+    /**
+     * @param path
+     * @return
+     */
+    public static Group buildItems(Path path) {
+        Group jItems = new Group();
+
+        for (ModelItem mi : path.getItem()) {
+
+            Item item = BuildItem.build(mi);
+            add(item.getItem());
+        }
+
+        return jItems;
+    }
 }

@@ -1,10 +1,10 @@
 package model.modelObstacle;
 
-import java.util.List;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
 
 /**
  *
@@ -12,7 +12,6 @@ import model.ObstacleType;
 public class BuildModelObstacle {
 
     /**
-     *
      * @param obs
      * @param difficulty
      * @param posX
@@ -21,7 +20,7 @@ public class BuildModelObstacle {
      * @param scWidth
      * @return
      */
-	public static ModelObstacle build(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors, double scWidth) {
+    public static ModelObstacle build(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors, double scWidth) {
         ModelObstacle mo;
         ObstacleType type = ObstacleType.getEnum(obs);
 
@@ -53,8 +52,8 @@ public class BuildModelObstacle {
             default:
                 mo = new ModelMultiCircle(posX, posY, colors, difficulty, type);
         }
-        
-        
+
+
         return mo;
     }
 }

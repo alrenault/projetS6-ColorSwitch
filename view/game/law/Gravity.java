@@ -3,8 +3,8 @@ package view.game.law;
 import view.game.Game;
 
 public class Gravity extends Law {
-    double vectorX;
-    double vectorY;
+    private double vectorX;
+    private double vectorY;
 
     public Gravity(double x, double y) {
         vectorX = x;
@@ -34,7 +34,7 @@ public class Gravity extends Law {
         return vectorY;
     }
 
-/*DOIT VIRER */
+    /*DOIT VIRER */
     @Override
     public void apply(Game game) {
 

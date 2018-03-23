@@ -1,13 +1,13 @@
 package view.useLaw;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import controller.Controller;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ViewTimer {
@@ -94,6 +94,5 @@ public class ViewTimer {
 	public void start() {
 		timer.start();
 	}
-
 
 }

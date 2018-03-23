@@ -1,6 +1,6 @@
 package controller;
 
-public enum Options {
+enum Options {
     //Options pour le menu principal
 
 

@@ -1,16 +1,12 @@
 package view.game.path;
 
+import javafx.scene.paint.Color;
+import model.modelItem.*;
+import model.modelObstacle.BuildModelObstacle;
+import model.modelObstacle.ModelObstacle;
 import view.game.Colorable;
 import view.game.Difficulty;
 import view.game.ennemy.Ennemy;
-import javafx.scene.paint.Color;
-import model.modelItem.BuildModelItem;
-import model.modelItem.ModelBallColorSwitch;
-import model.modelItem.ModelInvisibleLine;
-import model.modelItem.ModelItem;
-import model.modelItem.ModelStar;
-import model.modelObstacle.BuildModelObstacle;
-import model.modelObstacle.ModelObstacle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,17 +22,17 @@ public class Path {
     private double scWidth;
     private double scHeight;
     private List<Color> colors;
-	private int nbr_ObsDeb;
-	private double posX;
-	private double posY;
-	private double finishLine;
-	
-	private boolean isFinite;
-	private boolean isCircleHell = false;
+    private int nbr_ObsDeb;
+    private double posX;
+    private double posY;
+    private double finishLine;
+
+    private boolean isFinite;
+    private boolean isCircleHell = false;
 
 
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_ObsDeb, Difficulty gameDifficulty) {
-    	super();
+        super();
         obstacles = new ArrayList<>();
         ennemies = new ArrayList<>();
         items = new ArrayList<>();
@@ -51,9 +47,9 @@ public class Path {
 
         //buildPathRandom();
     }
-    
+
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs) {
-    	super();
+        super();
         obstacles = new ArrayList<>();
         ennemies = new ArrayList<>();
         items = new ArrayList<>();
@@ -67,9 +63,9 @@ public class Path {
         isFinite = true;
         //buildPathRandom();
     }
-    
-	public Path(double scWidth, double scHeight, List<Color> colors){
-		super();
+
+    public Path(double scWidth, double scHeight, List<Color> colors) {
+        super();
         obstacles = new ArrayList<>();
         ennemies = new ArrayList<>();
         items = new ArrayList<>();
@@ -83,11 +79,11 @@ public class Path {
         isCircleHell = true;
         this.nbr_ObsDeb = 3;
 
-	}
+    }
 
 
     public Path(List<ModelObstacle> _obstacles, List<Ennemy> _ennemies) {
-    	super();
+        super();
         obstacles = _obstacles;
         ennemies = _ennemies;
         items = new ArrayList<>();
@@ -95,12 +91,12 @@ public class Path {
         this.posY = scHeight / 5;
         //buildPath();
     }
-    
-    public Path(List<ModelObstacle> _obstacles){
-    	super();
-    	obstacles = _obstacles;
-    	ennemies = new ArrayList<>();
-    	items = new ArrayList<>();
+
+    public Path(List<ModelObstacle> _obstacles) {
+        super();
+        obstacles = _obstacles;
+        ennemies = new ArrayList<>();
+        items = new ArrayList<>();
         posX = scWidth / 2;
         this.posY = scHeight / 5;
         posX = scWidth / 2;
@@ -108,13 +104,13 @@ public class Path {
     }
 
     public Path(List<Color> colors, int nb_Obstacle, Difficulty difficulty) {
-		this.colors = colors;
-		this.nbr_ObsDeb = nb_Obstacle;
-		this.gameDifficulty = difficulty;
-	}
+        this.colors = colors;
+        this.nbr_ObsDeb = nb_Obstacle;
+        this.gameDifficulty = difficulty;
+    }
 
-	private void buildPathRandom() {
-    	
+    private void buildPathRandom() {
+
         //Group newPath = new Group();
         /*Random r = new Random();
         int type;
@@ -123,12 +119,11 @@ public class Path {
         Difficulty obstacleDifficulty;*/
 
 
-
         //Construction
         for (int i = 0; i < nbr_ObsDeb; i++) {
-        	ModelObstacle mo = addNewObstacle();
-        	addNewColorSwitch(mo.getY() + mo.getObstacleHeight()/2 + 150);
-            
+            ModelObstacle mo = addNewObstacle();
+            addNewColorSwitch(mo.getY() + mo.getObstacleHeight() / 2 + 150);
+
 
             //marche pas encore tout à fait
             /*for(Shape partStar : s.getShapeList()){
@@ -138,21 +133,18 @@ public class Path {
                  	}
                  }
              }*/
-            //System.out.println("colors : "+bcs.getColors_use());
-            
-            //System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
-            
+
+
             //newPath.getChildren().add(o.getObstacle());
             //newPath.getChildren().add(bcs.getItem());
             //newPath.getChildren().add(s.getItem());
-            
-            
-            
+
+
             //addSL(o.getShapeList());
             //addSL(bcs.getShapeList());
             //addSL(s.getShapeList());
-            
-            
+
+
         }
 
 
@@ -182,148 +174,138 @@ public class Path {
 
         return newPath;
     }*/
-    
-	 public ModelObstacle addNewObstacle(){
-	    	Random r = new Random();
-	    	int type;
-	        int variante = r.nextInt(10);
-	    	Difficulty obstacleDifficulty = obstacleDifficulty(variante);
-	    	ModelObstacle mo;
-	    	
-	    	if(this.isCircleHell){
-	    		type = r.nextInt(2);
-	    	}
-	    	else{
-	    		type = r.nextInt(6);
-	    	}
-	    	
-	    	//Generation de l'obstacle avec son colorSwitch
-	        mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors,scWidth);
-	       // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
-	    	
-	    	
 
-	           
-	        
-	       
-	        add(mo);
-	        //System.out.println(mo.getBcs());
-	        //add(modelStar);
-	        posY = posY - mo.getObstacleHeight() / 2 - 600;
-	        
-	        return mo;
-	    }
-	 
-	 
-	 
-	 public ModelBallColorSwitch addNewColorSwitch(double y){
-		 ModelBallColorSwitch modelBCS = (ModelBallColorSwitch)BuildModelItem.build(0, scWidth/2,y, colors, 0, 0, 0, scWidth);
-	     add(modelBCS);
-	     return modelBCS;
-	 }
-    
-	 public ModelStar addNewStar(ModelObstacle mo){
-		 List<Color> l = new ArrayList<Color>();
-		 ModelStar modelStar;
-         switch (mo.getDifficulty()) {
-             case EASY:
-                 l.add(Colorable.BRONZE);
-                 modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 10, 10, scWidth);
-                 break;
-             case NORMAL:
-                 l.add(Colorable.SILVER);
-                 modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 15, 20, scWidth);
-                 break;
-             default:
-                 l.add(Colorable.GOLD);
-                 modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 20, 30, scWidth);
-                 break;
-         }
-	     add(modelStar);
-	     
-	     return modelStar;
-	        
-	 }
-	 
-	 public ModelInvisibleLine addNewInvisibleLine(double y){
-		 ModelInvisibleLine modelIL = (ModelInvisibleLine)BuildModelItem.build(4, scWidth/2,y, colors, 0, 0, 0, scWidth);
-	     add(modelIL);
-	     return modelIL;
-	 }
-    
-    private Difficulty obstacleDifficulty(int variante){
-    	Difficulty obstacleDifficulty;
-    	switch (gameDifficulty) {
-        case EASY:
-            if (variante <= 6)//70%
-                obstacleDifficulty = Difficulty.EASY;
-            else if (variante > 6 && variante < 9)//20%
-                obstacleDifficulty = Difficulty.NORMAL;
-            else //10%
-                obstacleDifficulty = Difficulty.HARD;
-            break;
+    public ModelObstacle addNewObstacle() {
+        Random r = new Random();
+        int type;
+        int variante = r.nextInt(10);
+        Difficulty obstacleDifficulty = obstacleDifficulty(variante);
+        ModelObstacle mo;
 
-        case NORMAL:
-            if (variante <= 1)//20%
-                obstacleDifficulty = Difficulty.EASY;
-            else if (variante > 1 && variante < 8)//60%
-                obstacleDifficulty = Difficulty.NORMAL;
-            else//20%
-                obstacleDifficulty = Difficulty.HARD;
-            break;
+        if (this.isCircleHell) {
+            type = r.nextInt(2);
+        } else {
+            type = r.nextInt(6);
+        }
 
-        case HARD:
-            if (variante <= 0)//10%
-                obstacleDifficulty = Difficulty.EASY;
-            else if (variante > 0 && variante < 4)//30%
-                obstacleDifficulty = Difficulty.NORMAL;
-            else//60%
-                obstacleDifficulty = Difficulty.HARD;
-            break;
-            
-        case RANDOM:
-        	int r = new Random().nextInt(3);
-            switch (r) {
-                case 0:
-                    obstacleDifficulty = Difficulty.EASY;
-                    break;
-                case 1:
-                    obstacleDifficulty = Difficulty.NORMAL;
-                    break;
-                default:
-                    obstacleDifficulty = Difficulty.HARD;
-                    break;
-            }
+        //Generation de l'obstacle avec son colorSwitch
+        mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors, scWidth);
+        // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
 
-        default:
-            if (variante <= 5)//60%
-                obstacleDifficulty = Difficulty.EASY;
-            else if (variante > 5 && variante < 9)//30%
-                obstacleDifficulty = Difficulty.NORMAL;
-            else //10%
-                obstacleDifficulty = Difficulty.HARD;
-    	}
-    	
-    	return obstacleDifficulty;
-    	
+
+        add(mo);
+        //add(modelStar);
+        posY = posY - mo.getObstacleHeight() / 2 - 600;
+
+        return mo;
     }
-    
-    
-    
 
-    public void add(ModelObstacle o) {
+
+    public ModelBallColorSwitch addNewColorSwitch(double y) {
+        ModelBallColorSwitch modelBCS = (ModelBallColorSwitch) BuildModelItem.build(0, scWidth / 2, y, colors, 0, 0, 0, scWidth);
+        add(modelBCS);
+        return modelBCS;
+    }
+
+    public ModelStar addNewStar(ModelObstacle mo) {
+        List<Color> l = new ArrayList<>();
+        ModelStar modelStar;
+        switch (mo.getDifficulty()) {
+            case EASY:
+                l.add(Colorable.BRONZE);
+                modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 10, 10, scWidth);
+                break;
+            case NORMAL:
+                l.add(Colorable.SILVER);
+                modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 15, 20, scWidth);
+                break;
+            default:
+                l.add(Colorable.GOLD);
+                modelStar = (ModelStar) BuildModelItem.build(3, scWidth / 2, mo.getY(), l, 0, 20, 30, scWidth);
+                break;
+        }
+        add(modelStar);
+
+        return modelStar;
+
+    }
+
+    public ModelInvisibleLine addNewInvisibleLine(double y) {
+        ModelInvisibleLine modelIL = (ModelInvisibleLine) BuildModelItem.build(4, scWidth / 2, y, colors, 0, 0, 0, scWidth);
+        add(modelIL);
+        return modelIL;
+    }
+
+    private Difficulty obstacleDifficulty(int variante) {
+        Difficulty obstacleDifficulty;
+        switch (gameDifficulty) {
+            case EASY:
+                if (variante <= 6)//70%
+                    obstacleDifficulty = Difficulty.EASY;
+                else if (variante > 6 && variante < 9)//20%
+                    obstacleDifficulty = Difficulty.NORMAL;
+                else //10%
+                    obstacleDifficulty = Difficulty.HARD;
+                break;
+
+            case NORMAL:
+                if (variante <= 1)//20%
+                    obstacleDifficulty = Difficulty.EASY;
+                else if (variante > 1 && variante < 8)//60%
+                    obstacleDifficulty = Difficulty.NORMAL;
+                else//20%
+                    obstacleDifficulty = Difficulty.HARD;
+                break;
+
+            case HARD:
+                if (variante <= 0)//10%
+                    obstacleDifficulty = Difficulty.EASY;
+                else if (variante > 0 && variante < 4)//30%
+                    obstacleDifficulty = Difficulty.NORMAL;
+                else//60%
+                    obstacleDifficulty = Difficulty.HARD;
+                break;
+
+            case RANDOM:
+                int r = new Random().nextInt(3);
+                switch (r) {
+                    case 0:
+                        obstacleDifficulty = Difficulty.EASY;
+                        break;
+                    case 1:
+                        obstacleDifficulty = Difficulty.NORMAL;
+                        break;
+                    default:
+                        obstacleDifficulty = Difficulty.HARD;
+                        break;
+                }
+
+            default:
+                if (variante <= 5)//60%
+                    obstacleDifficulty = Difficulty.EASY;
+                else if (variante > 5 && variante < 9)//30%
+                    obstacleDifficulty = Difficulty.NORMAL;
+                else //10%
+                    obstacleDifficulty = Difficulty.HARD;
+        }
+
+        return obstacleDifficulty;
+
+    }
+
+
+    private void add(ModelObstacle o) {
         obstacles.add(o);
         //addSL(o.getShapeList());
         //path.getChildren().add(o.getShape());
     }
-    
-   
+
 
     public void add(Ennemy e) {
         ennemies.add(e);
     }
 
-    public void add(ModelItem item) {
+    private void add(ModelItem item) {
         items.add(item);
     }
 
@@ -348,20 +330,21 @@ public class Path {
 
     /**
      * Accesseur du nombre d'items
+     *
      * @return le nombre d'items
      */
     public int getItemNbr() {
         return items.size();
     }
 
-    
-    
-    public int getNbr_ObsDeb() {
-		return nbr_ObsDeb;
-	}
 
-	/**
+    public int getNbr_ObsDeb() {
+        return nbr_ObsDeb;
+    }
+
+    /**
      * Accesseur du nombre d'Obstacles
+     *
      * @return le nombre d'Obstacles dans la liste
      */
     public int getObstacleNbr() {
@@ -376,42 +359,42 @@ public class Path {
     public List<Ennemy> getEnnemies() {
         return ennemies;
     }
-    
-    public List<ModelItem> getItem(){
-    	return items;
+
+    public List<ModelItem> getItem() {
+        return items;
     }
-    
+
     public List<Color> getColors() {
-		return colors;
-	}
+        return colors;
+    }
 
-	public double getPosY() {
-		return posY;
-	}
+    public double getPosY() {
+        return posY;
+    }
 
-	public boolean isFinite() {
-		return isFinite;
-	}
+    public boolean isFinite() {
+        return isFinite;
+    }
 
-	public boolean isCircleHell() {
-		return isCircleHell;
-	}
+    public boolean isCircleHell() {
+        return isCircleHell;
+    }
 
-	public double getFinishLine() {
-		return finishLine;
-	}
+    public double getFinishLine() {
+        return finishLine;
+    }
 
-	public void setFinishLine(double finishLine) {
-		this.finishLine = finishLine;
-	}
+    public void setFinishLine(double finishLine) {
+        this.finishLine = finishLine;
+    }
 
-	public double getScWidth() {
-		return scWidth;
-	}
+    public double getScWidth() {
+        return scWidth;
+    }
 
-	public double getScHeight() {
-		return scHeight;
-	}
+    public double getScHeight() {
+        return scHeight;
+    }
 	
 	
 	
@@ -420,8 +403,6 @@ public class Path {
     /*public Group getPath() {
         return path;
     }*/
-	
-
 
 
 }

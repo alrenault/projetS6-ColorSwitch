@@ -3,11 +3,11 @@ package view.game.path.items;
 import model.modelItem.ModelGravityInverser;
 
 
-/**Objet graphique Changeur de gravité
- * @autor Vincent
- * @date 09/02/2018
+/**
+ * Objet graphique Changeur de gravité
+ *
  */
-public class GravityInverser extends GravitySwitch {
+class GravityInverser extends GravitySwitch {
 
     /**
      * La taille
@@ -15,14 +15,11 @@ public class GravityInverser extends GravitySwitch {
     private double size;
 
 
-
     /**
-     *
      * @param mgi
      */
     public GravityInverser(ModelGravityInverser mgi) {
         super(mgi);
-        item = buildItem(mgi);
     }
 
 
