@@ -17,50 +17,50 @@ class MainTestDB {
 
 
         TEST="Connextion";
-         ln(TEST);
+        System.out.println(TEST);
         if (gestion.testConnexionDB()){
 
-         ln("\u001B[32m" +"Felicitation La connexion est possible "+"\u001B[0m");
+            System.out.println("\u001B[32m" +"Felicitation La connexion est possible "+"\u001B[0m");
         }else {
-             ln("\u001B[31m" +"Pas de chance  Envoie moi un message..."+"\u001B[0m");
+            System.out.println("\u001B[31m" +"Pas de chance  Envoie moi un message..."+"\u001B[0m");
 
         }
 
 
         TEST="Test du top joueurs";
-         ln(TEST);
+        System.out.println(TEST);
         LinkedList<SumScore> l =gestion.topJoueurs();
         for (SumScore s : l) {
-            //  ln(s.toString());
-             ln(s.toString());
+            //System.err.println(s.toString());
+            System.out.println(s.toString());
         }
 
-         ln(TEST+((l.size()==17)?"\u001B[32m" +" OK"+"\u001B[0m":"\u001B[31m" +" PAS_OK"+"\u001B[0m"));
-         ln("Fin"+TEST);
+        System.out.println(TEST+((l.size()==17)?"\u001B[32m" +" OK"+"\u001B[0m":"\u001B[31m" +" PAS_OK"+"\u001B[0m"));
+        System.out.println("Fin"+TEST);
 
 
         TEST="Test du getScoreOfPlayer";
-         ln(TEST);
+        System.out.println(TEST);
         LinkedList<Record> la =gestion.getScoresOfPlayer("Alexis");
         for (Record r : la) {
-            //  ln(s.toString());
-             ln(r.toString());
+            //System.err.println(s.toString());
+            System.out.println(r.toString());
         }
 
-         ln(TEST+((!(la.isEmpty())?"\u001B[32m" +" OK"+"\u001B[0m":"\u001B[31m" +" PAS_OK"+"\u001B[0m")));
-         ln("Fin"+TEST);
+        System.out.println(TEST+((!(la.isEmpty())?"\u001B[32m" +" OK"+"\u001B[0m":"\u001B[31m" +" PAS_OK"+"\u001B[0m")));
+        System.out.println("Fin"+TEST);
 
         TEST="getNBestRecords";
-         ln(TEST);
+        System.out.println(TEST);
         LinkedList<Record> lr = gestion.getNBestRecords(33);
         int i = 1;
         for (Record re : lr) {
 
-             ln(i++ +re.toString());
+            System.out.println(i++ +re.toString());
         }
-         ln(TEST+((!(lr.isEmpty())?"\u001B[32m" +" OK"+"\u001B[0m":"\u001B[31m" +" PAS_OK"+"\u001B[0m")));
-         ln("Fin"+TEST);
-         ln("Fin des tests");
+        System.out.println(TEST+((!(lr.isEmpty())?"\u001B[32m" +" OK"+"\u001B[0m":"\u001B[31m" +" PAS_OK"+"\u001B[0m")));
+        System.out.println("Fin"+TEST);
+        System.out.println("Fin des tests");
 
     }
 }

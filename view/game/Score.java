@@ -70,7 +70,6 @@ public class Score {
      */
     public void ramasseItem(ModelItem item) {
         assert (item!=null);
-          ln(item.getType().toString()+" "+item.getNbPoints());
         if (item.getType()== ItemType.Star) {
             nbEtoilesRamassees++;
         }
@@ -79,7 +78,6 @@ public class Score {
         }
 
         scoreStored += item.getNbPoints();
-          ln(getScore());
     }
 
     /**

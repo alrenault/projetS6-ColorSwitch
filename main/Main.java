@@ -43,7 +43,7 @@ public class Main extends Application {
         StackTraceElement e = t.getStackTrace()[1];
         String className = e.getClassName();
         String functionName = e.getMethodName();
-         ln(className + "." + functionName + " - "+ j);
+         System.out.println(className + "." + functionName + " - "+ j);
         j++;
     }  
     

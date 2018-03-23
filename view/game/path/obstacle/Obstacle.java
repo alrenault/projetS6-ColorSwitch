@@ -70,7 +70,6 @@ public abstract class Obstacle extends Element {
     }
 
     public double getObstacleHeight() {
-    	 ln(obstacle == null);
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getHeight();
     }

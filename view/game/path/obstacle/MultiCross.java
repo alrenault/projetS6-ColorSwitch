@@ -107,7 +107,6 @@ public class MultiCross extends Obstacle {
             	break;
             	
             default:
-            	 ln("Hello");
         }
         
         for(ModelShape ms : modelC){

@@ -87,7 +87,6 @@ public class Controller {
 	 *
 	 */
 	public void gameOver(){
-		 ln("Game Over !");
 		model.gameOver();
 		view.viewGameOver();
 	}
@@ -116,7 +115,6 @@ public class Controller {
 	 * @param difficulty
 	 */
 	public void startGame(Difficulty difficulty) {
-		 ln("J");
 		model.startGame(difficulty);
 		view.viewGame(model.getGame());
 	}

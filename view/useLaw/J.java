@@ -20,6 +20,5 @@ public final class J implements UseLaw {
 	 *
 	 */
 	public void apply() {
-		  ln(message);
 	}
 }
