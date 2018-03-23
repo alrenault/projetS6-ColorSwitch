@@ -12,6 +12,7 @@ import view.game.Colorable;
 
 /**
  *Mini Form recuperrant le pseudo du joueur à la fin de la partie
+ * et qui propose l'enregistrement
  */
 class ScenePseudo {
 
@@ -19,8 +20,8 @@ class ScenePseudo {
 
     /**
      * Genère une stage contant un form pour entrer un pseudo
-     * @param c
-     * @return la stage et submit entraine (TODO) la stage de menu (recommencer une partie) ou de fin
+     * @param c Le controleur de la partie
+     * @return la stage et submit entraine  la stage de menu
      */
 
     public static  Scene stre(Controller c){
