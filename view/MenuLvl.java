@@ -16,10 +16,16 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 
-
+/**
+ * Génère le Menu
+ */
 class MenuLvl {
-
-	public static Scene createInstance(Controller controller,double width, double height){
+	/**
+	 *  Génère une Scene de menu pour lacer une partie
+	 * @param controller Le controller de jeu
+	 * @return Une Scene de Menu
+	 */
+	public static Scene createInstance(Controller controller){
 		List<Color> colorExterne = new ArrayList<>();
 		colorExterne.add(Colorable.YELLOW);
 		colorExterne.add(Colorable.PURPLE);
@@ -83,7 +89,7 @@ class MenuLvl {
 		
 		boxMenu.getChildren().add(vBoxRoot);
 		
-		Scene sc = new Scene(root,width,height);
+		Scene sc = new Scene(root,View.tailleX,View.tailleY);
 		sc.setFill(Colorable.BLACK);
 		
 		niveau10.setOnAction(event -> controller.startLvl(10));

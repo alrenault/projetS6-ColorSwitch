@@ -37,7 +37,7 @@ class Menu {
 	
 	private static int i = 0;
 
-	public static Scene createInstance(Controller controller,double width, double height){
+	public static Scene createInstance(Controller controller){
 		List<Color> colorExterne = new ArrayList<>();
 		colorExterne.add(Colorable.YELLOW);
 		colorExterne.add(Colorable.PURPLE);
@@ -68,7 +68,7 @@ class Menu {
 		//colorSwitch.setTranslateY(50);
 		vBox.getChildren().add(colorSwitch);
 
-    	double x = width/2;
+    	double x = View.tailleX/2;
         double y = 200;
         double side = 100;
         
@@ -124,13 +124,13 @@ class Menu {
 		goLvl.setMinWidth(buttonWidth);
 		goScore.setMinWidth(buttonWidth);
 		
-		vBox.setMinWidth(width);
-		vBox.setMinHeight(height);
+		vBox.setMinWidth(View.tailleX);
+		vBox.setMinHeight(View.tailleY);
 
 		root.getChildren().add(vBox);
 
 
-		Scene sc = new Scene(root, width, height);
+		Scene sc = new Scene(root, View.tailleX, View.tailleY);
 		//vBox.setStyle("-fx-background-color: #393939");
 		sc.setFill(Colorable.BLACK);
 		playRandom.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
