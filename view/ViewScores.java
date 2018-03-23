@@ -1,6 +1,8 @@
 package view;
 
 import DB.Record;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import view.game.Colorable;
 import view.game.Score;
 import javafx.geometry.Pos;
@@ -118,11 +120,22 @@ class ViewScores {
 
     /**
      *Affiche le score de la partie et propose d'enregistrer
+     *
      * @param s le score de la partie
      * @return
      */
     public static Scene viewEndScore(Score s){
-        Group fin = new Group();
+        Group g = new Group();
+
+        VBox stack = new VBox();
+
+        HBox ligne=new HBox();
+        Button recordScore_oui = new Button();
+        recordScore_oui.setText("Oui");
+       recordScore_oui.setOnAction(event->View.controller.recordScore(s));
+        Button recordScore_non = new Button();
+        recordScore_non.setText("Non");
+        recordScore_non.setOnAction(event -> View.controller.startMenu());
         String AfficheScore="\nFin de partie!\n " +
                 "Tu as fait "+s.getScore()+" points\n" +
                 "Rammassé "+s.getNbEtoilesRamassees()+" étoiles et \n" +
@@ -132,14 +145,20 @@ class ViewScores {
         t.setFont(new Font(26));
         t.setFill(Color.WHITE);
 
-        fin.getChildren().add(t);
+        Text boutons =new Text();
+        boutons.setText("Enregistrer score ? :");
+        boutons.setTextAlignment(TextAlignment.CENTER);
+        boutons.setFont(new Font(26));
+        boutons.setFill(Color.WHITE);
 
+        ligne.getChildren().addAll(boutons,recordScore_oui,recordScore_non);
 
+        stack.getChildren().add(t);
+        stack.getChildren().add(ligne);
+        stack.setAlignment(Pos.CENTER);
 
+        g.getChildren().add(stack);
 
-
-
-
-        return formater(fin);
+        return formater(g);
     }
 }

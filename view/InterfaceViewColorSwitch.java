@@ -33,6 +33,8 @@ public interface InterfaceViewColorSwitch {
 	 */
     void viewGameOver();
 
+	void viewGameOverSuite();
+
 	/**
 	 *
 	 * @return

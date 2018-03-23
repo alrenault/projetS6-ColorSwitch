@@ -52,7 +52,8 @@ class ScenePseudo {
         buttonSubmit.setOnAction(e -> {
             String p = inputPseudo.getText();
             System.err.println(p);
-            c.recordScore(p,c.getScore());
+            c.recordScore(View.controller.getScore());//nullpointerException
+            View.controller.startMenu();
         });
 
         scene = new Scene(grille, View.tailleX, View.tailleY);

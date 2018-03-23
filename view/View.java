@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.PerspectiveCamera;
+import view.game.Score;
+
 import java.util.LinkedList;
 
 
@@ -128,10 +130,15 @@ public class View implements InterfaceViewColorSwitch {
 
 		//TODO ajouter bouton de ragequit(vers menu) et de view form
 
-		display(ViewScores.viewEndScore(controller.getScore()));
+		//display(ViewScores.viewEndScore(controller.getScore()));
+
+		display(ViewScores.viewEndScore(new Score(67,90,90)));
 	}
 
-
+	@Override
+	public void viewGameOverSuite() {
+		display(ScenePseudo.stre(controller));
+	}
 	/**
 	 *
 	 * @return
@@ -152,10 +159,9 @@ public class View implements InterfaceViewColorSwitch {
 	@Override
 	public void viewScores(LinkedList<Record> liste) {
 
+//		display(ViewScores.GroupeScoreOk(liste));
 
-		display(ViewScores.GroupeScoreOk(liste));
-
-		//viewGameOver();
+		viewGameOver();
 	}
 
 

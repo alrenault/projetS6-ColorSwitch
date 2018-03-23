@@ -1,9 +1,9 @@
 package controller;
 
 import DB.GestionDB;
+import view.View;
 import view.game.Difficulty;
 import view.game.Score;
-import javafx.scene.Scene;
 import model.InterfaceModelColorSwitch;
 import model.modelItem.ModelItem;
 import view.InterfaceViewColorSwitch;
@@ -71,14 +71,22 @@ public class Controller {
 
 	/**
 	 * Enregistre le score
-	 * @param nom nom du joueur
 	 * @param score Score du joueur
 	 */
-	public void recordScore(String nom, Score score){
-//
-		connectionDB.record(nom,score);
-	}
+	public void recordScore(Score score){
 
+		view.viewGameOverSuite();
+		//connectionDB.record(nom,score);
+	}
+	/**
+	 * Enregistre le score
+	 * @param score Score du joueur
+	 */
+	public void recordScore(String pseudo,Score score){
+
+
+		connectionDB.record(pseudo,score);
+	}
 	/**
 	 *
 	 */

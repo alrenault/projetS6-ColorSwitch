@@ -2,7 +2,6 @@ package view.useLaw;
 
 import controller.Controller;
 import view.game.ball.BallPlayer;
-import view.game.path.items.InvisibleLine;
 import view.game.path.items.Item;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;

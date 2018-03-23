@@ -1,7 +1,7 @@
 package view.game.path;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 import javafx.scene.Group;
@@ -47,9 +47,7 @@ public abstract class Element {
 				
 				if (shapes != null) {
 					if(shape_list == null) shape_list = new ArrayList<Shape>();
-					for (Shape j : shapes) {
-						shape_list.add(j);
-					}
+                    shape_list.addAll(Arrays.asList(shapes));
 				}
 				
 			}
