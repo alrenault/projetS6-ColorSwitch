@@ -44,7 +44,7 @@ public class Race implements UseLaw {
 			//ball.getShape().setTranslateX(i-scene.getWidth()/2);
 			ball.getShape().setTranslateX(i);
 		});
-		//scene.setOnKeyPressed(event -> System.out.println("Hello"));
+		//scene.setOnKeyPressed(event ->  ln("Hello"));
 		
 		
 		//ball.getShape().setTranslateX(ball.getShape().getTranslateY()-5);

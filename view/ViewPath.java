@@ -67,7 +67,7 @@ public class ViewPath {
 		Obstacle obstacle = BuildObstacle.build(mo);
 		obstacles.add(obstacle);
 		obstaclesShapes.addAll(obstacle.getShapeList());
-		//System.out.println(obstacle.getShapeList());
+
 		return obstacle;
 	}
 	
@@ -78,7 +78,7 @@ public class ViewPath {
 		
 		ModelItem bcs = path.addNewColorSwitch(o.getY() + o.getObstacleHeight()/2 + 150);
 		((ModelBallColorSwitch)bcs).setColors_use(o.getColor_passable());
-		//System.err.println("les couleurs "+((ModelBallColorSwitch)bcs).getColors_use().size());
+
 		//bcs.setY(o.getY() + mo.getObstacleHeight()/2 + 150);
 		Item i = addItem(bcs);
 		jItems.getChildren().add(i.getShape());
@@ -90,8 +90,7 @@ public class ViewPath {
 		if(!path.isFinite()){
 			ModelInvisibleLine il = path.addNewInvisibleLine(mo.getY());
 			Item line = addItem(il);
-			System.err.print("forme : ");
-			System.err.println(line.getCoord());
+
 			jItems.getChildren().add(line.getShape());
 		}
 		
@@ -130,12 +129,12 @@ public class ViewPath {
 	    	s.setStroke(Color.TRANSPARENT);
 	    }
 		
-		System.out.println("AVANT "+o.getShapeList().size());
+
 		obstacles.remove(o);
 		obstaclesShapes.removeAll(o.getShapeList());
 		path.remove(o.getModel_obstacle());
 		o.removeSL(o.getShapeList());
-		System.out.println("APRES "+o.getShapeList().size());
+
 	
 	}
 	

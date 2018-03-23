@@ -137,7 +137,6 @@ public class BallPlayer extends Player{
 
     
     public void applyGravity() {
-        //System.out.println("Gravity Ball");
         gravity = new TranslateTransition(Duration.seconds(4), shape);
         gravity.setByY(scene.getHeight() + size);
         //tt1.setCycleCount(4);
@@ -210,7 +209,6 @@ public class BallPlayer extends Player{
         ttl.play();
     	//scene.getCamera().setTranslateY(-100);
     	limiteJump -= 100;
-    	System.out.println("jumplimit "+ limiteJump);
         /*TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
         tt1.setByY(100);
 

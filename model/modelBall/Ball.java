@@ -63,11 +63,9 @@ public class Ball {
 	}
 	
 	public void setY(double newY){
-		System.out.println("Y ? "+newY);
-		System.out.println("y ? "+y);
+
 		y = newY;
-		System.out.println("Y ? "+newY);
-		System.out.println("y ? "+y);
+
 	}
 
     /**

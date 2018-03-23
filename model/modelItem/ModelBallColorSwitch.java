@@ -79,7 +79,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable{
 	 */
 	public void verifPosColor() {
 		pos_color++;
-		//System.out.println("position " + pos_color);
+		// ln("position " + pos_color);
 		if (pos_color == colors.size())
 			pos_color = 0;
 	}

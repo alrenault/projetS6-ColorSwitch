@@ -49,7 +49,7 @@ public class Listeners {
                     Point2D coordPlayer = ball.getCoord();
                     if (coordPlayer.getY() <= ball.getLimiteJump()) {
                         //appel d'une methode pour faire descendre tout le monde
-                        //System.out.println(coordPlayer.getX() + "," + coordPlayer.getY());
+                        // ln(coordPlayer.getX() + "," + coordPlayer.getY());
                         ball.jumpLimit();
                     }
                     //l1.setText(ke.getCode().getName());

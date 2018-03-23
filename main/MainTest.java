@@ -21,12 +21,10 @@ public class MainTest extends Application{
     @Override
     public void start(Stage primaryStage) {
     	
-    	//System.out.println("_________________________________________"+ "\n\nStart\n");
     	Group root = new Group();
     	//Circle c = new Circle(100,100,100,Color.BLUE);
     	//root.getChildren().add(c);
-    	//c.setOnMouseClicked(event -> System.out.println("ca click"));
-    	
+
     	Polygon triangle = new Polygon();
 
     	double x = 100;
@@ -54,9 +52,7 @@ public class MainTest extends Application{
         double p3x1 = x - (side/2);
         double p3y1 = y+1.0/3.0 * side * (Math.sqrt(3.0)/2.0);
         
-        System.out.println(p1x+" "+p1y);
-        System.out.println(p2x+" "+p2y);
-        System.out.println(p3x+" "+p3y);
+
         
         triangle.getPoints().addAll(
                p1x, p1y, 
@@ -65,8 +61,6 @@ public class MainTest extends Application{
     
         root.getChildren().add(triangle);
         triangle.setRotate(90);
-        triangle.setOnMouseClicked(event -> System.out.println("ca click"));
-    	//triangle.
     	triangle.setFill(Colorable.GOLD);
     	
     	Scene sc = new Scene(root,600, 1000);

@@ -26,10 +26,8 @@ public class Jump implements UseLaw {
 		
 		current_time = System.currentTimeMillis();
 		
-		//scene.setOnKeyTyped(event -> System.out.println("Type"));
-		
-		//scene.setOnKeyReleased(event -> System.out.println("Release"));
-		
+
+
 		scene.setOnKeyPressed(event -> {
 			
 			boolean space = event.getCode() == KeyCode.SPACE;

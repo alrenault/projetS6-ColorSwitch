@@ -14,8 +14,7 @@ public class MoveBall implements UseLaw {
 	public void apply() {
 		ball.getBall().moveBall();
 		
-		//System.out.println("Ball --- X : "+ball.getBall().getX()+" - Y : "+ball.getBall().getY());
-		
+
 		ball.getShape().setTranslateX(ball.getBall().getX());
 		ball.getShape().setTranslateY(ball.getBall().getY());
 

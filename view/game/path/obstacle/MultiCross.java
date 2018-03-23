@@ -107,7 +107,7 @@ public class MultiCross extends Obstacle {
             	break;
             	
             default:
-            	System.out.println("Hello");
+            	 ln("Hello");
         }
         
         for(ModelShape ms : modelC){

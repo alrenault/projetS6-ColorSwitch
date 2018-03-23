@@ -138,9 +138,8 @@ public class Path {
                  	}
                  }
              }*/
-            //System.out.println("colors : "+bcs.getColors_use());
-            
-            //System.out.println("Is it Empty ?"+o.getShapeList().isEmpty());
+
+            // ln("Is it Empty ?"+o.getShapeList().isEmpty());
             
             //newPath.getChildren().add(o.getObstacle());
             //newPath.getChildren().add(bcs.getItem());
@@ -207,7 +206,7 @@ public class Path {
 	        
 	       
 	        add(mo);
-	        //System.out.println(mo.getBcs());
+	        // ln(mo.getBcs());
 	        //add(modelStar);
 	        posY = posY - mo.getObstacleHeight() / 2 - 600;
 	        

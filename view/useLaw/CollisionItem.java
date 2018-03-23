@@ -43,10 +43,10 @@ public class CollisionItem implements UseLaw {
 					
 					if (!intersection.getBoundsInParent().isEmpty()) {
 
-						//System.out.println(shape.getFill().toString());
-						//System.out.println(ball.getFill().toString());
+						// ln(shape.getFill().toString());
+						// ln(ball.getFill().toString());
 						//if(item instanceof BallColorSwitch){
-							//System.out.println("C'EST MA BALLE");
+							// ln("C'EST MA BALLE");
 							//Random r = new Random();
 							//ModelBallColorSwitch mBCS = (ModelBallColorSwitch)((BallColorSwitch)item).getModel_item();
 							//int size = mBCS.getColors_use().size();
@@ -64,7 +64,7 @@ public class CollisionItem implements UseLaw {
 						//}
 						//else{
 							//touch = true;
-							//System.err.println("COUCOU");
+							//  ln("COUCOU");
 							//path.removeItem(item);
 							break;
 						//}

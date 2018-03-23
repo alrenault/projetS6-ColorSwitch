@@ -61,7 +61,7 @@ public class ViewTimer {
 			public void handle(long now) {
 				long currentTime = System.currentTimeMillis();
 				long duree = currentTime - startTime;
-				//System.out.println("Time : "+ duree + " ms");
+
 				
 				for(UseLaw j : laws) {
 					j.apply();

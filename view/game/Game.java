@@ -69,8 +69,7 @@ public class Game {
     	CUSTOM.add(Colorable.BLUE);
     	
     	this.path = new Path(600,1000, CUSTOM, nbr_obs);
-    	System.out.println("Celui là");
-    	
+
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	this.ball = new Ball(10,CUSTOM.get(0));
     	
@@ -82,9 +81,7 @@ public class Game {
 
 	
     public Game(Scene scene) {
-        System.out.println(
-        		"\n_______________"
-        		+ "\nRandom Game\n\n");
+
         
         List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
@@ -108,9 +105,7 @@ public class Game {
     }
 
     public Game(Difficulty difficulty) {
-    	System.out.println(
-        		"\n_______________"
-        		+ "\nRandom Game\n\n");
+
         
         List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
@@ -119,8 +114,7 @@ public class Game {
     	CUSTOM.add(Colorable.BLUE);
     	
     	this.path = new Path(600,1000, CUSTOM, 5, difficulty);
-    	System.out.println("Celui là");
-    	
+
     	//this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
     	this.ball = new Ball(10,CUSTOM.get(0));
     	
@@ -132,7 +126,6 @@ public class Game {
     
     public void defeat() {
     	
-    	System.out.println("\n___________\nDEFEAT\n");
     	stage.close();
     }
 
@@ -150,7 +143,6 @@ public class Game {
 				
 				
 				//nFrame++;
-				//System.out.println("X : " + x + " - Y : "+ y);
 			}
 
 			private void checkCollision() {
@@ -164,9 +156,7 @@ public class Game {
 						Shape intersection = Shape.intersect(b, shape);
 						
 							if (!intersection.getBoundsInParent().isEmpty()) {
-								System.out.println(shape.getFill());
-								System.out.println(b.getFill());
-							
+
 								if(shape instanceof Arc && shape.getStroke() != b.getFill()){
 									
 									defeat();
@@ -190,9 +180,7 @@ public class Game {
 								Shape intersection = Shape.intersect(b,shape);
 								
 								if (!intersection.getBoundsInParent().isEmpty()) {
-									System.out.println(shape.getFill());
-									System.out.println(b.getFill());
-									
+
 									
 									if(shape.getFill() != b.getFill()) {
 										Random r = new Random();
@@ -232,9 +220,7 @@ public class Game {
     
     public void hello(Stage primaryStage) {
     	
-    	System.out.println("_________________________________________"
-    			+ "\n\nStart\n");
-    	
+
     	List<Color> CUSTOM = new ArrayList<>();
     	CUSTOM.add(Colorable.YELLOW);
     	CUSTOM.add(Colorable.PURPLE);

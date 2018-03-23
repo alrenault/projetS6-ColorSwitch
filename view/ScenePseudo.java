@@ -50,9 +50,9 @@ class ScenePseudo {
 
         buttonSubmit.setOnAction(e -> {
             String p = inputPseudo.getText();
-            System.err.println(p);
-            System.err.println(c+"==" + ((c==null)?"Null":"Non null"));
-            System.err.println(View.controller.getScore().toString());
+              ln(p);
+              ln(c+"==" + ((c==null)?"Null":"Non null"));
+              ln(View.controller.getScore().toString());
             c.recordScore(View.controller.getScore());
             View.controller.startMenu();
         });

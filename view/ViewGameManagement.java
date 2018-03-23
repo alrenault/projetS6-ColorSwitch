@@ -95,7 +95,7 @@ class ViewGameManagement {
 		Group jObstacles = new Group();
 				
 		for(ModelObstacle mo : path.getObstacles()) {
-			System.out.println(mo.getType());
+
 			Obstacle obstacle = BuildObstacle.build(mo);
 			add(obstacle.getObstacle());
 		}
@@ -112,7 +112,7 @@ class ViewGameManagement {
 		Group jItems = new Group();
 	
 		for(ModelItem mi : path.getItem()) {
-			System.out.println(mi.getType());
+
 			Item item = BuildItem.build(mi);
 			add(item.getItem());
 		}

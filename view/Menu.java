@@ -57,7 +57,7 @@ class Menu {
 		VBox vBox = new VBox(25);
 		//Circle c = new Circle(100,100,100,Color.BLUE);
     	//root.getChildren().add(c);
-    	//c.setOnMouseClicked(event -> System.out.println("ca click"));
+    	//c.setOnMouseClicked(event ->  ln("ca click"));
 		Label colorSwitch = new Label("Color Switch");
 		Font f = Font.font("Verdana",FontWeight.BOLD,50);
 		colorSwitch.setFont(f);

@@ -24,7 +24,7 @@ public class JtGravity implements UseLaw {
 	 */
 	@Override
 	public void apply() {
-		//System.out.println("Gravity");
+		// ln("Gravity");
 		
 		ball.getBall().addVectorY(6);
 		

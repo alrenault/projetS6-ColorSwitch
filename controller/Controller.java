@@ -36,7 +36,7 @@ public class Controller {
 			connectionDB=new GestionDB();
 		} catch(Exception e) {
 			//e.printStackTrace();
-			System.out.println("Connexion with database failed.");
+			 ln("Connexion with database failed.");
 		}*/
 		
 
@@ -87,7 +87,7 @@ public class Controller {
 	 *
 	 */
 	public void gameOver(){
-		System.out.println("Game Over !");
+		 ln("Game Over !");
 		model.gameOver();
 		view.viewGameOver();
 	}
@@ -116,7 +116,7 @@ public class Controller {
 	 * @param difficulty
 	 */
 	public void startGame(Difficulty difficulty) {
-		System.out.println("J");
+		 ln("J");
 		model.startGame(difficulty);
 		view.viewGame(model.getGame());
 	}
