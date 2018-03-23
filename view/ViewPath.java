@@ -18,17 +18,37 @@ import view.game.path.obstacle.Obstacle;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class ViewPath {
-
+    /**
+     *
+     */
     private static List<Obstacle> obstacles;
+    /**
+     *
+     */
     private static List<Item> items;
-
+    /**
+     *
+     */
     private static List<Shape> obstaclesShapes;
-    private static List<Shape> itemsShapes;
 
+    /**
+     *
+     */private static List<Shape> itemsShapes;
+    /**
+     *
+     */
     private Path path;
-
+    /**
+     *
+     */
     private Group jObstacles;
+    /**
+     *
+     */
     private Group jItems;
 
     private Rectangle finishLine;
