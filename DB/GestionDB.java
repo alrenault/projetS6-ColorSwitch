@@ -12,6 +12,10 @@ import java.util.Random;
  */
 public class GestionDB {
     /**
+     * Numero de port de MySql
+     */
+    private static final Integer NoPORT = 8889;
+    /**
      * Addresse du driver de MySql
      */
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -22,7 +26,7 @@ public class GestionDB {
     /**
      * Addresse de la base de données
      */
-    private static final String DB_URL = "jdbc:mysql://localhost:3309/" + DB_NAME;
+    private static final String DB_URL = "jdbc:mysql://localhost:"+NoPORT+"/" + DB_NAME;
     /**
      * Nom de l'utilisateur de la base de données
      */
