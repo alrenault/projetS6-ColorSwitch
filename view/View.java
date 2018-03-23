@@ -64,7 +64,7 @@ public class View implements InterfaceViewColorSwitch {
 		//Set Stage
         stage.setTitle("ColorSuitch");
         stage.getIcons().add(new Image("file:../view/color_icon.png"));
-        stage.setFullScreen(1==0);
+        stage.setFullScreen(false);
         stage.setResizable(false);
         stage.setOnCloseRequest(event -> stage.close());
 	}
