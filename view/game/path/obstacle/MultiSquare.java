@@ -1,15 +1,15 @@
 package view.game.path.obstacle;
 
-import view.game.Difficulty;
-import view.game.Speed;
-import view.game.path.shapes.BuildShape;
-import view.game.path.shapes.Shapes;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelMultiSquare;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelSquare;
+import view.game.Difficulty;
+import view.game.Speed;
+import view.game.path.shapes.BuildShape;
+import view.game.path.shapes.Shapes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,7 @@ public class MultiSquare extends Obstacle {
 	 */
 
 
+
     /**
      * Constructeur de multiShapes
      * @param mms le model de la MultiSquare à construire
@@ -35,8 +36,6 @@ public class MultiSquare extends Obstacle {
     public MultiSquare(ModelMultiSquare mms) {
         super(mms);
     }
-
-
     
 
     public Group buildObstacle() {
@@ -46,14 +45,14 @@ public class MultiSquare extends Obstacle {
         double mediumLength = 200.0;
         double bigLength = 300.0;
         double width = 15.0;
-        
+
         double x = mo.getX();
         double y = mo.getY();
         List<Color> colors = mo.getColors();
-        
+
         Random r = new Random();
         int colorDeb = r.nextInt(colors.size());
-        int colorOppose = (colorDeb+colors.size()) % colors.size();
+        int colorOppose = (colorDeb + colors.size()) % colors.size();
 
         //public Square(double x, double y, double length, double width,
         //boolean mouvementDirection, boolean acceleration,int mouvementSpeed,Color[] colors, int pos_color)
@@ -65,47 +64,47 @@ public class MultiSquare extends Obstacle {
         switch (mo.getVersion()) {
             case 0:
                 modelC.add(new ModelSquare(x, y, tinyLength, width, false, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.addAll(colors);
+                color_passable.addAll(colors);
 
-            	mo.setDifficulty(Difficulty.NORMAL);
+                mo.setDifficulty(Difficulty.NORMAL);
                 break;
             case 1:
-            	modelC.add(new ModelSquare(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.addAll(colors);
+                modelC.add(new ModelSquare(x, y, tinyLength, width, true, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.addAll(colors);
 
-            	mo.setDifficulty(Difficulty.NORMAL);
+                mo.setDifficulty(Difficulty.NORMAL);
                 break;
             case 2:
-            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.addAll(colors);
+                modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.addAll(colors);
 
-            	mo.setDifficulty(Difficulty.EASY);
+                mo.setDifficulty(Difficulty.EASY);
                 break;
             case 3:
-            	modelC.add(new ModelSquare(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, colorDeb));
-            	color_passable.addAll(colors);
+                modelC.add(new ModelSquare(x, y, mediumLength, width, true, false, Speed.SYMPA, colors, colorDeb));
+                color_passable.addAll(colors);
 
-            	mo.setDifficulty(Difficulty.EASY);
-                
+                mo.setDifficulty(Difficulty.EASY);
+
                 break;
             case 4:
-            	modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, colorDeb));
-            	modelC.add(new ModelSquare(x, y, bigLength, width, true, false, Speed.SYMPA, colors, colorOppose));
-            	color_passable.add(colors.get(colorDeb));
-            	color_passable.add(colors.get(colorOppose));
-                
-            	mo.setDifficulty(Difficulty.HARD);
+                modelC.add(new ModelSquare(x, y, mediumLength, width, false, false, Speed.SYMPA, colors, colorDeb));
+                modelC.add(new ModelSquare(x, y, bigLength, width, true, false, Speed.SYMPA, colors, colorOppose));
+                color_passable.add(colors.get(colorDeb));
+                color_passable.add(colors.get(colorOppose));
+
+                mo.setDifficulty(Difficulty.HARD);
                 break;
-                  	
+
         }
-        
-        for(ModelShape ms : modelC){
-        	s = BuildShape.constructShape(ms);
-            addSL(s.getShapeList());  
+
+        for (ModelShape ms : modelC) {
+            s = BuildShape.constructShape(ms);
+            addSL(s.getShapeList());
             multiSquare.getChildren().add(s.getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
-        
+
 
         return multiSquare;
     }

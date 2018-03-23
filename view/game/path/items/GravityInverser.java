@@ -14,7 +14,6 @@ class GravityInverser extends GravitySwitch {
     private double size;
 
 
-
     /**
 	 * Constructeur de la GravityInverser
 	 * @param mgi Le model utilisé pour le GravityInverser

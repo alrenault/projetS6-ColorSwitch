@@ -1,11 +1,11 @@
 package model.modelObstacle;
 
-import java.util.List;
-import java.util.Random;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -14,15 +14,15 @@ public class ModelMultiShapes extends ModelObstacle {
     /**
      *
      */
-	public static final int NBR_VERSIONS = 8;
+    public static final int NBR_VERSIONS = 8;
     /**
      *
      */
-	private static final double MAX_HEIGHT = 500;
+    private static final double MAX_HEIGHT = 500;
     /**
      *
      */
-    private static final int[] versionEasy = {4,6,7};
+    private static final int[] versionEasy = {4, 6, 7};
     /**
      *
      */
@@ -37,7 +37,6 @@ public class ModelMultiShapes extends ModelObstacle {
     private double scWidth;
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -51,7 +50,6 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -77,7 +75,6 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -85,7 +82,7 @@ public class ModelMultiShapes extends ModelObstacle {
      * @param type
      */
     public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
-		super(x, y, colors, 0, 4, type);
+        super(x, y, colors, 0, 4, type);
         switch (difficulty) {
             case EASY:
                 version = ModelMultiShapes.getRandomEasyVersion();
@@ -98,10 +95,9 @@ public class ModelMultiShapes extends ModelObstacle {
                 break;
         }
 
-	}
+    }
 
     /**
-     *
      * @return
      */
     private static int getRandomEasyVersion() {
@@ -110,7 +106,6 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomMediumVersion() {
@@ -119,7 +114,6 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomHardVersion() {
@@ -128,19 +122,17 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
-	public double getScWidth() {
-		return scWidth;
-	}
+    public double getScWidth() {
+        return scWidth;
+    }
 
     /**
-     *
      * @return
      */
-	public double getObstacleHeight() {
-		return MAX_HEIGHT;
-	}
-	
+    public double getObstacleHeight() {
+        return MAX_HEIGHT;
+    }
+
 }

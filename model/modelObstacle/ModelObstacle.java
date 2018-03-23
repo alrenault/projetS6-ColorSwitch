@@ -1,61 +1,60 @@
 package model.modelObstacle;
 
+import javafx.scene.paint.Color;
+import model.ObstacleType;
+import view.game.Difficulty;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import view.game.Difficulty;
-import javafx.scene.paint.Color;
-import model.ObstacleType;
-
 public abstract class ModelObstacle {
-	/**
-	 * Coordonnée en x de l'Obstacle
-	 */
-    private double x;
-	/**
-	 * Coordonnée en Y de l'Obstacle
-	 */
-    private double y;
-	/**
-	 *
-	 */
-    private List<Color> colors;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
     int version;
-	/**
-	 *
-	 */
+    /**
+     * Coordonnée en x de l'Obstacle
+     */
+    private double x;
+    /**
+     * Coordonnée en Y de l'Obstacle
+     */
+    private double y;
+    /**
+     *
+     */
+    private List<Color> colors;
+    /**
+     *
+     */
     private int versionDefault;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
     private int nbr_Versions;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
     private Difficulty difficulty;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
     private List<Color> color_use;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
     private ObstacleType type;
-    
-	/**
-	 *
-	 * @param x
-	 * @param y
-	 * @param colors
-	 * @param version
-	 * @param versionDefault
-	 * @param obstacleType Le type de l'Obstacle à génerer
-	 */
-    ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType){
-    	this.x = x;
+
+    /**
+     * @param x
+     * @param y
+     * @param colors
+     * @param version
+     * @param versionDefault
+     * @param obstacleType   Le type de l'Obstacle à génerer
+     */
+    ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType) {
+        this.x = x;
         this.y = y;
         this.colors = colors;
         this.versionDefault = versionDefault;
@@ -67,101 +66,89 @@ public abstract class ModelObstacle {
         color_use = new ArrayList<>();
         this.type = obstacleType;
     }
-    
 
-	/**
-	 *
-	 * @return
-	 */
-	public double getX() {
-		return x;
-	}
 
-	/**
-	 *
-	 * @return
-	 */
-	public double getY() {
-		return y;
-	}
+    /**
+     * @return
+     */
+    public double getX() {
+        return x;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public List<Color> getColors() {
-		return colors;
-	}
+    /**
+     * @return
+     */
+    public double getY() {
+        return y;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public int getVersion() {
-		return version;
-	}
+    /**
+     * @return
+     */
+    public List<Color> getColors() {
+        return colors;
+    }
 
-	/**
-	 *
-	 * @param version
-	 */
-	public void setVersion(int version) {
-		this.version = version;
-	}
+    /**
+     * @return
+     */
+    public int getVersion() {
+        return version;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public int getVersionDefault() {
-		return versionDefault;
-	}
+    /**
+     * @param version
+     */
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public int getNbr_Versions() {
-		return nbr_Versions;
-	}
+    /**
+     * @return
+     */
+    public int getVersionDefault() {
+        return versionDefault;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public Difficulty getDifficulty() {
-		return difficulty;
-	}
+    /**
+     * @return
+     */
+    public int getNbr_Versions() {
+        return nbr_Versions;
+    }
 
-	/**
-	 *
-	 * @param difficulty
-	 */
-	public void setDifficulty(Difficulty difficulty) {
-		this.difficulty = difficulty;
-	}
+    /**
+     * @return
+     */
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public List<Color> getColor_use() {
-		return color_use;
-	}
+    /**
+     * @param difficulty
+     */
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public ObstacleType getType() {
-		return type;
-	}
+    /**
+     * @return
+     */
+    public List<Color> getColor_use() {
+        return color_use;
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	public abstract double getObstacleHeight();
-    
-	   
+    /**
+     * @return
+     */
+    public ObstacleType getType() {
+        return type;
+    }
+
+    /**
+     * @return
+     */
+    public abstract double getObstacleHeight();
+
+
 }

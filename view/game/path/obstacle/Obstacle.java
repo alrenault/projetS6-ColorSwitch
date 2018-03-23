@@ -1,14 +1,14 @@
 package view.game.path.obstacle;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelObstacle;
+import view.game.path.Element;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An Obstacle is a Group of Shapes which contains at least one of it
@@ -16,11 +16,10 @@ import model.modelObstacle.ModelObstacle;
  */
 public abstract class Obstacle extends Element {
 
+    List<Color> color_passable;
     private Group obstacle;
-
     private Bounds coord;
     protected ModelObstacle mo;
-    List<Color> color_passable;
 
 
     Obstacle(ModelObstacle mo) {
@@ -29,12 +28,8 @@ public abstract class Obstacle extends Element {
         color_passable = new ArrayList<>();
 
         obstacle = buildObstacle();
-        
-        //this.obstacle = build();
-        //check();
     }
- 
-
+    
 	public ModelObstacle getModel_obstacle() {
 		return mo;
 	}
@@ -44,7 +39,6 @@ public abstract class Obstacle extends Element {
     }
     
     protected abstract Group buildObstacle();
-
 
     private double getX() {
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
@@ -70,27 +64,26 @@ public abstract class Obstacle extends Element {
     }
 
     public double getObstacleHeight() {
-    	System.out.println(obstacle == null);
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getHeight();
     }
 
 
-	public boolean isOver(int x, int y) {
+    public boolean isOver(int x, int y) {
         return this.obstacle.contains(x, y);
     }
-	
-
-	@Override
-	public Group getShape() {
-		// TODO Auto-generated method stub
-		return obstacle;
-	}
 
 
-	public List<Color> getColor_passable() {
-		return color_passable;
-	}
+    @Override
+    public Group getShape() {
+        // TODO Auto-generated method stub
+        return obstacle;
+    }
+
+
+    public List<Color> getColor_passable() {
+        return color_passable;
+    }
 
 
     // public enum Difficulty {EASY, NORMAL, HARD}

@@ -1,11 +1,6 @@
 package view.game.path.items;
 
-import model.modelItem.ModelItem;
-import model.modelItem.ModelBallColorSwitch;
-import model.modelItem.ModelGravityInverser;
-import model.modelItem.ModelGravitySwitch;
-import model.modelItem.ModelStar;
-import model.modelItem.ModelInvisibleLine;
+import model.modelItem.*;
 
 /**
  * Générateur d'Item

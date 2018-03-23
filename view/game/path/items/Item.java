@@ -1,25 +1,24 @@
 package view.game.path.items;
 
 import controller.Controller;
-import view.game.ball.BallPlayer;
-import view.game.path.Element;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import model.modelItem.ModelItem;
 import view.ViewPath;
+import view.game.ball.BallPlayer;
+import view.game.path.Element;
 
 /**
  * Objet graphique d'un Item (non instanciable)
  */
 public abstract class Item extends Element {
-	
-    
+
+
     /**
      * Forme de l'objet
      */
     Group item;
-
     /**
      * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de l'Item) 
      */
@@ -29,7 +28,6 @@ public abstract class Item extends Element {
      * Le model contenant les données pour la construction e l'Item
      */
     ModelItem mi;
-
     /**
      * Constructeur de la forme
      */
@@ -37,13 +35,12 @@ public abstract class Item extends Element {
        this.mi = mi;
        item = new Group();
        item = buildItem();
-
     }
-
 
 
     /**
      * Genere la forme
+     *
      * @return un ensemble de Forme
      */
     protected abstract Group buildItem();
@@ -63,7 +60,7 @@ public abstract class Item extends Element {
 
 
     /**
-     * Accesseur de coordonnée x
+     * Assesseur de coordonnée x
      * @return La coordonnée x
      */
     private double getX() {
@@ -98,11 +95,11 @@ public abstract class Item extends Element {
     }
 
 
-	@Override
-	public Group getShape() {
-		// TODO Auto-generated method stub
-		return item;
-	}
+    @Override
+    public Group getShape() {
+        // TODO Auto-generated method stub
+        return item;
+    }
 
 
 	/**
@@ -112,6 +109,4 @@ public abstract class Item extends Element {
 	public ModelItem getModel_item() {
 		return mi;
 	}
-	
-	
 }

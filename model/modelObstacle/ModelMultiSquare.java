@@ -1,11 +1,11 @@
 package model.modelObstacle;
 
-import java.util.List;
-import java.util.Random;
-
-import view.game.Difficulty;
 import javafx.scene.paint.Color;
 import model.ObstacleType;
+import view.game.Difficulty;
+
+import java.util.List;
+import java.util.Random;
 
 public class ModelMultiSquare extends ModelObstacle {
     /**
@@ -15,7 +15,7 @@ public class ModelMultiSquare extends ModelObstacle {
     /**
      *
      */
-	private static final double MAX_HEIGHT = 300;
+    private static final double MAX_HEIGHT = 300;
     /**
      *
      */
@@ -30,7 +30,6 @@ public class ModelMultiSquare extends ModelObstacle {
     private static final int[] versionHard = {4};
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -42,7 +41,6 @@ public class ModelMultiSquare extends ModelObstacle {
     }
 
     /**
-     *
      * @param x
      * @param y
      * @param colors
@@ -65,7 +63,6 @@ public class ModelMultiSquare extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomEasyVersion() {
@@ -74,7 +71,6 @@ public class ModelMultiSquare extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomMediumVersion() {
@@ -83,7 +79,6 @@ public class ModelMultiSquare extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     private static int getRandomHardVersion() {
@@ -92,12 +87,11 @@ public class ModelMultiSquare extends ModelObstacle {
     }
 
     /**
-     *
      * @return
      */
     public double getObstacleHeight() {
-		return MAX_HEIGHT;
-	}
-    
+        return MAX_HEIGHT;
+    }
+
 
 }

@@ -19,74 +19,70 @@ import view.View;
  * @version 1.0
  */
 public class Main extends Application {
-	/**
-	 *
-	 */
+    private static int j = 0;
+    /**
+     *
+     */
     private InterfaceModelColorSwitch model;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
     private InterfaceViewColorSwitch view;
-	/**
-	 *
-	 */
+    /**
+     *
+     */
     private Controller controller;
 
     public static void main(String[] args) {
-      	launch(args);
+        launch(args);
     }
-    
-    private static int j = 0;
+
     private static void help() {
-    	Throwable t = new Throwable();
+        Throwable t = new Throwable();
         t.fillInStackTrace();
         StackTraceElement e = t.getStackTrace()[1];
         String className = e.getClassName();
         String functionName = e.getMethodName();
-        System.out.println(className + "." + functionName + " - "+ j);
+        System.out.println(className + "." + functionName + " - " + j);
         j++;
-    }  
-    
+    }
 
-	@Override
-	public void start(Stage primaryStage) {
-		
-		help();
-		
-		model = new Model();
-		
-		view = new View(primaryStage);
-		
-		
-		controller = new Controller(model, view);
-		
-		
-		controller.init();
-		
-		   
-		//Hello
-		
-		
-		
-		
-        
+
+    @Override
+    public void start(Stage primaryStage) {
+
+        help();
+
+        model = new Model();
+
+        view = new View(primaryStage);
+
+
+        controller = new Controller(model, view);
+
+
+        controller.init();
+
+
+        //Hello
+
+
         //Set Scene
-		Group root = new Group();
-		Scene scene = new Scene(root, 600, 1000);
-		//Game colorSuitch = new Game(scene);
-        
+        Group root = new Group();
+        Scene scene = new Scene(root, 600, 1000);
+        //Game colorSuitch = new Game(scene);
+
         //model.startGame();
         //view.viewGame(model.getGame());
-		
+
         //view.viewGame(colorSuitch);
-		
-		help();
-    	
-    	
-    		
-    	//colorSuitch.play();
-		
-		//SOUND
+
+        help();
+
+
+        //colorSuitch.play();
+
+        //SOUND
 		
 		
 		/*{
@@ -106,12 +102,9 @@ public class Main extends Application {
 			        putain.play();
 			    }
 				*/
-				
-				
-		
-	}
-	
-	
-	
-	
+
+
+    }
+
+
 }

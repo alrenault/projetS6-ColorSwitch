@@ -1,15 +1,15 @@
 package view.game.path.obstacle;
 
-import view.game.Difficulty;
-import view.game.path.shapes.BuildShape;
-import view.game.path.shapes.Circle;
-import view.game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import model.modelObstacle.ModelCircleInCircle;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCircle;
 import model.modelShape.ModelShape;
+import view.game.Difficulty;
+import view.game.Speed;
+import view.game.path.shapes.BuildShape;
+import view.game.path.shapes.Circle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class CircleInCircle extends Obstacle {
 	 */
     public CircleInCircle(ModelCircleInCircle mcic) {
         super(mcic);
-       
+
 
     }
 
@@ -55,10 +55,10 @@ public class CircleInCircle extends Obstacle {
         List<Color> colors = mo.getColors();
         
         //BuildShape builder = new BuildShape();
-        
+
         Group circleInCircle = new Group();
         Circle cer1;
-        
+
         List<ModelShape> modelC = new ArrayList<>();
 
 
@@ -148,28 +148,18 @@ public class CircleInCircle extends Obstacle {
             	
             	mo.setDifficulty(Difficulty.EASY);
         }
-        
-        for(ModelShape ms : modelC){
-        	cer1 = (Circle)BuildShape.constructShape(ms);
-            addSL(cer1.getShapeList());  
+
+        for (ModelShape ms : modelC) {
+            cer1 = (Circle) BuildShape.constructShape(ms);
+            addSL(cer1.getShapeList());
             circleInCircle.getChildren().add(cer1.getShape());
             mo.getColor_use().addAll(ms.getColors_use());
         }
-        
-        
-        
+
+
         return circleInCircle;
 
     }
-    
-  
-    
-    
-
-
-
-
-
 
 
 }

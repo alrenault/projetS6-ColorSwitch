@@ -1,28 +1,31 @@
 package view.useLaw;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import controller.Controller;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ViewTimer {
 	/**
 	 *
 	 */
-    private AnimationTimer timer;
-	private List<UseLaw> laws;
-	private Controller controller;
+	AnimationTimer timer;
+	List<UseLaw> laws;
+	Controller controller;
 	
 	public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene) {
 		laws = new ArrayList<>();
 		this.controller = controller;
 		
 		J j = new J();
+		
+		LabelScore score = new LabelScore(controller.getScore(),scene);
+		laws.add(score);
 		//laws.add(j);
 		
 		JtGravity gravity = new JtGravity(ball);
@@ -54,6 +57,7 @@ public class ViewTimer {
 		
 		timer = new AnimationTimer() {
 			long startTime = System.currentTimeMillis();
+			long checkpoint = startTime;
 			
 			
 			
@@ -61,6 +65,12 @@ public class ViewTimer {
 			public void handle(long now) {
 				long currentTime = System.currentTimeMillis();
 				long duree = currentTime - startTime;
+				
+				checkpoint = currentTime-checkpoint;
+				
+				System.out.println("Last time : "+checkpoint + " ms");
+				
+				checkpoint = currentTime;
 				//System.out.println("Time : "+ duree + " ms");
 				
 				for(UseLaw j : laws) {
@@ -91,6 +101,5 @@ public class ViewTimer {
 	public void start() {
 		timer.start();
 	}
-
 
 }

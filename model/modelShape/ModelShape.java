@@ -1,10 +1,10 @@
 package model.modelShape;
 
-import view.game.Speed;
-import view.game.Colorable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.ShapeType;
+import view.game.Colorable;
+import view.game.Speed;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,25 +15,25 @@ import java.util.List;
  * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
  */
 
-public abstract class ModelShape implements Colorable{
+public abstract class ModelShape implements Colorable {
 
-	/**
-     *Coordonnée en x du centre de la forme
+    /**
+     * Type de la forme
+     */
+    ShapeType type;
+    /**
+     * Coordonnée en x du centre de la forme
      */
     private double x;
     /**
-     *Coordonnée en y du centre de la forme
+     * Coordonnée en y du centre de la forme
      */
     private double y;
-    
-    
-    
     /**
      * L'épaisseur du trait de la forme
      */
 
     private double width;
-    
     /**
      * Indique la direction du mouvement de la forme
      */
@@ -44,47 +44,36 @@ public abstract class ModelShape implements Colorable{
      */
 
     private boolean acceleration;
-    
     /**
      * Position actuelle pour le parcours de la liste de couleurs
      */
     private int pos_color;
-    
     /**
      * Vitesse de rotation de la forme
      */
     private double mouvementSpeed;
-    
     /**
      * L'ensemble de couleurs que l'on peut utiliser
      */
     private List<Color> colors;
-    
     /**
      * L'ensemble des couleurs utilisées par la forme
      */
     private List<Color> colors_use;
-    
-    /**
-     * Type de la forme
-     */
-    ShapeType type;
-        
-    
+
 
     /**
-     *
-     * @param x La coordonnée en x du centre de la forme
-     * @param y La coordonnée en y du centre de la forme
-     * @param width l'epaisseur de la forme
+     * @param x                  La coordonnée en x du centre de la forme
+     * @param y                  La coordonnée en y du centre de la forme
+     * @param width              l'epaisseur de la forme
      * @param mouvementDirection La direction de mouvement
-     * @param acceleration L'acceleration du mouvement (ou non)
-     * @param s Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
-     * @param colors Liste des couleurs de la forme à transmettre
-     * @param pos_color La position initiale pour le parcours de la liste de couleurs
+     * @param acceleration       L'acceleration du mouvement (ou non)
+     * @param s                  Enum vitesse du mouvement [ SYMPA | MOYEN | HARD | TRESSYMPA | NONE]
+     * @param colors             Liste des couleurs de la forme à transmettre
+     * @param pos_color          La position initiale pour le parcours de la liste de couleurs
      */
     ModelShape(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
-    	this.x = x;
+        this.x = x;
         this.y = y;
         this.width = width;
 
@@ -115,70 +104,68 @@ public abstract class ModelShape implements Colorable{
             this.pos_color = pos_color % colors.size();
         }
         this.colors_use = new ArrayList<>();
-        
+
 
     }
 
     /**
-     *
      * @return
      */
     public double getX() {
-		return x;
-	}
+        return x;
+    }
 
     /**
-     *
      * @return
      */
-	public double getY() {
-		return y;
-	}
+    public double getY() {
+        return y;
+    }
 
     /**
-     *
      * @return
      */
-	public boolean isMouvementDirection() {
-		return mouvementDirection;
-	}
+    public boolean isMouvementDirection() {
+        return mouvementDirection;
+    }
 
     /**
-     *
      * @return
      */
-	public boolean isAcceleration() {
-		return acceleration;
-	}
+    public boolean isAcceleration() {
+        return acceleration;
+    }
 
     /**
-     *
      * @return
      */
-	public int getPos_color() {
-		return pos_color;
-	}
+    public int getPos_color() {
+        return pos_color;
+    }
 
+    public void setPos_color(int pos_color) {
+        this.pos_color = pos_color;
+    }
 
-	/**
+    /**
      * Determine la vitesse de mouvement de la Forme
      *
      * @return
      */
-	public double getMouvementSpeed() {
-		return mouvementSpeed;
-	}
+    public double getMouvementSpeed() {
+        return mouvementSpeed;
+    }
 
     /**
-     *
      * @return
      */
-	public List<Color> getColors() {
-		return colors;
-	}
+    public List<Color> getColors() {
+        return colors;
+    }
 
-	/**
+    /**
      * Assesseur de l'épaisseur de la forme
+     *
      * @return l'épaisseur de la forme
      */
     public double getWidth() {
@@ -194,33 +181,28 @@ public abstract class ModelShape implements Colorable{
             pos_color = 0;
     }
 
-
-
-	public void setPos_color(int pos_color) {
-		this.pos_color = pos_color;
-	}
-
-	/**
+    /**
      * Colorie une (JavaFX) Shape en fonction de l'ensemble de couleurs qui lui est associe
+     *
      * @param s La (JavaFX) Shape a colorier
      */
     public void color(Shape s) {
-    	Iterator<Color> it = colors.iterator();
-    	Color c = null;
-    	for(int i = 0;it.hasNext() && i <= pos_color;i++){
-    		c = it.next();
-    	}
-    	
-    	if(c == null)
-    		c = Color.WHITE;
+        Iterator<Color> it = colors.iterator();
+        Color c = null;
+        for (int i = 0; it.hasNext() && i <= pos_color; i++) {
+            c = it.next();
+        }
+
+        if (c == null)
+            c = Color.WHITE;
         s.setFill(c);
         colors_use.add(c);
-    } 
-
+    }
 
 
     /**
      * Assesseur de l'ensemble des couleurs utilisees par la forme
+     *
      * @return L'ensemble des couleurs utilisees par la forme
      */
     public List<Color> getColors_use() {
@@ -228,10 +210,9 @@ public abstract class ModelShape implements Colorable{
     }
 
     /**
-     *
      * @return
      */
-	public ShapeType getType() {
-		return type;
-	}
+    public ShapeType getType() {
+        return type;
+    }
 }
