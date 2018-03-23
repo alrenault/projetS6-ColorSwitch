@@ -11,6 +11,7 @@ import java.util.List;
 
 
 public class ViewTimer {
+
     /**
      *
      */
@@ -98,5 +99,6 @@ public class ViewTimer {
     public void start() {
         timer.start();
     }
+
 
 }
