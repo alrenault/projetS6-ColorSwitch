@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Objet graphique d'un Obstacle représentant de multiple cercles
+ */
 
 public class MultiCircle extends Obstacle {
 	/*
@@ -32,12 +35,18 @@ public class MultiCircle extends Obstacle {
 	*/
 
 
+
+	/**
+	 * Constructeur du MultiCircle
+	 * @param mmc Le model utilisé pour le MultiCircle
+	 */
+
     public MultiCircle(ModelMultiCircle mmc) {
         super(mmc);
     }
 
 
-    protected Group buildObstacle(ModelObstacle mo) {
+    protected Group buildObstacle() {
         Group multiCircle = new Group();
 
         double tinyRadial = 60.0;

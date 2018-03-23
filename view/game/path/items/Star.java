@@ -21,9 +21,6 @@ public class Star extends Item {
      */
     public Star(ModelStar ms) {
         super(ms);
-        //recuperation de la position
-        //  this.coord = shape.localToScene(shape.getBoundsInLocal());
-        this.item = buildItem(ms);
     }
 
 
@@ -32,7 +29,7 @@ public class Star extends Item {
      *
      * @return un ensemble de Forme
      */
-    protected Group buildItem(ModelItem mi) {
+    protected Group buildItem() {
         Group g = new Group();
         Polygon p = new Polygon();
         double[] ax = new double[5];
@@ -53,18 +50,19 @@ public class Star extends Item {
 
         return g;
     }
-
-    public void setY(double y) {
-        for (Shape s : getShapeList()) {
-            s.setLayoutY(y);
-        }
+    
+    /**
+     * Mutateur de la coordonnée en y de l'étoile
+     * @param y La nouvelle position de l'étoile
+     */
+    public void setY(double y){
+    	for(Shape s : getShapeList()){
+    		s.setLayoutY(y);
+    	}
     }
-
-    public void get(ViewPath vPath, Controller c, BallPlayer b) {
-        c.incItem(model_item);
-
-        //if(c.getScore().getNbEtoilesRamassees() > 1)
-        //	vPath.removeObstacle(vPath.getObstacles().get(0));
+    
+    public void get(ViewPath vPath, Controller c, BallPlayer b){
+    	c.incItem(mi);
     }
 
 

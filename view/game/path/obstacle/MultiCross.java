@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Objet graphique d'un Obstacle représentant de multiple croix
+ */
+
 public class MultiCross extends Obstacle {
 	/*
 	version 0 : Une croix décalée vers la droite
@@ -26,11 +30,15 @@ public class MultiCross extends Obstacle {
 	*/
 
 
+	/**
+	 * Constructeur du MultiCross
+	 * @param mmc Le model utilisé pour le MultiCross
+	 */
     public MultiCross(ModelMultiCross mmc) {
         super(mmc);
     }
 
-    protected Group buildObstacle(ModelObstacle mo) {
+    protected Group buildObstacle() {
         Group multiCross = new Group();
         double length = 100.0;
         double width = 15.0;

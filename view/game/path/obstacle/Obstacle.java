@@ -19,31 +19,26 @@ public abstract class Obstacle extends Element {
     List<Color> color_passable;
     private Group obstacle;
     private Bounds coord;
-    private ModelObstacle model_obstacle;
+    protected ModelObstacle mo;
 
 
     Obstacle(ModelObstacle mo) {
         super();
-        model_obstacle = mo;
+        this.mo = mo;
         color_passable = new ArrayList<>();
 
-        obstacle = buildObstacle(mo);
-
-        //this.obstacle = build();
-        //check();
+        obstacle = buildObstacle();
     }
+    
+	public ModelObstacle getModel_obstacle() {
+		return mo;
+	}
 
-
-    public ModelObstacle getModel_obstacle() {
-        return model_obstacle;
+	protected Group build() {
+    	return buildObstacle();
     }
-
-    protected Group build() {
-        return buildObstacle(model_obstacle);
-    }
-
-    protected abstract Group buildObstacle(ModelObstacle mo);
-
+    
+    protected abstract Group buildObstacle();
 
     private double getX() {
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());

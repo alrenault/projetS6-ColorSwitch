@@ -9,14 +9,17 @@ import model.modelItem.ModelItem;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
 
-public class InvisibleLine extends Item {
+/**
+ * Objet graphique d'une ligne invisible
+ */
+public class InvisibleLine extends Item{
 
-    public InvisibleLine(ModelInvisibleLine mil) {
-        super(mil);
-        // TODO Auto-generated constructor stub
-    }
-
-    protected Group buildItem(ModelItem mi) {
+	public InvisibleLine(ModelInvisibleLine mil) {
+		super(mil);
+		// TODO Auto-generated constructor stub
+	}
+	
+	protected Group buildItem() {
         Group line = new Group();
 
         Rectangle rec = new Rectangle(0, mi.getY(), ((ModelInvisibleLine) mi).getLength(), 20);
@@ -27,13 +30,14 @@ public class InvisibleLine extends Item {
         return line;
     }
 
-    @Override
-    public void get(ViewPath vPath, Controller c, BallPlayer b) {
-        vPath.addNewObstacle();
-        c.incItem(model_item);
-        if (c.getScore().getNbEtoilesRamassees() > 1) {
-            vPath.removeObstacle(vPath.getObstacles().get(0));
-        }
-    }
+	@Override
+	public void get(ViewPath vPath, Controller c, BallPlayer b) {
+		vPath.addNewObstacle();
+		c.incItem(mi);
+		if(c.getScore().getNbEtoilesRamassees() > 1){
+    		vPath.removeObstacle(vPath.getObstacles().get(0));
+		}
+	}
+
 
 }
