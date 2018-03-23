@@ -128,7 +128,7 @@ public class View implements InterfaceViewColorSwitch {
 	}
 
 	/**
-	 *
+	 *Propose d'enregistrer le Score in DB
 	 */
 	@Override
 	public void viewGameOverRecord() {
