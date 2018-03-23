@@ -2,31 +2,25 @@ package controller;
 
 import DB.GestionDB;
 import view.game.Difficulty;
-import view.game.Game;
 import view.game.Score;
-import javafx.event.EventHandler;
-import javafx.geometry.Point2D;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
-import main.Main;
 import model.InterfaceModelColorSwitch;
 import model.modelItem.ModelItem;
 import view.InterfaceViewColorSwitch;
-import view.View;
 
 public class Controller {
 	/**
 	 *
 	 */
-	InterfaceModelColorSwitch model;
+    private InterfaceModelColorSwitch model;
 	/**
 	 *
 	 */
-	InterfaceViewColorSwitch view;
+    private InterfaceViewColorSwitch view;
 	/**
 	 *
 	 */
-	GestionDB connectionDB;
+    private GestionDB connectionDB;
 
 	/**
 	 *
@@ -133,9 +127,8 @@ public class Controller {
 		view.viewGame(model.getGame());
 	}
 	
-	public Scene menuLvl(){
+	public void menuLvl(){
 		view.viewMenuLvl();
-		return null;
 	}
 	
 	public void incItem(ModelItem mi){

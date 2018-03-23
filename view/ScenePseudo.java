@@ -1,9 +1,4 @@
 package view;
-/**
-*
-* @autor Vincent
-* @date 13/03/2018
-*/
 
 import controller.Controller;
 import javafx.geometry.Insets;
@@ -16,7 +11,7 @@ import javafx.scene.layout.GridPane;
 /**
  *Mini Form recuperrant le pseudo du joueur à la fin de la partie
  */
-public class ScenePseudo {
+class ScenePseudo {
 
 
 

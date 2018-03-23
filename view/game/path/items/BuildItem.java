@@ -1,12 +1,5 @@
 package view.game.path.items;
 
-import view.game.path.obstacle.CircleInCircle;
-import view.game.path.obstacle.MultiCircle;
-import view.game.path.obstacle.MultiCross;
-import view.game.path.obstacle.MultiLinee;
-import view.game.path.obstacle.MultiShapes;
-import view.game.path.obstacle.MultiSquare;
-import view.game.path.obstacle.Obstacle;
 import model.modelItem.ModelItem;
 import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelGravityInverser;

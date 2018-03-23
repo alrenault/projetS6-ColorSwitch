@@ -1,33 +1,19 @@
 package view.game;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 
-import view.game.ball.Player;
-import view.game.ball.BallPlayer;
 import view.game.law.Universe;
 import view.game.path.Path;
-import view.game.path.items.BallColorSwitch;
-import view.game.path.items.Item;
-import view.game.path.obstacle.Obstacle;
-import view.game.law.Law;
 
 
-import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.modelBall.Ball;
-import model.modelItem.ModelItem;
-import view.ViewGameManagement;
 
 /**
  * This class is used to create a view.game

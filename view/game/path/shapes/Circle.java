@@ -1,10 +1,6 @@
 package view.game.path.shapes;
 
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -13,7 +9,6 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.util.Duration;
 import model.modelShape.ModelCircle;
-import model.modelShape.ModelShape;
 
 /**Objet graphique Cercle
  */

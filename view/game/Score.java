@@ -1,9 +1,7 @@
 package view.game;
 
-import view.game.path.items.Star;
 import model.ItemType;
 import model.modelItem.ModelItem;
-import model.modelItem.ModelStar;
 
 /**
  * @autor Vincent

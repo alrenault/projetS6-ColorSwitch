@@ -1,17 +1,9 @@
 package view.game.path.items;
 
-import java.util.List;
-import java.util.Random;
-
 import controller.Controller;
-import view.game.Colorable;
-import view.game.ball.Player;
 import view.game.ball.BallPlayer;
-import javafx.scene.paint.Color;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
-import model.Model;
-import model.modelItem.ModelBallColorSwitch;
 import model.modelItem.ModelItem;
 import model.modelItem.ModelStar;
 import view.ViewPath;

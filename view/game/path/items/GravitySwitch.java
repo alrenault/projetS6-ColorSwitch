@@ -1,7 +1,6 @@
 package view.game.path.items;
 
 import controller.Controller;
-import view.game.ball.Player;
 import view.game.ball.BallPlayer;
 import javafx.scene.Group;
 import javafx.scene.shape.Polygon;

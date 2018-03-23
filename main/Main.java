@@ -1,29 +1,14 @@
 package main;
 
-import DB.GestionDB;
-import DB.Record;
 import controller.Controller;
-import view.game.Game;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import model.InterfaceModelColorSwitch;
 import model.Model;
 import view.InterfaceViewColorSwitch;
 import view.View;
-
-import java.io.File;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Main class for Color Suitch

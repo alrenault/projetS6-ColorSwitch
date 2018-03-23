@@ -1,15 +1,11 @@
 package view.game.path.obstacle;
 
 import view.game.Difficulty;
-import view.game.path.items.BallColorSwitch;
 import view.game.path.shapes.BuildShape;
-import view.game.path.shapes.Circle;
 import view.game.path.shapes.Cross;
 import view.game.Speed;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
-import model.modelItem.BuildModelItem;
-import model.modelItem.ModelBallColorSwitch;
 import model.modelObstacle.ModelMultiCross;
 import model.modelObstacle.ModelObstacle;
 import model.modelShape.ModelCross;

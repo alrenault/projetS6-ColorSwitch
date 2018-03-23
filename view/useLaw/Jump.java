@@ -35,7 +35,6 @@ public class Jump implements UseLaw {
 			boolean space = event.getCode() == KeyCode.SPACE;
 			if(space && duration_since_last_jump > 150) {
 				last_jump_time = current_time ;
-				System.out.println("Press");
 			}
 		});
 		

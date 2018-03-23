@@ -1,9 +1,6 @@
 package view.game.ball;
 
-import java.util.List;
-
 import controller.Listeners;
-import view.game.path.Element;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -44,14 +41,10 @@ public class BallPlayer extends Player{
         this.scene = scene;
         
         this.shape = buildBall();
-        
-        System.out.println("X : "+model_ball.getX() + " Y : "+model_ball.getY());
-        
+                
         model_ball.setX(scene.getWidth()/2);
         model_ball.setY(scene.getHeight()/2);
-        
-        System.out.println("X : "+model_ball.getX() + " Y : "+model_ball.getY());
-        
+                
     }
     
     public BallPlayer(Ball ball, Scene scene) {

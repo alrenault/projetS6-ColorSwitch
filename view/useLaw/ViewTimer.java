@@ -2,22 +2,11 @@ package view.useLaw;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import controller.Controller;
-import view.game.path.items.BallColorSwitch;
-import view.game.path.items.Item;
-import view.game.path.obstacle.Obstacle;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import view.ViewPath;
-import view.game.Game;
-import view.game.ball.Player;
 import view.game.ball.BallPlayer;
 
 
@@ -40,21 +29,24 @@ public class ViewTimer {
 		laws.add(gravity);
 		
 		MoveBall mv = new MoveBall(ball);
-		//laws.add(mv);
+		laws.add(mv);
 		
 		Jump jump = new Jump(ball,scene);
 		laws.add(jump);
 		
 		FollowBall fb = new FollowBall(scene,ball);
 		LockBall lb = new LockBall(scene,ball);
-		laws.add(lb);
-		//laws.add(fb);
+		//laws.add(lb);
+		laws.add(fb);
 		
 		Race race = new Race(ball,scene);
-		laws.add(race);
+		//laws.add(race);
 		
 		CollisionObstacle co = new CollisionObstacle(ball, path, controller); 
 		CollisionItem ci = new CollisionItem(ball,path,controller,path.getjItems());
+		
+		Tourni tourni = new Tourni(scene);
+		//laws.add(tourni);
 		
 		//laws.add(co);
 		laws.add(ci);

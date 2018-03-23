@@ -2,8 +2,6 @@ package view.useLaw;
 
 import controller.Controller;
 import view.game.ball.BallPlayer;
-import view.game.path.obstacle.Obstacle;
-import javafx.scene.Group;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import view.ViewPath;

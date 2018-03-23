@@ -44,23 +44,20 @@ public abstract class Element {
 	}
 	
 	
-	protected List<Shape> addSL(Shape ... shapes) {
+	protected void addSL(Shape ... shapes) {
 		
 		
 		
 		
 		if (shapes != null) {
 			if(shape_list == null) shape_list = new ArrayList<>();
-			for (Shape j : shapes) {
-				shape_list.add(j);
-			}
+            Collections.addAll(shape_list, shapes);
 		}
-		
-		return shape_list;
+
 	}
 	
 
-	protected List<Shape> addSL(List<Shape> ... shapes_list) {
+	protected void addSL(List<Shape> ... shapes_list) {
 		
 		
 
@@ -73,8 +70,7 @@ public abstract class Element {
 				
 			}
 		}
-		return shape_list;
-		
+
 	}
 	
 	

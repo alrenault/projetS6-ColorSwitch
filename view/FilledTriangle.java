@@ -4,8 +4,18 @@ package view;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
+/**
+ *
+ */
 public class FilledTriangle {
-
+    /**
+     *
+     * @param x
+     * @param y
+     * @param side
+     * @param color
+     * @return
+     */
 	public static Polygon create(double x, double y, double side, Color color) {
 		Polygon triangle = new Polygon();
 		

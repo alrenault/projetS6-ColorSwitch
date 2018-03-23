@@ -1,6 +1,5 @@
 package view.game;
 import view.game.path.Modifiers;
-import view.game.path.items.Star;
 
 /**
  * @autor Vincent
