@@ -86,21 +86,28 @@ class Menu {
         randomButton.getChildren().add(playRandom);
         vBox.getChildren().add(randomButton);
 
-        Polygon playEasy = FilledTriangle.create(x, y, side/2, Color.LIGHTGREEN);
-        Polygon playNormal = FilledTriangle.create(x, y, side/2, Color.ORANGERED);
-        Polygon playHard = FilledTriangle.create(x, y, side/2, Color.DARKRED);
+        Group playEasy = FilledTriangle.create(120, y, side/2, Color.LIGHTGREEN, "Easy");
+        Group playNormal = FilledTriangle.create(320, y, side/2, Color.ORANGERED, "Normal");
+        Group playHard = FilledTriangle.create(520, y, side/2, Color.DARKRED, "Hard");
 
-        HBox infinite_difficulties = new HBox();
+        //HBox infinite_difficulties = new HBox();
+        //infinite_difficulties.setAlignment(Pos.CENTER);
+        
+        Group infinite_difficulties = new Group();
 
         infinite_difficulties.getChildren().add(playEasy);
         infinite_difficulties.getChildren().add(playNormal);
         infinite_difficulties.getChildren().add(playHard);
+        
+        
+        
+        
 
         vBox.getChildren().add(infinite_difficulties);
 
-        vBox.getChildren().add(goContinuEasy);
-        vBox.getChildren().add(goContinuNormal);
-        vBox.getChildren().add(goContinuHard);
+        //vBox.getChildren().add(goContinuEasy);
+        //vBox.getChildren().add(goContinuNormal);
+        //vBox.getChildren().add(goContinuHard);
         vBox.getChildren().add(goLvl);
         vBox.getChildren().add(goScore);
 
@@ -133,6 +140,10 @@ class Menu {
         goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
         goContinuNormal.setOnAction(event -> controller.startGame(Difficulty.NORMAL));
         goContinuHard.setOnAction(event -> controller.startGame(Difficulty.HARD));
+        
+        playEasy.setOnMouseClicked(event -> controller.startGame(Difficulty.EASY));
+        
+        
         goLvl.setOnAction(event -> controller.menuLvl());
         goScore.setOnAction(event -> controller.showScoresMenu());
 
