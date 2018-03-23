@@ -52,7 +52,7 @@ public abstract class ModelObstacle {
 	 * @param colors
 	 * @param version
 	 * @param versionDefault
-	 * @param obstacleType
+	 * @param obstacleType Le type de l'Obstacle à génerer
 	 */
     ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType){
     	this.x = x;
