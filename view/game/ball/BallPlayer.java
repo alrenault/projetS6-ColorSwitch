@@ -223,11 +223,6 @@ public class BallPlayer extends Player {
         return shape;
     }
 
-    @Override
-    protected Group build() {
-        return buildBall();
-    }
-
     public double getLimiteJump() {
         return limiteJump;
     }

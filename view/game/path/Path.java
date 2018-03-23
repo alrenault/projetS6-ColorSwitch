@@ -12,25 +12,84 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * Représentation d'un chemin constitué d'une suite d'obstacles (un niveau) stockant des modèles
+ */
 public class Path {
+	
+	/**
+	 * La liste des modèles d'items du path
+	 */
     private List<ModelItem> items;
+    
+    /**
+     * La listes des modèles d'obstacles du path
+     */
     private List<ModelObstacle> obstacles;
+    
+    /**
+     * La liste des ennemis du path (non utilisé)
+     */
     private List<Ennemy> ennemies;
-    //private Group path;
+    
+    /**
+     * Difficulté du niveau
+     */
     private Difficulty gameDifficulty;
+    
+    /**
+     * La largeur de la fenêtre
+     */
     private double scWidth;
+    
+    /**
+     * La hauteur de la fenêtre
+     */
     private double scHeight;
+    
+    /**
+     * La liste de couleurs utilisées
+     */
     private List<Color> colors;
+    
+    /**
+     * Le nombre d'obstacles du path
+     */
     private int nbr_ObsDeb;
+    
+    /**
+     * La position en x où placer le prochain obstacle
+     */
     private double posX;
+    
+    /**
+     * La position en y où placer le prochain obstacle
+     */
     private double posY;
+    
+    /**
+     * La position en y de la ligne d'arrivée, dans le cas d'un niveau avec un nombre fini d'obstacles
+     */
     private double finishLine;
 
+    /**
+     * Défini si le niveau est fini ou non
+     */
     private boolean isFinite;
+    
+    /**
+     * Défini si la partie est en CircleHell ou non
+     */
     private boolean isCircleHell = false;
 
-
+    /**
+     * Constructeur d'un path pour un niveau infini (avec un nombre défini d'obstacle  déjà placé)
+     * @param scWidth La largeur de la fenêtre
+     * @param scHeight La hauteur de la fenêtre
+     * @param colors La liste de couleurs utilisées
+     * @param nbr_ObsDeb Nombre d'obstacle à placer dès le début
+     * @param gameDifficulty La difficulté de la partie
+     */
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_ObsDeb, Difficulty gameDifficulty) {
         super();
         obstacles = new ArrayList<>();
@@ -45,9 +104,15 @@ public class Path {
         this.posY = scHeight / 5;
         isFinite = false;
 
-        //buildPathRandom();
     }
 
+    /**
+     * Constructeur d'un path pour un niveau fini (la difficultée du niveau est défini en RANDOM)
+     * @param scWidth La largeur de la fenêtre
+     * @param scHeight La hauteur de la fenêtre
+     * @param colors La liste de couleurs utilisées
+     * @param nbr_Obs Le nombre d'obstacle constituant le niveau
+     */
     public Path(double scWidth, double scHeight, List<Color> colors, int nbr_Obs) {
         super();
         obstacles = new ArrayList<>();
@@ -61,9 +126,14 @@ public class Path {
         posX = scWidth / 2;
         this.posY = scHeight / 5;
         isFinite = true;
-        //buildPathRandom();
     }
 
+    /**
+     * Constructeur d'un path dans le cas d'une partie en CircleHell (difficulté en RANDOM et le nombre d'obstacle directement placé = 3)
+     * @param scWidth La largeur de la fenêtre
+     * @param scHeight La hauteur de la fenêtre
+     * @param colors La liste de couleurs utilisées
+     */
     public Path(double scWidth, double scHeight, List<Color> colors) {
         super();
         obstacles = new ArrayList<>();
@@ -82,6 +152,11 @@ public class Path {
     }
 
 
+    /**
+     * Ancien constructeur d'un path non utilisée qui aurait permis de rajouter des ennemis (ne respecte pas le MVC)
+     * @param _obstacles La liste des obstacles déjà construit
+     * @param _ennemies La liste des ennemis déjà construit
+     */
     public Path(List<ModelObstacle> _obstacles, List<Ennemy> _ennemies) {
         super();
         obstacles = _obstacles;
@@ -89,92 +164,12 @@ public class Path {
         items = new ArrayList<>();
         posX = scWidth / 2;
         this.posY = scHeight / 5;
-        //buildPath();
     }
 
-    public Path(List<ModelObstacle> _obstacles) {
-        super();
-        obstacles = _obstacles;
-        ennemies = new ArrayList<>();
-        items = new ArrayList<>();
-        posX = scWidth / 2;
-        this.posY = scHeight / 5;
-        posX = scWidth / 2;
-        this.posY = scHeight / 5;
-    }
-
-    public Path(List<Color> colors, int nb_Obstacle, Difficulty difficulty) {
-        this.colors = colors;
-        this.nbr_ObsDeb = nb_Obstacle;
-        this.gameDifficulty = difficulty;
-    }
-
-    private void buildPathRandom() {
-
-        //Group newPath = new Group();
-        /*Random r = new Random();
-        int type;
-        int variante;
-       // double posY = scHeight / 5;
-        Difficulty obstacleDifficulty;*/
-
-
-        //Construction
-        for (int i = 0; i < nbr_ObsDeb; i++) {
-            ModelObstacle mo = addNewObstacle();
-            addNewColorSwitch(mo.getY() + mo.getObstacleHeight() / 2 + 150);
-
-
-            //marche pas encore tout à fait
-            /*for(Shape partStar : s.getShapeList()){
-             	for(Shape shape : o.getShapeList()){
-                 	while(!Shape.intersect(shape,partStar).getBoundsInParent().isEmpty()){
-                 		s.setY(s.getY()+1);
-                 	}
-                 }
-             }*/
-
-
-            //newPath.getChildren().add(o.getObstacle());
-            //newPath.getChildren().add(bcs.getItem());
-            //newPath.getChildren().add(s.getItem());
-
-
-            //addSL(o.getShapeList());
-            //addSL(bcs.getShapeList());
-            //addSL(s.getShapeList());
-
-
-        }
-
-
-        //return newPath;
-    }
-
-	/* Fonction normalement obsolete maintenant
-    private Group buildPath() {
-        Group newPath = new Group();
-        Iterator<ModelObstacle> itObs = obstacles.iterator();
-        ModelObstacle o;
-        while (itObs.hasNext()) {
-            o = itObs.next();
-            //newPath.getChildren().add(o.getObstacle());
-            BallColorSwitch bcs = new BallColorSwitch(scWidth/2,o.getY() + mo.getObstacleHeight()/2 + 150 + o.getObstacleHeight()/2 + 100,o.getModel_obstacle().getColor_use());
-            
-            //addSL(o.getShapeList());
-            //addSL(bcs.getShapeList());
-        }
-
-        Iterator<Ennemy> itEnn = ennemies.iterator();
-        Ennemy e;
-        while (itObs.hasNext()) {
-            e = itEnn.next();
-            //newPath.getChildren().add(e.getEnnemy);
-        }
-
-        return newPath;
-    }*/
-
+    /**
+     * Rajoute un modèle d'obstacle au path
+     * @return le modèle du nouvel obstacle
+     */
     public ModelObstacle addNewObstacle() {
         Random r = new Random();
         int type;
@@ -190,23 +185,28 @@ public class Path {
 
         //Generation de l'obstacle avec son colorSwitch
         mo = BuildModelObstacle.build(type, obstacleDifficulty, posX, posY, colors, scWidth);
-        // BallColorSwitch bcs = new BallColorSwitch(scWidth/2,posY + mo.getObstacleHeight()/2 + 150,mo.getColor_use());
 
 
         add(mo);
-        //add(modelStar);
         posY = posY - mo.getObstacleHeight() / 2 - 600;
 
         return mo;
     }
 
-
+    /**
+     * Rajoute un modèle d'une BallColorSwitch au path
+     * @return le modèle de la  nouvelle BallColorSwitch
+     */
     public ModelBallColorSwitch addNewColorSwitch(double y) {
         ModelBallColorSwitch modelBCS = (ModelBallColorSwitch) BuildModelItem.build(0, scWidth / 2, y, colors, 0, 0, 0, scWidth);
         add(modelBCS);
         return modelBCS;
     }
 
+    /**
+     * Rajoute un modèle d'une Star au path
+     * @return le modèle de la  nouvelle Star
+     */
     public ModelStar addNewStar(ModelObstacle mo) {
         List<Color> l = new ArrayList<>();
         ModelStar modelStar;
@@ -230,6 +230,10 @@ public class Path {
 
     }
 
+    /**
+     * Rajoute un modèle d'une InvisibleLine au path
+     * @return le modèle de la  nouvelle InvisbleLine
+     */
     public ModelInvisibleLine addNewInvisibleLine(double y) {
         ModelInvisibleLine modelIL = (ModelInvisibleLine) BuildModelItem.build(4, scWidth / 2, y, colors, 0, 0, 0, scWidth);
         add(modelIL);
@@ -293,116 +297,149 @@ public class Path {
 
     }
 
-
+    /**
+     * Rajoute un modèle d'obstacle à la liste de modèles d'obstacle
+     * @param o Le modèle d'obstacle à rajouter
+     */
     private void add(ModelObstacle o) {
         obstacles.add(o);
-        //addSL(o.getShapeList());
-        //path.getChildren().add(o.getShape());
+
     }
 
-
+    /**
+     * Rajoute un Ennemy à la liste d'Ennemy
+     * @param e L'Ennemy à rajouter
+     */
     public void add(Ennemy e) {
         ennemies.add(e);
     }
 
+    /**
+     * Rajoute un modèle d'item à la liste de modèles d'item
+     * @param item Le modèle d'item à rajouter
+     */
     private void add(ModelItem item) {
         items.add(item);
     }
 
-
+    /**
+     * Supprime un modèle d'item à la liste de modèles d'item
+     * @param item Le modèle d'item à supprimer
+     */
     public void remove(ModelItem item) {
         items.remove(item);
     }
 
+    /**
+     * Supprime un modèle d'obstacle à la liste de modèles d'obstacle
+     * @param o Le modèle d'obstacle à supprimer
+     */
     public void remove(ModelObstacle o) {
         obstacles.remove(o);
     }
 
-    /*public void remove(Ennemy e){
-    	path.getChildren().remove(e);
-        ennemies.remove(e);
-    }*/
-
-    public boolean isCorrect() {
-        //TODO
-        return false;
-    }
-
     /**
      * Accesseur du nombre d'items
-     *
      * @return le nombre d'items
      */
     public int getItemNbr() {
         return items.size();
     }
 
-
+    /**
+     * Accesseur du nombre d'obstacles à créer dès le début
+     * @return le nombre d'obstacles à créer dès le début
+     */
     public int getNbr_ObsDeb() {
         return nbr_ObsDeb;
     }
 
     /**
      * Accesseur du nombre d'Obstacles
-     *
      * @return le nombre d'Obstacles dans la liste
      */
     public int getObstacleNbr() {
         return obstacles.size();
     }
 
+    /**
+     * Accesseur de la liste de modèles d'obstacle du path
+     * @return la liste d'obstacles du path
+     */
     public List<ModelObstacle> getObstacles() {
         return obstacles;
     }
 
-    //TODO
+    /**
+     * Accesseur des ennemies du path (non utilisé)
+     * @return la liste des ennemies du path
+     */
     public List<Ennemy> getEnnemies() {
         return ennemies;
     }
 
+    /**
+     * Accesseur de la liste de modèles d'items du path
+     * @return la liste d'items du path
+     */
     public List<ModelItem> getItem() {
         return items;
     }
 
-    public List<Color> getColors() {
-        return colors;
-    }
-
+    /**
+     * Accesseur de la position où ajouter le prochain obstacle
+     * @return la position où ajouter le prochain obstacle
+     */
     public double getPosY() {
         return posY;
     }
 
+    /**
+     * Teste si le path est fini
+     * @return si le path est fini
+     */
     public boolean isFinite() {
         return isFinite;
     }
 
+    /**
+     * Teste si le path correspond à une partie en CircleHell
+     * @return si le path correspond à une partie en CircleHell
+     */
     public boolean isCircleHell() {
         return isCircleHell;
     }
 
+    /**
+     * Accesseur de la position en y de ligne d'arrivée
+     * @return la position en y de ligne d'arrivée
+     */
     public double getFinishLine() {
         return finishLine;
     }
 
+    /**
+     * Mutateur de la position en y de ligne d'arrivée
+     * @param finishLine La nouvelle position en y de la ligne d'arrivée
+     */
     public void setFinishLine(double finishLine) {
         this.finishLine = finishLine;
     }
 
+    /**
+     * Accesseur de la largeur de la scène
+     * @return la largeur de la scène
+     */
     public double getScWidth() {
         return scWidth;
     }
 
+    /**
+     * Accesseur de la hauteur de la scène
+     * @return la hauteur de la scène
+     */
     public double getScHeight() {
         return scHeight;
     }
 	
-	
-	
-	
-
-    /*public Group getPath() {
-        return path;
-    }*/
-
-
 }

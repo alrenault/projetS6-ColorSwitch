@@ -40,11 +40,6 @@ public abstract class Shapes extends Element {
 
     }
     
-    @Override
-    protected Group build() {
-        return null;
-    }
-    
     protected abstract Group buildShape();
 
 	
