@@ -22,7 +22,6 @@ public class GravityInverser extends GravitySwitch {
      */
     public GravityInverser(ModelGravityInverser mgi) {
         super(mgi);
-        item = buildItem(mgi);
     }
 
 

@@ -21,7 +21,6 @@ public class GravitySwitch extends Item {
      */
     public GravitySwitch(ModelGravitySwitch mgs) {
         super(mgs);
-        item = buildItem(mgs);
     }
 
     /**

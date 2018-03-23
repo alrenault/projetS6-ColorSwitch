@@ -18,7 +18,6 @@ public class BallColorSwitch extends Item {
 
     public BallColorSwitch(ModelBallColorSwitch mbcs) {
     	super(mbcs);
-        item = buildItem(mbcs);
     }
 
     public Group buildItem(ModelItem mi) {

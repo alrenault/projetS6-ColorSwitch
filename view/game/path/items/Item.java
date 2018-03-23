@@ -35,7 +35,8 @@ public abstract class Item extends Element {
      */
     public Item(ModelItem mi) {
        model_item = mi;
-        item = new Group();
+       item = new Group();
+       item = buildItem(mi);
 
     }
 

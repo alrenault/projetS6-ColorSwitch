@@ -43,11 +43,59 @@ public abstract class Element {
 		return shape_list;
 	}
 	
-	
-	protected void addSL(Shape ... shapes) {
+		protected  void addSL(Shape ... shapes) {
+				
+				if (shapes != null) {
+					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					for (Shape j : shapes) {
+						shape_list.add(j);
+					}
+				}
+				
+			}
+			
 		
+			protected void addSL(List<Shape> ... shapes_list) {
+				
+				
 		
+				
+				if (shapes_list != null) {
+					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					for (List<Shape> j : shapes_list) {
+						shape_list.addAll(j);
+						
+					}
+				}
+				
+			}
+			
+			public  void removeSL(Shape ... shapes) {
+				
+				if (shapes != null) {
+					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					for (Shape j : shapes) {
+						shape_list.remove(j);
+					}
+				}
+				
+			}
+			
 		
+			public void removeSL(List<Shape> ... shapes_list) {
+				
+				if (shapes_list != null) {
+					if(shape_list == null) shape_list = new ArrayList<Shape>();
+					for (List<Shape> j : shapes_list) {
+						shape_list.removeAll(j);
+						
+					}
+				}
+				
+			}
+			
+			
+	/*protected void addSL(Shape ... shapes) {
 		
 		if (shapes != null) {
 			if(shape_list == null) shape_list = new ArrayList<>();
@@ -59,9 +107,6 @@ public abstract class Element {
 
 	protected void addSL(List<Shape> ... shapes_list) {
 		
-		
-
-		
 		if (shapes_list != null) {
 			if(shape_list == null) shape_list = new ArrayList<>();
 			for (List<Shape> j : shapes_list) {
@@ -71,7 +116,18 @@ public abstract class Element {
 			}
 		}
 
-	}
+	}*/
+	
+/*protected void removeSL(Shape ... shapes) {
+		
+		if (shapes != null) {
+			if(shape_list == null) shape_list = new ArrayList<>();
+            Collections.addAll(shape_list, shapes);
+            shape_list.removeAll(shapes);
+		}
+
+	}*/
+	
 	
 	
 	

@@ -131,9 +131,13 @@ public class ViewPath {
 	    	s.setStroke(Color.TRANSPARENT);
 	    }
 		
+		System.out.println("AVANT "+o.getShapeList().size());
 		obstacles.remove(o);
 		obstaclesShapes.removeAll(o.getShapeList());
 		path.remove(o.getModel_obstacle());
+		o.removeSL(o.getShapeList());
+		System.out.println("APRES "+o.getShapeList().size());
+	
 	}
 	
 	public void removeItem(ModelItem mi) {

@@ -13,7 +13,6 @@ public class InvisibleLine extends Item{
 
 	public InvisibleLine(ModelInvisibleLine mil) {
 		super(mil);
-        item = buildItem(mil);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -32,8 +31,9 @@ public class InvisibleLine extends Item{
 	public void get(ViewPath vPath, Controller c, BallPlayer b) {
 		vPath.addNewObstacle();
 		c.incItem(model_item);
-		if(c.getScore().getNbEtoilesRamassees() > 1)
+		if(c.getScore().getNbEtoilesRamassees() > 1){
     		vPath.removeObstacle(vPath.getObstacles().get(0));
+		}
 	}
 
 }
