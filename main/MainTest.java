@@ -43,14 +43,6 @@ public class MainTest extends Application {
         double p3x = x - (side / 2);
         double p3y = y + 1.0 / 3.0 * side * (Math.sqrt(3.0) / 2.0);
 
-        double p1x1 = x + 1.0 / 3.0 * side * (Math.sqrt(3.0) / 2.0);
-        double p1y1 = y;
-
-        double p2x1 = x - (side / 2);
-        double p2y1 = y + 1.0 / 3.0 * side * (Math.sqrt(3.0) / 2.0);
-
-        double p3x1 = x - (side / 2);
-        double p3y1 = y + 1.0 / 3.0 * side * (Math.sqrt(3.0) / 2.0);
 
 
         triangle.getPoints().addAll(

@@ -13,7 +13,7 @@ import java.util.LinkedList;
 
 
 /**
- *
+ * Gère les fenetre ,scenes du jeu
  */
 public class View implements InterfaceViewColorSwitch {
     /**
