@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * Objet graphique d'un Obstacle représentant de multiple carrés
+ */
 public class MultiSquare extends Obstacle {
 	/*
 	 version 0 : petit rectangle tournant dans le sens contre horraire
@@ -26,12 +28,17 @@ public class MultiSquare extends Obstacle {
 	 */
 
 
+
+    /**
+     * Constructeur de multiShapes
+     * @param mms le model de la MultiSquare à construire
+     */
     public MultiSquare(ModelMultiSquare mms) {
         super(mms);
     }
+    
 
-
-    public Group buildObstacle(ModelObstacle mo) {
+    public Group buildObstacle() {
         Group multiSquare = new Group();
 
         double tinyLength = 150.0;

@@ -3,8 +3,6 @@ package view.game;
 /**
  * Modelise le joueur de l'appli (Non utlisée ( on ne demande pas le nom du joueur au début)
  *
- * @autor Vincent
- * @date 25/02/2018
  */
 class Player {
     /**

@@ -18,7 +18,7 @@ class VerticalLine extends Shapes {
      */
     public VerticalLine(ModelVLine mvl) {
         super(mvl);
-        this.group_shape = buildShape(mvl);
+        this.group_shape = buildShape();
 
         //recuperation de la position
         coord = group_shape.localToScene(group_shape.getBoundsInLocal());
@@ -32,7 +32,8 @@ class VerticalLine extends Shapes {
      *
      * @return le Group correspondant a la ligne verticale
      */
-    private Group buildShape(ModelVLine mvl) {
+    protected Group buildShape() {
+    	ModelVLine mvl = (ModelVLine)ms;
         Group hline = new Group();
 
         for (int i = 0; i < mvl.getNbr_seg(); i++) {

@@ -1,0 +1,1 @@
+package view.game.path.obstacle;

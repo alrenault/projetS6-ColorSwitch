@@ -3,8 +3,6 @@ package view.game.path;
 import view.game.path.items.Item;
 
 /**
- * @autor Vincent
- * @date 10/03/2018
  */
 public abstract class Modifiers {
     /**

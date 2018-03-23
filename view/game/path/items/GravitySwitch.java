@@ -9,11 +9,7 @@ import view.ViewPath;
 import view.game.ball.BallPlayer;
 
 
-/**
- * Objet graphique Changeur de gravité
- *
- * @autor Vincent
- * @date 09/02/2018
+/**Objet graphique Changeur de gravité
  */
 public class GravitySwitch extends Item {
 
@@ -25,13 +21,8 @@ public class GravitySwitch extends Item {
         super(mgs);
     }
 
-    /**
-     * Genere la forme
-     *
-     * @return un ensemble de forme
-     */
-    protected Group buildItem(ModelItem mi) {
-        double w = ((ModelGravitySwitch) mi).getSize();
+    protected Group buildItem() {
+        double w = ((ModelGravitySwitch)mi).getSize();
         double x = mi.getX();
         double y = mi.getY();
 

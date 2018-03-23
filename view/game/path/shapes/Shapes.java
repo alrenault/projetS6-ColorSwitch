@@ -3,6 +3,7 @@ package view.game.path.shapes;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import model.modelShape.ModelCircle;
 import model.modelShape.ModelShape;
 import view.game.path.Element;
 
@@ -11,137 +12,42 @@ import view.game.path.Element;
  * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
  */
 
-public class Shapes extends Element {
+public abstract class Shapes extends Element {
 
-    // protected double x;
-    // protected double y;
     /**
      * Patron de la forme
      */
-    private static ModelShape model_shape;
+    protected ModelShape ms;
 
-    //protected Bounds coord;
-
-    // double width;
-
-    // boolean mouvementDirection;
-
-    //boolean acceleration;
-
-    //int pos_color;
-
-    //double mouvementSpeed;
-
-    //List<Color> colors;
-
-    //List<Color> colors_use;
     /**
      * Le groupe représentant la forme
      */
     Group group_shape;
+    
     /**
      * Objet permettant de manipuler les coordonnees (et la largeur et hauteur) de la forme)
      */
     Bounds coord;
 
-
     /**
+     * Constructeuer permettant de construire une forme
+     * @param modelShape Le modèle permettant de construire la forme
      */
-   /* protected Shapes(double x, double y, double width, boolean mouvementDirection, boolean acceleration, Speed s, List<Color> colors, int pos_color) {
-        super();
-    	this.x = x;
-        this.y = y;
-        this.width = width;
-
-        this.mouvementDirection = mouvementDirection;
-        this.acceleration = acceleration;
-        switch (s) {
-            case SYMPA:
-                mouvementSpeed = 6.0;
-                break;
-            case MOYEN:
-                mouvementSpeed = 4.5;
-                break;
-            case HARD:
-                mouvementSpeed = 3.0;
-                break;
-            case TRESSYMPA:
-                mouvementSpeed = 7.0;
-                break;
-            case NONE:
-                mouvementSpeed = 0.0;
-                break;
-        }
-
-        this.colors = colors;
-        if (pos_color <= 0)
-            this.pos_color = 0;
-        else {
-            this.pos_color = pos_color % colors.size();
-        }
-        this.colors_use = new ArrayList<>();
-        //this.shape = build();
-        //check();
-
-    }*/
-
     Shapes(ModelShape modelShape) {
         super();
-        model_shape = modelShape;
-        //group_shape = buildShape();
+        ms = modelShape;
+        group_shape = buildShape();
 
     }
-
-	/* public double getSize() {
-        return width;
-    }*/
-
-    /**
-     * Génère la forme
-     *
-     * @return Le Group représentant la forme
-     */
-   /* protected Group build() {
-    	return buildShape();
+    
+    @Override
+    protected Group build() {
+        return null;
     }
+    
+    protected abstract Group buildShape();
 
-    public Group buildShape() {
-    	Group shape;
-    	
-    	switch(model_shape.getType()) {
-    		case Circle:
-    			shape = Circle.build((ModelCircle) model_shape);
-    			break;
-    		
-    		case Cross:
-    			shape = Cross.build((ModelCross) model_shape);
-    			break;
-    			
-    		case Square:
-    			shape = Square.build((ModelSquare) model_shape);
-    			break;
-    		
-    		case Triangle:
-    			shape = Triangle.build((ModelTriangle) model_shape);
-    			break;
-    			
-    		case Horizontal_Line:
-    			shape = Linee.build((ModelHLine) model_shape);
-    			break;
-    			
-    		case Vertical_Line:
-    			shape = VerticalLine.build((ModelVLine) model_shape);
-    			break;
-    			
-    			
-    		default:
-    			shape = new Group();
-    			break;
-    		
-    	}
-    	
-    	return shape;
-    }*/
+	
     public Bounds getCoord() {
         return coord;
     }
@@ -199,9 +105,5 @@ public class Shapes extends Element {
         return group_shape;
     }
 
-    @Override
-    protected Group build() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    
 }

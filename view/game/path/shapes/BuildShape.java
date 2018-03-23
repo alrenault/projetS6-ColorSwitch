@@ -2,8 +2,16 @@ package view.game.path.shapes;
 
 import model.modelShape.*;
 
+/**
+ * Générateur de forme
+ */
 public class BuildShape {
 
+	/**
+	 * Génère une forme en fonction du modèle (et de son type)
+	 * @param model_shape Le modèle dont on veut la forme
+	 * @return l'Obstacle représentant le modèle
+	 */
     public static Shapes constructShape(ModelShape model_shape) {
 
         Shapes shape;
@@ -34,7 +42,7 @@ public class BuildShape {
                 break;
 
             default:
-                shape = new Shapes(model_shape);
+                shape = null;
         }
 
         return shape;
