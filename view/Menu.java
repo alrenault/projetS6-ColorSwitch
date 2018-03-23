@@ -142,6 +142,8 @@ class Menu {
         goContinuHard.setOnAction(event -> controller.startGame(Difficulty.HARD));
         
         playEasy.setOnMouseClicked(event -> controller.startGame(Difficulty.EASY));
+        playNormal.setOnMouseClicked(event -> controller.startGame(Difficulty.NORMAL));
+        playHard.setOnMouseClicked(event -> controller.startGame(Difficulty.HARD));
         
         
         goLvl.setOnAction(event -> controller.menuLvl());
