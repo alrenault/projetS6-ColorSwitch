@@ -41,8 +41,8 @@ class Menu {
         colorExterne.add(Colorable.BLUE);
 
 
-        int buttonWidth = 200;
-        int buttonHeight = 50;
+        Integer buttonWidth = 200;
+        Integer buttonHeight = 50;
 
         Group root = new Group();
 
@@ -63,9 +63,9 @@ class Menu {
         //colorSwitch.setTranslateY(50);
         vBox.getChildren().add(colorSwitch);
 
-        double x = View.tailleX / 2;
-        double y = 200;
-        double side = 100;
+        double x = View.tailleX / 2.0;
+        double y = 200.0;
+        double side = 100.0;
 
 
         CircleInCircle cic = (CircleInCircle) BuildObstacle.build(new ModelCircleInCircle(x - 15, y - 13, colorExterne, 0, ObstacleType.CircleInCircle));

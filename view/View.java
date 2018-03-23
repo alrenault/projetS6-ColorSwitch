@@ -105,22 +105,16 @@ public class View implements InterfaceViewColorSwitch {
     @Override
     public void viewGameEnd() {
 
-
         display(ViewScores.viewEndScore(controller.getScore()));
 
     }
-    /*
-     *Propose d'enregistrer le Score in DB
-     */
+
     @Override
     public void viewGameOverRecord() {
         display(ScenePseudo.stre(controller));
     }
 
-    /*
-     *Accesseur de controller
-     * @return le Controller de jeu
-     */
+
     @Override
     public Controller getController() {
         return controller;

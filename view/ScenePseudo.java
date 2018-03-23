@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import view.game.Colorable;
 
 /**
  * Mini Form recuperrant le pseudo du joueur à la fin de la partie
@@ -34,6 +36,7 @@ class ScenePseudo {
         HBox ligne_buttons = new HBox();
         root.setStyle("-fx-background-color: #393939");
         labelPseudo = new Label("Pseudo :");
+        labelPseudo.setTextFill(Color.WHITE);
 
         inputPseudo = new TextField();
         inputPseudo.setPromptText("Entrer un pseudo [a-Z_0-9]");
