@@ -63,7 +63,6 @@ class ScenePseudo {
         ligne_buttons.setAlignment(Pos.CENTER);
         root.getChildren().add(ligne_buttons);
         root.setSpacing(20);
-        //root.setAlignment(Pos.CENTER);// centre pas ou il faut
 
         scene = new Scene(root, View.tailleX, View.tailleY);
 

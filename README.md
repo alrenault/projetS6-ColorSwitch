@@ -74,3 +74,10 @@ Début d'architecture, début d'IHM
 - Editeur de niveaux
 - Générateur de niveaux
 - IA
+-Sons
+    - Musique de fond
+    - Sons lors de
+        - Game Over / Victoire
+        - Etoile
+        - Saut
+        - ...
