@@ -53,10 +53,6 @@ public abstract class Obstacle extends Element {
 	public ModelObstacle getModel_obstacle() {
 		return mo;
 	}
-
-	protected Group build() {
-    	return buildObstacle();
-    }
     
     protected abstract Group buildObstacle();
 
@@ -110,13 +106,6 @@ public abstract class Obstacle extends Element {
     public double getObstacleHeight() {
         coord = obstacle.localToScene(obstacle.getBoundsInLocal());
         return coord.getHeight();
-    }
-
-
-    @Override
-    public Group getShape() {
-        // TODO Auto-generated method stub
-        return obstacle;
     }
 
     /**

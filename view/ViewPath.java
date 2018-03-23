@@ -94,24 +94,24 @@ public class ViewPath {
     public void addNewObstacle() {
         ModelObstacle mo = path.addNewObstacle();
         Obstacle o = addObstacle(mo);
-        jObstacles.getChildren().add(o.getShape());
+        jObstacles.getChildren().add(o.getObstacle());
 
         ModelItem bcs = path.addNewColorSwitch(o.getY() + o.getObstacleHeight() / 2 + 150);
         ((ModelBallColorSwitch) bcs).setColors_use(o.getColor_passable());
 
         //bcs.setY(o.getY() + mo.getObstacleHeight()/2 + 150);
         Item i = addItem(bcs);
-        jItems.getChildren().add(i.getShape());
+        jItems.getChildren().add(i.getItem());
 
         ModelStar star = path.addNewStar(mo);
         Item s = addItem(star);
-        jItems.getChildren().add(s.getShape());
+        jItems.getChildren().add(s.getItem());
 
         if (!path.isFinite()) {
             ModelInvisibleLine il = path.addNewInvisibleLine(mo.getY());
             Item line = addItem(il);
 
-            jItems.getChildren().add(line.getShape());
+            jItems.getChildren().add(line.getItem());
         }
 
 

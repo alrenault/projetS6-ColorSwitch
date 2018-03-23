@@ -52,7 +52,7 @@ public class CollisionItem implements UseLaw {
 
                         item.get(path, controller, ball);
 
-                        jItems.getChildren().remove(item.getShape());
+                        jItems.getChildren().remove(item.getItem());
 
 
                         path.removeItem(item);

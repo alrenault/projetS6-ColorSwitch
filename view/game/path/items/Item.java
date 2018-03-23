@@ -45,11 +45,6 @@ public abstract class Item extends Element {
      * @return un ensemble de Forme
      */
     protected abstract Group buildItem();
-    
-	@Override
-	protected Group build() {
-		return null;
-	}
 
 	/**
 	 * Méthodes définissant les actions à réaliser une fois l'Item ramassé
@@ -92,13 +87,6 @@ public abstract class Item extends Element {
      * @return La Forme de l'objet
      */
     public Group getItem() {
-        return item;
-    }
-
-
-    @Override
-    public Group getShape() {
-        // TODO Auto-generated method stub
         return item;
     }
 
