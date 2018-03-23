@@ -86,15 +86,15 @@ class Menu {
         randomButton.getChildren().add(playRandom);
         vBox.getChildren().add(randomButton);
 
-        //Polygon playEasy = FilledTriangle.create(x, y, side/2, Color.LIGHTGREEN);
-        //Polygon playNormal = FilledTriangle.create(x, y, side/2, Color.ORANGERED);
-        //Polygon playHard = FilledTriangle.create(x, y, side/2, Color.DARKRED);
+        Polygon playEasy = FilledTriangle.create(x, y, side/2, Color.LIGHTGREEN);
+        Polygon playNormal = FilledTriangle.create(x, y, side/2, Color.ORANGERED);
+        Polygon playHard = FilledTriangle.create(x, y, side/2, Color.DARKRED);
 
         HBox infinite_difficulties = new HBox();
 
-        //infinite_difficulties.getChildren().add(playEasy);
-        //infinite_difficulties.getChildren().add(playNormal);
-        //infinite_difficulties.getChildren().add(playHard);
+        infinite_difficulties.getChildren().add(playEasy);
+        infinite_difficulties.getChildren().add(playNormal);
+        infinite_difficulties.getChildren().add(playHard);
 
         vBox.getChildren().add(infinite_difficulties);
 
