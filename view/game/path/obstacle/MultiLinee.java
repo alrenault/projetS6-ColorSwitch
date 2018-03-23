@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * Objet graphique d'un Obstacle représentant de multiple ligne
+ */
 public class MultiLinee extends Obstacle {
 	/*
 	version 0 : 1 segment commençant de la gauche
@@ -33,14 +35,17 @@ public class MultiLinee extends Obstacle {
 	*/
 
     
-
+	/**
+	 * Constructeur du MultiLine
+	 * @param mml Le model utilisé pour le MultiLine
+	 */
     public MultiLinee(ModelMultiLine mml) {
         super(mml);
     }
 
     
 
-    protected Group buildObstacle(ModelObstacle mo) {
+    protected Group buildObstacle() {
 
         double length = 100.0;
         double width = 20.0;
@@ -59,7 +64,7 @@ public class MultiLinee extends Obstacle {
         
         Random r = new Random();
         int colorDeb = r.nextInt(colors.size());
-        int colorOppose = (colorDeb+colors.size()/2) % colors.size();
+        //int colorOppose = (colorDeb+colors.size()/2) % colors.size();
         int colorRand = r.nextInt(colors.size());
 
 

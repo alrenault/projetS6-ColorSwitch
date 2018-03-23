@@ -19,16 +19,16 @@ public abstract class Obstacle extends Element {
     private Group obstacle;
 
     private Bounds coord;
-    private ModelObstacle model_obstacle;
+    protected ModelObstacle mo;
     List<Color> color_passable;
 
 
     Obstacle(ModelObstacle mo) {
         super();
-        model_obstacle = mo;
+        this.mo = mo;
         color_passable = new ArrayList<>();
 
-        obstacle = buildObstacle(mo);
+        obstacle = buildObstacle();
         
         //this.obstacle = build();
         //check();
@@ -36,14 +36,14 @@ public abstract class Obstacle extends Element {
  
 
 	public ModelObstacle getModel_obstacle() {
-		return model_obstacle;
+		return mo;
 	}
 
 	protected Group build() {
-    	return buildObstacle(model_obstacle);
+    	return buildObstacle();
     }
     
-    protected abstract Group buildObstacle(ModelObstacle mo);
+    protected abstract Group buildObstacle();
 
 
     private double getX() {

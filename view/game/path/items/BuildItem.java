@@ -7,9 +7,16 @@ import model.modelItem.ModelGravitySwitch;
 import model.modelItem.ModelStar;
 import model.modelItem.ModelInvisibleLine;
 
-
+/**
+ * Générateur d'Item
+ */
 public class BuildItem {
 
+	/**
+	 * Génère un Item en fonction du modèle (et de son type)
+	 * @param mi Le modèle dont on veut l'Item
+	 * @return l'Item représentant le modèle
+	 */
 	public static Item build(ModelItem mi) {
     	Item i;
     	

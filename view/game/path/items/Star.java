@@ -11,7 +11,8 @@ import javafx.scene.shape.Shape;
 
 
 
-/**Objet graphique Etoile
+/**
+ * Objet graphique Etoile
  */
 
 public class Star extends Item {
@@ -21,9 +22,6 @@ public class Star extends Item {
      */
     public Star(ModelStar ms) {
         super(ms);
-        //recuperation de la position
-        //  this.coord = shape.localToScene(shape.getBoundsInLocal());
-        this.item = buildItem(ms);
     }
 
 
@@ -31,7 +29,7 @@ public class Star extends Item {
      * Genere la forme
      * @return un ensemble de Forme
      */
-    protected Group buildItem(ModelItem mi) {
+    protected Group buildItem() {
         Group g = new Group();
         Polygon p = new Polygon();
         double[] ax = new double[5];
@@ -53,6 +51,10 @@ public class Star extends Item {
         return g;
     }
     
+    /**
+     * Mutateur de la coordonnée en y de l'étoile
+     * @param y La nouvelle position de l'étoile
+     */
     public void setY(double y){
     	for(Shape s : getShapeList()){
     		s.setLayoutY(y);
@@ -60,10 +62,7 @@ public class Star extends Item {
     }
     
     public void get(ViewPath vPath, Controller c, BallPlayer b){
-    	c.incItem(model_item);
-    	
-    	//if(c.getScore().getNbEtoilesRamassees() > 1)
-    	//	vPath.removeObstacle(vPath.getObstacles().get(0));
+    	c.incItem(mi);
     }
 
 

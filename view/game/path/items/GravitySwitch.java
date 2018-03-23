@@ -10,8 +10,6 @@ import view.ViewPath;
 
 
 /**Objet graphique Changeur de gravité
- * @autor Vincent
- * @date 09/02/2018
  */
 public class GravitySwitch extends Item {
 
@@ -23,11 +21,7 @@ public class GravitySwitch extends Item {
         super(mgs);
     }
 
-    /**
-     * Genere la forme
-     * @return un ensemble de forme
-     */
-    protected Group buildItem(ModelItem mi) {
+    protected Group buildItem() {
         double w = ((ModelGravitySwitch)mi).getSize();
         double x = mi.getX();
         double y = mi.getY();

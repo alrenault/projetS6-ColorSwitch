@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * Objet graphique d'un Obstacle représentant de multiple formes
+ */
 public class MultiShapes extends Obstacle {
 	/*
 	 version 0 : Cercle dans un carré tourant dans des sens différents 
@@ -42,12 +44,7 @@ public class MultiShapes extends Obstacle {
     }
 
 
-    /**
-     * Générateur de Groupe formant une MultiShape
-     * @param mo le model
-     * @return un groupe de multiShapes
-     */
-    public Group buildObstacle(ModelObstacle mo) {
+    public Group buildObstacle() {
         Group multiShapes = new Group();
 
         double length = 200.0;

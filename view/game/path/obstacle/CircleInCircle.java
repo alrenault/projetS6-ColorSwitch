@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Objet graphique d'un Obstacle représentant des cercles dans des cercles
+ */
 
 public class CircleInCircle extends Obstacle {
 	/*
@@ -29,26 +32,17 @@ public class CircleInCircle extends Obstacle {
 	*/
 
     
-
+	/**
+	 * Constructeur d'un CircleInCircle
+	 * @param mcic Le model utilisé pour le CircleInCircle
+	 */
     public CircleInCircle(ModelCircleInCircle mcic) {
         super(mcic);
        
 
     }
 
-   /* public CircleInCircle(double x, double y, List<Color> colors, Difficulty difficulty) {
-        super(x, y, colors, 0, 4);
-        if (difficulty == Difficulty.EASY)
-            version = CircleInCircle.getRandomEasyVersion();
-        else if (difficulty == Difficulty.NORMAL)
-            version = CircleInCircle.getRandomMediumVersion();
-        else
-            version = CircleInCircle.getRandomHardVersion();
-        obstacle = buildObstacle();
-    }*/
-
-
-    protected Group buildObstacle(ModelObstacle mcic) {
+    protected Group buildObstacle() {
         double tinyRadial = 60.0;
         double mediumRadial = 70.0;
         double internRadial = 85.0;
@@ -56,9 +50,9 @@ public class CircleInCircle extends Obstacle {
         double width = 15.0;
         int nb_arc = 4;
         
-        double x = mcic.getX();
-        double y = mcic.getY();
-        List<Color> colors = mcic.getColors();
+        double x = mo.getX();
+        double y = mo.getY();
+        List<Color> colors = mo.getColors();
         
         //BuildShape builder = new BuildShape();
         
@@ -68,8 +62,8 @@ public class CircleInCircle extends Obstacle {
         List<ModelShape> modelC = new ArrayList<>();
 
 
-        if(mcic.getVersion() >= ModelCircleInCircle.NBR_VERSIONS)
-            mcic.setVersion(mcic.getVersionDefault());
+        if(mo.getVersion() >= ModelCircleInCircle.NBR_VERSIONS)
+            mo.setVersion(mo.getVersionDefault());
 
         //double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
         //boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color
@@ -79,7 +73,7 @@ public class CircleInCircle extends Obstacle {
         
         
         
-        switch (mcic.getVersion()) {
+        switch (mo.getVersion()) {
 
             case 0:
             	modelC.add(new ModelCircle(x, y, bigRadial, width, nb_arc, true, false, Speed.SYMPA, colors, colorDeb));
@@ -87,7 +81,7 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(colorDeb));
             	color_passable.add(colors.get(colorOppose));
                 
-            	mcic.setDifficulty(Difficulty.NORMAL);
+            	mo.setDifficulty(Difficulty.NORMAL);
             	break;
 
             case 1:
@@ -96,7 +90,7 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(colorDeb));
             	color_passable.add(colors.get(colorOppose));
                 
-            	mcic.setDifficulty(Difficulty.NORMAL);
+            	mo.setDifficulty(Difficulty.NORMAL);
             	break;
 
             case 2:
@@ -106,7 +100,7 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(1));
             	color_passable.add(colors.get(3));
                 
-            	mcic.setDifficulty(Difficulty.HARD);
+            	mo.setDifficulty(Difficulty.HARD);
                 break;
 
             case 3:
@@ -116,7 +110,7 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(1));
             	color_passable.add(colors.get(3));
             	
-            	mcic.setDifficulty(Difficulty.HARD);
+            	mo.setDifficulty(Difficulty.HARD);
                 break;
 
             case 4:
@@ -125,7 +119,7 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(colorDeb));
             	color_passable.add(colors.get(colorOppose));
             	
-            	mcic.setDifficulty(Difficulty.EASY);
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 5:
@@ -134,7 +128,7 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(colorDeb));
             	color_passable.add(colors.get(colorOppose));
             	
-            	mcic.setDifficulty(Difficulty.EASY);
+            	mo.setDifficulty(Difficulty.EASY);
                 break;
 
             case 6:
@@ -143,7 +137,7 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(colorDeb));
             	color_passable.add(colors.get(colorOppose));
             	
-            	mcic.setDifficulty(Difficulty.NORMAL);
+            	mo.setDifficulty(Difficulty.NORMAL);
             	break;
 
             default:
@@ -152,14 +146,14 @@ public class CircleInCircle extends Obstacle {
             	color_passable.add(colors.get(colorDeb));
             color_passable.add(colors.get(colorOppose));
             	
-            	mcic.setDifficulty(Difficulty.EASY);
+            	mo.setDifficulty(Difficulty.EASY);
         }
         
         for(ModelShape ms : modelC){
         	cer1 = (Circle)BuildShape.constructShape(ms);
             addSL(cer1.getShapeList());  
             circleInCircle.getChildren().add(cer1.getShape());
-            mcic.getColor_use().addAll(ms.getColors_use());
+            mo.getColor_use().addAll(ms.getColors_use());
         }
         
         

@@ -9,6 +9,9 @@ import model.modelItem.ModelItem;
 import view.ViewPath;
 import model.modelItem.ModelInvisibleLine;
 
+/**
+ * Objet graphique d'une ligne invisible
+ */
 public class InvisibleLine extends Item{
 
 	public InvisibleLine(ModelInvisibleLine mil) {
@@ -16,7 +19,7 @@ public class InvisibleLine extends Item{
 		// TODO Auto-generated constructor stub
 	}
 	
-	protected Group buildItem(ModelItem mi) {
+	protected Group buildItem() {
         Group line = new Group();
 
         Rectangle rec = new Rectangle(0, mi.getY(), ((ModelInvisibleLine)mi).getLength(),20);
@@ -30,7 +33,7 @@ public class InvisibleLine extends Item{
 	@Override
 	public void get(ViewPath vPath, Controller c, BallPlayer b) {
 		vPath.addNewObstacle();
-		c.incItem(model_item);
+		c.incItem(mi);
 		if(c.getScore().getNbEtoilesRamassees() > 1){
     		vPath.removeObstacle(vPath.getObstacles().get(0));
 		}
