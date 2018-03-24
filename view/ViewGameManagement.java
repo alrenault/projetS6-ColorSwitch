@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import model.modelBall.Ball;
 import model.modelBall.BuildBall;
 import model.modelItem.ModelItem;
+import model.modelLaw.Universe.UniverseType;
 import model.modelObstacle.ModelObstacle;
 import model.game.Colorable;
 import model.game.Game;
@@ -64,6 +65,9 @@ class ViewGameManagement {
 
 
         BallPlayer ballplayer = BuildBall.build(ball, thisScene);
+        if(game.getUniverse().getType() == UniverseType.Basic){
+        	ballplayer.basicMode();
+        }
 
 
         Group jBall = ballplayer.getShape();

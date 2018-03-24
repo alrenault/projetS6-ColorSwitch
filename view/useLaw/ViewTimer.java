@@ -81,7 +81,7 @@ public class ViewTimer {
                     res.add(new Jump(ballPlayer,scene)); break;
                 case Race:
                     res.add(new Race(ballPlayer,scene)); break;
-                case JtGravity:
+                case Gravity:
                     res.add(new JtGravity(ballPlayer)); break;
                 case MoveBall:
                     res.add(new MoveBall(ballPlayer)); break;
@@ -99,7 +99,8 @@ public class ViewTimer {
                     res.add(new LabelScore(controller.getScore(),scene)); break;
                 case Interface:
                 	res.add(new InterfaceGame(controller.getScore(),interfaceGame, ballPlayer)); break;
-
+                case FollowBall:
+                	res.add(new FollowBall(scene,ballPlayer));
             }
 
 

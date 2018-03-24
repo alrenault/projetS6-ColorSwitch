@@ -124,8 +124,7 @@ public class BallPlayer extends Player {
     private Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
-        player.setCenterX(scene.getWidth() / 2);
-        player.setCenterY(scene.getHeight() * 4 / 5);
+        
 
         addSL(player);
         ball.getChildren().add(player);
@@ -209,6 +208,14 @@ public class BallPlayer extends Player {
         }
         ttl.play();
         limiteJump -= 100;
+    }
+    
+    public void basicMode(){
+    	for(Shape player : this.getShapeList()){
+    		((Circle)player).setCenterX(scene.getWidth() / 2);
+    		((Circle)player).setCenterY(scene.getHeight() * 4 / 5);
+    	}
+    	
     }
 
 

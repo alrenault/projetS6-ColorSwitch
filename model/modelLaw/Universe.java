@@ -20,8 +20,12 @@ public class Universe {
 	
     private Set<Law> laws;
     private Set<LawType>banq;
+    
+    private UniverseType type;
 
     public Universe(UniverseType type) {
+    	this.type = type;
+    	
         laws = new HashSet<>();
         banq = new HashSet<>();
         
@@ -34,6 +38,7 @@ public class Universe {
         mechanics.add(LawType.Gravity);
         mechanics.add(LawType.Jump);
         mechanics.add(LawType.MoveBall);
+        mechanics.add(LawType.FollowBall);
 
         Set<LawType> race = new HashSet<>();
         race.add(LawType.Race);
@@ -51,6 +56,7 @@ public class Universe {
         		
         	case Race:
         		addAll(race);
+        		addAll(collisions);
         		break;
         		
         		
@@ -85,7 +91,11 @@ public class Universe {
         return banq;
     }
 
-    /**
+    public UniverseType getType() {
+		return type;
+	}
+
+	/**
      * Vide les lois
      */
     public void cleanUniverse(){

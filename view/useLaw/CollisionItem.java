@@ -74,7 +74,7 @@ public class CollisionItem implements UseLaw {
 
 
         }
-
+        
     }
 
 

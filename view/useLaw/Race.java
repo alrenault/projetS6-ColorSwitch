@@ -32,8 +32,8 @@ public class Race implements UseLaw {
         duration = currentTime - startTime;
 
 
-        if (speed > 10) speed = 5 + (duration / 12000);
-        else speed = 10;
+        if (speed > 10) speed = 5 + (duration / 120);
+        else speed = 3;
 
 
         ball.getShape().setTranslateY(ball.getShape().getTranslateY() - speed);

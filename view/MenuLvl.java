@@ -12,6 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.game.Colorable;
+import model.game.Difficulty;
+import model.modelLaw.Universe.UniverseType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,8 +118,8 @@ class MenuLvl {
         niveau30.setOnAction(event -> controller.startLvl(30));
         enferCercle.setOnAction(event -> controller.startHellCircle());
         
-        //race.setOnAction();
-        //gravity.setOnAction();
+        race.setOnAction(event -> controller.startGame(Difficulty.RANDOM, UniverseType.Race));
+        gravity.setOnAction(event -> controller.startGame(Difficulty.RANDOM, UniverseType.Gravity));
         //touch.setOnAction();
         return sc;
 

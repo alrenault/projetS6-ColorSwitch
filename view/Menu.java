@@ -16,6 +16,7 @@ import model.ObstacleType;
 import model.modelObstacle.ModelCircleInCircle;
 import model.game.Colorable;
 import model.game.Difficulty;
+import model.modelLaw.Universe.UniverseType;
 import view.path.obstacle.BuildObstacle;
 import view.path.obstacle.CircleInCircle;
 import javafx.scene.image.*;
@@ -228,7 +229,7 @@ class Menu {
         });
 
         //Random
-        playRandom.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
+        playRandom.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM,UniverseType.Basic));
         
         //Score
         score.setOnMouseClicked(event -> controller.showScoresMenu());
@@ -238,9 +239,9 @@ class Menu {
         
         
         //Difficulties
-        playEasy.setOnMouseClicked(event -> controller.startGame(Difficulty.EASY));
-        playNormal.setOnMouseClicked(event -> controller.startGame(Difficulty.NORMAL));
-        playHard.setOnMouseClicked(event -> controller.startGame(Difficulty.HARD));
+        playEasy.setOnMouseClicked(event -> controller.startGame(Difficulty.EASY,UniverseType.Basic));
+        playNormal.setOnMouseClicked(event -> controller.startGame(Difficulty.NORMAL,UniverseType.Basic));
+        playHard.setOnMouseClicked(event -> controller.startGame(Difficulty.HARD,UniverseType.Basic));
         
         //Levels
         goLvl.setOnAction(event -> controller.menuLvl());
