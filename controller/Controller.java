@@ -73,6 +73,7 @@ public class Controller {
 
     /**
      * Enregistre le score
+     * @param pseudo Le pseudo du joueur
      * @param score Score du joueur
      */
     public void recordScore(String pseudo, Score score) {

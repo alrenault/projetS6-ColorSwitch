@@ -17,6 +17,7 @@ public class Star extends Item {
 
     /**
      * Constructeur d'Etoile
+     * @param Modèle servant à contruire une Star
      */
     public Star(ModelStar ms) {
         super(ms);

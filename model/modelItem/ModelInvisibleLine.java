@@ -21,7 +21,7 @@ public class ModelInvisibleLine extends ModelItem {
      * @param colors   L'ensemble de couleurs que l'on peut utiliser pour la ligne
      * @param nbPoints nombre de points gagnés en touchant la ligne
      * @param type     Le type d'Item
-     * @param length
+     * @param length   La longueur de la ligne
      */
     public ModelInvisibleLine(double x, double y, List<Color> colors, int nbPoints, ItemType type, double length) {
         super(x, y, colors, nbPoints, type);

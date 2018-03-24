@@ -95,7 +95,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
 
     /**
      * Donne une couleur à une shape en fonction la pos_color
-     * @param s
+     * @param s La shape à colorier
      */
     public void color(Shape s) {
         Iterator<Color> it = colors.iterator();

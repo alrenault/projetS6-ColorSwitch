@@ -8,39 +8,37 @@ import javafx.scene.input.KeyEvent;
 import view.game.ball.BallPlayer;
 
 /**
- *
+ * Un écouteur de touche utilisé pour l'ancienne version du saut du joueur
  */
 public class Listeners {
     /**
-     *
+     * La scène où se trouve le joueur
      */
     private Scene sc;
+    
     /**
-     *
+     * Le joueur
      */
     private BallPlayer ball;
 
     /**
-     * @param sc
-     * @param ball
+     * Constructeur de l'écouteur de touche
+     * @param sc La scène où se trouve le joueur
+     * @param ball Le joueur
      */
     public Listeners(Scene sc, BallPlayer ball) {
         this.sc = sc;
-        //TODO
         this.ball = ball;
     }
 
     /**
-     * @param group
+     * Fait sauter le joueur
+     * @param group Le groupe représentant le joueur
      */
     public void jump(Group group) {
-        //Label l1 = new Label("je test");
-        //group.getChildren().add(l1);
-        //l1.setFont(new Font(50));
         sc.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent ke) {
-                //if(ke.getCode() == KeyCode.ENTER){
                 if (ke.getCode().getName().equals("Space")) {
                     ball.jump();
 
@@ -49,7 +47,6 @@ public class Listeners {
                         //appel d'une methode pour faire descendre tout le monde
                         ball.jumpLimit();
                     }
-                    //l1.setText(ke.getCode().getName());
                 }
 
 
