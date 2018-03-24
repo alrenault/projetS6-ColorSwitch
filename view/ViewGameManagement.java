@@ -87,6 +87,9 @@ class ViewGameManagement {
         root.getChildren().add(group);
     }
 
+    public void construtionUnivLaws(){
+
+    }
 
     /**
      * @param path

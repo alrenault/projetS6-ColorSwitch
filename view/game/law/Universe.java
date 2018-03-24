@@ -37,6 +37,10 @@ public class Universe {
         banq.clear();
     }
 
+    public Set<LawType> getBanq() {
+        return banq;
+    }
+
     /**
      * Vide les lois
      */

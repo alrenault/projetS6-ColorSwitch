@@ -5,9 +5,13 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
+import view.game.law.LawType;
+import view.game.law.Universe;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class ViewTimer {
@@ -18,11 +22,15 @@ public class ViewTimer {
     AnimationTimer timer;
     List<UseLaw> laws;
     Controller controller;
+    private Scene scene;
+    private BallPlayer ballPlayer;
+    private ViewPath path;
 
     public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene) {
         laws = new ArrayList<>();
         this.controller = controller;
-
+        this.scene=scene;
+      this.ballPlayer=ball;
         J j = new J();
 
         LabelScore score = new LabelScore(controller.getScore(), scene);
@@ -60,6 +68,7 @@ public class ViewTimer {
         laws.add(finishLine);
 
 
+
         timer = new AnimationTimer() {
             long startTime = System.currentTimeMillis();
             long checkpoint = startTime;
@@ -88,6 +97,39 @@ public class ViewTimer {
             }
 
         };
+    }
+    public HashSet<UseLaw> createSet(Universe u){
+        HashSet<UseLaw> res=new HashSet<>();
+        for (LawType l : u.getBanq()){
+            switch (l){
+                case J:
+                    res.add(new J());
+                case Jump:
+                    res.add(new Jump(this.ballPlayer,this.scene));
+                case Race:
+                    res.add(new Race(this.ballPlayer,this.scene));
+                case JtGravity:
+                    res.add(new JtGravity(this.ballPlayer));
+                case MoveBall:
+                    res.add(new MoveBall(this.ballPlayer));
+                case CollisionItem:
+                    res.add(new CollisionItem(this.ballPlayer,this.path,this.controller));
+                case CollisionObstacle:
+                    res.add(new CollisionObstacle(this.ballPlayer,this.path,this.controller));
+                case LockBall:
+                    res.add(new LockBall(this.scene,this.ballPlayer));
+                case Tourni:
+                    res.add(new Tourni(this.scene));
+                case FinishLine:
+                    res.add(new FinishLine(this.path,this.ballPlayer,this.controller));
+                case LabelScore:
+                    res.add(new LabelScore(this.controller.getScore(),this.scene));
+
+            }
+
+
+        }
+        return res;
     }
 
     public void play() {
