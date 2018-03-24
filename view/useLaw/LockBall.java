@@ -14,9 +14,10 @@ public class LockBall implements UseLaw {
     private double yCamera;
     private Group interfaceGame;
 
-    public LockBall(Scene scene, BallPlayer ball) {
+    public LockBall(Scene scene, BallPlayer ball, Group interfaceGame) {
         this.scene = scene;
         this.ball = ball;
+        this.interfaceGame = interfaceGame ;
 
         difference = 0;
         limite = scene.getHeight() / 2;
@@ -37,6 +38,7 @@ public class LockBall implements UseLaw {
 
 
         scene.getCamera().setTranslateY(yCamera);
+        interfaceGame.setTranslateY(yCamera);
     }
 
 }

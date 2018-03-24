@@ -90,7 +90,7 @@ public class ViewTimer {
                 case CollisionObstacle:
                     res.add(new CollisionObstacle(ballPlayer,path,controller)); break;
                 case LockBall:
-                    res.add(new LockBall(scene,ballPlayer)); break;
+                    res.add(new LockBall(scene,ballPlayer, interfaceGame)); break;
                 case Tourni:
                     res.add(new Tourni(scene)); break;
                 case FinishLine:
@@ -98,9 +98,9 @@ public class ViewTimer {
                 case LabelScore:
                     res.add(new LabelScore(controller.getScore(),scene)); break;
                 case Interface:
-                	res.add(new InterfaceGame(controller.getScore(),interfaceGame, ballPlayer)); break;
+                	res.add(new InterfaceGame(scene, controller.getScore(),interfaceGame, ballPlayer)); break;
                 case FollowBall:
-                	res.add(new FollowBall(scene,ballPlayer));
+                	res.add(new FollowBall(scene,ballPlayer, interfaceGame));
             }
 
 
