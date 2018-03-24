@@ -126,7 +126,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur de la direction du mouvement 
-     * @return
+     * @return La direction du mouvement
      */
     public boolean isMouvementDirection() {
         return mouvementDirection;

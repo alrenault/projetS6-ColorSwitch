@@ -45,7 +45,7 @@ public interface InterfaceModelColorSwitch {
     void registerScore();
 
     /**
-     * @return
+     *
      */
     Game getGame();
 

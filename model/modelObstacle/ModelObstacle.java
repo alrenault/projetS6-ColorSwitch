@@ -140,7 +140,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de l'ensemble des couleurs utiliser par l'obstacle
-     * @return
+     * @return La liste des couleurs utilises
      */
     public List<Color> getColor_use() {
         return color_use;
@@ -148,7 +148,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur du type du modèle de l'obstacle
-     * @return
+     * @return Le tye de l'obstacle
      */
     public ObstacleType getType() {
         return type;
