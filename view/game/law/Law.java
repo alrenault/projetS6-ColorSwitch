@@ -8,6 +8,5 @@ import view.game.Game;
  */
 abstract class Law {
 
-    public abstract void apply(Game game);
 
 }

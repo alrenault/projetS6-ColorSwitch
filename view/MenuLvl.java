@@ -40,7 +40,6 @@ class MenuLvl {
         Label niveaux = new Label("Niveaux");
         Label modesJeu = new Label("Modes de jeu");
         Button retour = new Button();
-        //retour.setOnMouseClicked(event ->View.controller.startMenu());
         VBox boxMenu = new VBox();
         boxMenu.getChildren().add(retour);
         retour.setOnAction(e -> controller.startMenu());

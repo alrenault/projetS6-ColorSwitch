@@ -25,7 +25,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.omg.Messaging.SyncScopeHelper;
 
 /**
  *
@@ -57,58 +56,77 @@ class Menu {
         //vColor.getChildren().add(colorSwitch);
         //root.getChildren().add(vColor);
 
-        VBox vBox = new VBox(25);
+        VBox menu = new VBox(25);
         //Circle c = new Circle(100,100,100,Color.BLUE);
         //root.getChildren().add(c);
+        
+        //Init Title
+        
         Label colorSwitch = new Label("Color Switch");
         Font f = Font.font("Verdana", FontWeight.BOLD, 50);
         colorSwitch.setFont(f);
         colorSwitch.setTextFill(colorExterne.get(i));
         //colorSwitch.setTranslateX(125);
         //colorSwitch.setTranslateY(50);
-        vBox.getChildren().add(colorSwitch);
+        
 
         double x = View.tailleX / 2.0;
         double y = 200.0;
         double side = 100.0;
+        
+        menu.setAlignment(Pos.CENTER);
+        Button goLvl = new Button("Niveaux");
+        
+        //Init Circular buttons
+        
+        HBox circleButtons = new HBox();
+        circleButtons.setAlignment(Pos.CENTER);
+
+        
+        Group score = new Group();
+        Group randomButton = new Group();
+        Group parameter = new Group();
+        
+        circleButtons.getChildren().add(score);
+        circleButtons.getChildren().add(randomButton);
+        circleButtons.getChildren().add(parameter);
+
+        //Score Button
+        
+        
+        Circle circleScore = new Circle(25,25,35,Color.DARKRED);
+        score.getChildren().add(circleScore);
+        
+        String scoreURL = "src/ressources/trophy_icon.jpg";
+        final ImageView imageScore = new ImageView();   
+        Image scoreMedia = new Image(Paths.get(scoreURL).toUri().toString());
+        
+        imageScore.setImage(scoreMedia);
+        
+        imageScore.setFitHeight(50);
+        imageScore.setFitWidth(50);
+        
+        score.setTranslateX(-40);
+        score.setTranslateY(-50);
 
 
+        
+        score.getChildren().add(imageScore);
+        
+        //PlayRandom Button
+        
         CircleInCircle cic = (CircleInCircle) BuildObstacle.build(new ModelCircleInCircle(x - 15, y - 13, colorExterne, 0, ObstacleType.CircleInCircle));
 
         Polygon playRandom = FilledTriangle.create(x, y, side, Colorable.WHITE[0]);
 
-        HBox circleButtons = new HBox();
-        circleButtons.setAlignment(Pos.CENTER);
-        vBox.getChildren().add(circleButtons);
-
-        vBox.setAlignment(Pos.CENTER);
-        Button goContinuEasy = new Button("Partie continue (facile)");
-        Button goContinuNormal = new Button("Partie continue (normale)");
-        Button goContinuHard = new Button("Partie continue (difficile)");
-        Button goLvl = new Button("Niveaux");
-        Button goScore = new Button("Score");
-
-        Group randomButton = new Group();
+        
         randomButton.getChildren().add(cic.getObstacle());
         //randomButton.getChildren().add(triangle);
         randomButton.getChildren().add(playRandom);
-        circleButtons.getChildren().add(randomButton);
-
-        Group playEasy = FilledTriangle.create(120, y, side/2, Color.LIGHTGREEN, "Easy");
-        Group playNormal = FilledTriangle.create(320, y, side/2, Color.ORANGERED, "Normal");
-        Group playHard = FilledTriangle.create(520, y, side/2, Color.DARKRED, "Hard");
-
-        //HBox infinite_difficulties = new HBox();
-        //infinite_difficulties.setAlignment(Pos.CENTER);
         
-        Group infinite_difficulties = new Group();
+        //Parameter Button
+        
 
-        infinite_difficulties.getChildren().add(playEasy);
-        infinite_difficulties.getChildren().add(playNormal);
-        infinite_difficulties.getChildren().add(playHard);
-        
-        
-        Group parameter = new Group();
         Circle circleParameter = new Circle(25,25,35,Color.GREY);
         parameter.getChildren().add(circleParameter);
         
@@ -124,69 +142,96 @@ class Menu {
         
         parameter.getChildren().add(selectedImage);
         
+        parameter.setTranslateX(40);
+        parameter.setTranslateY(-50);
+        
+        
+        //Difficulties
+
+        Group playEasy = FilledTriangle.create(120, y, side/2, Color.LIGHTGREEN, "Easy");
+        Group playNormal = FilledTriangle.create(320, y, side/2, Color.ORANGERED, "Normal");
+        Group playHard = FilledTriangle.create(520, y, side/2, Color.DARKRED, "Hard");
+
+        //HBox infinite_difficulties = new HBox();
+        //infinite_difficulties.setAlignment(Pos.CENTER);
+        
+        Group infinite_difficulties = new Group();
+
+        infinite_difficulties.getChildren().add(playEasy);
+        infinite_difficulties.getChildren().add(playNormal);
+        infinite_difficulties.getChildren().add(playHard);
+        
 
         root.setTranslateY(-100);
         
         
-        parameter.setOnMouseClicked(event -> System.out.println("Bonjour"));
-        circleButtons.getChildren().add(parameter);
         
-        parameter.setTranslateX(70);
-        parameter.setTranslateY(-70);
+       
         
 
-        vBox.getChildren().add(infinite_difficulties);
+
 
         //vBox.getChildren().add(goContinuEasy);
         //vBox.getChildren().add(goContinuNormal);
         //vBox.getChildren().add(goContinuHard);
-        vBox.getChildren().add(goLvl);
-        vBox.getChildren().add(goScore);
+        
 
-        vBox.setTranslateY(-100);
+        menu.setTranslateY(-100);
 
-        goContinuEasy.setMinHeight(buttonHeight);
-        goContinuNormal.setMinHeight(buttonHeight);
-        goContinuHard.setMinHeight(buttonHeight);
         goLvl.setMinHeight(buttonHeight);
-        goScore.setMinHeight(buttonHeight);
 
-
-        goContinuEasy.setMinWidth(buttonWidth);
-        goContinuNormal.setMinWidth(buttonWidth);
-        goContinuHard.setMinWidth(buttonWidth);
+        
         goLvl.setMinWidth(buttonWidth);
-        goScore.setMinWidth(buttonWidth);
 
-        vBox.setMinWidth(View.tailleX);
-        vBox.setMinHeight(View.tailleY);
+        menu.setMinWidth(View.tailleX);
+        menu.setMinHeight(View.tailleY);
 
-        root.getChildren().add(vBox);
+        root.getChildren().add(menu);
 
 
         Scene sc = new Scene(root, View.tailleX, View.tailleY);
         //vBox.setStyle("-fx-background-color: #393939");
         sc.setFill(Colorable.BLACK);
-        playRandom.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
+       
 
-        goContinuEasy.setOnAction(event -> controller.startGame(Difficulty.EASY));
-        goContinuNormal.setOnAction(event -> controller.startGame(Difficulty.NORMAL));
-        goContinuHard.setOnAction(event -> controller.startGame(Difficulty.HARD));
+
         
-        playEasy.setOnMouseClicked(event -> controller.startGame(Difficulty.EASY));
-        playNormal.setOnMouseClicked(event -> controller.startGame(Difficulty.NORMAL));
-        playHard.setOnMouseClicked(event -> controller.startGame(Difficulty.HARD));
+
         
         
         goLvl.setOnAction(event -> controller.menuLvl());
-        goScore.setOnAction(event -> controller.showScoresMenu());
+        
 
+        //Construction
+        menu.getChildren().add(colorSwitch);
+        menu.getChildren().add(circleButtons);
+        menu.getChildren().add(infinite_difficulties);
+        menu.getChildren().add(goLvl);
+        
+        
+        
+        //Events
 
+        //Title
         colorSwitch.setOnMouseClicked(event -> {
             i = (i + 1) % colorExterne.size();
             colorSwitch.setTextFill(colorExterne.get(i));
         });
 
+        //Random
+        playRandom.setOnMouseClicked(event -> controller.startGame(Difficulty.RANDOM));
+        
+        //Score
+        score.setOnMouseClicked(event -> controller.showScoresMenu());
+        
+        //Parameter
+        parameter.setOnMouseClicked(event -> System.out.println("Bonjour"));
+        
+        
+        //Difficulties
+        playEasy.setOnMouseClicked(event -> controller.startGame(Difficulty.EASY));
+        playNormal.setOnMouseClicked(event -> controller.startGame(Difficulty.NORMAL));
+        playHard.setOnMouseClicked(event -> controller.startGame(Difficulty.HARD));
 
         return sc;
     }
