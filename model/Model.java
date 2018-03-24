@@ -39,8 +39,7 @@ public class Model implements InterfaceModelColorSwitch {
     public void gameOver() {
         // TODO Auto-generated method stub
 
-        //Perdre la partie
-        //appel au controleur et passe le score
+        game.stop();
 
 
     }

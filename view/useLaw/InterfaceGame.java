@@ -4,6 +4,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import model.game.Score;
 import view.ball.BallPlayer;
 
@@ -29,7 +31,12 @@ public class InterfaceGame implements UseLaw {
 	@Override
 	public void apply() {
 		
-		scoreLabel.setText("HEY"+leScore.getScore().toString());
+		scoreLabel.setText(leScore.getScore().toString());
+		scoreLabel.setTextFill(Color.WHITE);
+		Font scoreFont = Font.font("Verdana", FontWeight.BOLD, 50);
+		scoreLabel.setFont(scoreFont);
+		
+		
 		//scoreLabel.setTranslateX(ball.getBall().getX());
 		//scoreLabel.setTranslateY(ball.getBall().getY());
 		

@@ -76,28 +76,32 @@ public class Sound {
 	/**
 	 * Lance le son du saut
 	 */
-	public void playJumpSound() {
+	public static void playJumpSound() {
 		if (jump != null) jump.play();
 	}
 	
 	/**
 	 * Lance la musique du jeu
 	 */
-	public void playMusic() {
+	public static void playMusic() {
 		if (music != null) music.play();
+	}
+	
+	public static void stopMusic() {
+		if (music != null) music.stop();
 	}
 	
 	/**
 	 * Lance le son du GameOver
 	 */
-	public void playGameOverSOund() {
+	public static void playGameOverSound() {
 		if (gameOver != null) gameOver.play();
 	}
 	
 	/**
 	 * Lance le son du ramassage d'étoile
 	 */
-	public void playStarSound() {
+	public static void playStarSound() {
 		if (star != null) star.play();
 	}
 	

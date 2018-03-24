@@ -142,6 +142,16 @@ public class Game {
     }
 
 
+ 
+    
+    public void stop() {
+
+        path = null;
+        ball = null;
+        universe = null;
+    }
+
+
     /**
      * Accesseur de la balle
      * @return La balle
@@ -178,7 +188,7 @@ public class Game {
      * Vide le Jeu
      */
     public void clean() {
-        this.path.cleanPath();
+        //this.path.cleanPath();
 
         this.score = new Score();
     }
