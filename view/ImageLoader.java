@@ -17,6 +17,9 @@ public class ImageLoader {
 	 */
 	private ImageView imageParameters;
 	
+	/**
+	 * Charge les images pour le jeu
+	 */
 	public ImageLoader() {
 		this.imageScore = new ImageView();
 		this.imageParameters = new ImageView();
