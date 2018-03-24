@@ -52,6 +52,11 @@ class ViewGameManagement {
 
         root = (Group) thisScene.getRoot();
         game = thisGame;
+        
+        Group interfaceGame = new Group();
+        root.getChildren().add(interfaceGame);
+        
+        
 
 
         Path path = game.getPath();
@@ -66,9 +71,9 @@ class ViewGameManagement {
         add(jBall);
 
 
-        Label score = new Label("Oui");
-        score.setTextFill(Color.AQUAMARINE);
-        root.getChildren().add(score);
+        //Label score = new Label("Oui");
+        //score.setTextFill(Color.AQUAMARINE);
+        //root.getChildren().add(score);
 
 
         ViewPath viewpath = new ViewPath(path);
@@ -79,7 +84,7 @@ class ViewGameManagement {
         
         System.out.println(thisGame.getUniverse());
 
-        timer = new ViewTimer(ballplayer, viewpath, controller, thisScene, thisGame.getUniverse());
+        timer = new ViewTimer(ballplayer, viewpath, controller, thisScene, thisGame.getUniverse(),interfaceGame);
         timer.play();
 
 

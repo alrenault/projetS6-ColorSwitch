@@ -2,6 +2,7 @@ package controller;
 
 import DB.GestionDB;
 import model.modelItem.ModelItem;
+import model.modelLaw.Universe.UniverseType;
 import view.InterfaceViewColorSwitch;
 import model.game.Difficulty;
 import model.game.Score;
@@ -114,9 +115,10 @@ public class Controller {
     /**
      * Lance une partie avec comme difficulté celle passé en paramètre
      * @param difficulty La difficulté de la partie à lancer
+     * @param type Le type d'univers et de lois qu'on utilise
      */
-    public void startGame(Difficulty difficulty) {
-        model.startGame(difficulty);
+    public void startGame(Difficulty difficulty, UniverseType type) {
+        model.startGame(difficulty,type);
         view.viewGame(model.getGame());
     }
 

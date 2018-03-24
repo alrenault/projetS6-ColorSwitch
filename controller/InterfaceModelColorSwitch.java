@@ -2,6 +2,7 @@ package controller;
 
 import model.modelItem.ModelItem;
 import model.modelLaw.Universe;
+import model.modelLaw.Universe.UniverseType;
 import model.game.Difficulty;
 import model.game.Game;
 import view.ball.Player;
@@ -20,8 +21,10 @@ public interface InterfaceModelColorSwitch {
     /**
      * Crée un jeu infini avec comme difficulté celle passé en argument
      * @param difficulty La difficulté du jeu
+     * @param type Le type d'univers de lois qu'on utilise pour la partie
      */
-    void startGame(Difficulty difficulty);
+    void startGame(Difficulty difficulty, UniverseType type);    
+    
 
     /**
      * Crée un jeu en mode HellCircle
@@ -52,6 +55,8 @@ public interface InterfaceModelColorSwitch {
      * @return Le jeu
      */
     Game getGame();
+
+	
 
 
 }

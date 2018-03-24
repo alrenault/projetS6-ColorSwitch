@@ -11,12 +11,57 @@ import java.util.Set;
  * It represents all the rules in a model.game
  */
 public class Universe {
+	
+	public enum UniverseType{
+		Basic,
+		Race,
+		Gravity
+	}
+	
     private Set<Law> laws;
     private Set<LawType>banq;
 
-    public Universe() {
+    public Universe(UniverseType type) {
         laws = new HashSet<>();
         banq = new HashSet<>();
+        
+        Set<LawType> collisions = new HashSet<>();
+        collisions.add(LawType.CollisionItem);
+        collisions.add(LawType.CollisionObstacle);
+        collisions.add(LawType.Interface);
+        
+        Set<LawType> mechanics = new HashSet<>();
+        mechanics.add(LawType.Gravity);
+        mechanics.add(LawType.Jump);
+        mechanics.add(LawType.MoveBall);
+
+        Set<LawType> race = new HashSet<>();
+        race.add(LawType.Race);
+        race.add(LawType.LockBall);
+        
+        switch(type) {
+        	case Basic:
+        		addAll(collisions);
+        		break;
+        		
+        	case Gravity:
+        		addAll(collisions);
+        		addAll(mechanics);
+        		break;
+        		
+        	case Race:
+        		addAll(race);
+        		break;
+        		
+        		
+        	default: break;
+        }
+        
+        
+    }
+    
+    public Universe() {
+        this(UniverseType.Basic);
     }
 
 

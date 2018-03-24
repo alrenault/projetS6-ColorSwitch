@@ -2,6 +2,7 @@ package model;
 
 import model.modelItem.ModelItem;
 import model.modelLaw.Universe;
+import model.modelLaw.Universe.UniverseType;
 import controller.InterfaceModelColorSwitch;
 import model.game.Difficulty;
 import model.game.Game;
@@ -50,8 +51,8 @@ public class Model implements InterfaceModelColorSwitch {
     }
 
     @Override
-    public void startGame(Difficulty difficulty) {
-        this.game = new Game(difficulty);
+    public void startGame(Difficulty difficulty,UniverseType type) {
+        this.game = new Game(difficulty,type);
 
     }
 

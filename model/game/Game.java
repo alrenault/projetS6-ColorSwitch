@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.modelBall.Ball;
 import model.modelLaw.Universe;
+import model.modelLaw.Universe.UniverseType;
 import view.path.Path;
 
 import java.util.ArrayList;
@@ -36,13 +37,19 @@ public class Game {
         this.path = _path;
         this.universe = _universe;
     }
-
-    public Game() {
-        List<Color> CUSTOM = new ArrayList<>();
+    
+    public ArrayList<Color> customColors(){
+    	ArrayList<Color> CUSTOM = new ArrayList<>();
         CUSTOM.add(Colorable.YELLOW);
         CUSTOM.add(Colorable.PURPLE);
         CUSTOM.add(Colorable.ROSE);
-        CUSTOM.add(Colorable.BLUE);
+        CUSTOM.add(Colorable.BLUE);   
+        
+        return CUSTOM;
+    }
+
+    public Game() {
+        List<Color> CUSTOM = customColors();
 
         this.path = new Path(600, 1000, CUSTOM);
 
@@ -55,13 +62,11 @@ public class Game {
 
 
     }
+    
+    
 
     public Game(int nbr_obs) {
-        List<Color> CUSTOM = new ArrayList<>();
-        CUSTOM.add(Colorable.YELLOW);
-        CUSTOM.add(Colorable.PURPLE);
-        CUSTOM.add(Colorable.ROSE);
-        CUSTOM.add(Colorable.BLUE);
+        List<Color> CUSTOM = customColors();
 
         this.path = new Path(600, 1000, CUSTOM, nbr_obs);
 
@@ -77,11 +82,7 @@ public class Game {
     public Game(Scene scene) {
 
 
-        List<Color> CUSTOM = new ArrayList<>();
-        CUSTOM.add(Colorable.YELLOW);
-        CUSTOM.add(Colorable.PURPLE);
-        CUSTOM.add(Colorable.ROSE);
-        CUSTOM.add(Colorable.BLUE);
+        List<Color> CUSTOM = customColors();
 
 
         this.path = new Path(scene.getWidth(), scene.getHeight(), CUSTOM, 10, Difficulty.EASY);
@@ -98,21 +99,17 @@ public class Game {
 
     }
 
-    public Game(Difficulty difficulty) {
+    public Game(Difficulty difficulty, UniverseType type) {
 
 
-        List<Color> CUSTOM = new ArrayList<>();
-        CUSTOM.add(Colorable.YELLOW);
-        CUSTOM.add(Colorable.PURPLE);
-        CUSTOM.add(Colorable.ROSE);
-        CUSTOM.add(Colorable.BLUE);
+        List<Color> CUSTOM = customColors();
 
         this.path = new Path(600, 1000, CUSTOM, 5, difficulty);
 
         //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
         this.ball = new Ball(10, CUSTOM.get(0));
 
-        this.universe = new Universe();
+        this.universe = new Universe(type);
 
         this.score = new Score();
     }
@@ -122,91 +119,6 @@ public class Game {
 
         stage.close();
     }
-
-    /*
-	public void play() {
-
-		new AnimationTimer() {
-
-			@Override
-			public void handle(long now) {
-				checkCollision();
-				
-				double x = ball.getX();
-				double y = ball.getY();
-				
-				
-				//nFrame++;
-			}
-
-			private void checkCollision() {
-				
-				for(Shape b : ball.getShapeList()) {
-					
-					for(Obstacle o : path.getObstacles()) {
-						
-						for(Shape shape : o.getShapeList()){
-						
-						Shape intersection = Shape.intersect(b, shape);
-						
-							if (!intersection.getBoundsInParent().isEmpty()) {
-
-								if(shape instanceof Arc && shape.getStroke() != b.getFill()){
-									
-									defeat();
-
-								}
-								
-								if(!(shape instanceof Arc) &&shape.getFill() != b.getFill()) {
-									
-									defeat();
-
-								}
-							
-							}
-						}
-					}
-					
-					Boolean touch = false;
-					 for(Item i : path.getItem()){
-						if(i instanceof BallColorSwitch){
-							for(Shape shape : i.getShapeList()){
-								Shape intersection = Shape.intersect(b,shape);
-								
-								if (!intersection.getBoundsInParent().isEmpty()) {
-
-									
-									if(shape.getFill() != b.getFill()) {
-										Random r = new Random();
-										int size = ((BallColorSwitch) i).getColors_use().size();
-										Color c = ((BallColorSwitch) i).getColors_use().get(r.nextInt(size));
-										path.remove(i);
-										ball.setColor(c);
-										touch = true;
-										break;
-									}
-									
-								}
-							}
-							if(touch){
-								touch = false;
-								break;
-							}
-						}
-					}	 
-				}
-				
-				if(ball.getY() >= scene.getHeight()){
-					
-					defeat();
-					
-				 }
-				
-			}
-        	
-        }.start();
-		
-	}*/
 
 
     public void hello(Stage primaryStage) {

@@ -15,4 +15,5 @@ public enum LawType {
     MoveBall,
     Race,
     Tourni,
+    Interface
 }

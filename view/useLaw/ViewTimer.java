@@ -3,6 +3,7 @@ package view.useLaw;
 import controller.Controller;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
+import javafx.scene.Group;
 import model.modelLaw.LawType;
 import model.modelLaw.Universe;
 import view.ViewPath;
@@ -19,22 +20,26 @@ public class ViewTimer {
     /**
      *
      */
-    AnimationTimer timer;
-    HashSet<UseLaw> laws;
-    Controller controller;
+    private AnimationTimer timer;
+    private HashSet<UseLaw> laws;
+    private Controller controller;
     private Scene scene;
     private BallPlayer ballPlayer;
     private ViewPath path;
+    private Group interfaceGame;
 
-    public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene,Universe u) {
+    public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene,Universe u, Group interfaceGame) {
     	this.controller = controller;
         this.scene=scene;
         this.ballPlayer=ball;
+        this.path = path;
+        this.interfaceGame = interfaceGame;
+        
 
 
         laws=this.createSet(u);
         
-        
+        System.out.println(laws);
 
         timer = new AnimationTimer() {
             long startTime = System.currentTimeMillis();
@@ -71,27 +76,29 @@ public class ViewTimer {
         for (LawType l : u.getBanq()){
             switch (l){
                 case J:
-                    res.add(new J());
+                    res.add(new J()); break;
                 case Jump:
-                    res.add(new Jump(this.ballPlayer,this.scene));
+                    res.add(new Jump(ballPlayer,scene)); break;
                 case Race:
-                    res.add(new Race(this.ballPlayer,this.scene));
+                    res.add(new Race(ballPlayer,scene)); break;
                 case JtGravity:
-                    res.add(new JtGravity(this.ballPlayer));
+                    res.add(new JtGravity(ballPlayer)); break;
                 case MoveBall:
-                    res.add(new MoveBall(this.ballPlayer));
+                    res.add(new MoveBall(ballPlayer)); break;
                 case CollisionItem:
-                    res.add(new CollisionItem(this.ballPlayer,this.path,this.controller));
+                    res.add(new CollisionItem(ballPlayer,path,controller)); break;
                 case CollisionObstacle:
-                    res.add(new CollisionObstacle(this.ballPlayer,this.path,this.controller));
+                    res.add(new CollisionObstacle(ballPlayer,path,controller)); break;
                 case LockBall:
-                    res.add(new LockBall(this.scene,this.ballPlayer));
+                    res.add(new LockBall(scene,ballPlayer)); break;
                 case Tourni:
-                    res.add(new Tourni(this.scene));
+                    res.add(new Tourni(scene)); break;
                 case FinishLine:
-                    res.add(new FinishLine(this.path,this.ballPlayer,this.controller));
+                    res.add(new FinishLine(path,ballPlayer,controller)); break;
                 case LabelScore:
-                    res.add(new LabelScore(this.controller.getScore(),this.scene));
+                    res.add(new LabelScore(controller.getScore(),scene)); break;
+                case Interface:
+                	res.add(new InterfaceGame(controller.getScore(),interfaceGame, ballPlayer)); break;
 
             }
 
@@ -101,7 +108,7 @@ public class ViewTimer {
     }
 
     public void play() {
-        //timer.start();
+        timer.start();
     }
 
 
