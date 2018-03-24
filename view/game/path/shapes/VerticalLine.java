@@ -15,6 +15,7 @@ class VerticalLine extends Shapes {
 
     /**
      * Constructeur d'une ligne verticale
+     * @param e modèle avec lequel on veut construire une ligne verticale
      */
     public VerticalLine(ModelVLine mvl) {
         super(mvl);

@@ -200,7 +200,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une BallColorSwitch au path
-     *
+     *@param y La coordonnée en y de la BallCOlorwitch à ajouter
      * @return le modèle de la  nouvelle BallColorSwitch
      */
     public ModelBallColorSwitch addNewColorSwitch(double y) {
@@ -211,7 +211,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une Star au path
-     *
+     *@param mo La coordonnée en y de la Star à rajouter
      * @return le modèle de la  nouvelle Star
      */
     public ModelStar addNewStar(ModelObstacle mo) {
@@ -239,7 +239,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une InvisibleLine au path
-     *
+     *@param La coordonnée en y de la InvisibleLine à rajouter
      * @return le modèle de la  nouvelle InvisbleLine
      */
     public ModelInvisibleLine addNewInvisibleLine(double y) {

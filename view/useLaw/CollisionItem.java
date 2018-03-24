@@ -7,32 +7,45 @@ import view.ViewPath;
 import view.game.ball.BallPlayer;
 import view.game.path.items.Item;
 
+/**
+ * Gère les collisions entre le joueur et les items
+ */
 public class CollisionItem implements UseLaw {
 
+	/**
+	 * La balle représentant le joueur
+	 */
     private BallPlayer ball;
+    
+    /**
+     * Le ViewPath contenant les items afin de les modifier si besoin
+     */
     private ViewPath path;
+    
+    /**
+     * Référence au controleur
+     */
     private Controller controller;
+    
+    /**
+     * Le group contenant les Item
+     */
     private Group jItems;
-    private int nbrColliStar = 0;
 
     /**
-     * @param ball
-     * @param path
-     * @param controller
-     * @param jItems
+     * Constructeur du vérificateur de collision
+     * @param ball La ball dont on veut teste la collision
+     * @param path le path dont on veut les items
+     * @param controller Référence vers le controller
      */
-    public CollisionItem(BallPlayer ball, ViewPath path, Controller controller, Group jItems) {
+    public CollisionItem(BallPlayer ball, ViewPath path, Controller controller) {
         this.ball = ball;
         this.path = path;
         this.controller = controller;
-        this.jItems = jItems;
-        this.nbrColliStar = 0;
+        this.jItems = path.getjItems();
     }
 
-    /**
-     *
-     */
-    @Override
+
     public void apply() {
         Boolean touch = false;
         for (Shape b : ball.getShapeList()) {
@@ -41,13 +54,6 @@ public class CollisionItem implements UseLaw {
                     Shape intersection = Shape.intersect(b, i);
 
                     if (!intersection.getBoundsInParent().isEmpty()) {
-
-                        //if(item instanceof BallColorSwitch){
-                        //Random r = new Random();
-                        //ModelBallColorSwitch mBCS = (ModelBallColorSwitch)((BallColorSwitch)item).getModel_item();
-                        //int size = mBCS.getColors_use().size();
-                        //Color c = mBCS.getColors_use().get(r.nextInt(size));
-                        //ball.setColor(c);
                         touch = true;
 
                         item.get(path, controller, ball);
@@ -56,13 +62,7 @@ public class CollisionItem implements UseLaw {
 
 
                         path.removeItem(item);
-                        //break;
-                        //}
-                        //else{
-                        //touch = true;
-                        //path.removeItem(item);
                         break;
-                        //}
 
                     }
                 }
@@ -74,9 +74,6 @@ public class CollisionItem implements UseLaw {
 
 
         }
-
-
-        //view.game.getScore().ramasseItem(i);
 
     }
 

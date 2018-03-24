@@ -14,6 +14,7 @@ class Square extends Shapes {
 
     /**
      * Constructeur d'un carre
+     * @param e modèle avec lequel on veut construire un carré
      */
     public Square(ModelSquare ms) {
         super(ms);

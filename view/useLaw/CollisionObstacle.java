@@ -6,16 +6,31 @@ import javafx.scene.shape.Shape;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
 
+/**
+ * Gère les collisions entre le joueur et les obstacles
+ */
 public class CollisionObstacle implements UseLaw {
 
+	/**
+	 * La balle représentant le joueur
+	 */
     private BallPlayer ball;
+    
+    /**
+     * Le ViewPath contenant les items afin de les modifier si besoin
+     */
     private ViewPath path;
+    
+    /**
+     * Référence au controleur
+     */
     private Controller controller;
 
     /**
-     * @param ball
-     * @param path
-     * @param controller
+     * Constructeur du vérificateur de collision
+     * @param ball La ball dont on veut teste la collision
+     * @param path le path dont on veut les obstacles
+     * @param controller Référence vers le controller
      */
     public CollisionObstacle(BallPlayer ball, ViewPath path, Controller controller) {
         this.ball = ball;
