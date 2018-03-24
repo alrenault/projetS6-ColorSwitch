@@ -82,16 +82,6 @@ public abstract class Shapes extends Element {
     }
 
     /**
-     * @param _x
-     * @param _y
-     * @return
-     */
-    public boolean isOver(double _x, double _y) {
-        return this.group_shape.contains(_x, _y);
-        //return this.shape.intersects(getX(),getY(),coord.getSize(),coord.getHeight());
-    }
-
-    /**
      * Retourne le groupe correspondant a la forme
      *
      * @return Le groupe correspondant a la forme
