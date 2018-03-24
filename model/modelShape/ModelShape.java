@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Une Shapes représent un group de shapes de JavaFX
+ * Une Shapes représente un group de shapes de JavaFX
  * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
  */
 
