@@ -83,7 +83,7 @@ public class Main extends Application {
         
         Sound sound = new Sound();
         
-        Sound.playMusic();
+        sound.playMusic();
 
 				    
 

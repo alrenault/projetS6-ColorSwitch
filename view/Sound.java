@@ -10,15 +10,34 @@ import javafx.scene.media.Media;
 
 public class Sound {
 	
+	/**
+	 * Le son du saut
+	 */
 	private static AudioClip jump;
+	
+	/**
+	 * La musique du jeu
+	 */
 	private static AudioClip music;
+	
+	/**
+	 * Le son du GameOver
+	 */
 	private static AudioClip gameOver;
+	
+	/**
+	 * Le son lorsque l'on ramasse une étoile
+	 */
 	private static AudioClip star;
 	
+	/**
+	 * Le volume du son
+	 */
 	private static double volume;
-	
-	private static Sound sound;
 
+	/**
+	 * Constructeur créant tous les sons et musiques du jeu
+	 */
 	public Sound() {
 		
 		volume = 0.1;
@@ -54,31 +73,48 @@ public class Sound {
 		//String jumpURL = "src/ressources/Spring.wav";
 	}
 	
-	public static void playJumpSound() {
+	/**
+	 * Lance le son du saut
+	 */
+	public void playJumpSound() {
 		if (jump != null) jump.play();
 	}
 	
-	public static void playMusic() {
+	/**
+	 * Lance la musique du jeu
+	 */
+	public void playMusic() {
 		if (music != null) music.play();
 	}
 	
-	public static void playGameOverSOund() {
+	/**
+	 * Lance le son du GameOver
+	 */
+	public void playGameOverSOund() {
 		if (gameOver != null) gameOver.play();
 	}
 	
-	public static void playStarSound() {
+	/**
+	 * Lance le son du ramassage d'étoile
+	 */
+	public void playStarSound() {
 		if (star != null) star.play();
 	}
 	
-	
-	public static void muteSound() {
+	/**
+	 * Mute le son
+	 */
+	public void muteSound() {
 		music.setVolume(0);
 		jump.setVolume(0);
 		gameOver.setVolume(0);
 		star.setVolume(0);
 	}
 	
-	public static void unMuteSound() {
+	/**
+	 * Demute le son
+	 */
+	public void unMuteSound() {
 		music.setVolume(volume);
 		jump.setVolume(volume);
 		gameOver.setVolume(volume);
