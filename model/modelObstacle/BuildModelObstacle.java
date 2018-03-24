@@ -7,18 +7,18 @@ import view.game.Difficulty;
 import java.util.List;
 
 /**
- *
+ * Générateur de Modeles d'obstacles
  */
 public class BuildModelObstacle {
 
     /**
-     * @param obs
-     * @param difficulty
-     * @param posX
-     * @param posY
-     * @param colors
-     * @param scWidth
-     * @return
+     * @param obs        Represente le type d'Obstacle à générer
+     * @param difficulty La difficulté de l'Obstacle
+     * @param posX       La posiion en x de l'Obstacle à générer
+     * @param posY       La posiion en y de l'Obstacle à générer
+     * @param colors     La liste des couleurs de l'Obstacle à générer
+     * @param scWidth    La largeur de la fenêtre
+     * @return un Model d'Obstacle corespondant au paramètres
      */
     public static ModelObstacle build(int obs, Difficulty difficulty, double posX, double posY, List<Color> colors, double scWidth) {
         ModelObstacle mo;

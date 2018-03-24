@@ -14,7 +14,7 @@ public class BuildModelItem {
      *
      * @param obs       Represente le type d'Item à générer
      * @param posX      La posiion en x de l'Item à générer
-     * @param posY      La posiion en i de l'Item à générer
+     * @param posY      La posiion en y de l'Item à générer
      * @param colors    La liste des couleurs de l'Item à générer
      * @param coefForce La valeur de gravité à appliquer ( cas GravitySwitch)
      * @param radius    la taille de  l'Item à générer
