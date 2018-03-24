@@ -141,4 +141,8 @@ public class Controller {
 		System.out.println("Victoire");
 		
 	}
+
+    public void clean() {
+        //TODO
+    }
 }

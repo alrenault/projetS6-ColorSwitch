@@ -20,4 +20,11 @@ public class Universe {
     public void apply(Game game) {
         laws.forEach(law -> law.apply(game));
     }
+
+    /**
+     * Vide les lois
+     */
+    public void cleanUniverse(){
+        this.laws.clear();
+    }
 }

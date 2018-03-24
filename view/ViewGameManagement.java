@@ -118,4 +118,18 @@ class ViewGameManagement {
 
         return jItems;
     }
+
+    /**
+     * Vide le manager
+     */
+    public void destroy() {
+        ViewGameManagement.game.clean();
+        ViewGameManagement.timer.clean();
+
+
+    }
+
+
+
+
 }

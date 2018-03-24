@@ -291,5 +291,16 @@ public class Game {
         return score;
     }
 
+    /**
+     * Vide le Jeu
+     */
+    public void clean() {
+        this.path.cleanPath();
 
+
+
+        this.universe.cleanUniverse();
+
+        this.score = new Score();
+    }
 }
