@@ -46,7 +46,7 @@ public class Score {
         assert (nbEtoilesRamassees >= 0);
         this.nbrObstaclesCrossed = nbrObstaclesCrossed;
         this.nbEtoilesRamassees = nbEtoilesRamassees;
-        this.scoreStored=0;
+        this.scoreStored = 0;
         this.scoreStored = getScore();
     }
 
@@ -104,6 +104,7 @@ public class Score {
 
     /**
      * Accesseur du score calculé selon les données de (this)
+     *
      * @return Le score calculé selon les données
      */
 

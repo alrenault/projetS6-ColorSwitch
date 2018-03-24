@@ -2,17 +2,14 @@ package view.useLaw;
 
 import controller.Controller;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Scene;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import model.modelLaw.LawType;
 import model.modelLaw.Universe;
 import view.ViewPath;
 import view.ball.BallPlayer;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Traitement des lois à chaque frame
@@ -53,7 +50,6 @@ public class ViewTimer {
      * L'interface du jeu
      */
     private Group interfaceGame;
-
     
     /**
      * Constructeur de ViewTimer
@@ -70,12 +66,10 @@ public class ViewTimer {
         this.ballPlayer=ball;
         this.path = path;
         this.interfaceGame = interfaceGame;
-        
 
 
-        laws=this.createSet(u);
-        
-        System.out.println(laws);
+        laws = this.createSet(u);
+
 
         timer = new AnimationTimer() {
             long startTime = System.currentTimeMillis();
@@ -89,14 +83,12 @@ public class ViewTimer {
 
                 checkpoint = currentTime - checkpoint;
 
-                System.out.println("Last time : " + checkpoint + " ms");
 
 
-                //System.out.println("Time : "+ duree + " ms");
+                //rintln("Time : "+ duree + " ms");
 
                 if (checkpoint >= 100) {
                     for (UseLaw j : laws) {
-                    	System.out.println(j);
                         j.apply();
                     }
                     checkpoint = currentTime;
@@ -118,27 +110,35 @@ public class ViewTimer {
         for (LawType l : u.getBanq()){
             switch (l){
                 case Jump:
-                    res.add(new Jump(ballPlayer,scene)); break;
+                    res.add(new Jump(ballPlayer, scene));
+                    break;
                 case Race:
-                    res.add(new Race(ballPlayer,scene)); break;
+                    res.add(new Race(ballPlayer, scene));
+                    break;
                 case Gravity:
                     res.add(new Gravity(ballPlayer)); break;
                 case MoveBall:
-                    res.add(new MoveBall(ballPlayer)); break;
+                    res.add(new MoveBall(ballPlayer));
+                    break;
                 case CollisionItem:
-                    res.add(new CollisionItem(ballPlayer,path,controller)); break;
+                    res.add(new CollisionItem(ballPlayer, path, controller));
+                    break;
                 case CollisionObstacle:
-                    res.add(new CollisionObstacle(ballPlayer,path,controller)); break;
+                    res.add(new CollisionObstacle(ballPlayer, path, controller));
+                    break;
                 case LockBall:
                     res.add(new LockBall(scene,ballPlayer, interfaceGame)); break;
                 case FinishLine:
-                    res.add(new FinishLine(path,ballPlayer,controller)); break;
+                    res.add(new FinishLine(path, ballPlayer, controller));
+                    break;
                 case LabelScore:
-                    res.add(new LabelScore(controller.getScore(),scene)); break;
+                    res.add(new LabelScore(controller.getScore(), scene));
+                    break;
                 case Interface:
-                	res.add(new InterfaceGame(scene, controller.getScore(),interfaceGame, ballPlayer)); break;
+                    res.add(new InterfaceGame(scene, controller.getScore(), interfaceGame, ballPlayer));
+                    break;
                 case FollowBall:
-                	res.add(new FollowBall(scene,ballPlayer, interfaceGame));
+                    res.add(new FollowBall(scene, ballPlayer, interfaceGame));
             }
 
 

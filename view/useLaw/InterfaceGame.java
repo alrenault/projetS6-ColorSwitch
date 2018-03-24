@@ -69,20 +69,20 @@ public class InterfaceGame implements UseLaw {
         this.leScore = leScore;
         this.scene = scene;
         this.score = leScore.getScore();
-        this.ball = ball ;
-        scoreLabel = new Label("Score :"+leScore.getScore().toString());
+        this.ball = ball;
+        scoreLabel = new Label("Score :" + leScore.getScore().toString());
         this.interfaceGame = interfaceGame;
         interfaceGame.getChildren().add(scoreLabel);
     }
-	
-	@Override
-	public void apply() {
-		
-		scoreLabel.setText("HEY"+leScore.getScore().toString());
-		//scoreLabel.setTranslateX(ball.getBall().getX());
-		//scoreLabel.setTranslateY(ball.getBall().getY());
-		
-		Point2D coordPlayer = ball.getCoord();
+
+    @Override
+    public void apply() {
+
+        scoreLabel.setText("HEY" + leScore.getScore().toString());
+        //scoreLabel.setTranslateX(ball.getBall().getX());
+        //scoreLabel.setTranslateY(ball.getBall().getY());
+
+        Point2D coordPlayer = ball.getCoord();
 
         difference = coordPlayer.getY() - limite;
 
@@ -93,17 +93,13 @@ public class InterfaceGame implements UseLaw {
 
         //scene.getCamera().setTranslateY(yCamera);
         //interfaceGame.setTranslateY(scene.getHeight());
-		
-		Label oui = new Label("Oui");
+
+        Label oui = new Label("Oui");
         oui.setTextFill(Color.WHITE);
         interfaceGame.getChildren().add(oui);
-        
-		
-        
 
-        
-	}
-	
-	
+
+    }
+
 
 }

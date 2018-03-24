@@ -12,10 +12,6 @@ import java.util.Random;
  */
 public class GestionDB {
     /**
-     * Numero de port de MySql
-     */
-    private static Integer NoPORT = 8889;
-    /**
      * Addresse du driver de MySql
      */
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -24,9 +20,13 @@ public class GestionDB {
      */
     private static final String DB_NAME = "ColorSwitch";
     /**
+     * Numero de port de MySql
+     */
+    private static Integer NoPORT = 8889;
+    /**
      * Addresse de la base de données
      */
-    private static final String DB_URL = "jdbc:mysql://localhost:"+NoPORT+"/" + DB_NAME;
+    private static final String DB_URL = "jdbc:mysql://localhost:" + NoPORT + "/" + DB_NAME;
     /**
      * Nom de l'utilisateur de la base de données
      */
@@ -49,14 +49,15 @@ public class GestionDB {
         if (this.connexion())
             this.populateDB();
     }
+
     /**
      * Constucteur de GestionDB
      *
-     * @param user Le nom de l'utilsateur
+     * @param user     Le nom de l'utilsateur
      * @param password le mot de passe de l'utilisateur
-     * @param nPorts le numero de port MySql
+     * @param nPorts   le numero de port MySql
      */
-    public GestionDB(String user,String password,Integer nPorts) {
+    public GestionDB(String user, String password, Integer nPorts) {
 
         if (this.connexion(user, password, nPorts))
             this.populateDB();
@@ -65,6 +66,7 @@ public class GestionDB {
     /**
      * Doit etre uniquement utilisée dans et par cette classe
      * Effectue la connexion sql
+     *
      * @return True si la connection est validée
      */
 
@@ -79,22 +81,23 @@ public class GestionDB {
         }
         return true;
     }
+
     /**
      * Doit etre uniquement utilisée dans et par cette classe
      * Effectue la connexion sql
      *
-     * @param user Le nom de l'utilsateur
+     * @param user     Le nom de l'utilsateur
      * @param password le mot de passe de l'utilisateur
-     * @param nPorts le numero de port MySql
+     * @param nPorts   le numero de port MySql
      * @return True si la connection est validée
      */
-    private boolean connexion(String user,String password,Integer nPorts ) {
+    private boolean connexion(String user, String password, Integer nPorts) {
         try {
             if (connexion == null || connexion.isClosed()) {
                 Class.forName(JDBC_DRIVER);
-                DB_USERNAME=user;
-                DB_PASSWORD=password;
-                NoPORT=nPorts;
+                DB_USERNAME = user;
+                DB_PASSWORD = password;
+                NoPORT = nPorts;
                 connexion = DriverManager.getConnection(DB_URL, user, password);
             }
         } catch (ClassNotFoundException | SQLException e) {
@@ -102,6 +105,7 @@ public class GestionDB {
         }
         return true;
     }
+
     /**
      * Teste l'existence d'un pseudo dans la base
      *

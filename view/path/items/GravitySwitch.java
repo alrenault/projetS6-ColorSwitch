@@ -16,6 +16,7 @@ public class GravitySwitch extends Item {
 
     /**
      * Constructeur d'un GravitySwitch
+     *
      * @param mgs Modèle à utiliser pour la création d'un GravitySwitch
      */
     public GravitySwitch(ModelGravitySwitch mgs) {

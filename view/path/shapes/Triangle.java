@@ -15,6 +15,7 @@ class Triangle extends Shapes {
 
     /**
      * Constructeur de Triangle
+     *
      * @param mt Le modèle avec lequel on veut construire un triangle
      */
     public Triangle(ModelTriangle mt) {

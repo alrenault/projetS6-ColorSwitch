@@ -2,11 +2,11 @@ package view.path.obstacle;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.game.Difficulty;
+import model.game.Speed;
 import model.modelObstacle.ModelMultiCross;
 import model.modelShape.ModelCross;
 import model.modelShape.ModelShape;
-import model.game.Difficulty;
-import model.game.Speed;
 import view.path.shapes.BuildShape;
 import view.path.shapes.Cross;
 

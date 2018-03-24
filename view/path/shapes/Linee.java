@@ -15,6 +15,7 @@ class Linee extends Shapes {
 
     /**
      * Constructeur d'une ligne
+     *
      * @param mhl Le modèle avec lequel on veut construire une ligne horizontale
      */
     public Linee(ModelHLine mhl) {

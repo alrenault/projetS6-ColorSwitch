@@ -36,7 +36,7 @@ public class ViewPath {
     /**
      * La liste des shapes des obstacles contenus dans le ViewPath
      */
-    private  List<Shape> obstaclesShapes;
+    private List<Shape> obstaclesShapes;
 
     /**
      * La liste des shapes des items contenus dans le ViewPath
@@ -101,12 +101,12 @@ public class ViewPath {
     /**
      * Vide la memoire des itemps passés , des formes , et du Path à la fin d'une partie
      */
-    public void cleanPath(){
-         this.items.clear();
-         this.itemsShapes.clear();
-         this.obstacles.clear();
-         this.obstaclesShapes.clear();
-         this.path.cleanPath();
+    public void cleanPath() {
+        this.items.clear();
+        this.itemsShapes.clear();
+        this.obstacles.clear();
+        this.obstaclesShapes.clear();
+        this.path.cleanPath();
 
     }
     
@@ -301,7 +301,6 @@ public class ViewPath {
 	public double getYFinishLine() {
 		return yFinishLine;
 	}
-
 
 
 }

@@ -35,6 +35,7 @@ public class View implements InterfaceViewColorSwitch {
 
     /**
      * Constructeur de la vue
+     *
      * @param primaryStage La fenêtre du jeu
      */
     public View(Stage primaryStage) {
@@ -45,6 +46,7 @@ public class View implements InterfaceViewColorSwitch {
 
     /**
      * Initialisation de la fenêtre
+     *
      * @param stage La fenêtre à initialiser
      */
     private void initStage(Stage stage) {
@@ -57,6 +59,7 @@ public class View implements InterfaceViewColorSwitch {
 
     /**
      * Affiche la Scene
+     *
      * @param scene La scene à afficher
      */
     private void display(Scene scene) {
@@ -102,6 +105,7 @@ public class View implements InterfaceViewColorSwitch {
         display(ViewScores.viewEndScore(controller.getScore()));
 
     }
+
     @Override
     public void viewGameEnd() {
 

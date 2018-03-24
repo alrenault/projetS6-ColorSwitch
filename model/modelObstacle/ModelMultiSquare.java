@@ -9,29 +9,29 @@ import java.util.Random;
 
 /**
  * Modèle de multiple carrés
-*/
+ */
 public class ModelMultiSquare extends ModelObstacle {
-    
-	/**
+
+    /**
      * Le nombre de versions différentes de cet obstacle
      */
     public static final int NBR_VERSIONS = 5;
-   
+
     /**
      * La hauteur maximal des versions de l'obstacles
      */
     private static final double MAX_HEIGHT = 300;
-    
+
     /**
      * Le tableau des versions faciles de l'obstacles
      */
     private static final int[] versionEasy = {2, 3};
-    
+
     /**
      * Le tableau des versions normales de l'obstacles
      */
     private static final int[] versionMedium = {0, 1};
-   
+
     /**
      * Le tableau des versions difficiles de l'obstacles
      */
@@ -39,11 +39,12 @@ public class ModelMultiSquare extends ModelObstacle {
 
     /**
      * Constructeur d'une multiple formes
-     * @param x Position en x du MultiSquare
-     * @param y Position en y du MultiSquare
-     * @param colors La liste des couleurs à utiliser
-     * @param version La version de d'obstacle 
-     * @param type Le type du modèle du MultiSquare
+     *
+     * @param x       Position en x du MultiSquare
+     * @param y       Position en y du MultiSquare
+     * @param colors  La liste des couleurs à utiliser
+     * @param version La version de d'obstacle
+     * @param type    Le type du modèle du MultiSquare
      */
     public ModelMultiSquare(double x, double y, List<Color> colors, int version, ObstacleType type) {
         super(x, y, colors, version, 2, type);
@@ -51,11 +52,12 @@ public class ModelMultiSquare extends ModelObstacle {
 
     /**
      * Constructeur générant aléatoire une version d'un modèle de multiple carrés en fonction de la difficulté choisie
-     * @param x Position en x du MultiSquare
-     * @param y Position en y du MultiSquare
-     * @param colors La liste des couleurs à utiliser
+     *
+     * @param x          Position en x du MultiSquare
+     * @param y          Position en y du MultiSquare
+     * @param colors     La liste des couleurs à utiliser
      * @param difficulty La difficulté du MultiSquare
-     * @param type Le type du modèle
+     * @param type       Le type du modèle
      */
     public ModelMultiSquare(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
@@ -74,6 +76,7 @@ public class ModelMultiSquare extends ModelObstacle {
 
     /**
      * Accesseur d'une version facile aléatoire
+     *
      * @return Le numéro de la version facile
      */
     private static int getRandomEasyVersion() {
@@ -83,6 +86,7 @@ public class ModelMultiSquare extends ModelObstacle {
 
     /**
      * Accesseur d'une version normale aléatoire
+     *
      * @return Le numéro de la version normale
      */
     private static int getRandomMediumVersion() {
@@ -92,6 +96,7 @@ public class ModelMultiSquare extends ModelObstacle {
 
     /**
      * Accesseur d'une version difficile aléatoire
+     *
      * @return Le numéro de la version difficile
      */
     private static int getRandomHardVersion() {

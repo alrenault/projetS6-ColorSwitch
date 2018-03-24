@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Modèle d'une ligne horizontale
-*/
+ */
 public class ModelHLine extends ModelShape {
     /**
      * Longueur de la ligne

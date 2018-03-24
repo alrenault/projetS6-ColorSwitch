@@ -30,6 +30,7 @@ public abstract class Item extends Element {
 
     /**
      * Constructeur de la forme
+     *
      * @param mi Modèle de l'item que l'on veut construire
      */
     Item(ModelItem mi) {

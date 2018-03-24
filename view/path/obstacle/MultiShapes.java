@@ -2,10 +2,10 @@ package view.path.obstacle;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
-import model.modelObstacle.ModelMultiShapes;
-import model.modelShape.*;
 import model.game.Difficulty;
 import model.game.Speed;
+import model.modelObstacle.ModelMultiShapes;
+import model.modelShape.*;
 import view.path.shapes.BuildShape;
 import view.path.shapes.Shapes;
 
@@ -15,7 +15,7 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant de multiple formes
- * version 0 : Cercle dans un carré tourant dans des sens différents 
+ * version 0 : Cercle dans un carré tourant dans des sens différents
  * version 1 : Carré avec 1 segment au dessus et en dessous faisant des allez-retour
  * version 2 : Cercle avec 1 segment au dessus et en dessous faisant des allez-retour
  * version 3 : Deux croix avec une ligne au dessus et en dessous faisant des allez-retour

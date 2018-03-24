@@ -11,12 +11,12 @@ import java.util.List;
  * Modèle d'un obstacle
  */
 public abstract class ModelObstacle {
-	
+
     /**
      * Version de l'obstacle
      */
     int version;
-    
+
     /**
      * Coordonnée en x de l'Obstacle
      */
@@ -25,27 +25,27 @@ public abstract class ModelObstacle {
      * Coordonnée en Y de l'Obstacle
      */
     private double y;
-    
+
     /**
      * La liste de couleurs à utiliser
      */
     private List<Color> colors;
-    
+
     /**
      * La version par défaut de l'obstacle
      */
     private int versionDefault;
-    
+
     /**
      * La difficulté de l'obstacle
      */
     private Difficulty difficulty;
-    
+
     /**
      * La liste des oculeurs utilisées
      */
     private List<Color> color_use;
-    
+
     /**
      * Le type de modèle d'obstacle
      */
@@ -53,12 +53,13 @@ public abstract class ModelObstacle {
 
     /**
      * Constructeur d'un modèle d'obstacle
-     * @param x Position en x de l'obstacle
-     * @param y Position en y de l'obstacle
-     * @param colors La liste des couleurs à utiliser
-     * @param version La version de d'obstacle 
+     *
+     * @param x              Position en x de l'obstacle
+     * @param y              Position en y de l'obstacle
+     * @param colors         La liste des couleurs à utiliser
+     * @param version        La version de d'obstacle
      * @param versionDefault La version par défaut de l'obstacle
-     * @param obstacleType Le type de l'obstacle
+     * @param obstacleType   Le type de l'obstacle
      */
     ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType) {
         this.x = x;
@@ -77,6 +78,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de la position en x de l'obstacle
+     *
      * @return La position en x de l'obstacle
      */
     public double getX() {
@@ -85,6 +87,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de la position en y de l'obstacle
+     *
      * @return La position en y de l'obstacle
      */
     public double getY() {
@@ -93,6 +96,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de la liste de couleurs à utiliser
+     *
      * @return La liste des couleurs à utiliser
      */
     public List<Color> getColors() {
@@ -101,6 +105,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de la version de l'obstacle
+     *
      * @return La version de l'obstacle
      */
     public int getVersion() {
@@ -109,6 +114,7 @@ public abstract class ModelObstacle {
 
     /**
      * Mutateur de la version de l'obstacle
+     *
      * @param version La nouvelle version de l'obstacle
      */
     public void setVersion(int version) {
@@ -117,6 +123,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de la version par défault de l'obstacle
+     *
      * @return La version par défault de l'obstacle
      */
     public int getVersionDefault() {
@@ -125,6 +132,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de la difficulté de l'obstacle
+     *
      * @return La difficulté de l'obstacle
      */
     public Difficulty getDifficulty() {
@@ -133,6 +141,7 @@ public abstract class ModelObstacle {
 
     /**
      * Mutateur de la difficulté de l'obstacle
+     *
      * @param difficulty La nouvelle difficulté de l'obstacle
      */
     public void setDifficulty(Difficulty difficulty) {
@@ -141,6 +150,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de l'ensemble des couleurs utiliser par l'obstacle
+     *
      * @return La liste des couleurs utilises
      */
     public List<Color> getColor_use() {
@@ -149,6 +159,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur du type du modèle de l'obstacle
+     *
      * @return Le tye de l'obstacle
      */
     public ObstacleType getType() {
@@ -157,6 +168,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de la hauteur maximale de l'obstacle
+     *
      * @return La hauteur maximale de l'obstacle
      */
     public abstract double getObstacleHeight();

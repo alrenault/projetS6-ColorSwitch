@@ -20,51 +20,51 @@ import model.modelBall.Ball;
  */
 public class BallPlayer extends Player {
 
-	/**
-	 * Taille de la ball
-	 */
+    /**
+     * Taille de la ball
+     */
     private double size;
-    
+
     /**
      * Couleur de la balle
      */
     private Color color;
-    
+
     /**
      * Groupe représentant la balle
      */
     private Group shape;
-    
+
     /**
      * Scène à laquelle appartient le joueur
      */
     private Scene scene;
-    
+
     /**
      * La transition représentant la gravité
      */
     private TranslateTransition gravity;
-    
+
     /**
      * La transition représentant le saut du joueur
      */
     private TranslateTransition tt2;
-    
+
     /**
      * Objet permettant de trouver les coordonnées et d'autres informations
      */
     private Bounds coord;
-    
+
     /**
      * La hauteur du saut du joueur
      */
     private double jumpHeight = 60;
-    
+
     /**
      * Coordonnée en y de la limite de saut. Si elle est dépassée, la caméra montera
      */
     private double limiteJump;
-    
+
     /**
      * Transition lorsque la limiteJump est atteinte
      */
@@ -72,8 +72,9 @@ public class BallPlayer extends Player {
 
 
     /**
-     * Constructeur d'une balle représentant le joueur 
-     * @param size La taille de la balle
+     * Constructeur d'une balle représentant le joueur
+     *
+     * @param size  La taille de la balle
      * @param color La couleur de la balle
      * @param scene La scène à laquelle la balle appartient
      */
@@ -93,8 +94,9 @@ public class BallPlayer extends Player {
     }
 
     /**
-     * Constructeur d'une balle représentant le joueur 
-     * @param ball La taille de la balle
+     * Constructeur d'une balle représentant le joueur
+     *
+     * @param ball  La taille de la balle
      * @param scene La scène à laquelle la balle appartient
      */
     public BallPlayer(Ball ball, Scene scene) {
@@ -119,12 +121,13 @@ public class BallPlayer extends Player {
 
     /**
      * Construit la balle
+     *
      * @return Un groupe représentant la balle
      */
     private Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
-        
+
 
         addSL(player);
         ball.getChildren().add(player);
@@ -153,7 +156,7 @@ public class BallPlayer extends Player {
 
     }
 
-    
+
     public double getX() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
@@ -167,6 +170,7 @@ public class BallPlayer extends Player {
 
     /**
      * Accesseur des coordonnées de la balle sous forme de point 2D
+     *
      * @return Les coordonnées de la balle sous forme de point 2D
      */
     public Point2D getCoord() {
@@ -184,7 +188,6 @@ public class BallPlayer extends Player {
         gravity.setInterpolator(Interpolator.LINEAR);
 
     }
-
 
 
     public void jump() {
@@ -208,13 +211,13 @@ public class BallPlayer extends Player {
         ttl.play();
         limiteJump -= 100;
     }
-    
-    public void basicMode(){
-    	for(Shape player : this.getShapeList()){
-    		((Circle)player).setCenterX(scene.getWidth() / 2);
-    		((Circle)player).setCenterY(scene.getHeight() * 4 / 5);
-    	}
-    	
+
+    public void basicMode() {
+        for (Shape player : this.getShapeList()) {
+            ((Circle) player).setCenterX(scene.getWidth() / 2);
+            ((Circle) player).setCenterY(scene.getHeight() * 4 / 5);
+        }
+
     }
 
 
@@ -224,6 +227,7 @@ public class BallPlayer extends Player {
 
     /**
      * Accesseur du groupe de la balle
+     *
      * @return Le groupe de la balle
      */
     public Group getShape() {
@@ -232,6 +236,7 @@ public class BallPlayer extends Player {
 
     /**
      * Accesseur de la coordonnée en y de la limite de saut
+     *
      * @return La coordonnée y de la limite de saut
      */
     public double getLimiteJump() {

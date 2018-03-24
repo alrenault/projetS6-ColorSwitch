@@ -2,7 +2,6 @@ package view.useLaw;
 
 /**
  * Interface représentant une loi
- *
  */
 interface UseLaw {
     /**

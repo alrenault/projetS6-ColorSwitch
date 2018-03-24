@@ -1,18 +1,15 @@
 package controller;
 
-import model.modelItem.ModelItem;
-import model.modelLaw.Universe;
-import model.modelLaw.Universe.UniverseType;
 import model.game.Difficulty;
 import model.game.Game;
-import view.ball.Player;
-import view.path.Path;
+import model.modelItem.ModelItem;
+import model.modelLaw.Universe.UniverseType;
 
 /**
  * Interface représentant le modèle de ColorSwitch
  */
 public interface InterfaceModelColorSwitch {
-	
+
     /**
      * Crée un nouveau jeu infini RANDOM
      */
@@ -20,11 +17,12 @@ public interface InterfaceModelColorSwitch {
 
     /**
      * Crée un jeu infini avec comme difficulté celle passé en argument
+     *
      * @param difficulty La difficulté du jeu
-     * @param type Le type d'univers de lois qu'on utilise pour la partie
+     * @param type       Le type d'univers de lois qu'on utilise pour la partie
      */
-    void startGame(Difficulty difficulty, UniverseType type);    
-    
+    void startGame(Difficulty difficulty, UniverseType type);
+
 
     /**
      * Crée un jeu en mode HellCircle
@@ -33,6 +31,7 @@ public interface InterfaceModelColorSwitch {
 
     /**
      * Crée un niveau d'un certain nombre d'obstacle
+     *
      * @param nbr_obs Le nombre d'obstacle du niveau
      */
     void startLvl(int nbr_obs);
@@ -45,6 +44,7 @@ public interface InterfaceModelColorSwitch {
 
     /**
      * Incrémente le nombre d'Item ramassé
+     *
      * @param mi Le modèle de l'Item à ramasser
      */
     void incItem(ModelItem mi);
@@ -52,11 +52,10 @@ public interface InterfaceModelColorSwitch {
 
     /**
      * Accesseur du jeu
+     *
      * @return Le jeu
      */
     Game getGame();
-
-	
 
 
 }

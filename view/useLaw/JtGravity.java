@@ -4,21 +4,20 @@ import view.ball.BallPlayer;
 
 /**
  * Loi créant la gravité
- *
  */
-public class Gravity implements UseLaw {
-	
-	/**
-	 * La balle soumise à la gravité
-	 */
-	private BallPlayer ball;
+public class JtGravity implements UseLaw {
+
+    /**
+     * La balle sur laquelle appliquer la gravité
+     */
+    private BallPlayer ball;
 
     /**
      * Constructeur de la gravité
      *
      * @param ball La balle sur laquelle appliquer la gravité
      */
-    public Gravity(BallPlayer ball) {
+    public JtGravity(BallPlayer ball) {
         this.ball = ball;
     }
 
@@ -28,5 +27,4 @@ public class Gravity implements UseLaw {
         ball.getBall().addVectorY(6);
 
     }
-
 }

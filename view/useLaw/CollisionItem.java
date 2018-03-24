@@ -12,21 +12,21 @@ import view.path.items.Item;
  */
 public class CollisionItem implements UseLaw {
 
-	/**
-	 * La balle représentant le joueur
-	 */
+    /**
+     * La balle représentant le joueur
+     */
     private BallPlayer ball;
-    
+
     /**
      * Le ViewPath contenant les items afin de les modifier si besoin
      */
     private ViewPath path;
-    
+
     /**
      * Référence au controleur
      */
     private Controller controller;
-    
+
     /**
      * Le group contenant les Item
      */
@@ -34,8 +34,9 @@ public class CollisionItem implements UseLaw {
 
     /**
      * Constructeur du vérificateur de collision
-     * @param ball La ball dont on veut teste la collision
-     * @param path le path dont on veut les items
+     *
+     * @param ball       La ball dont on veut teste la collision
+     * @param path       le path dont on veut les items
      * @param controller Référence vers le controller
      */
     public CollisionItem(BallPlayer ball, ViewPath path, Controller controller) {
@@ -74,7 +75,7 @@ public class CollisionItem implements UseLaw {
 
 
         }
-        
+
     }
 
 

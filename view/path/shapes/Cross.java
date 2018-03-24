@@ -15,6 +15,7 @@ public class Cross extends Shapes {
 
     /**
      * Constructeur de la croix
+     *
      * @param mc Le modèle avec lequel on veut construire une croix
      */
     public Cross(ModelCross mc) {

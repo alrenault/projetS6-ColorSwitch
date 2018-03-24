@@ -10,23 +10,23 @@ public class Ball {
      * La hauteur d'un saut (ancienne implémentation)
      */
     private final double jumpHeight = 50;
-    
+
     /**
      * Position en x de la balle
      */
     private double x;
-    
+
     /**
      * Position en y de la balle
      */
     private double y;
-    
+
     /**
      * La taille de la Balle
      */
-    
+
     private float size;
-    
+
     /**
      * La largeur de la scène (ancienne implémentation)
      */
@@ -36,17 +36,17 @@ public class Ball {
      * La hauteur de la scène (ancienne implémentation)
      */
     private double scHeight;
-    
+
     /**
      * La couleur de la Balle
      */
     private Color color;
-    
+
     /**
      * Le vecteur direction en x de la balle
      */
     private double vectorX = 0;
-    
+
     /**
      * Le vecteur direction en y de la balle
      */
@@ -54,7 +54,8 @@ public class Ball {
 
     /**
      * Constructeur de la balle
-     * @param size Taille de la balle
+     *
+     * @param size  Taille de la balle
      * @param color Couleur de la balle
      */
     public Ball(float size, Color color) {
@@ -64,6 +65,7 @@ public class Ball {
 
     /**
      * Accesseur de la position en x de la balle
+     *
      * @return La position en x de la balle
      */
     public double getX() {
@@ -72,6 +74,7 @@ public class Ball {
 
     /**
      * Mutateur de la position en x
+     *
      * @param newX La nouvelle position en x
      */
     public void setX(double newX) {
@@ -80,6 +83,7 @@ public class Ball {
 
     /**
      * Accesseur de la position en y de la balle
+     *
      * @return La position en y de la balle
      */
     public double getY() {
@@ -88,6 +92,7 @@ public class Ball {
 
     /**
      * Mutateur de la position en y
+     *
      * @param newY La nouvelle position en y
      */
     public void setY(double newY) {
@@ -98,6 +103,7 @@ public class Ball {
 
     /**
      * Accesseur de la taille de la balle
+     *
      * @return la taille de la balle
      */
     public double getSize() {
@@ -106,6 +112,7 @@ public class Ball {
 
     /**
      * Accesseur de la largeur de la balle
+     *
      * @return la largeur de la balle
      */
     public double getScWidth() {
@@ -114,6 +121,7 @@ public class Ball {
 
     /**
      * Accesseur de la hauteur de la balle
+     *
      * @return la hauteur de la balle
      */
     public double getScHeight() {
@@ -122,6 +130,7 @@ public class Ball {
 
     /**
      * Accesseur de la couleur
+     *
      * @return la couleur
      */
     public Color getColor() {
@@ -130,6 +139,7 @@ public class Ball {
 
     /**
      * Accesseur de la valeur de hauteur de saut
+     *
      * @return La hauteur de saut
      */
     public double getJumpHeight() {
@@ -138,6 +148,7 @@ public class Ball {
 
     /**
      * Augmente le vecteur en x d'une certaine valeur
+     *
      * @param j La valeur à ajouter
      * @return La nouvelle valeur du vecteur en x
      */
@@ -147,6 +158,7 @@ public class Ball {
 
     /**
      * Augmente le vecteur en y d'une certaine valeur
+     *
      * @param j La valeur à ajouter
      */
     public void addVectorY(double j) {
@@ -155,6 +167,7 @@ public class Ball {
 
     /**
      * Accesseur du vecteur en x
+     *
      * @return La valeur du vecteur en x
      */
     public double getVectorX() {
@@ -163,6 +176,7 @@ public class Ball {
 
     /**
      * Accesseur du vecteur en y
+     *
      * @return La valeur du vecteur en y
      */
     public double getVectorY() {
