@@ -1,7 +1,7 @@
 package model;
 
 /**
- *
+ *Enums des différents type d'obstacles
  */
 public enum ObstacleType {
 
@@ -12,23 +12,26 @@ public enum ObstacleType {
     MultiLine(3),
     MultiShapes(4),
     MultiSquare(5);
+
     /**
-     *
+     *Le type entier correspondant à l'enum
      */
-    private int type = -1;
+    private int type;
 
     //Constructeur
 
     /**
-     * @param t
+     * Constructeur
+     * @param t L'entier qui correspondra au type
      */
     ObstacleType(int t) {
         this.type = t;
     }
 
     /**
-     * @param i
-     * @return
+     * Accesseur de type d'Obstacle
+     * @param i l'entier du type
+     * @return Un Enum correspondant à i
      */
     public static ObstacleType getEnum(int i) {
         ObstacleType type;
@@ -60,7 +63,8 @@ public enum ObstacleType {
     }
 
     /**
-     * @return
+     * Accesseur du type en entier
+     * @return l'entier corespondant au type de this
      */
     public int getType() {
         return type;
