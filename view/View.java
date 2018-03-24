@@ -146,5 +146,10 @@ public class View implements InterfaceViewColorSwitch {
 
     }
 
+    @Override
+    public void viewParams() {
+        display(ViewParamDBForm.formParamDB());
+    }
+
 
 }

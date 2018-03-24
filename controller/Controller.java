@@ -167,6 +167,9 @@ public class Controller {
 		System.out.println("Victoire");
 		
 	}
+	public void parametres(){
+	    view.viewParams();
+    }
 
 	/**
 	 * Permet de nettoyer le jeu
