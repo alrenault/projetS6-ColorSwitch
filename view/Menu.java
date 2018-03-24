@@ -225,7 +225,7 @@ class Menu {
         score.setOnMouseClicked(event -> controller.showScoresMenu());
         
         //Parameter
-        parameter.setOnMouseClicked(event -> System.out.println("Bonjour"));
+        parameter.setOnMouseClicked(event -> controller.parametres());
         
         
         //Difficulties

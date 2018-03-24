@@ -65,4 +65,6 @@ public interface InterfaceViewColorSwitch {
      * @param liste La liste des records à afficher
      */
     void viewScores(LinkedList<Record> liste);
+
+    void viewParams();
 }

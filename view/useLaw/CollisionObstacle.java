@@ -28,11 +28,6 @@ public class CollisionObstacle implements UseLaw {
 
         for (Shape b : ball.getShapeList()) {
 
-		/*
-			for(Obstacle o : path.getObstacles()) {
-
-			}
-		*/
             for (Shape shape : path.getObstaclesShapes()) {
 
                 Shape intersection = Shape.intersect(b, shape);
