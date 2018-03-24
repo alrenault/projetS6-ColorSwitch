@@ -22,7 +22,7 @@ import view.useLaw.ViewTimer;
 import javax.swing.text.html.ImageView;
 
 /**
- *
+ * 
  */
 class ViewGameManagement {
     /**

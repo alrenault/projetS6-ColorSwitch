@@ -94,7 +94,7 @@ public class BallPlayer extends Player {
 
     /**
      * Constructeur d'une balle représentant le joueur 
-     * @param size La taille de la balle
+     * @param ball La taille de la balle
      * @param scene La scène à laquelle la balle appartient
      */
     public BallPlayer(Ball ball, Scene scene) {

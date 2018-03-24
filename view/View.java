@@ -29,13 +29,13 @@ public class View implements InterfaceViewColorSwitch {
      */
     static Controller controller;
     /**
-     *
+     * La stage représentant la fenêtre utilisée par le jeu
      */
     private Stage stage;
-    //Preferences
 
     /**
-     * @param primaryStage
+     * Constructeur de la vue
+     * @param primaryStage La fenêtre du jeu
      */
     public View(Stage primaryStage) {
         stage = primaryStage;
@@ -44,7 +44,8 @@ public class View implements InterfaceViewColorSwitch {
     }
 
     /**
-     * @param stage
+     * Initialisation de la fenêtre
+     * @param stage La fenêtre à initialiser
      */
     private void initStage(Stage stage) {
         stage.setTitle("ColorSuitch");
@@ -56,7 +57,6 @@ public class View implements InterfaceViewColorSwitch {
 
     /**
      * Affiche la Scene
-     *
      * @param scene La scene à afficher
      */
     private void display(Scene scene) {
