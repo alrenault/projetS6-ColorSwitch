@@ -64,6 +64,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Constructeur d'un modèle de forme
+     *
      * @param x                  La coordonnée en x du centre de la forme
      * @param y                  La coordonnée en y du centre de la forme
      * @param width              l'epaisseur de la forme
@@ -111,6 +112,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur de la position en x
+     *
      * @return La position en x
      */
     public double getX() {
@@ -119,6 +121,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur de la position en y
+     *
      * @return La position en y
      */
     public double getY() {
@@ -126,7 +129,8 @@ public abstract class ModelShape implements Colorable {
     }
 
     /**
-     * Accesseur de la direction du mouvement 
+     * Accesseur de la direction du mouvement
+     *
      * @return La direction du mouvement
      */
     public boolean isMouvementDirection() {
@@ -135,6 +139,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Renvoie si la shape à une accélération ou non
+     *
      * @return Si la shape à une accélération ou non
      */
     public boolean isAcceleration() {
@@ -143,6 +148,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur de la pos_color
+     *
      * @return La pos_color
      */
     public int getPos_color() {
@@ -151,6 +157,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Mutateur de la pos_color
+     *
      * @param pos_color La nouvelle pos_color
      */
     public void setPos_color(int pos_color) {
@@ -159,6 +166,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur de la vitesse de mouvement de la Forme
+     *
      * @return La vitesse du mouvement
      */
     public double getMouvementSpeed() {
@@ -167,6 +175,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur de la liste de couleurs à utiliser
+     *
      * @return La liste de couleurs à utiliser
      */
     public List<Color> getColors() {
@@ -175,20 +184,21 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur de l'épaisseur de la forme
+     *
      * @return L'épaisseur de la forme
      */
     public double getWidth() {
         return width;
     }
 
-    
+
     public void verifPosColor() {
         pos_color++;
         if (pos_color == colors.size())
             pos_color = 0;
     }
 
-   
+
     public void color(Shape s) {
         Iterator<Color> it = colors.iterator();
         Color c = null;
@@ -205,6 +215,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Assesseur de l'ensemble des couleurs utilisees par la forme
+     *
      * @return L'ensemble des couleurs utilisees par la forme
      */
     public List<Color> getColors_use() {
@@ -213,6 +224,7 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Accesseur du type du modèle de la forme
+     *
      * @return Le type du modèle de la forme
      */
     public ShapeType getType() {

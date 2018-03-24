@@ -15,7 +15,7 @@ public class Listeners {
      * La scène où se trouve le joueur
      */
     private Scene sc;
-    
+
     /**
      * Le joueur
      */
@@ -23,7 +23,8 @@ public class Listeners {
 
     /**
      * Constructeur de l'écouteur de touche
-     * @param sc La scène où se trouve le joueur
+     *
+     * @param sc   La scène où se trouve le joueur
      * @param ball Le joueur
      */
     public Listeners(Scene sc, BallPlayer ball) {
@@ -33,6 +34,7 @@ public class Listeners {
 
     /**
      * Fait sauter le joueur
+     *
      * @param group Le groupe représentant le joueur
      */
     public void jump(Group group) {

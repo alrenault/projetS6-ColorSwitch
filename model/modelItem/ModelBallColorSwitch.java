@@ -17,12 +17,12 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
      * La taille de la ballCS
      */
     private double size;
-    
+
     /**
      * La position à laquelle on commence à parcourir la liste de couleurs
      */
     private Integer pos_color = 0;
-    
+
     /**
      * La liste des couleurs utilisées
      */
@@ -46,6 +46,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
 
     /**
      * Accesseur de la pos_color
+     *
      * @return La pos_color
      */
     public Integer getPos_color() {
@@ -54,6 +55,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
 
     /**
      * Mutateur de la pos_color
+     *
      * @param pos_color La nouvelle position
      */
     public void setPos_color(int pos_color) {
@@ -62,6 +64,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
 
     /**
      * Accesseur de la taille de la balle
+     *
      * @return La taille de la balle
      */
     public double getSize() {
@@ -70,6 +73,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
 
     /**
      * Accesseur de la liste de couleur utilisées
+     *
      * @return La liste de couleurs utilsées
      */
     public List<Color> getColors_use() {
@@ -78,6 +82,7 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
 
     /**
      * Mutateur de la liste de couleurs utilisées
+     *
      * @param colors_use La nouvelle liste de couleurs utilisées
      */
     public void setColors_use(List<Color> colors_use) {

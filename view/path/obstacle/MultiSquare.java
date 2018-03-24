@@ -2,11 +2,11 @@ package view.path.obstacle;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.game.Difficulty;
+import model.game.Speed;
 import model.modelObstacle.ModelMultiSquare;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelSquare;
-import model.game.Difficulty;
-import model.game.Speed;
 import view.path.shapes.BuildShape;
 import view.path.shapes.Shapes;
 
@@ -23,7 +23,7 @@ import java.util.Random;
  * version 4 : un rectangle moyen dans un grand rectangle tournant dans des sens contraire
  */
 public class MultiSquare extends Obstacle {
-	
+
     /**
      * Constructeur de multiShapes
      *

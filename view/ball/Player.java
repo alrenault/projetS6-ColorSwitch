@@ -11,21 +11,21 @@ import view.path.Element;
  */
 public abstract class Player extends Element {
 
-	/**
-	 * Le moèle utilisé par le joueur
-	 */
+    /**
+     * Le moèle utilisé par le joueur
+     */
     Ball model_ball;
-    
+
     /**
      * Couleur de la Balle
      */
     private Color color;
-    
+
     /**
      * La coordonnée en x du joueur
      */
     private double x;
-    
+
     /**
      * La coordonnée en y du joueur
      */
@@ -62,6 +62,7 @@ public abstract class Player extends Element {
 
     /**
      * Accesseur de la couleur utilisée par le joueur
+     *
      * @return L couleur utilisée par le joueur
      */
     public Color getColor() {
@@ -70,6 +71,7 @@ public abstract class Player extends Element {
 
     /**
      * Mutateur de la couleur utilisée par le joueur
+     *
      * @param color La nouvelle couleur
      */
     public void setColor(Color color) {
@@ -78,12 +80,14 @@ public abstract class Player extends Element {
 
     /**
      * Accesseur de la taille de la balle du joueur
+     *
      * @return La taille de la balle du joueur
      */
     public abstract double getSize();
 
     /**
      * Accesseur du modèle de la balle représentant le joueur
+     *
      * @return Le modèle de la balle représentant le joueur
      */
     public Ball getBall() {

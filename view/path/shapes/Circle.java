@@ -47,7 +47,7 @@ public class Circle extends Shapes {
             mc.verifPosColor();
 
             Color c = mc.getColors().get(mc.getPos_color());
-            
+
             arc_1.setStroke(c);
             mc.getColors_use().add(c);
 

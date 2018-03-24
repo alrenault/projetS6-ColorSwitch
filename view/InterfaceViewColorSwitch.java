@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * Interface représentant la vue (MVC) de ColorSwitch
  */
 public interface InterfaceViewColorSwitch {
-	
+
     /**
      * Affiche la vue par défaut
      */
@@ -28,6 +28,7 @@ public interface InterfaceViewColorSwitch {
 
     /**
      * Affiche la page de jeu
+     *
      * @param thisGame Le jeu a afficher
      */
     void viewGame(Game thisGame);
@@ -56,6 +57,7 @@ public interface InterfaceViewColorSwitch {
 
     /**
      * Mutateur de la référence au controlleur
+     *
      * @param controller La nouvelle référence au controlleur
      */
     void setController(Controller controller);

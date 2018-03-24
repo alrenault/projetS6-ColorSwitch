@@ -34,6 +34,7 @@ public abstract class Obstacle extends Element {
 
     /**
      * Constructeur de l'obstacle
+     *
      * @param mo Le modèle ace quoi on veut construire l'obstacle
      */
     Obstacle(ModelObstacle mo) {

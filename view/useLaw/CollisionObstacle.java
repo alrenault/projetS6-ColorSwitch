@@ -11,16 +11,16 @@ import view.ball.BallPlayer;
  */
 public class CollisionObstacle implements UseLaw {
 
-	/**
-	 * La balle représentant le joueur
-	 */
+    /**
+     * La balle représentant le joueur
+     */
     private BallPlayer ball;
-    
+
     /**
      * Le ViewPath contenant les items afin de les modifier si besoin
      */
     private ViewPath path;
-    
+
     /**
      * Référence au controleur
      */
@@ -28,8 +28,9 @@ public class CollisionObstacle implements UseLaw {
 
     /**
      * Constructeur du vérificateur de collision
-     * @param ball La ball dont on veut teste la collision
-     * @param path le path dont on veut les obstacles
+     *
+     * @param ball       La ball dont on veut teste la collision
+     * @param path       le path dont on veut les obstacles
      * @param controller Référence vers le controller
      */
     public CollisionObstacle(BallPlayer ball, ViewPath path, Controller controller) {
@@ -63,6 +64,6 @@ public class CollisionObstacle implements UseLaw {
 
         }
         double end = System.currentTimeMillis();
-        System.err.println(end-start);
+        System.err.println(end - start);
     }
 }

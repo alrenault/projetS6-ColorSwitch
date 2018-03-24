@@ -2,12 +2,12 @@ package view.path.obstacle;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.game.Difficulty;
+import model.game.Speed;
 import model.modelObstacle.ModelMultiLine;
 import model.modelShape.ModelHLine;
 import model.modelShape.ModelShape;
 import model.modelShape.ModelVLine;
-import model.game.Difficulty;
-import model.game.Speed;
 import view.path.shapes.BuildShape;
 import view.path.shapes.Shapes;
 
@@ -19,7 +19,7 @@ import java.util.Random;
  * Objet graphique d'un Obstacle représentant de multiple ligne
  * version 0 : 1 segment commençant de la gauche
  * version 1 : 1 segment commençant de la droite
- * version 2 : 2 segments 
+ * version 2 : 2 segments
  * version 3 : 1 ligne faisant des allés-retours
  * version 4 : 1 ligne allant de la gauche vers la droite
  * version 5 : 1 ligne allant de la gauche vers la droite et 1 ligne allant de la droite vers la gauche

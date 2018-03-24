@@ -2,17 +2,14 @@ package view.useLaw;
 
 import controller.Controller;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Scene;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import model.modelLaw.LawType;
 import model.modelLaw.Universe;
 import view.ViewPath;
 import view.ball.BallPlayer;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 
 public class ViewTimer {
@@ -28,18 +25,16 @@ public class ViewTimer {
     private ViewPath path;
     private Group interfaceGame;
 
-    public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene,Universe u, Group interfaceGame) {
-    	this.controller = controller;
-        this.scene=scene;
-        this.ballPlayer=ball;
+    public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene, Universe u, Group interfaceGame) {
+        this.controller = controller;
+        this.scene = scene;
+        this.ballPlayer = ball;
         this.path = path;
         this.interfaceGame = interfaceGame;
-        
 
 
-        laws=this.createSet(u);
-        
-        System.out.println(laws);
+        laws = this.createSet(u);
+
 
         timer = new AnimationTimer() {
             long startTime = System.currentTimeMillis();
@@ -53,14 +48,12 @@ public class ViewTimer {
 
                 checkpoint = currentTime - checkpoint;
 
-                System.out.println("Last time : " + checkpoint + " ms");
 
 
-                //System.out.println("Time : "+ duree + " ms");
+                //rintln("Time : "+ duree + " ms");
 
                 if (checkpoint >= 100) {
                     for (UseLaw j : laws) {
-                    	System.out.println(j);
                         j.apply();
                     }
                     checkpoint = currentTime;
@@ -71,36 +64,49 @@ public class ViewTimer {
 
         };
     }
-    public HashSet<UseLaw> createSet(Universe u){
-        HashSet<UseLaw> res=new HashSet<>();
-        for (LawType l : u.getBanq()){
-            switch (l){
+
+    public HashSet<UseLaw> createSet(Universe u) {
+        HashSet<UseLaw> res = new HashSet<>();
+        for (LawType l : u.getBanq()) {
+            switch (l) {
                 case J:
-                    res.add(new J()); break;
+                    res.add(new J());
+                    break;
                 case Jump:
-                    res.add(new Jump(ballPlayer,scene)); break;
+                    res.add(new Jump(ballPlayer, scene));
+                    break;
                 case Race:
-                    res.add(new Race(ballPlayer,scene)); break;
+                    res.add(new Race(ballPlayer, scene));
+                    break;
                 case Gravity:
-                    res.add(new JtGravity(ballPlayer)); break;
+                    res.add(new JtGravity(ballPlayer));
+                    break;
                 case MoveBall:
-                    res.add(new MoveBall(ballPlayer)); break;
+                    res.add(new MoveBall(ballPlayer));
+                    break;
                 case CollisionItem:
-                    res.add(new CollisionItem(ballPlayer,path,controller)); break;
+                    res.add(new CollisionItem(ballPlayer, path, controller));
+                    break;
                 case CollisionObstacle:
-                    res.add(new CollisionObstacle(ballPlayer,path,controller)); break;
+                    res.add(new CollisionObstacle(ballPlayer, path, controller));
+                    break;
                 case LockBall:
-                    res.add(new LockBall(scene,ballPlayer, interfaceGame)); break;
+                    res.add(new LockBall(scene, ballPlayer, interfaceGame));
+                    break;
                 case Tourni:
-                    res.add(new Tourni(scene)); break;
+                    res.add(new Tourni(scene));
+                    break;
                 case FinishLine:
-                    res.add(new FinishLine(path,ballPlayer,controller)); break;
+                    res.add(new FinishLine(path, ballPlayer, controller));
+                    break;
                 case LabelScore:
-                    res.add(new LabelScore(controller.getScore(),scene)); break;
+                    res.add(new LabelScore(controller.getScore(), scene));
+                    break;
                 case Interface:
-                	res.add(new InterfaceGame(scene, controller.getScore(),interfaceGame, ballPlayer)); break;
+                    res.add(new InterfaceGame(scene, controller.getScore(), interfaceGame, ballPlayer));
+                    break;
                 case FollowBall:
-                	res.add(new FollowBall(scene,ballPlayer, interfaceGame));
+                    res.add(new FollowBall(scene, ballPlayer, interfaceGame));
             }
 
 

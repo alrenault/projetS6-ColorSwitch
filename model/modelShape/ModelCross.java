@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Modèle d'une croix
-*/
+ */
 public class ModelCross extends ModelShape {
 
     /**

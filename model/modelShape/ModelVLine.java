@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Modèle d'une ligne verticale
-*/
+ */
 public class ModelVLine extends ModelShape {
 
 
@@ -39,6 +39,7 @@ public class ModelVLine extends ModelShape {
 
     /**
      * Constructeur d'un modèle de ligne verticale
+     *
      * @param x                  Coordonnée en x de la ligne
      * @param y                  Coordonnée en y de la ligne
      * @param height             La hauteur d'un rectangle
@@ -66,6 +67,7 @@ public class ModelVLine extends ModelShape {
 
     /**
      * Accesseur de la hauteur d'un rectangle
+     *
      * @return La hauteur d'un rectangle
      */
     public double getHeight() {
@@ -74,6 +76,7 @@ public class ModelVLine extends ModelShape {
 
     /**
      * Accesseur du nombre de rectangle
+     *
      * @return Le nombre de rectangle
      */
     public int getNbr_seg() {
@@ -81,7 +84,8 @@ public class ModelVLine extends ModelShape {
     }
 
     /**
-     * Accesseur du point d'arrivé en y 
+     * Accesseur du point d'arrivé en y
+     *
      * @return La point d'arrivé en y
      */
     public double getGoal() {
@@ -90,6 +94,7 @@ public class ModelVLine extends ModelShape {
 
     /**
      * Teste si la ligne peut faire des allez-retour
+     *
      * @return Si la ligne peut faire des allez-retour
      */
     public boolean isReverse() {
@@ -98,6 +103,7 @@ public class ModelVLine extends ModelShape {
 
     /**
      * Accesseur de la distance séparant 2 rectangles
+     *
      * @return La distance séparant 2 rectangles
      */
     public double getDistanceSeparation() {

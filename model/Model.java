@@ -1,20 +1,17 @@
 package model;
 
-import model.modelItem.ModelItem;
-import model.modelLaw.Universe;
-import model.modelLaw.Universe.UniverseType;
 import controller.InterfaceModelColorSwitch;
 import model.game.Difficulty;
 import model.game.Game;
-import view.ball.Player;
-import view.path.Path;
+import model.modelItem.ModelItem;
+import model.modelLaw.Universe.UniverseType;
 
 /**
  * Cette classe représente le modèle du MVC
  * Il contient toutes les données pour la vue
  */
 public class Model implements InterfaceModelColorSwitch {
-	
+
     /**
      * Le jeu
      */
@@ -43,8 +40,8 @@ public class Model implements InterfaceModelColorSwitch {
     }
 
     @Override
-    public void startGame(Difficulty difficulty,UniverseType type) {
-        this.game = new Game(difficulty,type);
+    public void startGame(Difficulty difficulty, UniverseType type) {
+        this.game = new Game(difficulty, type);
 
     }
 

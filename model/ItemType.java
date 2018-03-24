@@ -12,7 +12,7 @@ public enum ItemType {
     InvisibleLine(4);
 
     /**
-     *Le type entier correspondant à l'enum
+     * Le type entier correspondant à l'enum
      */
     private int type;
 
@@ -20,6 +20,7 @@ public enum ItemType {
 
     /**
      * Constructeur
+     *
      * @param t L'entier qui correspondra au type
      */
     ItemType(int t) {
@@ -28,6 +29,7 @@ public enum ItemType {
 
     /**
      * Accesseur de type d'Item
+     *
      * @param i l'entier du type
      * @return Un Enum correspondant à i
      */
@@ -59,6 +61,7 @@ public enum ItemType {
 
     /**
      * Accesseur du type en entier
+     *
      * @return l'entier corespondant au type de this
      */
     public int getType() {

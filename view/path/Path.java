@@ -1,11 +1,11 @@
 package view.path;
 
 import javafx.scene.paint.Color;
+import model.game.Colorable;
+import model.game.Difficulty;
 import model.modelItem.*;
 import model.modelObstacle.BuildModelObstacle;
 import model.modelObstacle.ModelObstacle;
-import model.game.Colorable;
-import model.game.Difficulty;
 import view.ennemy.Ennemy;
 
 import java.util.ArrayList;
@@ -200,7 +200,8 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une BallColorSwitch au path
-     *@param y La coordonnée en y de la BallCOlorwitch à ajouter
+     *
+     * @param y La coordonnée en y de la BallCOlorwitch à ajouter
      * @return le modèle de la  nouvelle BallColorSwitch
      */
     public ModelBallColorSwitch addNewColorSwitch(double y) {
@@ -211,7 +212,8 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une Star au path
-     *@param mo La coordonnée en y de la Star à rajouter
+     *
+     * @param mo La coordonnée en y de la Star à rajouter
      * @return le modèle de la  nouvelle Star
      */
     public ModelStar addNewStar(ModelObstacle mo) {
@@ -239,7 +241,8 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une InvisibleLine au path
-     *@param y La coordonnée en y de la InvisibleLine à rajouter
+     *
+     * @param y La coordonnée en y de la InvisibleLine à rajouter
      * @return le modèle de la  nouvelle InvisbleLine
      */
     public ModelInvisibleLine addNewInvisibleLine(double y) {
@@ -381,11 +384,11 @@ public class Path {
     /**
      * Vide le Path ( les Listes)
      */
-    public void cleanPath(){
+    public void cleanPath() {
         this.ennemies.clear();
         this.items.clear();
         this.obstacles.clear();
-        this.nbr_ObsDeb=0;
+        this.nbr_ObsDeb = 0;
     }
 
     /**

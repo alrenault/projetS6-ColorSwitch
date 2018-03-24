@@ -1,4 +1,4 @@
 /**
- *Vue MVC
- * */
+ * Vue MVC
+ */
 package view;

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Modèle d'un triangle
-*/
+ */
 public class ModelTriangle extends ModelShape {
 
     /**
@@ -18,6 +18,7 @@ public class ModelTriangle extends ModelShape {
 
     /**
      * Constructeur d'un modèle de triangle
+     *
      * @param x                  coordonnée x du centre de gravité du triangle construit
      * @param y                  coordonnée y du centre de gravité du triangle construit
      * @param height             hauteur du triangle construit

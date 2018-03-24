@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import model.game.Colorable;
 
 /**
  * Mini Form recuperrant le pseudo du joueur à la fin de la partie
@@ -52,8 +51,8 @@ class ScenePseudo {
 
         buttonSubmit.setOnAction(e -> {
             String pseudo = inputPseudo.getText();
-            System.err.println(pseudo+" : "+c.getScore().toString());
-            c.recordScore(pseudo,View.controller.getScore());
+            System.err.println(pseudo + " : " + c.getScore().toString());
+            c.recordScore(pseudo, View.controller.getScore());
             View.controller.startMenu();
         });
         buttonClear.setOnAction(event -> inputPseudo.clear());

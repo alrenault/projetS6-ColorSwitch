@@ -1,17 +1,17 @@
 package controller;
 
 import DB.GestionDB;
+import model.game.Difficulty;
+import model.game.Score;
 import model.modelItem.ModelItem;
 import model.modelLaw.Universe.UniverseType;
 import view.InterfaceViewColorSwitch;
-import model.game.Difficulty;
-import model.game.Score;
 
 /**
- *Représente le controlleur de l'application pour l'application en MVC
+ * Représente le controlleur de l'application pour l'application en MVC
  */
 public class Controller {
-	
+
     /**
      * Modèle du MVC
      */
@@ -20,7 +20,7 @@ public class Controller {
      * Vue du MVC
      */
     private InterfaceViewColorSwitch view;
-    
+
     /**
      * Connection à la base de donnée
      */
@@ -28,8 +28,9 @@ public class Controller {
 
     /**
      * Constructeur du controlleur
+     *
      * @param model Modèle à relier avec le controlleur
-     * @param view Vue à relier ave  le controlleur
+     * @param view  Vue à relier ave  le controlleur
      */
     public Controller(InterfaceModelColorSwitch model, InterfaceViewColorSwitch view) {
         this.model = model;
@@ -41,8 +42,8 @@ public class Controller {
     }
 
     /**
-     * Appel à la méthode d'affichage du menu par défaut 
-    */
+     * Appel à la méthode d'affichage du menu par défaut
+     */
     public void init() {
         view.basicView();
     }
@@ -65,6 +66,7 @@ public class Controller {
 
     /**
      * Enregistre le score
+     *
      * @param score Score du joueur
      */
     public void recordScore(Score score) {
@@ -73,11 +75,11 @@ public class Controller {
 
     /**
      * Enregistre le score
+     *
      * @param pseudo Le pseudo du joueur
-     * @param score Score du joueur
+     * @param score  Score du joueur
      */
     public void recordScore(String pseudo, Score score) {
-    	System.out.println("CA VA LA");
         connectionDB.record(pseudo, score);
     }
 
@@ -91,6 +93,7 @@ public class Controller {
 
     /**
      * Accesseur de l'objet score
+     *
      * @return L'objet score
      */
     public Score getScore() {
@@ -114,16 +117,18 @@ public class Controller {
 
     /**
      * Lance une partie avec comme difficulté celle passé en paramètre
+     *
      * @param difficulty La difficulté de la partie à lancer
-     * @param type Le type d'univers et de lois qu'on utilise
+     * @param type       Le type d'univers et de lois qu'on utilise
      */
     public void startGame(Difficulty difficulty, UniverseType type) {
-        model.startGame(difficulty,type);
+        model.startGame(difficulty, type);
         view.viewGame(model.getGame());
     }
 
     /**
      * Lance un niveau d'un certain nombre d'obstacle
+     *
      * @param nbr_obs Le nombre d'obstacle à traverser
      */
     public void startLvl(int nbr_obs) {
@@ -148,6 +153,7 @@ public class Controller {
 
     /**
      * Augmente le nombre d'item ramassé
+     *
      * @param mi Le model de l'item à ramasser
      */
     public void incItem(ModelItem mi) {
@@ -156,6 +162,7 @@ public class Controller {
 
     /**
      * Teste si il est possible de se connecter à la base de donnée
+     *
      * @return Si il est possible de se connecter à la base de donnée
      */
     public boolean isConnect() {
@@ -165,11 +172,12 @@ public class Controller {
     /**
      * Fait gagner une partie
      */
-	public void win() {
-		System.out.println("Victoire");
-		
-	}
-	public void parametres(){
-	    view.viewParams();
+    public void win() {
+
+
+    }
+
+    public void parametres() {
+        view.viewParams();
     }
 }

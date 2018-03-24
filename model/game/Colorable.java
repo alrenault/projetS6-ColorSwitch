@@ -3,8 +3,6 @@ package model.game;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
-import java.util.Random;
-
 /**
  * Cette interface défini un ensemble de couleurs utilisées par l'application
  */
@@ -22,12 +20,13 @@ public interface Colorable {
     Color WHITE = Color.rgb(255, 255, 255);
 
     /**
-     *Vérifie si la pos_color reste dans la taille de colors après incrémentation
+     * Vérifie si la pos_color reste dans la taille de colors après incrémentation
      */
     void verifPosColor();
 
     /**
      * Colorie une (JavaFX) Shape en fonction de l'ensemble de couleurs qui lui est associe
+     *
      * @param s La (JavaFX) Shape a colorier
      */
     void color(Shape s);

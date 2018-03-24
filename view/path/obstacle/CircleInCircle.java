@@ -2,11 +2,11 @@ package view.path.obstacle;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import model.game.Difficulty;
+import model.game.Speed;
 import model.modelObstacle.ModelCircleInCircle;
 import model.modelShape.ModelCircle;
 import model.modelShape.ModelShape;
-import model.game.Difficulty;
-import model.game.Speed;
 import view.path.shapes.BuildShape;
 import view.path.shapes.Circle;
 
@@ -16,8 +16,8 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant des cercles dans des cercles
- * version 0 : 2 cercles imbriqués 
- * version 1 : 2 cercles imbriqués dans autre sens 
+ * version 0 : 2 cercles imbriqués
+ * version 1 : 2 cercles imbriqués dans autre sens
  * version 2 : 3 cercles imbriqués
  * version 3 : 3 cercles imbriqués dans l'autre sens
  * version 4 : 2 cercle croisés tournant vers le haut

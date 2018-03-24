@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Modèle d'un carré
-*/
+ */
 public class ModelSquare extends ModelShape {
     /**
      * La longueur d'un coté du carré
@@ -17,6 +17,7 @@ public class ModelSquare extends ModelShape {
 
     /**
      * Constructeur d'un modèle de carré
+     *
      * @param x                  La coordonnee en x du centre du carre
      * @param y                  La coordonnee en y du centre du carre
      * @param length             La longueur d'un cote du carre
@@ -38,6 +39,7 @@ public class ModelSquare extends ModelShape {
 
     /**
      * Accesseur de la longueur d'un coté du carré
+     *
      * @return La longueur d'un coté du carré
      */
     public double getLength() {
