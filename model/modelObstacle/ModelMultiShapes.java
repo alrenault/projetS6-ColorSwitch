@@ -47,6 +47,7 @@ public class ModelMultiShapes extends ModelObstacle {
      * @param x Position en x du MultiShapes
      * @param y Position en y du MultiShapes
      * @param colors La liste des couleurs à utiliser
+     * @param scWidth La largeur de la fenêtre
      * @param version La version de d'obstacle 
      * @param type Le type du modèle du MultiShapes
      */
@@ -61,6 +62,7 @@ public class ModelMultiShapes extends ModelObstacle {
      * @param y Position en y du MultiShapes
      * @param colors La liste des couleurs à utiliser
      * @param difficulty La difficulté du MultiShapes
+     * @param scWidth La largeur de la fenêtre
      * @param type Le type du modèle
      */
     public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth, ObstacleType type) {

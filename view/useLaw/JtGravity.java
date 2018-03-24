@@ -3,32 +3,27 @@ package view.useLaw;
 import view.game.ball.BallPlayer;
 
 /**
- *
+ * Loi créant la gravité
  */
 public class JtGravity implements UseLaw {
-    /**
-     *
+    
+	/**
+     * La balle sur laquelle appliquer la gravité
      */
     private BallPlayer ball;
 
     /**
-     * @param ball
+     * Constructeur de la gravité
+     * @param ball La balle sur laquelle appliquer la gravité
      */
     public JtGravity(BallPlayer ball) {
         this.ball = ball;
     }
 
-    /**
-     *
-     */
     @Override
     public void apply() {
 
         ball.getBall().addVectorY(6);
-
-        //ball.getShape().setTranslateY(ball.getShape().getTranslateY()+5);
-
-        //ball.getShape().setLayoutY(-10);
 
     }
 }

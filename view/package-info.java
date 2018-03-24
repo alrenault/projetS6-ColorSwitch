@@ -1,7 +1,4 @@
-package view;
 /**
- *
- *
- *
- *
+ *Vue MVC
  * */
+package view;

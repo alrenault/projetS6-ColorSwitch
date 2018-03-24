@@ -18,6 +18,7 @@ public class Sound {
 	private static Sound sound;
 
 	public Sound() {
+		
 		try {
 			
 			URL jumpURL = this.getClass().getResource("/resources/JumpSound.mp3");
@@ -35,6 +36,7 @@ public class Sound {
 			URL musicURL = this.getClass().getResource("/resources/ColorSuitch.mp3");
 			Media musicMedia = new Media(musicURL.toString());
 			music = new AudioClip(musicMedia.getSource());
+			music.setCycleCount(AudioClip.INDEFINITE);
 			
 			//String musicURL = "src/ressources/Spring.wav";
 			//Media musicMedia = new Media(Paths.get(musicURL).toUri().toString());
@@ -44,7 +46,6 @@ public class Sound {
 			System.out.println("Impossible de charger la Musique");
 		}
 		//String jumpURL = "src/ressources/Spring.wav";
-		
 	}
 	
 	public static void playJumpSound() {

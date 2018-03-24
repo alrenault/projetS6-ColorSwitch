@@ -4,7 +4,7 @@ import model.ItemType;
 import model.modelItem.ModelItem;
 
 /**
- *
+ * Classe représentant le score d'un joueur
  */
 public class Score {
     private static final int nbPointsParObstacle = 5;
@@ -102,10 +102,9 @@ public class Score {
     }
 
 
-    //TODO
-
     /**
-     * Generateur du score calculé selon les données de (this)
+     * Accesseur du score calculé selon les données de (this)
+     * @return Le score calculé selon les données
      */
 
     public Integer getScore() {

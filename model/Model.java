@@ -25,15 +25,6 @@ public class Model implements InterfaceModelColorSwitch {
     }
 
     @Override
-    public void startColorSwitch() {
-        // TODO Auto-generated method stub
-
-        //Charger le Menu
-
-    }
-
-
-    @Override
     public void startGame() {
         // TODO Auto-generated method stub
 
@@ -52,31 +43,6 @@ public class Model implements InterfaceModelColorSwitch {
 
     }
 
-    @Override
-    public void jump() {
-        // TODO Auto-generated method stub
-
-        //Faire sauter la balle
-        game.jump();
-
-    }
-
-    @Override
-    public void registerScore() {
-        // TODO Auto-generated method stub
-
-        //Enregistrer le score
-
-
-    }
-
-    @Override
-    public void startGame(Difficulty difficulty, boolean infinite, Path path, Universe universe, Player ball) {
-        // TODO Auto-generated method stub
-
-        this.game = new Game();
-
-    }
 
     public Game getGame() {
         return game;

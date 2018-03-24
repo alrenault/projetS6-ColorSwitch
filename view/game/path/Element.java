@@ -56,7 +56,7 @@ public abstract class Element {
     /**
      * Permet de rajouter une ou des listes de shapes à la liste de shapes
      *
-     * @param shapes La/les listes de shapes à ajouter
+     * @param shapes_list La/les listes de shapes à ajouter
      */
     protected void addSL(List<Shape>... shapes_list) {
 

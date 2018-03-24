@@ -26,7 +26,9 @@ public class BallColorSwitch extends Item {
     }
 
     /**
-     * @return
+     * Genere la forme
+     *
+     * @return un ensemble de Forme
      */
     public Group buildItem() {
 

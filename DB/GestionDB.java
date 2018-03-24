@@ -65,7 +65,9 @@ public class GestionDB {
     /**
      * Doit etre uniquement utilisée dans et par cette classe
      * Effectue la connexion sql
+     * @return True si la connection est validée
      */
+
     private boolean connexion() {
         try {
             if (connexion == null || connexion.isClosed()) {

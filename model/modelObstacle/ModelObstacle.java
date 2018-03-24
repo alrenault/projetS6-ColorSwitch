@@ -58,6 +58,7 @@ public abstract class ModelObstacle {
      * @param colors La liste des couleurs à utiliser
      * @param version La version de d'obstacle 
      * @param versionDefault La version par défaut de l'obstacle
+     * @param obstacleType Le type de l'obstacle
      */
     ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType) {
         this.x = x;
@@ -140,7 +141,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur de l'ensemble des couleurs utiliser par l'obstacle
-     * @return
+     * @return La liste des couleurs utilises
      */
     public List<Color> getColor_use() {
         return color_use;
@@ -148,7 +149,7 @@ public abstract class ModelObstacle {
 
     /**
      * Accesseur du type du modèle de l'obstacle
-     * @return
+     * @return Le tye de l'obstacle
      */
     public ObstacleType getType() {
         return type;

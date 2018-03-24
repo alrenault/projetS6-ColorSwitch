@@ -15,7 +15,8 @@ public class GravitySwitch extends Item {
 
 
     /**
-     * Constructeur
+     * Constructeur d'un GravitySwitch
+     * @param Modèle à utiliser pour la création d'un GravitySwitch
      */
     public GravitySwitch(ModelGravitySwitch mgs) {
         super(mgs);
@@ -68,6 +69,5 @@ public class GravitySwitch extends Item {
     }
 
     public void get(ViewPath vPah, Controller c, BallPlayer b) {
-        //TODO
     }
 }

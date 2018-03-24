@@ -19,6 +19,7 @@ public class BuildModelItem {
      * @param coefForce La valeur de gravité à appliquer ( cas GravitySwitch)
      * @param radius    la taille de  l'Item à générer
      * @param nbPoint   le nombre de points gagnés lors du rammassage de l'Item
+     * @param scWidth	La largeur de la fenètre
      * @return un Model d'Item corespondant au paramètres
      */
     public static ModelItem build(int obs, double posX, double posY, List<Color> colors, double coefForce, double radius, int nbPoint, double scWidth) {

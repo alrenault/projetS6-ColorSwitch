@@ -47,7 +47,7 @@ public class ViewTimer {
         //laws.add(race);
 
         CollisionObstacle co = new CollisionObstacle(ball, path, controller);
-        CollisionItem ci = new CollisionItem(ball, path, controller, path.getjItems());
+        CollisionItem ci = new CollisionItem(ball, path, controller);
 
         Tourni tourni = new Tourni(scene);
         //laws.add(tourni);

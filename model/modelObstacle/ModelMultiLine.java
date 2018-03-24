@@ -48,6 +48,7 @@ public class ModelMultiLine extends ModelObstacle {
      * @param y Position en y du MultiLine
      * @param colors La liste des couleurs à utiliser
      * @param version La version de d'obstacle 
+     * @param scWidth La longueur de la fenêtre
      * @param type Le type du modèle du MultiLine
      */
     public ModelMultiLine(double x, double y, List<Color> colors, int version, double scWidth, ObstacleType type) {
@@ -62,6 +63,7 @@ public class ModelMultiLine extends ModelObstacle {
      * @param y Position en y du MultiLine
      * @param colors La liste des couleurs à utiliser
      * @param difficulty La difficulté du MultiLine
+     * @param scWidth La largeur de la fenêtre
      * @param type Le type du modèle
      */
     public ModelMultiLine(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth, ObstacleType type) {

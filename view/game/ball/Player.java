@@ -6,17 +6,29 @@ import model.modelBall.Ball;
 import view.game.path.Element;
 
 /**
- * This is a generic ball which represents the player in the view.game
- * To create a ball, you have to extend this class
+ * Une balle générique représentant le joueur
+ * Pour créer une balle, vous devez étendre cette classe
  */
 public abstract class Player extends Element {
 
+	/**
+	 * Le moèle utilisé par le joueur
+	 */
     Ball model_ball;
+    
     /**
      * Couleur de la Balle
      */
     private Color color;
+    
+    /**
+     * La coordonnée en x du joueur
+     */
     private double x;
+    
+    /**
+     * La coordonnée en y du joueur
+     */
     private double y;
 
     /**
@@ -40,35 +52,39 @@ public abstract class Player extends Element {
 
 
     /**
-     * Accesseur de coordonée y de la Balle
+     * Accesseur de coordonnée y de la Balle
      *
-     * @return La coordonée y de la Balle
+     * @return La coordonnée y de la Balle
      */
     public double getY() {
         return y;
     }
 
     /**
-     * @return
+     * Accesseur de la couleur utilisée par le joueur
+     * @return L couleur utilisée par le joueur
      */
     public Color getColor() {
         return color;
     }
 
     /**
-     * @param color
+     * Mutateur de la couleur utilisée par le joueur
+     * @param color La nouvelle couleur
      */
     public void setColor(Color color) {
         this.color = color;
     }
 
     /**
-     * @return
+     * Accesseur de la taille de la balle du joueur
+     * @return La taille de la balle du joueur
      */
     public abstract double getSize();
 
     /**
-     * @return
+     * Accesseur du modèle de la balle représentant le joueur
+     * @return Le modèle de la balle représentant le joueur
      */
     public Ball getBall() {
         return model_ball;
