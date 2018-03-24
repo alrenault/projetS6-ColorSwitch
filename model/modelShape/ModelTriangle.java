@@ -6,6 +6,9 @@ import view.game.Speed;
 
 import java.util.List;
 
+/**
+ * Modèle d'un triangle
+*/
 public class ModelTriangle extends ModelShape {
 
     /**

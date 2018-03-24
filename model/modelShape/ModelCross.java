@@ -6,6 +6,9 @@ import view.game.Speed;
 
 import java.util.List;
 
+/**
+ * Modèle d'une croix
+*/
 public class ModelCross extends ModelShape {
 
     /**
@@ -30,7 +33,7 @@ public class ModelCross extends ModelShape {
      * @param _mouvementSpeed    La vitesse de la croix
      * @param nbr_rect           Le nombre de rectangle (2 ou 4)
      * @param colors             L'ensemble de couleurs que l'on peut utiliser
-     * @param pos_color          La position initiale pour le parcours de la liste
+     * @param pos_color          La position initiale pour le parcours de la liste de couleurs
      */
     public ModelCross(double x, double y, double width, double length, boolean mouvementDirection, boolean acceleration,
                       Speed _mouvementSpeed, int nbr_rect, List<Color> colors, int pos_color) {

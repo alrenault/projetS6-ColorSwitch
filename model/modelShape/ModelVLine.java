@@ -6,6 +6,9 @@ import view.game.Speed;
 
 import java.util.List;
 
+/**
+ * Modèle d'une ligne verticale
+*/
 public class ModelVLine extends ModelShape {
 
 
@@ -60,22 +63,42 @@ public class ModelVLine extends ModelShape {
         type = ShapeType.Vertical_Line;
     }
 
+    /**
+     * Accesseur de la hauteur d'un rectangle
+     * @return La hauteur d'un rectangle
+     */
     public double getHeight() {
         return height;
     }
 
+    /**
+     * Accesseur du nombre de rectangle
+     * @return Le nombre de rectangle
+     */
     public int getNbr_seg() {
         return nbr_seg;
     }
 
+    /**
+     * Accesseur du point d'arrivé en y 
+     * @return La point d'arrivé en y
+     */
     public double getGoal() {
         return goal;
     }
 
+    /**
+     * Teste si la ligne peut faire des allez-retour
+     * @return Si la ligne peut faire des allez-retour
+     */
     public boolean isReverse() {
         return reverse;
     }
 
+    /**
+     * Accesseur de la distance séparant 2 rectangles
+     * @return La distance séparant 2 rectangles
+     */
     public double getDistanceSeparation() {
         return distanceSeparation;
     }

@@ -7,11 +7,11 @@ import view.game.Speed;
 import java.util.List;
 
 /**
- *
- */
+ * Modèle d'un carré
+*/
 public class ModelSquare extends ModelShape {
     /**
-     *
+     * La longueur d'un coté du carré
      */
     private double length;
 
@@ -36,7 +36,8 @@ public class ModelSquare extends ModelShape {
     }
 
     /**
-     * @return
+     * Accesseur de la longueur d'un coté du carré
+     * @return La longueur d'un coté du carré
      */
     public double getLength() {
         return length;

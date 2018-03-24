@@ -11,8 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Une Shapes représent un group de shapes de JavaFX
- * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou ennemis
+ * Un modèle d'une Shapes représentant un group de shapes de JavaFX
+ * Le but est de représenter une forme concrete pouvant etre utilise pour les obstacles, items ou une simple forme
  */
 
 public abstract class ModelShape implements Colorable {
@@ -109,20 +109,23 @@ public abstract class ModelShape implements Colorable {
     }
 
     /**
-     * @return
+     * Accesseur de la position en x
+     * @return La position en x
      */
     public double getX() {
         return x;
     }
 
     /**
-     * @return
+     * Accesseur de la position en y
+     * @return La position en y
      */
     public double getY() {
         return y;
     }
 
     /**
+     * Accesseur de la direction du mouvement 
      * @return
      */
     public boolean isMouvementDirection() {
@@ -130,50 +133,55 @@ public abstract class ModelShape implements Colorable {
     }
 
     /**
-     * @return
+     * Renvoie si la shape à une accélération ou non
+     * @return Si la shape à une accélération ou non
      */
     public boolean isAcceleration() {
         return acceleration;
     }
 
     /**
-     * @return
+     * Accesseur de la pos_color
+     * @return La pos_color
      */
     public int getPos_color() {
         return pos_color;
     }
 
+    /**
+     * Mutateur de la pos_color
+     * @param pos_color La nouvelle pos_color
+     */
     public void setPos_color(int pos_color) {
         this.pos_color = pos_color;
     }
 
     /**
-     * Determine la vitesse de mouvement de la Forme
-     *
-     * @return
+     * Accesseur de la vitesse de mouvement de la Forme
+     * @return La vitesse du mouvement
      */
     public double getMouvementSpeed() {
         return mouvementSpeed;
     }
 
     /**
-     * @return
+     * Accesseur de la liste de couleurs à utiliser
+     * @return La liste de couleurs à utiliser
      */
     public List<Color> getColors() {
         return colors;
     }
 
     /**
-     * Assesseur de l'épaisseur de la forme
-     *
-     * @return l'épaisseur de la forme
+     * Accesseur de l'épaisseur de la forme
+     * @return L'épaisseur de la forme
      */
     public double getWidth() {
         return width;
     }
 
     /**
-     *
+     *Vérifie si la pos_color reste dans la taille de colors après incrémentation
      */
     public void verifPosColor() {
         pos_color++;
@@ -183,7 +191,6 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Colorie une (JavaFX) Shape en fonction de l'ensemble de couleurs qui lui est associe
-     *
      * @param s La (JavaFX) Shape a colorier
      */
     public void color(Shape s) {
@@ -202,7 +209,6 @@ public abstract class ModelShape implements Colorable {
 
     /**
      * Assesseur de l'ensemble des couleurs utilisees par la forme
-     *
      * @return L'ensemble des couleurs utilisees par la forme
      */
     public List<Color> getColors_use() {
@@ -210,7 +216,8 @@ public abstract class ModelShape implements Colorable {
     }
 
     /**
-     * @return
+     * Accesseur du type du modèle de la forme
+     * @return Le type du modèle de la forme
      */
     public ShapeType getType() {
         return type;

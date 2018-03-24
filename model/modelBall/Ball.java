@@ -72,7 +72,7 @@ public class Ball {
 
     /**
      * Mutateur de la position en x
-     * @param La nouvelle position en x
+     * @param newX La nouvelle position en x
      */
     public void setX(double newX) {
         x = newX;
@@ -88,7 +88,7 @@ public class Ball {
 
     /**
      * Mutateur de la position en y
-     * @param La nouvelle position en y
+     * @param newY La nouvelle position en y
      */
     public void setY(double newY) {
 
@@ -148,7 +148,6 @@ public class Ball {
     /**
      * Augmente le vecteur en y d'une certaine valeur
      * @param j La valeur à ajouter
-     * @return La nouvelle valeur du vecteuren y
      */
     public void addVectorY(double j) {
         vectorY += j;

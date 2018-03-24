@@ -90,7 +90,7 @@ public abstract class Element {
     /**
      * Permet de supprimer une ou des listes de shapes à la liste de shapes
      *
-     * @param shapes La/les listes de shapes à supprimer
+     * @param shapes_list La/les listes de shapes à supprimer
      */
     public void removeSL(List<Shape>... shapes_list) {
 

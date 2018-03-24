@@ -7,8 +7,8 @@ import view.game.Speed;
 import java.util.List;
 
 /**
- *
- */
+ * Modèle d'un cercle
+*/
 public class ModelCircle extends ModelShape {
 
     /**
@@ -32,7 +32,7 @@ public class ModelCircle extends ModelShape {
      * @param acceleration      Indique si la rotation du  cercle est linéaire ou est soumise à une accéleration
      * @param vitesseRotation   vitesse de rotation du cercle
      * @param colors            L'ensemble de couleurs que l'on peut utiliser pour colorer les arcs
-     * @param pos_color
+     * @param pos_color			Position initiale pour le parcours de la liste de couleur
      */
     public ModelCircle(double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
                        boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color) {
