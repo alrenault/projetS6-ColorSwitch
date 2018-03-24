@@ -49,12 +49,12 @@ public class InterfaceGame implements UseLaw {
         }
 
         //scene.getCamera().setTranslateY(yCamera);
-        interfaceGame.setTranslateY(scene.getHeight());
-        System.out.println("interface"+interfaceGame.getTranslateY());
+        //interfaceGame.setTranslateY(scene.getHeight());
 		
 		Label oui = new Label("Oui");
         oui.setTextFill(Color.WHITE);
         interfaceGame.getChildren().add(oui);
+        
 		
         
 

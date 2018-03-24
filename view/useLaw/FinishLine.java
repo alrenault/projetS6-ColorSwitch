@@ -4,12 +4,32 @@ import controller.Controller;
 import view.ViewPath;
 import view.ball.BallPlayer;
 
+/**
+ * Loi testant sio on a dépassé la ligne d'arrivée
+ */
 public class FinishLine implements UseLaw {
 
+	/**
+	 * Le viewPath où doit se trouver la loi
+	 */
 	private ViewPath path;
+	
+	/**
+	 * La balle qui doit passer la ligne d'arrivée
+	 */
 	private BallPlayer ball;
+	
+	/**
+	 * Référence au controlleur
+	 */
 	private Controller controller;
 	
+	/**
+	 * Constructeur de la loi
+	 * @param path Le viewPath où doit se trouver la loi
+	 * @param ball La balle qui doit passer la ligne d'arrivée
+	 * @param controller Référence au controlleur
+	 */
 	public FinishLine(ViewPath path, BallPlayer ball, Controller controller) {
 		this.path = path;
 		this.ball = ball;

@@ -2,6 +2,7 @@ package view.useLaw;
 
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
+import javafx.scene.Group;
 import view.ball.BallPlayer;
 
 public class LockBall implements UseLaw {
@@ -11,6 +12,7 @@ public class LockBall implements UseLaw {
     private double difference;
     private double limite;
     private double yCamera;
+    private Group interfaceGame;
 
     public LockBall(Scene scene, BallPlayer ball, Group interfaceGame) {
         this.scene = scene;
