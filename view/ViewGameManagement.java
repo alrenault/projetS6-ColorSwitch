@@ -9,14 +9,14 @@ import model.modelBall.Ball;
 import model.modelBall.BuildBall;
 import model.modelItem.ModelItem;
 import model.modelObstacle.ModelObstacle;
-import view.game.Colorable;
-import view.game.Game;
-import view.game.ball.BallPlayer;
-import view.game.path.Path;
-import view.game.path.items.BuildItem;
-import view.game.path.items.Item;
-import view.game.path.obstacle.BuildObstacle;
-import view.game.path.obstacle.Obstacle;
+import model.game.Colorable;
+import model.game.Game;
+import view.ball.BallPlayer;
+import view.path.Path;
+import view.path.items.BuildItem;
+import view.path.items.Item;
+import view.path.obstacle.BuildObstacle;
+import view.path.obstacle.Obstacle;
 import view.useLaw.ViewTimer;
 
 import javax.swing.text.html.ImageView;
@@ -76,8 +76,10 @@ class ViewGameManagement {
         if (viewpath.getFinishLine() != null) {
             root.getChildren().add(viewpath.getFinishLine());
         }
+        
+        System.out.println(thisGame.getUniverse());
 
-        timer = new ViewTimer(ballplayer, viewpath, controller, thisScene);
+        timer = new ViewTimer(ballplayer, viewpath, controller, thisScene, thisGame.getUniverse());
         timer.play();
 
 
@@ -93,6 +95,9 @@ class ViewGameManagement {
         root.getChildren().add(group);
     }
 
+    public void construtionUnivLaws(){
+
+    }
 
     /**
      * Construit les obstacles depuis un ensemble de modèle d'obstacle présent dans un path

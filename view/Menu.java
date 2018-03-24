@@ -14,10 +14,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.ObstacleType;
 import model.modelObstacle.ModelCircleInCircle;
-import view.game.Colorable;
-import view.game.Difficulty;
-import view.game.path.obstacle.BuildObstacle;
-import view.game.path.obstacle.CircleInCircle;
+import model.game.Colorable;
+import model.game.Difficulty;
+import view.path.obstacle.BuildObstacle;
+import view.path.obstacle.CircleInCircle;
 import javafx.scene.image.*;
 import javafx.scene.shape.*;
 

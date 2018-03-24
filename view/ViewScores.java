@@ -12,8 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import view.game.Colorable;
-import view.game.Score;
+import model.game.Colorable;
+import model.game.Score;
 
 import java.util.LinkedList;
 

@@ -1,11 +1,12 @@
 package model;
 
 import model.modelItem.ModelItem;
-import view.game.Difficulty;
-import view.game.Game;
-import view.game.ball.Player;
-import view.game.law.Universe;
-import view.game.path.Path;
+import model.modelLaw.Universe;
+import controller.InterfaceModelColorSwitch;
+import model.game.Difficulty;
+import model.game.Game;
+import view.ball.Player;
+import view.path.Path;
 
 /**
  * This class represents the model in the MVC pattern

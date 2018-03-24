@@ -6,7 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
-import view.game.Colorable;
+import model.game.Colorable;
 
 
 public class MainTest extends Application {

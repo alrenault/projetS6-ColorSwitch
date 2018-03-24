@@ -2,7 +2,7 @@ package view.useLaw;
 
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
-import view.game.ball.BallPlayer;
+import view.ball.BallPlayer;
 
 public class LockBall implements UseLaw {
 

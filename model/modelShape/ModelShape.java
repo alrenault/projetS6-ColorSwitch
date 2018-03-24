@@ -3,8 +3,8 @@ package model.modelShape;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.ShapeType;
-import view.game.Colorable;
-import view.game.Speed;
+import model.game.Colorable;
+import model.game.Speed;
 
 import java.util.ArrayList;
 import java.util.Iterator;

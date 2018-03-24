@@ -1,7 +1,7 @@
 package model.modelBall;
 
 import javafx.scene.Scene;
-import view.game.ball.BallPlayer;
+import view.ball.BallPlayer;
 
 /**
  * Générateur de balle

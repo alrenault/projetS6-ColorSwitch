@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import view.game.Colorable;
+import model.game.Colorable;
 
 /**
  * Mini Form recuperrant le pseudo du joueur à la fin de la partie

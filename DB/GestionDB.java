@@ -1,6 +1,6 @@
 package DB;
 
-import view.game.Score;
+import model.game.Score;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;

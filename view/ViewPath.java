@@ -9,11 +9,11 @@ import model.modelItem.ModelInvisibleLine;
 import model.modelItem.ModelItem;
 import model.modelItem.ModelStar;
 import model.modelObstacle.ModelObstacle;
-import view.game.path.Path;
-import view.game.path.items.BuildItem;
-import view.game.path.items.Item;
-import view.game.path.obstacle.BuildObstacle;
-import view.game.path.obstacle.Obstacle;
+import view.path.Path;
+import view.path.items.BuildItem;
+import view.path.items.Item;
+import view.path.obstacle.BuildObstacle;
+import view.path.obstacle.Obstacle;
 
 import java.util.ArrayList;
 import java.util.List;

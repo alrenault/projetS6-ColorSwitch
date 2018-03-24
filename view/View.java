@@ -7,7 +7,7 @@ import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import view.game.Game;
+import model.game.Game;
 
 import java.util.LinkedList;
 

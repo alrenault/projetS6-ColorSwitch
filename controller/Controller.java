@@ -1,11 +1,10 @@
 package controller;
 
 import DB.GestionDB;
-import model.InterfaceModelColorSwitch;
 import model.modelItem.ModelItem;
 import view.InterfaceViewColorSwitch;
-import view.game.Difficulty;
-import view.game.Score;
+import model.game.Difficulty;
+import model.game.Score;
 
 /**
  *Représente le controlleur de l'application pour l'application en MVC
