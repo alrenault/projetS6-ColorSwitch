@@ -27,12 +27,14 @@ public class ViewTimer {
     private ViewPath path;
 
     public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene,Universe u) {
-        this.controller = controller;
+    	this.controller = controller;
         this.scene=scene;
-      this.ballPlayer=ball;
+        this.ballPlayer=ball;
 
 
         laws=this.createSet(u);
+        
+        
 
         timer = new AnimationTimer() {
             long startTime = System.currentTimeMillis();
@@ -53,6 +55,7 @@ public class ViewTimer {
 
                 if (checkpoint >= 100) {
                     for (UseLaw j : laws) {
+                    	System.out.println(j);
                         j.apply();
                     }
                     checkpoint = currentTime;

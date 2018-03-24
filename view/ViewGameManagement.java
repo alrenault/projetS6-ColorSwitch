@@ -69,8 +69,10 @@ class ViewGameManagement {
         if (viewpath.getFinishLine() != null) {
             root.getChildren().add(viewpath.getFinishLine());
         }
+        
+        System.out.println(thisGame.getUniverse());
 
-        timer = new ViewTimer(ballplayer, viewpath, controller, thisScene);
+        timer = new ViewTimer(ballplayer, viewpath, controller, thisScene, thisGame.getUniverse());
         timer.play();
         //ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
 
