@@ -2,7 +2,7 @@ package view.useLaw;
 
 
 import javafx.scene.Scene;
-import model.game.ball.BallPlayer;
+import view.ball.BallPlayer;
 
 /**
  *

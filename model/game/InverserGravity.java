@@ -1,6 +1,6 @@
 package model.game;
 
-import model.game.path.Modifiers;
+import view.path.Modifiers;
 
 /**
  * Change le sens de gravité

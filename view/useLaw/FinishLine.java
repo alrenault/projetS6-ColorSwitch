@@ -2,7 +2,7 @@ package view.useLaw;
 
 import controller.Controller;
 import view.ViewPath;
-import model.game.ball.BallPlayer;
+import view.ball.BallPlayer;
 
 public class FinishLine implements UseLaw {
 

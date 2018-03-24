@@ -4,8 +4,8 @@ import controller.Controller;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
-import model.game.ball.BallPlayer;
-import model.game.path.items.Item;
+import view.ball.BallPlayer;
+import view.path.items.Item;
 
 /**
  * Gère les collisions entre le joueur et les items

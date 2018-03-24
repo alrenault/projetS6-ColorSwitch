@@ -1,6 +1,6 @@
 package view.useLaw;
 
-import model.game.ball.BallPlayer;
+import view.ball.BallPlayer;
 
 /**
  * Loi créant la gravité

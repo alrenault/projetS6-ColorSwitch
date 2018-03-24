@@ -11,12 +11,12 @@ import model.modelItem.ModelItem;
 import model.modelObstacle.ModelObstacle;
 import model.game.Colorable;
 import model.game.Game;
-import model.game.ball.BallPlayer;
-import model.game.path.Path;
-import model.game.path.items.BuildItem;
-import model.game.path.items.Item;
-import model.game.path.obstacle.BuildObstacle;
-import model.game.path.obstacle.Obstacle;
+import view.ball.BallPlayer;
+import view.path.Path;
+import view.path.items.BuildItem;
+import view.path.items.Item;
+import view.path.obstacle.BuildObstacle;
+import view.path.obstacle.Obstacle;
 import view.useLaw.ViewTimer;
 
 import javax.swing.text.html.ImageView;

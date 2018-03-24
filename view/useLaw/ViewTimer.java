@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import modelLaw.LawType;
 import modelLaw.Universe;
 import view.ViewPath;
-import model.game.ball.BallPlayer;
+import view.ball.BallPlayer;
 
 import java.util.ArrayList;
 import java.util.HashSet;

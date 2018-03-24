@@ -4,8 +4,8 @@ import model.modelItem.ModelItem;
 import modelLaw.Universe;
 import model.game.Difficulty;
 import model.game.Game;
-import model.game.ball.Player;
-import model.game.path.Path;
+import view.ball.Player;
+import view.path.Path;
 
 /**
  * This class represents the model in the MVC pattern

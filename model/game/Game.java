@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.modelBall.Ball;
 import modelLaw.Universe;
-import model.game.path.Path;
+import view.path.Path;
 
 import java.util.ArrayList;
 import java.util.List;

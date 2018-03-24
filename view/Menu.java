@@ -16,8 +16,8 @@ import model.ObstacleType;
 import model.modelObstacle.ModelCircleInCircle;
 import model.game.Colorable;
 import model.game.Difficulty;
-import model.game.path.obstacle.BuildObstacle;
-import model.game.path.obstacle.CircleInCircle;
+import view.path.obstacle.BuildObstacle;
+import view.path.obstacle.CircleInCircle;
 import javafx.scene.image.*;
 import javafx.scene.shape.*;
 

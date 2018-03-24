@@ -4,7 +4,7 @@ import controller.Controller;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Shape;
 import view.ViewPath;
-import model.game.ball.BallPlayer;
+import view.ball.BallPlayer;
 
 /**
  * Gère les collisions entre le joueur et les obstacles
