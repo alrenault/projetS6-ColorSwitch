@@ -239,7 +239,7 @@ public class Path {
 
     /**
      * Rajoute un modèle d'une InvisibleLine au path
-     *@param La coordonnée en y de la InvisibleLine à rajouter
+     *@param y La coordonnée en y de la InvisibleLine à rajouter
      * @return le modèle de la  nouvelle InvisbleLine
      */
     public ModelInvisibleLine addNewInvisibleLine(double y) {

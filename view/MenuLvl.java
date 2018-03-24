@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Génère le Menu
+ * Génère le Menu de sélection des niveaux
  */
 class MenuLvl {
     /**
      * Génère une Scene de menu pour lacer une partie
      *
      * @param controller Le controller de jeu
-     * @return Une Scene de Menu
+     * @return Une Scene de Menu de sélection des niveaux
      */
     public static Scene createInstance(Controller controller) {
         List<Color> colorExterne = new ArrayList<>();
