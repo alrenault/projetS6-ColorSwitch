@@ -1,7 +1,6 @@
 package view;
 
 import java.net.URL;
-import java.nio.file.Paths;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,10 +13,13 @@ public class ImageLoader {
 	private ImageView imageScore;
 	
 	/**
-	 * Image de l'engrenage pour les paramètres
+	 * Image de l'engrenage pour les parametres
 	 */
 	private ImageView imageParameters;
 	
+	/**
+	 * Charge les images pour le jeu
+	 */
 	public ImageLoader() {
 		this.imageScore = new ImageView();
 		this.imageParameters = new ImageView();
@@ -51,8 +53,8 @@ public class ImageLoader {
 	}
 	
 	/**
-	 * Get image pour les paramètres
-	 * @return L'image pour les paramètres
+	 * Get image pour les parametres
+	 * @return L'image pour les parametres
 	 */
 	public ImageView getParametersPicture() {
 		return imageParameters;

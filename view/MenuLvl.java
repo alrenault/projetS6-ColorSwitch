@@ -78,12 +78,31 @@ class MenuLvl {
         hBoxNiveaux.setTranslateX(50);
 
         //Modes de jeu
+        
+        Button race = new Button("Mode course");
+        Button gravity = new Button("Gravité");
+        Button touch = new Button("Touch");
+        
+        race.setMinHeight(buttonHeight);
+        gravity.setMinHeight(buttonHeight);
+        touch.setMinHeight(buttonHeight);
 
+        race.setMinWidth(buttonWidth);
+        gravity.setMinWidth(buttonWidth);
+        touch.setMinWidth(buttonWidth);
 
+        
+        HBox hBoxModes = new HBox(20);
+        hBoxModes.getChildren().add(race);
+        hBoxModes.getChildren().add(gravity);
+        hBoxModes.getChildren().add(touch);
+        hBoxModes.setTranslateX(100);
+        
         VBox vBoxRoot = new VBox(20);
         vBoxRoot.getChildren().add(niveaux);
         vBoxRoot.getChildren().add(hBoxNiveaux);
         vBoxRoot.getChildren().add(modesJeu);
+        vBoxRoot.getChildren().add(hBoxModes);
 
         vBoxRoot.setAlignment(Pos.CENTER);
 
@@ -96,7 +115,10 @@ class MenuLvl {
         niveau20.setOnAction(event -> controller.startLvl(20));
         niveau30.setOnAction(event -> controller.startLvl(30));
         enferCercle.setOnAction(event -> controller.startHellCircle());
-
+        
+        //race.setOnAction();
+        //gravity.setOnAction();
+        //touch.setOnAction();
         return sc;
 
 
