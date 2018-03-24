@@ -80,10 +80,10 @@ public class Main extends Application {
 
         help();
 
-
-        //Sound sound = new Sound();
         
-       // Sound.playMusic();
+        Sound sound = new Sound();
+        
+        Sound.playMusic();
 
 				    
 

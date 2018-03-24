@@ -22,23 +22,31 @@ import view.useLaw.ViewTimer;
 import javax.swing.text.html.ImageView;
 
 /**
- * 
+ * Crée les élément graphique du jeu
  */
 class ViewGameManagement {
-    /**
-     *
+    
+	/**
+     * Le groupe racine de la scène
      */
     private static Group root;
+    
     /**
-     *
+     * Instance du jeu à afficher
      */
     private static Game game;
+    
+    /**
+     * Timer pour lancer les traitements en continue
+     */
     private static ViewTimer timer;
 
 
     /**
-     * @param thisGame
-     * @param thisScene
+     * Constructeur de la vue
+     * @param thisGame L'instance du jeu où il faut afficher les élements graphique
+     * @param thisScene La scène où se trouve les éléments graphique
+     * @param controller Instance du controlleur 
      */
     public static void view(Game thisGame, Scene thisScene, Controller controller) {
 
@@ -50,7 +58,6 @@ class ViewGameManagement {
         Ball ball = game.getBall();
 
 
-        //BallPlayer qball = new BallPlayer(10, path.getColors().get(0), thisScene);
         BallPlayer ballplayer = BuildBall.build(ball, thisScene);
 
 
@@ -72,7 +79,6 @@ class ViewGameManagement {
 
         timer = new ViewTimer(ballplayer, viewpath, controller, thisScene);
         timer.play();
-        //ViewTimer timer = new ViewTimer(thisGame,viewpath,ballplayer,thisScene);
 
 
         thisScene.setFill(Colorable.BLACK);
@@ -89,8 +95,9 @@ class ViewGameManagement {
 
 
     /**
-     * @param path
-     * @return
+     * Construit les obstacles depuis un ensemble de modèle d'obstacle présent dans un path
+     * @param path Le path où se trouvent les modèles
+     * @return Le groupe contenant les obstacles 
      */
     public static Group buildObstacles(Path path) {
         Group jObstacles = new Group();
@@ -105,8 +112,9 @@ class ViewGameManagement {
     }
 
     /**
-     * @param path
-     * @return
+     * Construit les items depuis un ensemble de modèle d'obstacle présent dans un path
+     * @param path Le path où se trouvent les modèles
+     * @return Le groupe contenant les items 
      */
     public static Group buildItems(Path path) {
         Group jItems = new Group();
@@ -120,6 +128,7 @@ class ViewGameManagement {
         return jItems;
     }
 
+    
     /**
      * Vide le manager
      */
