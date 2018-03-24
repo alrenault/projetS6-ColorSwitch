@@ -18,9 +18,14 @@ import view.game.Colorable;
 import view.game.Difficulty;
 import view.game.path.obstacle.BuildObstacle;
 import view.game.path.obstacle.CircleInCircle;
+import javafx.scene.image.*;
+import javafx.scene.shape.*;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.omg.Messaging.SyncScopeHelper;
 
 /**
  *
@@ -72,6 +77,9 @@ class Menu {
 
         Polygon playRandom = FilledTriangle.create(x, y, side, Colorable.WHITE[0]);
 
+        HBox circleButtons = new HBox();
+        circleButtons.setAlignment(Pos.CENTER);
+        vBox.getChildren().add(circleButtons);
 
         vBox.setAlignment(Pos.CENTER);
         Button goContinuEasy = new Button("Partie continue (facile)");
@@ -84,7 +92,7 @@ class Menu {
         randomButton.getChildren().add(cic.getObstacle());
         //randomButton.getChildren().add(triangle);
         randomButton.getChildren().add(playRandom);
-        vBox.getChildren().add(randomButton);
+        circleButtons.getChildren().add(randomButton);
 
         Group playEasy = FilledTriangle.create(120, y, side/2, Color.LIGHTGREEN, "Easy");
         Group playNormal = FilledTriangle.create(320, y, side/2, Color.ORANGERED, "Normal");
@@ -100,7 +108,31 @@ class Menu {
         infinite_difficulties.getChildren().add(playHard);
         
         
+        Group parameter = new Group();
+        Circle circleParameter = new Circle(25,25,35,Color.GREY);
+        parameter.getChildren().add(circleParameter);
         
+        String imageParam = "src/ressources/42695.png";
+        final ImageView selectedImage = new ImageView();   
+        Image image1 = new Image(Paths.get(imageParam).toUri().toString());
+        
+        selectedImage.setImage(image1);
+        
+        selectedImage.setFitHeight(50);
+        selectedImage.setFitWidth(50);
+
+        
+        parameter.getChildren().add(selectedImage);
+        
+
+        root.setTranslateY(-100);
+        
+        
+        parameter.setOnMouseClicked(event -> System.out.println("Bonjour"));
+        circleButtons.getChildren().add(parameter);
+        
+        parameter.setTranslateX(70);
+        parameter.setTranslateY(-70);
         
 
         vBox.getChildren().add(infinite_difficulties);
