@@ -19,6 +19,8 @@ import view.game.path.obstacle.BuildObstacle;
 import view.game.path.obstacle.Obstacle;
 import view.useLaw.ViewTimer;
 
+import javax.swing.text.html.ImageView;
+
 /**
  *
  */
@@ -33,7 +35,6 @@ class ViewGameManagement {
     private static Game game;
     private static ViewTimer timer;
 
-    Controller controller;
 
     /**
      * @param thisGame
