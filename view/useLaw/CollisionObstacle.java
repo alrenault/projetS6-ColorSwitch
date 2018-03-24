@@ -41,7 +41,6 @@ public class CollisionObstacle implements UseLaw {
 
     @Override
     public void apply() {
-        double start = System.currentTimeMillis();
         for (Shape b : ball.getShapeList()) {
 
             for (Shape shape : path.getObstaclesShapes()) {
@@ -63,7 +62,5 @@ public class CollisionObstacle implements UseLaw {
             }
 
         }
-        double end = System.currentTimeMillis();
-        System.err.println(end - start);
     }
 }

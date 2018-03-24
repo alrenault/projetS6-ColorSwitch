@@ -96,7 +96,7 @@ public class InterfaceGame implements UseLaw {
 
         Label oui = new Label("Oui");
         oui.setTextFill(Color.WHITE);
-        interfaceGame.getChildren().add(oui);
+       // interfaceGame.getChildren().add(oui);
 
 
     }
