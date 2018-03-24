@@ -58,6 +58,7 @@ public abstract class ModelObstacle {
      * @param colors La liste des couleurs à utiliser
      * @param version La version de d'obstacle 
      * @param versionDefault La version par défaut de l'obstacle
+     * @param obstacleType Le type de l'obstacle
      */
     ModelObstacle(double x, double y, List<Color> colors, int version, int versionDefault, ObstacleType obstacleType) {
         this.x = x;
