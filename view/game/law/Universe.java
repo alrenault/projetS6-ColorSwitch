@@ -2,6 +2,7 @@ package view.game.law;
 
 import view.game.Game;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,11 +13,29 @@ import java.util.Set;
  */
 public class Universe {
     private Set<Law> laws;
+    private Set<LawType>banq;
 
     public Universe() {
         laws = new HashSet<>();
+        banq = new HashSet<>();
     }
 
+
+    public boolean add(LawType lawType) {
+        return banq.add(lawType);
+    }
+
+    public boolean remove(Object o) {
+        return banq.remove(o);
+    }
+
+    public boolean addAll(Collection<? extends LawType> c) {
+        return banq.addAll(c);
+    }
+
+    public void clear() {
+        banq.clear();
+    }
 
     /**
      * Vide les lois
