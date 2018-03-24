@@ -29,7 +29,6 @@ public class Game {
     private Path path;
     private Universe universe;
     private Score score;
-    private Stage stage;
     private int nFrame = 0;
 
     public Game(Ball _ball, Path _path, Universe _universe) {
@@ -115,9 +114,11 @@ public class Game {
     }
 
 
-    public void defeat() {
+    public void stop() {
 
-        stage.close();
+        path = null;
+        ball = null;
+        universe = null;
     }
 
 
@@ -207,7 +208,7 @@ public class Game {
      * Vide le Jeu
      */
     public void clean() {
-        this.path.cleanPath();
+        //this.path.cleanPath();
 
 
 
