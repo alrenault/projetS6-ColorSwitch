@@ -3,8 +3,6 @@ package view.useLaw;
 import controller.Controller;
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
-import model.ItemType;
-import view.Sound;
 import view.ViewPath;
 import view.ball.BallPlayer;
 import view.path.items.Item;
@@ -59,8 +57,6 @@ public class CollisionItem implements UseLaw {
                         touch = true;
 
                         item.get(path, controller, ball);
-                        
-                        if (item.getModel_item().getType() == ItemType.Star) Sound.playStarSound();
 
                         jItems.getChildren().remove(item.getItem());
 

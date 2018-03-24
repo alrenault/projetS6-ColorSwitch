@@ -1,11 +1,7 @@
 package model.game;
 
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import model.modelBall.Ball;
 import model.modelLaw.Universe;
 import model.modelLaw.Universe.UniverseType;
@@ -140,17 +136,6 @@ public class Game {
 
         this.score = new Score();
     }
-
-
- 
-    
-    public void stop() {
-
-        path = null;
-        ball = null;
-        universe = null;
-    }
-
 
     /**
      * Accesseur de la balle

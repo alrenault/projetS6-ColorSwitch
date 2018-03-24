@@ -63,6 +63,7 @@ public abstract class ModelShape implements Colorable {
 
 
     /**
+     * Constructeur d'un modèle de forme
      * @param x                  La coordonnée en x du centre de la forme
      * @param y                  La coordonnée en y du centre de la forme
      * @param width              l'epaisseur de la forme

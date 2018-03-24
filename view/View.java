@@ -32,8 +32,6 @@ public class View implements InterfaceViewColorSwitch {
      * La stage représentant la fenêtre utilisée par le jeu
      */
     private Stage stage;
-    
-    public static Sound sound;
 
     /**
      * Constructeur de la vue
@@ -42,7 +40,6 @@ public class View implements InterfaceViewColorSwitch {
     public View(Stage primaryStage) {
         stage = primaryStage;
         initStage(stage);
-        sound = new Sound();
 
     }
 
@@ -88,7 +85,6 @@ public class View implements InterfaceViewColorSwitch {
         Scene scene = new Scene(root, tailleX, tailleY);
         scene.setCamera(new PerspectiveCamera());
 
-        sound.playMusic();
         ViewGameManagement.view(thisGame, scene, controller);
 
 
@@ -102,16 +98,14 @@ public class View implements InterfaceViewColorSwitch {
     @Override
     public void viewGameOver() {
 
-    	sound.stopMusic();
-    	sound.playGameOverSound();
-    	ViewGameManagement.destroy();
+
         display(ViewScores.viewEndScore(controller.getScore()));
 
     }
     @Override
     public void viewGameEnd() {
 
-    	viewGameOver();
+        display(ViewScores.viewEndScore(controller.getScore()));
 
     }
 

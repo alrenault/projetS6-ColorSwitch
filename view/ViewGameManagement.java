@@ -20,8 +20,6 @@ import view.path.obstacle.BuildObstacle;
 import view.path.obstacle.Obstacle;
 import view.useLaw.ViewTimer;
 
-import java.awt.Event;
-
 import javax.swing.text.html.ImageView;
 
 /**
@@ -148,8 +146,8 @@ class ViewGameManagement {
     /**
      * Vide le manager
      */
-    public static void destroy() {
-        //ViewGameManagement.game.clean();
+    public void destroy() {
+        ViewGameManagement.game.clean();
         ViewGameManagement.timer.clean();
 
 

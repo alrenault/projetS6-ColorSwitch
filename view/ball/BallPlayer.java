@@ -14,7 +14,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import model.modelBall.Ball;
-import view.Sound;
 
 /**
  * Ball représentant un joueur
@@ -140,7 +139,6 @@ public class BallPlayer extends Player {
         tt2 = new TranslateTransition(Duration.millis(250), ball);
         tt2.setByY(-jumpHeight);
         tt2.setCycleCount(1);
-        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
         tt2.setAutoReverse(false);
         tt2.setInterpolator(Interpolator.EASE_OUT);
         tt2.setOnFinished(new EventHandler<ActionEvent>() {
@@ -190,7 +188,6 @@ public class BallPlayer extends Player {
 
 
     public void jump() {
-    	
         applyGravity();
         gravity.pause();
         gravity.stop();

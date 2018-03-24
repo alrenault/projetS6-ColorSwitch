@@ -38,6 +38,7 @@ public class ModelVLine extends ModelShape {
     private double distanceSeparation;
 
     /**
+     * Constructeur d'un modèle de ligne verticale
      * @param x                  Coordonnée en x de la ligne
      * @param y                  Coordonnée en y de la ligne
      * @param height             La hauteur d'un rectangle

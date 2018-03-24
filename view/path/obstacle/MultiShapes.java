@@ -15,19 +15,16 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant de multiple formes
+ * version 0 : Cercle dans un carré tourant dans des sens différents 
+ * version 1 : Carré avec 1 segment au dessus et en dessous faisant des allez-retour
+ * version 2 : Cercle avec 1 segment au dessus et en dessous faisant des allez-retour
+ * version 3 : Deux croix avec une ligne au dessus et en dessous faisant des allez-retour
+ * version 4 : Cercle tournant dans le sens horraire avec une barre verticale en haut et en bas faisant des allez retour
+ * version 5 : Carré tournant dans le sens horraire avec une barre verticale en haut et en bas faisant des allez retour
+ * version 6 : Triangle tournant dans le sens horraire
+ * version 7 : Triangle tournant dans le sens contre horraire
  */
 public class MultiShapes extends Obstacle {
-	/*
-	 version 0 : Cercle dans un carré tourant dans des sens différents 
-	 version 1 : Carré avec 1 segment au dessus et en dessous faisant des allez-retour
-	 version 2 : Cercle avec 1 segment au dessus et en dessous faisant des allez-retour
-	 version 3 : Deux croix avec une ligne au dessus et en dessous faisant des allez-retour
-	 version 4 : Cercle tournant dans le sens horraire avec une barre verticale en haut et en bas faisant des allez retour
-	 version 5 : Carré tournant dans le sens horraire avec une barre verticale en haut et en bas faisant des allez retour
-	 version 6 : Triangle tournant dans le sens horraire
-	 version 7 : Triangle tournant dans le sens contre horraire
-	 */
-
 
     /**
      * Constructeur de multiShapes

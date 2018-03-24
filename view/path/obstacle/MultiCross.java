@@ -16,18 +16,15 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant de multiple croix
+ * version 0 : Une croix décalée vers la droite
+ * version 1 : Une croix décalée vers la gauche
+ * version 2 : Deux croix tournant vers le bas
+ * version 3 : Deux croix tournant vers le haut
+ * version 4 : Deux croix au dessus de 2 autres, tournant 2 à deux dans le meme sens
+ * version 5 : 2 grandes croix
  */
 
 public class MultiCross extends Obstacle {
-	/*
-	version 0 : Une croix décalée vers la droite
-	version 1 : Une croix décalée vers la gauche
-	version 2 : Deux croix tournant vers le bas
-	version 3 : Deux croix tournant vers le haut
-	version 4 : Deux croix au dessus de 2 autres, tournant 2 à deux dans le meme sens
-	version 5 : 2 grandes croix
-	*/
-
 
     /**
      * Constructeur du MultiCross

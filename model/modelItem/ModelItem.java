@@ -33,6 +33,7 @@ public class ModelItem {
     private ItemType type;
 
     /**
+     * Contructeur d'un modèle d'item
      * @param x        coordonnée x de l'Item
      * @param y        coordonnée y de l'Item
      * @param colors   L'ensemble de couleurs que l'on peut utiliser pour cet Item (Liste)

@@ -84,19 +84,12 @@ public class ModelBallColorSwitch extends ModelItem implements Colorable {
         this.colors_use = colors_use;
     }
 
-    /**
-     * Vérifié que pos_color reste inférieur à la taille de la liste de couleurs
-     */
     public void verifPosColor() {
         pos_color++;
         if (pos_color == colors.size())
             pos_color = 0;
     }
 
-    /**
-     * Donne une couleur à une shape en fonction la pos_color
-     * @param s La shape à colorier
-     */
     public void color(Shape s) {
         Iterator<Color> it = colors.iterator();
         Color c = null;

@@ -16,23 +16,20 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant de multiple cercles
+ * version 0 : Cercle au dessus d'un cercle dans des sens différents
+ * version 1 : Cercle au dessus d'un cercle dans des sens différents (autre sens)
+ * version 2 : 2 cercles l'un à côté de l'autre tournant vers le haut
+ * version 3 : 3 cercles les uns au dessus des autres
+ * version 4 : 2 cercle imbriqué vers le haut
+ * version 5 : petit cercle tournant dans le sens horraire
+ * version 6 : petit cercle tournant dans le sens contre horraire
+ * version 7 : cercle moyen tournant dans le sens horraire
+ * version 8 : cercle moyen tournant dans le sens contre horraire
+ * version 9 : grand cercle tournant dans le sens horraire
+ * version 10 : grand cercle tournant dans le sens contre horraire
  */
 
 public class MultiCircle extends Obstacle {
-	/*
-	version 0 : Cercle au dessus d'un cercle dans des sens différents
-	version 1 : Cercle au dessus d'un cercle dans des sens différents (autre sens)
-	version 2 : 2 cercles l'un à côté de l'autre tournant vers le haut
-	version 3 : 3 cercles les uns au dessus des autres
-	version 4 : 2 cercle imbriqué vers le haut
-	version 5 : petit cercle tournant dans le sens horraire
-	version 6 : petit cercle tournant dans le sens contre horraire
-	version 7 : cercle moyen tournant dans le sens horraire
-	version 8 : cercle moyen tournant dans le sens contre horraire
-	version 9 : grand cercle tournant dans le sens horraire
-	version 10 : grand cercle tournant dans le sens contre horraire
-	*/
-
 
     /**
      * Constructeur du MultiCircle

@@ -46,11 +46,8 @@ public class Circle extends Shapes {
             arc_1.setFill(null);
             mc.verifPosColor();
 
-            //Iterator<Color> it = mc.getColors().iterator();
             Color c = mc.getColors().get(mc.getPos_color());
-        	/*for(int j = 0;it.hasNext() && j <= mc.getPos_color();j++){
-        		c = it.next();
-        	}*/
+            
             arc_1.setStroke(c);
             mc.getColors_use().add(c);
 

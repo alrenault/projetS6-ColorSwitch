@@ -10,26 +10,18 @@ import view.ball.Player;
 import view.path.Path;
 
 /**
- * This class represents the model in the MVC pattern
- * It contains ALL the data needed for the view
+ * Cette classe représente le modèle du MVC
+ * Il contient toutes les données pour la vue
  */
 public class Model implements InterfaceModelColorSwitch {
+	
     /**
-     *
+     * Le jeu
      */
     private Game game;
 
-    /**
-     *
-     */
-    public Model() {
-
-    }
-
     @Override
     public void startGame() {
-        // TODO Auto-generated method stub
-
         //Lancer une partie
         this.game = new Game();
 
@@ -39,7 +31,8 @@ public class Model implements InterfaceModelColorSwitch {
     public void gameOver() {
         // TODO Auto-generated method stub
 
-        game.stop();
+        //Perdre la partie
+        //appel au controleur et passe le score
 
 
     }

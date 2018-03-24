@@ -77,7 +77,7 @@ class Square extends Shapes {
         rt.setByAngle(360 * ((ms.isMouvementDirection()) ? 1 : -1));
 
         if (!ms.isAcceleration()) {
-            rt.setInterpolator(Interpolator.LINEAR);//pas d'acceleration grace à ca
+            rt.setInterpolator(Interpolator.LINEAR);
         }
 
 

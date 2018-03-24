@@ -16,17 +16,14 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant de multiple carrés
+ * version 0 : petit rectangle tournant dans le sens contre horraire
+ * version 1 : petit rectangle tournant dans le sens horraire
+ * version 2 : rectangle de taille normal tournant dans le sens contre horraire
+ * version 3 : rectangle de taille normal tournant dans le sens horraire
+ * version 4 : un rectangle moyen dans un grand rectangle tournant dans des sens contraire
  */
 public class MultiSquare extends Obstacle {
-	/*
-	 version 0 : petit rectangle tournant dans le sens contre horraire
-	 version 1 : petit rectangle tournant dans le sens horraire
-	 version 2 : rectangle de taille normal tournant dans le sens contre horraire
-	 version 3 : rectangle de taille normal tournant dans le sens horraire
-	 version 4 : un rectangle moyen dans un grand rectangle tournant dans des sens contraire
-	 */
-
-
+	
     /**
      * Constructeur de multiShapes
      *

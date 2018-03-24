@@ -16,19 +16,17 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant des cercles dans des cercles
+ * version 0 : 2 cercles imbriqués 
+ * version 1 : 2 cercles imbriqués dans autre sens 
+ * version 2 : 3 cercles imbriqués
+ * version 3 : 3 cercles imbriqués dans l'autre sens
+ * version 4 : 2 cercle croisés tournant vers le haut
+ * version 5 : 2 cercle croisés tournant vers le bas
+ * version 6 : petit cercle dans un grand cercle
+ * default : version 4
  */
 
 public class CircleInCircle extends Obstacle {
-	/*
-	version 0 : 2 cercles imbriqués 
-	version 1 : 2 cercles imbriqués dans autre sens 
-	version 2 : 3 cercles imbriqués
-	version 3 : 3 cercles imbriqués dans l'autre sens
-	version 4 : 2 cercle croisés tournant vers le haut
-	version 5 : 2 cercle croisés tournant vers le bas
-	version 6 : petit cercle dans un grand cercle
-	default : version 4
-	*/
 
 
     /**
@@ -43,7 +41,6 @@ public class CircleInCircle extends Obstacle {
     }
 
     protected Group buildObstacle() {
-        double tinyRadial = 60.0;
         double mediumRadial = 70.0;
         double internRadial = 85.0;
         double bigRadial = 100.0;
@@ -54,8 +51,6 @@ public class CircleInCircle extends Obstacle {
         double y = mo.getY();
         List<Color> colors = mo.getColors();
 
-        //BuildShape builder = new BuildShape();
-
         Group circleInCircle = new Group();
         Circle cer1;
 
@@ -65,8 +60,6 @@ public class CircleInCircle extends Obstacle {
         if (mo.getVersion() >= ModelCircleInCircle.NBR_VERSIONS)
             mo.setVersion(mo.getVersionDefault());
 
-        //double xCenter, double yCenter, double radial, double width, int arcs_nbr, boolean rotationDirection,
-        //boolean acceleration, Speed vitesseRotation, List<Color> colors, int pos_color
         Random r = new Random();
         int colorDeb = r.nextInt(colors.size());
         int colorOppose = (colorDeb + nb_arc / 2) % colors.size();

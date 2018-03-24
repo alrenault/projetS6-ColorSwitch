@@ -17,6 +17,7 @@ public class ModelTriangle extends ModelShape {
     private double height;
 
     /**
+     * Constructeur d'un modèle de triangle
      * @param x                  coordonnée x du centre de gravité du triangle construit
      * @param y                  coordonnée y du centre de gravité du triangle construit
      * @param height             hauteur du triangle construit

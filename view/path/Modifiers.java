@@ -3,6 +3,7 @@ package view.path;
 import view.path.items.Item;
 
 /**
+ * Ancienne version pour les Items
  */
 public abstract class Modifiers {
     /**

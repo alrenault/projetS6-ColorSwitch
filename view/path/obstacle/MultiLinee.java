@@ -17,21 +17,19 @@ import java.util.Random;
 
 /**
  * Objet graphique d'un Obstacle représentant de multiple ligne
+ * version 0 : 1 segment commençant de la gauche
+ * version 1 : 1 segment commençant de la droite
+ * version 2 : 2 segments 
+ * version 3 : 1 ligne faisant des allés-retours
+ * version 4 : 1 ligne allant de la gauche vers la droite
+ * version 5 : 1 ligne allant de la gauche vers la droite et 1 ligne allant de la droite vers la gauche
+ * version 6 : 1 ligne allant de la gauche vers la droite et 1 ligne allant de la droite vers la gauche avec un espace
+ * version 7 : 2 barres verticales faisant des aller-retour
+ * version 8 : 2 barres partant des 2 côtés faisant des aller-retour
+ * version 9 : ligne + une barre verticale au dessus et en dessous faisant des allez-retour
+ * version 10 : 4 barres verticales des 2 côtés faisant les allez-retour
  */
 public class MultiLinee extends Obstacle {
-	/*
-	version 0 : 1 segment commençant de la gauche
-	version 1 : 1 segment commençant de la droite
-	version 2 : 2 segments 
-	version 3 : 1 ligne faisant des allés-retours
-	version 4 : 1 ligne allant de la gauche vers la droite
-	version 5 : 1 ligne allant de la gauche vers la droite et 1 ligne allant de la droite vers la gauche
-	version 6 : 1 ligne allant de la gauche vers la droite et 1 ligne allant de la droite vers la gauche avec un espace
-	version 7 : 2 barres verticales faisant des aller-retour
-	version 8 : 2 barres partant des 2 côtés faisant des aller-retour
-	version 9 : ligne + une barre verticale au dessus et en dessous faisant des allez-retour
-	version 10 : 4 barres verticales des 2 côtés faisant les allez-retour
-	*/
 
 
     /**

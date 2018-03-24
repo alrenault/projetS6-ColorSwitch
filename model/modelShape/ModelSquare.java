@@ -16,6 +16,7 @@ public class ModelSquare extends ModelShape {
     private double length;
 
     /**
+     * Constructeur d'un modèle de carré
      * @param x                  La coordonnee en x du centre du carre
      * @param y                  La coordonnee en y du centre du carre
      * @param length             La longueur d'un cote du carre
