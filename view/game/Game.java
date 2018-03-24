@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.modelBall.Ball;
-import view.game.law.Universe;
+import modelLaw.Universe;
 import view.game.path.Path;
 
 import java.util.ArrayList;

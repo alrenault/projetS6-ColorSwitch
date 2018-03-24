@@ -1,4 +1,4 @@
-package view.game.law;
+package modelLaw;
 
 public enum LawType {
     IAJUMP,

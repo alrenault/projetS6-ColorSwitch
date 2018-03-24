@@ -3,10 +3,10 @@ package view.useLaw;
 import controller.Controller;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
+import modelLaw.LawType;
+import modelLaw.Universe;
 import view.ViewPath;
 import view.game.ball.BallPlayer;
-import view.game.law.LawType;
-import view.game.law.Universe;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,10 +1,10 @@
 package model;
 
 import model.modelItem.ModelItem;
+import modelLaw.Universe;
 import view.game.Difficulty;
 import view.game.Game;
 import view.game.ball.Player;
-import view.game.law.Universe;
 import view.game.path.Path;
 
 /**

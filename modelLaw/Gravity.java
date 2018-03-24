@@ -1,4 +1,4 @@
-package view.game.law;
+package modelLaw;
 
 import view.game.Game;
 
