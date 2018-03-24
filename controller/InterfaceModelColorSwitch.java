@@ -1,7 +1,7 @@
-package model;
+package controller;
 
 import model.modelItem.ModelItem;
-import modelLaw.Universe;
+import model.modelLaw.Universe;
 import model.game.Difficulty;
 import model.game.Game;
 import view.ball.Player;

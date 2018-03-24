@@ -1,4 +1,4 @@
 /**
  * Lois du jeu
  */
-package modelLaw;
+package model.modelLaw;

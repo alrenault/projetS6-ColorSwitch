@@ -3,8 +3,8 @@ package view.useLaw;
 import controller.Controller;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
-import modelLaw.LawType;
-import modelLaw.Universe;
+import model.modelLaw.LawType;
+import model.modelLaw.Universe;
 import view.ViewPath;
 import view.ball.BallPlayer;
 

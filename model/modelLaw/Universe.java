@@ -1,4 +1,4 @@
-package modelLaw;
+package model.modelLaw;
 
 
 import java.util.Collection;

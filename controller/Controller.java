@@ -1,7 +1,6 @@
 package controller;
 
 import DB.GestionDB;
-import model.InterfaceModelColorSwitch;
 import model.modelItem.ModelItem;
 import view.InterfaceViewColorSwitch;
 import model.game.Difficulty;

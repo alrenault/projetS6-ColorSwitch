@@ -1,11 +1,11 @@
 package main;
 
 import controller.Controller;
+import controller.InterfaceModelColorSwitch;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.InterfaceModelColorSwitch;
 import model.Model;
 import view.InterfaceViewColorSwitch;
 import view.Sound;

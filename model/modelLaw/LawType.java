@@ -1,4 +1,4 @@
-package modelLaw;
+package model.modelLaw;
 
 public enum LawType {
     IAJUMP,
