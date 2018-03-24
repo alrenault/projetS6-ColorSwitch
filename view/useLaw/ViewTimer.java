@@ -30,18 +30,18 @@ public class ViewTimer {
         //laws.add(j);
 
         JtGravity gravity = new JtGravity(ball);
-        laws.add(gravity);
+        //laws.add(gravity);
 
         MoveBall mv = new MoveBall(ball);
-        laws.add(mv);
+        //laws.add(mv);
 
         Jump jump = new Jump(ball, scene);
-        laws.add(jump);
+        //laws.add(jump);
 
         FollowBall fb = new FollowBall(scene, ball);
         LockBall lb = new LockBall(scene, ball);
         //laws.add(lb);
-        laws.add(fb);
+        //laws.add(fb);
 
         Race race = new Race(ball, scene);
         //laws.add(race);
@@ -53,8 +53,8 @@ public class ViewTimer {
         //laws.add(tourni);
         //laws.add(tourni);
 
-        laws.add(co);
-        laws.add(ci);
+        //laws.add(co);
+        //laws.add(ci);
         
         FinishLine finishLine = new FinishLine(path,ball,controller);
         laws.add(finishLine);
@@ -91,7 +91,7 @@ public class ViewTimer {
     }
 
     public void play() {
-        timer.start();
+        //timer.start();
     }
 
 

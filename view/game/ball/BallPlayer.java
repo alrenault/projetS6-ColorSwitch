@@ -70,8 +70,8 @@ public class BallPlayer extends Player {
     private Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
-        //player.setCenterX(scene.getWidth() / 2);
-        //player.setCenterY(scene.getHeight() - 150);
+        player.setCenterX(scene.getWidth() / 2);
+        player.setCenterY(scene.getHeight() * 4 / 5);
 
         addSL(player);
         ball.getChildren().add(player);
