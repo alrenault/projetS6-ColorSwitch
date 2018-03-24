@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 /**
  * Formulaire pour modifier les parametres de la base de données
@@ -26,7 +27,9 @@ public class ViewParamDBForm {
         HBox ligne_user = new HBox();
         HBox ligne_psswd = new HBox();
         HBox ligne_ports = new HBox();
-
+        l_userDB.setTextFill(Color.WHITE);
+        l_n_ports.setTextFill(Color.WHITE);
+        l_password_DB.setTextFill(Color.WHITE);
 
         l_userDB.setText("Nom d'utilisateur root");
         l_password_DB.setText("Mot de passe root");
