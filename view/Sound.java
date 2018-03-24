@@ -8,6 +8,9 @@ import javax.swing.ImageIcon;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 
+/**
+  Contient les sons et musiques utilisés par le jeu*
+ */
 public class Sound {
 	
 	/**

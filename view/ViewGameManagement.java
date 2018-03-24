@@ -104,10 +104,6 @@ class ViewGameManagement {
         root.getChildren().add(group);
     }
 
-    public void construtionUnivLaws(){
-
-    }
-
     /**
      * Construit les obstacles depuis un ensemble de modèle d'obstacle présent dans un path
      * @param path Le path où se trouvent les modèles

@@ -5,17 +5,45 @@ import javafx.scene.Scene;
 import view.ball.BallPlayer;
 
 /**
- *
+ * La loi pour la mode race
  */
 public class Race implements UseLaw {
 
+	/**
+	 * Le joueur
+	 */
     private BallPlayer ball;
+    
+    /**
+     * La scène où se trouve le joueur
+     */
     private Scene scene;
+    
+    /**
+     * Le moment de début
+     */
     private double startTime;
+    
+    /**
+     * Le moment présent
+     */
     private double currentTime;
+    
+    /**
+     * La durée du jeu
+     */
     private double duration;
+    
+    /**
+     * La vitesse de défilement
+     */
     private double speed;
 
+    /**
+     * Constructeur de la loi permettant de joueur au mode race
+     * @param ball La balle représentant le joueur
+     * @param scene La scène
+     */
     public Race(BallPlayer ball, Scene scene) {
         this.ball = ball;
         this.scene = scene;

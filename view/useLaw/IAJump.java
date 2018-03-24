@@ -10,9 +10,6 @@ public class IAJump implements UseLaw {
 
     @Override
     public void apply() {
-        //KeyEvent space = new KeyEvent();
-        //EventTarget eventTarget;
-        //Event.fireEvent(eventTarget, new KeyEvent());
 
     }
 

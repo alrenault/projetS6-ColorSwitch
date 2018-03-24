@@ -19,43 +19,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Le chemin d'obstacle construit
  */
 public class ViewPath {
-    /**
-     *
+   
+	/**
+     * La liste des obstacles contenus dans le ViewPath
      */
     private  List<Obstacle> obstacles;
+    
     /**
-     *
+     * La liste des obstacles contenus dans le ViewPath
      */
     private  List<Item> items;
+    
     /**
-     *
+     * La liste des shapes des obstacles contenus dans le ViewPath
      */
     private  List<Shape> obstaclesShapes;
 
     /**
-     *
+     * La liste des shapes des items contenus dans le ViewPath
      */
     private  List<Shape> itemsShapes;
+    
     /**
-     *
+     * Le path contenant les modèles des obstacles, ...
      */
     private Path path;
+    
     /**
-     *
+     * Le groupe contenant les obstacles
      */
     private Group jObstacles;
+    
     /**
-     *
+     * Le groupe contenant les items
      */
     private Group jItems;
 
+    /**
+     * Le rectangle représentant la ligne d'arrivée
+     */
     private Rectangle finishLine;
     
+    /**
+     * La coordonné y de la ligne d'arrivée
+     */
     private double yFinishLine=Double.MAX_VALUE;
 
+    /**
+     * Constructeur d'un ViewPath
+     * @param path Path contenant les obstacles, ...
+     */
     public ViewPath(Path path) {
         this.path = path;
 
@@ -80,9 +96,6 @@ public class ViewPath {
             finishLine.setFill(Color.RED);
             yFinishLine = path.getFinishLine();
         }
-
-        //buildObstacles(path);
-        //buildItems(path);
     }
 
     /**
@@ -96,7 +109,12 @@ public class ViewPath {
          this.path.cleanPath();
 
     }
-    //ADD
+    
+    /**
+     * Rajoute un obstacles au ViewPath
+     * @param mo Le modèle de l'obstacle à rajouter
+     * @return L'obstacle ajouté
+     */
     private Obstacle addObstacle(ModelObstacle mo) {
         Obstacle obstacle = BuildObstacle.build(mo);
         obstacles.add(obstacle);
@@ -105,6 +123,9 @@ public class ViewPath {
         return obstacle;
     }
 
+    /**
+     * Crée un nouveau modèle d'obstacle, de colorSwitch et de Star, les construit et les rajoutes au ensembles du ViexPath
+     */
     public void addNewObstacle() {
         ModelObstacle mo = path.addNewObstacle();
         Obstacle o = addObstacle(mo);
@@ -131,6 +152,11 @@ public class ViewPath {
 
     }
 
+    /**
+     * Ajoute un Item dans la liste d'Item
+     * @param mi Le modèle depuis lequel on construit l'item
+     * @return L'item ajouté
+     */
     private Item addItem(ModelItem mi) {
         Item item = BuildItem.build(mi);
         items.add(item);
@@ -138,13 +164,20 @@ public class ViewPath {
         return item;
     }
 
-    //REMOVE
+    /**
+     * Supprime un obstacles au Path
+     * @param mo Le modèle de l'obstacle à supprimer
+     */
     public void removeObstacle(ModelObstacle mo) {
         Obstacle obstacle = BuildObstacle.build(mo);
         obstacles.remove(obstacle);
         obstaclesShapes.removeAll(obstacle.getShapeList());
     }
 
+    /**
+     * Supprime un item au ViewPath
+     * @param i L'item à supprimer
+     */
     public void removeItem(Item i) {
 
         for (Shape s : i.getShapeList()) {
@@ -155,6 +188,10 @@ public class ViewPath {
         path.remove(i.getModel_item());
     }
 
+    /**
+     * Supprime un obstacle au ViewPath
+     * @param o L'obstacle à supprimer
+     */
     public void removeObstacle(Obstacle o) {
         for (Shape s : o.getShapeList()) {
             s.setFill(Color.TRANSPARENT);
@@ -170,36 +207,62 @@ public class ViewPath {
 
     }
 
+    /**
+     * Supprime un item au Path
+     * @param mi Le modèle de l'item à supprimer
+     */
     public void removeItem(ModelItem mi) {
         Item item = BuildItem.build(mi);
         items.remove(item);
         itemsShapes.removeAll(item.getShapeList());
     }
 
-    //GET
+    /**
+     * Accesseur de la liste d'obstacles
+     * @return La liste des obstacles
+     */
     public List<Obstacle> getObstacles() {
         return obstacles;
     }
 
+    /**
+     * Accesseur de la liste des items
+     * @return Le liste des items
+     */
     public List<Item> getItems() {
         return items;
     }
 
+    /**
+     * Accesseur de la listes des shapes des obstacles
+     * @return La listes des shapes des obstacles
+     */
     public List<Shape> getObstaclesShapes() {
         return obstaclesShapes;
     }
 
+    /**
+     * Accesseur de la listes des shapes des obstacles
+     * @return La listes des shapes des obstacles
+     */
     public List<Shape> getItemsShapes() {
         return itemsShapes;
     }
 
-    //BUILD
+    /**
+     * Construit les obstacles contenus dans le path
+     * @param path Le path
+     */
     public void buildObstacles(Path path) {
         for (ModelObstacle mo : path.getObstacles()) {
             addObstacle(mo);
         }
     }
 
+    /**
+     * Construit les items contenus dans le path
+     * @param path La path
+     */
     public void buildItems(Path path) {
         for (ModelItem mi : path.getItem()) {
             addItem(mi);
@@ -207,21 +270,34 @@ public class ViewPath {
     }
 
 
+    /**
+     * Accesseur du groupe des obstacles
+     * @return Le groupe d'obstacles
+     */
     public Group getjObstacles() {
         return jObstacles;
     }
 
-
+    /**
+     * Accesseur du groupe des items
+     * @return Le groupe d'items
+     */
     public Group getjItems() {
         return jItems;
     }
 
-
+    /**
+     * Accesseur de la ligne d'arrivée
+     * @return La ligne d'arrivée
+     */
     public Rectangle getFinishLine() {
         return finishLine;
     }
 
-
+    /**
+     * Accesseur de la coordonnée en y de la ligne d'arrivée
+     * @return La coordonnées en y de la ligne d'arrivée
+     */
 	public double getYFinishLine() {
 		return yFinishLine;
 	}

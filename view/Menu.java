@@ -54,15 +54,7 @@ class Menu {
         Group root = new Group();
         ImageLoader imageLoader = new ImageLoader();
 
-        //VBox vColor = new VBox(10);
-
-
-        //vColor.getChildren().add(colorSwitch);
-        //root.getChildren().add(vColor);
-
         VBox menu = new VBox(25);
-        //Circle c = new Circle(100,100,100,Color.BLUE);
-        //root.getChildren().add(c);
         
         //Init Title
         
@@ -70,8 +62,6 @@ class Menu {
         Font f = Font.font("Verdana", FontWeight.BOLD, 50);
         colorSwitch.setFont(f);
         colorSwitch.setTextFill(colorExterne.get(i));
-        //colorSwitch.setTranslateX(125);
-        //colorSwitch.setTranslateY(50);
         
 
         double x = View.tailleX / 2.0;
@@ -105,9 +95,7 @@ class Menu {
         
         
         ImageView imageScore = imageLoader.getScorePicture();
-        
-        System.out.println(imageScore == null);
-        
+                
         imageScore.setFitHeight(50);
         imageScore.setFitWidth(50);
         
@@ -126,7 +114,6 @@ class Menu {
 
         
         randomButton.getChildren().add(cic.getObstacle());
-        //randomButton.getChildren().add(triangle);
         randomButton.getChildren().add(playRandom);
         
         //Parameter Button
@@ -153,8 +140,6 @@ class Menu {
         Group playNormal = FilledTriangle.create(320, y, side/2, Color.ORANGERED, "Normal");
         Group playHard = FilledTriangle.create(520, y, side/2, Color.DARKRED, "Hard");
 
-        //HBox infinite_difficulties = new HBox();
-        //infinite_difficulties.setAlignment(Pos.CENTER);
         
         Group infinite_difficulties = new Group();
 
@@ -178,13 +163,6 @@ class Menu {
        
         
 
-
-
-        //vBox.getChildren().add(goContinuEasy);
-        //vBox.getChildren().add(goContinuNormal);
-        //vBox.getChildren().add(goContinuHard);
-        
-
         menu.setTranslateY(-100);
 
         goLvl.setMinHeight(buttonHeight);
@@ -199,16 +177,8 @@ class Menu {
 
 
         Scene sc = new Scene(root, View.tailleX, View.tailleY);
-        //vBox.setStyle("-fx-background-color: #393939");
         sc.setFill(Colorable.BLACK);
        
-
-
-        
-
-        
-        
-        
         
 
         //Construction

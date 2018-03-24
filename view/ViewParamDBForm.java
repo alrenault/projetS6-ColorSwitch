@@ -14,6 +14,11 @@ import javafx.scene.paint.Color;
  * Formulaire pour modifier les parametres de la base de données
  */
 public class ViewParamDBForm {
+	
+	/**
+	 * Crée le formulaire
+	 * @return Le formulaire
+	 */
     public static Scene formParamDB(){
         Group root = new Group();
         Button valider = new Button();

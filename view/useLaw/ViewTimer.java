@@ -14,20 +14,56 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Traitement des lois à chaque frame
+ */
 public class ViewTimer {
 
     /**
-     *
+     * L'objet dont la méthod handle se répète continuellement
      */
     private AnimationTimer timer;
+    
+    /**
+     * Ensemble de loi
+     */
     private HashSet<UseLaw> laws;
+    
+    /**
+     * Référence vers le controlleur
+     */
     private Controller controller;
+    
+    /**
+     * La scène
+     */
     private Scene scene;
+    
+    /**
+     * Le joueur
+     */
     private BallPlayer ballPlayer;
+    
+    /**
+     * Le viewPath contenant les obstacles
+     */
     private ViewPath path;
+    
+    /**
+     * L'interface du jeu
+     */
     private Group interfaceGame;
 
+    
+    /**
+     * Constructeur de ViewTimer
+     * @param ball La balle représentant le joueur
+     * @param path Le viewPath avec l'ensemble des obstacles
+     * @param controller Référence ves le controlleur
+     * @param scene La scène
+     * @param u L'univers avec les lois
+     * @param interfaceGame L'interface du jeu
+     */
     public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene,Universe u, Group interfaceGame) {
     	this.controller = controller;
         this.scene=scene;
@@ -71,18 +107,22 @@ public class ViewTimer {
 
         };
     }
+    
+    /**
+     * Crée l'ensemble des lois
+     * @param u L'univers avec les lois
+     * @return L'ensemble des lois utilisées
+     */
     public HashSet<UseLaw> createSet(Universe u){
         HashSet<UseLaw> res=new HashSet<>();
         for (LawType l : u.getBanq()){
             switch (l){
-                case J:
-                    res.add(new J()); break;
                 case Jump:
                     res.add(new Jump(ballPlayer,scene)); break;
                 case Race:
                     res.add(new Race(ballPlayer,scene)); break;
                 case Gravity:
-                    res.add(new JtGravity(ballPlayer)); break;
+                    res.add(new Gravity(ballPlayer)); break;
                 case MoveBall:
                     res.add(new MoveBall(ballPlayer)); break;
                 case CollisionItem:
@@ -91,8 +131,6 @@ public class ViewTimer {
                     res.add(new CollisionObstacle(ballPlayer,path,controller)); break;
                 case LockBall:
                     res.add(new LockBall(scene,ballPlayer, interfaceGame)); break;
-                case Tourni:
-                    res.add(new Tourni(scene)); break;
                 case FinishLine:
                     res.add(new FinishLine(path,ballPlayer,controller)); break;
                 case LabelScore:
@@ -108,22 +146,33 @@ public class ViewTimer {
         return res;
     }
 
+    /**
+     * Lance le timer
+     */
     public void play() {
         timer.start();
     }
 
 
-    //public ViewTimer(Game model.game,ViewPath path,BallPlayer ball, Scene scene) {
 
-
+    /**
+     * Démarre le timer
+     */
     public void start() {
         timer.start();
     }
 
+    /**
+     * Accesseur de l'ensemble des lois utilisées
+     * @return L'ensemble des lois utilisées
+     */
     public HashSet<UseLaw> getLaws() {
         return laws;
     }
 
+    /**
+     * Vide l'ensemble des lois utilisées
+     */
     public void clean() {
         laws.clear();
     }

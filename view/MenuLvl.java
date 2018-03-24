@@ -120,7 +120,6 @@ class MenuLvl {
         
         race.setOnAction(event -> controller.startGame(Difficulty.RANDOM, UniverseType.Race));
         gravity.setOnAction(event -> controller.startGame(Difficulty.RANDOM, UniverseType.Gravity));
-        //touch.setOnAction();
         return sc;
 
 

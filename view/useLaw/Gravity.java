@@ -2,8 +2,15 @@ package view.useLaw;
 
 import view.ball.BallPlayer;
 
+/**
+ * Loi créant la gravité
+ *
+ */
 public class Gravity implements UseLaw {
 
+	/**
+	 * La balle soumise à la gravité
+	 */
 	private BallPlayer ball;
 
     /**

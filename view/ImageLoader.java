@@ -5,6 +5,9 @@ import java.net.URL;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * Le chargeur d'image
+ */
 public class ImageLoader {
 	
 	/**

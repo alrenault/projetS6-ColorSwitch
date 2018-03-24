@@ -44,6 +44,15 @@ class FilledTriangle {
         return triangle;
     }
     
+    /**
+     * Crée un triangle plein
+     * @param x Le x du centre du triangle
+     * @param y Le y du centre du triangle
+     * @param side La longueur d'un côté
+     * @param color La couleur du triangle
+     * @param text Le texte allant avec le triangle
+     * @return Le groupe correcpondant au triangle
+     */
     public static Group create(double x, double y, double side, Color color, String text) {
     	Group level = new Group();
     	
