@@ -21,6 +21,7 @@ import view.game.path.obstacle.CircleInCircle;
 import javafx.scene.image.*;
 import javafx.scene.shape.*;
 
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,7 @@ class Menu {
         Integer buttonHeight = 50;
 
         Group root = new Group();
+        ImageLoader imageLoader = new ImageLoader();
 
         //VBox vColor = new VBox(10);
 
@@ -97,11 +99,12 @@ class Menu {
         Circle circleScore = new Circle(25,25,35,Color.DARKRED);
         score.getChildren().add(circleScore);
         
-        String scoreURL = "src/ressources/trophy_icon.jpg";
-        final ImageView imageScore = new ImageView();   
-        Image scoreMedia = new Image(Paths.get(scoreURL).toUri().toString());
         
-        imageScore.setImage(scoreMedia);
+        
+        
+        ImageView imageScore = imageLoader.getScorePicture();
+        
+        System.out.println(imageScore == null);
         
         imageScore.setFitHeight(50);
         imageScore.setFitWidth(50);
@@ -130,17 +133,13 @@ class Menu {
         Circle circleParameter = new Circle(25,25,35,Color.GREY);
         parameter.getChildren().add(circleParameter);
         
-        String imageParam = "src/ressources/42695.png";
-        final ImageView selectedImage = new ImageView();   
-        Image image1 = new Image(Paths.get(imageParam).toUri().toString());
+        final ImageView imageParameters = imageLoader.getParametersPicture();
         
-        selectedImage.setImage(image1);
-        
-        selectedImage.setFitHeight(50);
-        selectedImage.setFitWidth(50);
+        imageParameters.setFitHeight(50);
+        imageParameters.setFitWidth(50);
 
         
-        parameter.getChildren().add(selectedImage);
+        parameter.getChildren().add(imageParameters);
         
         parameter.setTranslateX(40);
         parameter.setTranslateY(-50);
@@ -165,7 +164,15 @@ class Menu {
         root.setTranslateY(-100);
         
         
+
+////////////////////////////////////////////////////
+
+        Label authors = new Label("Alexis, Vincent, Quentin\n\t Groupe 23");
+        Font autFont = Font.font("Tahoma", FontWeight.LIGHT, 20);
+        authors.setFont(autFont);
+        authors.setTextFill(Color.DEEPSKYBLUE);
         
+////////////////////////////////////////////////////
        
         
 
@@ -199,7 +206,7 @@ class Menu {
 
         
         
-        goLvl.setOnAction(event -> controller.menuLvl());
+        
         
 
         //Construction
@@ -207,6 +214,7 @@ class Menu {
         menu.getChildren().add(circleButtons);
         menu.getChildren().add(infinite_difficulties);
         menu.getChildren().add(goLvl);
+        menu.getChildren().add(authors);
         
         
         
@@ -232,6 +240,9 @@ class Menu {
         playEasy.setOnMouseClicked(event -> controller.startGame(Difficulty.EASY));
         playNormal.setOnMouseClicked(event -> controller.startGame(Difficulty.NORMAL));
         playHard.setOnMouseClicked(event -> controller.startGame(Difficulty.HARD));
+        
+        //Levels
+        goLvl.setOnAction(event -> controller.menuLvl());
 
         return sc;
     }

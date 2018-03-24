@@ -15,9 +15,13 @@ public class Sound {
 	private static AudioClip gameOver;
 	private static AudioClip star;
 	
+	private static double volume;
+	
 	private static Sound sound;
 
 	public Sound() {
+		
+		volume = 0.1;
 		
 		try {
 			
@@ -36,7 +40,9 @@ public class Sound {
 			URL musicURL = this.getClass().getResource("/resources/ColorSuitch.mp3");
 			Media musicMedia = new Media(musicURL.toString());
 			music = new AudioClip(musicMedia.getSource());
-			music.setCycleCount(AudioClip.INDEFINITE);
+			music.setCycleCount(999);
+			
+			unMuteSound();
 			
 			//String musicURL = "src/ressources/Spring.wav";
 			//Media musicMedia = new Media(Paths.get(musicURL).toUri().toString());
@@ -49,24 +55,33 @@ public class Sound {
 	}
 	
 	public static void playJumpSound() {
-		jump.play();
+		if (jump != null) jump.play();
 	}
 	
 	public static void playMusic() {
-		music.play();
+		if (music != null) music.play();
 	}
 	
 	public static void playGameOverSOund() {
-		gameOver.play();
+		if (gameOver != null) gameOver.play();
 	}
 	
 	public static void playStarSound() {
-		star.play();
+		if (star != null) star.play();
 	}
 	
 	
 	public static void muteSound() {
 		music.setVolume(0);
 		jump.setVolume(0);
+		gameOver.setVolume(0);
+		star.setVolume(0);
+	}
+	
+	public static void unMuteSound() {
+		music.setVolume(volume);
+		jump.setVolume(volume);
+		gameOver.setVolume(volume);
+		star.setVolume(volume);
 	}
 }
