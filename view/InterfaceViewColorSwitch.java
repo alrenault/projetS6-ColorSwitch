@@ -7,26 +7,28 @@ import view.game.Game;
 import java.util.LinkedList;
 
 /**
- *
+ * Interface représentant la vue (MVC) de ColorSwitch
  */
 public interface InterfaceViewColorSwitch {
+	
     /**
-     *
+     * Affiche la vue par défaut
      */
     void basicView();
 
     /**
-     *
+     * Affiche le menu principal
      */
     void viewMenu();
 
     /**
-     *
+     * Affiche le menu des niveaux
      */
     void viewMenuLvl();
 
     /**
-     * @param thisGame
+     * Affiche la page de jeu
+     * @param thisGame Le jeu a afficher
      */
     void viewGame(Game thisGame);
 
@@ -35,6 +37,9 @@ public interface InterfaceViewColorSwitch {
      */
     void viewGameOver();
 
+    /**
+     * Affiche la page de fin de partie
+     */
     void viewGameEnd();
 
     /**
@@ -50,7 +55,8 @@ public interface InterfaceViewColorSwitch {
     Controller getController();
 
     /**
-     * @param controller
+     * Mutateur de la référence au controlleur
+     * @param controller La nouvelle référence au controlleur
      */
     void setController(Controller controller);
 
@@ -66,5 +72,8 @@ public interface InterfaceViewColorSwitch {
      */
     void viewScores(LinkedList<Record> liste);
 
+    /**
+     * Affiche la page de modification des paramètres
+     */
     void viewParams();
 }

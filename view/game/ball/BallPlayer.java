@@ -15,22 +15,68 @@ import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import model.modelBall.Ball;
 
+/**
+ * Ball représentant un joueur
+ */
 public class BallPlayer extends Player {
 
+	/**
+	 * Taille de la ball
+	 */
     private double size;
+    
+    /**
+     * Couleur de la balle
+     */
     private Color color;
+    
+    /**
+     * Groupe représentant la balle
+     */
     private Group shape;
+    
+    /**
+     * Scène à laquelle appartient le joueur
+     */
     private Scene scene;
+    
+    /**
+     * La transition représentant la gravité
+     */
     private TranslateTransition gravity;
+    
+    /**
+     * La transition représentant le saut du joueur
+     */
     private TranslateTransition tt2;
-    private TranslateTransition tt3;
+    
+    /**
+     * Objet permettant de trouver les coordonnées et d'autres informations
+     */
     private Bounds coord;
-    private double jumpHeight = 50;
+    
+    /**
+     * La hauteur du saut du joueur
+     */
+    private double jumpHeight = 60;
+    
+    /**
+     * Coordonnée en y de la limite de saut. Si elle est dépassée, la caméra montera
+     */
     private double limiteJump;
+    
+    /**
+     * Transition lorsque la limiteJump est atteinte
+     */
     private TranslateTransition ttl;
-    //private Ball ball;
 
 
+    /**
+     * Constructeur d'une balle représentant le joueur 
+     * @param size La taille de la balle
+     * @param color La couleur de la balle
+     * @param scene La scène à laquelle la balle appartient
+     */
     public BallPlayer(float size, Color color, Scene scene) {
         super();
         this.model_ball = new Ball(size, color);
@@ -46,6 +92,11 @@ public class BallPlayer extends Player {
 
     }
 
+    /**
+     * Constructeur d'une balle représentant le joueur 
+     * @param ball La taille de la balle
+     * @param scene La scène à laquelle la balle appartient
+     */
     public BallPlayer(Ball ball, Scene scene) {
         super();
 
@@ -66,7 +117,10 @@ public class BallPlayer extends Player {
 
     }
 
-
+    /**
+     * Construit la balle
+     * @return Un groupe représentant la balle
+     */
     private Group buildBall() {
         Group ball = new Group();
         Circle player = new Circle(size, color);
@@ -83,7 +137,7 @@ public class BallPlayer extends Player {
         Listeners l = new Listeners(scene, this);
 
         //animation si en dessous si assez bas
-        tt2 = new TranslateTransition(Duration.millis(150), ball);
+        tt2 = new TranslateTransition(Duration.millis(250), ball);
         tt2.setByY(-jumpHeight);
         tt2.setCycleCount(1);
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
@@ -95,29 +149,13 @@ public class BallPlayer extends Player {
             }
         });
 
-
-        //animation si se rapproche des 50% de la hauteur de la fenetre
-       /* tt3 = new TranslateTransition(Duration.millis((150 * ((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2)) / jumpHeight), ball);
-        tt3.setByY(-((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2));
-        tt3.setCycleCount(1);
-        //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
-        tt3.setAutoReverse(false);
-        tt3.setInterpolator(Interpolator.EASE_OUT);
-        tt3.setOnFinished(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                gravity.play();
-            }
-        });*/
-
         l.jump(ball);
-
-
-        //tt1.play();
 
         return ball;
 
     }
 
+    
     public double getX() {
         coord = shape.localToScene(shape.getBoundsInLocal());
         return coord.getMinX() + coord.getWidth() / 2;
@@ -129,89 +167,48 @@ public class BallPlayer extends Player {
 
     }
 
+    /**
+     * Accesseur des coordonnées de la balle sous forme de point 2D
+     * @return Les coordonnées de la balle sous forme de point 2D
+     */
     public Point2D getCoord() {
         return new Point2D(getX(), getY());
     }
 
 
+    /**
+     * Applique la gravité au joueur
+     */
     public void applyGravity() {
         gravity = new TranslateTransition(Duration.seconds(4), shape);
         gravity.setByY(scene.getHeight() + size);
-        //tt1.setCycleCount(4);
-        //gravity.setCycleCount((int) Double.POSITIVE_INFINITY);//mouvement a l'infini
         gravity.setAutoReverse(false);
-        //gravity.setInterpolator(Interpolator.EASE_IN);
         gravity.setInterpolator(Interpolator.LINEAR);
-        //gravity.play();
 
     }
 
-    //static int xj = 100;
 
 
     public void jump() {
-        // TODO Auto-generated method stub
         applyGravity();
         gravity.pause();
         gravity.stop();
         tt2.stop();
-        //tt3.stop();
-       /* if (scene.getHeight() / 2 - jumpHeight >= getY()) {
-            tt3.setByY(-((coord.getMinY() + coord.getHeight() / 2) - scene.getHeight() / 2));
-            tt3.play();
-        } else {
-            tt2.play();
-        }*/
         tt2.play();
-        
-        
-        
-        
-        
-        /*
-        Timeline time = new Timeline();
-        KeyValue kv = new KeyValue(shape.translateXProperty(), 2);
-        KeyFrame ke = new KeyFrame(Duration.millis(1000),kv);
-        //time.getKeyFrames().add(ke);
-        
-        xj+=100;
-
-        time.getKeyFrames().addAll(
-                new KeyFrame(Duration.ZERO, // set start position at 0
-                   new KeyValue(shape.translateXProperty(), shape.getTranslateX()),
-                   new KeyValue(shape.translateYProperty(), shape.getLayoutY()-x)),
-
-                new KeyFrame(new Duration(400), // set end position at 40s
-                   new KeyValue(shape.translateXProperty(), 0),
-                   new KeyValue(shape.translateYProperty(), -x,Interpolator.EASE_OUT)));
-        time.play();
-        */
 
     }
 
     public void jumpLimit() {
-        //scene.getCamera().setTranslateY(scene.getCamera().getTranslateY()-100);
-        //Group g = (Group)scene.getRoot();
-        //g.setTranslateY(g.getTranslateY()+100);
-        //scene.getCamera().setLayoutY(scene.getCamera().getLayoutY()-100);
         if (ttl != null) {
-            //ttl.stop();
             ttl.setByY(ttl.getByY());
         } else {
-            ttl = new TranslateTransition(Duration.seconds(0.2), scene.getCamera());
+            ttl = new TranslateTransition(Duration.seconds(0.1), scene.getCamera());
             ttl.setByY(-100);
             ttl.setInterpolator(Interpolator.LINEAR);
 
         }
         ttl.play();
-        //scene.getCamera().setTranslateY(-100);
         limiteJump -= 100;
-        /*TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), scene.getRoot());
-        tt1.setByY(100);
-
-        tt1.setInterpolator(Interpolator.LINEAR);
-
-        tt1.play();*/
     }
 
 
@@ -219,10 +216,18 @@ public class BallPlayer extends Player {
         return size;
     }
 
+    /**
+     * Accesseur du groupe de la balle
+     * @return Le groupe de la balle
+     */
     public Group getShape() {
         return shape;
     }
 
+    /**
+     * Accesseur de la coordonnée en y de la limite de saut
+     * @return La coordonnée y de la limite de saut
+     */
     public double getLimiteJump() {
         return limiteJump;
     }

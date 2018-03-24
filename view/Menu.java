@@ -28,15 +28,16 @@ import java.util.List;
 
 
 /**
- *
+ * Gènere le menu principal
  */
 class Menu {
 
     private static int i = 0;
 
     /**
-     * @param controller
-     * @return
+     * Crée une instance du menu
+     * @param controller Instance du controlleur
+     * @return Une scène représentant le menu principal
      */
     public static Scene createInstance(Controller controller) {
         List<Color> colorExterne = new ArrayList<>();
