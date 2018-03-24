@@ -17,9 +17,6 @@ public class Universe {
         laws = new HashSet<>();
     }
 
-    public void apply(Game game) {
-        laws.forEach(law -> law.apply(game));
-    }
 
     /**
      * Vide les lois

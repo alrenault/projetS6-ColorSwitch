@@ -8,41 +8,47 @@ import java.util.List;
 import java.util.Random;
 
 /**
- *
+  * Modèle de multiple formes
  */
 public class ModelMultiShapes extends ModelObstacle {
-    /**
-     *
+    
+	/**
+     * Le nombre de versions différentes de cet obstacle
      */
     public static final int NBR_VERSIONS = 8;
+    
     /**
-     *
+     * La hauteur maximal des versions de l'obstacles
      */
     private static final double MAX_HEIGHT = 500;
+    
     /**
-     *
+     * Le tableau des versions faciles de l'obstacles
      */
     private static final int[] versionEasy = {4, 6, 7};
+    
     /**
-     *
+     * Le tableau des versions normales de l'obstacles
      */
     private static final int[] versionMedium = {1, 2, 3, 5};
+    
     /**
-     *
+     * Le tableau des versions difficiles de l'obstacles
      */
     private static final int[] versionHard = {0};
+    
     /**
-     *
+     * La largeur de la scène
      */
     private double scWidth;
 
     /**
-     * @param x
-     * @param y
-     * @param colors
-     * @param scWidth
-     * @param version
-     * @param type
+     * Constructeur d'une multiple formes
+     * @param x Position en x du MultiShapes
+     * @param y Position en y du MultiShapes
+     * @param colors La liste des couleurs à utiliser
+     * @param version La version de d'obstacle 
+     * @param type Le type du modèle du MultiShapes
      */
     public ModelMultiShapes(double x, double y, List<Color> colors, double scWidth, int version, ObstacleType type) {
         super(x, y, colors, version, 1, type);
@@ -50,12 +56,12 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     * @param x
-     * @param y
-     * @param colors
-     * @param difficulty
-     * @param scWidth
-     * @param type
+     * Constructeur générant aléatoire une version d'un modèle de multiple formes en fonction de la difficulté choisie
+     * @param x Position en x du MultiShapes
+     * @param y Position en y du MultiShapes
+     * @param colors La liste des couleurs à utiliser
+     * @param difficulty La difficulté du MultiShapes
+     * @param type Le type du modèle
      */
     public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, double scWidth, ObstacleType type) {
         super(x, y, colors, 0, 4, type);
@@ -74,31 +80,10 @@ public class ModelMultiShapes extends ModelObstacle {
         this.scWidth = scWidth;
     }
 
-    /**
-     * @param x
-     * @param y
-     * @param colors
-     * @param difficulty
-     * @param type
-     */
-    public ModelMultiShapes(double x, double y, List<Color> colors, Difficulty difficulty, ObstacleType type) {
-        super(x, y, colors, 0, 4, type);
-        switch (difficulty) {
-            case EASY:
-                version = ModelMultiShapes.getRandomEasyVersion();
-                break;
-            case NORMAL:
-                version = ModelMultiShapes.getRandomMediumVersion();
-                break;
-            default:
-                version = ModelMultiShapes.getRandomHardVersion();
-                break;
-        }
-
-    }
 
     /**
-     * @return
+     * Accesseur d'une version facile aléatoire
+     * @return Le numéro de la version facile
      */
     private static int getRandomEasyVersion() {
         Random r = new Random();
@@ -106,7 +91,8 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     * @return
+     * Accesseur d'une version normale aléatoire
+     * @return Le numéro de la version normale
      */
     private static int getRandomMediumVersion() {
         Random r = new Random();
@@ -114,7 +100,8 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     * @return
+     * Accesseur d'une version difficile aléatoire
+     * @return Le numéro de la version difficile
      */
     private static int getRandomHardVersion() {
         Random r = new Random();
@@ -122,15 +109,13 @@ public class ModelMultiShapes extends ModelObstacle {
     }
 
     /**
-     * @return
+     * Accesseir de la largeur de la scene
+     * @return De la largeur de la scene
      */
     public double getScWidth() {
         return scWidth;
     }
 
-    /**
-     * @return
-     */
     public double getObstacleHeight() {
         return MAX_HEIGHT;
     }

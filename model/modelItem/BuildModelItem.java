@@ -14,11 +14,11 @@ public class BuildModelItem {
      *
      * @param obs       Represente le type d'Item à générer
      * @param posX      La posiion en x de l'Item à générer
-     * @param posY      La posiion en i de l'Item à générer
+     * @param posY      La posiion en y de l'Item à générer
      * @param colors    La liste des couleurs de l'Item à générer
      * @param coefForce La valeur de gravité à appliquer ( cas GravitySwitch)
      * @param radius    la taille de  l'Item à générer
-     * @param nbPoint   le nomnre de points gagnés lors du rammassage de l'Item
+     * @param nbPoint   le nombre de points gagnés lors du rammassage de l'Item
      * @return un Model d'Item corespondant au paramètres
      */
     public static ModelItem build(int obs, double posX, double posY, List<Color> colors, double coefForce, double radius, int nbPoint, double scWidth) {
