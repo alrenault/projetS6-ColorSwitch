@@ -126,6 +126,5 @@ public class ViewTimer {
 
     public void clean() {
         laws.clear();
-        controller.clean();
     }
 }

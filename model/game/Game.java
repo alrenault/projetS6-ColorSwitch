@@ -15,29 +15,68 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class is used to create a model.game
- * You have to use it in the model
- * Only contains data
+ * Cette classe est utilisée pour créer un jeu
+ * Cette classe ne contient que les données relatives au jeu
  */
 
 public class Game {
 
+	/**
+	 * La difficulté de la partie
+	 */
     Difficulty difficulty;
+    
+    /**
+     * La liste de couleurs à utiliser par le jeu
+     */
     List<Color> colors;
+    
+    /**
+     * La scène du jeu
+     */
     Scene scene;
+    
+    /**
+     * La ball représentant le joueur
+     */
     private Ball ball;
+    
+    /**
+     * Le chemin formé d'obstacles
+     */
     private Path path;
+    
+    /**
+     * L'ensemble des lois régissant le jeu
+     */
     private Universe universe;
+    
+    /**
+     * Le score du joueur
+     */
     private Score score;
-    private Stage stage;
+    
+    /**
+     * Le nombre de frame
+     */
     private int nFrame = 0;
 
+    /**
+     * Le constructeur d'un jeu
+     * @param _ball La balle représentant le joueur
+     * @param _path Le chemin d'obstacles
+     * @param _universe L'ensemble de lois
+     */
     public Game(Ball _ball, Path _path, Universe _universe) {
         this.ball = _ball;
         this.path = _path;
         this.universe = _universe;
     }
     
+    /**
+     * Crée une liste de couleurs custem correspondant aux couleurs de Color Switch
+     * @return La liste de couleurs
+     */
     public ArrayList<Color> customColors(){
     	ArrayList<Color> CUSTOM = new ArrayList<>();
         CUSTOM.add(Colorable.YELLOW);
@@ -48,12 +87,14 @@ public class Game {
         return CUSTOM;
     }
 
+    /**
+     * Constructeur d'un jeu infini
+     */
     public Game() {
         List<Color> CUSTOM = customColors();
 
         this.path = new Path(600, 1000, CUSTOM);
 
-        //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
         this.ball = new Ball(10, CUSTOM.get(0));
 
         this.universe = new Universe();
@@ -64,13 +105,15 @@ public class Game {
     }
     
     
-
+    /**
+     * Constructeur d'un jeu avec un certain nombre d'obstacles
+     * @param nbr_obs Le nombre d'obstacle à créer
+     */
     public Game(int nbr_obs) {
         List<Color> CUSTOM = customColors();
 
         this.path = new Path(600, 1000, CUSTOM, nbr_obs);
 
-        //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
         this.ball = new Ball(10, CUSTOM.get(0));
 
         this.universe = new Universe();
@@ -78,27 +121,11 @@ public class Game {
         this.score = new Score();
     }
 
-
-    public Game(Scene scene) {
-
-
-        List<Color> CUSTOM = customColors();
-
-
-        this.path = new Path(scene.getWidth(), scene.getHeight(), CUSTOM, 10, Difficulty.EASY);
-
-        //this.ball = new BallPlayer(10, CUSTOM.get(0), scene);
-
-
-        this.universe = new Universe();
-
-        this.score = new Score();
-
-        //ViewGameManagement.view(this,scene,controller);
-
-
-    }
-
+    /**
+     * Constructeur d'un jeu en fonction d'une difficulté et d'un type d'univers
+     * @param difficulty La difficulté de la partie
+     * @param type Le type d'univers utilisé
+     */
     public Game(Difficulty difficulty, UniverseType type) {
 
 
@@ -115,90 +142,34 @@ public class Game {
     }
 
 
-    public void defeat() {
-
-        stage.close();
-    }
-
-
-    public void hello(Stage primaryStage) {
-
-
-        List<Color> CUSTOM = new ArrayList<>();
-        CUSTOM.add(Colorable.YELLOW);
-        CUSTOM.add(Colorable.PURPLE);
-        CUSTOM.add(Colorable.ROSE);
-        CUSTOM.add(Colorable.BLUE);
-
-        //Set Stage
-        primaryStage.setTitle("ColorSuitch");
-        primaryStage.getIcons().add(new Image("file:../view/color_icon.png"));
-
-        //Set Scene
-        Group root = new Group();
-        Scene scene1 = new Scene(root, 600, 1000);
-        //GestionDB g=new GestionDB();
-
-        Group jBall = new Group();
-        Group jObstacles = new Group();
-        Group jItems = new Group();
-
-        root.getChildren().add(jBall);
-        root.getChildren().add(jObstacles);
-        root.getChildren().add(jItems);
-
-
-        Path p = new Path(scene1.getWidth(), scene1.getHeight(), CUSTOM, 10, Difficulty.EASY);
-
-        //jObstacles.getChildren().add(p.getPath());
-
-
-        scene1.setFill(Colorable.BLACK);
-
-
-        Label frame = new Label("Frame : " + nFrame);
-        root.getChildren().add(frame);
-
-
-        //-------------------------------------------------------------------
-
-
-        //Pour le joueur
-
-
-        //BallPlayer player = new BallPlayer(10, CUSTOM.get(0), scene1);
-
-		/*player.setCenterX(250);
-
-		player.setCenterY(490);*/
-
-        //jBall.getChildren().add(player.getShape());
-        //player.applyGravity();
-
-
-        primaryStage.setScene(scene1);
-        primaryStage.show();
-
-    }
-
-    public void jump() {
-        // TODO Auto-generated method stub
-
-    }
-
-
+    /**
+     * Accesseur de la balle
+     * @return La balle
+     */
     public Ball getBall() {
         return ball;
     }
 
+    /**
+     * Accesseur du chemin d'obstacle
+     * @return Le chemin d'obstacle
+     */
     public Path getPath() {
         return path;
     }
 
+    /**
+     * Accesseur de l'ensemble des lois
+     * @return L'esemble des lois
+     */
     public Universe getUniverse() {
         return universe;
     }
 
+    /**
+     * Accesseur du score
+     * @return Le score
+     */
     public Score getScore() {
         return score;
     }
@@ -208,10 +179,6 @@ public class Game {
      */
     public void clean() {
         this.path.cleanPath();
-
-
-
-        this.universe.cleanUniverse();
 
         this.score = new Score();
     }

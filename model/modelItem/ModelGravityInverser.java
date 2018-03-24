@@ -24,11 +24,6 @@ public class ModelGravityInverser extends ModelGravitySwitch {
         this.size = 3.0;
     }
 
-    /**
-     * Accesseur de la valeur de la taille du GravityInverser
-     *
-     * @return La taille du GravityInverser
-     */
     @Override
     public double getSize() {
         return size;

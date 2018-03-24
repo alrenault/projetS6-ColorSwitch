@@ -172,11 +172,4 @@ public class Controller {
 	public void parametres(){
 	    view.viewParams();
     }
-
-	/**
-	 * Permet de nettoyer le jeu
-	 */
-    public void clean() {
-        //TODO
-    }
 }

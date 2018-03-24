@@ -6,7 +6,7 @@ import model.ItemType;
 import java.util.List;
 
 /**
- *
+ * Modèle d'une ligne invisible
  */
 public class ModelInvisibleLine extends ModelItem {
     /**
