@@ -125,8 +125,12 @@ public class ViewTimer {
     }
 
     public void clean() {
+<<<<<<< HEAD
+        laws.clear();
+=======
     	timer.stop();
         //laws.clear();
         //controller.clean();
+>>>>>>> 1d89cfd390bd2f643cebbe6cc3462fbd60301f40
     }
 }

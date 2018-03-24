@@ -122,7 +122,7 @@ class Menu {
         
         CircleInCircle cic = (CircleInCircle) BuildObstacle.build(new ModelCircleInCircle(x - 15, y - 13, colorExterne, 0, ObstacleType.CircleInCircle));
 
-        Polygon playRandom = FilledTriangle.create(x, y, side, Colorable.WHITE[0]);
+        Polygon playRandom = FilledTriangle.create(x, y, side, Colorable.WHITE);
 
         
         randomButton.getChildren().add(cic.getObstacle());

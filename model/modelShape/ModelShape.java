@@ -180,19 +180,14 @@ public abstract class ModelShape implements Colorable {
         return width;
     }
 
-    /**
-     *Vérifie si la pos_color reste dans la taille de colors après incrémentation
-     */
+    
     public void verifPosColor() {
         pos_color++;
         if (pos_color == colors.size())
             pos_color = 0;
     }
 
-    /**
-     * Colorie une (JavaFX) Shape en fonction de l'ensemble de couleurs qui lui est associe
-     * @param s La (JavaFX) Shape a colorier
-     */
+   
     public void color(Shape s) {
         Iterator<Color> it = colors.iterator();
         Color c = null;

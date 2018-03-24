@@ -4,13 +4,14 @@ package model.game;
  * Modelise le joueur de l'appli (Non utlisée ( on ne demande pas le nom du joueur au début)
  */
 class Player {
+	
     /**
      * Le nom du joueur
      */
-
     private String namePlayer;
+    
     /**
-     *
+     * Le score du joueur
      */
     private Score scorePlayer;
 

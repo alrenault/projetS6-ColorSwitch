@@ -21,7 +21,6 @@ class ChangeurGravite extends Modifiers {
      */
     public ChangeurGravite(int nbPoints, double x, double y, double force) {
         super();
-        // super(new GravitySwitch(x,y,null),nbPoints);
         this.force = force;
     }
 
