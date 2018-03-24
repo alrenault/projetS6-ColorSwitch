@@ -25,7 +25,7 @@ public class BallPlayer extends Player {
     private TranslateTransition tt2;
     private TranslateTransition tt3;
     private Bounds coord;
-    private double jumpHeight = 50;
+    private double jumpHeight = 60;
     private double limiteJump;
     private TranslateTransition ttl;
     //private Ball ball;
@@ -83,7 +83,7 @@ public class BallPlayer extends Player {
         Listeners l = new Listeners(scene, this);
 
         //animation si en dessous si assez bas
-        tt2 = new TranslateTransition(Duration.millis(150), ball);
+        tt2 = new TranslateTransition(Duration.millis(250), ball);
         tt2.setByY(-jumpHeight);
         tt2.setCycleCount(1);
         //tt1.setCycleCount((int)Double.POSITIVE_INFINITY);//mouvement a l'infini
@@ -198,7 +198,7 @@ public class BallPlayer extends Player {
             //ttl.stop();
             ttl.setByY(ttl.getByY());
         } else {
-            ttl = new TranslateTransition(Duration.seconds(0.2), scene.getCamera());
+            ttl = new TranslateTransition(Duration.seconds(0.1), scene.getCamera());
             ttl.setByY(-100);
             ttl.setInterpolator(Interpolator.LINEAR);
 
