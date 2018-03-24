@@ -20,54 +20,19 @@ public class ViewTimer {
      *
      */
     AnimationTimer timer;
-    List<UseLaw> laws;
+    HashSet<UseLaw> laws;
     Controller controller;
     private Scene scene;
     private BallPlayer ballPlayer;
     private ViewPath path;
 
-    public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene) {
-        laws = new ArrayList<>();
+    public ViewTimer(BallPlayer ball, ViewPath path, Controller controller, Scene scene,Universe u) {
         this.controller = controller;
         this.scene=scene;
       this.ballPlayer=ball;
-        J j = new J();
-
-        LabelScore score = new LabelScore(controller.getScore(), scene);
-        laws.add(score);
-        //laws.add(j);
-
-        JtGravity gravity = new JtGravity(ball);
-        //laws.add(gravity);
-
-        MoveBall mv = new MoveBall(ball);
-        //laws.add(mv);
-
-        Jump jump = new Jump(ball, scene);
-        //laws.add(jump);
-
-        FollowBall fb = new FollowBall(scene, ball);
-        LockBall lb = new LockBall(scene, ball);
-        //laws.add(lb);
-        //laws.add(fb);
-
-        Race race = new Race(ball, scene);
-        //laws.add(race);
-
-        CollisionObstacle co = new CollisionObstacle(ball, path, controller);
-        CollisionItem ci = new CollisionItem(ball, path, controller);
-
-        Tourni tourni = new Tourni(scene);
-        //laws.add(tourni);
-        //laws.add(tourni);
-
-        //laws.add(co);
-        //laws.add(ci);
-        
-        FinishLine finishLine = new FinishLine(path,ball,controller);
-        laws.add(finishLine);
 
 
+        laws=this.createSet(u);
 
         timer = new AnimationTimer() {
             long startTime = System.currentTimeMillis();
@@ -144,6 +109,9 @@ public class ViewTimer {
         timer.start();
     }
 
+    public HashSet<UseLaw> getLaws() {
+        return laws;
+    }
 
     public void clean() {
         laws.clear();
