@@ -2,7 +2,7 @@ package view;
 
 import DB.Record;
 import controller.Controller;
-import view.game.Game;
+import model.game.Game;
 
 import java.util.LinkedList;
 

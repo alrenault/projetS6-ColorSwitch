@@ -1,7 +1,7 @@
 package view.useLaw;
 
 import view.ViewPath;
-import view.game.ball.BallPlayer;
+import model.game.ball.BallPlayer;
 
 public class IAJump implements UseLaw {
 

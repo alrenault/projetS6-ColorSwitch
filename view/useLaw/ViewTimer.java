@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import modelLaw.LawType;
 import modelLaw.Universe;
 import view.ViewPath;
-import view.game.ball.BallPlayer;
+import model.game.ball.BallPlayer;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -105,7 +105,7 @@ public class ViewTimer {
     }
 
 
-    //public ViewTimer(Game view.game,ViewPath path,BallPlayer ball, Scene scene) {
+    //public ViewTimer(Game model.game,ViewPath path,BallPlayer ball, Scene scene) {
 
 
     public void start() {

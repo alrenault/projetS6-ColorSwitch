@@ -2,7 +2,7 @@ package model.modelObstacle;
 
 import javafx.scene.paint.Color;
 import model.ObstacleType;
-import view.game.Difficulty;
+import model.game.Difficulty;
 
 import java.util.List;
 

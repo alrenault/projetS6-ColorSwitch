@@ -1,6 +1,5 @@
 package modelLaw;
 
-import view.game.Game;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -9,7 +8,7 @@ import java.util.Set;
 
 /**
  * Universe is a Set of Law
- * It represents all the rules in a view.game
+ * It represents all the rules in a model.game
  */
 public class Universe {
     private Set<Law> laws;

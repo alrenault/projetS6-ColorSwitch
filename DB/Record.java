@@ -1,6 +1,6 @@
 package DB;
 
-import view.game.Score;
+import model.game.Score;
 
 /**
  * Objet de gestion des interactions avec la base de données

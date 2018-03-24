@@ -2,7 +2,7 @@ package view.useLaw;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import view.game.ball.BallPlayer;
+import model.game.ball.BallPlayer;
 
 public class Jump implements UseLaw {
 

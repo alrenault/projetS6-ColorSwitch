@@ -2,10 +2,10 @@ package model;
 
 import model.modelItem.ModelItem;
 import modelLaw.Universe;
-import view.game.Difficulty;
-import view.game.Game;
-import view.game.ball.Player;
-import view.game.path.Path;
+import model.game.Difficulty;
+import model.game.Game;
+import model.game.ball.Player;
+import model.game.path.Path;
 
 /**
  * This class represents the model in the MVC pattern

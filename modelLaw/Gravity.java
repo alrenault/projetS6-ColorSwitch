@@ -1,6 +1,6 @@
 package modelLaw;
 
-import view.game.Game;
+import model.game.Game;
 
 public class Gravity extends Law {
     private double vectorX;

@@ -5,7 +5,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import view.game.ball.BallPlayer;
+import model.game.ball.BallPlayer;
 
 /**
  * Un écouteur de touche utilisé pour l'ancienne version du saut du joueur

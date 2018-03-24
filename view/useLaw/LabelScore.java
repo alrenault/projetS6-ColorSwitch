@@ -3,7 +3,7 @@ package view.useLaw;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import view.game.Score;
+import model.game.Score;
 
 public class LabelScore implements UseLaw {
 

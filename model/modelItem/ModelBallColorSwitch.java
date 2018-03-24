@@ -3,7 +3,7 @@ package model.modelItem;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import model.ItemType;
-import view.game.Colorable;
+import model.game.Colorable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
