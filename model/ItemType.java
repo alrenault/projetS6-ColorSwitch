@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Enum des differents types d'Items
+ */
 public enum ItemType {
     No(-1),
     BallColorSwitch(0),
@@ -7,23 +10,26 @@ public enum ItemType {
     GravitySwitch(2),
     Star(3),
     InvisibleLine(4);
+
     /**
-     *
+     *Le type entier correspondant à l'enum
      */
-    private int type = -1;
+    private int type;
 
     //Constructeur
 
     /**
-     * @param t
+     * Constructeur
+     * @param t L'entier qui correspondra au type
      */
     ItemType(int t) {
         this.type = t;
     }
 
     /**
-     * @param i
-     * @return
+     * Accesseur de type d'Item
+     * @param i l'entier du type
+     * @return Un Enum correspondant à i
      */
     public static ItemType getEnum(int i) {
         ItemType type;
@@ -52,9 +58,12 @@ public enum ItemType {
     }
 
     /**
-     * @return
+     * Accesseur du type en entier
+     * @return l'entier corespondant au type de this
      */
     public int getType() {
         return type;
     }
 }
+
+
