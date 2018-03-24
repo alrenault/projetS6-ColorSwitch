@@ -1,5 +1,6 @@
 package view.useLaw;
 
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -16,7 +17,12 @@ public class InterfaceGame implements UseLaw {
     Group interfaceGame;
     BallPlayer ball;
     
-    public InterfaceGame(Score leScore, Group interfaceGame,BallPlayer ball) {
+    double difference;
+    double yCamera;
+    double limite;
+    
+    
+    public InterfaceGame(Scene scene,Score leScore, Group interfaceGame,BallPlayer ball) {
         this.leScore = leScore;
         this.scene = scene;
         this.score = leScore.getScore();
@@ -33,6 +39,18 @@ public class InterfaceGame implements UseLaw {
 		//scoreLabel.setTranslateX(ball.getBall().getX());
 		//scoreLabel.setTranslateY(ball.getBall().getY());
 		
+		Point2D coordPlayer = ball.getCoord();
+
+        difference = coordPlayer.getY() - limite;
+
+        if (difference < 0) {
+            limite += difference;
+            yCamera += difference;
+        }
+
+        //scene.getCamera().setTranslateY(yCamera);
+        interfaceGame.setTranslateY(scene.getHeight());
+        System.out.println("interface"+interfaceGame.getTranslateY());
 		
 		Label oui = new Label("Oui");
         oui.setTextFill(Color.WHITE);

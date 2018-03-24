@@ -3,6 +3,7 @@ package view.useLaw;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import view.ball.BallPlayer;
+import javafx.scene.Group;
 
 
 public class FollowBall implements UseLaw {
@@ -12,10 +13,13 @@ public class FollowBall implements UseLaw {
     private double difference;
     private double limite;
     private double yCamera;
+    private Group interfaceGame;
 
-    public FollowBall(Scene scene, BallPlayer ball) {
+    public FollowBall(Scene scene, BallPlayer ball, Group interfaceGame) {
         this.scene = scene;
         this.ball = ball;
+        this.interfaceGame = interfaceGame ;
+        
         difference = 0;
         limite = scene.getHeight() / 2;
         yCamera = 0;
@@ -35,6 +39,8 @@ public class FollowBall implements UseLaw {
         }
 
         scene.getCamera().setTranslateY(yCamera);
+        interfaceGame.setTranslateY(yCamera);
+        System.out.println("interface"+interfaceGame.getTranslateY());
 
     }
 
