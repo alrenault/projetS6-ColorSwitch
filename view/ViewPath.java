@@ -25,20 +25,20 @@ public class ViewPath {
     /**
      *
      */
-    private static List<Obstacle> obstacles;
+    private  List<Obstacle> obstacles;
     /**
      *
      */
-    private static List<Item> items;
+    private  List<Item> items;
     /**
      *
      */
-    private static List<Shape> obstaclesShapes;
+    private  List<Shape> obstaclesShapes;
 
     /**
      *
      */
-    private static List<Shape> itemsShapes;
+    private  List<Shape> itemsShapes;
     /**
      *
      */
@@ -85,7 +85,17 @@ public class ViewPath {
         //buildItems(path);
     }
 
+    /**
+     * Vide la memoire des itemps passés , des formes , et du Path à la fin d'une partie
+     */
+    public void cleanPath(){
+         this.items.clear();
+         this.itemsShapes.clear();
+         this.obstacles.clear();
+         this.obstaclesShapes.clear();
+         this.path.cleanPath();
 
+    }
     //ADD
     private Obstacle addObstacle(ModelObstacle mo) {
         Obstacle obstacle = BuildObstacle.build(mo);
@@ -215,6 +225,7 @@ public class ViewPath {
 	public double getYFinishLine() {
 		return yFinishLine;
 	}
+
 
 
 }

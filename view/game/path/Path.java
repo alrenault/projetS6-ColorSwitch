@@ -379,6 +379,16 @@ public class Path {
     }
 
     /**
+     * Vide le Path ( les Listes)
+     */
+    public void cleanPath(){
+        this.ennemies.clear();
+        this.items.clear();
+        this.obstacles.clear();
+        this.nbr_ObsDeb=0;
+    }
+
+    /**
      * Accesseur de la liste de modèles d'obstacle du path
      *
      * @return la liste d'obstacles du path
