@@ -90,6 +90,9 @@ public class ViewTimer {
                 if (checkpoint >= 100) {
                     for (UseLaw j : laws) {
                         j.apply();
+                       /* if(ball.getY() > scene.getWidth()+ball.getLimiteJump()){
+                        	controller.gameOver();
+                        }*/
                     }
                     checkpoint = currentTime;
                 }

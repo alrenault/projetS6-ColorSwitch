@@ -38,21 +38,8 @@ public class Main extends Application {
         launch(args);
     }
 
-    private static void help() {
-        Throwable t = new Throwable();
-        t.fillInStackTrace();
-        StackTraceElement e = t.getStackTrace()[1];
-        String className = e.getClassName();
-        String functionName = e.getMethodName();
-        System.out.println(className + "." + functionName + " - " + j);
-        j++;
-    }
-
-
     @Override
     public void start(Stage primaryStage) {
-
-        help();
 
         model = new Model();
 
@@ -78,12 +65,11 @@ public class Main extends Application {
 
         //view.viewGame(colorSuitch);
 
-        help();
 
         
         Sound sound = new Sound();
         
-        sound.playMusic();
+       // sound.playMusic();
 
 				    
 

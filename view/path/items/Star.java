@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 import model.modelItem.ModelStar;
+import view.Sound;
 import view.ViewPath;
 import view.ball.BallPlayer;
 
@@ -65,6 +66,7 @@ public class Star extends Item {
 
     public void get(ViewPath vPath, Controller c, BallPlayer b) {
         c.incItem(mi);
+        Sound.playStarSound();
     }
 
 

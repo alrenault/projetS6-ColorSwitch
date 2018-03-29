@@ -102,14 +102,15 @@ public class View implements InterfaceViewColorSwitch {
     public void viewGameOver() {
 
 
-        display(ViewScores.viewEndScore(controller.getScore()));
-
+    	viewGameEnd();
     }
 
     @Override
     public void viewGameEnd() {
 
         display(ViewScores.viewEndScore(controller.getScore()));
+        Sound.stopMusic();
+        Sound.playGameOverSOund();
 
     }
 

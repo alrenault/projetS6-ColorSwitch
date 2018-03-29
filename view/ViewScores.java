@@ -83,7 +83,7 @@ class ViewScores {
         i++;
         g.add(transforme("Joueur"), i, j);
         i++;
-        g.add(transforme("Nombre d'étoiles"), i, j);
+        g.add(transforme("Nombre d'etoiles"), i, j);
         i++;
         g.add(transforme("Nombre d'obstacles"), i, j);
         i++;
@@ -136,8 +136,8 @@ class ViewScores {
 
         String AfficheScore = "\nFin de partie!\n " +
                 "Tu as fait " + s.getScore() + " points\n" +
-                "Rammassé " + s.getNbEtoilesRamassees() + " étoiles et \n" +
-                "traversé " + s.getNbrObstaclesCrossed() + " obstacles.";
+                "Rammasse " + s.getNbEtoilesRamassees() + " etoiles et \n" +
+                "traverse " + s.getNbrObstaclesCrossed() + " obstacles.";
         Text t = new Text(AfficheScore);
         t.setTextAlignment(TextAlignment.CENTER);
         t.setFont(new Font(26));

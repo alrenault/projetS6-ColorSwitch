@@ -32,7 +32,7 @@ public class Sound {
     /**
      * Le volume du son
      */
-    private static double volume;
+    private static double volume = 0.1;
 
     /**
      * Constructeur créant tous les sons et musiques du jeu
@@ -75,48 +75,68 @@ public class Sound {
     /**
      * Lance le son du saut
      */
-    public void playJumpSound() {
+    public static void playJumpSound() {
         if (jump != null) jump.play();
+        System.out.println("coucou");
     }
 
     /**
      * Lance la musique du jeu
      */
-    public void playMusic() {
+    public static void playMusic() {
         if (music != null) music.play();
+    }
+    
+    /**
+     * Coupe la musique du jeu
+     */
+    public static void stopMusic() {
+        if (music != null) music.stop();
     }
 
     /**
      * Lance le son du GameOver
      */
-    public void playGameOverSOund() {
+    public static void playGameOverSOund() {
         if (gameOver != null) gameOver.play();
     }
 
     /**
      * Lance le son du ramassage d'étoile
      */
-    public void playStarSound() {
+    public static void playStarSound() {
         if (star != null) star.play();
     }
 
     /**
      * Mute le son
      */
-    public void muteSound() {
-        music.setVolume(0);
-        jump.setVolume(0);
-        gameOver.setVolume(0);
-        star.setVolume(0);
+    public static void muteSound() {
+    	if(music.isPlaying()){
+    		music.stop();
+            music.setVolume(0);
+            jump.stop();
+            jump.setVolume(0);
+            gameOver.stop();
+            gameOver.setVolume(0);
+            star.stop();
+            star.setVolume(0);
+    	}
+    	else
+    		unMuteSound();
+        
     }
 
     /**
      * Demute le son
      */
-    public void unMuteSound() {
+    public static void unMuteSound() {
         music.setVolume(volume);
-        jump.setVolume(volume);
+        jump.setVolume(volume+0.5);
         gameOver.setVolume(volume);
         star.setVolume(volume);
+        
+        star.play();
+        music.play();
     }
 }

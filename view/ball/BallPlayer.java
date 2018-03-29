@@ -14,6 +14,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import model.modelBall.Ball;
+import view.Sound;
 
 /**
  * Ball représentant un joueur
@@ -196,6 +197,7 @@ public class BallPlayer extends Player {
         gravity.stop();
         tt2.stop();
         tt2.play();
+        Sound.playJumpSound();
 
     }
 

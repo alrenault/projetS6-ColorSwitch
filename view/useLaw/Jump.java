@@ -2,6 +2,7 @@ package view.useLaw;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import view.Sound;
 import view.ball.BallPlayer;
 
 /**
@@ -69,6 +70,7 @@ public class Jump implements UseLaw {
             boolean space = event.getCode() == KeyCode.SPACE;
             if (space && duration_since_last_jump > 150) {
                 last_jump_time = current_time;
+                Sound.playJumpSound();
             }
         });
 
@@ -77,7 +79,7 @@ public class Jump implements UseLaw {
 
         double j = computePosition(duration_since_last_jump);
 
-        ball.getBall().addVectorY(-j * 0.55);
+        ball.getBall().addVectorY(-j * 0.75);
 
     }
 

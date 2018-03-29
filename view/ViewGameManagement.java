@@ -1,8 +1,11 @@
 package view;
 
+import java.awt.event.KeyEvent;
+
 import controller.Controller;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import model.game.Colorable;
 import model.game.Game;
 import model.modelBall.Ball;
@@ -54,7 +57,7 @@ class ViewGameManagement {
         Group interfaceGame = new Group();
         root.getChildren().add(interfaceGame);
 
-
+        Sound.playMusic();
         Path path = game.getPath();
         Ball ball = game.getBall();
 
@@ -63,6 +66,14 @@ class ViewGameManagement {
         if (game.getUniverse().getType() == UniverseType.Basic) {
             ballplayer.basicMode();
         }
+        
+        thisScene.setOnKeyReleased(event ->
+        {
+        	if(event.getCode() == KeyCode.ENTER){
+        		Sound.muteSound();
+        	}
+        	
+        });
 
 
         Group jBall = ballplayer.getShape();

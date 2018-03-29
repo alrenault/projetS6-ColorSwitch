@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -120,6 +121,15 @@ class MenuLvl {
 
         race.setOnAction(event -> controller.startGame(Difficulty.RANDOM, UniverseType.Race));
         gravity.setOnAction(event -> controller.startGame(Difficulty.RANDOM, UniverseType.Gravity));
+        
+        sc.setOnKeyPressed(event ->
+        {
+        	if(event.getCode() == KeyCode.ENTER){
+        		Sound.muteSound();
+        	}
+        	
+        });
+        
         return sc;
 
 

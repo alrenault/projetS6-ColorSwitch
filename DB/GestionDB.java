@@ -22,7 +22,7 @@ public class GestionDB {
     /**
      * Numero de port de MySql
      */
-    private static Integer NoPORT = 8889;
+    private static Integer NoPORT = 3306;
     /**
      * Addresse de la base de données
      */
@@ -34,7 +34,7 @@ public class GestionDB {
     /**
      * Mot de passe associé à DB_USERNAME de la base de données
      */
-    private static String DB_PASSWORD = "root";
+    private static String DB_PASSWORD = "";
 
     /**
      * Connection sur laquelle se fera toutes les interractions
@@ -235,6 +235,8 @@ public class GestionDB {
         return ret;
     }
 
+  
+    
     /**
      * Genère les n derniers scores de la base
      *
@@ -336,5 +338,17 @@ public class GestionDB {
             }
         }
     }
+
+	public static void setNoPORT(Integer noPORT) {
+		NoPORT = noPORT;
+	}
+
+	public static void setDB_USERNAME(String dB_USERNAME) {
+		DB_USERNAME = dB_USERNAME;
+	}
+
+	public static void setDB_PASSWORD(String dB_PASSWORD) {
+		DB_PASSWORD = dB_PASSWORD;
+	}
 }
 
